@@ -4,95 +4,67 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#050d24">
-  <meta name="description" content="Eine schwebende Frage. Eine leuchtende Welt. Ein HALVETH-Gedankenspiel.">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="SCARLET? WITCH? Zwei Zustände, ein leiser Tagesring. Eine atmosphärische Fan-Art von HALVETH.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'">
   <title>HALVETH SCARLET</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%23050d24'/%3E%3Cpath d='M16 27S2 19 4 11c2-7 10-6 12-1 3-5 11-6 12 1 2 8-12 16-12 16' fill='%23ff8ecb'/%3E%3C/svg%3E">
   <style>
-    :root{color-scheme:dark;--pink:#ff9ad6;--mint:#7cffe0;--blue:#85beff;--mood:0;--tint:190deg;--wash:.15}
-    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#03091c}body{font-family:"Segoe UI Variable Display","Segoe UI",Arial,sans-serif;color:#fff;overflow-x:hidden}
-    .scene{position:relative;isolation:isolate;min-height:100svh;overflow:hidden;background:#03091c}
-    .world,.veil,.tint,.alarm,canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-    .world{object-fit:cover;object-position:50% 66%;z-index:-5;animation:world-breathe 24s ease-in-out infinite alternate;filter:saturate(1.22)}
-    .veil{z-index:-4;background:linear-gradient(180deg,rgba(1,6,23,.2),rgba(1,6,23,.46) 25%,rgba(1,6,23,.27) 62%,rgba(1,6,23,.58));}
-    .tint{z-index:-3;mix-blend-mode:screen;background:radial-gradient(ellipse at 8% 40%,hsla(var(--tint),100%,55%,var(--wash)),transparent 60%),radial-gradient(ellipse at 90% 70%,#ee65da24,transparent 55%);transition:background 1.2s}
-    .alarm{z-index:2;background:radial-gradient(ellipse,#ff244744,#d21b4924 55%,#330513bb);opacity:0;transition:opacity 1.5s ease;mix-blend-mode:screen}
-    canvas{z-index:3}
-    main{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:4rem 1.4rem 9rem;position:relative}
-    h1{margin:0;text-align:center;max-width:1250px;width:100%;font-weight:750;line-height:1.09;letter-spacing:-.045em;text-shadow:0 3px 36px #010519cc;animation:float 9s ease-in-out infinite;transition:opacity 1s ease,filter 1s ease;filter:drop-shadow(0 0 25px #2a4dad20)}
-    h1 span{display:block}h1 .name{font-size:clamp(2.6rem,7.9vw,8rem);font-weight:850;letter-spacing:-.055em;background:linear-gradient(105deg,#c6ffe8 14%,#d2e9ff 43%,#ffbbdf 76%);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 4px 16px #030716cc)}
-    h1 .ask{font-size:clamp(1.05rem,2.3vw,2.3rem);font-weight:500;letter-spacing:.1em;margin:.8em 0 .5em;color:#e4edff}
-    h1 .earth{font-size:clamp(2.2rem,5.8vw,5.8rem);font-weight:760}
-    h1 .choice{font-size:clamp(2rem,5vw,5rem);margin-top:.22em;color:#ffe4f4;letter-spacing:-.045em;text-shadow:0 0 40px #ff71c067,0 4px 20px #01051e}
-    .controls{position:absolute;z-index:5;bottom:max(2rem,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(340px,80vw);display:flex;align-items:center;gap:1rem;transition:opacity .6s}
-    .mood{flex:1;min-width:0;padding:10px 0}.scale{display:flex;justify-content:space-between;color:#e4eafd;font-size:.875rem;line-height:1.4;padding:0 4px;text-shadow:0 1px 4px #000}
-    input[type=range]{--thumb:#baffeb;display:block;width:100%;height:32px;margin:0;background:transparent;cursor:ew-resize;appearance:none;-webkit-appearance:none;touch-action:pan-y}
-    input[type=range]::-webkit-slider-runnable-track{height:3px;border-radius:9px;background:linear-gradient(90deg,#75aaff,#8bffe0,#ff86c7);box-shadow:0 0 12px #75ffd666}
-    input[type=range]::-moz-range-track{height:3px;border-radius:9px;background:linear-gradient(90deg,#75aaff,#8bffe0,#ff86c7)}
-    input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--thumb);margin-top:-6px;box-shadow:0 0 18px var(--thumb)}
-    input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--thumb);box-shadow:0 0 18px var(--thumb)}
-    button{font:inherit;border:1px solid #d3e8ff40;background:#09204465;backdrop-filter:blur(10px);color:#e5f4ff;border-radius:50%;width:44px;height:44px;flex:0 0 44px;cursor:pointer;display:grid;place-items:center;font-size:1.35rem;transition:background .25s,transform .25s}
-    button:hover{background:#174567aa;transform:scale(1.07)}button:focus-visible,input:focus-visible{outline:2px solid #f5c4e5;outline-offset:6px}
-    @keyframes float{0%,100%{transform:translateY(-8px)}50%{transform:translateY(8px)}}
-    @keyframes world-breathe{from{transform:scale(1.02)}to{transform:scale(1.065)}}
-    @media(max-width:600px){main{padding:3rem 1rem 9rem}h1 .name{font-size:clamp(2.4rem,11vw,4rem)}h1 .ask{font-size:clamp(.875rem,3.8vw,1.25rem);letter-spacing:.065em;line-height:1.7;margin:1em 0 .6em}h1 .earth{font-size:clamp(2rem,9vw,3.4rem);line-height:1.12}h1 .choice{font-size:clamp(1.7rem,7.8vw,3rem);line-height:1.2;margin-top:.6em}.world{object-position:50% 60%}.veil{background:linear-gradient(#01061755,#01061777 40%,#01061722 75%,#01061788)}}
-    @media(max-height:500px) and (min-width:601px){main{padding:1.5rem 1rem 5rem}h1 .name{font-size:3.4rem}h1 .ask{font-size:1rem;margin:.4em 0}h1 .earth{font-size:2.5rem}h1 .choice{font-size:2.2rem}.controls{bottom:.35rem}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}canvas{display:none}}
-  /* Date-driven globe. All accents remain decorative. */
-.scene{background:radial-gradient(ellipse at 13% 60%,#05333d 0,transparent 50%),radial-gradient(ellipse at 89% 72%,#3e1246 0,transparent 50%),#03091c}
-.world{display:none}
-.veil{background:linear-gradient(#03091c22,#03091c66 15%,transparent 72%,#03091c88);z-index:0}
-.tint{z-index:0;mix-blend-mode:normal;opacity:.65}
-.globe-wrap{position:absolute;width:min(95vw,100vh,1050px);aspect-ratio:1;left:50%;top:51%;transform:translate(-50%,-38%);z-index:-1}
-#globe{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-#particles{z-index:3;pointer-events:none}
-main{z-index:1;pointer-events:none;padding-bottom:15rem}
-h1{filter:none;animation:float 12s ease-in-out infinite;max-width:1350px}
-h1 .name{filter:none;text-shadow:none}
-.clock{position:absolute;top:max(1.15rem,env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:5;width:max-content;max-width:96%;text-align:center;color:#c4e8ed;font-size:.75rem;letter-spacing:.065em;line-height:1.8;font-variant-numeric:tabular-nums}
-.clock time{display:block;font-family:Consolas,monospace;color:#e1ffff;font-size:.82rem;letter-spacing:.025em}
-.globe-control{position:absolute;left:50%;bottom:7.7rem;transform:translateX(-50%);z-index:4;width:min(65vw,500px);height:4.8rem;border-radius:45px;background:transparent;border:0;cursor:grab;touch-action:none;font-size:.75rem;color:#cbe6e9;backdrop-filter:none;display:flex;align-items:flex-end;justify-content:center;letter-spacing:.05em;text-shadow:0 2px 5px #000}
-.globe-control:hover{background:transparent;transform:translateX(-50%)}
-.globe-control:focus,.globe-control:focus-visible{outline:none;border:none;box-shadow:none}
-.globe-control:active{cursor:grabbing}
-.credits{position:absolute;bottom:.4rem;left:50%;transform:translateX(-50%);z-index:5;font-size:.65rem;color:#9fb6cc;text-align:center;width:max-content;max-width:98%}
-.credits a{color:inherit;text-decoration:none}.credits a:hover{text-decoration:underline}
-button{backdrop-filter:none;background:#092044cc}
-@media(max-width:600px){main{padding:4.7rem 1rem 13rem}.globe-wrap{width:120vw;top:54%;transform:translate(-50%,-30%)}.clock{font-size:.7rem}.clock time{font-size:.75rem}h1 .name{font-size:clamp(2.4rem,11vw,4rem)}.globe-control{bottom:7.8rem}.credits{font-size:.58rem}}
-@media(max-height:500px) and (min-width:601px){main{padding:4.3rem 1rem 7rem}h1 .name{font-size:2.8rem}h1 .ask{font-size:.9rem}h1 .earth{font-size:2rem}h1 .choice{font-size:1.6rem}.controls{bottom:1.2rem}.clock{top:.3rem;font-size:.6rem}.clock time{font-size:.7rem}.globe-control{bottom:5rem;height:2rem}.globe-wrap{width:85vh;top:40%}}
-@media(prefers-reduced-motion:reduce){#globe{display:block}#particles{display:none}h1{animation:none}}
 
-/* An open daily orbit: 24-hour Berlin clock face, always below completion. */
+:root{color-scheme:dark;--pink:#ef9bba;--mint:#acddd1;--blue:#8caed5;--tint:162deg;--wash:.12}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#070b11}body{font-family:"Segoe UI",Arial,sans-serif;color:#e7e6eb;overflow-x:hidden}
+.scene{position:relative;isolation:isolate;height:100svh;min-height:620px;overflow:hidden;background:radial-gradient(ellipse at 20% 55%,#0c2a2d,transparent 62%),radial-gradient(ellipse at 84% 50%,#35121c,transparent 65%),#070b11}
+.portraits{position:absolute;inset:3.7rem 0 9.5rem;display:grid;grid-template-columns:1fr 1fr;z-index:-3;max-width:1800px;margin:auto;mask-image:linear-gradient(transparent,#000 9%,#000 62%,transparent 100%)}
+.portrait{position:relative;overflow:hidden;margin:0;isolation:isolate}
+.portrait img{position:absolute;left:50%;height:100%;width:auto;max-width:none;transform:translateX(-26%);display:block}
+.portrait.wounded img{transform:translateX(-74%)}
+.portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#070b1133,transparent 25%,transparent 68%,#070b1155)}
+.portrait.wounded::after{background:linear-gradient(90deg,#070b1155,transparent 25%,transparent 68%,#070b1133)}
+.aura{position:absolute;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 15% 42%,#8bfff00a,transparent 50%),radial-gradient(ellipse at 90% 55%,#ff599411,transparent 58%);animation:breathe 14s ease-in-out infinite alternate}
+.veil,.tint{position:absolute;inset:0;pointer-events:none;z-index:0}
+.veil{background:linear-gradient(#070b1140,transparent 22%,transparent 60%,#070b11 95%)}
+.tint{background:radial-gradient(ellipse at 50% 85%,hsla(var(--tint),70%,50%,var(--wash)),transparent 64%);opacity:.6}
+.ribbon{position:absolute;top:max(1.3rem,env(safe-area-inset-top));left:50%;width:84px;height:43px;transform:translateX(-50%);z-index:4;overflow:visible;filter:drop-shadow(0 0 9px #c897b944);pointer-events:none}
+.ribbon path{fill:none;stroke:url(#ribbon-light);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.ribbon .echo{stroke-width:.5;opacity:.28;transform:translateY(3px)}
+main{position:absolute;inset:0;z-index:2;pointer-events:none}
+h1{position:absolute;inset:0;margin:0;font-weight:400;font-size:clamp(.65rem,1vw,.78rem);letter-spacing:.32em}
+h1 span{position:absolute;top:5.5rem;left:25%;transform:translateX(-50%);white-space:nowrap;color:#d9e8e5;text-shadow:0 2px 10px #000}
+h1 .witch{left:75%;color:#eac9d3}
+.globe-wrap{position:absolute;z-index:1;width:180px;aspect-ratio:1;left:50%;bottom:8rem;transform:translateX(-50%);opacity:.76}
+#globe{position:absolute;inset:0;width:100%;height:100%;opacity:.45;pointer-events:none}
 .day-orbit{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .day-orbit circle{fill:none;vector-effect:non-scaling-stroke}
-.orbit-echo{stroke:#aecfe8;stroke-width:1;opacity:.22}
-.orbit-track{stroke:#a9d0df;stroke-width:1;opacity:.18}
-#day-progress{stroke:url(#orbit-color);stroke-width:1.4;opacity:.76}
-#day-point{fill:#b5ffe9;stroke:#b5ffe9;stroke-width:1}
-.daily-anchor{position:absolute;z-index:3;bottom:8.6rem;left:50%;transform:translateX(-50%);width:max-content;max-width:95%;text-align:center;pointer-events:none;color:#daf7f3;text-shadow:0 2px 18px #020c23}
-.anchor-label{font-size:.63rem;letter-spacing:.2em;font-weight:650;white-space:nowrap;color:#bdd3e8}
-.anchor-label>span{margin:0 .45em}.anchor-label .anchor-heart{color:#ff9dce;letter-spacing:0}
-#day-countdown{display:block;margin:.32em 0 .25em;font-size:clamp(2rem,3.4vw,3rem);font-weight:300;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.045em}
-.anchor-meta{display:flex;justify-content:center;gap:.7em;font-size:.6rem;letter-spacing:.085em;font-variant-numeric:tabular-nums;color:#b7c5dc}
-.anchor-dot{color:#caffec}
-.new-day{position:absolute;top:100%;margin-top:.8rem;width:100%;font-size:.62rem;letter-spacing:.15em;color:#adffe4;opacity:0;transition:opacity .8s}
-.new-day span{color:#ffb0da}.daily-anchor.reborn .new-day{opacity:1}
-.daily-anchor[data-near-midnight=true] #day-countdown{color:#ffadc9}
-@media(max-width:600px){.daily-anchor{bottom:9rem}.anchor-label{font-size:.54rem;letter-spacing:.16em}#day-countdown{font-size:2.35rem}.anchor-meta{font-size:.54rem;gap:.6em}.day-orbit{opacity:.85}}
-@media(max-height:500px) and (min-width:601px){.daily-anchor{bottom:6.3rem}#day-countdown{font-size:1.35rem;margin:.18em 0}.anchor-label{font-size:.49rem}.anchor-meta{font-size:.49rem}.new-day{display:none}main{padding-bottom:11.5rem;padding-top:4.8rem}h1 .name{font-size:2.2rem}h1 .earth{font-size:1.7rem}h1 .choice{font-size:1.35rem}}
-.post-open{position:absolute;top:1.35rem;right:1.4rem;z-index:6;width:auto;height:auto;min-height:36px;display:flex;gap:.6rem;padding:.6rem .95rem;border-radius:999px;font-size:.65rem;letter-spacing:.12em;font-weight:600;background:#09204466;color:#c5e3f0}
-.post-open span{color:#ff9dd2}
-.post-dialog{color:#dce8f5;background:radial-gradient(ellipse at 0 0,#143e47,transparent 65%),#091325;border:1px solid #83dfd85c;border-radius:24px;padding:2rem;max-width:min(580px,calc(100vw - 2rem));max-height:82svh;overflow:auto;box-shadow:0 25px 100px #0008}
-.post-dialog::backdrop{background:#020819bb}
-.post-dialog header{display:flex;align-items:center;justify-content:space-between;gap:1rem;color:#aff7e1;font-size:.7rem;letter-spacing:.14em}
-.post-dialog header button{width:36px;height:36px;flex-basis:36px;font-size:1.2rem}
-.post-dialog h2{font-size:clamp(1.8rem,5vw,2.5rem);letter-spacing:-.04em;line-height:1.12;font-weight:750;margin:1.5rem 0}
-.post-dialog p{font-size:.97rem;line-height:1.75;color:#ced9e8;margin:1rem 0}
-.post-dialog a{color:#a2f9e0;text-underline-offset:3px}
-.post-dialog .post-signature{color:#ffb1d9;margin-top:1.7rem}
-.post-dialog footer{border-top:1px solid #9ecbd328;margin-top:1.6rem;padding-top:1rem;font-size:.65rem;letter-spacing:.06em;color:#99adbf}
-@media(max-width:600px){.post-open{top:5.3rem;right:50%;transform:translateX(50%);font-size:.58rem}.post-open:hover{transform:translateX(50%)}.post-dialog{padding:1.4rem}}
-@media(max-height:500px) and (min-width:601px){.post-open{top:.5rem;right:.7rem;font-size:.55rem;padding:.35rem .65rem}}
+.orbit-echo{stroke:#aecfe8;stroke-width:.65;opacity:.25}.orbit-track{stroke:#a9d0df;stroke-width:.7;opacity:.2}
+#day-progress{stroke:url(#orbit-color);stroke-width:1;opacity:.85}#day-point{fill:#b5ffe9;stroke:#b5ffe9;stroke-width:1}
+.daily-anchor{position:absolute;z-index:4;bottom:7.1rem;left:50%;transform:translateX(-50%);text-align:center;pointer-events:none;width:max-content;color:#d2dedf}
+#day-countdown{display:block;font-size:1rem;font-weight:300;line-height:1.5;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+.anchor-meta,.anchor-label,.new-day,.clock{display:none}
+.daily-anchor[data-near-midnight=true] #day-countdown{color:#d9a6b9}
+.globe-control{position:absolute;left:50%;bottom:9rem;transform:translateX(-50%);z-index:4;width:145px;height:145px;border-radius:50%;background:transparent;border:0;cursor:grab;touch-action:none}
+.globe-control:hover{background:transparent;transform:translateX(-50%)}.globe-control:active{cursor:grabbing}
+.globe-control:focus-visible{outline:1px solid #b4dacf88;outline-offset:5px}
+#particles{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;opacity:.62}
+.controls{position:absolute;z-index:5;bottom:max(2.1rem,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(340px,80vw);display:flex;align-items:center;gap:1rem}
+.mood{flex:1;min-width:0;padding:10px 0}.scale{display:flex;justify-content:space-between;color:#c4cdd7;font-size:.7rem;line-height:1.4;padding:0 4px}
+input[type=range]{--thumb:#baffeb;display:block;width:100%;height:32px;margin:0;background:transparent;cursor:ew-resize;appearance:none;-webkit-appearance:none;touch-action:pan-y}
+input[type=range]::-webkit-slider-runnable-track{height:3px;border-radius:9px;background:linear-gradient(90deg,#75aaff,#8bffe0,#ff86c7);box-shadow:0 0 12px #75ffd644}
+input[type=range]::-moz-range-track{height:3px;border-radius:9px;background:linear-gradient(90deg,#75aaff,#8bffe0,#ff86c7)}
+input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--thumb);margin-top:-6px;box-shadow:0 0 18px var(--thumb)}
+input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--thumb);box-shadow:0 0 18px var(--thumb)}
+button{font:inherit;border:1px solid #d3e8ff26;background:#111b25aa;color:#c6d7df;border-radius:50%;width:44px;height:44px;cursor:pointer;display:grid;place-items:center;font-size:1.2rem;transition:background .25s,transform .25s;flex:0 0 44px}
+button:hover{background:#23303faa;transform:scale(1.05)}button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #f5c4e5;outline-offset:5px}
+.post-open{position:absolute;top:1.3rem;right:1.5rem;z-index:6;border:0;background:transparent;font-size:1rem;color:#dba1b4}
+.credits{position:absolute;bottom:.7rem;left:50%;transform:translateX(-50%);z-index:5;text-align:center;font-size:.55rem;letter-spacing:.22em;width:max-content;max-width:95%;color:#9ca7b8}
+.credits a{color:inherit;text-decoration:none;padding:.4rem}.credits a:hover{color:#d7c0ce}
+.post-dialog{color:#dce8f5;background:radial-gradient(ellipse at 0 0,#193437,transparent 65%),#0c131f;border:1px solid #83dfd845;border-radius:20px;padding:2rem;max-width:min(580px,calc(100vw - 2rem));max-height:82svh;overflow:auto;box-shadow:0 25px 100px #0008}
+.post-dialog::backdrop{background:#020819dd}.post-dialog header{display:flex;align-items:center;justify-content:space-between;gap:1rem;color:#aff7e1;font-size:.7rem;letter-spacing:.14em}.post-dialog header button{width:36px;height:36px;flex-basis:36px}
+.post-dialog h2{font-size:clamp(1.8rem,5vw,2.5rem);letter-spacing:-.04em;line-height:1.12;font-weight:600;margin:1.5rem 0}.post-dialog p{font-size:.95rem;line-height:1.75;color:#ced9e8;margin:1rem 0}.post-dialog a{color:#a2f9e0;text-underline-offset:3px}.post-dialog .post-signature{color:#ffb1d9;margin-top:1.7rem}.post-dialog footer{border-top:1px solid #9ecbd328;margin-top:1.6rem;padding-top:1rem;font-size:.65rem;color:#99adbf}
+@keyframes breathe{from{opacity:.3}to{opacity:.95}}
+@media(min-aspect-ratio:17/10){.portraits{inset:1rem 0 1.5rem}.portrait img{height:auto;width:200%;top:50%;transform:translate(-26%,-50%)}.portrait.wounded img{transform:translate(-74%,-50%)}h1 span{top:4.8rem}}
+@media(max-width:600px){.portraits{inset:5.7rem -1rem 12.5rem;mask-image:linear-gradient(transparent,#000 8%,#000 54%,transparent)}.portrait img{left:50%;height:100%;transform:translateX(-26%)}.portrait.wounded img{transform:translateX(-74%)}h1 span{top:5.7rem;font-size:.64rem;letter-spacing:.22em}.ribbon{top:1.4rem;width:72px}.post-open{right:.6rem;top:1.25rem}.globe-wrap{width:155px;bottom:8.8rem}.globe-control{bottom:9.5rem;width:130px;height:130px}.daily-anchor{bottom:7.7rem}.controls{bottom:2.8rem;width:min(320px,82vw)}.credits{bottom:1.1rem}.post-dialog{padding:1.4rem}}
+@media(max-height:650px) and (min-width:601px){.scene{min-height:360px}.portraits{inset:0}.ribbon{top:.7rem}h1 span{top:3.7rem}.globe-wrap{width:120px;bottom:6.4rem}.globe-control{width:100px;height:100px;bottom:7rem}.daily-anchor{bottom:5.8rem}.controls{bottom:1.4rem}.credits{bottom:.25rem}.post-open{top:.7rem}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}#particles{display:none}}
+
 </style>
 </head>
 <body>
@@ -105,7 +77,17 @@ Gewünschte Widmung: "EXKLUSIV FÜR DICH <3"
 MCU-Bezüge: https://d23.com/wanda-maximoff-and-visions-mcu-origins-explained/
 -->
 <div class="scene" data-phase="question">
-  <button class="post-open" id="post-open" type="button" aria-haspopup="dialog">JURI HALVETH <span>♥</span></button>
+  <button class="post-open" id="post-open" type="button" aria-label="HALVETH: Gedanken, Bildnachweis und Quellen" aria-haspopup="dialog">♡</button>
+  <div class="portraits">
+    <figure class="portrait zombie"><img src="assets/scarlet-dual-state-v1.png" alt="Wanda als nicht grafische Zombie-Figur: aschgraues Gesicht und erschöpfter Blick im kalten Licht." fetchpriority="high" decoding="async"></figure>
+    <figure class="portrait wounded"><img src="assets/scarlet-dual-state-v1.png" alt="Wanda mit Tränen, zerzaustem Haar und einem tief verletzten Ausdruck im scharlachroten Licht." decoding="async"></figure>
+  </div>
+  <div class="aura" aria-hidden="true"></div>
+  <svg class="ribbon" viewBox="0 0 120 60" aria-hidden="true">
+    <defs><linearGradient id="ribbon-light"><stop stop-color="#a4ded2"/><stop offset=".5" stop-color="#e7d3e9"/><stop offset="1" stop-color="#e99aaf"/></linearGradient></defs>
+    <path class="echo" d="M60 30 C42 6 15 6 12 25 C8 49 43 52 60 30 C77 8 109 7 109 29 C109 48 82 57 60 30"/>
+    <path d="M60 30 C42 6 15 6 12 25 C8 49 43 52 60 30 C77 8 109 7 109 29 C109 48 82 57 60 30"/>
+  </svg>
   <div class="globe-wrap">
     <canvas id="globe" aria-hidden="true"></canvas>
     <svg class="day-orbit" viewBox="0 0 1000 1000" aria-hidden="true">
@@ -122,12 +104,7 @@ MCU-Bezüge: https://d23.com/wanda-maximoff-and-visions-mcu-origins-explained/
   <div class="veil"></div><div class="tint"></div>
   <canvas id="particles" aria-hidden="true"></canvas>
   <main>
-    <h1 aria-label="SCARLET WITCH BRAUCHT NUR DIE ERLAUBNIS DER GESAMTEN ERDE JA ODER NEIN?!?!?!">
-      <span class="name">SCARLET WITCH</span>
-      <span class="ask">BRAUCHT NUR DIE ERLAUBNIS</span>
-      <span class="earth">DER GESAMTEN ERDE</span>
-      <span class="choice">JA ODER NEIN?!?!?!</span>
-    </h1>
+    <h1><span class="scarlet">SCARLET?</span><span class="witch">WITCH?</span></h1>
   </main>
   <section class="daily-anchor" aria-label="Tagesanker, Berliner Ortszeit">
     <div class="anchor-label">LUCINET <span>·</span> 24 STUNDEN ANKER <span class="anchor-heart">♥</span></div>
@@ -136,7 +113,7 @@ MCU-Bezüge: https://d23.com/wanda-maximoff-and-visions-mcu-origins-explained/
     <div class="new-day" aria-hidden="true">NEUER TAG. ALLES GUT. <span>♡</span></div>
   </section>
   <button id="globe-control" class="globe-control" aria-label="Erdansicht drehen. Ziehen oder Pfeiltasten; Pos1 setzt die Ansicht zurück."></button>
-  <div class="credits"><a href="https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/" target="_blank" rel="noopener noreferrer">Erde: NASA GSFC · Reto Stöckli / Robert Simmon</a></div>
+  <div class="credits"><a href="forschung/formen-und-verbindungen/" aria-label="HALVETH Forschungsnotiz: Formen und Verbindungen">HALVETH</a></div>
   <div class="controls" aria-label="Animation und Farbstimmung">
     <button id="replay" type="button" aria-label="Blüten und Herzen leuchten lassen" title="Ein bisschen Liebe">↻</button>
     <div class="mood">
@@ -148,12 +125,14 @@ MCU-Bezüge: https://d23.com/wanda-maximoff-and-visions-mcu-origins-explained/
 </div>
 <dialog class="post-dialog" id="halveth-post" aria-labelledby="post-title">
   <header><span>HALVETH / LUCINET</span><button id="post-close" type="button" aria-label="Nachricht schließen" autofocus>×</button></header>
-  <h2 id="post-title">Eine Erde.<br>Jeden Tag ein neuer Anfang. ❤️</h2>
+  <h2 id="post-title">Was bleibt, wenn so viel fehlt?</h2>
+  <p>Zwei künstlerische Zustände derselben Figur: leere Erschöpfung und tiefe Verletzlichkeit. Verlust von Nähe, Vertrauen und Freiheit sind die Themen dieser Bildgestaltung.</p>
+  <p>Neu erzeugte KI-Fan-Art mit dem Imagegen-Werkzeug. Wanda Maximoff / Scarlet Witch ist eine Marvel-Figur. Diese Seite ist ein eigenständiges Fanprojekt von HALVETH.</p>
   <p>An alle, die Bilder sammeln, Wissen teilen und daraus Neues bauen: Danke. ❤️</p>
   <p>Mit HALVETH / LUCINET habe ich diese Erdansicht mit einem offenen Tagesring verbunden. Unser 24-Stunden-Anker folgt der Berliner Uhr: Um Mitternacht beginnt ein neuer Tag. Bis dahin bleibt die Anzeige unter 100 %. Platz für die nächste Frage bleibt immer.</p>
   <p>Die Erdtextur basiert auf NASAs <a href="https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/" target="_blank" rel="noopener noreferrer">Blue Marble</a>. Danke an NASA Goddard, Reto Stöckli, Robert Simmon und die beteiligten Datenteams. Diese Bilder machen unsere gemeinsame Erde sichtbar.</p>
   <p>Mein Beitrag ist diese interaktive Gestaltung. Meine Einladung: Schaut hin, stellt Fragen, gebt Quellen an und entwickelt Ideen miteinander weiter.</p>
-  <p class="post-signature">Küsst euch — und klärt es miteinander. ❤️<br><strong>Juri Halveth</strong></p>
+  <p class="post-signature">Küsst euch — und klärt es miteinander. ❤️<br><strong>HALVETH</strong></p>
   <p><a href="forschung/formen-und-verbindungen/">Forschungsnotiz: Formen und Verbindungen</a></p>
   <footer><time datetime="2026-09-11">11. September 2026</time> · HALVETH / LUCINET</footer>
 </dialog>
@@ -233,7 +212,7 @@ MCU-Bezüge: https://d23.com/wanda-maximoff-and-visions-mcu-origins-explained/
     // Keeps counting while decorative animation is paused; no frame loop needed.
     dayTimer=setTimeout(updateDay,1000-(now%1000)+8);
   }
-  function setPaused(value){paused=value;frozenTime=Date.now();document.getAnimations().forEach(a=>paused?a.pause():a.play());motion.textContent=paused?'▷':'Ⅱ';motion.setAttribute('aria-label',paused?'Animation fortsetzen':'Animation pausieren');motion.title=paused?'Animation fortsetzen':'Animation pausieren';clockLabel.textContent=paused?'ERDANSICHT PAUSIERT':'ERDROTATION · 1× · UTC';if(paused){question();items=[];ctx.clearRect(0,0,width,height);anchor.classList.remove('reborn');cancelAnimationFrame(raf);raf=0;drawEarth(frozenTime);}else{last=0;globeLast=0;wake();}}
+  function setPaused(value){paused=value;frozenTime=Date.now();document.getAnimations().forEach(a=>paused?a.pause():a.play());motion.textContent=paused?'↝':'Ⅱ';motion.setAttribute('aria-label',paused?'Animation fortsetzen':'Animation pausieren');motion.title=paused?'Animation fortsetzen':'Animation pausieren';clockLabel.textContent=paused?'ERDANSICHT PAUSIERT':'ERDROTATION · 1× · UTC';if(paused){question();items=[];ctx.clearRect(0,0,width,height);anchor.classList.remove('reborn');cancelAnimationFrame(raf);raf=0;drawEarth(frozenTime);}else{last=0;globeLast=0;wake();}}
   function makeWebGL(){
     const gl=globe.getContext('webgl',{alpha:true,antialias:false,powerPreference:'low-power',depth:false,stencil:false});if(!gl)return null;
     const vert='attribute vec2 p;varying vec2 uv;void main(){uv=p;gl_Position=vec4(p,0.,1.);}';
@@ -262,9 +241,9 @@ MCU-Bezüge: https://d23.com/wanda-maximoff-and-visions-mcu-origins-explained/
     return state=>{const angle=40*RAD-state.gmst+yaw,c=Math.cos(latitude),s=Math.sin(latitude);for(const n of normals){const yy=n.y*c+n.z*s,zz=-n.y*s+n.z*c,lon=Math.atan2(n.x,zz)+angle,lat=Math.asin(yy),cl=Math.cos(lat);const light=cl*Math.sin(lon)*state.sun[0]+yy*state.sun[1]+cl*Math.cos(lon)*state.sun[2],lum=.18+Math.max(0,Math.min(1,(light+.08)/.28))*.90;const xx=Math.floor(mod(.5+lon/TAU,1)*tmp.width),ty=Math.min(tmp.height-1,Math.floor((.5-lat/Math.PI)*tmp.height)),idx=(ty*tmp.width+xx)*4;for(let k=0;k<3;k++)frame.data[n.i+k]=texture[idx+k]*lum;frame.data[n.i+3]=255;}out.putImageData(frame,0,0);};
   }
   function drawEarth(ms){if(!renderEarth)return;const state=astronomy(ms);renderEarth(state);clock.dateTime=new Date(ms).toISOString();clock.textContent=clock.dateTime.replace('T',' · ').replace('Z',' UTC');}
-  function frame(now){raf=0;if(paused||document.hidden)return;if(now-last<1000/30){wake();return;}const dt=Math.min((now-(last||now))/1000,.06);last=now;
-    const ms=Date.now();if(now-globeLast>(dragging?32:250)){drawEarth(ms);globeLast=now;}if(now-clockLast>100){clock.dateTime=new Date(ms).toISOString();clock.textContent=clock.dateTime.replace('T',' · ').replace('Z',' UTC');clockLast=now;}
-    ctx.clearRect(0,0,width,height);ambient+=dt;if(ambient>1.1){ambient=0;if(items.length<30)items.push(particle(Math.random()*width,height*.94,true));}
+  function frame(now){raf=0;if(paused||document.hidden)return;if(now-last<1000/24){wake();return;}const dt=Math.min((now-(last||now))/1000,.06);last=now;
+    const ms=Date.now();if(now-globeLast>(dragging?42:1000)){drawEarth(ms);globeLast=now;}if(now-clockLast>1000){clock.dateTime=new Date(ms).toISOString();clock.textContent=clock.dateTime.replace('T',' · ').replace('Z',' UTC');clockLast=now;}
+    ctx.clearRect(0,0,width,height);ambient+=dt;if(ambient>2.8){ambient=0;if(items.length<12)items.push(particle(Math.random()*width,height*.88,true));}
     items=items.filter(p=>p.age<p.life);for(const p of items){p.age+=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=Math.exp(-.2*dt);p.rot+=p.spin*dt;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.globalAlpha=Math.max(0,Math.min(1,(p.life-p.age)*.8,p.age*4));ctx.drawImage(p.sprite,-p.size/2,-p.size/2,p.size,p.size);ctx.restore();}wake();
   }
   function wake(){if(!raf&&!paused&&!document.hidden)raf=requestAnimationFrame(frame);}
@@ -276,7 +255,7 @@ MCU-Bezüge: https://d23.com/wanda-maximoff-and-visions-mcu-origins-explained/
   drag.addEventListener('dblclick',()=>{yaw=0;latitude=.28;shift(0,0);});
   slider.addEventListener('input',()=>{question();color(slider.value);});replay.addEventListener('click',love);motion.addEventListener('click',()=>setPaused(!paused));
   document.addEventListener('keydown',e=>{if(e.code==='Escape'&&!post.open)setPaused(true);});
-  scene.addEventListener('pointerdown',e=>{if(e.target.closest('.controls,.globe-control,.credits,.post-open')||scene.dataset.phase!=='question')return;const r=scene.getBoundingClientRect();burst(e.clientX-r.left,e.clientY-r.top,18);});
+  scene.addEventListener('pointerdown',e=>{if(e.target.closest('.controls,.globe-control,.credits,.post-open,a')||scene.dataset.phase!=='question')return;const r=scene.getBoundingClientRect();burst(e.clientX-r.left,e.clientY-r.top,18);});
   document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);raf=0;items=[];clearTimeout(dayTimer);dayTimer=0;}else{last=0;globeLast=0;updateDay();drawEarth(paused?frozenTime:Date.now());wake();}});
   reduce.addEventListener('change',()=>{if(reduce.matches)setPaused(true);});
   new ResizeObserver(resize).observe(scene);resize();setPaused(paused);updateDay();
