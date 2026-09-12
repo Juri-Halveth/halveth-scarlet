@@ -111,8 +111,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 10587,
-      "sha256": "80a6e66ab8a9720b4825fa7234899f7aa7928cfadcf6dce71890f83cb519e3b0"
+      "bytes": 10507,
+      "sha256": "233dd41203f740507ef79b79e6572c846e1f5224ea3d5ee274b6aae6ba438de1"
     },
     {
       "path": "assets/event-clock.js",
@@ -121,18 +121,18 @@
     },
     {
       "path": "assets/events.css",
-      "bytes": 7249,
-      "sha256": "bf38c7ddb8579c9f515b649c6f2d96efbe0cc09714d72f0147ea8b30726f5852"
+      "bytes": 7237,
+      "sha256": "640971c58c036e3b4a65631fa82b07fcb09d1ae18d11356947a8662bc76c729d"
     },
     {
       "path": "assets/events.js",
-      "bytes": 7982,
-      "sha256": "c9694b2ecf336e2ddb6a244857061d620e91332c29510dd889e68da444726665"
+      "bytes": 7935,
+      "sha256": "3dee39798ad2ed1a387aab9073db6648330394bbf544ab5f27cfe7b1d8484e84"
     },
     {
       "path": "assets/public-sources.json",
-      "bytes": 2044,
-      "sha256": "c7f4ab83648a104bceca3bc49ad25264cfaba84ed69c8581000433f36e98803b"
+      "bytes": 2007,
+      "sha256": "8b83777bec508524a309ca88ba8190f72e662abab6a5c7944462264083b17f24"
     },
     {
       "path": "assets/scarlet-dual-state-v1.png",
@@ -141,18 +141,18 @@
     },
     {
       "path": "assets/scarlet-dual-state-v1.prompt.md",
-      "bytes": 3609,
-      "sha256": "82e6d44df218233946e00d62facd883c59701af4eff8e714f220dbc09bcc4bd6"
+      "bytes": 3580,
+      "sha256": "5dcd8ef7820d28444c1901022115fcda2eebdbbe73853c5cf648ba4930a461c8"
     },
     {
       "path": "assets/universe-data.js",
-      "bytes": 31286,
-      "sha256": "331a4621995fd9253083ef48977fae6be3bbd4b43050a05a5603baaaaebb0c45"
+      "bytes": 30680,
+      "sha256": "3bda16d24b670e7055a87ce2be23e5f1d0921ea6932ed3f510a85103369f77e6"
     },
     {
       "path": "assets/universe.css",
-      "bytes": 7697,
-      "sha256": "bc0f16cdfd952f44bba0320f45a722625f95c36e2404d88577276a506440b7d9"
+      "bytes": 7682,
+      "sha256": "8b8ae9d3c46d412f36f84108541afa6c2e1690c47b11f5068519f6143442f5eb"
     },
     {
       "path": "assets/universe.js",
@@ -161,13 +161,13 @@
     },
     {
       "path": "forschung/figuren-und-perspektiven/index.html",
-      "bytes": 21890,
-      "sha256": "edba8be48591544486a344f726fc7e8a797e5e0e7a9b9baca4479a3c4dea8a03"
+      "bytes": 21857,
+      "sha256": "b509ee6cc01abd7bea6bcd68d742f42519f07d0a2dbeaeed56ae346082801f53"
     },
     {
       "path": "forschung/formen-und-verbindungen/index.html",
-      "bytes": 11309,
-      "sha256": "607e7c220630007c4bcb7cdb52aff0c6dab3469779d0384132efd456d959143d"
+      "bytes": 11246,
+      "sha256": "1c66afadbee88d9a79e6148cbad9cbf0a6264c5252e6369abdda6b40c6ada22f"
     },
     {
       "path": "forschung/formen-und-verbindungen/motiv.png",
@@ -176,8 +176,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 407658,
-      "sha256": "2cc4811b306b0f219911a090c2191ed515998fe12599f8bfdb1bc040d1dd5abb"
+      "bytes": 407495,
+      "sha256": "41095579e0da0ee4473232841751ed5206277e7dc1a2bf1fc2eb7c195c3e51f8"
     },
     {
       "path": "tests/event-clock.test.cjs",
@@ -195,5 +195,7 @@
       "sha256": "36e52ea8b85e4dd22daea274567d41586257bbff3fab43fdacdb0b8b14715ee7"
     }
   ],
-  "manifestSelfHash": "Excluded; see Git commit object for this file"
+  "manifestSelfHash": "Excluded; see Git commit object for this file",
+  "hashByteScope": "Git blob bytes from the source commit, before hosting transformations",
+  "sourceCommit": "38211c959b057b7a15993e15704fab1fa195947c"
 }
