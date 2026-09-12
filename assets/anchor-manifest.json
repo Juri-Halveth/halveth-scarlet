@@ -1,7 +1,7 @@
 {
   "schema": "halveth.reference-manifest.v1",
   "author": "HALVETH",
-  "recordedAt": "2026-09-12T14:52:45.132852+00:00",
+  "recordedAt": "2026-09-12T23:44:20+00:00",
   "state": "OFF_CHAIN_REFERENCE",
   "scope": "This website and its published source references",
   "transaction": null,
@@ -120,8 +120,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 21788,
-      "sha256": "b23d1e1cdcdb1d139c82c75a7214acb637d8b3fbeacaff49b4ddb90a9fe8afc6"
+      "bytes": 23097,
+      "sha256": "ed215af984dae133a5186cf04fca9d579b7cc1dee5aa995f08c0e0e5fec088a8"
     },
     {
       "path": "assets/bitcoin-transaction-reference.json",
@@ -159,9 +159,19 @@
       "sha256": "8b83777bec508524a309ca88ba8190f72e662abab6a5c7944462264083b17f24"
     },
     {
+      "path": "assets/q-entry.css",
+      "bytes": 452,
+      "sha256": "91c60d36c102991522f6d469e08da3f4deff6e92330aab921c462379ed76b545"
+    },
+    {
       "path": "assets/reddit-tunnel.js",
       "bytes": 2132,
       "sha256": "7058b66cd633d5dc48ab8952e84bacaf06a5ec773bdcafddf85408560c5875ed"
+    },
+    {
+      "path": "assets/releases/anchor-before-q-20260913.json",
+      "bytes": 11696,
+      "sha256": "c952f3f04566abfbea999e94ba5e3ed48e2bf6a9fcccaab0c61c7961556125d5"
     },
     {
       "path": "assets/room-config.json",
@@ -215,8 +225,8 @@
     },
     {
       "path": "assets/universe-data.js",
-      "bytes": 56473,
-      "sha256": "9f900a791abf140b7254557c09f6bd9811ae0ab5dafd24f824b234e390f319a8"
+      "bytes": 57907,
+      "sha256": "cbbfdc344668fff6322d95d40922145ad7e11fa3a6bf6706be36bf58d14d1c46"
     },
     {
       "path": "assets/universe.css",
@@ -249,14 +259,34 @@
       "sha256": "6d69add4e392beea7194f1fe7e30279122017d3f7f1f88a0aeb8af7c737d1133"
     },
     {
+      "path": "forschung/q-notizen/index.html",
+      "bytes": 16330,
+      "sha256": "110d37b747957cbe076586d5e12e29c999c1e68c213ba8a1e91a52072c74bedd"
+    },
+    {
+      "path": "forschung/q-notizen/note.css",
+      "bytes": 4902,
+      "sha256": "7c3330605d9e8fb4f57ce417244b8f07710e7fb5f7f70be7ce953d0b10c10750"
+    },
+    {
+      "path": "forschung/q-notizen/snapshot.json",
+      "bytes": 921,
+      "sha256": "b8368590dbabecd2d3c5e5e3e050a77952266184b5cebc56959a3663349dfb88"
+    },
+    {
+      "path": "forschung/q-notizen/sources.json",
+      "bytes": 4850,
+      "sha256": "1633899e43e609d0c173a11c68c1bb96ce26480c366956d876401101c49643f8"
+    },
+    {
       "path": "forschung/transaktionsfluss/index.html",
       "bytes": 30055,
       "sha256": "ed97a21910dcf62764253da29ef2a0ab827980ccb68dcd8f1894473a7a557731"
     },
     {
       "path": "index.html",
-      "bytes": 408844,
-      "sha256": "98ac45b6004edcb5d497df025b6e164966a0bf53656e70b2155c1233b79dd6d3"
+      "bytes": 409075,
+      "sha256": "9e2d9181899284975713b509a8c436ed19095e4bddf69c697b3a2b1def110c15"
     },
     {
       "path": "room/index.html",
@@ -281,7 +311,7 @@
     {
       "path": "tests/language.test.cjs",
       "bytes": 2889,
-      "sha256": "e2358b7073254c64d7be42ae7a7eb2daeacdabddbbb765a439c844e8cb842dca"
+      "sha256": "9bb50acc51f737f3c2f1b52c3e99381beebf7cc4ebf336c81f983f41714d89f0"
     },
     {
       "path": "tests/reddit-tunnel.test.cjs",
@@ -321,7 +351,7 @@
   ],
   "manifestSelfHash": "Excluded; see Git commit object for this file",
   "hashByteScope": "Git blob bytes from the source commit, before hosting transformations",
-  "sourceCommit": "a5624071ff40241804f8370c7f96e4c1456eb317",
+  "sourceCommit": "f58104dcfe720788240ac240860be7e3f881eb8e",
   "communityRoom": {
     "url": "https://juri-halveth.github.io/halveth-scarlet/room/",
     "githubIssue": "https://github.com/Juri-Halveth/halveth-scarlet/issues/1",
@@ -349,5 +379,15 @@
     "contract": null,
     "mintChainId": null,
     "sourceLimitBytes": 10485760
+  },
+  "previousManifest": "assets/releases/anchor-before-q-20260913.json",
+  "qNotebook": {
+    "url": "https://juri-halveth.github.io/halveth-scarlet/forschung/q-notizen/",
+    "version": "1.0.0",
+    "state": "SOURCE_NOTE",
+    "coverage": "Selected topics from 12–13 September 2026 Europe/Berlin; not a complete daily or system audit",
+    "sourceRegister": "forschung/q-notizen/sources.json",
+    "editionHashes": "forschung/q-notizen/snapshot.json",
+    "physicalEffectsObserved": false
   }
 }
