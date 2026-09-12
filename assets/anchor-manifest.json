@@ -1,7 +1,7 @@
 {
   "schema": "halveth.reference-manifest.v1",
   "author": "HALVETH",
-  "recordedAt": "2026-09-12T11:38:29.230711+00:00",
+  "recordedAt": "2026-09-12T12:04:49.581083+00:00",
   "state": "OFF_CHAIN_REFERENCE",
   "scope": "This website and its published source references",
   "transaction": null,
@@ -12,8 +12,9 @@
   "referencePurpose": "Attribution, comparison and voluntary future cooperation; no automatic rights grant or ownership transfer.",
   "reddit": {
     "url": "https://www.reddit.com/user/Halveth-Juri/",
-    "basis": "USER_SUPPLIED",
-    "postContentsVerified": false
+    "basis": "USER_SUPPLIED_PROFILE; PROFILE_OBSERVED",
+    "postContentsVerified": false,
+    "publishedTheoryPostUrl": null
   },
   "sources": {
     "publicGarden": "https://github.com/Juri-Halveth/open-research-branches/blob/main/branches/aster-provenance-and-secret-garden/entities.json",
@@ -111,8 +112,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 10507,
-      "sha256": "233dd41203f740507ef79b79e6572c846e1f5224ea3d5ee274b6aae6ba438de1"
+      "bytes": 11340,
+      "sha256": "b141f0e1087e72962d8e7bc9f451c33199a514d0fce23e9c459f565027526ced"
     },
     {
       "path": "assets/event-clock.js",
@@ -126,13 +127,18 @@
     },
     {
       "path": "assets/events.js",
-      "bytes": 7935,
-      "sha256": "3dee39798ad2ed1a387aab9073db6648330394bbf544ab5f27cfe7b1d8484e84"
+      "bytes": 7984,
+      "sha256": "28293da624b76ccff9a997e190ade1efb866d566fab05a37b5151d7cd79f5011"
     },
     {
       "path": "assets/public-sources.json",
       "bytes": 2007,
       "sha256": "8b83777bec508524a309ca88ba8190f72e662abab6a5c7944462264083b17f24"
+    },
+    {
+      "path": "assets/reddit-tunnel.js",
+      "bytes": 2048,
+      "sha256": "cefe8d9b32187148149e86a0e483707f250d411f195b6755fd0f00186ba4b035"
     },
     {
       "path": "assets/scarlet-dual-state-v1.png",
@@ -146,18 +152,18 @@
     },
     {
       "path": "assets/universe-data.js",
-      "bytes": 30680,
-      "sha256": "3bda16d24b670e7055a87ce2be23e5f1d0921ea6932ed3f510a85103369f77e6"
+      "bytes": 30671,
+      "sha256": "78710048ed90f6270a1a1009bc0aae21f26a897b41bdcffd58b2722f52ce2c7a"
     },
     {
       "path": "assets/universe.css",
-      "bytes": 7682,
-      "sha256": "8b8ae9d3c46d412f36f84108541afa6c2e1690c47b11f5068519f6143442f5eb"
+      "bytes": 9733,
+      "sha256": "9866d286f5fb70ee323204db97378f92e748bf1f41c00c98b9502bded0fa50f0"
     },
     {
       "path": "assets/universe.js",
-      "bytes": 3358,
-      "sha256": "bd7d4dcbc067ff4d5bb9a8319200e1dca4ab5ff27439731cccfa34e6f3b3cae7"
+      "bytes": 3666,
+      "sha256": "3a6c7e5dc6f27df3bc0b731524c3fa7b13d706e93083475268e0515a0b28c8ea"
     },
     {
       "path": "forschung/figuren-und-perspektiven/index.html",
@@ -176,8 +182,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 407495,
-      "sha256": "41095579e0da0ee4473232841751ed5206277e7dc1a2bf1fc2eb7c195c3e51f8"
+      "bytes": 407782,
+      "sha256": "01a7bb12e7fbde96e655e0445e31b650e83e581ab69ad015a901543cd9770d5c"
     },
     {
       "path": "tests/event-clock.test.cjs",
@@ -190,6 +196,11 @@
       "sha256": "e750ac07150f4849038eeb2e9265659849df67e386079860ce6673d1b6fdbbe1"
     },
     {
+      "path": "tests/reddit-tunnel.test.cjs",
+      "bytes": 8249,
+      "sha256": "8ab9599e003048094454f4a09d30adbf41c43c87b1016077c2be9572039595b8"
+    },
+    {
       "path": "tests/satellite-loading.test.cjs",
       "bytes": 6131,
       "sha256": "36e52ea8b85e4dd22daea274567d41586257bbff3fab43fdacdb0b8b14715ee7"
@@ -197,5 +208,5 @@
   ],
   "manifestSelfHash": "Excluded; see Git commit object for this file",
   "hashByteScope": "Git blob bytes from the source commit, before hosting transformations",
-  "sourceCommit": "38211c959b057b7a15993e15704fab1fa195947c"
+  "sourceCommit": "500ce0ccbe8efb60ec0467ad177e4c9de9808726"
 }
