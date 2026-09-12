@@ -1,7 +1,7 @@
 {
   "schema": "halveth.reference-manifest.v1",
   "author": "HALVETH",
-  "recordedAt": "2026-09-12T13:21:34.475915+00:00",
+  "recordedAt": "2026-09-12T13:29:02.508581+00:00",
   "state": "OFF_CHAIN_REFERENCE",
   "scope": "This website and its published source references",
   "transaction": null,
@@ -121,7 +121,7 @@
     {
       "path": "README.md",
       "bytes": 14518,
-      "sha256": "37100a587d0a3705aca2246d4130dc5b95268518a0b6e3c31b0b4f4ffe596ab2"
+      "sha256": "ecd9c0b3a616006396f8fdff1ace62f41c5d68579fc1ca091909e27963f9edaf"
     },
     {
       "path": "assets/bitcoin-transaction-reference.json",
@@ -175,8 +175,8 @@
     },
     {
       "path": "assets/universe-data.js",
-      "bytes": 57308,
-      "sha256": "351451e694060639701d1e4a4f289b147c880073ab050b7beb0b487e27116727"
+      "bytes": 56473,
+      "sha256": "9f900a791abf140b7254557c09f6bd9811ae0ab5dafd24f824b234e390f319a8"
     },
     {
       "path": "assets/universe.css",
@@ -210,8 +210,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 408676,
-      "sha256": "b07afccb7257f579a56d8af460f5b0b3dda8d72d3928cc17c6cf112dafd9293e"
+      "bytes": 408674,
+      "sha256": "b208cbdb0b62fb52a720210ad882f386f8ad88c9fbaff5d1384b1e33d62e2149"
     },
     {
       "path": "tests/event-clock.test.cjs",
@@ -226,7 +226,7 @@
     {
       "path": "tests/language.test.cjs",
       "bytes": 2889,
-      "sha256": "799980e671afb1ffe7a8d90b9e6f6802cb6c19b95f6fa537350f7e6dc2fbfe64"
+      "sha256": "e2358b7073254c64d7be42ae7a7eb2daeacdabddbbb765a439c844e8cb842dca"
     },
     {
       "path": "tests/reddit-tunnel.test.cjs",
@@ -241,5 +241,5 @@
   ],
   "manifestSelfHash": "Excluded; see Git commit object for this file",
   "hashByteScope": "Git blob bytes from the source commit, before hosting transformations",
-  "sourceCommit": "2027367164d451ded57e5a3c5b70e5439626b0bd"
+  "sourceCommit": "020df4f3a60110668fb130842824c55eca0aff38"
 }
