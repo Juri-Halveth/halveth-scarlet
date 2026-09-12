@@ -1,7 +1,7 @@
 {
   "schema": "halveth.reference-manifest.v1",
   "author": "HALVETH",
-  "recordedAt": "2026-09-12T13:29:02.508581+00:00",
+  "recordedAt": "2026-09-12T14:18:19.103311+00:00",
   "state": "OFF_CHAIN_REFERENCE",
   "scope": "This website and its published source references",
   "transaction": null,
@@ -120,8 +120,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 14518,
-      "sha256": "ecd9c0b3a616006396f8fdff1ace62f41c5d68579fc1ca091909e27963f9edaf"
+      "bytes": 17430,
+      "sha256": "509c75ffb078c1fc0b371374b0d15156a8948173bad85cd71713372bf316e9fb"
     },
     {
       "path": "assets/bitcoin-transaction-reference.json",
@@ -150,8 +150,8 @@
     },
     {
       "path": "assets/language.js",
-      "bytes": 2730,
-      "sha256": "2481d1355b22e2a0f7e18205a9e4cb75cf9474dda9c592cfcc75cb43e522ff16"
+      "bytes": 3836,
+      "sha256": "098767f1868035c7e8559287e07089e2c2abc1074acab3216eeed76d3f3dc502"
     },
     {
       "path": "assets/public-sources.json",
@@ -162,6 +162,26 @@
       "path": "assets/reddit-tunnel.js",
       "bytes": 2132,
       "sha256": "7058b66cd633d5dc48ab8952e84bacaf06a5ec773bdcafddf85408560c5875ed"
+    },
+    {
+      "path": "assets/room-config.json",
+      "bytes": 423,
+      "sha256": "ed479d1db9222681f8376b7d5e0823ea85e7ec5fe607fa0a402a4512f56d1632"
+    },
+    {
+      "path": "assets/room-core.js",
+      "bytes": 3424,
+      "sha256": "6dc67a2a1aeb061efda503ae6b5d910798984bba6a9bf3629a80801051d293d1"
+    },
+    {
+      "path": "assets/room.css",
+      "bytes": 19211,
+      "sha256": "edfbe07b8e0a11c45bace8fb57646660d55dc77d8996404b903b86f367f867df"
+    },
+    {
+      "path": "assets/room.js",
+      "bytes": 7289,
+      "sha256": "127e5e1905776dffccd367b8b98a1b665d944d47e14cfd1aacc37bdb21e34ba4"
     },
     {
       "path": "assets/scarlet-dual-state-v1.png",
@@ -180,8 +200,8 @@
     },
     {
       "path": "assets/universe.css",
-      "bytes": 10887,
-      "sha256": "ae40c8bf1238d55fed00df9293f62d506c337c45315758fdad71a686b00c26bd"
+      "bytes": 11439,
+      "sha256": "6b570ba1ff2f9d002b84560cfd94cf9a90faf8355db63506be937b185267617d"
     },
     {
       "path": "assets/universe.js",
@@ -210,8 +230,13 @@
     },
     {
       "path": "index.html",
-      "bytes": 408674,
-      "sha256": "b208cbdb0b62fb52a720210ad882f386f8ad88c9fbaff5d1384b1e33d62e2149"
+      "bytes": 408844,
+      "sha256": "98ac45b6004edcb5d497df025b6e164966a0bf53656e70b2155c1233b79dd6d3"
+    },
+    {
+      "path": "room/index.html",
+      "bytes": 15927,
+      "sha256": "e1c43e3fdde64476557d3790a6df7159eb49043bb2655b8e734f68613c3a2256"
     },
     {
       "path": "tests/event-clock.test.cjs",
@@ -234,6 +259,16 @@
       "sha256": "8ab9599e003048094454f4a09d30adbf41c43c87b1016077c2be9572039595b8"
     },
     {
+      "path": "tests/room-core.test.cjs",
+      "bytes": 3167,
+      "sha256": "ea77bf9faeb1cad7bfe2fdceb6c3f694b7dea5525e2c8356ceabefb7bdb9cc10"
+    },
+    {
+      "path": "tests/room-language.test.cjs",
+      "bytes": 10115,
+      "sha256": "5b42ae7dcb1f85d1a002cfc90dc79cfabcf8355b838fddfb74cbe496edf18a2b"
+    },
+    {
       "path": "tests/satellite-loading.test.cjs",
       "bytes": 6871,
       "sha256": "2884c309b1b4f6bf94651c9a341cca0f7f6214765258426ba9805fbecbb7ea42"
@@ -241,5 +276,16 @@
   ],
   "manifestSelfHash": "Excluded; see Git commit object for this file",
   "hashByteScope": "Git blob bytes from the source commit, before hosting transformations",
-  "sourceCommit": "020df4f3a60110668fb130842824c55eca0aff38"
+  "sourceCommit": "c598ea9be6500efd03841f1719648dc1d1bd3958",
+  "communityRoom": {
+    "url": "https://juri-halveth.github.io/halveth-scarlet/room/",
+    "githubIssue": "https://github.com/Juri-Halveth/halveth-scarlet/issues/1",
+    "storage": "PUBLIC_GITHUB_ISSUE_COMMENTS",
+    "contributionModel": "VOLUNTARY_SELF_DECLARATION",
+    "identityAndIntent": "DECLARED_BY_CONTRIBUTOR_NOT_INFERRED",
+    "draftHash": "SHA256_OF_UTF8_JSON_RECORD_NOT_IDENTITY_OR_TIME_PROOF",
+    "fetchPolicy": "EXPLICIT_CLICK_FIRST_100_COMMENTS_NO_AUTOMATIC_POLLING",
+    "discordInvite": null,
+    "financialActions": null
+  }
 }
