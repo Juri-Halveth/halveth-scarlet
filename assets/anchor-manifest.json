@@ -1,7 +1,7 @@
 {
   "schema": "halveth.reference-manifest.v1",
   "author": "HALVETH",
-  "recordedAt": "2026-09-12T14:18:19.103311+00:00",
+  "recordedAt": "2026-09-12T14:52:45.132852+00:00",
   "state": "OFF_CHAIN_REFERENCE",
   "scope": "This website and its published source references",
   "transaction": null,
@@ -120,8 +120,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 17430,
-      "sha256": "509c75ffb078c1fc0b371374b0d15156a8948173bad85cd71713372bf316e9fb"
+      "bytes": 21788,
+      "sha256": "b23d1e1cdcdb1d139c82c75a7214acb637d8b3fbeacaff49b4ddb90a9fe8afc6"
     },
     {
       "path": "assets/bitcoin-transaction-reference.json",
@@ -194,6 +194,26 @@
       "sha256": "5dcd8ef7820d28444c1901022115fcda2eebdbbe73853c5cf648ba4930a461c8"
     },
     {
+      "path": "assets/snapshot-config.json",
+      "bytes": 639,
+      "sha256": "0466ce3166d2181f84e6c3a73dbd3238d999a3c28ef4d5e8fcbcad85a3c74290"
+    },
+    {
+      "path": "assets/snapshot-core.js",
+      "bytes": 6217,
+      "sha256": "5acc9b42ef445c3ca280830b0a2aa6f263910c3123d1a7216a04c363e49c1d1a"
+    },
+    {
+      "path": "assets/snapshot.css",
+      "bytes": 6354,
+      "sha256": "83c260df87b2df28f4697f449c12d2470161f55c7e779c436a9c86ec84d75469"
+    },
+    {
+      "path": "assets/snapshot.js",
+      "bytes": 9646,
+      "sha256": "7f3a1568b59c50aca87192ad991eed2b2f55fa16b77ffe6f1837bb9d9400d959"
+    },
+    {
       "path": "assets/universe-data.js",
       "bytes": 56473,
       "sha256": "9f900a791abf140b7254557c09f6bd9811ae0ab5dafd24f824b234e390f319a8"
@@ -207,6 +227,11 @@
       "path": "assets/universe.js",
       "bytes": 3939,
       "sha256": "2fa787fffea93e36b7beb6d379f0993722cc8c1d37c45d119af24d005d239d5c"
+    },
+    {
+      "path": "assets/wallet-connection.js",
+      "bytes": 12951,
+      "sha256": "27de11d18b6208c1aae4d91809f6d3bbe16160060d13869521292e295eecdd46"
     },
     {
       "path": "forschung/figuren-und-perspektiven/index.html",
@@ -235,8 +260,13 @@
     },
     {
       "path": "room/index.html",
-      "bytes": 15927,
-      "sha256": "e1c43e3fdde64476557d3790a6df7159eb49043bb2655b8e734f68613c3a2256"
+      "bytes": 16050,
+      "sha256": "d72ea0146977631df22bbe7a685da49b47163f2207003a342e805c2b64eb3d68"
+    },
+    {
+      "path": "snapshot/index.html",
+      "bytes": 12619,
+      "sha256": "87e1402c8cc0eef5740b64fbd89c3f8e32a6dd1c93dcd0655176ddd4d2cece92"
     },
     {
       "path": "tests/event-clock.test.cjs",
@@ -272,11 +302,26 @@
       "path": "tests/satellite-loading.test.cjs",
       "bytes": 6871,
       "sha256": "2884c309b1b4f6bf94651c9a341cca0f7f6214765258426ba9805fbecbb7ea42"
+    },
+    {
+      "path": "tests/snapshot-core.test.cjs",
+      "bytes": 11817,
+      "sha256": "9b94f29e8a2e864f0f4e30fb840a8189754fd775f20815e798f289922780a3cd"
+    },
+    {
+      "path": "tests/snapshot-ui.test.cjs",
+      "bytes": 19726,
+      "sha256": "e669e12c893980527080cd3f4f2ecb1c01ab40014c55616d0efdd8f476eac8ad"
+    },
+    {
+      "path": "tests/wallet-connection.test.cjs",
+      "bytes": 19009,
+      "sha256": "0632fd065eef8e49e96a8c8eb7c5186aed1424a54113bb3fd5216963159d7258"
     }
   ],
   "manifestSelfHash": "Excluded; see Git commit object for this file",
   "hashByteScope": "Git blob bytes from the source commit, before hosting transformations",
-  "sourceCommit": "c598ea9be6500efd03841f1719648dc1d1bd3958",
+  "sourceCommit": "a5624071ff40241804f8370c7f96e4c1456eb317",
   "communityRoom": {
     "url": "https://juri-halveth.github.io/halveth-scarlet/room/",
     "githubIssue": "https://github.com/Juri-Halveth/halveth-scarlet/issues/1",
@@ -287,5 +332,22 @@
     "fetchPolicy": "EXPLICIT_CLICK_FIRST_100_COMMENTS_NO_AUTOMATIC_POLLING",
     "discordInvite": null,
     "financialActions": null
+  },
+  "snapshotStudio": {
+    "url": "https://juri-halveth.github.io/halveth-scarlet/snapshot/",
+    "state": "LOCAL_SNAPSHOT_NOT_MINTED",
+    "storage": "LOCAL_DOWNLOAD_ONLY",
+    "wallet": "OPTIONAL_EVM_ACCOUNT_CHAIN_ASSOCIATION",
+    "walletProof": "PROVIDER_DECLARED_NOT_SIGNED",
+    "allowedWalletMethods": [
+      "eth_requestAccounts",
+      "eth_chainId"
+    ],
+    "mintEnabled": false,
+    "projectFee": null,
+    "feeRecipient": null,
+    "contract": null,
+    "mintChainId": null,
+    "sourceLimitBytes": 10485760
   }
 }
