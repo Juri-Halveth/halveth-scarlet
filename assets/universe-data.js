@@ -1,6 +1,6 @@
 window.HalvethUniverse = {
   "schema": "halveth.universe.v1",
-  "recordedAt": "2026-09-12T12:04:31.049364+00:00",
+  "recordedAt": "2026-09-12T13:28:00.309237+00:00",
   "site": "https://juri-halveth.github.io/halveth-scarlet/",
   "redditDestination": "https://www.reddit.com/user/Halveth-Juri/",
   "redditDestinationBasis": "USER_SUPPLIED_PROFILE; PROFILE_OBSERVED; NO_PUBLISHED_THEORY_POST_URL",
@@ -22,7 +22,6 @@ window.HalvethUniverse = {
     "mio",
     "koro",
     "aster",
-    "raschel",
     "sina",
     "mascha",
     "ego",
@@ -624,21 +623,6 @@ window.HalvethUniverse = {
     {
       "id": "mascha",
       "label": "MASCHA",
-      "role": "Ein Platz im Garten. Die konkrete Aufgabe ist noch offen.",
-      "kind": "NEU BENANNTE PROJEKTPERSPEKTIVE",
-      "section": "garden",
-      "note": "Dieser Anzeigename wurde für die Oberfläche gewünscht. Er identifiziert keine private Person. ROSE und ROSA sind eigenständige Einträge.",
-      "sourceLabel": "HALVETH · redaktionelle Definition vom 12.09.2026.",
-      "en": {
-        "role": "A place in the garden. Its specific role is still open.",
-        "kind": "NEWLY NAMED PROJECT PERSPECTIVE",
-        "note": "This display name was requested for the interface. It does not identify a private individual. ROSE and ROSA are separate entries.",
-        "sourceLabel": "HALVETH · editorial definition dated 12.09.2026."
-      }
-    },
-    {
-      "id": "raschel",
-      "label": "RASCHEL",
       "role": "Ein Platz im Garten. Die konkrete Aufgabe ist noch offen.",
       "kind": "NEU BENANNTE PROJEKTPERSPEKTIVE",
       "section": "garden",
