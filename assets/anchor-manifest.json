@@ -1,7 +1,7 @@
 {
   "schema": "halveth.reference-manifest.v1",
   "author": "HALVETH",
-  "recordedAt": "2026-09-12T12:04:49.581083+00:00",
+  "recordedAt": "2026-09-12T12:13:40.385721+00:00",
   "state": "OFF_CHAIN_REFERENCE",
   "scope": "This website and its published source references",
   "transaction": null,
@@ -113,7 +113,7 @@
     {
       "path": "README.md",
       "bytes": 11340,
-      "sha256": "b141f0e1087e72962d8e7bc9f451c33199a514d0fce23e9c459f565027526ced"
+      "sha256": "2966259d0b23d26a0f8da805279acaced9012a83760af4431c522c08c924cab1"
     },
     {
       "path": "assets/event-clock.js",
@@ -182,8 +182,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 407782,
-      "sha256": "01a7bb12e7fbde96e655e0445e31b650e83e581ab69ad015a901543cd9770d5c"
+      "bytes": 407803,
+      "sha256": "6b63b7e1f124711b6f653c00f5debb7322e4755c8f1add6916334ba73fe88ef1"
     },
     {
       "path": "tests/event-clock.test.cjs",
@@ -208,5 +208,5 @@
   ],
   "manifestSelfHash": "Excluded; see Git commit object for this file",
   "hashByteScope": "Git blob bytes from the source commit, before hosting transformations",
-  "sourceCommit": "500ce0ccbe8efb60ec0467ad177e4c9de9808726"
+  "sourceCommit": "d30caf832fb7090856bf51f58d19bb5f9ff74627"
 }
