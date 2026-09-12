@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de" data-language-in-place>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081218">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="description" content="Dein lokaler Snapshot-Abdruck. Datei auswählen, SHA-256 berechnen und einen Beleg mitnehmen. Wallet optional." data-en-content="Your local snapshot imprint. Choose a file, calculate its SHA-256 and take a receipt with you. Wallet optional.">
+  <title data-en="HALVETH · Snapshot studio">HALVETH · Snapshot-Studio</title>
+  <link rel="stylesheet" href="../assets/room.css?v=snapshot-1">
+  <link rel="stylesheet" href="../assets/snapshot.css?v=snapshot-1">
+  <script defer src="../assets/english.js?v=snapshot-1"></script>
+  <script defer src="../assets/language.js?v=snapshot-1"></script>
+  <script defer src="../assets/snapshot-core.js?v=snapshot-1"></script>
+  <script defer src="../assets/wallet-connection.js?v=snapshot-1"></script>
+  <script defer src="../assets/snapshot.js?v=snapshot-1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#studio" data-en="Skip to studio">Zum Studio springen</a>
+  <header class="room-header">
+    <a class="room-brand" href="../index.html"><span class="brand-symbol" aria-hidden="true">∞</span><span>HALVETH</span></a>
+    <nav class="header-actions" aria-label="Navigation">
+      <a class="earth-link" href="../room/" data-en="Room of traces ↗">Raum der Spuren ↗</a>
+      <div class="language-switch" role="group" aria-label="Sprache" data-en-aria-label="Language">
+        <button type="button" data-set-lang="de" aria-label="Deutsch" data-en-aria-label="German" aria-pressed="true">DE</button>
+        <button type="button" data-set-lang="en" aria-label="Englisch" data-en-aria-label="English" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+  </header>
+  <main id="studio" class="room-main" tabindex="-1">
+    <section class="snapshot-intro" aria-labelledby="snapshot-title">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span><span data-en="THE SNAPSHOT STUDIO">DAS SNAPSHOT-STUDIO</span></p>
+        <h1 id="snapshot-title"><span data-en="A moment.">Ein Moment.</span><br><em data-en="Your imprint.">Dein Abdruck.</em></h1>
+        <p class="intro-lead" data-en="Give a file its own trace. Two loops, one small record — yours to keep.">Gib einer Datei ihre eigene Spur. Zwei Schleifen, ein kleiner Beleg — zum Mitnehmen.</p>
+        <div class="intro-tags"><span data-en="LOCAL FILE">LOKALE DATEI</span><span>SHA-256</span><span data-en="WALLET OPTIONAL">WALLET OPTIONAL</span></div>
+      </div>
+      <div class="imprint-art" aria-hidden="true">
+        <div class="imprint-glow"></div>
+        <svg class="infinity-art" viewBox="0 0 520 310" focusable="false">
+          <defs><linearGradient id="loop-colour" x1="0" x2="1"><stop stop-color="#b3e7d2"/><stop offset=".52" stop-color="#a9bdec"/><stop offset="1" stop-color="#f1abc9"/></linearGradient></defs>
+          <ellipse class="orbit-guide" cx="260" cy="155" rx="238" ry="137"/>
+          <path class="loop-shadow" d="M260 155C225 110 192 60 138 60C27 60 27 250 138 250C192 250 225 200 260 155C295 110 328 60 382 60C493 60 493 250 382 250C328 250 295 200 260 155Z"/>
+          <path class="loop-line" d="M260 155C225 110 192 60 138 60C27 60 27 250 138 250C192 250 225 200 260 155C295 110 328 60 382 60C493 60 493 250 382 250C328 250 295 200 260 155Z"/>
+          <circle class="loop-center" cx="260" cy="155" r="7"/>
+          <circle class="orbit-dot" cx="77" cy="68" r="4"/><circle class="orbit-dot" cx="443" cy="242" r="4"/>
+        </svg>
+        <span class="art-word art-left" data-en="SOURCE">QUELLE</span><span class="art-word art-right" data-en="TRACE">SPUR</span>
+        <p class="imprint-caption" data-en="A LITTLE INFINITY · A LOCAL RECORD">EIN KLEINES UNENDLICH · EIN LOKALER BELEG</p>
+      </div>
+    </section>
+    <div class="studio-layout">
+      <div class="studio-inputs">
+        <section class="studio-card" aria-labelledby="file-title">
+          <div class="card-heading"><span class="section-number">01</span><h2 id="file-title" data-en="Choose your moment">Deinen Moment wählen</h2></div>
+          <form id="snapshot-form">
+            <div class="file-zone">
+              <span class="file-symbol" aria-hidden="true">✧</span>
+              <label for="snapshot-file" data-en="Choose a file from your device">Datei von deinem Gerät auswählen</label>
+              <input id="snapshot-file" type="file" required aria-describedby="file-note">
+              <p id="file-note" class="field-note" data-en="Up to 10 MiB. Its bytes are hashed in this tab. The file stays on your device; its filename is not included in the receipt.">Bis 10 MiB. Ihre Bytes werden hier im Tab gehasht. Die Datei bleibt auf deinem Gerät; ihr Dateiname steht nicht im Beleg.</p>
+            </div>
+            <div class="field">
+              <label for="snapshot-label"><span data-en="Name your imprint">Deinen Abdruck benennen</span><span class="optional" data-en="optional · 120 characters">optional · 120 Zeichen</span></label>
+              <input id="snapshot-label" type="text" maxlength="120" autocomplete="off" placeholder="Ein Moment zum Behalten" data-en-placeholder="A moment to keep">
+            </div>
+            <p class="field-note" data-en="You can prepare a receipt without a wallet. An optional connection below adds the displayed account and network to the local record.">Du kannst den Beleg ohne Wallet erstellen. Eine optionale Verbindung unten ergänzt das angezeigte Konto und Netzwerk im lokalen Record.</p>
+            <button id="prepare-snapshot" class="primary-button" type="submit" disabled><span data-en="Create imprint">Abdruck erstellen</span><span aria-hidden="true">↗</span></button>
+            <p id="snapshot-status" class="status-message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+        <section class="studio-card wallet-card" aria-labelledby="wallet-title">
+          <div class="card-heading"><span class="section-number">02</span><h2 id="wallet-title" data-en="Add your wallet">Deine Wallet dazu</h2><span class="optional" data-en="optional">optional</span></div>
+          <p data-en="Use an installed Ethereum-compatible browser wallet. Connecting shares its account and network with this page; it does not request a signature or payment.">Nutze eine installierte Ethereum-kompatible Browser-Wallet. Verbinden teilt ihr Konto und Netzwerk mit dieser Seite; dabei wird keine Signatur oder Zahlung angefordert.</p>
+          <div class="field"><label for="wallet-provider" data-en="Browser wallet">Browser-Wallet</label><select id="wallet-provider" aria-describedby="wallet-provider-note" disabled></select></div>
+          <p id="wallet-provider-note" class="field-note" data-en="Wallet names are supplied by browser extensions. The name alone is not a verification of the provider.">Walletnamen stammen von Browser-Erweiterungen. Der Name allein ist keine Prüfung des Anbieters.</p>
+          <div class="wallet-actions"><button id="wallet-connect" class="secondary-button" type="button" disabled data-en="Connect wallet">Wallet verbinden</button><button id="wallet-refresh" class="text-button" type="button" data-en="Look again">Erneut suchen</button><button id="wallet-disconnect" class="text-button" type="button" hidden data-en="Disconnect page">Seite trennen</button></div>
+          <p id="wallet-status" class="status-message" role="status" aria-live="polite"></p>
+          <dl id="wallet-details" class="receipt-fields wallet-details" hidden><div><dt data-en="Account">Konto</dt><dd id="wallet-account"></dd></div><div><dt data-en="Network ID">Netzwerk-ID</dt><dd id="wallet-chain"></dd></div></dl>
+          <p class="field-note" data-en="The account is a provider declaration, not a signed proof of control. Disconnect clears this page's association; manage wallet permissions in your extension.">Das Konto ist eine Providerangabe, kein signierter Kontrollnachweis. Trennen löst die Zuordnung auf dieser Seite; Walletberechtigungen verwaltest du in deiner Erweiterung.</p>
+        </section>
+      </div>
+      <aside class="receipt-column">
+        <section class="receipt-card" aria-labelledby="receipt-title">
+          <div class="receipt-top"><span class="eyebrow" data-en="YOUR IMPRINT">DEIN ABDRUCK</span><span class="local-badge" data-en="LOCAL">LOKAL</span></div>
+          <div class="receipt-emblem" aria-hidden="true">∞</div>
+          <h2 id="receipt-title" data-en="A trace starts here.">Hier beginnt eine Spur.</h2>
+          <p id="receipt-empty" data-en="Choose a file and create your imprint. Its digest will appear here.">Wähle eine Datei und erstelle deinen Abdruck. Hier erscheint dann sein Digest.</p>
+          <div id="receipt-content" hidden>
+            <p class="receipt-state" data-en="PREPARED LOCALLY · NOT MINTED">LOKAL VORBEREITET · NICHT GEMINTET</p>
+            <dl class="receipt-fields">
+              <div><dt data-en="File SHA-256">Datei-SHA-256</dt><dd id="source-digest"></dd></div>
+              <div><dt data-en="Record SHA-256">Record-SHA-256</dt><dd id="record-digest"></dd></div>
+              <div><dt>Bytes</dt><dd id="source-bytes"></dd></div>
+              <div><dt data-en="Device time (UTC)">Gerätezeit (UTC)</dt><dd id="record-time"></dd></div>
+              <div><dt data-en="Wallet association">Walletzuordnung</dt><dd id="record-wallet"></dd></div>
+            </dl>
+            <a id="download-receipt" class="primary-button" download="halveth-snapshot.json"><span data-en="Download receipt">Beleg herunterladen</span><span aria-hidden="true">↓</span></a>
+            <details class="receipt-json"><summary data-en="Inspect JSON">JSON ansehen</summary><pre id="receipt-json"></pre></details>
+          </div>
+          <div class="receipt-divider"></div>
+          <p class="field-note" data-en="The hash identifies the selected bytes. Keep the original file with the receipt. The local clock and wallet address do not prove authorship, ownership or an independent timestamp.">Der Hash identifiziert die ausgewählten Bytes. Bewahre die Originaldatei zusammen mit dem Beleg auf. Lokale Uhr und Walletadresse beweisen keine Urheberschaft, Eigentumsrechte oder einen unabhängigen Zeitstempel.</p>
+        </section>
+        <section class="mint-roadmap" aria-labelledby="mint-title">
+          <p class="eyebrow" data-en="THE NEXT STEP">DER NÄCHSTE SCHRITT</p>
+          <h2 id="mint-title" data-en="From imprint to mint.">Vom Abdruck zum Mint.</h2>
+          <p data-en="This studio prepares local receipts. On-chain minting is not connected yet.">Dieses Studio erstellt lokale Belege. On-Chain-Minting ist noch nicht angebunden.</p>
+          <dl class="cost-list"><div><dt data-en="Local receipt">Lokaler Beleg</dt><dd data-en="Free">Kostenlos</dd></div><div><dt data-en="Mint network & contract">Mint-Netzwerk & Vertrag</dt><dd data-en="Not configured">Nicht eingerichtet</dd></div><div><dt data-en="Project & network fees">Projekt- & Netzwerkgebühr</dt><dd data-en="Not configured">Nicht eingerichtet</dd></div></dl>
+          <p class="field-note" data-en="A future mint needs a chosen network, a reviewed contract, an explicit project fee and your wallet confirmation. Each network has its own record; connecting does not create a cross-chain mint.">Ein späterer Mint benötigt ein gewähltes Netzwerk, einen geprüften Vertrag, eine ausgewiesene Projektgebühr und deine Walletbestätigung. Jedes Netzwerk führt seinen eigenen Record; Verbinden erzeugt keinen chainübergreifenden Mint.</p>
+        </section>
+      </aside>
+    </div>
+    <noscript><p>Für lokale Hashes und die Walletauswahl wird JavaScript benötigt. / JavaScript is required for local hashes and wallet selection.</p></noscript>
+  </main>
+  <footer class="room-footer"><div class="footer-signature"><span aria-hidden="true">♡</span><p><strong>HALVETH</strong><span data-en="Leave a trace. Keep the choice.">Eine Spur hinterlassen. Die Wahl behalten.</span></p></div><div class="footer-links"><a href="../room/" data-en="Room of traces">Raum der Spuren</a><a href="https://github.com/Juri-Halveth/halveth-scarlet" target="_blank" rel="noopener noreferrer" data-en="View source ↗">Quellcode ansehen ↗</a></div></footer>
+</body>
+</html>

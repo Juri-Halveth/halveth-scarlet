@@ -1,0 +1,15 @@
+{
+  "schema": "halveth.snapshot.configuration.v1",
+  "releaseMode": "LOCAL_RECEIPT_READ_ONLY_WALLET",
+  "sourceFile": { "maxBytes": 10485760, "upload": false, "includeFilename": false },
+  "wallet": {
+    "family": "EVM",
+    "discovery": "EIP-6963_WITH_LEGACY_FALLBACK",
+    "allowedMethods": ["eth_requestAccounts", "eth_chainId"],
+    "persistAddress": false,
+    "signingEnabled": false,
+    "transactionEnabled": false
+  },
+  "mint": { "enabled": false, "chainId": null, "contract": null, "projectFee": null, "feeRecipient": null, "storagePolicy": null },
+  "configurationRole": "RELEASE_DESCRIPTION_NOT_RUNTIME_TRANSACTION_SWITCH"
+}

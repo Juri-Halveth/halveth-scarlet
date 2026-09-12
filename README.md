@@ -96,7 +96,7 @@ Scroll, pinch, +/- or keyboard +/- zoom the globe from 1x to 4x. Home resets the
 - [Participation and attribution](CONTRIBUTIONS.md)
 - [Off-chain source/hash manifest](assets/anchor-manifest.json)
 
-Blockchain buttons are reference links. No wallet connection, signature, transaction or mint is performed. Private source files and private names are not included in this public release.
+The Earth page's blockchain buttons are reference links and do not connect a wallet or perform a signature, transaction or mint. The separate Snapshot studio below offers an optional read-only wallet association. Private source files and private names are not included in this public release.
 
 ## Bitcoin-Transaktionsfluss / Bitcoin transaction flow
 
@@ -118,3 +118,26 @@ Rollen und Absichten sind freiwillige Selbstauskünfte. Die Seite identifiziert 
 The optional welcoming gesture opens a bilingual room, with a direct entry available. Visitors prepare a voluntary statement locally, review it, copy it and publish it under their GitHub account. Its SHA-256 hashes the included UTF-8 JSON record; the timestamp comes from the visitor's device. Form changes invalidate older drafts. In-room language switching preserves entered text and the exact draft/hash. The room does not automatically save or transmit form data.
 
 On request, the page reads up to 100 public comments from issue #1 without tokens or cookies. Comments remain plain text, with source links, account names and comment times. Previews over 5,000 characters are visibly shortened; further entries are available on GitHub. Roles and intentions are self-declarations, not verified identities or observed code use. There is no visitor fingerprinting, wallet access or financial action. Discord is not connected yet.
+# Snapshot-Studio / Snapshot studio
+
+[Deutsch](https://juri-halveth.github.io/halveth-scarlet/snapshot/?lang=de) · [English](https://juri-halveth.github.io/halveth-scarlet/snapshot/?lang=en)
+
+Das Studio erstellt einen **lokalen, nicht geminteten Beleg** für eine ausdrücklich gewählte Datei bis 10 MiB. Es berechnet SHA-256 der unveränderten Bytes und separat des festen JSON-Records. Dieser enthält Bytezahl, deklarierten MIME-Typ, optionale Bezeichnung, Gerätezeit, zufällige 32-Byte-Nonce und optional eine Walletzuordnung. Dateiname und Dateibytes werden nicht exportiert. Bewahre die Originaldatei separat auf.
+
+The studio creates a **local, unminted receipt** for an explicitly selected file up to 10 MiB. It hashes unchanged bytes with SHA-256 and separately hashes the fixed JSON record. The record includes byte count, declared MIME type, optional label, device time, a random 32-byte nonce and an optional wallet association. The filename and file bytes are not exported. Retain the original file separately.
+
+Wallets: freiwillige EVM-Browserwallet-Auswahl über EIP-6963, mit `window.ethereum` als Fallback. Erst **Verbinden** ruft `eth_requestAccounts`, danach `eth_chainId` auf. Es gibt keine Signatur, Transaktion, Tokenfreigabe, automatische Verbindung, Bestandsabfrage oder persistierte Adresse. Anbietername und Konto sind Providerangaben, keine Authentisierung. Konto-, Netzwerk-, Datei- oder Labelwechsel verwerfen den vorbereiteten Beleg; Sprachwechsel erhält ihn. Trennen betrifft die Seitenzuordnung, nicht die Berechtigungsverwaltung der Erweiterung.
+
+Wallets: optional EVM browser wallet selection through EIP-6963, with a `window.ethereum` fallback. Only **Connect** calls `eth_requestAccounts`, followed by `eth_chainId`. There is no signature, transaction, token approval, automatic connection, balance query or persisted address. Provider names and accounts are declarations, not authentication. Account, network, file or label changes invalidate the prepared receipt; language changes preserve it. Disconnect clears the page association, not the extension's permission grants.
+
+Der Download enthält `canonicalRecord`: SHA-256 seiner exakten UTF-8-Bytes muss `recordSha256` ergeben. `sourceSha256` wird getrennt an der Originaldatei geprüft. Status: `LOCAL_SNAPSHOT_NOT_MINTED`. Hashes allein beweisen keine Urheberschaft, Nutzungsrechte oder unabhängige Entstehungszeit. Wer einen Beleg teilt, teilt auch seine freiwillig eingetragene Bezeichnung und gegebenenfalls Walletadresse.
+
+The download includes `canonicalRecord`: SHA-256 of its exact UTF-8 bytes must equal `recordSha256`. Verify `sourceSha256` separately against the original file. Status: `LOCAL_SNAPSHOT_NOT_MINTED`. Hashes alone prove neither authorship, usage rights nor an independent creation time. Sharing a receipt also shares its optional label and wallet address.
+
+**Mint-Stufe offen / Mint stage pending:** Netzwerk, geprüfter Contract, Projektgebühr, bestätigter Empfänger und Speichervertrag sind noch nicht eingerichtet. `assets/snapshot-config.json` beschreibt den Release; es ist kein Schalter zum Aktivieren einer Zahlung. Diese Version enthält keine Mintfunktion. Ein späterer Mint braucht die gesonderte Bestätigung in der eigenen Wallet. Eine Projektgebühr bezieht sich ausschließlich auf den bestätigten Projektvorgang. Sie zieht keine Gebühren fremder Transaktionen ein.
+
+Network, reviewed contract, project fee, confirmed recipient and storage policy are not configured. `assets/snapshot-config.json` describes this release; it cannot enable a payment. This version contains no mint function. A future mint requires confirmation in the visitor's wallet. A project fee applies only to the confirmed project action; it does not intercept fees from unrelated transactions.
+
+Standards: [EIP-6963](https://eips.ethereum.org/EIPS/eip-6963), [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193), [ERC-721](https://eips.ethereum.org/EIPS/eip-721). Data availability needs a separate retention plan; see [IPFS pinning](https://docs.ipfs.tech/how-to/pin-files/). Project fees and [network gas fees](https://ethereum.org/developers/docs/gas/) are separate amounts. A Bitcoin recipient cannot fill an EVM address parameter.
+
+---
