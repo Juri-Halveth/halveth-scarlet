@@ -1,0 +1,37 @@
+{
+  "type": "PUBLIC_REFERENCE_SNAPSHOT",
+  "sourcesCheckedAt": "2026-09-12T10:21:42Z",
+  "news": [
+    {
+      "publisher": "NASA Science",
+      "date": "2026-09-10",
+      "title": "After Latest Swing Past Sun, NASA’s Parker Solar Probe Checks in",
+      "summary": "Parker hat seinen 29. nahen Sonnenvorbeiflug abgeschlossen. NASA meldet ein Statussignal; die Übertragung wissenschaftlicher Daten ist für den 13.–27. September vorgesehen.",
+      "url": "https://science.nasa.gov/blogs/parker-solar-probe/2026/09/10/after-latest-swing-past-sun-nasas-parker-solar-probe-checks-in/"
+    },
+    {
+      "publisher": "NASA / IBM",
+      "date": "2026-09-10",
+      "title": "NASA, IBM Launch AI Foundation Model for Lunar Science",
+      "summary": "NASA stellt ein gemeinsam mit IBM entwickeltes KI-Modell für Mondforschung vor – unter anderem für Krater, vulkanische Strukturen und mögliche Eisstabilität.",
+      "url": "https://science.nasa.gov/science-research/artificial-intelligence-lunar-foundation-model/"
+    },
+    {
+      "publisher": "GitHub Changelog",
+      "date": "2026-09-10",
+      "title": "Refreshed repository pull requests page in public preview",
+      "summary": "GitHub testet eine überarbeitete Pull-Request-Übersicht mit erweiterten Filtern, Suchfunktionen und kompakter Darstellung.",
+      "url": "https://github.blog/changelog/2026-09-10-refreshed-repository-pull-requests-page-in-public-preview/"
+    }
+  ],
+  "block": {
+    "network": "Bitcoin mainnet",
+    "publisher": "mempool.space",
+    "observedAt": "2026-09-12T10:20:58.3549441Z",
+    "height": 966659,
+    "hash": "00000000000000000001cb1bd4f75e08e53125bdd348712de7e980b998eabb54",
+    "blockTimeUtc": "2026-09-12T09:58:59Z",
+    "url": "https://mempool.space/block/00000000000000000001cb1bd4f75e08e53125bdd348712de7e980b998eabb54"
+  },
+  "relationships": "Public source links and a read-only block reference. No partnership, endorsement, on-chain transaction or Internet traffic routing is claimed."
+}
