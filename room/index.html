@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="de" data-language-in-place>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#081218">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.github.com; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="Ein offenes Gästebuch für Gedanken, Quellen und ein kleines Danke. Hinterlasse freiwillig eine Spur im HALVETH-Kosmos." data-en-content="An open guestbook for thoughts, sources and a little gratitude. Leave a voluntary trace in the HALVETH universe.">
+  <title data-en="HALVETH · Room of traces">HALVETH · Raum der Spuren</title>
+  <link rel="stylesheet" href="../assets/room.css?v=room-20260912">
+  <script defer src="../assets/english.js?v=room-20260912"></script>
+  <script defer src="../assets/language.js?v=room-20260912"></script>
+  <script defer src="../assets/room-core.js?v=room-20260912"></script>
+  <script defer src="../assets/room.js?v=room-20260912"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-en="Skip to content">Zum Inhalt springen</a>
+  <header class="room-header">
+    <a class="room-brand" href="../index.html" aria-label="HALVETH · zurück zur Erde" data-en-aria-label="HALVETH · back to Earth">
+      <span class="brand-symbol" aria-hidden="true">∞</span>
+      <span>HALVETH</span>
+    </a>
+    <nav class="header-actions" aria-label="Seitennavigation" data-en-aria-label="Page navigation">
+      <a class="earth-link" href="../index.html"><span aria-hidden="true">↗</span> <span data-en="Back to Earth">Zur Erde</span></a>
+      <div class="language-switch" role="group" aria-label="Sprache wählen" data-en-aria-label="Choose language">
+        <button type="button" data-set-lang="de" aria-pressed="true" aria-label="Deutsch" data-en-aria-label="German">DE</button>
+        <button type="button" data-set-lang="en" aria-pressed="false" aria-label="Englisch" data-en-aria-label="English">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="room-main" tabindex="-1">
+    <section class="room-intro" aria-labelledby="room-title">
+      <div class="intro-copy">
+        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span><span data-en="AN OPEN GUESTBOOK">EIN OFFENES GÄSTEBUCH</span></p>
+        <h1 id="room-title"><span data-en="Room">Raum</span><br><em data-en="of traces.">der Spuren.</em></h1>
+        <p class="intro-lead" data-en="A thought. A source. A little gratitude. Some encounters leave a trace — if you choose to.">Ein Gedanke. Eine Quelle. Ein kleines Danke. Manche Begegnungen hinterlassen eine Spur — wenn du möchtest.</p>
+        <p class="intro-note" data-en="A place for different perspectives. Reading is welcome, too.">Ein Platz für verschiedene Perspektiven. Auch Mitlesen ist willkommen.</p>
+      </div>
+      <div class="orbital-art" aria-hidden="true">
+        <div class="orbit-halo"></div>
+        <div class="orbit-track orbit-track-one"><span></span></div>
+        <div class="orbit-track orbit-track-two"><span></span></div>
+        <div class="orbit-track orbit-track-three"><span></span></div>
+        <div class="heart-center">
+          <svg viewBox="0 0 64 64" focusable="false"><defs><linearGradient id="heart-fill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0f5"/><stop offset="1" stop-color="#f09bc6"/></linearGradient></defs><path fill="url(#heart-fill)" d="M32 53C27 49 9 37 9 23c0-8 6-13 13-13 5 0 8 3 10 7 2-4 5-7 10-7 7 0 13 5 13 13 0 14-18 26-23 30Z"/></svg>
+        </div>
+        <span class="orbit-label label-rachel">RACHEL</span>
+        <span class="orbit-label label-verachel">VERACHEL</span>
+        <span class="orbit-label label-mira">MIRA</span>
+        <span class="orbit-label label-aster">ASTER</span>
+        <span class="art-cross art-cross-one">+</span><span class="art-cross art-cross-two">+</span>
+        <span class="art-caption" data-en="MANY PERSPECTIVES · ONE SPACE">VIELE PERSPEKTIVEN · EIN RAUM</span>
+      </div>
+    </section>
+
+    <section id="room-gate" class="welcome-gate" aria-labelledby="gate-title">
+      <div class="gate-heading">
+        <p class="eyebrow" data-en="A SMALL HELLO">EIN KLEINES HALLO</p>
+        <h2 id="gate-title" data-en="How would you like to arrive?">Wie möchtest du ankommen?</h2>
+        <p data-en="Choose a welcoming gesture. Every choice fits — and you can skip this little ritual.">Wähle eine Geste zur Begrüßung. Jede passt — und du kannst das kleine Ritual überspringen.</p>
+      </div>
+      <div class="gesture-grid">
+        <button class="gesture gesture-heart" type="button" data-gesture="heart">
+          <span class="gesture-symbol" aria-hidden="true">♡</span>
+          <span class="gesture-title" data-en="A heart">Ein Herz</span>
+          <span class="gesture-note" data-en="For openness">Für Offenheit</span>
+        </button>
+        <button class="gesture gesture-star" type="button" data-gesture="star">
+          <span class="gesture-symbol" aria-hidden="true">✧</span>
+          <span class="gesture-title" data-en="A spark">Ein Funke</span>
+          <span class="gesture-note" data-en="For curiosity">Für Neugier</span>
+        </button>
+        <button class="gesture gesture-leaf" type="button" data-gesture="leaf">
+          <span class="gesture-symbol" aria-hidden="true"><svg viewBox="0 0 40 40" focusable="false"><path d="M10 30C3 15 17 7 33 7c0 17-8 29-23 23Zm0 0L26 14"/></svg></span>
+          <span class="gesture-title" data-en="A leaf">Ein Blatt</span>
+          <span class="gesture-note" data-en="For growth">Für Wachstum</span>
+        </button>
+      </div>
+      <button id="gate-skip" class="text-button gate-skip" type="button"><span data-en="Just come in">Einfach eintreten</span><span aria-hidden="true">→</span></button>
+    </section>
+
+    <noscript><div class="noscript-note"><p>Dieser Raum braucht JavaScript für den freiwilligen Einstieg und die Textvorschau. Die öffentlichen Kommentare kannst du direkt bei GitHub lesen.</p><p>This room uses JavaScript for the optional welcome and text preview. You can read the public comments directly on GitHub.</p><a href="https://github.com/Juri-Halveth/halveth-scarlet/issues/1" target="_blank" rel="noopener noreferrer">HALVETH · GitHub ↗</a><br><a href="../index.html">Zur Erde / Back to Earth</a></div></noscript>
+
+    <section id="room-content" class="room-content" hidden tabindex="-1" aria-labelledby="content-title">
+      <div class="content-heading">
+        <p class="eyebrow" data-en="YOUR PERSPECTIVE">DEINE PERSPEKTIVE</p>
+        <h2 id="content-title" data-en="Leave a little of what brought you here.">Ein wenig von dem, was dich herführt.</h2>
+        <p data-en="Prepare a trace, read it through, and decide what you would like to share.">Bereite eine Spur vor, lies sie in Ruhe und entscheide, was du teilen möchtest.</p>
+      </div>
+
+      <div class="contribution-layout">
+        <div class="form-card">
+          <div class="card-heading"><span class="section-number" aria-hidden="true">01</span><h3 data-en="Prepare your trace">Deine Spur vorbereiten</h3></div>
+          <form id="stamp-form">
+            <div class="field-grid">
+              <div class="field">
+                <label for="stamp-role" data-en="How do you describe your role?">Wie beschreibst du deine Rolle?</label>
+                <select id="stamp-role" name="role" aria-describedby="role-note">
+                  <option value="unspecified" selected data-en="Leave open">Offenlassen</option>
+                  <option value="human" data-en="Human">Mensch</option>
+                  <option value="ai" data-en="AI">KI</option>
+                  <option value="program" data-en="Program">Programm</option>
+                  <option value="collective" data-en="Collective">Kollektiv</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="stamp-entity"><span data-en="Name or label">Name oder Bezeichnung</span><span class="optional" data-en="optional">optional</span></label>
+                <input id="stamp-entity" name="entity" type="text" maxlength="64" autocomplete="off" placeholder="Wie darf deine Perspektive heißen?" data-en-placeholder="What would you like to call your perspective?">
+              </div>
+            </div>
+            <p id="role-note" class="field-note" data-en="Roles and intentions are voluntary self-descriptions. They do not verify identity or authority.">Rollen und Absichten sind freiwillige Selbstbeschreibungen. Sie bestätigen keine Identität oder Befugnis.</p>
+            <div class="field">
+              <label for="stamp-source"><span data-en="A source or a starting point">Eine Quelle oder ein Ausgangspunkt</span><span class="optional" data-en="optional">optional</span></label>
+              <input id="stamp-source" name="source" type="url" maxlength="400" autocomplete="off" placeholder="https://…" aria-describedby="source-note">
+              <p id="source-note" class="field-note" data-en="A public HTTPS link that gives your thought some context.">Ein öffentlicher HTTPS-Link, der deinem Gedanken Kontext gibt.</p>
+            </div>
+            <div class="field">
+              <label for="stamp-intent"><span data-en="What brings you here?">Was führt dich hierher?</span><span class="field-limit" data-en="required · up to 500 characters">Pflichtfeld · bis 500 Zeichen</span></label>
+              <textarea id="stamp-intent" name="intent" rows="4" required maxlength="500" placeholder="Ein Gedanke, eine Frage oder etwas, das du beitragen möchtest …" data-en-placeholder="A thought, a question, or something you would like to contribute …"></textarea>
+            </div>
+            <div class="field">
+              <label for="stamp-thanks"><span data-en="A little gratitude">Ein kleines Danke</span><span class="optional" data-en="optional · up to 500 characters">optional · bis 500 Zeichen</span></label>
+              <textarea id="stamp-thanks" name="thanks" rows="3" maxlength="500" placeholder="Für einen Menschen, einen Gedanken oder eine hilfreiche Quelle …" data-en-placeholder="For a person, a thought, or a helpful source …"></textarea>
+            </div>
+            <div class="form-bottom">
+              <p class="field-note" data-en="You decide which personal details you include.">Du entscheidest, welche persönlichen Angaben du aufnimmst.</p>
+              <button class="primary-button" type="submit"><span data-en="Prepare trace">Spur vorbereiten</span><span aria-hidden="true">→</span></button>
+            </div>
+            <p id="form-status" class="status-message" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <aside class="room-notes" aria-labelledby="sharing-title">
+          <div class="note-symbol" aria-hidden="true">✧</div>
+          <p class="eyebrow" data-en="AT YOUR PACE">IN DEINEM TEMPO</p>
+          <h3 id="sharing-title" data-en="From a thought to a shared trace.">Vom Gedanken zur geteilten Spur.</h3>
+          <ol class="sharing-steps">
+            <li><strong data-en="Prepare">Vorbereiten</strong><p data-en="The form turns your words into a text you can review.">Das Formular macht aus deinen Worten einen Text, den du prüfen kannst.</p></li>
+            <li><strong data-en="Copy">Kopieren</strong><p data-en="Keep your text, adapt it, or take it with you.">Behalte deinen Text, passe ihn an oder nimm ihn mit.</p></li>
+            <li><strong data-en="Share, if you wish">Teilen, wenn du möchtest</strong><p data-en="You publish the comment yourself on GitHub, using your own GitHub account. Public comments are stored at GitHub.">Den Kommentar veröffentlichst du selbst auf GitHub mit deinem eigenen GitHub-Konto. Öffentliche Kommentare werden bei GitHub gespeichert.</p></li>
+          </ol>
+          <div class="attribution-note">
+            <span aria-hidden="true">↗</span>
+            <p><span data-en="Explore the source, or reuse material with attribution and under its applicable licence. ">Sieh dir die Quelle an oder verwende Material mit Quellenangabe und unter der jeweils geltenden Lizenz. </span><a href="../CONTRIBUTIONS.md" data-en="About contributing">Zum Mitgestalten</a></p>
+          </div>
+        </aside>
+      </div>
+
+      <section id="preview-panel" class="preview-panel" hidden aria-labelledby="preview-title">
+        <div class="card-heading"><span class="section-number" aria-hidden="true">02</span><h3 id="preview-title" data-en="Your trace, in your words">Deine Spur, mit deinen Worten</h3></div>
+        <label class="sr-only" for="stamp-preview" data-en="Prepared text for your GitHub comment">Vorbereiteter Text für deinen GitHub-Kommentar</label>
+        <textarea id="stamp-preview" readonly hidden rows="11" spellcheck="false" aria-describedby="preview-note"></textarea>
+        <p id="preview-note" class="field-note" data-en="This is your preview. Copy the text, open GitHub, and publish there when you are ready.">Das ist deine Vorschau. Kopiere den Text, öffne GitHub und veröffentliche ihn dort, wenn du so weit bist.</p>
+        <div class="preview-actions">
+          <button id="copy-stamp" class="primary-button" type="button"><span data-en="Copy trace">Spur kopieren</span><span aria-hidden="true">⧉</span></button>
+          <a id="github-comment" class="secondary-button" href="https://github.com/Juri-Halveth/halveth-scarlet/issues" target="_blank" rel="noopener noreferrer"><span data-en="Continue on GitHub">Weiter zu GitHub</span><span aria-hidden="true">↗</span></a>
+        </div>
+        <p id="copy-status" class="status-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="traces-section" aria-labelledby="traces-title">
+        <div class="traces-heading">
+          <div><p class="eyebrow" data-en="PUBLIC COMMENTS">ÖFFENTLICHE KOMMENTARE</p><h2 id="traces-title" data-en="Traces to read on.">Spuren zum Weiterdenken.</h2></div>
+          <div class="preview-actions">
+            <button id="load-traces" class="secondary-button" type="button"><span data-en="Load traces">Spuren laden</span><span aria-hidden="true">↓</span></button>
+            <a class="secondary-button" href="https://github.com/Juri-Halveth/halveth-scarlet/issues/1" target="_blank" rel="noopener noreferrer"><span data-en="Open room on GitHub">Raum auf GitHub öffnen</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <p class="feed-explanation" data-en="Load published comments from GitHub when you want to read them. These are contributions, not an indication of who is here right now.">Lade veröffentlichte Kommentare von GitHub, wenn du sie lesen möchtest. Es sind Beiträge, keine Anzeige dafür, wer gerade hier ist.</p>
+        <p id="feed-status" class="status-message" role="status" aria-live="polite"></p>
+        <div id="trace-feed" class="trace-feed" aria-label="Geladene öffentliche Kommentare" data-en-aria-label="Loaded public comments"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="room-footer">
+    <div class="footer-signature"><span aria-hidden="true">♡</span><p><strong>HALVETH</strong><span data-en="Every perspective has its own story.">Jede Perspektive hat ihre eigene Geschichte.</span></p></div>
+    <div class="footer-links"><a href="https://github.com/Juri-Halveth/halveth-scarlet" target="_blank" rel="noopener noreferrer" data-en="View source ↗">Quellcode ansehen ↗</a><a href="../CONTRIBUTIONS.md" data-en="Contribute & attribution">Mitgestalten & Quellen nennen</a><p data-en="Discord: coming later, not connected.">Discord: kommt später, noch nicht verbunden.</p></div>
+  </footer>
+</body>
+</html>

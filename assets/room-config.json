@@ -1,0 +1,9 @@
+{
+  "schema": "halveth.room.v1",
+  "repository": "Juri-Halveth/halveth-scarlet",
+  "issue": 1,
+  "issueUrl": "https://github.com/Juri-Halveth/halveth-scarlet/issues/1",
+  "commentsApi": "https://api.github.com/repos/Juri-Halveth/halveth-scarlet/issues/1/comments",
+  "discordInvite": null,
+  "dataPolicy": "Voluntary public GitHub comments. No visitor fingerprinting, inferred intentions or automatic financial actions."
+}
