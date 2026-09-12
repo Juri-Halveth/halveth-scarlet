@@ -133,7 +133,7 @@ function satelliteSource(){
   const label=document.querySelector('#earth-source'),credit=document.querySelector('#earth-credit');credit.textContent=zoom>1.15&&satelliteState==='ready'?'ERDE · NASA MODIS / GIBS':'ERDE · NASA BLUE MARBLE';credit.href=zoom>1.15&&satelliteState==='ready'?'https://nasa-gibs.github.io/gibs-api-docs/access-basics/':'https://science.nasa.gov/earth/earth-observatory/';
   if(zoom<=1.15){setTexture(textureImage);scene.dataset.imageSource='blue-marble';label.textContent='NASA Blue Marble · Basisbild';label.href='https://science.nasa.gov/earth/earth-observatory/';return;}
   if(satelliteState==='ready'){setTexture(satelliteImage);scene.dataset.imageSource='nasa-gibs';label.textContent='NASA MODIS · angefragter Bildtag '+satelliteKey+' · zeitversetzt';label.href=satelliteImage.src;}
-  else{setTexture(textureImage);scene.dataset.imageSource='blue-marble';label.textContent=satelliteState==='loading'?'NASA-Tagesbild lädt · Blue Marble sichtbar':'NASA-Tagesbild nicht verfügbar · Blue Marble sichtbar';label.href='https://nasa-gibs.github.io/gibs-api-docs/access-basics/';}
+  else{setTexture(textureImage);scene.dataset.imageSource='blue-marble';label.textContent=(satelliteState==='loading'?'NASA-Tagesbild lädt':'NASA-Tagesbild nicht verfügbar')+' · angefragter Bildtag '+satelliteKey+' · Blue Marble sichtbar';label.href='https://nasa-gibs.github.io/gibs-api-docs/access-basics/';}
 }
 function requestSatellite(){
   const now=Date.now(),day=new Date(now-86400000).toISOString().slice(0,10);

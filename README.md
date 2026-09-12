@@ -34,7 +34,7 @@ Eigenständiges Fanprojekt von HALVETH, keine offizielle Marvel- oder NASA-Verö
 
 ## Öffentliche Bezugspunkte
 
-[assets/public-sources.json](assets/public-sources.json) enthält die drei Quellenmeldungen mit Herausgebern, Datum und URLs sowie Bitcoin-Block **966663** mit Hash und Abrufzeit. Diese Daten wurden lesend über öffentliche Quellen beschafft. Der Blockverweis ist keine Blockchain-Transaktion oder On-Chain-Verankerung der Website. Quellenlinks begründen keine Zusammenarbeit, Unterstützung oder Kontrolle über die genannten Organisationen.
+[assets/public-sources.json](assets/public-sources.json) enthält die drei Quellenmeldungen mit Herausgebern, Datum und URLs sowie Bitcoin-Block **966659** mit Hash und Abrufzeit. Diese Daten wurden lesend über öffentliche Quellen beschafft. Der Blockverweis ist keine Blockchain-Transaktion oder On-Chain-Verankerung der Website. Quellenlinks begründen keine Zusammenarbeit, Unterstützung oder Kontrolle über die genannten Organisationen.
 
 Beim Sommerzeitwechsel folgt der Ereignistermin weiterhin 03:00 Uhr in Berlin. Der Countdown beginnt eine echte Stunde vorher: im Frühjahr bereits um 01:00 Uhr Ortszeit, im Herbst in der zweiten 02:00-Stunde. Der tägliche Ring folgt dagegen wie bisher der Zivilzeit. Events laufen bei sichtbarer, aktiver Seite; verpasste Ereignisse werden nach dem Finale nicht nachgeholt.
 
