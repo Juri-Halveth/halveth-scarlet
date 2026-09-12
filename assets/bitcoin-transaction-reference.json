@@ -1,0 +1,83 @@
+{
+  "schema": "halveth.public-transaction-reference.v1",
+  "dataClass": "PUBLIC",
+  "publisher": "HALVETH",
+  "purpose": "A dated educational transaction-flow reference for future source-bound analysis",
+  "network": "bitcoin-mainnet",
+  "txid": "f11368d4607b0a751b2583af37f95312ce159b5042eb2d7154d257e0a66a6ae2",
+  "source": "https://mempool.space/tx/f11368d4607b0a751b2583af37f95312ce159b5042eb2d7154d257e0a66a6ae2",
+  "uiObservation": {
+    "observedAt": "2026-09-12T12:21:26Z",
+    "timeBasis": "Observer UTC clock; not transaction creation or block time",
+    "method": "Read-only rendered DOM in Chrome; displayed amounts transcribed to integer satoshis",
+    "state": "EXPLORER_UI_OBSERVED",
+    "statusText": "Entfernt",
+    "statusEnglish": "Removed",
+    "firstSeenText": "Vor 3 Stunden",
+    "firstSeenExact": null,
+    "backendLabel": "node205.fra.mempool.space (v3.4-dev)",
+    "sourceCommitShown": "954275f7",
+    "inputValuesSats": [13708],
+    "outputs": [
+      {"index": 0, "valueSats": 13428, "kind": "OUTPUT", "recipientIdentity": null},
+      {"index": 1, "valueSats": 0, "kind": "OP_RETURN", "decodedLabel": "Runestone", "expandedText": "Mint 1 ⧉ UNCOMMON•GOODS"}
+    ],
+    "feeSats": 280,
+    "sizeBytes": 221,
+    "weightWU": 557,
+    "fractionalVirtualSizeDisplayed": 139.25,
+    "feeRateDisplayedSatPerVB": 2.01,
+    "version": 2,
+    "locktime": 0,
+    "featuresPresent": ["SegWit", "RBF", "OP_RETURN"],
+    "featuresStruckThrough": ["Taproot"],
+    "rbfTimelineDisplayed": [
+      {"txid": "0eb77cedfe0097f569641896dbd5a6df7e97a0bc280691bd2f23c2acf2bf05a0", "feeRateDisplayedSatPerVB": 1.43},
+      {"txid": "7e26dcc5dad3d57c7c1ccbd415bab4b52a6ad2018531a21928a4f0b812831a25", "feeRateDisplayedSatPerVB": 1.64},
+      {"txid": "cac5f6977e18a64f2ba9aaf546f097b514866477043b1ef708ffb0d40cb99523", "feeRateDisplayedSatPerVB": 1.86},
+      {"txid": "f11368d4607b0a751b2583af37f95312ce159b5042eb2d7154d257e0a66a6ae2", "feeRateDisplayedSatPerVB": 2.01}
+    ]
+  },
+  "apiObservation": {
+    "observedAt": "2026-09-12T12:18:04.8257926Z",
+    "method": "Unauthenticated public HTTP GET",
+    "url": "https://mempool.space/api/tx/f11368d4607b0a751b2583af37f95312ce159b5042eb2d7154d257e0a66a6ae2",
+    "httpStatus": 404,
+    "body": "Transaction not found",
+    "state": "NO_TRANSACTION_RETURNED_BY_THIS_ENDPOINT",
+    "amountsIndependentlyVerified": false
+  },
+  "derivedFromDisplayedValues": {
+    "inputSumSats": 13708,
+    "outputSumSats": 13428,
+    "differenceSats": 280,
+    "matchesDisplayedFee": true,
+    "bip141VirtualSizeVB": 140,
+    "bip141FeeRateSatPerVB": 2,
+    "formula": "vsize = ceil(weight / 4); fee rate = fee / vsize",
+    "claim": "Arithmetic consistency of UI-transcribed values, not raw-transaction or inclusion verification"
+  },
+  "inclusion": {
+    "state": "NOT_VERIFIED",
+    "blockHash": null,
+    "blockHeight": null,
+    "confirmations": null,
+    "removalCause": null,
+    "currentReplacement": null
+  },
+  "actionScope": "Actions performed during this HALVETH website update only; not the historical actions of the unknown transaction creator",
+  "actions": {"walletConnected": false, "signed": false, "broadcast": false, "mintExecuted": false},
+  "scopeLimits": [
+    "This is a fixed public source snapshot, not a live feed.",
+    "UI and REST API observations retain their own times and outcomes.",
+    "A displayed Runestone mint field does not establish a successfully executed mint.",
+    "No address history, person or wallet ownership is inferred.",
+    "The website is not anchored in this transaction; the earlier block reference is a separate object."
+  ],
+  "reopenTrigger": "A fresh response for this exact txid or a source-bound block inclusion or replacement record",
+  "technicalSources": [
+    "https://github.com/Blockstream/esplora/blob/master/API.md#transactions",
+    "https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki#transaction-size-calculations",
+    "https://github.com/mempool/mempool/blob/760fa65755477f9ec01b829d39ea9accb525440e/backend/src/api/transaction-utils.ts#L101"
+  ]
+}

@@ -82,3 +82,9 @@ Scroll, pinch, +/- or keyboard +/- zoom the globe from 1x to 4x. Home resets the
 - [Off-chain source/hash manifest](assets/anchor-manifest.json)
 
 Blockchain buttons are reference links. No wallet connection, signature, transaction or mint is performed. Private source files and private names are not included in this public release.
+
+## Bitcoin-Transaktionsfluss / Bitcoin transaction flow
+
+„BTC · FLUSS“ öffnet die neue [zweisprachige Transaktionsansicht](forschung/transaktionsfluss/). Sie visualisiert einen vom Nutzer verlinkten öffentlichen mempool-Datensatz als festen Quellenstand vom 12.09.2026: 13.708 sats Input, 13.428 sats Output, 0 sats OP_RETURN und 280 sats ausgewiesene Gebühr. Die Oberfläche zeigte „Entfernt“; ein gesonderter öffentlicher API-Abruf lieferte HTTP 404. Beide Beobachtungen und ihre Zeitpunkte bleiben im [Datenbeleg](assets/bitcoin-transaction-reference.json) erhalten. Die Runestone-Anzeige „Mint 1 ⧉ UNCOMMON•GOODS“ ist eine dekodierte UI-Angabe, kein Nachweis eines erfolgreichen Mints. Die dargestellte RBF-Zeitleiste ist die Wiedergabe der Exploreransicht.
+
+The “BTC · FLUSS” link opens a bilingual, fixed transaction-flow example. Amounts are recorded as integer satoshis. The page distinguishes the observed explorer status, the separate API result, arithmetic consistency and unverified block inclusion. It also explains why the displayed fractional size (139.25 vB) differs from BIP141's rounded virtual size (140 vB). It performs no requests to wallets, signatures, transactions or mints. The example does not establish ownership or an on-chain anchor of this website.
