@@ -1,7 +1,7 @@
 {
   "schema": "halveth.reference-manifest.v1",
   "author": "HALVETH",
-  "recordedAt": "2026-09-12T12:44:07.090892+00:00",
+  "recordedAt": "2026-09-12T13:19:10.989705+00:00",
   "state": "OFF_CHAIN_REFERENCE",
   "scope": "This website and its published source references",
   "transaction": null,
@@ -120,13 +120,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 12646,
-      "sha256": "60d2c19272d052674b6db36d22d9dc686347973f6f3aa6eb199dfcc32f10b242"
+      "bytes": 14518,
+      "sha256": "37100a587d0a3705aca2246d4130dc5b95268518a0b6e3c31b0b4f4ffe596ab2"
     },
     {
       "path": "assets/bitcoin-transaction-reference.json",
       "bytes": 4077,
       "sha256": "5c850e9b616da875a7bdcf569fbca72bc989a18add536a641093362698d4f490"
+    },
+    {
+      "path": "assets/english.js",
+      "bytes": 14078,
+      "sha256": "7c0ef44c64b579c78c467ce451dd93a52377a571ef82c1aa94438d7cc83e18b0"
     },
     {
       "path": "assets/event-clock.js",
@@ -140,8 +145,13 @@
     },
     {
       "path": "assets/events.js",
-      "bytes": 7984,
-      "sha256": "28293da624b76ccff9a997e190ade1efb866d566fab05a37b5151d7cd79f5011"
+      "bytes": 8193,
+      "sha256": "c4bd47cb25e1335005771723751fe704b13ac4d581c7d558c786e31623a34574"
+    },
+    {
+      "path": "assets/language.js",
+      "bytes": 2730,
+      "sha256": "2481d1355b22e2a0f7e18205a9e4cb75cf9474dda9c592cfcc75cb43e522ff16"
     },
     {
       "path": "assets/public-sources.json",
@@ -150,8 +160,8 @@
     },
     {
       "path": "assets/reddit-tunnel.js",
-      "bytes": 2048,
-      "sha256": "cefe8d9b32187148149e86a0e483707f250d411f195b6755fd0f00186ba4b035"
+      "bytes": 2132,
+      "sha256": "7058b66cd633d5dc48ab8952e84bacaf06a5ec773bdcafddf85408560c5875ed"
     },
     {
       "path": "assets/scarlet-dual-state-v1.png",
@@ -165,28 +175,28 @@
     },
     {
       "path": "assets/universe-data.js",
-      "bytes": 30671,
-      "sha256": "78710048ed90f6270a1a1009bc0aae21f26a897b41bdcffd58b2722f52ce2c7a"
+      "bytes": 57308,
+      "sha256": "351451e694060639701d1e4a4f289b147c880073ab050b7beb0b487e27116727"
     },
     {
       "path": "assets/universe.css",
-      "bytes": 10091,
-      "sha256": "5dd109974b9e48a964c22f9e906456ec0cbb6fae927ef95a916c53d453d38965"
+      "bytes": 10887,
+      "sha256": "ae40c8bf1238d55fed00df9293f62d506c337c45315758fdad71a686b00c26bd"
     },
     {
       "path": "assets/universe.js",
-      "bytes": 3666,
-      "sha256": "3a6c7e5dc6f27df3bc0b731524c3fa7b13d706e93083475268e0515a0b28c8ea"
+      "bytes": 3939,
+      "sha256": "2fa787fffea93e36b7beb6d379f0993722cc8c1d37c45d119af24d005d239d5c"
     },
     {
       "path": "forschung/figuren-und-perspektiven/index.html",
-      "bytes": 21857,
-      "sha256": "b509ee6cc01abd7bea6bcd68d742f42519f07d0a2dbeaeed56ae346082801f53"
+      "bytes": 23349,
+      "sha256": "7405ab8cae2f04deec639e5e596ee486d767fe2cdaf5b710db1087bb82e14d17"
     },
     {
       "path": "forschung/formen-und-verbindungen/index.html",
-      "bytes": 11246,
-      "sha256": "1c66afadbee88d9a79e6148cbad9cbf0a6264c5252e6369abdda6b40c6ada22f"
+      "bytes": 21016,
+      "sha256": "301232044cc4b1493ecc78a2f41eebe5fecf7b5aee1d649fd84770b838eba77c"
     },
     {
       "path": "forschung/formen-und-verbindungen/motiv.png",
@@ -195,13 +205,13 @@
     },
     {
       "path": "forschung/transaktionsfluss/index.html",
-      "bytes": 29352,
-      "sha256": "7fe41582a79ba523c802bdbf7fcadcd11f6dc1f9ec72c7e71641dee0fe3f7ead"
+      "bytes": 30017,
+      "sha256": "f490eb93e293b2b1d52b9c5f83561f332a1a7f579bf0e138f6759ce9d6ae155d"
     },
     {
       "path": "index.html",
-      "bytes": 407899,
-      "sha256": "69b4814fc303343dca780b9c0eb2c4a30790f845356f462414362f35aeb984a9"
+      "bytes": 408505,
+      "sha256": "d5a63419a6f573e40631bf338844a95d396a17307e7000593d8af1e00e030cca"
     },
     {
       "path": "tests/event-clock.test.cjs",
@@ -210,8 +220,13 @@
     },
     {
       "path": "tests/event-flow.test.cjs",
-      "bytes": 6153,
-      "sha256": "e750ac07150f4849038eeb2e9265659849df67e386079860ce6673d1b6fdbbe1"
+      "bytes": 7170,
+      "sha256": "5dd9f64d172493b6b578f88a3e4d465e8ed28bd70b8da53445ec44584b268abb"
+    },
+    {
+      "path": "tests/language.test.cjs",
+      "bytes": 2889,
+      "sha256": "799980e671afb1ffe7a8d90b9e6f6802cb6c19b95f6fa537350f7e6dc2fbfe64"
     },
     {
       "path": "tests/reddit-tunnel.test.cjs",
@@ -220,11 +235,11 @@
     },
     {
       "path": "tests/satellite-loading.test.cjs",
-      "bytes": 6131,
-      "sha256": "36e52ea8b85e4dd22daea274567d41586257bbff3fab43fdacdb0b8b14715ee7"
+      "bytes": 6871,
+      "sha256": "2884c309b1b4f6bf94651c9a341cca0f7f6214765258426ba9805fbecbb7ea42"
     }
   ],
   "manifestSelfHash": "Excluded; see Git commit object for this file",
   "hashByteScope": "Git blob bytes from the source commit, before hosting transformations",
-  "sourceCommit": "13b22d216441632b7a4dc1412adad15b9239e1bb"
+  "sourceCommit": "50675c02f3a0a49e0a06fcb821b3f91e6bd71789"
 }
