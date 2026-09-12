@@ -1,4 +1,5 @@
 (()=>{'use strict';
+const L=window.HalvethLanguage||{t:value=>value,get:()=>'de',link:path=>path};
 const overlay=document.createElement('dialog');
 overlay.id='reddit-tunnel';
 overlay.className='reddit-tunnel';
@@ -7,7 +8,7 @@ const rings=document.createElement('div');rings.className='tunnel-rings';rings.s
 for(let i=0;i<5;i++)rings.append(document.createElement('i'));
 const heading=document.createElement('h2');heading.id='reddit-tunnel-title';
 const target=document.createElement('a');target.textContent='HALVETH · Reddit ↗';target.rel='noreferrer';
-const cancel=document.createElement('button');cancel.type='button';cancel.textContent='Hier bleiben';cancel.autofocus=true;
+const cancel=document.createElement('button');cancel.type='button';cancel.textContent=L.t('Hier bleiben');cancel.autofocus=true;
 overlay.append(rings,heading,target,cancel);document.body.append(overlay);
 let pending=null;
 function reset(){if(pending!==null)clearTimeout(pending);pending=null;if(overlay.open)overlay.close();}

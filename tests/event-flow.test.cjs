@@ -8,7 +8,9 @@ const sceneFunctions=['setPhase','celebrate','startPlay','gameTick','scheduleGam
   const line=html.split('\n').find(line=>line.startsWith('function '+name+'('));
   assert(line,'Missing scene function '+name);return line;
 }).join('\n');
-function harness(iso){
+const translationScope={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../assets/english.js'),'utf8'),translationScope);
+function harness(iso,language='de'){
+  const L={t:value=>language==='en'?(translationScope.window.HalvethEnglish[value]??value):value,get:()=>language};
   let now=Date.parse(iso),sequence=0;const pending=new Map(),audioStats={created:0,started:0},all=new Map();
   class Node{
     constructor(){this.listeners={};this.dataset={};this.children=[];this.style={setProperty(){}};this.checked=false;this.open=false;this.value='12';this.textContent='';this.attrs={};}
@@ -29,7 +31,7 @@ function harness(iso){
     createGain(){return {gain:{value:0,setValueAtTime(){},exponentialRampToValueAtTime(){},setTargetAtTime(){}},connect(){},disconnect(){}};}
     createOscillator(){return {frequency:{setValueAtTime(){}},connect(){},disconnect(){},start(){audioStats.started++;},stop(){this.onended?.();}};}
   }
-  const context=vm.createContext({document,Date:FakeDate,window:{AudioContext:Audio},HalvethEventClock:clock,matchMedia:()=>({matches:false}),console,CustomEvent:class{constructor(type,options={}){this.type=type;this.detail=options.detail;}},setTimeout:(fn,delay)=>{const id=++sequence;pending.set(id,{fn,at:now+delay});return id;},clearTimeout:id=>pending.delete(id)});
+  const context=vm.createContext({L,document,Date:FakeDate,window:{AudioContext:Audio,HalvethLanguage:L},HalvethEventClock:clock,matchMedia:()=>({matches:false}),console,CustomEvent:class{constructor(type,options={}){this.type=type;this.detail=options.detail;}},setTimeout:(fn,delay)=>{const id=++sequence;pending.set(id,{fn,at:now+delay});return id;},clearTimeout:id=>pending.delete(id)});
   vm.runInContext("const scene=document.querySelector('.scene'),post=document.querySelector('#halveth-post'),playSetting=document.querySelector('#play-setting'),status=document.querySelector('#status');let phase='calm',phaseDeadline=0,gameTimer=0,hearts=0;const width=1000,height=800,color=()=>{},burst=()=>{};\n"+sceneFunctions+"\nscene.addEventListener('halveth:play',e=>startPlay(e.detail.duration,e.detail.preview===true));document.querySelector('#love').addEventListener('click',()=>celebrate(true));",context);
   vm.runInContext(controller,context);
   function advance(ms){const goal=now+ms;for(let count=0;count<20000;count++){let next=null;for(const [id,value]of pending){if(value.at<=goal&&(!next||value.at<next.value.at))next={id,value};}if(!next){now=goal;return;}now=next.value.at;pending.delete(next.id);next.value.fn();}throw Error('Timer runaway');}
@@ -63,4 +65,17 @@ test('Sounds require opt-in and stop when the page becomes hidden',async()=>{
   assert.equal(h.audioStats.created,1);assert(h.audioStats.started>0);const count=h.audioStats.started;
   h.document.hidden=true;h.document.dispatchEvent({type:'visibilitychange'});h.advance(40000);assert.equal(h.audioStats.started,count);
   await h.node('#sound-toggle').click();assert.equal(h.node('#sound-toggle').getAttribute('aria-pressed'),'false');
+});
+
+test('English preview and heart recovery stay English without changing the event behaviour',async()=>{
+  const h=harness('2026-09-12T12:59:50Z','en');
+  assert.equal(h.node('#event-label').textContent,'1-HOUR GAME COUNTDOWN');
+  assert.equal(h.node('#sound-toggle').textContent,'♫ Sound off');
+  await h.node('#event-preview').click();
+  assert.equal(h.scene.dataset.phase,'mischief');
+  assert.equal(h.node('#moment-label').textContent,'GAME PREVIEW · SCARLET');
+  await h.node('#love').click();
+  assert.equal(h.node('#status').textContent,'Your heart has arrived. The scene is green.');
+  assert.equal(h.node('#heart-hint').textContent,'YOUR HEART IS HERE. THANK YOU. ♥');
+  assert.equal(h.audioStats.created,0);
 });

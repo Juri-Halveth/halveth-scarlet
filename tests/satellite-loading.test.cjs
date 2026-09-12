@@ -14,7 +14,8 @@ const functions=['setTexture','satelliteSource','requestSatellite'].map(name=>{
   return found[0];
 }).join('\n');
 
-function harness(iso='2026-09-12T23:59:58Z'){
+const translationScope={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../assets/english.js'),'utf8'),translationScope);
+function harness(iso='2026-09-12T23:59:58Z',language='de'){
   let now=Date.parse(iso),sequence=0;
   const pending=new Map(),images=[],label={textContent:'',href:''},credit={textContent:'',href:''};
   const scene={dataset:{}},textureImage={name:'embedded-blue-marble'};
@@ -30,6 +31,7 @@ function harness(iso='2026-09-12T23:59:58Z'){
     get src(){return this.url;}
   }
   const context=vm.createContext({
+    L:{t:value=>language==='en'?(translationScope.window.HalvethEnglish[value]??value):value,get:()=>language},
     Date:ClockDate,Image:ImageBoundary,URL,URLSearchParams,scene,textureImage,
     document:{querySelector(selector){
       assert(['#earth-source','#earth-credit'].includes(selector),'Unexpected DOM boundary '+selector);
@@ -63,6 +65,14 @@ function crossMidnight(h){
   assert.equal(new URL(newer.src).searchParams.get('TIME'),'2026-09-12');
   return {older,newer};
 }
+
+test('English loading and failure retain the requested date and visible fallback',()=>{
+  const h=harness('2026-09-12T23:59:58Z','en');h.request();
+  assert.equal(h.label.textContent,'Loading NASA daily imagery · requested image date 2026-09-11 · showing Blue Marble');
+  h.advance(15000);
+  assert.equal(h.label.textContent,'NASA daily imagery unavailable · requested image date 2026-09-11 · showing Blue Marble');
+  assert.equal(h.state().active,'blue-marble');
+});
 
 for(const event of ['load','error']){
   test('An old '+event+' across UTC midnight cannot replace the newer image or clear its timeout',()=>{

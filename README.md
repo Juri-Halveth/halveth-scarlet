@@ -4,6 +4,21 @@ Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer geme
 
 **Website:** https://juri-halveth.github.io/halveth-scarlet/
 
+**Direkt auf Englisch / Open in English:** https://juri-halveth.github.io/halveth-scarlet/?lang=en
+
+## Deutsch und Englisch / German and English
+
+Die Erde, alle 63 Gartenkarten und die drei Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern nur diese lokale Präferenz und laden die aktuelle Seite neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
+
+The Earth scene, all 63 garden cards and all three research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally and reload the current page. Source records and proper names retain their original form.
+
+- [Earth in English](https://juri-halveth.github.io/halveth-scarlet/?lang=en)
+- [Ego, Dormammu and the garden](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/?lang=en)
+- [Forms and connections](https://juri-halveth.github.io/halveth-scarlet/forschung/formen-und-verbindungen/?lang=en)
+- [Bitcoin transaction flow](https://juri-halveth.github.io/halveth-scarlet/forschung/transaktionsfluss/?lang=en)
+
+English coverage includes countdowns, game commentary, settings, accessibility labels, satellite loading and error states. Satellite and source dates keep their documented reference; switching the language does not refresh a source snapshot. The test suite also checks language precedence, internal links and complete card translations.
+
 ## Die Szene
 
 - Scarlet, Doctor Strange, Dormammu, Ultron, JARVIS, Iron Man, Loki, Vision, Black Widow, Thor, Infinity und HALVETH stehen als auswählbare SVG-Symbole um die Erde. Bezeichnungen und Tätigkeitswörter sind Gestaltungselemente dieses Fanprojekts, keine Aussage über eigenständig laufende Agenten.
@@ -71,7 +86,7 @@ Das Quellen-/Hashmanifest ist eine öffentliche Referenz außerhalb der Blockcha
 
 ## Garden, Reddit and Earth zoom
 
-24 additional bubbles and the twelve orbiting figures lead directly to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garten · Perspektiven” retains the searchable directory of 63 cards. No published post URL is configured; the full theory text is available on this site's bilingual article.
+24 additional bubbles and the twelve orbiting figures lead directly to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garden · Perspectives” retains the searchable directory of 63 cards. No published post URL is configured; the full theory text is available on this site's bilingual article.
 
 The transition lasts 720 ms, supports Escape/cancellation, and is skipped for reduced motion or paused animations. Modified clicks retain native browser behavior; returning from Reddit clears the transition. The website itself does not publish Reddit posts.
 

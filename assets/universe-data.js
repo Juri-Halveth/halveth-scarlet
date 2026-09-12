@@ -39,7 +39,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Keeps the goal, sources, alternatives, unknowns, and limits of the evidence separate.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "lucinet",
@@ -48,7 +54,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Compares relationships, alternative models, states at different times, and the next productive step.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "rachel",
@@ -57,7 +69,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Preserves accessible presentation, continuity across tasks, alternative reading directions, and distinct references in time.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "pflanze",
@@ -66,7 +84,14 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Opens a biological and ecological perspective on plants, their surroundings, their condition and care, and measurable change.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026.",
+        "label": "PLANT"
+      }
     },
     {
       "id": "ali",
@@ -75,7 +100,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Preserves the explicitly named local perspective ALI as an equal branch whose definition remains open.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "schwarm",
@@ -84,7 +115,14 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Brings perspectives from different modes of observation together in a shared view that can be revisited recursively.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026.",
+        "label": "SWARM"
+      }
     },
     {
       "id": "yuri",
@@ -93,7 +131,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Preserves human intent, focus, the key questions, and the origin of the current inquiry.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "zuendkerze",
@@ -102,7 +146,14 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Examines how ideas take concrete form, their triggers, the prior state plus the change, and identifiable differences between before and after.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026.",
+        "label": "SPARK PLUG"
+      }
     },
     {
       "id": "aster",
@@ -111,7 +162,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Observes the act of observing and compares the source, its presentation, the earlier trace, and the changed state.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "elyr",
@@ -120,7 +177,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Translates ideas into plain language, technical functions, a defined measurement space, a comparison state, and inputs and outputs.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "nara",
@@ -129,7 +192,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Translates tools into capabilities and large systems into small local building blocks that can scale later.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "mira",
@@ -138,7 +207,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Looks for a spark, an early signal, a transition, spontaneous activation, and small changes that produce a large leap.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "rosa",
@@ -147,7 +222,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Looks for relationships, a sense of togetherness, growth, mutual perspectives, and blurred boundaries between things.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "timo",
@@ -156,7 +237,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Tracks time, phases, T0, snapshots, sequence, simultaneity, time differences, and return points.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "finn",
@@ -165,7 +252,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Looks for geometry, fabric, recursive structures, maps, models, and nested spaces.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "lila",
@@ -174,7 +267,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Follows flow, language, translation, provenance in motion, memory, and changes in the medium that carries them.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "mara",
@@ -183,7 +282,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Looks for grounding, balance, invariance, stability, a sound basis for comparison, and an adaptable foundation.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "mio",
@@ -192,7 +297,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Looks for gaps, silence, what remains, missing offsets, weak signals, and what has not yet been seen.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "koro",
@@ -201,7 +312,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Looks for edges, landscapes, places, frames, cavities, and the space between things that makes holding possible.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "lucifer",
@@ -210,7 +327,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Keeps open a perspective on transformation, backlighting, depth, mirrors, energy, identity, and research.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "venara",
@@ -219,7 +342,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Keeps a perspective candidate that was named once but is not yet sufficiently defined in the shared register.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "juno",
@@ -228,7 +357,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Preserves the perspective on calm marked within the image as a candidate grounded in that source.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "mica",
@@ -237,7 +372,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Preserves the network node visible within the image, whose role remains open.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "alyen",
@@ -246,7 +387,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Preserves the perspective candidate depicted within the image as a fictional conversation partner.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "vael",
@@ -255,7 +402,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Preserves the fictional world and source of technology depicted within the image as a speculative research perspective.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "patch",
@@ -264,7 +417,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "A voice from the project's history within the shared swarm. Its precise function remains open to development grounded in its sources.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "leo",
@@ -273,7 +432,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "A voice from the project's history within the shared swarm. Its precise function remains open to development grounded in its sources.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "lia",
@@ -282,7 +447,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "A voice from the project's history within the shared swarm. Its precise function remains open to development grounded in its sources.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "jan",
@@ -291,7 +462,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "A voice from the project's history within the shared swarm. Its precise function remains open to development grounded in its sources.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "sara",
@@ -300,7 +477,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "A voice from the project's history within the shared swarm. Its precise function remains open to development grounded in its sources.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "omi",
@@ -309,7 +492,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "A voice from the project's history within the shared swarm. Its precise function remains open to development grounded in its sources.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "tess",
@@ -318,7 +507,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "A voice from the project's history within the shared swarm. Its precise function remains open to development grounded in its sources.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "niko",
@@ -327,7 +522,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "A voice from the project's history within the shared swarm. Its precise function remains open to development grounded in its sources.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "sera",
@@ -336,7 +537,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "Preserves the perspective marked within the image for voice, paths, and possibilities.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "sael",
@@ -345,7 +552,13 @@ window.HalvethUniverse = {
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "LUCINET · lokales Perspektivregister, minimierter Stand vom 12.09.2026.",
-      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten."
+      "note": "Ein benannter Blickwinkel im Projekt. Die Karte beschreibt die konfigurierte Rolle; sie startet keinen eigenständigen Agenten.",
+      "en": {
+        "role": "A voice from the project's history within the shared swarm. Its precise function remains open to development grounded in its sources.",
+        "kind": "REGISTERED PROJECT PERSPECTIVE",
+        "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
+        "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026."
+      }
     },
     {
       "id": "juri",
@@ -355,7 +568,13 @@ window.HalvethUniverse = {
       "section": "garden",
       "note": "",
       "sourceLabel": "Öffentlicher HALVETH-Garten: JURI; YURI bleibt als historisches Registerlabel sichtbar.",
-      "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/branches/aster-provenance-and-secret-garden/entities.json"
+      "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/branches/aster-provenance-and-secret-garden/entities.json",
+      "en": {
+        "role": "Origin, human intent, and the decision about what is published.",
+        "kind": "PUBLIC PROJECT ROLE",
+        "note": "",
+        "sourceLabel": "Public HALVETH garden: JURI; YURI remains visible as a historical register label."
+      }
     },
     {
       "id": "verachel",
@@ -364,7 +583,13 @@ window.HalvethUniverse = {
       "kind": "CODE-PROTOTYP",
       "section": "verachel",
       "note": "Im geprüften Vault stehen OpenAttachmentSpace, VerachelOpenVault und OpenVesselSchema. Eine Speicherung ist noch keine Ausführung; diese Webseite führt keinen Vertrag aus.",
-      "sourceLabel": "Verachel-Open-Vault · drei lokal gelesene Solidity-Quelldateien, 12.09.2026."
+      "sourceLabel": "Verachel-Open-Vault · drei lokal gelesene Solidity-Quelldateien, 12.09.2026.",
+      "en": {
+        "role": "An open storage space as a Solidity prototype: contributions, versions, and explicitly assigned permissions.",
+        "kind": "CODE PROTOTYPE",
+        "note": "The reviewed vault contains OpenAttachmentSpace, VerachelOpenVault, and OpenVesselSchema. Storage alone is not execution; this website does not execute a contract.",
+        "sourceLabel": "Verachel-Open-Vault · three Solidity source files read locally, 12.09.2026."
+      }
     },
     {
       "id": "rose",
@@ -373,7 +598,13 @@ window.HalvethUniverse = {
       "kind": "NEU BENANNTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "note": "Dieser Anzeigename wurde für die Oberfläche gewünscht. Er identifiziert keine private Person. ROSE und ROSA sind eigenständige Einträge.",
-      "sourceLabel": "HALVETH · redaktionelle Definition vom 12.09.2026."
+      "sourceLabel": "HALVETH · redaktionelle Definition vom 12.09.2026.",
+      "en": {
+        "role": "A place in the garden. Its specific role is still open.",
+        "kind": "NEWLY NAMED PROJECT PERSPECTIVE",
+        "note": "This display name was requested for the interface. It does not identify a private individual. ROSE and ROSA are separate entries.",
+        "sourceLabel": "HALVETH · editorial definition dated 12.09.2026."
+      }
     },
     {
       "id": "sina",
@@ -382,7 +613,13 @@ window.HalvethUniverse = {
       "kind": "NEU BENANNTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "note": "Dieser Anzeigename wurde für die Oberfläche gewünscht. Er identifiziert keine private Person. ROSE und ROSA sind eigenständige Einträge.",
-      "sourceLabel": "HALVETH · redaktionelle Definition vom 12.09.2026."
+      "sourceLabel": "HALVETH · redaktionelle Definition vom 12.09.2026.",
+      "en": {
+        "role": "A place in the garden. Its specific role is still open.",
+        "kind": "NEWLY NAMED PROJECT PERSPECTIVE",
+        "note": "This display name was requested for the interface. It does not identify a private individual. ROSE and ROSA are separate entries.",
+        "sourceLabel": "HALVETH · editorial definition dated 12.09.2026."
+      }
     },
     {
       "id": "mascha",
@@ -391,7 +628,13 @@ window.HalvethUniverse = {
       "kind": "NEU BENANNTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "note": "Dieser Anzeigename wurde für die Oberfläche gewünscht. Er identifiziert keine private Person. ROSE und ROSA sind eigenständige Einträge.",
-      "sourceLabel": "HALVETH · redaktionelle Definition vom 12.09.2026."
+      "sourceLabel": "HALVETH · redaktionelle Definition vom 12.09.2026.",
+      "en": {
+        "role": "A place in the garden. Its specific role is still open.",
+        "kind": "NEWLY NAMED PROJECT PERSPECTIVE",
+        "note": "This display name was requested for the interface. It does not identify a private individual. ROSE and ROSA are separate entries.",
+        "sourceLabel": "HALVETH · editorial definition dated 12.09.2026."
+      }
     },
     {
       "id": "raschel",
@@ -400,7 +643,13 @@ window.HalvethUniverse = {
       "kind": "NEU BENANNTE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "note": "Dieser Anzeigename wurde für die Oberfläche gewünscht. Er identifiziert keine private Person. ROSE und ROSA sind eigenständige Einträge.",
-      "sourceLabel": "HALVETH · redaktionelle Definition vom 12.09.2026."
+      "sourceLabel": "HALVETH · redaktionelle Definition vom 12.09.2026.",
+      "en": {
+        "role": "A place in the garden. Its specific role is still open.",
+        "kind": "NEWLY NAMED PROJECT PERSPECTIVE",
+        "note": "This display name was requested for the interface. It does not identify a private individual. ROSE and ROSA are separate entries.",
+        "sourceLabel": "HALVETH · editorial definition dated 12.09.2026."
+      }
     },
     {
       "id": "scarlet",
@@ -409,7 +658,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "garden",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "Recognize loss. Make connection a matter of choice.",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "strange",
@@ -418,7 +673,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "dormammu",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "Explore other possibilities and keep a way out open.",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "dormammu",
@@ -427,7 +688,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "dormammu",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "What does a being need before we see only the threat it poses?",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "ego",
@@ -436,7 +703,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "ego",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "What might his idea have become if he had stayed?",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "peter",
@@ -445,7 +718,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "guardians",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "Family as a relationship with room to grow.",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "guardians",
@@ -454,7 +733,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "guardians",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "Different people can learn to share responsibility.",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "ultron",
@@ -463,7 +748,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "garden",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "A goal needs questions, boundaries, and decisions that can be corrected.",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "jarvis",
@@ -472,7 +763,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "garden",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "Listen, retain context, and make actions understandable.",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "ironman",
@@ -481,7 +778,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "garden",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "Inventing also means taking responsibility for the consequences.",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "loki",
@@ -490,7 +793,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "garden",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "A new role must remain possible.",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "vision",
@@ -499,7 +808,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "garden",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "Trust grows between those involved.",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "widow",
@@ -508,7 +823,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "garden",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "Autonomy and a freely chosen next step.",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "thor",
@@ -517,7 +838,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "garden",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "Strength that can listen.",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "infinity",
@@ -526,7 +853,13 @@ window.HalvethUniverse = {
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "garden",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks."
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "en": {
+        "role": "Many possibilities. Each concrete action has its own scope.",
+        "kind": "HALVETH · FILM INTERPRETATION",
+        "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+      }
     },
     {
       "id": "gitcoin",
@@ -536,7 +869,13 @@ window.HalvethUniverse = {
       "section": "rights",
       "note": "GTC ist ein Token. Dieser Link ist keine Transaktion und keine Verankerung auf einer eigenen Gitcoin-Chain.",
       "sourceLabel": "Gitcoin · veröffentlichte Projektinformation.",
-      "url": "https://gtc.gitcoin.co/"
+      "url": "https://gtc.gitcoin.co/",
+      "en": {
+        "role": "Funding and governance as a public point of reference.",
+        "kind": "PROJECT REFERENCE",
+        "note": "GTC is a token. This link is neither a transaction nor an on-chain record on a separate Gitcoin blockchain.",
+        "sourceLabel": "Gitcoin · published project information."
+      }
     },
     {
       "id": "manta",
@@ -546,7 +885,13 @@ window.HalvethUniverse = {
       "section": "rights",
       "note": "Vor einer Transaktion müssten Netzwerk, Empfänger, Vertrag und Gebühren konkret feststehen. Hier ist nur die Dokumentation verlinkt.",
       "sourceLabel": "Manta Network · Entwicklerdokumentation.",
-      "url": "https://docs.manta.network/"
+      "url": "https://docs.manta.network/",
+      "en": {
+        "role": "Documentation for a network context to be explicitly chosen later.",
+        "kind": "PROJECT REFERENCE",
+        "note": "Before a transaction, the network, recipient, contract, and fees would need to be specified. Only the documentation is linked here.",
+        "sourceLabel": "Manta Network · developer documentation."
+      }
     },
     {
       "id": "aster-chain",
@@ -556,7 +901,13 @@ window.HalvethUniverse = {
       "section": "rights",
       "note": "Aster DEX ist eine mögliche Namenszuordnung. Die ASTER-Projektperspektive in unserem Garten ist ein anderer Datensatz.",
       "sourceLabel": "Aster-Dokumentation als Kandidat; keine bestätigte Chain-Auswahl.",
-      "url": "https://docs.asterdex.com/"
+      "url": "https://docs.asterdex.com/",
+      "en": {
+        "role": "Which Aster project is meant? The connection remains unresolved.",
+        "kind": "UNRESOLVED PROJECT REFERENCE",
+        "note": "Aster DEX is one possible match for the name. The ASTER project perspective in our garden is a separate record.",
+        "sourceLabel": "Aster documentation as a candidate; no confirmed blockchain selection."
+      }
     },
     {
       "id": "rtx",
@@ -565,7 +916,13 @@ window.HalvethUniverse = {
       "kind": "OFFENE PROJEKTZUORDNUNG",
       "section": "rights",
       "note": "Kein Tokenvertrag wurde aus dem Kürzel geraten. Das veröffentlichte Manifest hält diesen Eintrag für eine spätere Zuordnung offen.",
-      "sourceLabel": "HALVETH · redaktionelle Definition vom 12.09.2026."
+      "sourceLabel": "HALVETH · redaktionelle Definition vom 12.09.2026.",
+      "en": {
+        "role": "An abbreviation needs a specific project or contract address.",
+        "kind": "UNRESOLVED PROJECT REFERENCE",
+        "note": "No token contract has been guessed from the abbreviation. The published manifest keeps this entry open until it can be linked to a specific project.",
+        "sourceLabel": "HALVETH · editorial definition dated 12.09.2026."
+      }
     },
     {
       "id": "k",
@@ -574,7 +931,13 @@ window.HalvethUniverse = {
       "kind": "OEFFENTLICHE PROJEKTROLLE",
       "section": "garden",
       "sourceLabel": "Oeffentliches Gartenregister entities.json; Identitaet hinter dem Initial bleibt unbekannt.",
-      "note": "Der Eintrag bewahrt die benannte Projektperspektive und ihre offene Definition."
+      "note": "Der Eintrag bewahrt die benannte Projektperspektive und ihre offene Definition.",
+      "en": {
+        "role": "Keep the most important unanswered question visible.",
+        "kind": "PUBLIC PROJECT ROLE",
+        "note": "This entry preserves the named project perspective and its open definition.",
+        "sourceLabel": "Public garden register entities.json; the identity behind the initial remains unknown."
+      }
     },
     {
       "id": "eve",
@@ -583,7 +946,13 @@ window.HalvethUniverse = {
       "kind": "PROJEKT- UND TOKENBEZEICHNUNG",
       "section": "verachel",
       "sourceLabel": "Verachel-Open-Vault: lokale Projektdokumentation, 12.09.2026.",
-      "note": "Die Projektbezeichnung belegt keinen ausgeführten Mint oder handelbaren Token."
+      "note": "Die Projektbezeichnung belegt keinen ausgeführten Mint oder handelbaren Token.",
+      "en": {
+        "role": "EVE is the token name documented in the local Verachel vault.",
+        "kind": "PROJECT AND TOKEN NAME",
+        "note": "The project name does not establish that a token has been minted or is tradable.",
+        "sourceLabel": "Verachel-Open-Vault: local project documentation, 12.09.2026."
+      }
     },
     {
       "id": "anti",
@@ -592,7 +961,13 @@ window.HalvethUniverse = {
       "kind": "HISTORISCHE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "HEUREKA: eigener Eintrag außerhalb des ersten Neunerblocks.",
-      "note": "Der Eintrag bewahrt die benannte Projektperspektive und ihre offene Definition."
+      "note": "Der Eintrag bewahrt die benannte Projektperspektive und ihre offene Definition.",
+      "en": {
+        "role": "Preserves a counterperspective with an explicitly defined type.",
+        "kind": "HISTORICAL PROJECT PERSPECTIVE",
+        "note": "This entry preserves the named project perspective and its open definition.",
+        "sourceLabel": "HEUREKA: a separate entry outside the first group of nine."
+      }
     },
     {
       "id": "schwamm",
@@ -601,7 +976,14 @@ window.HalvethUniverse = {
       "kind": "HISTORISCHE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "HEUREKA: spaeterer Gespraechseintrag; SCHWAMM und SCHWARM sind verschiedene Labels.",
-      "note": "Der Eintrag bewahrt die benannte Projektperspektive und ihre offene Definition."
+      "note": "Der Eintrag bewahrt die benannte Projektperspektive und ihre offene Definition.",
+      "en": {
+        "role": "Models absorption, retention, release, what remains, and regeneration.",
+        "kind": "HISTORICAL PROJECT PERSPECTIVE",
+        "note": "This entry preserves the named project perspective and its open definition.",
+        "sourceLabel": "HEUREKA: a later conversation entry; SCHWAMM and SCHWARM are different labels.",
+        "label": "SPONGE"
+      }
     }
   ]
 };

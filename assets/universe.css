@@ -17,3 +17,7 @@
 @media(max-width:600px){.scene{--earth-y:280px}.constellation-left{top:calc(var(--earth-y) + 155px)}.constellation-right{top:calc(var(--earth-y) + 210px)}.newswire{top:calc(var(--earth-y) + 280px)}.chain-dock{top:calc(var(--earth-y) + 480px)}.heart-controls{top:calc(var(--earth-y) + 540px)}}
 
 .chain-links .transaction-ref-link{display:inline-flex;align-items:center;text-decoration:none;color:#ffe0b2;border-color:#d9ac7155}.chain-links .transaction-ref-link:hover{background:#26333a}.chain-links .transaction-ref-link:focus-visible{outline:2px solid #ffd0ea;outline-offset:4px}
+
+/* Compact language choice, shared by direct ?lang=en and ?lang=de links. */
+.language-switch{display:flex;gap:3px;align-items:center}.language-switch button{font:10px system-ui,sans-serif;color:#a8c7c2;border:1px solid transparent;border-radius:7px;background:transparent;padding:7px 6px;min-width:30px}.language-switch button[aria-pressed=true]{color:#c6ffe7;border-color:#8ce0be55;background:#102b31}.language-switch button:hover{color:#fff}.top-actions{gap:9px}
+@media(max-width:600px){.topbar{left:14px;right:14px;gap:8px}.brand{font-size:10px;letter-spacing:.14em;gap:5px}.brand b{font-size:22px}.top-actions{gap:5px}.language-switch button{padding:6px 4px;min-width:25px}.garden-open{font-size:8px;padding:8px}.sound-toggle{font-size:9px;padding:7px}.info-button{width:28px;height:28px}}
