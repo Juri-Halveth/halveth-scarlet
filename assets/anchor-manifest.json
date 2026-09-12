@@ -1,7 +1,7 @@
 {
   "schema": "halveth.reference-manifest.v1",
   "author": "HALVETH",
-  "recordedAt": "2026-09-12T13:19:10.989705+00:00",
+  "recordedAt": "2026-09-12T13:21:34.475915+00:00",
   "state": "OFF_CHAIN_REFERENCE",
   "scope": "This website and its published source references",
   "transaction": null,
@@ -190,13 +190,13 @@
     },
     {
       "path": "forschung/figuren-und-perspektiven/index.html",
-      "bytes": 23349,
-      "sha256": "7405ab8cae2f04deec639e5e596ee486d767fe2cdaf5b710db1087bb82e14d17"
+      "bytes": 23387,
+      "sha256": "d9f451524dc66d88fde51dee35be1adafb926ce6f652470b7cb517f326ac3e42"
     },
     {
       "path": "forschung/formen-und-verbindungen/index.html",
-      "bytes": 21016,
-      "sha256": "301232044cc4b1493ecc78a2f41eebe5fecf7b5aee1d649fd84770b838eba77c"
+      "bytes": 21054,
+      "sha256": "daa94a1d620564c9bfdc0c7e985a0fbd734f094a51b976ce5771b44bc15be5e0"
     },
     {
       "path": "forschung/formen-und-verbindungen/motiv.png",
@@ -205,13 +205,13 @@
     },
     {
       "path": "forschung/transaktionsfluss/index.html",
-      "bytes": 30017,
-      "sha256": "f490eb93e293b2b1d52b9c5f83561f332a1a7f579bf0e138f6759ce9d6ae155d"
+      "bytes": 30055,
+      "sha256": "ed97a21910dcf62764253da29ef2a0ab827980ccb68dcd8f1894473a7a557731"
     },
     {
       "path": "index.html",
-      "bytes": 408505,
-      "sha256": "d5a63419a6f573e40631bf338844a95d396a17307e7000593d8af1e00e030cca"
+      "bytes": 408676,
+      "sha256": "b07afccb7257f579a56d8af460f5b0b3dda8d72d3928cc17c6cf112dafd9293e"
     },
     {
       "path": "tests/event-clock.test.cjs",
@@ -241,5 +241,5 @@
   ],
   "manifestSelfHash": "Excluded; see Git commit object for this file",
   "hashByteScope": "Git blob bytes from the source commit, before hosting transformations",
-  "sourceCommit": "50675c02f3a0a49e0a06fcb821b3f91e6bd71789"
+  "sourceCommit": "2027367164d451ded57e5a3c5b70e5439626b0bd"
 }
