@@ -34,13 +34,13 @@ Eigenständiges Fanprojekt von HALVETH, keine offizielle Marvel- oder NASA-Verö
 
 ## Öffentliche Bezugspunkte
 
-[assets/public-sources.json](assets/public-sources.json) enthält die drei Quellenmeldungen mit Herausgebern, Datum und URLs sowie Bitcoin-Block **966659** mit Hash und Abrufzeit. Diese Daten wurden lesend über öffentliche Quellen beschafft. Der Blockverweis ist keine Blockchain-Transaktion oder On-Chain-Verankerung der Website. Quellenlinks begründen keine Zusammenarbeit, Unterstützung oder Kontrolle über die genannten Organisationen.
+[assets/public-sources.json](assets/public-sources.json) enthält die drei Quellenmeldungen mit Herausgebern, Datum und URLs sowie Bitcoin-Block **966663** mit Hash und Abrufzeit. Diese Daten wurden lesend über öffentliche Quellen beschafft. Der Blockverweis ist keine Blockchain-Transaktion oder On-Chain-Verankerung der Website. Quellenlinks begründen keine Zusammenarbeit, Unterstützung oder Kontrolle über die genannten Organisationen.
 
 Beim Sommerzeitwechsel folgt der Ereignistermin weiterhin 03:00 Uhr in Berlin. Der Countdown beginnt eine echte Stunde vorher: im Frühjahr bereits um 01:00 Uhr Ortszeit, im Herbst in der zweiten 02:00-Stunde. Der tägliche Ring folgt dagegen wie bisher der Zivilzeit. Events laufen bei sichtbarer, aktiver Seite; verpasste Ereignisse werden nach dem Finale nicht nachgeholt.
 
 ## Entwicklung und Prüfung
 
-`node --test tests/event-clock.test.cjs tests/event-flow.test.cjs` prüft die Zeitgrenzen, beide Sommerzeitwechsel, Vorschau, Herz-Abbruch und Sound-Opt-in. Die Ablaufprüfungen verwenden die echte Ereignissteuerung und ausgewählte Szenenfunktionen mit einer kleinen DOM-/Audio-Testumgebung. Sie ersetzen keine Hörprobe oder grafische Browserprüfung.
+`node --test tests/*.test.cjs` prüft die Zeitgrenzen, beide Sommerzeitwechsel, Vorschau, Herz-Abbruch und Sound-Opt-in. Die Ablaufprüfungen verwenden die echte Ereignissteuerung und ausgewählte Szenenfunktionen mit einer kleinen DOM-/Audio-Testumgebung. Sie ersetzen keine Hörprobe oder grafische Browserprüfung.
 
 ## English
 
@@ -57,3 +57,24 @@ This is a standalone static HTML/CSS/JavaScript website with an embedded Earth t
 The news ticker contains three dated NASA/GitHub source items from a 12 September 2026 editorial snapshot, not a live news feed. A public Bitcoin block is linked as a read-only reference with its hash and observation time; no blockchain transaction, on-chain site anchoring or partnership is claimed.
 
 Published by HALVETH as an independent fan project. Not an official Marvel or NASA publication.
+
+
+## Garten, Reddit und Erdzoom
+
+24 zusätzliche Blasen öffnen 63 durchsuchbare Karten mit Projektrollen, Filminterpretationen und Quellenpunkten. Die Karten verlinken das vom Nutzer angegebene Reddit-Profil u/Halveth-Juri. Die Theorie-Texte zu Ego, Dormammu und den Guardians stehen zusätzlich auf einer zweisprachigen Unterseite.
+
+Scrollen, Zwei-Finger-Gesten und Plus/Minus zoomen die Erde von 1× bis 4×. Beim Hineinzoomen wird ein zeitversetztes MODIS-Tagesmosaik von NASA GIBS angefragt. Der angefragte Bildtag bleibt sichtbar. Bei Fehlern bleibt Blue Marble erhalten; erneute Zoominteraktion ermöglicht nach 30 Sekunden einen neuen Versuch. Private Quelltexte und nicht zugeordnete private Namen werden nicht veröffentlicht.
+
+Das Quellen-/Hashmanifest ist eine öffentliche Referenz außerhalb der Blockchain. Für GTC, Manta, Aster und RTX bestehen Quellen- beziehungsweise offene Zuordnungskarten; es wurde kein Mint ausgeführt. Beteiligung und konkrete Nutzungsrechte werden ausdrücklich vereinbart.
+
+## Garden, Reddit and Earth zoom
+
+24 additional bubbles open a searchable directory of 63 project perspectives, film interpretations and source references. Cards link to the user-supplied Reddit profile u/Halveth-Juri. No Reddit post is automatically published.
+
+Scroll, pinch, +/- or keyboard +/- zoom the globe from 1x to 4x. Home resets the view. Zooming in requests a 2048x1024 NASA GIBS MODIS mosaic for the previous UTC day. The requested day is displayed; imagery is delayed and coverage can be incomplete. Blue Marble remains the fallback. Sound is opt-in and reduced motion is respected.
+
+- [Bilingual theory article](forschung/figuren-und-perspektiven/)
+- [Participation and attribution](CONTRIBUTIONS.md)
+- [Off-chain source/hash manifest](assets/anchor-manifest.json)
+
+Blockchain buttons are reference links. No wallet connection, signature, transaction or mint is performed. Private source files and private names are not included in this public release.
