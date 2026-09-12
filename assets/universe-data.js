@@ -1,6 +1,6 @@
 window.HalvethUniverse = {
   "schema": "halveth.universe.v1",
-  "recordedAt": "2026-09-12T13:28:00.309237+00:00",
+  "recordedAt": "2026-09-12T23:38:09+00:00",
   "site": "https://juri-halveth.github.io/halveth-scarlet/",
   "redditDestination": "https://www.reddit.com/user/Halveth-Juri/",
   "redditDestinationBasis": "USER_SUPPLIED_PROFILE; PROFILE_OBSERVED; NO_PUBLISHED_THEORY_POST_URL",
@@ -967,6 +967,38 @@ window.HalvethUniverse = {
         "note": "This entry preserves the named project perspective and its open definition.",
         "sourceLabel": "HEUREKA: a later conversation entry; SCHWAMM and SCHWARM are different labels.",
         "label": "SPONGE"
+      }
+    },
+    {
+      "id": "mita",
+      "label": "MITA",
+      "role": "Figur aus dem Spiel MiSide von AIHASTO.",
+      "kind": "SPIELFIGUR",
+      "section": "garden",
+      "sourceLabel": "AIHASTO · MiSide",
+      "note": "Der Bezug ist durch die Entwicklerquelle benannt. Mira bleibt eine eigene HALVETH-Projektperspektive.",
+      "url": "https://aihasto.itch.io/miside",
+      "en": {
+        "role": "A character in AIHASTO’s game MiSide.",
+        "kind": "GAME CHARACTER",
+        "note": "The developer source names this connection. Mira remains a separate HALVETH project perspective.",
+        "sourceLabel": "AIHASTO · MiSide"
+      }
+    },
+    {
+      "id": "medusa",
+      "label": "MEDUSA",
+      "role": "Mythologisches Motiv für Perspektive, Blick und Erzählung.",
+      "kind": "MYTHOLOGISCHES GESTALTUNGSMOTIV",
+      "section": "garden",
+      "sourceLabel": "The Met · Terracotta pelike, ca. 450–440 BCE",
+      "note": "Für den Garten als neue Karte gestaltet. Die Museumquelle dokumentiert eine antike Darstellung.",
+      "url": "https://www.metmuseum.org/art/collection/search/254523",
+      "en": {
+        "role": "A mythological motif for perspective, gaze and storytelling.",
+        "kind": "MYTHOLOGICAL DESIGN MOTIF",
+        "note": "Designed as a new garden card. The museum source documents an ancient depiction.",
+        "sourceLabel": "The Met · Terracotta pelike, ca. 450–440 BCE"
       }
     }
   ]

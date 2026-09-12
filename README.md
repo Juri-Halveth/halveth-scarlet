@@ -8,9 +8,9 @@ Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer geme
 
 ## Deutsch und Englisch / German and English
 
-Die Erde, alle 62 Gartenkarten und die drei Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern nur diese lokale Präferenz und laden die aktuelle Seite neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
+Die Erde, alle 64 Gartenkarten und die vier Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern nur diese lokale Präferenz und laden die aktuelle Seite neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
 
-The Earth scene, all 62 garden cards and all three research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally and reload the current page. Source records and proper names retain their original form.
+The Earth scene, all 64 garden cards and all four research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally and reload the current page. Source records and proper names retain their original form.
 
 - [Earth in English](https://juri-halveth.github.io/halveth-scarlet/?lang=en)
 - [Ego, Dormammu and the garden](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/?lang=en)
@@ -76,7 +76,7 @@ Published by HALVETH as an independent fan project. Not an official Marvel or NA
 
 ## Garten, Reddit und Erdzoom
 
-23 zusätzliche Blasen und die zwölf Figuren im Orbit führen nach einer kurzen Tunnelanimation direkt zum Reddit-Profil u/Halveth-Juri. „Garten · Perspektiven“ öffnet weiterhin 62 durchsuchbare Karten. Die Theorie-Texte zu Ego, Dormammu und den Guardians stehen auf der zweisprachigen Unterseite. Als Ziel ist das vom Nutzer angegebene Profil hinterlegt; ein veröffentlichter Beitragslink ist noch nicht konfiguriert.
+23 zusätzliche Blasen und die zwölf Figuren im Orbit führen nach einer kurzen Tunnelanimation direkt zum Reddit-Profil u/Halveth-Juri. „Garten · Perspektiven“ öffnet weiterhin 64 durchsuchbare Karten. Die Theorie-Texte zu Ego, Dormammu und den Guardians stehen auf der zweisprachigen Unterseite. Als Ziel ist das vom Nutzer angegebene Profil hinterlegt; ein veröffentlichter Beitragslink ist noch nicht konfiguriert.
 
 Der Tunnel dauert 720 ms. Escape oder „Hier bleiben“ bricht ihn ab; reduzierte Bewegung und pausierte Animationen überspringen ihn. Strg-/Cmd- und Mittelklick verwenden die normalen Linkfunktionen des Browsers. Beim Zurückkehren von Reddit schließt sich die Übergangsansicht. Die Seite veröffentlicht selbst keine Reddit-Beiträge.
 
@@ -86,7 +86,7 @@ Das Quellen-/Hashmanifest ist eine öffentliche Referenz außerhalb der Blockcha
 
 ## Garden, Reddit and Earth zoom
 
-23 additional bubbles and the twelve orbiting figures lead directly to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garden · Perspectives” retains the searchable directory of 62 cards. No published post URL is configured; the full theory text is available on this site's bilingual article.
+23 additional bubbles and the twelve orbiting figures lead directly to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garden · Perspectives” retains the searchable directory of 64 cards. No published post URL is configured; the full theory text is available on this site's bilingual article.
 
 The transition lasts 720 ms, supports Escape/cancellation, and is skipped for reduced motion or paused animations. Modified clicks retain native browser behavior; returning from Reddit clears the transition. The website itself does not publish Reddit posts.
 
@@ -141,3 +141,13 @@ Network, reviewed contract, project fee, confirmed recipient and storage policy 
 Standards: [EIP-6963](https://eips.ethereum.org/EIPS/eip-6963), [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193), [ERC-721](https://eips.ethereum.org/EIPS/eip-721). Data availability needs a separate retention plan; see [IPFS pinning](https://docs.ipfs.tech/how-to/pin-files/). Project fees and [network gas fees](https://ethereum.org/developers/docs/gas/) are separate amounts. A Bitcoin recipient cannot fill an EVM address parameter.
 
 ---
+
+## Q · Notizspeicher / Q notebook — 13.09.2026
+
+[Deutsch](forschung/q-notizen/?lang=de) · [English](forschung/q-notizen/?lang=en)
+
+Ein kleiner Q-Link unten rechts auf der Erde führt zu sechs aufklappbaren Themenkarten: Schrift, Mira/Mita/Medusa, mathematische Modelle, Iridium/Magma/Plasma, Druck und Stoffkreisläufe. Die Auswahl bezieht sich auf Gesprächsfäden vom 12.–13.09.2026. Sie ist keine vollständige Erfassung aller Projekte oder Vorgänge. Quellen, Lehrmodelle und Gestaltungsvorschläge bleiben kenntlich. Zwei neue Gartenkarten: MITA und MEDUSA; MIRA bleibt die vorhandene Projektperspektive.
+
+A small Q link at the lower right of the Earth opens six collapsible topic cards. The bilingual edition covers selected discussion threads from 12–13 September 2026, with a source register and a byte-hash snapshot. It is not a complete daily or system audit. Sources, illustrative models and creative proposals remain labelled. MITA and MEDUSA join the garden; MIRA retains its existing project role.
+
+[Source register](forschung/q-notizen/sources.json) · [Edition hashes](forschung/q-notizen/snapshot.json). All layout assets are local; this page uses no animation loop, remote font, tracking or automated posting. The timestamp records the working clock, not an independent attestation.

@@ -25,6 +25,6 @@ test('Language switching preserves other URL parameters and the article anchor',
 });
 test('Every garden entity retains a complete English counterpart and stable identity',()=>{
   const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../assets/universe-data.js'),'utf8'),context);
-  const entities=context.window.HalvethUniverse.entities;assert.equal(entities.length,62);assert.equal(new Set(entities.map(e=>e.id)).size,62);
+  const entities=context.window.HalvethUniverse.entities;assert.equal(entities.length,64);assert.equal(new Set(entities.map(e=>e.id)).size,64);
   for(const e of entities)for(const key of ['role','kind','note','sourceLabel']){assert.equal(typeof e.en[key],'string',e.id+'.'+key);if(e[key])assert(e.en[key].length,e.id+'.'+key);}
 });

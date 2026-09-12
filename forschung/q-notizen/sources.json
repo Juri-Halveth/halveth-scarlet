@@ -1,0 +1,158 @@
+{
+  "schema": "halveth.q.sources.v1",
+  "author": "HALVETH",
+  "dataClass": "PUBLIC",
+  "recordedAt": "2026-09-12T23:38:09+00:00",
+  "retrievalMethod": "Selected primary pages read with web tools; narrative summarized in German and English. No archived full-page source capture.",
+  "scope": "Selected conversation topics 2026-09-12 and 2026-09-13 Europe/Berlin. Not a complete system or daily audit.",
+  "sources": [
+    {
+      "id": "type",
+      "title": "Monotype · Buchstaben-Anatomie",
+      "url": "https://www.monotype.com/de/ressourcen/das-abc-der-buchstaben-anatomie"
+    },
+    {
+      "id": "game",
+      "title": "AIHASTO · MiSide on Steam",
+      "url": "https://store.steampowered.com/app/2527500/MiSide/"
+    },
+    {
+      "id": "mita",
+      "title": "AIHASTO · MiSide",
+      "url": "https://aihasto.itch.io/miside"
+    },
+    {
+      "id": "medusa",
+      "title": "The Met · Medusa, ca. 450–440 BCE",
+      "url": "https://www.metmuseum.org/art/collection/search/254523"
+    },
+    {
+      "id": "ir",
+      "title": "Royal Society of Chemistry · Iridium",
+      "url": "https://periodic-table.rsc.org/element/77/iridium"
+    },
+    {
+      "id": "plasma",
+      "title": "US Department of Energy · Plasma",
+      "url": "https://www.energy.gov/science/doe-explainsplasma"
+    },
+    {
+      "id": "magma",
+      "title": "USGS · Magma and lava",
+      "url": "https://www.usgs.gov/faqs/what-difference-between-magma-and-lava"
+    },
+    {
+      "id": "titan",
+      "title": "NTSB · Titan, DCA23FM036",
+      "url": "https://www.ntsb.gov/investigations/Pages/DCA23FM036.aspx"
+    },
+    {
+      "id": "pressure",
+      "title": "NOAA · Ocean pressure",
+      "url": "https://oceanservice.noaa.gov/facts/pressure.html"
+    },
+    {
+      "id": "metabolism",
+      "title": "OpenStax · Energy and metabolism",
+      "url": "https://openstax.org/books/biology-2e/pages/6-1-energy-and-metabolism"
+    },
+    {
+      "id": "cycles",
+      "title": "OpenStax · Biogeochemical cycles",
+      "url": "https://openstax.org/books/biology-2e/pages/46-3-biogeochemical-cycles"
+    },
+    {
+      "id": "nuclear",
+      "title": "CTBTO · Nuclear testing and the environment",
+      "url": "https://www.ctbto.org/news-and-events/news/banning-nuclear-explosions-protects-environment"
+    },
+    {
+      "id": "quakes",
+      "title": "USGS · Nuclear explosions and earthquakes",
+      "url": "https://www.usgs.gov/faqs/can-nuclear-explosions-cause-earthquakes"
+    }
+  ],
+  "topics": [
+    {
+      "id": "schrift",
+      "titleDE": "Schrift & Wortspiel",
+      "titleEN": "Letters & wordplay",
+      "kindDE": "BEGRIFFE",
+      "kindEN": "TERMS",
+      "sourceIds": [
+        "type"
+      ]
+    },
+    {
+      "id": "garten",
+      "titleDE": "Mira, Mita & Medusa",
+      "titleEN": "Mira, Mita & Medusa",
+      "kindDE": "GESTALTUNG + QUELLEN",
+      "kindEN": "DESIGN + SOURCES",
+      "sourceIds": [
+        "game",
+        "mita",
+        "medusa"
+      ]
+    },
+    {
+      "id": "modelle",
+      "titleDE": "Wurzeln, Wärme & Licht",
+      "titleEN": "Roots, heat & light",
+      "kindDE": "OFFENE MODELLFRAGE",
+      "kindEN": "OPEN MODEL QUESTION",
+      "sourceIds": []
+    },
+    {
+      "id": "materie",
+      "titleDE": "Iridium, Iris & Magma",
+      "titleEN": "Iridium, Iris & magma",
+      "kindDE": "QUELLENABGLEICH",
+      "kindEN": "SOURCE CHECK",
+      "sourceIds": [
+        "ir",
+        "plasma",
+        "magma"
+      ]
+    },
+    {
+      "id": "druck",
+      "titleDE": "Druck, Tiefe & Grenzen",
+      "titleEN": "Pressure, depth & limits",
+      "kindDE": "QUELLENABGLEICH",
+      "kindEN": "SOURCE CHECK",
+      "sourceIds": [
+        "titan",
+        "pressure",
+        "nuclear",
+        "quakes"
+      ]
+    },
+    {
+      "id": "kreislauf",
+      "titleDE": "Abbauen, aufbauen, erhalten",
+      "titleEN": "Break down, build, retain",
+      "kindDE": "BEGRIFFE + MODELL",
+      "kindEN": "TERMS + MODEL",
+      "sourceIds": [
+        "metabolism",
+        "cycles"
+      ]
+    }
+  ],
+  "models": {
+    "state": "ILLUSTRATIVE_NOT_MEASURED",
+    "source": "Standard mathematical teaching models assembled for this note",
+    "physicalEffectsObserved": false,
+    "nextStep": "Bind a measured quantity and compare two models with distinct predictions."
+  },
+  "naming": {
+    "mira": "EXISTING_HALVETH_PROJECT_PERSPECTIVE",
+    "mita": "MISIDE_FICTIONAL_CHARACTER",
+    "medusa": "MYTHOLOGICAL_DESIGN_MOTIF",
+    "misa": "UNRESOLVED_NAME_VARIANT",
+    "natit": "PROPOSED_NAME_FROM_STRING_REVERSAL"
+  },
+  "publicationScope": "Minimized notes, public sources and selected software changes; private originals remain outside this release.",
+  "timeScope": "recordedAt dates this register; source consultation occurred across the current conversation. Exact per-source request times are not encoded."
+}

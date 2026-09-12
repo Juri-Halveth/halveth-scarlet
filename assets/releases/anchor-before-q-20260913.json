@@ -1,0 +1,353 @@
+{
+  "schema": "halveth.reference-manifest.v1",
+  "author": "HALVETH",
+  "recordedAt": "2026-09-12T14:52:45.132852+00:00",
+  "state": "OFF_CHAIN_REFERENCE",
+  "scope": "This website and its published source references",
+  "transaction": null,
+  "mint": null,
+  "wallet": null,
+  "network": null,
+  "contract": null,
+  "referencePurpose": "Attribution, comparison and voluntary future cooperation; no automatic rights grant or ownership transfer.",
+  "reddit": {
+    "url": "https://www.reddit.com/user/Halveth-Juri/",
+    "basis": "USER_SUPPLIED_PROFILE; PROFILE_OBSERVED",
+    "postContentsVerified": false,
+    "publishedTheoryPostUrl": null
+  },
+  "sources": {
+    "publicGarden": "https://github.com/Juri-Halveth/open-research-branches/blob/main/branches/aster-provenance-and-secret-garden/entities.json",
+    "historicalGarden": {
+      "title": "HEUREKA_CHAT_SNAPSHOT_2026-09-02",
+      "sourceType": "PRIVATE_CONVERSATION_SNAPSHOT",
+      "sourceSha256": "3203b9ee66aff3bfe2f165e271414dc1aef0a8e36ef8b01b1f5114375839c881",
+      "lineRange": [
+        2538,
+        2563
+      ],
+      "firstNineLenses": [
+        "MIRA",
+        "ROSA",
+        "TIMO",
+        "FINN",
+        "LILA",
+        "MARA",
+        "MIO",
+        "KORO",
+        "ASTER"
+      ],
+      "publication": "MINIMIZED_ROLE_SUMMARY_ONLY",
+      "originalCreationTime": "NOT_ESTABLISHED_BY_HASH"
+    },
+    "verachelPrototypes": [
+      {
+        "file": "OpenAttachmentSpace.sol",
+        "sha256": "f3326f185d5b412b3c8d95c28a2dafbe90cbf149f25309dac039fa37fb319fe0",
+        "sourceAccess": "PRIVATE_LOCAL_SOURCE",
+        "publication": "METADATA_ONLY",
+        "deployment": "NOT_VERIFIED"
+      },
+      {
+        "file": "VerachelOpenVault.sol",
+        "sha256": "8d121a66895201aefc2df614543a374005142eefcc50e3c84a088ca19f057719",
+        "sourceAccess": "PRIVATE_LOCAL_SOURCE",
+        "publication": "METADATA_ONLY",
+        "deployment": "NOT_VERIFIED"
+      },
+      {
+        "file": "OpenVesselSchema.sol",
+        "sha256": "775bc56b2c883088a305ec0b171ff512f3156ca259c494a673bc4c929ac76f2b",
+        "sourceAccess": "PRIVATE_LOCAL_SOURCE",
+        "publication": "METADATA_ONLY",
+        "deployment": "NOT_VERIFIED"
+      }
+    ],
+    "earth": {
+      "provider": "NASA GIBS",
+      "layer": "MODIS_Terra_CorrectedReflectance_TrueColor",
+      "documentation": "https://nasa-gibs.github.io/gibs-api-docs/access-basics/",
+      "timePolicy": "Previous UTC calendar day requested from device time; nearest available image day may differ; no live-video claim."
+    },
+    "localPerspectiveRegister": {
+      "title": "LUCINET entity-universe.json",
+      "recordCount": 35,
+      "sha256": "5935cf354c6cebc29463c74f0f17128002f29c7aec8bdbfe35c7233937c19b59",
+      "publication": "MINIMIZED_ROLES_ONLY",
+      "runtime": "NOT_ASSERTED"
+    },
+    "bitcoinTransactionView": {
+      "path": "assets/bitcoin-transaction-reference.json",
+      "source": "https://mempool.space/tx/f11368d4607b0a751b2583af37f95312ce159b5042eb2d7154d257e0a66a6ae2",
+      "relationship": "USER_LINKED_PUBLIC_REFERENCE; NOT_SITE_ANCHOR",
+      "observedUiStatus": "Entfernt",
+      "apiStatus": 404,
+      "blockInclusion": "NOT_VERIFIED"
+    }
+  },
+  "projectReferences": [
+    {
+      "label": "Gitcoin / GTC",
+      "url": "https://gtc.gitcoin.co/",
+      "state": "PUBLIC_REFERENCE"
+    },
+    {
+      "label": "Manta",
+      "url": "https://docs.manta.network/",
+      "state": "PUBLIC_REFERENCE"
+    },
+    {
+      "label": "Aster Chain",
+      "url": "https://docs.asterdex.com/",
+      "state": "AMBIGUOUS_CANDIDATE"
+    },
+    {
+      "label": "RTX",
+      "url": null,
+      "state": "UNRESOLVED"
+    }
+  ],
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "CONTRIBUTIONS.md",
+      "bytes": 2314,
+      "sha256": "43af638f8da4b2a33991d9d3654163b80c7ca7b74cc71781d84bfe23c2885d95"
+    },
+    {
+      "path": "README.md",
+      "bytes": 21788,
+      "sha256": "b23d1e1cdcdb1d139c82c75a7214acb637d8b3fbeacaff49b4ddb90a9fe8afc6"
+    },
+    {
+      "path": "assets/bitcoin-transaction-reference.json",
+      "bytes": 4077,
+      "sha256": "5c850e9b616da875a7bdcf569fbca72bc989a18add536a641093362698d4f490"
+    },
+    {
+      "path": "assets/english.js",
+      "bytes": 14078,
+      "sha256": "7c0ef44c64b579c78c467ce451dd93a52377a571ef82c1aa94438d7cc83e18b0"
+    },
+    {
+      "path": "assets/event-clock.js",
+      "bytes": 1958,
+      "sha256": "5f07f484766f84a3c20a0e5665fb1080b9ed1c391c719de993a02947dbd0c59a"
+    },
+    {
+      "path": "assets/events.css",
+      "bytes": 7237,
+      "sha256": "640971c58c036e3b4a65631fa82b07fcb09d1ae18d11356947a8662bc76c729d"
+    },
+    {
+      "path": "assets/events.js",
+      "bytes": 8193,
+      "sha256": "c4bd47cb25e1335005771723751fe704b13ac4d581c7d558c786e31623a34574"
+    },
+    {
+      "path": "assets/language.js",
+      "bytes": 3836,
+      "sha256": "098767f1868035c7e8559287e07089e2c2abc1074acab3216eeed76d3f3dc502"
+    },
+    {
+      "path": "assets/public-sources.json",
+      "bytes": 2007,
+      "sha256": "8b83777bec508524a309ca88ba8190f72e662abab6a5c7944462264083b17f24"
+    },
+    {
+      "path": "assets/reddit-tunnel.js",
+      "bytes": 2132,
+      "sha256": "7058b66cd633d5dc48ab8952e84bacaf06a5ec773bdcafddf85408560c5875ed"
+    },
+    {
+      "path": "assets/room-config.json",
+      "bytes": 423,
+      "sha256": "ed479d1db9222681f8376b7d5e0823ea85e7ec5fe607fa0a402a4512f56d1632"
+    },
+    {
+      "path": "assets/room-core.js",
+      "bytes": 3424,
+      "sha256": "6dc67a2a1aeb061efda503ae6b5d910798984bba6a9bf3629a80801051d293d1"
+    },
+    {
+      "path": "assets/room.css",
+      "bytes": 19211,
+      "sha256": "edfbe07b8e0a11c45bace8fb57646660d55dc77d8996404b903b86f367f867df"
+    },
+    {
+      "path": "assets/room.js",
+      "bytes": 7289,
+      "sha256": "127e5e1905776dffccd367b8b98a1b665d944d47e14cfd1aacc37bdb21e34ba4"
+    },
+    {
+      "path": "assets/scarlet-dual-state-v1.png",
+      "bytes": 2214162,
+      "sha256": "6975da06e4e705ff6265a16464ce75b38b4ab710b06c6e12a2c260848298ca05"
+    },
+    {
+      "path": "assets/scarlet-dual-state-v1.prompt.md",
+      "bytes": 3580,
+      "sha256": "5dcd8ef7820d28444c1901022115fcda2eebdbbe73853c5cf648ba4930a461c8"
+    },
+    {
+      "path": "assets/snapshot-config.json",
+      "bytes": 639,
+      "sha256": "0466ce3166d2181f84e6c3a73dbd3238d999a3c28ef4d5e8fcbcad85a3c74290"
+    },
+    {
+      "path": "assets/snapshot-core.js",
+      "bytes": 6217,
+      "sha256": "5acc9b42ef445c3ca280830b0a2aa6f263910c3123d1a7216a04c363e49c1d1a"
+    },
+    {
+      "path": "assets/snapshot.css",
+      "bytes": 6354,
+      "sha256": "83c260df87b2df28f4697f449c12d2470161f55c7e779c436a9c86ec84d75469"
+    },
+    {
+      "path": "assets/snapshot.js",
+      "bytes": 9646,
+      "sha256": "7f3a1568b59c50aca87192ad991eed2b2f55fa16b77ffe6f1837bb9d9400d959"
+    },
+    {
+      "path": "assets/universe-data.js",
+      "bytes": 56473,
+      "sha256": "9f900a791abf140b7254557c09f6bd9811ae0ab5dafd24f824b234e390f319a8"
+    },
+    {
+      "path": "assets/universe.css",
+      "bytes": 11439,
+      "sha256": "6b570ba1ff2f9d002b84560cfd94cf9a90faf8355db63506be937b185267617d"
+    },
+    {
+      "path": "assets/universe.js",
+      "bytes": 3939,
+      "sha256": "2fa787fffea93e36b7beb6d379f0993722cc8c1d37c45d119af24d005d239d5c"
+    },
+    {
+      "path": "assets/wallet-connection.js",
+      "bytes": 12951,
+      "sha256": "27de11d18b6208c1aae4d91809f6d3bbe16160060d13869521292e295eecdd46"
+    },
+    {
+      "path": "forschung/figuren-und-perspektiven/index.html",
+      "bytes": 23387,
+      "sha256": "d9f451524dc66d88fde51dee35be1adafb926ce6f652470b7cb517f326ac3e42"
+    },
+    {
+      "path": "forschung/formen-und-verbindungen/index.html",
+      "bytes": 21054,
+      "sha256": "daa94a1d620564c9bfdc0c7e985a0fbd734f094a51b976ce5771b44bc15be5e0"
+    },
+    {
+      "path": "forschung/formen-und-verbindungen/motiv.png",
+      "bytes": 4547,
+      "sha256": "6d69add4e392beea7194f1fe7e30279122017d3f7f1f88a0aeb8af7c737d1133"
+    },
+    {
+      "path": "forschung/transaktionsfluss/index.html",
+      "bytes": 30055,
+      "sha256": "ed97a21910dcf62764253da29ef2a0ab827980ccb68dcd8f1894473a7a557731"
+    },
+    {
+      "path": "index.html",
+      "bytes": 408844,
+      "sha256": "98ac45b6004edcb5d497df025b6e164966a0bf53656e70b2155c1233b79dd6d3"
+    },
+    {
+      "path": "room/index.html",
+      "bytes": 16050,
+      "sha256": "d72ea0146977631df22bbe7a685da49b47163f2207003a342e805c2b64eb3d68"
+    },
+    {
+      "path": "snapshot/index.html",
+      "bytes": 12619,
+      "sha256": "87e1402c8cc0eef5740b64fbd89c3f8e32a6dd1c93dcd0655176ddd4d2cece92"
+    },
+    {
+      "path": "tests/event-clock.test.cjs",
+      "bytes": 1935,
+      "sha256": "9a78275d2e53053a180166875dcd9713462e551687c146dcb1205a6b57f6619d"
+    },
+    {
+      "path": "tests/event-flow.test.cjs",
+      "bytes": 7170,
+      "sha256": "5dd9f64d172493b6b578f88a3e4d465e8ed28bd70b8da53445ec44584b268abb"
+    },
+    {
+      "path": "tests/language.test.cjs",
+      "bytes": 2889,
+      "sha256": "e2358b7073254c64d7be42ae7a7eb2daeacdabddbbb765a439c844e8cb842dca"
+    },
+    {
+      "path": "tests/reddit-tunnel.test.cjs",
+      "bytes": 8249,
+      "sha256": "8ab9599e003048094454f4a09d30adbf41c43c87b1016077c2be9572039595b8"
+    },
+    {
+      "path": "tests/room-core.test.cjs",
+      "bytes": 3167,
+      "sha256": "ea77bf9faeb1cad7bfe2fdceb6c3f694b7dea5525e2c8356ceabefb7bdb9cc10"
+    },
+    {
+      "path": "tests/room-language.test.cjs",
+      "bytes": 10115,
+      "sha256": "5b42ae7dcb1f85d1a002cfc90dc79cfabcf8355b838fddfb74cbe496edf18a2b"
+    },
+    {
+      "path": "tests/satellite-loading.test.cjs",
+      "bytes": 6871,
+      "sha256": "2884c309b1b4f6bf94651c9a341cca0f7f6214765258426ba9805fbecbb7ea42"
+    },
+    {
+      "path": "tests/snapshot-core.test.cjs",
+      "bytes": 11817,
+      "sha256": "9b94f29e8a2e864f0f4e30fb840a8189754fd775f20815e798f289922780a3cd"
+    },
+    {
+      "path": "tests/snapshot-ui.test.cjs",
+      "bytes": 19726,
+      "sha256": "e669e12c893980527080cd3f4f2ecb1c01ab40014c55616d0efdd8f476eac8ad"
+    },
+    {
+      "path": "tests/wallet-connection.test.cjs",
+      "bytes": 19009,
+      "sha256": "0632fd065eef8e49e96a8c8eb7c5186aed1424a54113bb3fd5216963159d7258"
+    }
+  ],
+  "manifestSelfHash": "Excluded; see Git commit object for this file",
+  "hashByteScope": "Git blob bytes from the source commit, before hosting transformations",
+  "sourceCommit": "a5624071ff40241804f8370c7f96e4c1456eb317",
+  "communityRoom": {
+    "url": "https://juri-halveth.github.io/halveth-scarlet/room/",
+    "githubIssue": "https://github.com/Juri-Halveth/halveth-scarlet/issues/1",
+    "storage": "PUBLIC_GITHUB_ISSUE_COMMENTS",
+    "contributionModel": "VOLUNTARY_SELF_DECLARATION",
+    "identityAndIntent": "DECLARED_BY_CONTRIBUTOR_NOT_INFERRED",
+    "draftHash": "SHA256_OF_UTF8_JSON_RECORD_NOT_IDENTITY_OR_TIME_PROOF",
+    "fetchPolicy": "EXPLICIT_CLICK_FIRST_100_COMMENTS_NO_AUTOMATIC_POLLING",
+    "discordInvite": null,
+    "financialActions": null
+  },
+  "snapshotStudio": {
+    "url": "https://juri-halveth.github.io/halveth-scarlet/snapshot/",
+    "state": "LOCAL_SNAPSHOT_NOT_MINTED",
+    "storage": "LOCAL_DOWNLOAD_ONLY",
+    "wallet": "OPTIONAL_EVM_ACCOUNT_CHAIN_ASSOCIATION",
+    "walletProof": "PROVIDER_DECLARED_NOT_SIGNED",
+    "allowedWalletMethods": [
+      "eth_requestAccounts",
+      "eth_chainId"
+    ],
+    "mintEnabled": false,
+    "projectFee": null,
+    "feeRecipient": null,
+    "contract": null,
+    "mintChainId": null,
+    "sourceLimitBytes": 10485760
+  }
+}
