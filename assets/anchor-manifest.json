@@ -1,7 +1,7 @@
 {
   "schema": "halveth.reference-manifest.v1",
   "author": "HALVETH",
-  "recordedAt": "2026-09-12T12:13:40.385721+00:00",
+  "recordedAt": "2026-09-12T12:44:07.090892+00:00",
   "state": "OFF_CHAIN_REFERENCE",
   "scope": "This website and its published source references",
   "transaction": null,
@@ -75,6 +75,14 @@
       "sha256": "5935cf354c6cebc29463c74f0f17128002f29c7aec8bdbfe35c7233937c19b59",
       "publication": "MINIMIZED_ROLES_ONLY",
       "runtime": "NOT_ASSERTED"
+    },
+    "bitcoinTransactionView": {
+      "path": "assets/bitcoin-transaction-reference.json",
+      "source": "https://mempool.space/tx/f11368d4607b0a751b2583af37f95312ce159b5042eb2d7154d257e0a66a6ae2",
+      "relationship": "USER_LINKED_PUBLIC_REFERENCE; NOT_SITE_ANCHOR",
+      "observedUiStatus": "Entfernt",
+      "apiStatus": 404,
+      "blockInclusion": "NOT_VERIFIED"
     }
   },
   "projectReferences": [
@@ -112,8 +120,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 11340,
-      "sha256": "2966259d0b23d26a0f8da805279acaced9012a83760af4431c522c08c924cab1"
+      "bytes": 12646,
+      "sha256": "60d2c19272d052674b6db36d22d9dc686347973f6f3aa6eb199dfcc32f10b242"
+    },
+    {
+      "path": "assets/bitcoin-transaction-reference.json",
+      "bytes": 4077,
+      "sha256": "5c850e9b616da875a7bdcf569fbca72bc989a18add536a641093362698d4f490"
     },
     {
       "path": "assets/event-clock.js",
@@ -157,8 +170,8 @@
     },
     {
       "path": "assets/universe.css",
-      "bytes": 9733,
-      "sha256": "9866d286f5fb70ee323204db97378f92e748bf1f41c00c98b9502bded0fa50f0"
+      "bytes": 10091,
+      "sha256": "5dd109974b9e48a964c22f9e906456ec0cbb6fae927ef95a916c53d453d38965"
     },
     {
       "path": "assets/universe.js",
@@ -181,9 +194,14 @@
       "sha256": "6d69add4e392beea7194f1fe7e30279122017d3f7f1f88a0aeb8af7c737d1133"
     },
     {
+      "path": "forschung/transaktionsfluss/index.html",
+      "bytes": 29352,
+      "sha256": "7fe41582a79ba523c802bdbf7fcadcd11f6dc1f9ec72c7e71641dee0fe3f7ead"
+    },
+    {
       "path": "index.html",
-      "bytes": 407803,
-      "sha256": "6b63b7e1f124711b6f653c00f5debb7322e4755c8f1add6916334ba73fe88ef1"
+      "bytes": 407899,
+      "sha256": "69b4814fc303343dca780b9c0eb2c4a30790f845356f462414362f35aeb984a9"
     },
     {
       "path": "tests/event-clock.test.cjs",
@@ -208,5 +226,5 @@
   ],
   "manifestSelfHash": "Excluded; see Git commit object for this file",
   "hashByteScope": "Git blob bytes from the source commit, before hosting transformations",
-  "sourceCommit": "d30caf832fb7090856bf51f58d19bb5f9ff74627"
+  "sourceCommit": "13b22d216441632b7a4dc1412adad15b9239e1bb"
 }
