@@ -27,7 +27,7 @@ function tick(){
   if(prelude){eventLabel.textContent='1-STUNDEN-SPIELCOUNTDOWN';eventTime.textContent=state.countdown;eventNote.textContent='Finale um '+state.nextLabel+' · Berlin';}
   else{eventLabel.textContent=muted?'FÜR DIESE RUNDE ALLES GRÜN':'NÄCHSTES SPIELEVENT';eventTime.textContent=state.nextLabel;eventNote.textContent=play.checked?'Eine Stunde vorher, ab '+state.opensLabel+' · Berlin':'Automatische Spielevents ausgeschaltet';}
   if(state.active&&preview&&scene.dataset.phase!=='calm')mark(handled,state.previousId);
-  if(state.active&&play.checked&&scene.dataset.motion!=='paused'&&!post.open&&!sources.open&&!document.querySelector('#entity-dialog')?.open&&scene.dataset.phase==='calm'&&!handled.has(state.previousId)&&!soothed.has(state.previousId)){trigger(state.remainingFinale,false,state.previousId);}
+  if(state.active&&play.checked&&scene.dataset.motion!=='paused'&&!post.open&&!sources.open&&!document.querySelector('#entity-dialog')?.open&&!document.querySelector('#reddit-tunnel')?.open&&scene.dataset.phase==='calm'&&!handled.has(state.previousId)&&!soothed.has(state.previousId)){trigger(state.remainingFinale,false,state.previousId);}
   if(scene.dataset.phase==='mischief'){
     const age=now-started,step=Math.min(3,Math.floor(age/5500));
     if(step!==storyStep){storyStep=step;document.querySelector('#moment-line').textContent=['AHAA… DA SIND NEWS.','BÖSE NEWS? ERST MAL LESEN.','EIN STEIN. EINE NEUE SICHT.','HEHEHE… EIN HERZ FEHLT NOCH.'][step];document.querySelector('#moment-label').textContent=preview?'SPIELVORSCHAU · SCARLET':'SPIELFINALE · SCARLET';document.querySelector('#moment-note').textContent='Fang die Stimmung mit einem Herz auf.';}

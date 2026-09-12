@@ -1,9 +1,10 @@
 window.HalvethUniverse = {
   "schema": "halveth.universe.v1",
-  "recordedAt": "2026-09-12T11:15:02.744389+00:00",
+  "recordedAt": "2026-09-12T12:04:31.049364+00:00",
   "site": "https://juri-halveth.github.io/halveth-scarlet/",
   "redditDestination": "https://www.reddit.com/user/Halveth-Juri/",
-  "redditDestinationBasis": "USER_SUPPLIED_PROFILE; POST_CONTENT_NOT_VERIFIED",
+  "redditDestinationBasis": "USER_SUPPLIED_PROFILE; PROFILE_OBSERVED; NO_PUBLISHED_THEORY_POST_URL",
+  "redditPostUrl": null,
   "featured": [
     "verachel",
     "juri",
@@ -578,25 +579,25 @@ window.HalvethUniverse = {
     {
       "id": "eve",
       "label": "EVE",
-      "role": "Historische Projektnennung im Verachel-Vault; eine eigene Kartenfunktion bleibt offen.",
-      "kind": "BENANNTE PROJEKTPERSPEKTIVE",
-      "section": "garden",
+      "role": "EVE ist die im lokalen Verachel-Vault dokumentierte Tokenbezeichnung.",
+      "kind": "PROJEKT- UND TOKENBEZEICHNUNG",
+      "section": "verachel",
       "sourceLabel": "Verachel-Open-Vault: lokale Projektdokumentation, 12.09.2026.",
-      "note": "Der Eintrag bewahrt die benannte Projektperspektive und ihre offene Definition."
+      "note": "Die Projektbezeichnung belegt keinen ausgeführten Mint oder handelbaren Token."
     },
     {
       "id": "anti",
       "label": "ANTI",
-      "role": "Eine historisch benannte Perspektive; konkrete Aufgabe noch offen.",
+      "role": "Erhält eine typisierte Gegenperspektive.",
       "kind": "HISTORISCHE PROJEKTPERSPEKTIVE",
       "section": "garden",
-      "sourceLabel": "HEUREKA: spaeterer Gespraechseintrag, nicht Teil des ersten Neunerblocks.",
+      "sourceLabel": "HEUREKA: eigener Eintrag außerhalb des ersten Neunerblocks.",
       "note": "Der Eintrag bewahrt die benannte Projektperspektive und ihre offene Definition."
     },
     {
       "id": "schwamm",
       "label": "SCHWAMM",
-      "role": "Eine historisch benannte Perspektive; konkrete Aufgabe noch offen.",
+      "role": "Modelliert Aufnahme, Retention, Abgabe, Rest und Regeneration.",
       "kind": "HISTORISCHE PROJEKTPERSPEKTIVE",
       "section": "garden",
       "sourceLabel": "HEUREKA: spaeterer Gespraechseintrag; SCHWAMM und SCHWARM sind verschiedene Labels.",

@@ -61,7 +61,9 @@ Published by HALVETH as an independent fan project. Not an official Marvel or NA
 
 ## Garten, Reddit und Erdzoom
 
-24 zusätzliche Blasen öffnen 63 durchsuchbare Karten mit Projektrollen, Filminterpretationen und Quellenpunkten. Die Karten verlinken das vom Nutzer angegebene Reddit-Profil u/Halveth-Juri. Die Theorie-Texte zu Ego, Dormammu und den Guardians stehen zusätzlich auf einer zweisprachigen Unterseite.
+24 zusätzliche Blasen und die zwölf Figuren im Orbit führen nach einer kurzen Tunnelanimation direkt zum Reddit-Profil u/Halveth-Juri. „Garten · Perspektiven“ öffnet weiterhin 63 durchsuchbare Karten. Die Theorie-Texte zu Ego, Dormammu und den Guardians stehen auf der zweisprachigen Unterseite. Als Ziel ist das vom Nutzer angegebene Profil hinterlegt; ein veröffentlichter Beitragslink ist noch nicht konfiguriert.
+
+Der Tunnel dauert 720 ms. Escape oder „Hier bleiben“ bricht ihn ab; reduzierte Bewegung und pausierte Animationen überspringen ihn. Strg-/Cmd- und Mittelklick verwenden die normalen Linkfunktionen des Browsers. Beim Zurückkehren von Reddit schließt sich die Übergangsansicht. Die Seite veröffentlicht selbst keine Reddit-Beiträge.
 
 Scrollen, Zwei-Finger-Gesten und Plus/Minus zoomen die Erde von 1× bis 4×. Beim Hineinzoomen wird ein zeitversetztes MODIS-Tagesmosaik von NASA GIBS angefragt. Der angefragte Bildtag bleibt sichtbar. Bei Fehlern bleibt Blue Marble erhalten; erneute Zoominteraktion ermöglicht nach 30 Sekunden einen neuen Versuch. Private Quelltexte und nicht zugeordnete private Namen werden nicht veröffentlicht.
 
@@ -69,7 +71,9 @@ Das Quellen-/Hashmanifest ist eine öffentliche Referenz außerhalb der Blockcha
 
 ## Garden, Reddit and Earth zoom
 
-24 additional bubbles open a searchable directory of 63 project perspectives, film interpretations and source references. Cards link to the user-supplied Reddit profile u/Halveth-Juri. No Reddit post is automatically published.
+24 additional bubbles and the twelve orbiting figures lead directly to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garten · Perspektiven” retains the searchable directory of 63 cards. No published post URL is configured; the full theory text is available on this site's bilingual article.
+
+The transition lasts 720 ms, supports Escape/cancellation, and is skipped for reduced motion or paused animations. Modified clicks retain native browser behavior; returning from Reddit clears the transition. The website itself does not publish Reddit posts.
 
 Scroll, pinch, +/- or keyboard +/- zoom the globe from 1x to 4x. Home resets the view. Zooming in requests a 2048x1024 NASA GIBS MODIS mosaic for the previous UTC day. The requested day is displayed; imagery is delayed and coverage can be incomplete. Blue Marble remains the fallback. Sound is opt-in and reduced motion is respected.
 
