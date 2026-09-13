@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "created": "2026-09-13",
+  "purpose": "Decorative artwork for the shared HALVETH Scarlet portal shell",
+  "source": "Four user-provided generated images; originals retained outside this repository",
+  "derivation": {
+    "format": "WebP",
+    "maximumWidthPx": 1600,
+    "quality": 86,
+    "resampling": "Lanczos"
+  },
+  "assets": [
+    {
+      "file": "portal-cosmic-gate.webp",
+      "role": "Earth and portal nexus",
+      "dimensions": "1600x900",
+      "sha256": "0d6a27948e059a37033af129060550ab0062573a1876134c363266444076420a"
+    },
+    {
+      "file": "portal-machine.webp",
+      "role": "Snapshot studio and transaction flow",
+      "dimensions": "1600x900",
+      "sha256": "2596a51c50dfdc8de050bbd6ff2d2f3ccb3f5b6cf38b32c5caf193fafa7f49d9"
+    },
+    {
+      "file": "portal-nexus.webp",
+      "role": "Research and connection notes",
+      "dimensions": "1600x900",
+      "sha256": "97cdb45e9e6644497771850d979c076f194535b6f72498f93ddeae427b96e0ca"
+    },
+    {
+      "file": "portal-scarlet-room.webp",
+      "role": "Room of traces and character perspectives",
+      "dimensions": "1600x900",
+      "sha256": "43f6817aed0e2da946b66ad63c244012e164faeacc8a042161f78915f918ea65"
+    }
+  ]
+}
