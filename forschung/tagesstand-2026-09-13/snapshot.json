@@ -1,0 +1,44 @@
+{
+  "schema": "halveth.daily.snapshot.v1",
+  "version": "1.0.0",
+  "author": "HALVETH",
+  "recordedAt": "2026-09-13T02:58:01+00:00",
+  "timeBasis": "WORKING_CLOCK_NOT_INDEPENDENT_ATTESTATION",
+  "state": "FINITE_EDITORIAL_SNAPSHOT",
+  "scope": "Four daily-edition files, the stated source register and 14 topic cards.",
+  "hashByteScope": "EXACT_GIT_BLOB_BYTES",
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 23878,
+      "sha256": "5e022282d0e0000db9b2db03947d966f5cb473e44afeb2c56667577e84f7d00c"
+    },
+    {
+      "path": "day.css",
+      "bytes": 4298,
+      "sha256": "041208455ad91c025731540f0d1eed99d0737a2026d51aab4dc24ec3c7586ad2"
+    },
+    {
+      "path": "sources.json",
+      "bytes": 3256,
+      "sha256": "0e386870f72bd5f8df626e3f22a01354aa96b71f180757d71ccb587ea8b8c0ec"
+    },
+    {
+      "path": "topics.json",
+      "bytes": 18132,
+      "sha256": "1fb621d87717ce1e40cb8e21862b669d3aeff6f9c45c22bcd069947be9e7adda"
+    }
+  ],
+  "selfHash": "Excluded; bound by the Git commit containing this file.",
+  "reviewType": "INTERNAL_EDITORIAL_AND_TECHNICAL",
+  "independentCertification": null,
+  "onChainTransaction": null,
+  "scopeCounts": {
+    "directories": 9,
+    "fileEntries": 428,
+    "individualMetadataRecords": 321,
+    "aggregatedExclusions": 107,
+    "selectedTextSources": 22
+  },
+  "sourceBaseline": "116d9a49d43ab2af01fe0f49f0ca374ee19ef792"
+}

@@ -8,9 +8,9 @@ Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer geme
 
 ## Deutsch und Englisch / German and English
 
-Die Erde, alle 64 Gartenkarten und die vier Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern nur diese lokale Präferenz und laden die aktuelle Seite neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
+Die Erde, alle 64 Gartenkarten und die fünf Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern diese lokale Präferenz. Seiten mit direktem Sprachwechsel behalten ihren Zustand; andere Ansichten laden neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
 
-The Earth scene, all 64 garden cards and all four research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally and reload the current page. Source records and proper names retain their original form.
+The Earth scene, all 64 garden cards and all five research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally. In-place language pages preserve their state; other views reload. Source records and proper names retain their original form.
 
 - [Earth in English](https://juri-halveth.github.io/halveth-scarlet/?lang=en)
 - [Ego, Dormammu and the garden](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/?lang=en)
@@ -151,3 +151,13 @@ Ein kleiner Q-Link unten rechts auf der Erde führt zu sechs aufklappbaren Theme
 A small Q link at the lower right of the Earth opens six collapsible topic cards. The bilingual edition covers selected discussion threads from 12–13 September 2026, with a source register and a byte-hash snapshot. It is not a complete daily or system audit. Sources, illustrative models and creative proposals remain labelled. MITA and MEDUSA join the garden; MIRA retains its existing project role.
 
 [Source register](forschung/q-notizen/sources.json) · [Edition hashes](forschung/q-notizen/snapshot.json). All layout assets are local; this page uses no animation loop, remote font, tracking or automated posting. The timestamp records the working clock, not an independent attestation.
+
+## Tagesstand / Daily review — 13.09.2026
+
+[Deutsch](forschung/tagesstand-2026-09-13/?lang=de) · [English](forschung/tagesstand-2026-09-13/?lang=en)
+
+14 bilingual topic cards connect source checks, illustrative models, public software and local prototype status. The private inventory covers nine project folders: 428 file entries, 321 individual metadata records, 107 aggregated exclusions and 22 selected text sources. 34 files have a modification date on 13 September; the preceding day is background. File times do not attest historical creation. Private inventory records and raw media are not included in this release.
+
+The edition is an internal editorial and technical review with a finite declared scope, not independent certification or an audit of every file, project or event. [Sources](forschung/tagesstand-2026-09-13/sources.json), [topic coverage](forschung/tagesstand-2026-09-13/topics.json) and [edition hashes](forschung/tagesstand-2026-09-13/snapshot.json) are explicit. The Q footer links to this daily edition.
+
+Q receipt correction: version 1.0.0 used local CRLF bytes while Git published LF-normalised blobs. Version 1.0.1 corrects its hashes to Git blob bytes and declares that contract. Earlier receipts remain in Git history. Neither receipt proves scientific truth, independent time or authorship.

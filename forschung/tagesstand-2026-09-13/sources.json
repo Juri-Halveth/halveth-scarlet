@@ -1,0 +1,85 @@
+{
+  "schema": "halveth.daily.sources.v1",
+  "recordedAt": "2026-09-13T02:52:25+00:00",
+  "sources": [
+    {
+      "id": "TYPE",
+      "title": "Buchstaben-Anatomie / Letter anatomy",
+      "publisher": "grafico studio",
+      "url": "https://graficostudio.de/de/portfolio/anatomie_der_buchstaben.php",
+      "scope": "Q: cauda / Schweif; terminology only.",
+      "reviewDate": "2026-09-13",
+      "reviewMethod": "DIRECT_PRIMARY_PAGE_READ",
+      "timeBasis": "REVIEW_DATE_NOT_SOURCE_PUBLICATION_DATE"
+    },
+    {
+      "id": "IR",
+      "title": "Iridium",
+      "publisher": "Royal Society of Chemistry",
+      "url": "https://periodic-table.rsc.org/element/77/iridium",
+      "scope": "Element 77 and the explicit dragonfly illustration explanation.",
+      "reviewDate": "2026-09-13",
+      "reviewMethod": "DIRECT_PRIMARY_PAGE_READ",
+      "timeBasis": "REVIEW_DATE_NOT_SOURCE_PUBLICATION_DATE"
+    },
+    {
+      "id": "MITA",
+      "title": "MiSide",
+      "publisher": "AIHASTO",
+      "url": "https://aihasto.itch.io/miside",
+      "scope": "Developer source for the game; see also its Steam listing.",
+      "reviewDate": "2026-09-13",
+      "reviewMethod": "DIRECT_PRIMARY_PAGE_READ",
+      "timeBasis": "REVIEW_DATE_NOT_SOURCE_PUBLICATION_DATE"
+    },
+    {
+      "id": "STEAM",
+      "title": "MiSide on Steam",
+      "publisher": "AIHASTO / Steam",
+      "url": "https://store.steampowered.com/app/2527500/MiSide/",
+      "scope": "Title, developer and the name Mita in the game listing.",
+      "reviewDate": "2026-09-13",
+      "reviewMethod": "DIRECT_PRIMARY_PAGE_READ",
+      "timeBasis": "REVIEW_DATE_NOT_SOURCE_PUBLICATION_DATE"
+    },
+    {
+      "id": "QUAKE",
+      "title": "Marvel’s Agents of S.H.I.E.L.D. spring preview",
+      "publisher": "D23 / Disney",
+      "url": "https://d23.com/marvels-agents-shield-spring-preview/",
+      "scope": "Chloe Bennet plays Daisy Johnson, also called Quake and Skye.",
+      "reviewDate": "2026-09-13",
+      "reviewMethod": "DIRECT_PRIMARY_PAGE_READ",
+      "timeBasis": "REVIEW_DATE_NOT_SOURCE_PUBLICATION_DATE"
+    },
+    {
+      "id": "TITAN",
+      "title": "Hull Failure and Implosion of Submersible Titan",
+      "publisher": "NTSB",
+      "url": "https://www.ntsb.gov/investigations/Pages/DCA23FM036.aspx",
+      "scope": "Investigation DCA23FM036: pressure-hull failure and implosion on 18 June 2023.",
+      "reviewDate": "2026-09-13",
+      "reviewMethod": "DIRECT_PRIMARY_PAGE_READ",
+      "timeBasis": "REVIEW_DATE_NOT_SOURCE_PUBLICATION_DATE"
+    },
+    {
+      "id": "BIO",
+      "title": "Energy and metabolism",
+      "publisher": "OpenStax",
+      "url": "https://openstax.org/books/biology-2e/pages/6-1-energy-and-metabolism",
+      "scope": "Catabolic breakdown and anabolic synthesis; energy requirements.",
+      "reviewDate": "2026-09-13",
+      "reviewMethod": "DIRECT_PRIMARY_PAGE_READ",
+      "timeBasis": "REVIEW_DATE_NOT_SOURCE_PUBLICATION_DATE"
+    }
+  ],
+  "priorSourceRegister": "../q-notizen/sources.json",
+  "priorRegisterStatus": "SEPARATE_EARLIER_REVIEW",
+  "unavailableInThisReview": [
+    {
+      "url": "https://www.monotype.com/de/ressourcen/das-abc-der-buchstaben-anatomie",
+      "result": "FETCH_TIMEOUT",
+      "alternative": "TYPE"
+    }
+  ]
+}

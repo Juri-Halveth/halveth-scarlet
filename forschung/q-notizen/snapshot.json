@@ -1,29 +1,39 @@
 {
   "schema": "halveth.q.snapshot.v1",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "HALVETH",
-  "recordedAt": "2026-09-12T23:38:09+00:00",
+  "recordedAt": "2026-09-13T02:58:01+00:00",
   "timeBasis": "WORKING_CLOCK_NOT_INDEPENDENT_ATTESTATION",
   "state": "SOURCE_NOTE",
   "scope": "This edition of Q notes and its source register",
   "files": [
     {
       "path": "index.html",
-      "bytes": 16368,
-      "sha256": "5de03dbbdea537db7e62829ae3c176df8129b717fda0e6313e888607a97781f7"
+      "bytes": 16436,
+      "sha256": "a0f29709c485c2106991ddb3e3d3fe820ed6a48acc7f867001b3e0a705750d6c"
     },
     {
       "path": "note.css",
-      "bytes": 4905,
-      "sha256": "4bb0610aca394aa2008b6dcfba1c040e8ed824f276bd7a5f503bd8df39727b89"
+      "bytes": 4902,
+      "sha256": "7c3330605d9e8fb4f57ce417244b8f07710e7fb5f7f70be7ce953d0b10c10750"
     },
     {
       "path": "sources.json",
-      "bytes": 5008,
-      "sha256": "68a2dd772539bd938b13091c9e9be47ccb3be23c6b95e325543e40dd01530d99"
+      "bytes": 4850,
+      "sha256": "1633899e43e609d0c173a11c68c1bb96ce26480c366956d876401101c49643f8"
     }
   ],
   "selfHash": "Excluded; bound by Git commit history",
   "claimCeiling": "Hashes identify bytes. They do not establish truth, authorship or physical effects.",
-  "onChainTransaction": null
+  "onChainTransaction": null,
+  "hashByteScope": "EXACT_GIT_BLOB_BYTES",
+  "changes": [
+    "Add link to the dated daily review.",
+    "Correct CRLF working-tree hashes to the LF Git blobs actually published."
+  ],
+  "previousEdition": {
+    "version": "1.0.0",
+    "commit": "116d9a49d43ab2af01fe0f49f0ca374ee19ef792",
+    "state": "HISTORICAL_WORKTREE_BYTE_RECEIPT"
+  }
 }

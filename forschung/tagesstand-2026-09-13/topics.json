@@ -1,0 +1,239 @@
+{
+  "schema": "halveth.daily.topics.v1",
+  "date": "2026-09-13",
+  "timezone": "Europe/Berlin",
+  "recordedAt": "2026-09-13T02:52:25+00:00",
+  "edition": "1.0.0",
+  "state": "FINITE_EDITORIAL_SNAPSHOT",
+  "author": "HALVETH",
+  "scope": {
+    "inventoriedDirectories": 9,
+    "enumeratedFiles": 428,
+    "individualMetadataRecords": 321,
+    "aggregatedExcludedFiles": 107,
+    "selectedTextSources": 22,
+    "filesWithModificationDateOnTargetDay": 34,
+    "backgroundDate": "2026-09-12",
+    "meaning": "Metadata inventory and selected content review; not all file contents or every daily event."
+  },
+  "topics": [
+    {
+      "id": "q",
+      "title_de": "Q, Schweif & Schrift",
+      "title_en": "Q, tail & type",
+      "state_de": "Begriff geprüft",
+      "state_en": "Term checked",
+      "body_de": "Der Abstrich am Q heißt <b>Schweif</b> oder <b>Cauda</b>. Seine Gestalt hängt von der Schrift ab. <code>Titan → natiT</code> ist eine Zeichenumkehr; Kleinschreibung ist ein zusätzlicher Schritt. „NATIT“ bleibt als möglicher Projektname erhalten.",
+      "body_en": "The stroke on a Q is its <b>tail</b>, also called a <b>cauda</b>. Its shape depends on the typeface. <code>Titan → natiT</code> reverses a string; lowercasing is another operation. “NATIT” remains a possible project name.",
+      "sourceIds": [
+        "TYPE"
+      ],
+      "next_de": "Für Formvergleiche dieselbe Schrift, Größe und Drehung binden.",
+      "next_en": "Bind the same typeface, size and rotation when comparing shapes.",
+      "sourceBaseline": null
+    },
+    {
+      "id": "rotation",
+      "title_de": "Eine Form, mehrere Ansichten",
+      "title_en": "One form, several views",
+      "state_de": "Lehrmodell vorhanden",
+      "state_en": "Illustrative model exists",
+      "body_de": "Das lokale Rotationsmodell verwendet eine konstruierte <b>52-Punkte-Form</b>, vier Diagramme und fünf Eingabeparameter. Der frühere Prüfbericht enthält sechs bestandene Modellprüfungen; sie wurden in dieser Bestandsaufnahme nicht erneut ausgeführt. Drehung und Projektion erklären wechselnde Ansichten innerhalb des Modells.",
+      "body_en": "The local rotation model uses a constructed <b>52-point shape</b>, four charts and five input parameters. Its earlier report records six passing model checks; this inventory did not rerun them. Rotation and projection explain changing views within the model.",
+      "sourceIds": [],
+      "next_de": "Originalform und Messverfahren fehlen für einen physikalischen Vergleich. Parameterzahl, Raumdimension und Quantenspin bleiben verschiedene Größen.",
+      "next_en": "An original measured shape and measurement method are needed for a physical comparison. Parameter count, spatial dimension and quantum spin are different quantities.",
+      "sourceBaseline": null
+    },
+    {
+      "id": "names",
+      "title_de": "Mira, Mita, Rachel & Verachel",
+      "title_en": "Mira, Mita, Rachel & Verachel",
+      "state_de": "Namen zugeordnet",
+      "state_en": "Names mapped",
+      "body_de": "<b>Mita</b> gehört zu <i>MiSide</i> von AIHASTO. <b>Mira</b> bleibt die bestehende Projektperspektive im HALVETH-Garten. <b>RACHEL</b> und <b>VERACHEL</b> sind die gewünschten Projektschreibweisen. Weitere ähnlich klingende Namen erhalten erst mit einer konkreten Quelle dieselbe Zuordnung.",
+      "body_en": "<b>Mita</b> belongs to AIHASTO’s <i>MiSide</i>. <b>Mira</b> retains the existing project perspective in the HALVETH garden. <b>RACHEL</b> and <b>VERACHEL</b> are the requested project spellings. Other similar-sounding names require a specific source before receiving the same mapping.",
+      "sourceIds": [
+        "MITA",
+        "STEAM"
+      ],
+      "next_de": "Gartenkarten sind redaktionelle Perspektiven. Ihre Namen belegen keine selbstständig handelnden Personen oder Programme.",
+      "next_en": "Garden cards are editorial perspectives. Their labels do not establish independently acting people or programs.",
+      "sourceBaseline": null
+    },
+    {
+      "id": "stories",
+      "title_de": "Figuren neu lesen",
+      "title_en": "Reconsidering characters",
+      "state_de": "Interpretation",
+      "state_en": "Interpretation",
+      "body_de": "Ego, Dormammu, Scarlet Witch und die Guardians bilden die bestehende Filmdebatte: Motive verstehen, Handlungen beurteilen, Alternativen entwerfen. „Bleiben, zuhören und Verantwortung übernehmen“ ist eine mögliche andere Geschichte. Medusa ergänzt den Garten als mythologisches Motiv. <a href=\"../figuren-und-perspektiven/\" rel=\"noreferrer\">Figuren &amp; Perspektiven ↗</a>",
+      "body_en": "Ego, Dormammu, Scarlet Witch and the Guardians anchor the existing film discussion: understand motives, assess actions, imagine alternatives. Staying, listening and taking responsibility offers a possible different story. Medusa joins the garden as a mythological motif. <a href=\"../figuren-und-perspektiven/\" rel=\"noreferrer\">Characters &amp; perspectives ↗</a>",
+      "sourceIds": [],
+      "next_de": "Filmhandlung, Faninterpretation und reale technische Behauptung erhalten jeweils ihre eigene Quelle.",
+      "next_en": "Film events, fan interpretations and real technical claims each need their own source.",
+      "sourceBaseline": null
+    },
+    {
+      "id": "quake",
+      "title_de": "Quake heißt Daisy",
+      "title_en": "Quake is Daisy",
+      "state_de": "Besetzung geprüft",
+      "state_en": "Casting checked",
+      "body_de": "Die gesuchte Figur aus <i>Agents of S.H.I.E.L.D.</i> ist <b>Daisy Johnson / Quake</b>, zuvor auch <b>Skye</b> genannt. Sie wird von <b>Chloe Bennet</b> gespielt. Der D23-Beitrag nennt diese Zuordnung ausdrücklich.",
+      "body_en": "The character from <i>Agents of S.H.I.E.L.D.</i> is <b>Daisy Johnson / Quake</b>, also previously called <b>Skye</b>. She is played by <b>Chloe Bennet</b>. The D23 article explicitly provides this mapping.",
+      "sourceIds": [
+        "QUAKE"
+      ],
+      "next_de": "",
+      "next_en": "",
+      "sourceBaseline": null
+    },
+    {
+      "id": "iridium",
+      "title_de": "Iridium & die Libelle",
+      "title_en": "Iridium & the dragonfly",
+      "state_de": "Bildquelle geklärt",
+      "state_en": "Illustration source checked",
+      "body_de": "Die Royal Society of Chemistry nennt <b>Iridium · Ir · 77</b>. Die schillernden Libellenflügel ihrer Illustration verweisen laut Bildlegende auf den Namen und die Farben seiner Salze. Das erklärt die gewählte Gestaltung. Die Illustration ist keine Aufnahme eines Atoms.",
+      "body_en": "The Royal Society of Chemistry lists <b>iridium · Ir · 77</b>. Its caption explains that iridescent dragonfly wings refer to the name and the colours of its salts. This explains the illustration’s design; it is not an image of an atom.",
+      "sourceIds": [
+        "IR"
+      ],
+      "next_de": "Wurzeln, Wärme, Licht, Magma und Plasma bleiben getrennte Forschungsbegriffe. Für eine gemeinsame physikalische These sind Mechanismus und unterscheidbare Messvorhersage offen.",
+      "next_en": "Roots, heat, light, magma and plasma remain separate research terms. A shared physical hypothesis still needs a mechanism and a distinguishing measurement prediction.",
+      "sourceBaseline": null
+    },
+    {
+      "id": "pressure",
+      "title_de": "Druck & Implosion",
+      "title_en": "Pressure & implosion",
+      "state_de": "Untersuchungsquelle geprüft",
+      "state_en": "Investigation source checked",
+      "body_de": "Die NTSB ordnet den Verlust der <i>Titan</i> am <b>18. Juni 2023</b> als Versagen des Druckkörpers mit Implosion ein. Der Bericht beschreibt unzureichende technische Auslegung, Delamination und weitere Schäden. Nach innen kollabierendes Material und eine nach außen laufende Druckwelle widersprechen sich nicht.",
+      "body_en": "The NTSB identifies the loss of <i>Titan</i> on <b>18 June 2023</b> as pressure-hull failure and implosion. The report describes inadequate engineering, delamination and additional damage. Inward structural collapse and an outward pressure wave are compatible.",
+      "sourceIds": [
+        "TITAN"
+      ],
+      "next_de": "Der dokumentierte Unfall liefert keinen Nachweis einer Zeitreise. Fragen zu Druckfestigkeit sind an Werkstoff, Geometrie, Belastung und Messdaten zu binden.",
+      "next_en": "The documented accident does not demonstrate time travel. Pressure resistance needs a defined material, geometry, load and measurements.",
+      "sourceBaseline": null
+    },
+    {
+      "id": "cycles",
+      "title_de": "Abbau, Aufbau & Information",
+      "title_en": "Breakdown, synthesis & information",
+      "state_de": "Begriffe geprüft",
+      "state_en": "Terms checked",
+      "body_de": "<b>Katabolismus</b> bezeichnet abbauende, <b>Anabolismus</b> aufbauende Stoffwechselwege. Aufbau braucht passende Stoffe und Energie. Das ist ein sinnvoller Vergleich zum Verdauen, aber keine vollständige Rückwärtsausführung der Verdauung. Werden unterschiedliche Ausgangsformen zum gleichen Ergebnis zusammengefasst, lässt sich ihre genaue Vorgeschichte daraus allein nicht rekonstruieren.",
+      "body_en": "<b>Catabolism</b> describes metabolic breakdown and <b>anabolism</b> metabolic synthesis. Synthesis needs suitable materials and energy. This is a useful contrast to digestion, but not a complete reversal of digestion. If distinct starting structures map to the same result, that result alone cannot recover their exact history.",
+      "sourceIds": [
+        "BIO"
+      ],
+      "next_de": "",
+      "next_en": "",
+      "sourceBaseline": null
+    },
+    {
+      "id": "media",
+      "title_de": "Bild, Aufnahme & Erklärung",
+      "title_en": "Image, recording & explanation",
+      "state_de": "Begrenzte Sichtung",
+      "state_en": "Bounded review",
+      "body_de": "Die lokale Medienprüfung umfasst zwei Standbilder und eine Bildschirmaufnahme von rund <b>14,7 Sekunden</b>. Geprüft wurden Metadaten, 15 Übersichtsbilder und ein zusätzliches Einzelbild. Die Tonspur und eine lückenlose Bildfolge sind nicht ausgewertet. Bildüberlagerung, gemeinsame Farbe und zeitliche Nähe bestimmen für sich keine gemeinsame technische Ursache.",
+      "body_en": "The local media review covers two still images and a screen recording of about <b>14.7 seconds</b>. It inspected metadata, 15 overview frames and one additional frame. Audio and the complete frame sequence were not reviewed. Overlays, shared colours and temporal proximity alone do not identify a shared technical cause.",
+      "sourceIds": [],
+      "next_de": "Für die nächste Prüfung ein sichtbares Detail, ein Zeitsegment und zwei unterschiedlich vorhersagende Erklärungen festlegen. Private Medien bleiben lokal.",
+      "next_en": "For the next review, bind a visible detail, a time segment and two explanations with different predictions. Private media stays local.",
+      "sourceBaseline": null
+    },
+    {
+      "id": "earth",
+      "title_de": "Erde, Garten & freiwillige Spuren",
+      "title_en": "Earth, garden & voluntary traces",
+      "state_de": "Im veröffentlichten Quellstand",
+      "state_en": "In the published source baseline",
+      "body_de": "Die Erde verbindet Herz, Uhr, Fanfiguren und Garten. Das Tagesmodell folgt Berliner Zivilzeit; Spieltermine liegen im Dreistundenraster. Nachrichten sind ein datierter Quellenstand. Erdzoom lädt zeitversetzte NASA-Bilddaten. Der <a href=\"../../room/\" rel=\"noreferrer\">Raum der Spuren ↗</a> führt zu freiwilligen GitHub-Kommentaren; Discord ist noch nicht eingerichtet.",
+      "body_en": "The Earth connects a heart, clock, fictional characters and garden. The day model follows Berlin civil time; play events follow a three-hour schedule. News is a dated source snapshot. Earth zoom loads delayed NASA imagery. The <a href=\"../../room/\" rel=\"noreferrer\">Room of traces ↗</a> leads to voluntary GitHub comments; Discord is not configured.",
+      "sourceIds": [],
+      "next_de": "Ein Profil-Link ist noch kein veröffentlichter Reddit-Beitrag. Stille Leser und ihre Absichten werden dadurch nicht erfasst.",
+      "next_en": "A profile link is not a published Reddit post. It does not identify silent readers or their intentions.",
+      "sourceBaseline": "116d9a49d43ab2af01fe0f49f0ca374ee19ef792"
+    },
+    {
+      "id": "snapshot",
+      "title_de": "Beleg, Wallet & Mint",
+      "title_en": "Receipt, wallet & mint",
+      "state_de": "Reifegrade getrennt",
+      "state_en": "Maturity states separated",
+      "body_de": "Das veröffentlichte <a href=\"../../snapshot/\" rel=\"noreferrer\">Snapshot-Studio ↗</a> erzeugt lokale Dateibelege. Eine optionale Walletzuordnung liest Konto und Chain nach ausdrücklicher Verbindung. Der gespeicherte Zustand lautet <code>LOCAL_SNAPSHOT_NOT_MINTED</code>. Für einen eigenen VERACHEL-Launch ist in der geprüften lokalen Dokumentation kein abgeschlossener Vertrags-/Mintbeleg zugeordnet.",
+      "body_en": "The published <a href=\"../../snapshot/\" rel=\"noreferrer\">Snapshot studio ↗</a> creates local file receipts. An optional wallet association reads the account and chain after explicit connection. Its state is <code>LOCAL_SNAPSHOT_NOT_MINTED</code>. The reviewed local documentation has no assigned completed contract/mint receipt for a VERACHEL launch.",
+      "sourceIds": [],
+      "next_de": "Ein Explorer-Link, Netzwerk, Vertrag und bestätigter Vorgang wären die nächste überprüfbare Grundlage. Quellenlinks verbinden keine Blockchains automatisch.",
+      "next_en": "An explorer link, network, contract and confirmed operation would provide the next verifiable basis. Source links do not automatically connect blockchains.",
+      "sourceBaseline": "116d9a49d43ab2af01fe0f49f0ca374ee19ef792"
+    },
+    {
+      "id": "prototype",
+      "title_de": "Intent Lab & App-Ideen",
+      "title_en": "Intent Lab & app ideas",
+      "state_de": "Lokaler Prototyp",
+      "state_en": "Local prototype",
+      "body_de": "Das Intent Lab enthält einen responsiven DE/EN-Demorouter mit synthetischen Kursen, Kosten, Wartegrenzen und Nettovergleich. Die Bestandsaufnahme prüft README und Dateiexistenz; sie führt den Prototyp nicht neu aus. Eine native iOS-Veröffentlichung oder tatsächlich ausgeführte Handelsroute ist damit nicht dokumentiert. .app-Vorschläge bleiben getrennt von registrierten Domains.",
+      "body_en": "Intent Lab contains a responsive DE/EN demo router with synthetic quotes, costs, waiting limits and a net-output comparison. This inventory checks its README and file presence; it does not rerun the prototype. It does not document a native iOS release or an executed trade. Proposed .app names remain separate from registered domains.",
+      "sourceIds": [],
+      "next_de": "Als nächste Entwicklungsstufe eine einzelne autorisierte Integration mit klaren Kosten- und Fehlerzuständen prüfen.",
+      "next_en": "The next development stage is one authorised integration with explicit costs and failure states.",
+      "sourceBaseline": null
+    },
+    {
+      "id": "licensing",
+      "title_de": "Quellen, Fassungen & Rechte",
+      "title_en": "Sources, versions & rights",
+      "state_de": "Privater Entwurf erfasst",
+      "state_en": "Private draft recorded",
+      "body_de": "Die frühere Lizenzbestandsaufnahme bindet fünf öffentliche Repository-Stände. Das neue Lizenzmodell trägt ausdrücklich den Status <b>privater Entwurf, nicht in Kraft</b>. Diese Tagesseite ändert keine bestehenden Lizenzbedingungen. Konkrete Dateien, Fassungen und Fremdmaterialien behalten ihre jeweiligen Hinweise.",
+      "body_en": "The earlier licence inventory binds five public repository snapshots. The new licensing model is explicitly a <b>private draft, not in force</b>. This daily page changes no existing licence terms. Specific files, versions and third-party materials retain their respective notices.",
+      "sourceIds": [],
+      "next_de": "Vor einer späteren Änderung den betroffenen Dateiscope und die Rechtekette konkret prüfen.",
+      "next_en": "Before any later change, review the specific file scope and chain of rights.",
+      "sourceBaseline": null
+    },
+    {
+      "id": "hashes",
+      "title_de": "Ein korrigierter Hashbeleg",
+      "title_en": "A corrected hash receipt",
+      "state_de": "Konkrete Korrektur",
+      "state_en": "Concrete correction",
+      "body_de": "Das bisherige Q-Untermanifest band lokale Windows-Dateibytes mit CRLF-Zeilenenden. Git normalisierte die veröffentlichten Textdateien auf LF. Deshalb unterschieden sich die Hashes. Fassung <b>1.0.1</b> des Q-Belegs bindet die Git-Dateibytes und benennt diese Prüfbasis. Die frühere Fassung bleibt im Git-Verlauf erhalten.",
+      "body_en": "The previous Q submanifest bound local Windows bytes with CRLF line endings. Git normalised the published text files to LF, so the hashes differed. Version <b>1.0.1</b> of the Q receipt binds the Git file bytes and explicitly names that basis. The previous edition remains in Git history.",
+      "sourceIds": [],
+      "next_de": "Prüfsummen immer gegen dieselbe Bytefassung vergleichen. Ein passender Hash prüft Inhaltstreue, nicht die Wahrheit einer These.",
+      "next_en": "Always compare hashes against the same byte representation. A matching hash checks byte integrity, not the truth of a hypothesis.",
+      "sourceBaseline": null
+    }
+  ],
+  "openFrontiers": [
+    {
+      "id": "PHYSICAL",
+      "state": "QUESTION_RETAINED",
+      "next": "Specify mechanism, measured quantity and distinguishing prediction."
+    },
+    {
+      "id": "MEDIA",
+      "state": "PARTIAL_COVERAGE",
+      "next": "Bind the original source and a specific segment; audio remains unreviewed."
+    },
+    {
+      "id": "DEPLOYMENTS",
+      "state": "UNASSIGNED",
+      "next": "Provide network, contract and confirmed transaction for a claimed separate launch."
+    },
+    {
+      "id": "OTHER_PROJECTS",
+      "state": "OUTSIDE_THIS_REVIEW",
+      "next": "Name an additional project or source archive for the next inventory."
+    }
+  ],
+  "externalCertification": null
+}
