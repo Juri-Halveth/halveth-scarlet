@@ -1,7 +1,7 @@
 {
   "schema": "halveth.reference-manifest.v1",
   "author": "HALVETH",
-  "recordedAt": "2026-09-13T02:58:49+00:00",
+  "recordedAt": "2026-09-12T23:44:20+00:00",
   "state": "OFF_CHAIN_REFERENCE",
   "scope": "This website and its published source references",
   "transaction": null,
@@ -120,8 +120,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 24514,
-      "sha256": "50112219505b201834f28151214ebeea2f4c8160a2a5c80bc9cffeca0fdd50f3"
+      "bytes": 23097,
+      "sha256": "ed215af984dae133a5186cf04fca9d579b7cc1dee5aa995f08c0e0e5fec088a8"
     },
     {
       "path": "assets/bitcoin-transaction-reference.json",
@@ -260,8 +260,8 @@
     },
     {
       "path": "forschung/q-notizen/index.html",
-      "bytes": 16436,
-      "sha256": "a0f29709c485c2106991ddb3e3d3fe820ed6a48acc7f867001b3e0a705750d6c"
+      "bytes": 16330,
+      "sha256": "110d37b747957cbe076586d5e12e29c999c1e68c213ba8a1e91a52072c74bedd"
     },
     {
       "path": "forschung/q-notizen/note.css",
@@ -270,38 +270,13 @@
     },
     {
       "path": "forschung/q-notizen/snapshot.json",
-      "bytes": 1264,
-      "sha256": "7022a95cb80bed4d6a23238b0f0715fb72940ac510694d434076164668b1aaae"
+      "bytes": 921,
+      "sha256": "b8368590dbabecd2d3c5e5e3e050a77952266184b5cebc56959a3663349dfb88"
     },
     {
       "path": "forschung/q-notizen/sources.json",
       "bytes": 4850,
       "sha256": "1633899e43e609d0c173a11c68c1bb96ce26480c366956d876401101c49643f8"
-    },
-    {
-      "path": "forschung/tagesstand-2026-09-13/day.css",
-      "bytes": 4298,
-      "sha256": "041208455ad91c025731540f0d1eed99d0737a2026d51aab4dc24ec3c7586ad2"
-    },
-    {
-      "path": "forschung/tagesstand-2026-09-13/index.html",
-      "bytes": 23878,
-      "sha256": "5e022282d0e0000db9b2db03947d966f5cb473e44afeb2c56667577e84f7d00c"
-    },
-    {
-      "path": "forschung/tagesstand-2026-09-13/snapshot.json",
-      "bytes": 1389,
-      "sha256": "712325ee247d35a7907d930b4f11d1864230ed49152335f2992148231a193642"
-    },
-    {
-      "path": "forschung/tagesstand-2026-09-13/sources.json",
-      "bytes": 3256,
-      "sha256": "0e386870f72bd5f8df626e3f22a01354aa96b71f180757d71ccb587ea8b8c0ec"
-    },
-    {
-      "path": "forschung/tagesstand-2026-09-13/topics.json",
-      "bytes": 18132,
-      "sha256": "1fb621d87717ce1e40cb8e21862b669d3aeff6f9c45c22bcd069947be9e7adda"
     },
     {
       "path": "forschung/transaktionsfluss/index.html",
@@ -375,8 +350,8 @@
     }
   ],
   "manifestSelfHash": "Excluded; see Git commit object for this file",
-  "hashByteScope": "Git blob bytes from sourceCommit; excludes this manifest and its separately recorded predecessor copy.",
-  "sourceCommit": "c9147f2d393f13dcbc4871bf7c5999924404bcc6",
+  "hashByteScope": "Git blob bytes from the source commit, before hosting transformations",
+  "sourceCommit": "f58104dcfe720788240ac240860be7e3f881eb8e",
   "communityRoom": {
     "url": "https://juri-halveth.github.io/halveth-scarlet/room/",
     "githubIssue": "https://github.com/Juri-Halveth/halveth-scarlet/issues/1",
@@ -405,30 +380,14 @@
     "mintChainId": null,
     "sourceLimitBytes": 10485760
   },
-  "previousManifest": "assets/releases/anchor-before-daily-20260913.json",
+  "previousManifest": "assets/releases/anchor-before-q-20260913.json",
   "qNotebook": {
     "url": "https://juri-halveth.github.io/halveth-scarlet/forschung/q-notizen/",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "state": "SOURCE_NOTE",
     "coverage": "Selected topics from 12–13 September 2026 Europe/Berlin; not a complete daily or system audit",
     "sourceRegister": "forschung/q-notizen/sources.json",
     "editionHashes": "forschung/q-notizen/snapshot.json",
     "physicalEffectsObserved": false
-  },
-  "previousManifestSha256": "f7b0f97a122b46646bae5b11b4f0bc15b57e3494e7efd60c4be867baf92b49be",
-  "dailyReview": {
-    "url": "https://juri-halveth.github.io/halveth-scarlet/forschung/tagesstand-2026-09-13/",
-    "edition": "1.0.0",
-    "state": "FINITE_EDITORIAL_SNAPSHOT",
-    "languages": [
-      "de",
-      "en"
-    ],
-    "topicCount": 14,
-    "sourceRegister": "forschung/tagesstand-2026-09-13/sources.json",
-    "coverageRegister": "forschung/tagesstand-2026-09-13/topics.json",
-    "editionHashes": "forschung/tagesstand-2026-09-13/snapshot.json",
-    "reviewType": "INTERNAL_EDITORIAL_AND_TECHNICAL",
-    "independentCertification": null
   }
 }
