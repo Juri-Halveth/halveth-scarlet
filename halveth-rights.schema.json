@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://juri-halveth.github.io/halveth-scarlet/halveth-rights.schema.json",
+  "title": "HALVETH rights declaration",
+  "type": "object",
+  "required": [
+    "rightsHolder",
+    "repository",
+    "scope",
+    "license",
+    "textAndDataMining",
+    "thirdPartyMaterial"
+  ],
+  "properties": {
+    "rightsHolder": {
+      "type": "object",
+      "required": [
+        "legalName",
+        "publishingName",
+        "github"
+      ]
+    },
+    "repository": {
+      "type": "string",
+      "format": "uri"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "evidenceStatusIsRightsWaiver": {
+      "const": false
+    },
+    "license": {
+      "type": "object",
+      "required": [
+        "id",
+        "commercialUse",
+        "commercialPermission"
+      ]
+    },
+    "textAndDataMining": {
+      "type": "object",
+      "required": [
+        "reservation",
+        "commercialAIUse"
+      ]
+    },
+    "thirdPartyMaterial": {
+      "const": "EXCLUDED_AND_RETAINS_ITS_OWN_RIGHTS"
+    }
+  },
+  "additionalProperties": true
+}

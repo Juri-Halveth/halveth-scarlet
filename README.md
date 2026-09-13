@@ -6,6 +6,8 @@ Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer geme
 
 **Direkt auf Englisch / Open in English:** https://juri-halveth.github.io/halveth-scarlet/?lang=en
 
+**Urheberschaft und Beteiligung / Authorship and participation:** © 2026 Juri Halveth (Juri Janovski). HALVETH beansprucht die Rechte an den eigenen Thesen, Texten, Modellen, Abbildungen und dem Code. Eine öffentliche GitHub-Fassung ist kein Rechteverzicht. Kommerzielle Nutzung geschützter HALVETH-Bestandteile erfordert eine vorherige schriftliche Lizenz und Beteiligungsvereinbarung. Einzelheiten: [HALVETH-RIGHTS.md](HALVETH-RIGHTS.md), [HALVETH-RIGHTS.json](HALVETH-RIGHTS.json) und [LICENSES.md](LICENSES.md).
+
 ## Deutsch und Englisch / German and English
 
 Die Erde, alle 64 Gartenkarten und die fünf Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern diese lokale Präferenz. Seiten mit direktem Sprachwechsel behalten ihren Zustand; andere Ansichten laden neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.

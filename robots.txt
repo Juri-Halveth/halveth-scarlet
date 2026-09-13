@@ -1,0 +1,24 @@
+# Human-facing pages remain indexable by general search engines.
+# Commercial AI and text/data-mining rights are expressly reserved where lawful.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://juri-halveth.github.io/halveth-scarlet/sitemap.xml
