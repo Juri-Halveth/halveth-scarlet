@@ -20,12 +20,13 @@
     {id:'forms',path:'forschung/formen-und-verbindungen/',index:'04',image:'nexus',accent:'#79f5ce',de:'Formen & Verbindungen',en:'Forms & connections',deNote:'Ähnlichkeit prüfen, Ebenen trennen',enNote:'Test similarities, separate layers'},
     {id:'flow',path:'forschung/transaktionsfluss/',index:'05',image:'machine',accent:'#ffc66e',de:'Transaktionsfluss',en:'Transaction flow',deNote:'Werte, Struktur und Beleggrenzen',enNote:'Values, structure and evidence limits'},
     {id:'q',path:'forschung/q-notizen/',index:'06',image:'nexus',accent:'#a795ff',de:'Q-Notizen',en:'Q notebook',deNote:'Große Fragen, gebundene Quellen',enNote:'Big questions, bound sources'},
-    {id:'day',path:'forschung/tagesstand-2026-09-13/',index:'07',image:'gate',accent:'#90cfff',de:'Tagesstand',en:'Daily record',deNote:'Ein nachvollziehbarer Arbeitsstand',enNote:'A traceable working record'}
+    {id:'day',path:'forschung/tagesstand-2026-09-13/',index:'07',image:'gate',accent:'#90cfff',de:'Tagesstand',en:'Daily record',deNote:'Ein nachvollziehbarer Arbeitsstand',enNote:'A traceable working record'},
+    {id:'team',path:'./#team',index:'08',image:'nexus',accent:'#ff7ac8',de:'Die Konstellation',en:'The constellation',deNote:'64 öffentliche Karten: Perspektiven, Figuren, Projekte und Quellen',enNote:'64 public cards: perspectives, characters, projects and sources'}
   ];
 
   const normalized=(url)=>decodeURI(url.pathname).replace(/index\.html$/i,'').replace(/\/+$/,'/')||'/';
   const here=normalized(location);
-  const current=routes.find(route=>normalized(new URL(route.path,base))===here)||routes[0];
+  const current=routes.find(route=>route.id!=='team'&&normalized(new URL(route.path,base))===here)||routes[0];
   const language=()=>{
     const query=new URLSearchParams(location.search).get('lang');
     if(query==='en'||query==='de')return query;
@@ -80,13 +81,14 @@
     map.setAttribute('aria-label',english?'Scarlet portal map':'Scarlet-Portalplan');
     map.querySelector('.portal-map-close').setAttribute('aria-label',english?'Close portal map':'Portalplan schließen');
     map.querySelector('.portal-map-kicker').textContent=english?'THE CONNECTED UNIVERSE':'DAS VERBUNDENE UNIVERSUM';
-    map.querySelector('h2').textContent=english?'Eight rooms. One connection.':'Acht Räume. Ein Zusammenhang.';
-    map.querySelector('.portal-map-intro').textContent=english?"I'm Juri. HALVETH is my open garden for big questions, traceable sources, and voluntary exploration together. I decide what I publish; you keep your choice.":'Ich bin Juri. HALVETH ist mein offener Garten für große Fragen, nachvollziehbare Quellen und freiwilliges gemeinsames Prüfen. Ich entscheide, was ich veröffentliche; du behältst deine Wahl.';
+    map.querySelector('h2').textContent=english?'Nine portals. One constellation.':'Neun Portale. Eine Konstellation.';
+    map.querySelector('.portal-map-intro').textContent=english?"I'm Juri. HALVETH is my open garden for big questions, traceable sources, and voluntary exploration together. I decide what I publish; you keep your choice. The whole public constellation travels with us.":'Ich bin Juri. HALVETH ist mein offener Garten für große Fragen, nachvollziehbare Quellen und freiwilliges gemeinsames Prüfen. Ich entscheide, was ich veröffentliche; du behältst deine Wahl. Die ganze öffentliche Konstellation reist mit.';
     map.querySelector('.portal-map-foot-left').textContent=english?'The em dash connects clauses without pretending to prove a cause.':'Der Gedankenstrich verbindet Satzteile, ohne eine Ursache vorzutäuschen.';
     const grid=map.querySelector('.portal-grid');
     grid.replaceChildren(...routes.map(route=>{
       const link=document.createElement('a');
       link.className='portal-node';
+      link.dataset.portalRoute=route.id;
       link.href=routeURL(route,lang);
       link.style.setProperty('--node-image','url("'+images[route.image]+'")');
       link.style.setProperty('--node-accent',route.accent);

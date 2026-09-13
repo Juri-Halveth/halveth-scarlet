@@ -10,8 +10,14 @@ const tones=['#b7ffe1','#b5c9ff','#efb0d8','#e5d8a5'];
 data.featured.forEach((id,i)=>{const e=byId.get(id);if(!e)return;const b=document.createElement('a');b.href=redditTarget(e);b.rel='noreferrer';b.className='entity-bubble';b.dataset.entity=id;b.textContent=e.label;b.setAttribute('aria-label',e.label+L.t(' · Zu HALVETH auf Reddit'));b.title=e.label+' · Reddit';b.style.setProperty('--bubble-tone',tones[i%4]);b.style.setProperty('--delay',(-i*.73)+'s');window.HalvethRedditTunnel.bind(b,e.label);document.querySelector(i<data.featured.length/2?'.constellation-left':'.constellation-right').append(b);});
 for(const e of data.entities){const b=document.createElement('button');b.type='button';b.textContent=e.label;b.dataset.search=(e.label+' '+e.role).toLocaleLowerCase(L.get());b.addEventListener('click',()=>{show(e.id);dialog.scrollTop=0;title.focus();});directory.append(b);}
 for(const link of document.querySelectorAll('.figure')){const e=byId.get(link.dataset.figure);if(e){link.href=redditTarget(e);link.setAttribute('aria-label',e.label+L.t(' · Zu HALVETH auf Reddit'));link.title=e.label+' · Reddit';window.HalvethRedditTunnel.bind(link,e.label);}}
-document.querySelector('#garden-open').addEventListener('click',()=>{show('mira');document.querySelector('.entity-directory').open=true;document.querySelector('#entity-filter').focus();});
+let constellationHashOpen=false;
+const openConstellation=(fromHash=false)=>{constellationHashOpen=fromHash;show(fromHash?'juri':'mira');document.querySelector('.entity-directory').open=true;document.querySelector('#entity-filter').focus();};
+const syncConstellationHash=()=>{if(location.hash==='#team'){openConstellation(true);return;}if(constellationHashOpen&&dialog.open)dialog.close();constellationHashOpen=false;};
+document.querySelector('#garden-open').addEventListener('click',()=>openConstellation(false));
+if(location.hash==='#team')queueMicrotask(syncConstellationHash);
+window.addEventListener('hashchange',syncConstellationHash);
 document.querySelector('#entity-close').addEventListener('click',()=>dialog.close());
+dialog.addEventListener('close',()=>{if(!constellationHashOpen)return;constellationHashOpen=false;if(location.hash==='#team'){const url=new URL(location.href);url.hash='';history.replaceState(history.state,'',url);}});
 document.querySelector('#entity-filter').addEventListener('input',e=>{let n=0;for(const b of directory.children){b.hidden=!b.dataset.search.includes(e.target.value.toLocaleLowerCase(L.get()));if(!b.hidden)n++;}document.querySelector('#empty-directory').hidden=n>0;});
 document.querySelector('#directory-count').textContent=data.entities.length+L.t(' Perspektiven & Quellen');
 for(const button of document.querySelectorAll('[data-chain]'))button.addEventListener('click',()=>show(button.dataset.chain));
