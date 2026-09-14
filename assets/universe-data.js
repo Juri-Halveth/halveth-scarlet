@@ -1063,6 +1063,22 @@ window.HalvethUniverse = {
         "note": "Designed as a new garden card. The museum source documents an ancient depiction.",
         "sourceLabel": "The Met · Terracotta pelike, ca. 450–440 BCE"
       }
+    },
+    {
+      "id": "choice-atelier",
+      "label": "CHOICE ATELIER",
+      "role": "Ordnet Mode, Bilder und Worte als selbst gewählte Collage an.",
+      "kind": "LOKALER GESTALTUNGSRAUM",
+      "section": "garden",
+      "sourceLabel": "HALVETH · Choice Atelier v1.0.0, 14.09.2026.",
+      "note": "Bilder werden nur im lokalen Browser verarbeitet. Kleidung und Darstellung begründen keine Zustimmung, Verfügbarkeit oder Bewertung eines Menschen.",
+      "url": "collage/",
+      "en": {
+        "role": "Arranges fashion, images and words as a self-chosen collage.",
+        "kind": "LOCAL CREATIVE SPACE",
+        "note": "Images are processed only in the local browser. Clothing and depiction establish no consent, availability or assessment of a person.",
+        "sourceLabel": "HALVETH · Choice Atelier v1.0.0, 14 September 2026."
+      }
     }
   ]
 };

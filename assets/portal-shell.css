@@ -287,6 +287,7 @@ body.portal-ready:not(.portal-route-home){padding-top:86px}
 .portal-route-snapshot .portal-atmosphere{opacity:.64;filter:saturate(.86) brightness(.78)}
 .portal-route-forms .portal-atmosphere,.portal-route-q .portal-atmosphere,.portal-route-day .portal-atmosphere{opacity:.42;filter:saturate(.85) brightness(.68)}
 .portal-route-figures .portal-atmosphere,.portal-route-flow .portal-atmosphere{opacity:.46;filter:saturate(.9) brightness(.65)}
+.portal-route-collage .portal-atmosphere{opacity:.5;filter:saturate(1.08) brightness(.62) hue-rotate(-8deg)}
 
 
 

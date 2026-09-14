@@ -1,0 +1,57 @@
+{
+  "schema": "halveth.choice-atelier.artwork.v1",
+  "version": "1.0.0",
+  "created": "2026-09-14",
+  "generatorMode": "BUILT_IN_IMAGEGEN_TOOL",
+  "promptReceipt": "choice-atelier-v1.prompt.md",
+  "purpose": "Original fashion and self-determination artwork for the Choice Atelier",
+  "subjectScope": "ADULT_FICTIONAL_EDITORIAL_FIGURES_WITHOUT_NAMED_REAL_PERSON_REFERENCE",
+  "inspection": {
+    "textOrLogoObserved": false,
+    "explicitNudityObserved": false,
+    "coerciveFramingObserved": false,
+    "namedThirdPartyCharacterReference": false,
+    "accidentalResemblanceExhaustivelyExcluded": false
+  },
+  "derivation": {
+    "tool": "Pillow",
+    "resampling": "Lanczos",
+    "format": "WebP",
+    "quality": 80,
+    "method": 6
+  },
+  "assets": [
+    {
+      "file": "choice-atelier-wide-v1.png",
+      "role": "Unmodified wide source artifact",
+      "dimensions": "1672x941",
+      "bytes": 2772390,
+      "sha256": "774070203ad57652ecc3b956a786e3c81de6773d7d12769c33d5efff5bef5470"
+    },
+    {
+      "file": "choice-atelier-wide-v1.webp",
+      "role": "Web delivery derivative",
+      "sourceFile": "choice-atelier-wide-v1.png",
+      "dimensions": "1600x900",
+      "bytes": 241946,
+      "sha256": "11b399f46649bc07b32ddd385afba8b971d685bc4affd63ce3bf18d5d6cd35f9"
+    },
+    {
+      "file": "choice-atelier-pin-v1.png",
+      "role": "Unmodified vertical source artifact",
+      "dimensions": "1024x1536",
+      "bytes": 3222851,
+      "sha256": "b787ccecdcf724ed07124643736afd8f39f0163ddfcc1915be166327ce9a13f4"
+    },
+    {
+      "file": "choice-atelier-pin-v1.webp",
+      "role": "Web delivery derivative",
+      "sourceFile": "choice-atelier-pin-v1.png",
+      "dimensions": "900x1350",
+      "bytes": 240450,
+      "sha256": "05a2d01030374a19eda02a7a683e4731987bc6c9628debc78934d479773c1a83"
+    }
+  ],
+  "rightsState": "ORIGINAL_CONTRIBUTIONS_ONLY_UNDER_REPOSITORY_LICENSE_MAP",
+  "claimCeiling": "This record binds files and the stated generation workflow. It does not establish rights outside the repository license map, independent creation time or the absence of every accidental resemblance."
+}

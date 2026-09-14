@@ -1,0 +1,326 @@
+{
+  "schema": "halveth.collage.sources.v1",
+  "recordedAt": "2026-09-14T23:12:36+02:00",
+  "updatedAt": "2026-09-14T23:37:01+02:00",
+  "reviewDate": "2026-09-14",
+  "dataClass": "PUBLIC",
+  "scopeDE": "Endlicher Quellenstand zum Pinterest-Collage-Werkzeug, zu Inhaltsrechten, Datenschutz, Pinterest-GenAI und zur technischen Magnet-Grenze. Keine Prüfung einzelner Personen oder privater Verträge.",
+  "scopeEN": "Finite source snapshot for Pinterest's collage tool, content rights, privacy, Pinterest GenAI and the technical magnet boundary. It does not audit individuals or private contracts.",
+  "method": {
+    "state": "FINITE_SNAPSHOT",
+    "primarySourcesOnly": true,
+    "sourceFamilies": ["PINTEREST_FIRST_PARTY", "BITTORRENT_PROTOCOL_PRIMARY"],
+    "reviewMethod": "DIRECT_PRIMARY_PAGE_READ_AND_SESSION_BOUND_READ_ONLY_BROWSER_OBSERVATION",
+    "linkCheckAt": "2026-09-14T23:37:01+02:00",
+    "coverageDE": "Ausgewählte Pinterest-Hilfe-, Policy- und Newsroom-Primärquellen sowie BEP 9 und BEP 19; kein vollständiger Plattform-, Rechts- oder Security-Audit.",
+    "coverageEN": "Selected Pinterest Help, Policy and Newsroom primary sources plus BEP 9 and BEP 19; not a complete platform, legal or security audit."
+  },
+  "statusLegend": {
+    "OBSERVED": {
+      "de": "Direkt in einer gebundenen Quelle oder in der offiziellen Browser-Oberfläche beobachtet.",
+      "en": "Directly observed in a bound source or in the official browser interface."
+    },
+    "SESSION_BOUND_BROWSER_OBSERVATION": {
+      "de": "Direkt in einer konkreten Browser-Sitzung beobachtet; nicht allein über den öffentlichen Link reproduzierbar.",
+      "en": "Directly observed in a specific browser session; not reproducible from the public link alone."
+    },
+    "INFERRED": {
+      "de": "Aus dem beobachteten Mechanismus abgeleitete, begrenzte Schlussfolgerung.",
+      "en": "Bounded inference from an observed mechanism."
+    },
+    "UNKNOWN": {
+      "de": "Durch diesen Quellenstand nicht geklärt.",
+      "en": "Not resolved by this source snapshot."
+    },
+    "NOT_PROVEN": {
+      "de": "Die benannte Behauptung wird durch diesen Quellenstand nicht belegt.",
+      "en": "The named claim is not established by this source snapshot."
+    }
+  },
+  "sources": [
+    {
+      "id": "PINT_TOOL",
+      "title": "Pinterest Collage creation tool",
+      "publisher": "Pinterest",
+      "url": "https://de.pinterest.com/collage-creation-tool/",
+      "observationMode": "SESSION_BOUND_BROWSER_OBSERVATION",
+      "observedAt": "2026-09-14T23:12:36+02:00",
+      "publicLinkCheckedAt": "2026-09-14T23:37:01+02:00",
+      "publicResolvedUrl": "https://de.pinterest.com/",
+      "scopeDE": "In einer konkreten Browser-Sitzung read-only als interaktive Oberfläche beobachtet. Ein öffentlicher Abruf der angeforderten URL wurde beim Linkcheck auf die Pinterest-Startseite umgeleitet; die Sitzungsoberfläche ist daher nicht allein über den Deep Link reproduzierbar.",
+      "scopeEN": "Observed read-only as an interactive interface in a specific browser session. During the public link check, the requested URL redirected to the Pinterest home page; the session interface is therefore not reproducible from the deep link alone."
+    },
+    {
+      "id": "PINT_CREATE",
+      "title": "Create a collage",
+      "publisher": "Pinterest Help",
+      "url": "https://help.pinterest.com/en/article/create-a-collage",
+      "scopeDE": "Pins, Uploads, Cutouts, Ebenen, Text, Zeichnen, Entwurf, Download, Remix und Pin-Publikation.",
+      "scopeEN": "Pins, uploads, cutouts, layers, text, drawing, drafts, download, remixing and Pin publication."
+    },
+    {
+      "id": "PINT_REMIX_NEWS",
+      "title": "Introducing new ways to create and share collages",
+      "publisher": "Pinterest Newsroom",
+      "url": "https://newsroom.pinterest.com/en-gb/news/introducing-new-ways-to-create-and-share-collages",
+      "scopeDE": "Remix-, Zuordnungs-, Download- und Sharing-Funktionen; veröffentlicht am 24.09.2024.",
+      "scopeEN": "Remix, attribution, download and sharing features; published 24 September 2024."
+    },
+    {
+      "id": "PINT_COLLAGE_ADS",
+      "title": "Collage Ads",
+      "publisher": "Pinterest Business Help",
+      "url": "https://help.pinterest.com/en/business/article/collage-ads",
+      "scopeDE": "Werbeformat, Produkt-Cutouts, Ziel-Links sowie Pflicht zu Eigentum oder Lizenz an Bildern.",
+      "scopeEN": "Ad format, product cutouts, destination links and the requirement to own or license imagery."
+    },
+    {
+      "id": "PINT_PERFORMANCE_PLUS",
+      "title": "Pinterest Performance+ Creative",
+      "publisher": "Pinterest Business Help",
+      "url": "https://help.pinterest.com/en/business/article/pinterest-performance-plus-creative",
+      "scopeDE": "Automatisierte Anzeigenvarianten, Größenanpassung und GenAI-Hintergründe für Produktbilder.",
+      "scopeEN": "Automated ad variants, resizing and GenAI backgrounds for product imagery."
+    },
+    {
+      "id": "PINT_ASSISTANT",
+      "title": "Pinterest Assistant",
+      "publisher": "Pinterest Help",
+      "url": "https://help.pinterest.com/en/article/pinterest-assistant",
+      "scopeDE": "Getrennte konversationelle KI-Funktion für personalisierte Entdeckung und Shopping; Beta-Verfügbarkeit laut Quelle.",
+      "scopeEN": "Separate conversational AI feature for personalized discovery and shopping; beta availability according to the source."
+    },
+    {
+      "id": "PINT_AUTO_COLLAGES_2025",
+      "title": "Introducing AI-powered auto-collages and new shopping trend forecasting ahead of Cannes Lions 2025",
+      "publisher": "Pinterest Newsroom",
+      "url": "https://newsroom.pinterest.com/en-gb/news/introducing-auto-collages-shopping-and-trend-forecasting-cannes-2025/",
+      "scopeDE": "2025 angekündigter Ad-Labs-Pilot für automatisch erzeugte, kaufbare Collagen aus Produktkatalogen.",
+      "scopeEN": "Ad Labs pilot announced in 2025 for automatically generated, shoppable collages from product catalogues."
+    },
+    {
+      "id": "PINT_TERMS",
+      "title": "Terms of Service",
+      "publisher": "Pinterest Policy",
+      "url": "https://policy.pinterest.com/en/terms-of-service",
+      "accessedAt": "2026-09-14T23:37:01+02:00",
+      "effectiveDateAtAccess": "2025-04-30",
+      "upcomingEffectiveDate": "2026-11-12",
+      "versionState": "CURRENT_WITH_UPCOMING_REPLACEMENT",
+      "scopeDE": "Eigentum am User Content, Plattformlizenz, Pflichten und Weiterverwendung gespeicherter oder geteilter Kopien.",
+      "scopeEN": "User Content ownership, platform licence, duties and continued use of saved or shared copies."
+    },
+    {
+      "id": "PINT_PRIVACY",
+      "title": "Privacy Policy",
+      "publisher": "Pinterest Policy",
+      "url": "https://policy.pinterest.com/en/privacy-policy",
+      "accessedAt": "2026-09-14T23:37:01+02:00",
+      "effectiveDateAtAccess": "2025-04-30",
+      "upcomingEffectiveDate": "2026-11-12",
+      "versionState": "CURRENT_WITH_UPCOMING_REPLACEMENT",
+      "scopeDE": "Erhobene Konto-, Inhalts-, Geräte- und Protokolldaten; Personalisierung, Werbung, Modelltraining und Rechte/Wahlmöglichkeiten.",
+      "scopeEN": "Collected account, content, device and log data; personalization, advertising, model training and rights/choices."
+    },
+    {
+      "id": "PINT_GENAI_SETTINGS",
+      "title": "Manage GenAI settings",
+      "publisher": "Pinterest Help",
+      "url": "https://help.pinterest.com/en/article/manage-genai-settings",
+      "scopeDE": "Mögliche Nutzung öffentlich verfügbarer gespeicherter oder hochgeladener Daten für Pinterest Canvas und Opt-out.",
+      "scopeEN": "Potential use of publicly available saved or uploaded data for Pinterest Canvas and the opt-out."
+    },
+    {
+      "id": "PINT_AI",
+      "title": "AI at Pinterest",
+      "publisher": "Pinterest Help",
+      "url": "https://help.pinterest.com/en/article/ai-at-pinterest",
+      "scopeDE": "GenAI-Kennzeichnung, Community-Regeln und Modelltransparenz für Navigator-1 und Pinterest Canvas.",
+      "scopeEN": "GenAI labeling, community rules and model transparency for Navigator-1 and Pinterest Canvas."
+    },
+    {
+      "id": "PINT_COMMERCIAL",
+      "title": "Commercial and Branded Content Guidelines",
+      "publisher": "Pinterest Policy",
+      "url": "https://policy.pinterest.com/en/commercial-and-branded-content-guidelines",
+      "accessedAt": "2026-09-14T23:37:01+02:00",
+      "lastUpdatedAtAccess": "2025-04",
+      "scopeDE": "EWR-spezifische Kennzeichnung kommerzieller Inhalte, allgemeine Offenlegung bezahlter Partnerschaften, Verbot irreführender Methoden und weitere Inhaltsgrenzen.",
+      "scopeEN": "EEA-specific commercial content disclosures, general paid-partnership disclosure, prohibition of deceptive methods and other content boundaries."
+    },
+    {
+      "id": "PINT_COPYRIGHT",
+      "title": "Copyright",
+      "publisher": "Pinterest Help",
+      "url": "https://help.pinterest.com/en/article/copyright",
+      "scopeDE": "Urheberschaft, Erlaubnis zur Bildnutzung und Meldeweg.",
+      "scopeEN": "Copyright ownership, permission to use imagery and reporting route."
+    },
+    {
+      "id": "PINT_COMMUNITY",
+      "title": "Community Guidelines",
+      "publisher": "Pinterest Policy",
+      "url": "https://policy.pinterest.com/en/community-guidelines",
+      "accessedAt": "2026-09-14T23:37:01+02:00",
+      "lastUpdatedAtAccess": "2026-05",
+      "upcomingEffectiveDate": "2026-11-12",
+      "versionState": "CURRENT_WITH_UPCOMING_REPLACEMENT",
+      "scopeDE": "Zulässige Inhalte, synthetische Inhalte, Sicherheit und Meldeweg.",
+      "scopeEN": "Permitted content, synthetic content, safety and reporting route."
+    },
+    {
+      "id": "BEP9",
+      "title": "BEP 9: Extension for Peers to Send Metadata Files",
+      "publisher": "BitTorrent Enhancement Proposals",
+      "url": "https://www.bittorrent.org/beps/bep_0009.html",
+      "accessedAt": "2026-09-14T23:37:01+02:00",
+      "version": "cfd7cd53addbea7e87363ae1a52e2e4b397df3a9",
+      "lastModified": "2017-03-26T01:05:53+01:00",
+      "status": "ACCEPTED_STANDARDS_TRACK",
+      "scopeDE": "Info-Hash, Metadatenabruf von Peers und Magnet-URI-Format.",
+      "scopeEN": "Info hash, metadata retrieval from peers and the magnet URI format."
+    },
+    {
+      "id": "BEP19",
+      "title": "BEP 19: HTTP/FTP Seeding (GetRight-style)",
+      "publisher": "BitTorrent Enhancement Proposals",
+      "url": "https://www.bittorrent.org/beps/bep_0019.html",
+      "accessedAt": "2026-09-14T23:37:01+02:00",
+      "status": "ACCEPTED_STANDARDS_TRACK",
+      "scopeDE": "Webseed-Quellen über das url-list-Feld der Torrent-Metadaten und optionale Client-Unterstützung; keine Spezifikation eines ws-Magnetparameters.",
+      "scopeEN": "Web-seed sources through the url-list field in torrent metadata and optional client support; no specification of a ws magnet parameter."
+    }
+  ],
+  "findings": [
+    {
+      "id": "FORMAT",
+      "status": "SESSION_BOUND_BROWSER_OBSERVATION",
+      "de": "Der Collage-Bereich wurde in der geprüften Browser-Sitzung als interaktive Webanwendung beobachtet, weder als PDF-Dokument noch als native Windows-EXE. Ein öffentlicher Abruf des angeforderten Deep Links wurde beim Linkcheck auf die Pinterest-Startseite umgeleitet; die konkrete Sitzungsoberfläche ist daher nicht allein über diesen Link reproduzierbar.",
+      "en": "The collage area was observed in the inspected browser session as an interactive web application, neither as a PDF document nor as a native Windows EXE. During the link check, a public request for the requested deep link redirected to the Pinterest home page, so the specific session interface is not reproducible from that link alone.",
+      "sourceIds": ["PINT_TOOL", "PINT_CREATE"]
+    },
+    {
+      "id": "COLLAGE_WORKFLOW",
+      "status": "OBSERVED",
+      "de": "Pinterest beschreibt Collagen aus Pins, lokalen Uploads und Cutouts mit Ebenen, Text, Zeichnen, Entwürfen, Download, Remix und Veröffentlichung als Pin. Einzelne Designwerkzeuge können je nach Gerät fehlen; kaufbare Collagen sind nur begrenzt verfügbar.",
+      "en": "Pinterest describes collages built from Pins, local uploads and cutouts with layers, text, drawing, drafts, download, remixing and publication as a Pin. Some design tools may be unavailable on some devices; shoppable collages have limited availability.",
+      "sourceIds": ["PINT_CREATE", "PINT_REMIX_NEWS"]
+    },
+    {
+      "id": "COMMERCE_IS_SEPARATE",
+      "status": "OBSERVED",
+      "de": "Kaufbare Collagen, Collage Ads, Performance+ und der Auto-Collage-Pilot sind eigene kommerzielle oder werbliche Funktionen; sie sind nicht mit jeder normalen Nutzer-Collage gleichzusetzen.",
+      "en": "Shoppable collages, Collage Ads, Performance+ and the auto-collage pilot are separate commercial or advertising features; they are not equivalent to every ordinary user collage.",
+      "sourceIds": ["PINT_CREATE", "PINT_COLLAGE_ADS", "PINT_PERFORMANCE_PLUS", "PINT_AUTO_COLLAGES_2025"]
+    },
+    {
+      "id": "CONTENT_RIGHTS",
+      "status": "OBSERVED",
+      "de": "Nach den Pinterest-Nutzungsbedingungen behält der Nutzer seine Rechte am eingestellten User Content, erteilt Pinterest und benannten Beteiligten aber eine breite, nicht ausschließliche, weltweite, übertragbare und unterlizenzierbare Nutzungslizenz. Nutzer dürfen nur Inhalte einstellen, für die sie die nötigen Rechte besitzen oder eine anwendbare gesetzliche Ausnahme beziehungsweise Schranke greift.",
+      "en": "Under Pinterest's Terms, users retain their rights in posted User Content but grant Pinterest and named parties a broad non-exclusive, worldwide, transferable and sublicensable licence. Users may post only content they have the necessary rights to use or that is covered by an applicable exception or limitation under law.",
+      "sourceIds": ["PINT_TERMS", "PINT_COPYRIGHT", "PINT_COLLAGE_ADS"]
+    },
+    {
+      "id": "POLICY_VERSION_STATE",
+      "status": "OBSERVED",
+      "de": "Beim Zugriff am 14.09.2026 waren Nutzungsbedingungen und Datenschutzerklärung in den seit 30.04.2025 wirksamen Fassungen abrufbar und kündigten neue Fassungen zum 12.11.2026 an. Die Community Guidelines nannten Mai 2026 als letzten Aktualisierungsstand und kündigten ebenfalls eine neue Fassung zum 12.11.2026 an.",
+      "en": "At access on 14 September 2026, the Terms and Privacy Policy were available in the versions effective since 30 April 2025 and announced new versions effective 12 November 2026. The Community Guidelines stated May 2026 as their latest update and likewise announced a new version effective 12 November 2026.",
+      "sourceIds": ["PINT_TERMS", "PINT_PRIVACY", "PINT_COMMUNITY"]
+    },
+    {
+      "id": "REMIX_BOUNDARY",
+      "status": "OBSERVED",
+      "de": "Veröffentlichte Collagen können nur bei aktivierter Remix-Einstellung als Ausgangspunkt anderer Nutzer dienen; beim Remix wird die ursprüngliche Collage samt Ersteller zugeordnet.",
+      "en": "Published collages can serve as another user's starting point only when remixing is enabled; a remix is attributed to the original collage and creator.",
+      "sourceIds": ["PINT_CREATE", "PINT_REMIX_NEWS"]
+    },
+    {
+      "id": "DATA_COLLECTION",
+      "status": "OBSERVED",
+      "de": "Pinterest nennt unter anderem Konto-, Inhalts-, Geräte- und Protokolldaten sowie Nutzungsinteraktionen als erhobene Daten und beschreibt deren Nutzung für Personalisierung, Werbung, Sicherheit, Forschung und Produktverbesserung.",
+      "en": "Pinterest lists account, content, device and log data plus usage interactions among the data it collects and describes use for personalization, advertising, safety, research and product improvement.",
+      "sourceIds": ["PINT_PRIVACY"]
+    },
+    {
+      "id": "GENAI_TRAINING_SETTING",
+      "status": "OBSERVED",
+      "de": "Pinterest erklärt, dass bestimmte öffentlich verfügbare, gespeicherte oder hochgeladene Daten zum Training von Pinterest Canvas verwendet werden können, und beschreibt dafür ein Opt-out in den Datenschutz- und Dateneinstellungen.",
+      "en": "Pinterest says certain publicly available data that users save or upload may be used to train Pinterest Canvas and documents an opt-out in Privacy and data settings.",
+      "sourceIds": ["PINT_GENAI_SETTINGS", "PINT_PRIVACY", "PINT_AI"]
+    },
+    {
+      "id": "GENAI_OPTOUT_RETROACTIVITY",
+      "status": "UNKNOWN",
+      "de": "Die geprüften Quellen sagen nicht, ob oder in welchem Umfang das GenAI-Opt-out bereits verwendete Trainingsdaten entfernt oder bereits trainierte Modellversionen verändert.",
+      "en": "The reviewed sources do not say whether, or to what extent, the GenAI opt-out removes training data already used or changes model versions already trained.",
+      "sourceIds": ["PINT_GENAI_SETTINGS", "PINT_AI"]
+    },
+    {
+      "id": "GENAI_FEATURE_SEPARATION",
+      "status": "OBSERVED",
+      "de": "Pinterest Assistant, Performance+-Hintergründe und Auto-Collagen sind getrennt beschriebene KI-Funktionen mit unterschiedlichen Zwecken und Verfügbarkeiten.",
+      "en": "Pinterest Assistant, Performance+ backgrounds and auto-collages are separately described AI features with different purposes and availability.",
+      "sourceIds": ["PINT_ASSISTANT", "PINT_PERFORMANCE_PLUS", "PINT_AUTO_COLLAGES_2025", "PINT_AI"]
+    },
+    {
+      "id": "COMMERCIAL_DISCLOSURE_SCOPE",
+      "status": "OBSERVED",
+      "de": "Die Richtlinie verlangt für kommerzielle Inhalte im Europäischen Wirtschaftsraum eine klare Offenlegung des kommerziellen Zwecks und verbietet dort irreführende oder heimlich beeinflussende Methoden. Bezahlte Partnerschaften müssen ihren kommerziellen Charakter allgemein offenlegen.",
+      "en": "The policy requires clear disclosure of commercial purpose for commercial content in the European Economic Area and prohibits deceptive or covert influence techniques there. Paid partnerships must disclose their commercial nature generally.",
+      "sourceIds": ["PINT_COMMERCIAL"]
+    },
+    {
+      "id": "MAGNET_MECHANISM",
+      "status": "OBSERVED",
+      "de": "BEP 9 beschreibt einen Magnet-Link als genügend Information zum Beitritt zu einem Schwarm, insbesondere den Info-Hash; die Torrent-Metadaten können anschließend von Peers bezogen und gegen den Info-Hash geprüft werden.",
+      "en": "BEP 9 describes a magnet link as enough information to join a swarm, especially the info hash; torrent metadata can then be retrieved from peers and verified against that info hash.",
+      "sourceIds": ["BEP9"]
+    },
+    {
+      "id": "WEBSEED_MECHANISM",
+      "status": "OBSERVED",
+      "de": "BEP 19 beschreibt HTTP-/FTP-Webseeds über ein url-list-Feld in den Torrent-Metadaten. Clients dürfen nicht unterstützte Protokolle ignorieren; BEP 19 spezifiziert keinen ws-Parameter im Magnet-Link.",
+      "en": "BEP 19 describes HTTP/FTP web seeds through a url-list field in torrent metadata. Clients may ignore unsupported protocols; BEP 19 does not specify a ws parameter in the magnet link.",
+      "sourceIds": ["BEP19"]
+    },
+    {
+      "id": "MAGNET_CLAIM_CEILING",
+      "status": "INFERRED",
+      "de": "Ein Magnet-Link ist weder Inhalt noch Lizenz, Zustimmung oder Verfügbarkeitsbeweis. Die HALVETH-Reproduzierbarkeitsregel verlangt ein konkretes rechtmäßig verteilbares Paket, kanonisch erzeugte Torrent-Metadaten, den daraus berechneten Info-Hash und einen Hash-Receipt. Für tatsächlichen Abruf werden zusätzlich eine kompatible Metadatenquelle und eine erreichbare Nutzdatenquelle benötigt; das können je nach Client Peers, separat bereitgestellte Torrent-Metadaten oder ein unterstützter Webseed sein.",
+      "en": "A magnet link is not content, a licence, consent or proof of availability. The HALVETH reproducibility rule requires a concrete lawfully distributable package, canonically generated torrent metadata, the resulting info hash and a hash receipt. Actual retrieval additionally requires a compatible metadata source and a reachable payload source; depending on the client, these may be peers, separately provided torrent metadata or a supported web seed.",
+      "sourceIds": ["BEP9", "BEP19", "PINT_TERMS", "PINT_COPYRIGHT"]
+    },
+    {
+      "id": "MAGNET_WS_INTEROPERABILITY",
+      "status": "UNKNOWN",
+      "de": "BEP 9 und BEP 19 belegen nicht die interoperable Unterstützung eines ws-Magnetparameters durch jeden Client. Konkrete Unterstützung bleibt bis zu einer passenden Spezifikation oder einem gebundenen Kompatibilitätstest offen.",
+      "en": "BEP 9 and BEP 19 do not establish interoperable support for a ws magnet parameter in every client. Concrete support remains open until it is bound to an applicable specification or compatibility test.",
+      "sourceIds": ["BEP9", "BEP19"]
+    },
+    {
+      "id": "PERSON_CLAIMS",
+      "status": "UNKNOWN",
+      "de": "Dieser Quellenstand klärt weder das Wohlergehen, die Einwilligung, die Vertragslage noch die Account-Kontrolle einer bestimmten abgebildeten oder genannten Person.",
+      "en": "This source snapshot does not resolve any particular depicted or named person's welfare, consent, contractual situation or account control.",
+      "sourceIds": []
+    },
+    {
+      "id": "PERSON_ALLEGATIONS",
+      "status": "NOT_PROVEN",
+      "de": "Dieser Quellenstand liefert keine Grundlage für Behauptungen über Zwang, Menschenhandel oder Eigentum an Menschen. Fragen dürfen offenbleiben; eine Außenbehauptung benötigt konkrete, rechtmäßig erhobene Belege.",
+      "en": "This source snapshot provides no basis for claims of coercion, trafficking or ownership of people. Questions may remain open; an external allegation requires specific, lawfully obtained evidence.",
+      "sourceIds": []
+    },
+    {
+      "id": "UPLOAD_PROCESSING_DETAIL",
+      "status": "UNKNOWN",
+      "de": "Nicht geprüft wurde, welche konkrete technische Verarbeitung ein einzelner Upload im aktuellen Konto, Land und Gerätekontext durchläuft.",
+      "en": "The exact technical processing applied to a specific upload for the current account, country and device context was not tested.",
+      "sourceIds": ["PINT_PRIVACY", "PINT_GENAI_SETTINGS"]
+    }
+  ],
+  "projectBoundary": {
+    "de": "Für die HALVETH-Collage werden ausschließlich Assets verwendet, die unter dokumentierten Nutzungsbedingungen erzeugt und auf erkennbare Drittrechte sowie Personenbezug geprüft wurden oder nachweislich lizenziert sind. Pinterest-Inhalte werden nicht automatisch kopiert, veröffentlicht, kommerzialisiert oder in ein Torrent-Paket übernommen.",
+    "en": "The HALVETH collage uses only assets generated under documented usage terms and reviewed for recognizable third-party rights and personal references, or demonstrably licensed assets. Pinterest content is not automatically copied, published, commercialized or added to a torrent package."
+  }
+}

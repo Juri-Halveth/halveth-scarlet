@@ -8,6 +8,7 @@ const pages = new Map([
   ['index.html', 'assets/'],
   ['room/index.html', '../assets/'],
   ['snapshot/index.html', '../assets/'],
+  ['collage/index.html', '../assets/'],
   ['forschung/figuren-und-perspektiven/index.html', '../../assets/'],
   ['forschung/formen-und-verbindungen/index.html', '../../assets/'],
   ['forschung/transaktionsfluss/index.html', '../../assets/'],
@@ -18,8 +19,8 @@ const pages = new Map([
 test('every published page loads one shared portal shell from the correct root', () => {
   for (const [relative, prefix] of pages) {
     const html = fs.readFileSync(path.join(root, relative), 'utf8');
-    const css = `${prefix}portal-shell.css?v=veil-fix-20260914`;
-    const js = `${prefix}portal-shell.js?v=celsius-20260914`;
+    const css = `${prefix}portal-shell.css?v=choice-atelier-20260914`;
+    const js = `${prefix}portal-shell.js?v=choice-atelier-20260914`;
     assert.equal(html.split(css).length - 1, 1, `${relative} CSS`);
     assert.equal(html.split(js).length - 1, 1, `${relative} JS`);
     assert.equal(html.split(`${prefix}portal-mark.svg`).length - 1, 1, `${relative} icon`);
@@ -51,7 +52,9 @@ test('portal artwork is optimized, local and complete', () => {
     'portal-machine.webp',
     'portal-nexus.webp',
     'portal-scarlet-room.webp',
-    'scarlet-dual-state-v1.webp'
+    'scarlet-dual-state-v1.webp',
+    'choice-atelier-wide-v1.webp',
+    'choice-atelier-pin-v1.webp'
   ];
   for (const file of artwork) {
     const stat = fs.statSync(path.join(root, 'assets', file));
@@ -69,8 +72,8 @@ test('homepage layout styles retain their keys and the shell carries the veil fi
     assert(homepage.includes(`assets/${file}?v=full-audit-20260914`), file);
   }
   assert(homepage.includes('assets/hash-bloom.css?v=membrane-20260914'), 'hash-bloom.css');
-  assert(homepage.includes('assets/portal-shell.css?v=veil-fix-20260914'), 'portal-shell.css');
-  assert(homepage.includes('assets/portal-shell.js?v=celsius-20260914'), 'portal-shell.js');
+  assert(homepage.includes('assets/portal-shell.css?v=choice-atelier-20260914'), 'portal-shell.css');
+  assert(homepage.includes('assets/portal-shell.js?v=choice-atelier-20260914'), 'portal-shell.js');
 });
 
 test('responsive layout has no fractional pixel gap below desktop', () => {
@@ -84,11 +87,11 @@ test('responsive layout has no fractional pixel gap below desktop', () => {
 test('portal shell exposes all routes and motion-safe controls', () => {
   const script = fs.readFileSync(path.join(root, 'assets/portal-shell.js'), 'utf8');
   const style = fs.readFileSync(path.join(root, 'assets/portal-shell.css'), 'utf8');
-  for (const route of ['./', 'room/', 'snapshot/', 'forschung/figuren-und-perspektiven/', 'forschung/formen-und-verbindungen/', 'forschung/transaktionsfluss/', 'forschung/q-notizen/', 'forschung/tagesstand-2026-09-13/', './#team']) {
+  for (const route of ['./', 'room/', 'snapshot/', 'collage/', 'forschung/figuren-und-perspektiven/', 'forschung/formen-und-verbindungen/', 'forschung/transaktionsfluss/', 'forschung/q-notizen/', 'forschung/tagesstand-2026-09-13/', './#team']) {
     assert(script.includes(`path:'${route}'`), route);
   }
-  assert(script.includes("Nine portals. One constellation."));
-  assert(script.includes("65 public cards: perspectives, characters, projects and sources"));
+  assert(script.includes("Ten portals. One constellation."));
+  assert(script.includes("66 public cards: perspectives, characters, projects and sources"));
   assert(script.includes("route.id!=='team'"), 'team hash must retain the home route styling');
   assert(script.includes("class=\"portal-motion-button\""));
   assert(script.includes("prefers-reduced-motion: reduce"));
@@ -105,7 +108,8 @@ test('research CSP permits only the local portal presentation assets', () => {
     'forschung/formen-und-verbindungen/index.html',
     'forschung/transaktionsfluss/index.html',
     'forschung/q-notizen/index.html',
-    'forschung/tagesstand-2026-09-13/index.html'
+    'forschung/tagesstand-2026-09-13/index.html',
+    'collage/index.html'
   ]) {
     const html = fs.readFileSync(path.join(root, relative), 'utf8');
     assert(html.includes("default-src 'none'"), relative);

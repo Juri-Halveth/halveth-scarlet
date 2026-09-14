@@ -25,9 +25,10 @@ test('Language switching preserves other URL parameters and the article anchor',
 });
 test('Every garden entity retains a complete English counterpart and stable identity',()=>{
   const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../assets/universe-data.js'),'utf8'),context);
-  const entities=context.window.HalvethUniverse.entities;assert.equal(entities.length,65);assert.equal(new Set(entities.map(e=>e.id)).size,65);
+  const entities=context.window.HalvethUniverse.entities;assert.equal(entities.length,66);assert.equal(new Set(entities.map(e=>e.id)).size,66);
   for(const e of entities)for(const key of ['role','kind','note','sourceLabel']){assert.equal(typeof e.en[key],'string',e.id+'.'+key);if(e[key])assert(e.en[key].length,e.id+'.'+key);}
   const celsius=entities.find(e=>e.id==='celsius');assert.equal(celsius.localDialog,true);assert.equal(celsius.en.doorLabel,'Let Celsius speak');assert(context.window.HalvethUniverse.featured.includes('celsius'));
+  const atelier=entities.find(e=>e.id==='choice-atelier');assert.equal(atelier.url,'collage/');assert.match(atelier.note,/lokalen Browser/);
 });
 test('VERACHEL name field keeps ten readable signals and an open non-ranking micro field',()=>{
   const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../assets/universe-data.js'),'utf8'),context);

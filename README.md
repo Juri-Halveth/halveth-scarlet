@@ -10,9 +10,9 @@ Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer geme
 
 ## Deutsch und Englisch / German and English
 
-Die Erde, alle 65 Gartenkarten und die fünf Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern diese lokale Präferenz. Seiten mit direktem Sprachwechsel behalten ihren Zustand; andere Ansichten laden neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
+Die Erde, alle 66 Gartenkarten, das Choice Atelier und die fünf Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern diese lokale Präferenz. Seiten mit direktem Sprachwechsel behalten ihren Zustand; andere Ansichten laden neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
 
-The Earth scene, all 65 garden cards and all five research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally. In-place language pages preserve their state; other views reload. Source records and proper names retain their original form.
+The Earth scene, all 66 garden cards, the Choice Atelier and all five research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally. In-place language pages preserve their state; other views reload. Source records and proper names retain their original form.
 
 - [Earth in English](https://juri-halveth.github.io/halveth-scarlet/?lang=en)
 - [Ego, Dormammu and the garden](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/?lang=en)
@@ -80,7 +80,7 @@ Published by HALVETH as an independent fan project. Not an official Marvel or NA
 
 ## Garten, Reddit und Erdzoom
 
-Die VERACHEL-Blase öffnet direkt ihr Namensfeld. CELSIUS öffnet als zweite lokale Tür seine fiktionale Portalstimme; `#celsius` ist der direkte Einstieg. Die 22 übrigen Blasen und die zwölf Figuren im Orbit führen nach einer kurzen Tunnelanimation zum Reddit-Profil u/Halveth-Juri. „Garten · Perspektiven“ öffnet 65 durchsuchbare Karten. Die Theorie-Texte zu Ego, Dormammu, den Guardians und Celsius stehen auf der zweisprachigen Unterseite. Als Reddit-Ziel ist das vom Nutzer angegebene Profil hinterlegt; ein veröffentlichter Beitragslink ist noch nicht konfiguriert.
+Die VERACHEL-Blase öffnet direkt ihr Namensfeld. CELSIUS öffnet als zweite lokale Tür seine fiktionale Portalstimme; `#celsius` ist der direkte Einstieg. Die 22 übrigen Blasen und die zwölf Figuren im Orbit führen nach einer kurzen Tunnelanimation zum Reddit-Profil u/Halveth-Juri. „Garten · Perspektiven“ öffnet 66 durchsuchbare Karten; `CHOICE ATELIER` führt in den lokalen Collage-Raum. Die Theorie-Texte zu Ego, Dormammu, den Guardians und Celsius stehen auf der zweisprachigen Unterseite. Als Reddit-Ziel ist das vom Nutzer angegebene Profil hinterlegt; ein veröffentlichter Beitragslink ist noch nicht konfiguriert.
 
 Der Tunnel dauert 720 ms. Escape oder „Hier bleiben“ bricht ihn ab; reduzierte Bewegung und pausierte Animationen überspringen ihn. Strg-/Cmd- und Mittelklick verwenden die normalen Linkfunktionen des Browsers. Beim Zurückkehren von Reddit schließt sich die Übergangsansicht. Die Seite veröffentlicht selbst keine Reddit-Beiträge.
 
@@ -90,7 +90,7 @@ Das Quellen-/Hashmanifest ist eine öffentliche Referenz außerhalb der Blockcha
 
 ## Garden, Reddit and Earth zoom
 
-The VERACHEL bubble opens its name field directly. CELSIUS is a second local door that opens his fictional portal voice; `#celsius` is the direct entry. The other 22 bubbles and the twelve orbiting figures lead to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garden · Perspectives” contains 65 searchable cards. No published post URL is configured; the full theory text is available on this site's bilingual article.
+The VERACHEL bubble opens its name field directly. CELSIUS is a second local door that opens his fictional portal voice; `#celsius` is the direct entry. The other 22 bubbles and the twelve orbiting figures lead to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garden · Perspectives” contains 66 searchable cards; `CHOICE ATELIER` opens the local collage space. No published post URL is configured; the full theory text is available on this site's bilingual article.
 
 The transition lasts 720 ms, supports Escape/cancellation, and is skipped for reduced motion or paused animations. Modified clicks retain native browser behavior; returning from Reddit clears the transition. The website itself does not publish Reddit posts.
 
@@ -101,6 +101,22 @@ Scroll, pinch, +/- or keyboard +/- zoom the globe from 1x to 4x. Home resets the
 - [Off-chain source/hash manifest](assets/anchor-manifest.json)
 
 The Earth page's blockchain buttons are reference links and do not connect a wallet or perform a signature, transaction or mint. The separate Snapshot studio below offers an optional read-only wallet association. Private source files and private names are not included in this public release.
+
+## Choice Atelier / lokaler Collage-Generator
+
+[Deutsch](https://juri-halveth.github.io/halveth-scarlet/collage/?lang=de) · [English](https://juri-halveth.github.io/halveth-scarlet/collage/?lang=en)
+
+Das Choice Atelier verbindet zwei neue originale Bildwelten mit einem lokalen Collage-Generator. Besuchende können bis zu acht eigene PNG-, JPEG- oder WebP-Dateien auswählen, zwischen drei Anordnungen, drei Formaten und drei Farbwelten wechseln, eine kurze Zeile ergänzen und das Ergebnis als PNG herunterladen. Die gewählten Dateien bleiben im Arbeitsspeicher des Browsers; die Seite führt keinen Upload, keine Analyse, kein Konto, kein Tracking und keine automatische Veröffentlichung aus.
+
+Die inhaltliche Regel lautet: Kleidung kann Ausdruck sein, belegt aber weder Zustimmung, Verfügbarkeit noch Charakter. Vier freiwillige Karten für Kleidung, Schuhe, Dessous und Schmuck lassen sich in der aktuellen Seitenansicht zwischen „Meine Wahl“, „Erst fragen“ und „Nicht für mich“ bewegen. Diese Zustände beschreiben keine andere Person.
+
+Die [Pinterest-Prüfung](collage/PINTEREST-RESEARCH.md) und das [Quellenregister](collage/sources.json) trennen Beobachtung, Schlussfolgerung und offene Felder. In der aufgezeichneten Browser-Sitzung erschien der Pinterest-Composer als HTML-/JavaScript-Web-App mit Collagewerkzeugen; der öffentliche Deep-Link leitete bei der Gegenprüfung zur Pinterest-Startseite um. Das getrennte Release-Paket enthält nur die neuen HALVETH-Originale und ihre Belege. ZIP, Torrent, Magnet und SHA-256-Receipt binden Paketbytes; der Magnet startet für sich kein Seeding und beweist keine aktuelle Verfügbarkeit durch Peer oder Webseed.
+
+The Choice Atelier combines two new original image worlds with a local collage generator. Visitors can choose up to eight PNG, JPEG or WebP files, switch among three layouts, formats and palettes, add a short line and download a PNG. Selected files remain in browser memory. The page performs no upload, analysis, account access, tracking or automatic publication.
+
+Its design rule is that clothing can express someone but establishes neither consent, availability nor character. Four voluntary cards for clothes, shoes, lingerie and jewellery can move among “My choice”, “Ask first” and “Not for me” within the current page view. Those states make no claim about another person.
+
+The [Pinterest review](collage/PINTEREST-RESEARCH.md) and [source register](collage/sources.json) separate observation, inference and open fields. In the recorded browser session, the Pinterest composer appeared as an HTML/JavaScript web app with collage tools; the public deep link redirected to the Pinterest home page during the independent check. The separate release package contains only the new HALVETH originals and their records. ZIP, torrent, magnet and SHA-256 receipt bind package bytes; a magnet starts no seeding by itself and establishes no current peer or web-seed availability.
 
 ## VERACHEL-Namensfeld / VERACHEL name field
 

@@ -21,7 +21,8 @@
     {id:'flow',path:'forschung/transaktionsfluss/',index:'05',image:'machine',accent:'#ffc66e',de:'Transaktionsfluss',en:'Transaction flow',deNote:'Werte, Struktur und Beleggrenzen',enNote:'Values, structure and evidence limits'},
     {id:'q',path:'forschung/q-notizen/',index:'06',image:'nexus',accent:'#a795ff',de:'Q-Notizen',en:'Q notebook',deNote:'Große Fragen, gebundene Quellen',enNote:'Big questions, bound sources'},
     {id:'day',path:'forschung/tagesstand-2026-09-13/',index:'07',image:'gate',accent:'#90cfff',de:'Tagesstand',en:'Daily record',deNote:'Ein nachvollziehbarer Arbeitsstand',enNote:'A traceable working record'},
-    {id:'team',path:'./#team',index:'08',image:'nexus',accent:'#ff7ac8',de:'Die Konstellation',en:'The constellation',deNote:'65 öffentliche Karten: Perspektiven, Figuren, Projekte und Quellen',enNote:'65 public cards: perspectives, characters, projects and sources'}
+    {id:'team',path:'./#team',index:'08',image:'nexus',accent:'#ff7ac8',de:'Die Konstellation',en:'The constellation',deNote:'66 öffentliche Karten: Perspektiven, Figuren, Projekte und Quellen',enNote:'66 public cards: perspectives, characters, projects and sources'},
+    {id:'collage',path:'collage/',index:'09',image:'gate',accent:'#ff9a71',de:'Choice Atelier',en:'Choice Atelier',deNote:'Mode, Collage und eigene Wahl',enNote:'Fashion, collage and your own choice'}
   ];
 
   const normalized=(url)=>decodeURI(url.pathname).replace(/index\.html$/i,'').replace(/\/+$/,'/')||'/';
@@ -82,7 +83,7 @@
     map.setAttribute('aria-label',english?'Scarlet portal map':'Scarlet-Portalplan');
     map.querySelector('.portal-map-close').setAttribute('aria-label',english?'Close portal map':'Portalplan schließen');
     map.querySelector('.portal-map-kicker').textContent=english?'THE CONNECTED UNIVERSE':'DAS VERBUNDENE UNIVERSUM';
-    map.querySelector('h2').textContent=english?'Nine portals. One constellation.':'Neun Portale. Eine Konstellation.';
+    map.querySelector('h2').textContent=english?'Ten portals. One constellation.':'Zehn Portale. Eine Konstellation.';
     map.querySelector('.portal-map-intro').textContent=english?"I'm Juri. HALVETH is my open garden for big questions, traceable sources, and voluntary exploration together. I decide what I publish; you keep your choice. Project texts and fan interpretations are not personal messages or relationship claims. Public submissions can still contain personal data, so share only what you consciously want to make public. The whole public constellation travels with us.":'Ich bin Juri. HALVETH ist mein offener Garten für große Fragen, nachvollziehbare Quellen und freiwilliges gemeinsames Prüfen. Ich entscheide, was ich veröffentliche; du behältst deine Wahl. Projekttexte und Faninterpretationen sind keine persönlichen Nachrichten oder Beziehungsbehauptungen. Öffentlich eingereichte Angaben können trotzdem personenbezogen sein; teile nur, was du bewusst veröffentlichen willst. Die ganze öffentliche Konstellation reist mit.';
     map.querySelector('.portal-map-foot-left').textContent=english?'The em dash connects clauses without pretending to prove a cause.':'Der Gedankenstrich verbindet Satzteile, ohne eine Ursache vorzutäuschen.';
     const grid=map.querySelector('.portal-grid');

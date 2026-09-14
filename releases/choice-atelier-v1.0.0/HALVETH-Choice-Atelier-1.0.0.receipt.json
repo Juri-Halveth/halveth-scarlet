@@ -1,0 +1,98 @@
+{
+  "artifacts": {
+    "magnet": {
+      "filename": "HALVETH-Choice-Atelier-1.0.0.magnet.txt",
+      "sha256": "cf19043028629a23e4fe37d1907abd1930c96acaed1ef662b60813ff16ad2010",
+      "uri": "magnet:?xt=urn:btih:8db1daf5dcc8792148db7c512fb22c42f6ebaab4&dn=HALVETH-Choice-Atelier-1.0.0.zip&xl=6534015&ws=https:%2F%2Fjuri-halveth.github.io%2Fhalveth-scarlet%2Freleases%2Fchoice-atelier-v1.0.0%2FHALVETH-Choice-Atelier-1.0.0.zip"
+    },
+    "torrent": {
+      "filename": "HALVETH-Choice-Atelier-1.0.0.torrent",
+      "infohash_sha1": "8db1daf5dcc8792148db7c512fb22c42f6ebaab4",
+      "piece_count": 7,
+      "piece_length": 1048576,
+      "pieces_sha256": "981c3347e8dff4cb218323c066b375307a61e40a6542eba6009abdf7ec4f6a72",
+      "sha256": "88ab94515528d18e01f303c417cff76e55d141c7f8b42cf07adb6d0dc0ddf547",
+      "size": 368
+    },
+    "zip": {
+      "filename": "HALVETH-Choice-Atelier-1.0.0.zip",
+      "sha256": "a8c105682248e143512bad9eab1c3226f4b5476b3da1c70fec81fafd59f2d491",
+      "size": 6534015
+    }
+  },
+  "determinism": {
+    "bencode_dictionary_order": "raw UTF-8 bytes ascending",
+    "json": "UTF-8, sorted keys, two-space indent, LF newline",
+    "path_order": "UTF-8 bytes ascending over POSIX relative paths",
+    "zip_compression": "stored",
+    "zip_entry_mode": "0100644",
+    "zip_timestamp": "1980-01-01T00:00:00Z"
+  },
+  "payload": {
+    "file_count": 11,
+    "files": [
+      {
+        "path": "LICENSE-HALVETH-PIRL-2.0.md",
+        "sha256": "0e28c55ace468948ab1eed1fdcae122090502d969c0239a2a1fa83f681282d7b",
+        "size": 3922
+      },
+      {
+        "path": "LICENSES.md",
+        "sha256": "3094b8e93f32ad8379b6a2404cfaf06d264e4eba6e85c781895727aac14c485e",
+        "size": 1881
+      },
+      {
+        "path": "README.md",
+        "sha256": "abdb25c16a5922a82daf993af60603744c8491f8295df94c120366f3e1c95787",
+        "size": 1363
+      },
+      {
+        "path": "assets/choice-atelier-artwork.json",
+        "sha256": "4bcff6a7f49ef1317d3809dc01d51d0d3928a321b76411467ab884e1cdd06212",
+        "size": 2120
+      },
+      {
+        "path": "assets/choice-atelier-pin-v1.png",
+        "sha256": "b787ccecdcf724ed07124643736afd8f39f0163ddfcc1915be166327ce9a13f4",
+        "size": 3222851
+      },
+      {
+        "path": "assets/choice-atelier-pin-v1.webp",
+        "sha256": "05a2d01030374a19eda02a7a683e4731987bc6c9628debc78934d479773c1a83",
+        "size": 240450
+      },
+      {
+        "path": "assets/choice-atelier-v1.prompt.md",
+        "sha256": "8efe43cfa5eb63908175c2e78ab9a4b2e0f1eb9dd5c2f152c81b6191d6fd2a8c",
+        "size": 2529
+      },
+      {
+        "path": "assets/choice-atelier-wide-v1.png",
+        "sha256": "774070203ad57652ecc3b956a786e3c81de6773d7d12769c33d5efff5bef5470",
+        "size": 2772390
+      },
+      {
+        "path": "assets/choice-atelier-wide-v1.webp",
+        "sha256": "11b399f46649bc07b32ddd385afba8b971d685bc4affd63ce3bf18d5d6cd35f9",
+        "size": 241946
+      },
+      {
+        "path": "research/PINTEREST-RESEARCH.md",
+        "sha256": "717b9965ca5313ae03ba4f8608699a4c24b8aea468feaa26e64d7fc2ea06017a",
+        "size": 18079
+      },
+      {
+        "path": "research/sources.json",
+        "sha256": "16530917a6b80d081cd059783a3dc3c2c686d17d247c93a10d0015390738081c",
+        "size": 22975
+      }
+    ],
+    "sha256sums_filename": "SHA256SUMS.txt",
+    "sha256sums_sha256": "1855033fd97710322949c56dfad4aa747ed7cff840c371b26956ed2a14a82ba6",
+    "total_size": 6530506
+  },
+  "release_name": "HALVETH-Choice-Atelier-1.0.0",
+  "schema": "halveth.choice-atelier.release-receipt",
+  "schema_version": 1,
+  "web_seed": "https://juri-halveth.github.io/halveth-scarlet/releases/choice-atelier-v1.0.0/HALVETH-Choice-Atelier-1.0.0.zip"
+}

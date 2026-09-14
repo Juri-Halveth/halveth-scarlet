@@ -22,4 +22,5 @@ For generated or composite images, the HALVETH license covers only protectable
 original contributions that may lawfully be licensed. It does not license
 third-party characters, names, costume or character design, source material,
 trademarks, or a real person's likeness. Asset provenance and unresolved fields
-are recorded in `assets/portal-artwork.json` and the adjacent prompt receipt.
+are recorded in `assets/portal-artwork.json`, `assets/choice-atelier-artwork.json`
+and their adjacent prompt receipts.
