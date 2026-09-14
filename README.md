@@ -78,7 +78,7 @@ Published by HALVETH as an independent fan project. Not an official Marvel or NA
 
 ## Garten, Reddit und Erdzoom
 
-23 zusätzliche Blasen und die zwölf Figuren im Orbit führen nach einer kurzen Tunnelanimation direkt zum Reddit-Profil u/Halveth-Juri. „Garten · Perspektiven“ öffnet weiterhin 64 durchsuchbare Karten. Die Theorie-Texte zu Ego, Dormammu und den Guardians stehen auf der zweisprachigen Unterseite. Als Ziel ist das vom Nutzer angegebene Profil hinterlegt; ein veröffentlichter Beitragslink ist noch nicht konfiguriert.
+Die VERACHEL-Blase öffnet direkt ihr Namensfeld. Die 22 übrigen Blasen und die zwölf Figuren im Orbit führen nach einer kurzen Tunnelanimation zum Reddit-Profil u/Halveth-Juri. „Garten · Perspektiven“ öffnet weiterhin 64 durchsuchbare Karten. Die Theorie-Texte zu Ego, Dormammu und den Guardians stehen auf der zweisprachigen Unterseite. Als Ziel ist das vom Nutzer angegebene Profil hinterlegt; ein veröffentlichter Beitragslink ist noch nicht konfiguriert.
 
 Der Tunnel dauert 720 ms. Escape oder „Hier bleiben“ bricht ihn ab; reduzierte Bewegung und pausierte Animationen überspringen ihn. Strg-/Cmd- und Mittelklick verwenden die normalen Linkfunktionen des Browsers. Beim Zurückkehren von Reddit schließt sich die Übergangsansicht. Die Seite veröffentlicht selbst keine Reddit-Beiträge.
 
@@ -88,7 +88,7 @@ Das Quellen-/Hashmanifest ist eine öffentliche Referenz außerhalb der Blockcha
 
 ## Garden, Reddit and Earth zoom
 
-23 additional bubbles and the twelve orbiting figures lead directly to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garden · Perspectives” retains the searchable directory of 64 cards. No published post URL is configured; the full theory text is available on this site's bilingual article.
+The VERACHEL bubble opens its name field directly. The other 22 bubbles and the twelve orbiting figures lead to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garden · Perspectives” retains the searchable directory of 64 cards. No published post URL is configured; the full theory text is available on this site's bilingual article.
 
 The transition lasts 720 ms, supports Escape/cancellation, and is skipped for reduced motion or paused animations. Modified clicks retain native browser behavior; returning from Reddit clears the transition. The website itself does not publish Reddit posts.
 
@@ -99,6 +99,12 @@ Scroll, pinch, +/- or keyboard +/- zoom the globe from 1x to 4x. Home resets the
 - [Off-chain source/hash manifest](assets/anchor-manifest.json)
 
 The Earth page's blockchain buttons are reference links and do not connect a wallet or perform a signature, transaction or mint. The separate Snapshot studio below offers an optional read-only wallet association. Private source files and private names are not included in this public release.
+
+## VERACHEL-Namensfeld / VERACHEL name field
+
+Die VERACHEL-Perspektive öffnet im Garten ein dichtes, zweisprachiges Namensfeld. Zehn ausgewählte Anzeigesignale erscheinen größer und heller; mehr als hundert kleine Namen sowie A–Z und `∞` halten den Raum sichtbar offen. Die Auswahl ist eine Lesbarkeits- und Gestaltungsentscheidung, keine Wertung von Menschen. `ANDREA BOTEZ` verweist ausschließlich auf das bereits öffentlich verlinkte Medienobjekt. Die übrigen Einträge sind Projekt- oder offene Anzeigetoken. Keine Nennung behauptet Identität, Zustimmung, Beziehung, Vertretung oder Beteiligung.
+
+The VERACHEL perspective opens a dense bilingual name field in the garden. Ten selected display signals appear larger and brighter, while more than one hundred tiny names plus A–Z and `∞` keep the space visibly open. Selection controls legibility and composition; it does not rank people. `ANDREA BOTEZ` is solely a link to the already public media object. The other entries are project or open display tokens. No listing claims identity, consent, relationship, representation, or participation.
 
 ## Bitcoin-Transaktionsfluss / Bitcoin transaction flow
 

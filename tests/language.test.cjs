@@ -28,3 +28,14 @@ test('Every garden entity retains a complete English counterpart and stable iden
   const entities=context.window.HalvethUniverse.entities;assert.equal(entities.length,64);assert.equal(new Set(entities.map(e=>e.id)).size,64);
   for(const e of entities)for(const key of ['role','kind','note','sourceLabel']){assert.equal(typeof e.en[key],'string',e.id+'.'+key);if(e[key])assert(e.en[key].length,e.id+'.'+key);}
 });
+test('VERACHEL name field keeps ten readable signals and an open non-ranking micro field',()=>{
+  const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../assets/universe-data.js'),'utf8'),context);
+  const field=context.window.HalvethUniverse.verachelNameField;
+  assert.equal(field.schema,'halveth.verachel.name-field.v1');
+  assert.equal(field.highlights.length,10);
+  assert.equal(new Set(field.highlights.map(item=>item.label)).size,10);
+  assert(field.microNames.length>=100);
+  assert(field.microNames.includes('A')&&field.microNames.includes('Z')&&field.microNames.includes('∞'));
+  assert.equal(field.highlights[0].source,'https://www.youtube.com/watch?v=3hDQwIyKJ2o');
+  for(const language of ['de','en'])for(const key of ['eyebrow','title','description','doorLabel','microLabel','listLabel','sourceNote'])assert(field[language][key].length,language+'.'+key);
+});

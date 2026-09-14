@@ -1,6 +1,6 @@
 window.HalvethUniverse = {
   "schema": "halveth.universe.v1",
-  "recordedAt": "2026-09-12T23:38:09+00:00",
+  "recordedAt": "2026-09-14T04:09:27+02:00",
   "site": "https://juri-halveth.github.io/halveth-scarlet/",
   "redditDestination": "https://www.reddit.com/user/Halveth-Juri/",
   "redditDestinationBasis": "USER_SUPPLIED_PROFILE; PROFILE_OBSERVED; NO_PUBLISHED_THEORY_POST_URL",
@@ -30,6 +30,50 @@ window.HalvethUniverse = {
     "lucifer",
     "zuendkerze"
   ],
+  "verachelNameField": {
+    "schema": "halveth.verachel.name-field.v1",
+    "selectionBasis": "USER_REQUESTED_DISPLAY_TOKENS_NOT_IDENTITY_CONSENT_RELATIONSHIP_OR_VALUE_RANKING",
+    "highlights": [
+      {
+        "label": "ANDREA BOTEZ",
+        "code": "A·N·D·R·E·A / B·O·T·E·Z",
+        "tone": "#ff9acb",
+        "source": "https://www.youtube.com/watch?v=3hDQwIyKJ2o",
+        "sourceState": "PUBLIC_MEDIA_REFERENCE"
+      },
+      { "label": "RACHEL", "code": "R·A·C·H·E·L", "tone": "#9fffe0", "sourceState": "PROJECT_DISPLAY_TOKEN" },
+      { "label": "MIRA", "code": "M·I·R·A", "tone": "#a8cbff", "sourceState": "PROJECT_DISPLAY_TOKEN" },
+      { "label": "MISA", "code": "M·I·S·A", "tone": "#ffd39e", "sourceState": "OPEN_DISPLAY_TOKEN" },
+      { "label": "MISIDE", "code": "M·I·S·I·D·E", "tone": "#c6a9ff", "sourceState": "OPEN_DISPLAY_TOKEN" },
+      { "label": "ROSA", "code": "R·O·S·A", "tone": "#ffb2d8", "sourceState": "PROJECT_DISPLAY_TOKEN" },
+      { "label": "ROSE", "code": "R·O·S·E", "tone": "#ff98c6", "sourceState": "PROJECT_DISPLAY_TOKEN" },
+      { "label": "SINA", "code": "S·I·N·A", "tone": "#a5f2ff", "sourceState": "PROJECT_DISPLAY_TOKEN" },
+      { "label": "LILA", "code": "L·I·L·A", "tone": "#d9b0ff", "sourceState": "PROJECT_DISPLAY_TOKEN" },
+      { "label": "DEB*", "code": "D·E·B·*", "tone": "#ffe29c", "sourceState": "OPEN_DISPLAY_TOKEN" }
+    ],
+    "microNames": [
+      "AALIYAH", "ADA", "ADELE", "ADITI", "ADRIANA", "AISHA", "AKARI", "ALBA", "ALEJANDRA", "ALIA", "ALINA", "AMAL", "AMARA", "AMELIE", "AMINA", "ANA", "ANAHITA", "ANIKA", "ANNA", "AOIFE", "ARIA", "AYA", "AYLIN", "BEATRIZ", "BELLA", "BINTA", "CAMILA", "CARLA", "CARMEN", "CHIAMAKA", "CHLOE", "CLARA", "DARIA", "DEB", "DEBORAH", "DIANA", "DINA", "ELENA", "ELIF", "ELLA", "EMI", "EMMA", "ESRA", "EVA", "FARAH", "FATIMA", "FREYA", "GABRIELA", "GIULIA", "GRACE", "HANA", "HANNA", "HARUKA", "HELENA", "INES", "INGRID", "IRIS", "ISABEL", "JADE", "JIA", "JOANA", "JULIA", "KAMILA", "KAREN", "KAVYA", "KEIKO", "KIARA", "LAILA", "LARA", "LAYLA", "LEA", "LEILA", "LENA", "LEYLA", "LIAN", "LINA", "LUCIA", "LUNA", "MAE", "MAJA", "MALAK", "MARIA", "MARIAM", "MARIE", "MARISOL", "MASHA", "MAYA", "MEI", "MIA", "MINA", "MIRIAM", "NAOMI", "NATALIA", "NAYA", "NEHA", "NIA", "NINA", "NOOR", "OLIVIA", "PARVATI", "PAULA", "PRIYA", "RANIA", "REBECA", "RINA", "RUBY", "SAKURA", "SALMA", "SANA", "SARA", "SELIN", "SOFIA", "SONIA", "TALA", "TARA", "THEA", "VALENTINA", "VERA", "XIMENA", "YARA", "YASMIN", "YUNA", "ZARA", "ZOE",
+      "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "∞"
+    ],
+    "de": {
+      "eyebrow": "VERACHEL · OFFENES NAMENSFELD",
+      "title": "Jeder Buchstabe darf leuchten.",
+      "description": "Zehn Signale stehen groß im Vordergrund; viele kleine Namen und A–Z halten das Feld offen. Größe ist hier Lesbarkeit, keine Rangfolge und keine Aussage über eine reale Person.",
+      "doorLabel": "Namensfeld öffnen",
+      "microLabel": "Viele mögliche Anzeigenamen · repräsentativ und erweiterbar, nicht vollständig",
+      "listLabel": "Alle sichtbaren Namen und Zeichen lesbar anzeigen",
+      "sourceNote": "ANDREA BOTEZ ist ausschließlich als öffentliche Medienreferenz verlinkt. Alle übrigen Einträge sind Projekt- oder offene Anzeigetoken. Keine Nennung behauptet Identität, Einwilligung, Beziehung oder Beteiligung."
+    },
+    "en": {
+      "eyebrow": "VERACHEL · OPEN NAME FIELD",
+      "title": "Every letter may glow.",
+      "description": "Ten signals remain large in the foreground; many tiny names and A–Z keep the field open. Size means legibility here, not rank or a statement about a real person.",
+      "doorLabel": "Open name field",
+      "microLabel": "Many possible display names · representative and expandable, not complete",
+      "listLabel": "Show every visible name and symbol at a readable size",
+      "sourceNote": "ANDREA BOTEZ is linked solely as a public media reference. Every other entry is a project or open display token. No listing claims identity, consent, relationship, or participation."
+    }
+  },
   "entities": [
     {
       "id": "halveth",
