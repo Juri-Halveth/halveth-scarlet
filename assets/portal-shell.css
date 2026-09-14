@@ -343,6 +343,7 @@ body.portal-ready:not(.portal-route-home){padding-top:86px}
 }
 
 body.portal-motion-paused *,body.portal-motion-paused *::before,body.portal-motion-paused *::after{animation-play-state:paused!important;scroll-behavior:auto!important}
+body.portal-motion-paused .entity-dialog[open]{animation:none!important;opacity:1;transform:none}
 
 @media(forced-colors:active){
   .portal-shell,.portal-map,.portal-node{border:1px solid CanvasText;background:Canvas}

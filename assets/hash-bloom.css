@@ -1,0 +1,40 @@
+.hash-bloom{
+  position:absolute;
+  inset:-4%;
+  width:108%;
+  height:108%;
+  z-index:0;
+  overflow:visible;
+  pointer-events:none;
+  mix-blend-mode:screen;
+  filter:drop-shadow(0 0 9px #9bffe128);
+}
+.hash-ring{
+  fill:none;
+  stroke:#9bffe1;
+  stroke-width:.55;
+  stroke-linecap:round;
+  opacity:.24;
+  animation:hash-flow 24s linear infinite;
+  animation-delay:var(--ring-delay);
+}
+.hash-ring:nth-child(even){stroke:#f4a9d7;opacity:.18}
+.hash-link{stroke:#b6ddea;stroke-width:.28;opacity:.11}
+.hash-node{
+  fill:var(--node-tone);
+  stroke:#effffb;
+  stroke-width:.35;
+  opacity:.76;
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:hash-breathe 7.5s ease-in-out infinite;
+}
+@keyframes hash-flow{to{stroke-dashoffset:-100}}
+@keyframes hash-breathe{0%,100%{transform:scale(.88);opacity:.62}50%{transform:scale(1.22);opacity:1}}
+.scene[data-phase=mischief] .hash-bloom{filter:drop-shadow(0 0 12px #f37aa535);opacity:.68}
+.scene[data-phase=love] .hash-bloom{filter:drop-shadow(0 0 15px #77ffd04d);opacity:1}
+.scene[data-motion=paused] .hash-ring,
+.scene[data-motion=paused] .hash-node,
+body.portal-motion-paused .hash-ring,
+body.portal-motion-paused .hash-node{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.hash-ring,.hash-node{animation:none}}

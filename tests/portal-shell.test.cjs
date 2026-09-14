@@ -18,7 +18,7 @@ const pages = new Map([
 test('every published page loads one shared portal shell from the correct root', () => {
   for (const [relative, prefix] of pages) {
     const html = fs.readFileSync(path.join(root, relative), 'utf8');
-    const css = `${prefix}portal-shell.css?v=full-audit-20260914`;
+    const css = `${prefix}portal-shell.css?v=veil-fix-20260914`;
     const js = `${prefix}portal-shell.js?v=celsius-20260914`;
     assert.equal(html.split(css).length - 1, 1, `${relative} CSS`);
     assert.equal(html.split(js).length - 1, 1, `${relative} JS`);
@@ -63,11 +63,13 @@ test('portal artwork is optimized, local and complete', () => {
   assert(!homepage.includes('src="assets/scarlet-dual-state-v1.png"'));
 });
 
-test('homepage layout styles retain their key and the portal shell uses the Celsius release key', () => {
+test('homepage layout styles retain their keys and the shell carries the veil fix', () => {
   const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  for (const file of ['events.css', 'universe.css', 'q-entry.css', 'portal-shell.css']) {
+  for (const file of ['events.css', 'universe.css', 'q-entry.css']) {
     assert(homepage.includes(`assets/${file}?v=full-audit-20260914`), file);
   }
+  assert(homepage.includes('assets/hash-bloom.css?v=membrane-20260914'), 'hash-bloom.css');
+  assert(homepage.includes('assets/portal-shell.css?v=veil-fix-20260914'), 'portal-shell.css');
   assert(homepage.includes('assets/portal-shell.js?v=celsius-20260914'), 'portal-shell.js');
 });
 
@@ -93,6 +95,7 @@ test('portal shell exposes all routes and motion-safe controls', () => {
   assert(style.includes('min-width:44px'));
   assert(style.includes('height:44px'));
   assert(style.includes('outline:3px solid'));
+  assert(style.includes('body.portal-motion-paused .entity-dialog[open]{animation:none!important;opacity:1;transform:none}'), 'paused deep-link dialogs must remain visible');
   assert(!style.includes('infinite'), 'shared shell must not add endless motion');
 });
 
