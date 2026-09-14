@@ -19,7 +19,7 @@ test('every published page loads one shared portal shell from the correct root',
   for (const [relative, prefix] of pages) {
     const html = fs.readFileSync(path.join(root, relative), 'utf8');
     const css = `${prefix}portal-shell.css?v=full-audit-20260914`;
-    const js = `${prefix}portal-shell.js?v=full-audit-20260914`;
+    const js = `${prefix}portal-shell.js?v=celsius-20260914`;
     assert.equal(html.split(css).length - 1, 1, `${relative} CSS`);
     assert.equal(html.split(js).length - 1, 1, `${relative} JS`);
     assert.equal(html.split(`${prefix}portal-mark.svg`).length - 1, 1, `${relative} icon`);
@@ -63,11 +63,12 @@ test('portal artwork is optimized, local and complete', () => {
   assert(!homepage.includes('src="assets/scarlet-dual-state-v1.png"'));
 });
 
-test('homepage layout styles share the full-audit cache key', () => {
+test('homepage layout styles retain their key and the portal shell uses the Celsius release key', () => {
   const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  for (const file of ['events.css', 'universe.css', 'q-entry.css', 'portal-shell.css', 'portal-shell.js']) {
+  for (const file of ['events.css', 'universe.css', 'q-entry.css', 'portal-shell.css']) {
     assert(homepage.includes(`assets/${file}?v=full-audit-20260914`), file);
   }
+  assert(homepage.includes('assets/portal-shell.js?v=celsius-20260914'), 'portal-shell.js');
 });
 
 test('responsive layout has no fractional pixel gap below desktop', () => {
@@ -85,7 +86,7 @@ test('portal shell exposes all routes and motion-safe controls', () => {
     assert(script.includes(`path:'${route}'`), route);
   }
   assert(script.includes("Nine portals. One constellation."));
-  assert(script.includes("64 public cards: perspectives, characters, projects and sources"));
+  assert(script.includes("65 public cards: perspectives, characters, projects and sources"));
   assert(script.includes("route.id!=='team'"), 'team hash must retain the home route styling');
   assert(script.includes("class=\"portal-motion-button\""));
   assert(script.includes("prefers-reduced-motion: reduce"));

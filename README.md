@@ -10,9 +10,9 @@ Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer geme
 
 ## Deutsch und Englisch / German and English
 
-Die Erde, alle 64 Gartenkarten und die fünf Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern diese lokale Präferenz. Seiten mit direktem Sprachwechsel behalten ihren Zustand; andere Ansichten laden neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
+Die Erde, alle 65 Gartenkarten und die fünf Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern diese lokale Präferenz. Seiten mit direktem Sprachwechsel behalten ihren Zustand; andere Ansichten laden neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
 
-The Earth scene, all 64 garden cards and all five research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally. In-place language pages preserve their state; other views reload. Source records and proper names retain their original form.
+The Earth scene, all 65 garden cards and all five research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally. In-place language pages preserve their state; other views reload. Source records and proper names retain their original form.
 
 - [Earth in English](https://juri-halveth.github.io/halveth-scarlet/?lang=en)
 - [Ego, Dormammu and the garden](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/?lang=en)
@@ -80,7 +80,7 @@ Published by HALVETH as an independent fan project. Not an official Marvel or NA
 
 ## Garten, Reddit und Erdzoom
 
-Die VERACHEL-Blase öffnet direkt ihr Namensfeld. Die 22 übrigen Blasen und die zwölf Figuren im Orbit führen nach einer kurzen Tunnelanimation zum Reddit-Profil u/Halveth-Juri. „Garten · Perspektiven“ öffnet weiterhin 64 durchsuchbare Karten. Die Theorie-Texte zu Ego, Dormammu und den Guardians stehen auf der zweisprachigen Unterseite. Als Ziel ist das vom Nutzer angegebene Profil hinterlegt; ein veröffentlichter Beitragslink ist noch nicht konfiguriert.
+Die VERACHEL-Blase öffnet direkt ihr Namensfeld. CELSIUS öffnet als zweite lokale Tür seine fiktionale Portalstimme; `#celsius` ist der direkte Einstieg. Die 22 übrigen Blasen und die zwölf Figuren im Orbit führen nach einer kurzen Tunnelanimation zum Reddit-Profil u/Halveth-Juri. „Garten · Perspektiven“ öffnet 65 durchsuchbare Karten. Die Theorie-Texte zu Ego, Dormammu, den Guardians und Celsius stehen auf der zweisprachigen Unterseite. Als Reddit-Ziel ist das vom Nutzer angegebene Profil hinterlegt; ein veröffentlichter Beitragslink ist noch nicht konfiguriert.
 
 Der Tunnel dauert 720 ms. Escape oder „Hier bleiben“ bricht ihn ab; reduzierte Bewegung und pausierte Animationen überspringen ihn. Strg-/Cmd- und Mittelklick verwenden die normalen Linkfunktionen des Browsers. Beim Zurückkehren von Reddit schließt sich die Übergangsansicht. Die Seite veröffentlicht selbst keine Reddit-Beiträge.
 
@@ -90,7 +90,7 @@ Das Quellen-/Hashmanifest ist eine öffentliche Referenz außerhalb der Blockcha
 
 ## Garden, Reddit and Earth zoom
 
-The VERACHEL bubble opens its name field directly. The other 22 bubbles and the twelve orbiting figures lead to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garden · Perspectives” retains the searchable directory of 64 cards. No published post URL is configured; the full theory text is available on this site's bilingual article.
+The VERACHEL bubble opens its name field directly. CELSIUS is a second local door that opens his fictional portal voice; `#celsius` is the direct entry. The other 22 bubbles and the twelve orbiting figures lead to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garden · Perspectives” contains 65 searchable cards. No published post URL is configured; the full theory text is available on this site's bilingual article.
 
 The transition lasts 720 ms, supports Escape/cancellation, and is skipped for reduced motion or paused animations. Modified clicks retain native browser behavior; returning from Reddit clears the transition. The website itself does not publish Reddit posts.
 

@@ -1,6 +1,6 @@
 window.HalvethUniverse = {
   "schema": "halveth.universe.v1",
-  "recordedAt": "2026-09-14T04:09:27+02:00",
+  "recordedAt": "2026-09-14T19:57:45+02:00",
   "site": "https://juri-halveth.github.io/halveth-scarlet/",
   "redditDestination": "https://www.reddit.com/user/Halveth-Juri/",
   "redditDestinationBasis": "USER_SUPPLIED_PROFILE; PROFILE_OBSERVED; NO_PUBLISHED_THEORY_POST_URL",
@@ -28,7 +28,8 @@ window.HalvethUniverse = {
     "peter",
     "guardians",
     "lucifer",
-    "zuendkerze"
+    "zuendkerze",
+    "celsius"
   ],
   "verachelNameField": {
     "schema": "halveth.verachel.name-field.v1",
@@ -134,6 +135,24 @@ window.HalvethUniverse = {
         "note": "A named perspective within the project. This card describes its configured role; it does not launch an independent agent.",
         "sourceLabel": "LUCINET · local perspective register, minimized snapshot dated 12.09.2026.",
         "label": "PLANT"
+      }
+    },
+    {
+      "id": "celsius",
+      "label": "CELSIUS",
+      "role": "Schreibt Temperatur und Übergänge zwischen Erde, Glut, Wind und Stillstand in den Niederlassungskomplex ein.",
+      "kind": "FIKTIONALE PORTALSTIMME · NIEDERLASSUNGSKOMPLEX",
+      "section": "celsius",
+      "localDialog": true,
+      "doorLabel": "Celsius sprechen lassen",
+      "sourceLabel": "HALVETH · Wind- und Temperaturprüfung vom 14.09.2026; DWD, NASA und Fachquellen sind in der Forschungsnotiz gebunden.",
+      "note": "Ich messe die Wärme, während die Erde weiteratmet. Der Wind trägt Zeichen; er erfindet das Feuer nicht. Wenn Baumkronen stillstehen, halte ich den Augenblick als Snapshot fest. Darin kollabiert keine Raumzeit; nur unsere Perspektive wird für einen Herzschlag neu.",
+      "en": {
+        "role": "Records temperature and transitions between Earth, embers, wind and stillness in the settlement complex.",
+        "kind": "FICTIONAL PORTAL VOICE · SETTLEMENT COMPLEX",
+        "doorLabel": "Let Celsius speak",
+        "note": "I measure the warmth while Earth keeps breathing. The wind carries signs; it does not invent the fire. When the tree crowns stand still, I hold the moment as a snapshot. Space-time does not collapse inside it; only our perspective becomes new for one heartbeat.",
+        "sourceLabel": "HALVETH · wind and temperature review dated 14 September 2026; the research note binds the DWD, NASA and specialist sources."
       }
     },
     {

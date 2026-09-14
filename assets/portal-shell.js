@@ -21,7 +21,7 @@
     {id:'flow',path:'forschung/transaktionsfluss/',index:'05',image:'machine',accent:'#ffc66e',de:'Transaktionsfluss',en:'Transaction flow',deNote:'Werte, Struktur und Beleggrenzen',enNote:'Values, structure and evidence limits'},
     {id:'q',path:'forschung/q-notizen/',index:'06',image:'nexus',accent:'#a795ff',de:'Q-Notizen',en:'Q notebook',deNote:'Große Fragen, gebundene Quellen',enNote:'Big questions, bound sources'},
     {id:'day',path:'forschung/tagesstand-2026-09-13/',index:'07',image:'gate',accent:'#90cfff',de:'Tagesstand',en:'Daily record',deNote:'Ein nachvollziehbarer Arbeitsstand',enNote:'A traceable working record'},
-    {id:'team',path:'./#team',index:'08',image:'nexus',accent:'#ff7ac8',de:'Die Konstellation',en:'The constellation',deNote:'64 öffentliche Karten: Perspektiven, Figuren, Projekte und Quellen',enNote:'64 public cards: perspectives, characters, projects and sources'}
+    {id:'team',path:'./#team',index:'08',image:'nexus',accent:'#ff7ac8',de:'Die Konstellation',en:'The constellation',deNote:'65 öffentliche Karten: Perspektiven, Figuren, Projekte und Quellen',enNote:'65 public cards: perspectives, characters, projects and sources'}
   ];
 
   const normalized=(url)=>decodeURI(url.pathname).replace(/index\.html$/i,'').replace(/\/+$/,'/')||'/';

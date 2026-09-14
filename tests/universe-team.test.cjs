@@ -57,20 +57,22 @@ function harness(initialHash = '') {
     querySelectorAll: () => [],
     createElement: tag => { const element = new Element(); element.tagName = tag.toUpperCase(); return element; }
   };
-  const entities = ['juri', 'mira', 'verachel'].map(id => ({
+  const entities = ['juri', 'mira', 'verachel', 'celsius'].map(id => ({
     id,
     label: id.toUpperCase(),
     role: `${id} role`,
     kind: 'PROJECT ROLE',
     section: 'garden',
     sourceLabel: `${id} source`,
+    localDialog: id === 'celsius',
+    doorLabel: id === 'celsius' ? 'Let Celsius speak' : undefined,
     en: {}
   }));
   const window = {
     HalvethLanguage: { t: value => value, get: () => 'en', link: value => value },
     HalvethUniverse: {
       entities,
-      featured: ['verachel', 'juri'],
+      featured: ['verachel', 'juri', 'celsius'],
       verachelNameField: {
         highlights: Array.from({length: 10}, (_, index) => ({label: index ? `SIGNAL ${index}` : 'ANDREA BOTEZ', code: index ? `S·${index}` : 'A·N·D·R·E·A / B·O·T·E·Z', tone: '#ff9acb', sourceState: 'OPEN_DISPLAY_TOKEN'})),
         microNames: ['ADA', 'MIRA', 'A', 'Z', '∞'],
@@ -100,7 +102,7 @@ test('the team deep link opens JURI and all existing cards, then Back closes it'
   assert.equal(h.elements['#entity-dialog'].open, true);
   assert.equal(h.elements['#entity-title'].textContent, 'JURI');
   assert.equal(h.elements['.entity-directory'].open, true);
-  assert.equal(h.elements['#entity-list'].children.length, 3);
+  assert.equal(h.elements['#entity-list'].children.length, 4);
 
   h.hashchange('');
   assert.equal(h.elements['#entity-dialog'].open, false);
@@ -143,8 +145,9 @@ test('VERACHEL opens a ten-signal name field and other entities hide it', () => 
 
 test('the floating VERACHEL bubble is the dialog door while other bubbles remain links', () => {
   const h = harness();
-  const door = h.elements['.constellation-left'].children[0];
-  const tunnel = h.elements['.constellation-right'].children[0];
+  const bubbles = [...h.elements['.constellation-left'].children, ...h.elements['.constellation-right'].children];
+  const door = bubbles.find(item => item.dataset.entity === 'verachel');
+  const tunnel = bubbles.find(item => item.dataset.entity === 'juri');
   assert.equal(door.tagName, 'BUTTON');
   assert.equal(door['aria-haspopup'], 'dialog');
   assert.equal(door['aria-controls'], 'entity-dialog');
@@ -154,6 +157,29 @@ test('the floating VERACHEL bubble is the dialog door while other bubbles remain
   assert.equal(h.elements['#entity-dialog'].open, true);
   assert.equal(tunnel.tagName, 'A');
   assert.equal(tunnel.href, 'https://www.reddit.com/user/Halveth-Juri/');
+});
+
+test('the floating CELSIUS bubble opens its local voice instead of the Reddit tunnel', () => {
+  const h = harness();
+  const bubbles = [...h.elements['.constellation-left'].children, ...h.elements['.constellation-right'].children];
+  const door = bubbles.find(item => item.dataset.entity === 'celsius');
+  assert.equal(door.tagName, 'BUTTON');
+  assert.equal(door['aria-haspopup'], 'dialog');
+  assert.equal(door['aria-label'], 'CELSIUS · Let Celsius speak');
+  door.emit('click');
+  assert.equal(h.elements['#entity-title'].textContent, 'CELSIUS');
+  assert.equal(h.elements['#entity-dialog'].open, true);
+  assert.equal(h.elements['#verachel-name-field'].hidden, true);
+});
+
+test('a named perspective deep link opens its voice and closing restores the page URL', () => {
+  const h = harness('#celsius');
+  h.flush();
+  assert.equal(h.elements['#entity-dialog'].open, true);
+  assert.equal(h.elements['#entity-title'].textContent, 'CELSIUS');
+  h.elements['#entity-close'].emit('click');
+  assert.equal(h.location.hash, '');
+  assert.equal(h.history.replacements.length, 1);
 });
 
 test('searching Andrea keeps only the VERACHEL card visible', () => {
