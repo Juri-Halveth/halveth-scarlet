@@ -11,15 +11,30 @@
   <meta name="theme-color" content="#081218">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
   <meta name="description" content="Dein lokaler Snapshot-Abdruck. Datei auswählen, SHA-256 berechnen und einen Beleg mitnehmen. Wallet optional." data-en-content="Your local snapshot imprint. Choose a file, calculate its SHA-256 and take a receipt with you. Wallet optional.">
-  <title data-en="HALVETH · Snapshot studio">HALVETH · Snapshot-Studio</title>
+  <!-- Discovery metadata: German is the default; query URLs switch the same bilingual document. -->
+<link rel="canonical" href="https://juri-halveth.github.io/halveth-scarlet/snapshot/">
+<link rel="alternate" hreflang="de" href="https://juri-halveth.github.io/halveth-scarlet/snapshot/?lang=de">
+<link rel="alternate" hreflang="en" href="https://juri-halveth.github.io/halveth-scarlet/snapshot/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://juri-halveth.github.io/halveth-scarlet/snapshot/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HALVETH · Scarlet Portal">
+<meta property="og:title" content="HALVETH · Snapshot-Studio">
+<meta property="og:description" content="Dein lokaler Snapshot-Abdruck. Datei auswählen, SHA-256 berechnen und einen Beleg mitnehmen. Wallet optional.">
+<meta property="og:url" content="https://juri-halveth.github.io/halveth-scarlet/snapshot/">
+<meta property="og:image" content="https://juri-halveth.github.io/halveth-scarlet/assets/portal-machine.webp">
+<meta property="og:image:alt" content="HALVETH lokales Snapshot-Studio">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<title data-en="HALVETH · Snapshot studio">HALVETH · Snapshot-Studio</title>
   <link rel="stylesheet" href="../assets/room.css?v=snapshot-1">
   <link rel="stylesheet" href="../assets/snapshot.css?v=snapshot-1">
   <script defer src="../assets/english.js?v=snapshot-1"></script>
   <script defer src="../assets/language.js?v=snapshot-1"></script>
   <script defer src="../assets/snapshot-core.js?v=snapshot-1"></script>
   <script defer src="../assets/wallet-connection.js?v=snapshot-1"></script>
-  <script defer src="../assets/snapshot.js?v=snapshot-1"></script>
-<link rel="icon" href="../assets/portal-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/portal-shell.css?v=portal-20260914"><script defer src="../assets/portal-shell.js?v=portal-20260914"></script></head>
+  <script defer src="../assets/snapshot.js?v=full-audit-20260914"></script>
+<link rel="icon" href="../assets/portal-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/portal-shell.css?v=full-audit-20260914"><script defer src="../assets/portal-shell.js?v=full-audit-20260914"></script></head>
 <body>
   <a class="skip-link" href="#studio" data-en="Skip to studio">Zum Studio springen</a>
   <header class="room-header">
@@ -100,7 +115,7 @@
               <div><dt data-en="Device time (UTC)">Gerätezeit (UTC)</dt><dd id="record-time"></dd></div>
               <div><dt data-en="Wallet association">Walletzuordnung</dt><dd id="record-wallet"></dd></div>
             </dl>
-            <a id="download-receipt" class="primary-button" download="halveth-snapshot.json"><span data-en="Download receipt">Beleg herunterladen</span><span aria-hidden="true">↓</span></a>
+            <a id="download-receipt" class="primary-button" href="#receipt-title" download="halveth-snapshot.json" aria-disabled="true" tabindex="-1"><span data-en="Download receipt">Beleg herunterladen</span><span aria-hidden="true">↓</span></a>
             <details class="receipt-json"><summary data-en="Inspect JSON">JSON ansehen</summary><pre id="receipt-json"></pre></details>
           </div>
           <div class="receipt-divider"></div>

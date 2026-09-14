@@ -160,7 +160,7 @@ function setup({pause = null, secure = true, providerAvailable = true} = {}) {
 }
 
 function assertCleared(h) {
-  assert.equal(h.ids['download-receipt'].href, null);
+  assert.equal(h.ids['download-receipt'].href, '#receipt-title');
   assert.equal(h.ids['receipt-content'].hidden, true);
   assert.equal(h.ids['receipt-empty'].hidden, false);
   assert.equal(h.ids['receipt-json'].textContent, '');

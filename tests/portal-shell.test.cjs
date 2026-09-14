@@ -18,12 +18,31 @@ const pages = new Map([
 test('every published page loads one shared portal shell from the correct root', () => {
   for (const [relative, prefix] of pages) {
     const html = fs.readFileSync(path.join(root, relative), 'utf8');
-    const css = `${prefix}portal-shell.css?v=portal-20260914`;
-    const js = `${prefix}portal-shell.js?v=portal-20260914`;
+    const css = `${prefix}portal-shell.css?v=full-audit-20260914`;
+    const js = `${prefix}portal-shell.js?v=full-audit-20260914`;
     assert.equal(html.split(css).length - 1, 1, `${relative} CSS`);
     assert.equal(html.split(js).length - 1, 1, `${relative} JS`);
     assert.equal(html.split(`${prefix}portal-mark.svg`).length - 1, 1, `${relative} icon`);
   }
+});
+
+test('every published page declares canonical, bilingual and social-preview metadata', () => {
+  const publicRoot = 'https://juri-halveth.github.io/halveth-scarlet/';
+  for (const [relative] of pages) {
+    const html = fs.readFileSync(path.join(root, relative), 'utf8');
+    const route = relative === 'index.html' ? '' : relative.replace(/index\.html$/, '');
+    const canonical = publicRoot + route;
+    assert(html.includes(`<link rel="canonical" href="${canonical}">`), relative);
+    assert(html.includes(`<link rel="alternate" hreflang="de" href="${canonical}?lang=de">`), relative);
+    assert(html.includes(`<link rel="alternate" hreflang="en" href="${canonical}?lang=en">`), relative);
+    assert(html.includes(`<link rel="alternate" hreflang="x-default" href="${canonical}">`), relative);
+    for (const property of ['og:title', 'og:description', 'og:url', 'og:image', 'og:image:alt']) {
+      assert(html.includes(`<meta property="${property}"`), `${relative} ${property}`);
+    }
+    assert(html.includes('<meta name="twitter:card" content="summary_large_image">'), relative);
+  }
+  const favicon = fs.statSync(path.join(root, 'favicon.ico'));
+  assert(favicon.size > 1_000 && favicon.size < 100_000);
 });
 
 test('portal artwork is optimized, local and complete', () => {
@@ -31,12 +50,31 @@ test('portal artwork is optimized, local and complete', () => {
     'portal-cosmic-gate.webp',
     'portal-machine.webp',
     'portal-nexus.webp',
-    'portal-scarlet-room.webp'
+    'portal-scarlet-room.webp',
+    'scarlet-dual-state-v1.webp'
   ];
   for (const file of artwork) {
     const stat = fs.statSync(path.join(root, 'assets', file));
     assert(stat.size > 100_000, `${file} should contain the intended artwork`);
     assert(stat.size < 250_000, `${file} should remain web-sized`);
+  }
+  const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert(homepage.includes('src="assets/scarlet-dual-state-v1.webp"'));
+  assert(!homepage.includes('src="assets/scarlet-dual-state-v1.png"'));
+});
+
+test('homepage layout styles share the full-audit cache key', () => {
+  const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  for (const file of ['events.css', 'universe.css', 'q-entry.css', 'portal-shell.css', 'portal-shell.js']) {
+    assert(homepage.includes(`assets/${file}?v=full-audit-20260914`), file);
+  }
+});
+
+test('responsive layout has no fractional pixel gap below desktop', () => {
+  for (const file of ['events.css', 'universe.css']) {
+    const style = fs.readFileSync(path.join(root, 'assets', file), 'utf8');
+    assert(!style.includes('@media(max-width:999px)'), file);
+    assert(style.includes('@media(max-width:999.98px)'), file);
   }
 });
 
@@ -58,9 +96,16 @@ test('portal shell exposes all routes and motion-safe controls', () => {
 });
 
 test('research CSP permits only the local portal presentation assets', () => {
-  for (const relative of ['forschung/figuren-und-perspektiven/index.html', 'forschung/transaktionsfluss/index.html']) {
+  for (const relative of [
+    'forschung/figuren-und-perspektiven/index.html',
+    'forschung/formen-und-verbindungen/index.html',
+    'forschung/transaktionsfluss/index.html',
+    'forschung/q-notizen/index.html',
+    'forschung/tagesstand-2026-09-13/index.html'
+  ]) {
     const html = fs.readFileSync(path.join(root, relative), 'utf8');
-    assert(html.includes("style-src 'self' 'unsafe-inline'"), relative);
+    assert(html.includes("default-src 'none'"), relative);
+    assert(html.includes("style-src 'self'"), relative);
     assert(html.includes("img-src 'self'"), relative);
   }
 });

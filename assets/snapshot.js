@@ -36,7 +36,7 @@ function validFile(){return fileInput.files?.length===1&&fileInput.files[0].size
 function controls(){create.disabled=!available||!validFile()||busy||walletState.status==='connecting';}
 function clearReceipt(){
   if(blobURL){URL.revokeObjectURL(blobURL);blobURL=null;}
-  receipt=null;download.removeAttribute('href');receiptContent.hidden=true;$('receipt-empty').hidden=false;
+  receipt=null;download.href='#receipt-title';download.setAttribute('aria-disabled','true');download.setAttribute('tabindex','-1');receiptContent.hidden=true;$('receipt-empty').hidden=false;
   $('receipt-json').textContent='';document.body.classList.remove('receipt-ready');
 }
 function invalidate(key='changed'){
@@ -95,7 +95,7 @@ form.addEventListener('submit',async event=>{
     receipt=core.receipt(record,recordHash);
     const json=JSON.stringify(receipt,null,2)+'\n';
     blobURL=URL.createObjectURL(new Blob([json],{type:'application/json'}));
-    download.href=blobURL;download.download='halveth-snapshot-'+recordHash.slice(0,12)+'.json';
+    download.href=blobURL;download.download='halveth-snapshot-'+recordHash.slice(0,12)+'.json';download.removeAttribute('aria-disabled');download.removeAttribute('tabindex');
     $('receipt-json').textContent=json;receiptContent.hidden=false;$('receipt-empty').hidden=true;
     document.body.classList.add('receipt-ready');renderReceipt();snapshotStatus='done';say('snapshot-status',snapshotStatus);
   }catch{if(generation===version){clearReceipt();snapshotStatus='failed';renderReceipt();say('snapshot-status',snapshotStatus);}}

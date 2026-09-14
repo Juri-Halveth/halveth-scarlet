@@ -11,13 +11,28 @@
   <meta name="theme-color" content="#081218">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.github.com; base-uri 'none'; form-action 'none'">
   <meta name="description" content="Ein offenes Gästebuch für Gedanken, Quellen und ein kleines Danke. Hinterlasse freiwillig eine Spur im HALVETH-Kosmos." data-en-content="An open guestbook for thoughts, sources and a little gratitude. Leave a voluntary trace in the HALVETH universe.">
-  <title data-en="HALVETH · Room of traces">HALVETH · Raum der Spuren</title>
+  <!-- Discovery metadata: German is the default; query URLs switch the same bilingual document. -->
+<link rel="canonical" href="https://juri-halveth.github.io/halveth-scarlet/room/">
+<link rel="alternate" hreflang="de" href="https://juri-halveth.github.io/halveth-scarlet/room/?lang=de">
+<link rel="alternate" hreflang="en" href="https://juri-halveth.github.io/halveth-scarlet/room/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://juri-halveth.github.io/halveth-scarlet/room/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HALVETH · Scarlet Portal">
+<meta property="og:title" content="HALVETH · Raum der Spuren">
+<meta property="og:description" content="Ein offenes Gästebuch für Gedanken, Quellen und ein kleines Danke. Hinterlasse freiwillig eine Spur im HALVETH-Kosmos.">
+<meta property="og:url" content="https://juri-halveth.github.io/halveth-scarlet/room/">
+<meta property="og:image" content="https://juri-halveth.github.io/halveth-scarlet/assets/portal-scarlet-room.webp">
+<meta property="og:image:alt" content="HALVETH Raum der Spuren">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<title data-en="HALVETH · Room of traces">HALVETH · Raum der Spuren</title>
   <link rel="stylesheet" href="../assets/room.css?v=room-20260912">
   <script defer src="../assets/english.js?v=room-20260912"></script>
   <script defer src="../assets/language.js?v=room-20260912"></script>
   <script defer src="../assets/room-core.js?v=room-20260912"></script>
   <script defer src="../assets/room.js?v=room-20260912"></script>
-<link rel="icon" href="../assets/portal-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/portal-shell.css?v=portal-20260914"><script defer src="../assets/portal-shell.js?v=portal-20260914"></script></head>
+<link rel="icon" href="../assets/portal-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/portal-shell.css?v=full-audit-20260914"><script defer src="../assets/portal-shell.js?v=full-audit-20260914"></script></head>
 <body>
   <a class="skip-link" href="#main" data-en="Skip to content">Zum Inhalt springen</a>
   <header class="room-header">
@@ -175,7 +190,7 @@
         </div>
         <p class="feed-explanation" data-en="Load published comments from GitHub when you want to read them. These are contributions, not an indication of who is here right now.">Lade veröffentlichte Kommentare von GitHub, wenn du sie lesen möchtest. Es sind Beiträge, keine Anzeige dafür, wer gerade hier ist.</p>
         <p id="feed-status" class="status-message" role="status" aria-live="polite"></p>
-        <div id="trace-feed" class="trace-feed" aria-label="Geladene öffentliche Kommentare" data-en-aria-label="Loaded public comments"></div>
+        <div id="trace-feed" class="trace-feed" role="region" aria-label="Geladene öffentliche Kommentare" data-en-aria-label="Loaded public comments"></div>
       </section>
     </section>
   </main>

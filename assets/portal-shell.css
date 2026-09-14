@@ -281,6 +281,7 @@ body.portal-ready > :not(.portal-atmosphere):not(.portal-shell):not(.portal-map)
 body.portal-ready:not(.portal-route-home){padding-top:86px}
 .portal-route-home .scene{background-color:transparent;background-image:radial-gradient(ellipse at 50% 48%,rgba(10,7,25,.1),rgba(2,4,13,.82) 82%)}
 .portal-route-home .topbar{top:max(84px,calc(env(safe-area-inset-top) + 78px))}
+.portal-route-home .room-entry{left:20px;top:128px}
 .portal-route-home .portal-atmosphere{opacity:.82}
 .portal-route-room .portal-atmosphere{opacity:.62;filter:saturate(1.02) brightness(.72)}
 .portal-route-snapshot .portal-atmosphere{opacity:.64;filter:saturate(.86) brightness(.78)}
@@ -298,7 +299,7 @@ body.portal-ready:not(.portal-route-home){padding-top:86px}
 }
 
 @media(max-width:600px){
-  body.portal-ready:not(.portal-route-home){padding-top:0;padding-bottom:82px}
+  body.portal-ready{padding-top:0;padding-bottom:82px}
   .portal-shell{
     top:auto;
     bottom:max(8px,env(safe-area-inset-bottom));
@@ -313,6 +314,7 @@ body.portal-ready:not(.portal-route-home){padding-top:86px}
   .portal-map-button span{display:none}
   .portal-map-button{width:40px;padding:0;justify-content:center}
   .portal-route-home .topbar{top:max(20px,env(safe-area-inset-top))}
+  .portal-route-home .room-entry{left:14px;top:72px}
   .portal-map{max-height:calc(100svh - 16px);border-radius:24px}
   .portal-map-inner{padding:22px 16px 26px}
   .portal-map-header{margin-bottom:18px}
@@ -321,6 +323,11 @@ body.portal-ready:not(.portal-route-home){padding-top:86px}
   .portal-node strong{font-size:17px}
   .portal-node small{display:none}
   .portal-map-foot{display:block}
+}
+
+@media(min-width:1000px){
+  .portal-route-home .room-entry{left:160px;top:80px}
+  .portal-route-home .constellation{top:124px;row-gap:3px}
 }
 
 @media(max-width:390px){

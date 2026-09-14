@@ -44,7 +44,7 @@ Die Symbole, Tageszeit und Renderzustände bilden einen visuellen Website-Zustan
 ## Quellen
 
 - Erdtextur: [NASA Blue Marble](https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/) — NASA GSFC, Reto Stöckli / Robert Simmon.
-- Frühere KI-Fan-Art: [Bild](assets/scarlet-dual-state-v1.png) · [Prompt und Gestaltung](assets/scarlet-dual-state-v1.prompt.md). Das vorhandene linke Zombie-Porträt erscheint während des Scarlet-Finales; im ruhigen Zustand bleibt die Erde im Vordergrund.
+- Frühere KI-Fan-Art: [unveränderte PNG-Quelle](assets/scarlet-dual-state-v1.png) · [WebP-Auslieferungsfassung](assets/scarlet-dual-state-v1.webp) · [Prompt und Gestaltung](assets/scarlet-dual-state-v1.prompt.md). Das vorhandene linke Zombie-Porträt erscheint während des Scarlet-Finales; im ruhigen Zustand bleibt die Erde im Vordergrund.
 - Die [Forschungsnotiz](forschung/formen-und-verbindungen/) verlinkt ihre Quellen unmittelbar im Text.
 
 Eigenständiges Fanprojekt von HALVETH, keine offizielle Marvel- oder NASA-Veröffentlichung. Referenzierte Figuren und externe Materialien behalten ihre jeweilige Herkunft und Rechte.
@@ -66,6 +66,8 @@ HALVETH places a large Earth at the center of a quiet mint, blue and rose scene.
 The heart is the main action. It turns the atmosphere green, releases flowers, stars and hearts, and immediately ends any playful countdown. Heart counts last only for the current page visit. No vote, warning or notification is sent to other devices. An opt-in sound button enables quiet synthesized game cues, with adjustable volume. Sounds stop in hidden tabs.
 
 Scarlet events start at 00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00 and 21:00 Europe/Berlin time. Each countdown starts exactly one elapsed hour earlier, including across daylight-saving changes. The 22-second finale features the existing zombie portrait, falling word stones and clearly labeled game commentary, then resolves to green. Visitors can preview it without re-enabling disabled automatic events. A heart during the pre-countdown soothes that scheduled round for the current visit. The color slider remains below the heart; the old visible replay and pause icons are removed. Motion controls are available in the dialog, and reduced-motion preferences are respected.
+
+Die gemeinsame Portal-Leiste speichert ausschließlich die Bewegungspräferenz unter `halveth-portal-motion` im lokalen Browser-Speicher. Sie enthält keine Identität oder Formulareingabe; das Löschen der Website-Daten setzt die Präferenz zurück. / The shared portal bar stores only the motion preference under `halveth-portal-motion` in the browser's local storage. It contains no identity or form entry; clearing site data resets the preference.
 
 The daily ring follows the Europe/Berlin civil clock, resets at midnight and remains below 100 percent before the reset. Daylight-saving changes follow local wall-clock jumps or repeats. The NASA Blue Marble texture and device-time approximation are a visualization, not a live image or measurement of the whole world.
 
@@ -158,7 +160,7 @@ Ein kleiner Q-Link unten rechts auf der Erde führt zu sechs aufklappbaren Theme
 
 A small Q link at the lower right of the Earth opens six collapsible topic cards. The bilingual edition covers selected discussion threads from 12–13 September 2026, with a source register and a byte-hash snapshot. It is not a complete daily or system audit. Sources, illustrative models and creative proposals remain labelled. MITA and MEDUSA join the garden; MIRA retains its existing project role.
 
-[Source register](forschung/q-notizen/sources.json) · [Edition hashes](forschung/q-notizen/snapshot.json). All layout assets are local; this page uses no animation loop, remote font, tracking or automated posting. The timestamp records the working clock, not an independent attestation.
+[Source register](forschung/q-notizen/sources.json) · [Historical release receipt v1.0.1](forschung/q-notizen/snapshot.json), bound to the [exact Git blobs at `c9147f2`](https://github.com/Juri-Halveth/halveth-scarlet/tree/c9147f2d393f13dcbc4871bf7c5999924404bcc6/forschung/q-notizen/). All layout assets are local; this page uses no animation loop, remote font, tracking or automated posting. The timestamp records the working clock, not an independent attestation.
 
 ## Tagesstand / Daily review — 13.09.2026
 
@@ -166,6 +168,6 @@ A small Q link at the lower right of the Earth opens six collapsible topic cards
 
 14 bilingual topic cards connect source checks, illustrative models, public software and local prototype status. The private inventory covers nine project folders: 428 file entries, 321 individual metadata records, 107 aggregated exclusions and 22 selected text sources. 34 files have a modification date on 13 September; the preceding day is background. File times do not attest historical creation. Private inventory records and raw media are not included in this release.
 
-The edition is an internal editorial and technical review with a finite declared scope, not independent certification or an audit of every file, project or event. [Sources](forschung/tagesstand-2026-09-13/sources.json), [topic coverage](forschung/tagesstand-2026-09-13/topics.json) and [edition hashes](forschung/tagesstand-2026-09-13/snapshot.json) are explicit. The Q footer links to this daily edition.
+The edition is an internal editorial and technical review with a finite declared scope, not independent certification or an audit of every file, project or event. [Sources](forschung/tagesstand-2026-09-13/sources.json), [topic coverage](forschung/tagesstand-2026-09-13/topics.json) and the [historical release receipt v1.0.0](forschung/tagesstand-2026-09-13/snapshot.json), bound to the [exact Git blobs at `c9147f2`](https://github.com/Juri-Halveth/halveth-scarlet/tree/c9147f2d393f13dcbc4871bf7c5999924404bcc6/forschung/tagesstand-2026-09-13/), are explicit. The Q footer links to this daily edition.
 
 Q receipt correction: version 1.0.0 used local CRLF bytes while Git published LF-normalised blobs. Version 1.0.1 corrects its hashes to Git blob bytes and declares that contract. Earlier receipts remain in Git history. Neither receipt proves scientific truth, independent time or authorship.

@@ -49,9 +49,10 @@
 
   const main=document.querySelector('main')||document.querySelector('[role="main"]')||document.body.firstElementChild;
   if(main&&!main.id)main.id='portal-main';
-  const skip=document.createElement('a');
-  skip.className='portal-skip';
-  skip.href=main&&main.id?'#'+main.id:'#';
+  const existingSkip=document.querySelector('a.skip-link[href^="#"],a.skip[href^="#"]');
+  const skip=existingSkip||document.createElement('a');
+  skip.classList.add('portal-skip');
+  if(!existingSkip)skip.href=main&&main.id?'#'+main.id:'#';
 
   const shell=document.createElement('header');
   shell.className='portal-shell';
@@ -82,7 +83,7 @@
     map.querySelector('.portal-map-close').setAttribute('aria-label',english?'Close portal map':'Portalplan schließen');
     map.querySelector('.portal-map-kicker').textContent=english?'THE CONNECTED UNIVERSE':'DAS VERBUNDENE UNIVERSUM';
     map.querySelector('h2').textContent=english?'Nine portals. One constellation.':'Neun Portale. Eine Konstellation.';
-    map.querySelector('.portal-map-intro').textContent=english?"I'm Juri. HALVETH is my open garden for big questions, traceable sources, and voluntary exploration together. I decide what I publish; you keep your choice. The whole public constellation travels with us.":'Ich bin Juri. HALVETH ist mein offener Garten für große Fragen, nachvollziehbare Quellen und freiwilliges gemeinsames Prüfen. Ich entscheide, was ich veröffentliche; du behältst deine Wahl. Die ganze öffentliche Konstellation reist mit.';
+    map.querySelector('.portal-map-intro').textContent=english?"I'm Juri. HALVETH is my open garden for big questions, traceable sources, and voluntary exploration together. I decide what I publish; you keep your choice. Project texts and fan interpretations are not personal messages or relationship claims. Public submissions can still contain personal data, so share only what you consciously want to make public. The whole public constellation travels with us.":'Ich bin Juri. HALVETH ist mein offener Garten für große Fragen, nachvollziehbare Quellen und freiwilliges gemeinsames Prüfen. Ich entscheide, was ich veröffentliche; du behältst deine Wahl. Projekttexte und Faninterpretationen sind keine persönlichen Nachrichten oder Beziehungsbehauptungen. Öffentlich eingereichte Angaben können trotzdem personenbezogen sein; teile nur, was du bewusst veröffentlichen willst. Die ganze öffentliche Konstellation reist mit.';
     map.querySelector('.portal-map-foot-left').textContent=english?'The em dash connects clauses without pretending to prove a cause.':'Der Gedankenstrich verbindet Satzteile, ohne eine Ursache vorzutäuschen.';
     const grid=map.querySelector('.portal-grid');
     grid.replaceChildren(...routes.map(route=>{
@@ -148,6 +149,6 @@
 
   render();
   applyMotion();
-  document.body.prepend(atmosphere);
-  document.body.append(skip,shell,map);
+  document.body.prepend(skip,atmosphere);
+  document.body.append(shell,map);
 })();
