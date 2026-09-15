@@ -6,6 +6,8 @@ window.HalvethUniverse = {
   "redditDestinationBasis": "USER_SUPPLIED_PROFILE; PROFILE_OBSERVED; NO_PUBLISHED_THEORY_POST_URL",
   "redditPostUrl": null,
   "featured": [
+    "brightcast-starlight",
+    "context-prism",
     "verachel",
     "juri",
     "yuri",
@@ -1062,6 +1064,44 @@ window.HalvethUniverse = {
         "kind": "MYTHOLOGICAL DESIGN MOTIF",
         "note": "Designed as a new garden card. The museum source documents an ancient depiction.",
         "sourceLabel": "The Met · Terracotta pelike, ca. 450–440 BCE"
+      }
+    },
+    {
+      "id": "context-prism",
+      "label": "KONTEXT-PRISMA",
+      "role": "Trennt gleiche oder ähnliche Zeichen nach Quelle, Referent, Domäne, Version und Zeit, bevor Verbindungen bewertet werden.",
+      "kind": "QUELLENGEBUNDENER FORSCHUNGSANKER",
+      "section": "garden",
+      "localDialog": true,
+      "doorLabel": "Vier Kontexte prüfen",
+      "sourceLabel": "HALVETH / LUCINET · USDAI/SABR-Quellenprüfung, 15.09.2026.",
+      "note": "Im YouTube-Player sind USDAI und SABR Diagnosemarker. Finanz-SABR und das Kryptoprotokoll USD.AI bleiben eigene Knoten. Textähnlichkeit allein wird weder zu Identität noch zu Absicht, Wallet, Schlüssel oder Finanzsignal.",
+      "url": "forschung/usdai-sabr-kontext/",
+      "en": {
+        "role": "Separates identical or similar signs by source, referent, domain, version and time before evaluating connections.",
+        "kind": "SOURCE-BOUND RESEARCH ANCHOR",
+        "doorLabel": "Inspect four contexts",
+        "note": "In the YouTube player, USDAI and SABR are diagnostic markers. Finance SABR and the USD.AI crypto protocol remain separate nodes. Textual similarity alone establishes no identity, intent, wallet, key or financial signal.",
+        "sourceLabel": "HALVETH / LUCINET · USDAI/SABR source review, 15 September 2026."
+      }
+    },
+    {
+      "id": "brightcast-starlight",
+      "label": "BRIGHTCAST 001",
+      "role": "Prüft Starlight als dritten erzählerischen Weg zwischen Herrschaft und Vernichtung: Schutz, Wahrheit, Entmachtung und Verantwortung.",
+      "kind": "QUELLENGEBUNDENES FAN-VIDEOESSAY",
+      "section": "garden",
+      "localDialog": true,
+      "doorLabel": "Brightcast ansehen",
+      "sourceLabel": "HALVETH · Starlight Third Route Brightcast, 15.09.2026.",
+      "note": "Der veröffentlichte Kanon und der HALVETH-Gegenentwurf bleiben getrennt. Beccas Aussage wird nicht umgeschrieben; die dritte Route verlangt weder Straffreiheit noch Vergebung durch Betroffene.",
+      "url": "forschung/brightcast-starlight/",
+      "en": {
+        "role": "Examines Starlight as a third narrative route between rule and extermination: protection, truth, removal of power and accountability.",
+        "kind": "SOURCE-BOUND FAN VIDEO ESSAY",
+        "doorLabel": "Watch the Brightcast",
+        "note": "Released canon and the HALVETH counterfactual remain separate. Becca's account is not rewritten; the third route requires neither impunity nor forgiveness from victims.",
+        "sourceLabel": "HALVETH · Starlight Third Route Brightcast, 15 September 2026."
       }
     },
     {
