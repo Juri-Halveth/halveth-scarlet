@@ -6,6 +6,7 @@ window.HalvethUniverse = {
   "redditDestinationBasis": "USER_SUPPLIED_PROFILE; PROFILE_OBSERVED; NO_PUBLISHED_THEORY_POST_URL",
   "redditPostUrl": null,
   "featured": [
+    "pi-treffpunkte",
     "brightcast-starlight",
     "context-prism",
     "verachel",
@@ -1102,6 +1103,25 @@ window.HalvethUniverse = {
         "doorLabel": "Watch the Brightcast",
         "note": "Released canon and the HALVETH counterfactual remain separate. Becca's account is not rewritten; the third route requires neither impunity nor forgiveness from victims.",
         "sourceLabel": "HALVETH · Starlight Third Route Brightcast, 15 September 2026."
+      }
+    },
+    {
+      "id": "pi-treffpunkte",
+      "label": "π-TREFFPUNKTE",
+      "role": "Vergleicht Identität, Erdachsen-Halbdrehung, Äquatorspiegelung und Antipode auf einer grob gerundeten öffentlichen Ortsprojektion.",
+      "kind": "QUELLENGEBUNDENE INTERAKTIVE FORSCHUNGSSEITE",
+      "section": "garden",
+      "localDialog": true,
+      "doorLabel": "π-Geometrie öffnen",
+      "sourceLabel": "HALVETH Open Research · geometry-model.v1 · öffentlicher Rundungsstand vom 15.09.2026.",
+      "note": "Die Karte trennt physische Erde, World-Wrap und Short-Code-Recovery. Violett und Blau sind Darstellungen; Metaphern werden nicht zu physischer Evidenz hochgestuft.",
+      "url": "forschung/pi-treffpunkte/",
+      "en": {
+        "role": "Compares identity, Earth-axis half-turn, equator reflection and antipode on a coarsely rounded public location projection.",
+        "kind": "SOURCE-BOUND INTERACTIVE RESEARCH PAGE",
+        "doorLabel": "Open π geometry",
+        "note": "The card separates physical Earth, world wrap and short-code recovery. Violet and blue are presentations; metaphors are not promoted to physical evidence.",
+        "sourceLabel": "HALVETH Open Research · geometry-model.v1 · public rounded snapshot dated 15 September 2026."
       }
     },
     {

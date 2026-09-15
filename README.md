@@ -80,7 +80,7 @@ Published by HALVETH as an independent fan project. Not an official Marvel or NA
 
 ## Garten, Reddit und Erdzoom
 
-Die VERACHEL-Blase öffnet direkt ihr Namensfeld. CELSIUS öffnet als zweite lokale Tür seine fiktionale Portalstimme; `#celsius` ist der direkte Einstieg. Die 22 übrigen Blasen und die zwölf Figuren im Orbit führen nach einer kurzen Tunnelanimation zum Reddit-Profil u/Halveth-Juri. „Garten · Perspektiven“ öffnet 66 durchsuchbare Karten; `CHOICE ATELIER` führt in den lokalen Collage-Raum. Die Theorie-Texte zu Ego, Dormammu, den Guardians und Celsius stehen auf der zweisprachigen Unterseite. Als Reddit-Ziel ist das vom Nutzer angegebene Profil hinterlegt; ein veröffentlichter Beitragslink ist noch nicht konfiguriert.
+Die VERACHEL-Blase öffnet direkt ihr Namensfeld. CELSIUS öffnet als zweite lokale Tür seine fiktionale Portalstimme; `#celsius` ist der direkte Einstieg. Die 22 übrigen Blasen und die zwölf Figuren im Orbit führen nach einer kurzen Tunnelanimation zum Reddit-Profil u/Halveth-Juri. „Garten · Perspektiven“ öffnet 69 durchsuchbare Karten; `π-TREFFPUNKTE` führt zur öffentlichen P/Z/E/A-Forschungsansicht und `CHOICE ATELIER` in den lokalen Collage-Raum. Die Theorie-Texte zu Ego, Dormammu, den Guardians und Celsius stehen auf der zweisprachigen Unterseite. Als Reddit-Ziel ist das vom Nutzer angegebene Profil hinterlegt; ein veröffentlichter Beitragslink ist noch nicht konfiguriert.
 
 Der Tunnel dauert 720 ms. Escape oder „Hier bleiben“ bricht ihn ab; reduzierte Bewegung und pausierte Animationen überspringen ihn. Strg-/Cmd- und Mittelklick verwenden die normalen Linkfunktionen des Browsers. Beim Zurückkehren von Reddit schließt sich die Übergangsansicht. Die Seite veröffentlicht selbst keine Reddit-Beiträge.
 
@@ -90,7 +90,7 @@ Das Quellen-/Hashmanifest ist eine öffentliche Referenz außerhalb der Blockcha
 
 ## Garden, Reddit and Earth zoom
 
-The VERACHEL bubble opens its name field directly. CELSIUS is a second local door that opens his fictional portal voice; `#celsius` is the direct entry. The other 22 bubbles and the twelve orbiting figures lead to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garden · Perspectives” contains 66 searchable cards; `CHOICE ATELIER` opens the local collage space. No published post URL is configured; the full theory text is available on this site's bilingual article.
+The VERACHEL bubble opens its name field directly. CELSIUS is a second local door that opens his fictional portal voice; `#celsius` is the direct entry. The other 22 bubbles and the twelve orbiting figures lead to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garden · Perspectives” contains 69 searchable cards; `π-TREFFPUNKTE` opens the public P/Z/E/A research view and `CHOICE ATELIER` opens the local collage space. No published post URL is configured; the full theory text is available on this site's bilingual article.
 
 The transition lasts 720 ms, supports Escape/cancellation, and is skipped for reduced motion or paused animations. Modified clicks retain native browser behavior; returning from Reddit clears the transition. The website itself does not publish Reddit posts.
 

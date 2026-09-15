@@ -1,0 +1,2 @@
+# Published release artifacts are byte-bound by receipts and must not be line-ending converted.
+releases/choice-atelier-v1.0.0/* -text

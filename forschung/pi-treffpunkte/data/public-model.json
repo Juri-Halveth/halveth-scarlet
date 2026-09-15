@@ -1,0 +1,560 @@
+{
+  "schema": "geometry-model.v1",
+  "logicVersion": "1.0.0",
+  "modelId": "bruehl-vochem-pi-four-point-model-v1",
+  "recordedAt": "2026-09-15T19:30:00Z",
+  "source": {
+    "classification": "PUBLIC_ROUNDED",
+    "locality": "Brühl-Vochem",
+    "coordinates": {
+      "latitude": 50.84,
+      "longitude": 6.9
+    },
+    "precisionDecimals": 2,
+    "locationCodeIncluded": false
+  },
+  "earthModel": {
+    "kind": "MEAN_RADIUS_SPHERE",
+    "radiusMeters": 6371008.8
+  },
+  "operators": {
+    "P": "IDENTITY",
+    "Z": "EARTH_AXIS_HALF_TURN",
+    "E": "EQUATOR_REFLECTION",
+    "A": "Z_AFTER_E_EQUALS_E_AFTER_Z"
+  },
+  "points": {
+    "P": {
+      "id": "P",
+      "latitude": 50.84,
+      "longitude": 6.9
+    },
+    "Z": {
+      "id": "Z",
+      "latitude": 50.84,
+      "longitude": -173.1
+    },
+    "E": {
+      "id": "E",
+      "latitude": -50.84,
+      "longitude": 6.9
+    },
+    "A": {
+      "id": "A",
+      "latitude": -50.84,
+      "longitude": -173.1
+    }
+  },
+  "paths": {
+    "schema": "antipodal-path-family.v1",
+    "start": {
+      "latitude": 50.84,
+      "longitude": 6.9
+    },
+    "antipode": {
+      "id": "A",
+      "latitude": -50.84,
+      "longitude": -173.1
+    },
+    "chord": {
+      "lengthMeters": 12742017.6,
+      "passesThroughSphereCenter": true
+    },
+    "surface": {
+      "centralAngleRadians": 3.141592653589793,
+      "lengthMeters": 20015114.442035925,
+      "routes": [
+        {
+          "bearingDegrees": 0,
+          "centralAngleRadians": 3.141592653589793,
+          "lengthMeters": 20015114.442035925,
+          "samples": [
+            {
+              "latitude": 50.84,
+              "longitude": 6.9
+            },
+            {
+              "latitude": 55.84,
+              "longitude": 6.9
+            },
+            {
+              "latitude": 60.84,
+              "longitude": 6.9
+            },
+            {
+              "latitude": 65.84,
+              "longitude": 6.9
+            },
+            {
+              "latitude": 70.84,
+              "longitude": 6.9
+            },
+            {
+              "latitude": 75.84,
+              "longitude": 6.9
+            },
+            {
+              "latitude": 80.84,
+              "longitude": 6.9
+            },
+            {
+              "latitude": 85.84,
+              "longitude": 6.9
+            },
+            {
+              "latitude": 89.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 84.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 79.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 74.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 69.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 64.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 59.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 54.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 49.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 44.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 39.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 34.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 29.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 24.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 19.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 14.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 9.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": 4.16,
+              "longitude": -173.1
+            },
+            {
+              "latitude": -0.84,
+              "longitude": -173.1
+            },
+            {
+              "latitude": -5.84,
+              "longitude": -173.1
+            },
+            {
+              "latitude": -10.84,
+              "longitude": -173.1
+            },
+            {
+              "latitude": -15.84,
+              "longitude": -173.1
+            },
+            {
+              "latitude": -20.84,
+              "longitude": -173.1
+            },
+            {
+              "latitude": -25.84,
+              "longitude": -173.1
+            },
+            {
+              "latitude": -30.84,
+              "longitude": -173.1
+            },
+            {
+              "latitude": -35.84,
+              "longitude": -173.1
+            },
+            {
+              "latitude": -40.84,
+              "longitude": -173.1
+            },
+            {
+              "latitude": -45.84,
+              "longitude": -173.1
+            },
+            {
+              "latitude": -50.84,
+              "longitude": -173.1
+            }
+          ]
+        },
+        {
+          "bearingDegrees": 45,
+          "centralAngleRadians": 3.141592653589793,
+          "lengthMeters": 20015114.442035925,
+          "samples": [
+            {
+              "latitude": 50.84,
+              "longitude": 6.9
+            },
+            {
+              "latitude": 54.23,
+              "longitude": 12.95
+            },
+            {
+              "latitude": 57.26,
+              "longitude": 20.02
+            },
+            {
+              "latitude": 59.83,
+              "longitude": 28.26
+            },
+            {
+              "latitude": 61.81,
+              "longitude": 37.69
+            },
+            {
+              "latitude": 63.06,
+              "longitude": 48.16
+            },
+            {
+              "latitude": 63.48,
+              "longitude": 59.25
+            },
+            {
+              "latitude": 63.03,
+              "longitude": 70.33
+            },
+            {
+              "latitude": 61.76,
+              "longitude": 80.78
+            },
+            {
+              "latitude": 59.77,
+              "longitude": 90.19
+            },
+            {
+              "latitude": 57.19,
+              "longitude": 98.39
+            },
+            {
+              "latitude": 54.15,
+              "longitude": 105.43
+            },
+            {
+              "latitude": 50.75,
+              "longitude": 111.46
+            },
+            {
+              "latitude": 47.09,
+              "longitude": 116.65
+            },
+            {
+              "latitude": 43.22,
+              "longitude": 121.14
+            },
+            {
+              "latitude": 39.2,
+              "longitude": 125.1
+            },
+            {
+              "latitude": 35.06,
+              "longitude": 128.61
+            },
+            {
+              "latitude": 30.82,
+              "longitude": 131.79
+            },
+            {
+              "latitude": 26.52,
+              "longitude": 134.69
+            },
+            {
+              "latitude": 22.16,
+              "longitude": 137.38
+            },
+            {
+              "latitude": 17.76,
+              "longitude": 139.91
+            },
+            {
+              "latitude": 13.33,
+              "longitude": 142.32
+            },
+            {
+              "latitude": 8.88,
+              "longitude": 144.64
+            },
+            {
+              "latitude": 4.42,
+              "longitude": 146.9
+            },
+            {
+              "latitude": -0.06,
+              "longitude": 149.14
+            },
+            {
+              "latitude": -4.53,
+              "longitude": 151.38
+            },
+            {
+              "latitude": -8.99,
+              "longitude": 153.64
+            },
+            {
+              "latitude": -13.45,
+              "longitude": 155.96
+            },
+            {
+              "latitude": -17.88,
+              "longitude": 158.37
+            },
+            {
+              "latitude": -22.27,
+              "longitude": 160.91
+            },
+            {
+              "latitude": -26.63,
+              "longitude": 163.6
+            },
+            {
+              "latitude": -30.93,
+              "longitude": 166.51
+            },
+            {
+              "latitude": -35.16,
+              "longitude": 169.69
+            },
+            {
+              "latitude": -39.3,
+              "longitude": 173.22
+            },
+            {
+              "latitude": -43.32,
+              "longitude": 177.18
+            },
+            {
+              "latitude": -47.18,
+              "longitude": -178.3
+            },
+            {
+              "latitude": -50.84,
+              "longitude": -173.1
+            }
+          ]
+        },
+        {
+          "bearingDegrees": 90,
+          "centralAngleRadians": 3.141592653589793,
+          "lengthMeters": 20015114.442035925,
+          "samples": [
+            {
+              "latitude": 50.84,
+              "longitude": 6.9
+            },
+            {
+              "latitude": 50.57,
+              "longitude": 14.79
+            },
+            {
+              "latitude": 49.78,
+              "longitude": 22.5
+            },
+            {
+              "latitude": 48.5,
+              "longitude": 29.89
+            },
+            {
+              "latitude": 46.77,
+              "longitude": 36.86
+            },
+            {
+              "latitude": 44.65,
+              "longitude": 43.34
+            },
+            {
+              "latitude": 42.18,
+              "longitude": 49.34
+            },
+            {
+              "latitude": 39.43,
+              "longitude": 54.85
+            },
+            {
+              "latitude": 36.44,
+              "longitude": 59.94
+            },
+            {
+              "latitude": 33.25,
+              "longitude": 64.63
+            },
+            {
+              "latitude": 29.89,
+              "longitude": 68.98
+            },
+            {
+              "latitude": 26.41,
+              "longitude": 73.05
+            },
+            {
+              "latitude": 22.81,
+              "longitude": 76.87
+            },
+            {
+              "latitude": 19.13,
+              "longitude": 80.49
+            },
+            {
+              "latitude": 15.38,
+              "longitude": 83.96
+            },
+            {
+              "latitude": 11.58,
+              "longitude": 87.3
+            },
+            {
+              "latitude": 7.74,
+              "longitude": 90.55
+            },
+            {
+              "latitude": 3.87,
+              "longitude": 93.74
+            },
+            {
+              "latitude": 0,
+              "longitude": 96.9
+            },
+            {
+              "latitude": -3.87,
+              "longitude": 100.06
+            },
+            {
+              "latitude": -7.74,
+              "longitude": 103.25
+            },
+            {
+              "latitude": -11.58,
+              "longitude": 106.5
+            },
+            {
+              "latitude": -15.38,
+              "longitude": 109.84
+            },
+            {
+              "latitude": -19.13,
+              "longitude": 113.31
+            },
+            {
+              "latitude": -22.81,
+              "longitude": 116.93
+            },
+            {
+              "latitude": -26.41,
+              "longitude": 120.75
+            },
+            {
+              "latitude": -29.89,
+              "longitude": 124.82
+            },
+            {
+              "latitude": -33.25,
+              "longitude": 129.17
+            },
+            {
+              "latitude": -36.44,
+              "longitude": 133.86
+            },
+            {
+              "latitude": -39.43,
+              "longitude": 138.95
+            },
+            {
+              "latitude": -42.18,
+              "longitude": 144.46
+            },
+            {
+              "latitude": -44.65,
+              "longitude": 150.46
+            },
+            {
+              "latitude": -46.77,
+              "longitude": 156.94
+            },
+            {
+              "latitude": -48.5,
+              "longitude": 163.91
+            },
+            {
+              "latitude": -49.78,
+              "longitude": 171.3
+            },
+            {
+              "latitude": -50.57,
+              "longitude": 179.01
+            },
+            {
+              "latitude": -50.84,
+              "longitude": -173.1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "presentationLayers": [
+    {
+      "id": "PHYSICAL_EARTH",
+      "kind": "SPHERICAL_MODEL",
+      "evidenceState": "MODEL_BOUND"
+    },
+    {
+      "id": "WORLD_WRAP_REPETITION",
+      "kind": "MAP_RENDERING_BEHAVIOR",
+      "evidenceState": "CONCEPTUAL_DEMONSTRATION"
+    },
+    {
+      "id": "SHORT_CODE_PREFIX_AMBIGUITY",
+      "kind": "CODE_RECOVERY_CONTEXT",
+      "evidenceState": "SPECIFICATION_BOUND"
+    }
+  ],
+  "claimCeiling": "PUBLIC_ROUNDED_SPHERICAL_GEOMETRY_AND_HYPOTHESIS_ROUTING_ONLY",
+  "publicProjection": {
+    "schema": "public-location-projection.v1",
+    "precisionDecimals": 2,
+    "exactLocationRetained": false,
+    "locationCodeRetained": false,
+    "privateSourcePathsRetained": false
+  }
+}

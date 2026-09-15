@@ -16,6 +16,7 @@ const pages = new Map([
   ['forschung/tagesstand-2026-09-13/index.html', '../../assets/'],
   ['forschung/usdai-sabr-kontext/index.html', '../../assets/'],
   ['forschung/brightcast-starlight/index.html', '../../assets/']
+  ,['forschung/pi-treffpunkte/index.html', '../../assets/']
 ]);
 
 test('every published page loads one shared portal shell from the correct root', () => {
@@ -89,11 +90,11 @@ test('responsive layout has no fractional pixel gap below desktop', () => {
 test('portal shell exposes all routes and motion-safe controls', () => {
   const script = fs.readFileSync(path.join(root, 'assets/portal-shell.js'), 'utf8');
   const style = fs.readFileSync(path.join(root, 'assets/portal-shell.css'), 'utf8');
-  for (const route of ['./', 'room/', 'snapshot/', 'collage/', 'forschung/figuren-und-perspektiven/', 'forschung/formen-und-verbindungen/', 'forschung/transaktionsfluss/', 'forschung/q-notizen/', 'forschung/tagesstand-2026-09-13/', 'forschung/brightcast-starlight/', './#team']) {
+  for (const route of ['./', 'room/', 'snapshot/', 'collage/', 'forschung/figuren-und-perspektiven/', 'forschung/formen-und-verbindungen/', 'forschung/transaktionsfluss/', 'forschung/q-notizen/', 'forschung/tagesstand-2026-09-13/', 'forschung/brightcast-starlight/', 'forschung/pi-treffpunkte/', './#team']) {
     assert(script.includes(`path:'${route}'`), route);
   }
-  assert(script.includes("Eleven portals. One constellation."));
-  assert(script.includes("68 public cards: perspectives, characters, projects and sources"));
+  assert(script.includes("Twelve portals. One constellation."));
+  assert(script.includes("69 public cards: perspectives, characters, projects and sources"));
   assert(script.includes("route.id!=='team'"), 'team hash must retain the home route styling');
   assert(script.includes("class=\"portal-motion-button\""));
   assert(script.includes("prefers-reduced-motion: reduce"));
@@ -113,6 +114,7 @@ test('research CSP permits only the local portal presentation assets', () => {
     'forschung/tagesstand-2026-09-13/index.html',
     'forschung/usdai-sabr-kontext/index.html',
     'forschung/brightcast-starlight/index.html',
+    'forschung/pi-treffpunkte/index.html',
     'collage/index.html'
   ]) {
     const html = fs.readFileSync(path.join(root, relative), 'utf8');
