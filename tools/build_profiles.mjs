@@ -53,7 +53,7 @@ for (const entity of data.entities) {
   if (entity.profilePath !== `entities/${entity.id}/`) throw new Error(`Invalid profilePath for ${entity.id}`);
   if (!Array.isArray(entity.sourceRefs) || !entity.sourceRefs.length) throw new Error(`Missing sourceRefs for ${entity.id}`);
   const sourcePath = `docs/entities/${entity.id}.md`;
-  const document = fs.readFileSync(path.join(root, sourcePath), 'utf8');
+  const document = fs.readFileSync(path.join(root, sourcePath), 'utf8').replace(/\r\n?/g, '\n');
   const sections = /^# [^\n]+\n+[\s\S]*?^## Deutsch\n([\s\S]+?)^## English\n([\s\S]+)$/m.exec(document);
   if (!sections) throw new Error(`Missing bilingual sections: ${sourcePath}`);
   const sources = entity.sourceRefs.map(ref => `<li><a href="${escape(safeURL(localURL(ref.url)))}">${escape(ref.label)}</a></li>`).join('');
