@@ -13,7 +13,9 @@ test('Brightcast master, captions and thumbnail match the published build manife
     'halveth-brightcast-001-starlight-third-route-de-1080p.mp4',
     'halveth-brightcast-001-starlight-thumbnail.webp',
     'halveth-brightcast-001-starlight-de.vtt',
-    'halveth-brightcast-001-starlight-en.vtt'
+    'halveth-brightcast-001-starlight-en.vtt',
+    'halveth-brightcast-001-starlight-de.srt',
+    'halveth-brightcast-001-starlight-en.srt'
   ];
   const records = new Map(manifest.files.map((record) => [record.name, record]));
   for (const name of required) {

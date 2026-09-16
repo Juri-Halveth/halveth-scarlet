@@ -1,3 +1,6 @@
 # Published release artifacts are byte-bound by receipts and must not be line-ending converted.
 releases/choice-atelier-v1.0.0/* -text
 forschung/pi-treffpunkte/data/public-model.json -text
+# Keep existing Brightcast caption bytes identical to the recorded release manifest.
+assets/brightcast/*.vtt -text
+assets/brightcast/*.srt -text
