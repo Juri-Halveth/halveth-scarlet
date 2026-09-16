@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-16",
+  "createdAt": "2026-09-16T18:14:14.965Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-09-16",
+  "body": "# HALVETH Quellen-Update · 2026-09-16\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [NASA Celebrates Restoration of Guam Station Damaged by Typhoon Mawar](https://www.nasa.gov/technology/space-comms/nasa-celebrates-restoration-of-guam-station-damaged-by-typhoon-mawar/) · veröffentlicht 2026-09-16\n- **NASA** · Originaltitel (EN): [NASA Watches Earth’s Weight, Finds Center of Mass](https://www.nasa.gov/science-research/earth-science/nasa-watches-earths-weight-finds-center-of-mass/) · veröffentlicht 2026-09-16\n- **NASA** · Originaltitel (EN): [Indonesia’s Anak Krakatau](https://www.nasa.gov/image-article/indonesias-anak-krakatau/) · veröffentlicht 2026-09-16\n- **NASA** · Originaltitel (EN): [Curiosity Postcard Celebrates Rover’s 5,000th Day on Mars](https://science.nasa.gov/photojournal/curiosity-postcard-celebrates-rovers-5000th-day-on-mars/) · veröffentlicht 2026-09-16\n- **NASA** · Originaltitel (EN): [NASA Visits Schools Strengthening Florida’s Skilled Workforce](https://www.nasa.gov/image-article/nasa-visits-schools-strengthening-floridas-skilled-workforce/) · veröffentlicht 2026-09-16\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "6b6f9a8e2d180b8bf66b74ca",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Celebrates Restoration of Guam Station Damaged by Typhoon Mawar",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/technology/space-comms/nasa-celebrates-restoration-of-guam-station-damaged-by-typhoon-mawar/",
+      "sourcePublishedAt": "2026-09-16T16:12:01Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
+      "firstFetchedAt": "2026-09-16T18:14:14Z"
+    },
+    {
+      "id": "99f40581eed35fd5ed1ff67d",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Watches Earth’s Weight, Finds Center of Mass",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/science-research/earth-science/nasa-watches-earths-weight-finds-center-of-mass/",
+      "sourcePublishedAt": "2026-09-16T16:08:00Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
+      "firstFetchedAt": "2026-09-16T18:14:14Z"
+    },
+    {
+      "id": "3e0accfcbafb531fc43c7915",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Indonesia’s Anak Krakatau",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/indonesias-anak-krakatau/",
+      "sourcePublishedAt": "2026-09-16T15:23:51Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
+      "firstFetchedAt": "2026-09-16T18:14:14Z"
+    },
+    {
+      "id": "b7e43fc8ba687e8c67912946",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Curiosity Postcard Celebrates Rover’s 5,000th Day on Mars",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/photojournal/curiosity-postcard-celebrates-rovers-5000th-day-on-mars/",
+      "sourcePublishedAt": "2026-09-16T15:21:27Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
+      "firstFetchedAt": "2026-09-16T18:14:14Z"
+    },
+    {
+      "id": "3a642180f242f3280973d1a1",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Visits Schools Strengthening Florida’s Skilled Workforce",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/nasa-visits-schools-strengthening-floridas-skilled-workforce/",
+      "sourcePublishedAt": "2026-09-16T15:14:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
+      "firstFetchedAt": "2026-09-16T18:14:14Z"
+    }
+  ],
+  "idempotencyKey": "b7ac91b6877626061703f3e6cc88cb23ece6012fa880a17f8b2e2fca0bb1ad5f"
+}

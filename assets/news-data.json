@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-16T14:18:57Z",
+  "generatedAt": "2026-09-16T18:14:14Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-16T14:18:57Z",
-      "lastSuccessAt": "2026-09-16T14:18:57Z",
+      "lastAttemptAt": "2026-09-16T18:14:14Z",
+      "lastSuccessAt": "2026-09-16T18:14:14Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,101 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-16T14:18:57Z",
-      "lastSuccessAt": "2026-09-16T14:18:57Z",
+      "lastAttemptAt": "2026-09-16T18:14:14Z",
+      "lastSuccessAt": "2026-09-16T18:14:14Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "6b6f9a8e2d180b8bf66b74ca",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Celebrates Restoration of Guam Station Damaged by Typhoon Mawar",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/technology/space-comms/nasa-celebrates-restoration-of-guam-station-damaged-by-typhoon-mawar/",
+      "sourcePublishedAt": "2026-09-16T16:12:01Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
+      "firstFetchedAt": "2026-09-16T18:14:14Z"
+    },
+    {
+      "id": "99f40581eed35fd5ed1ff67d",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Watches Earth’s Weight, Finds Center of Mass",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/science-research/earth-science/nasa-watches-earths-weight-finds-center-of-mass/",
+      "sourcePublishedAt": "2026-09-16T16:08:00Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
+      "firstFetchedAt": "2026-09-16T18:14:14Z"
+    },
+    {
+      "id": "3e0accfcbafb531fc43c7915",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Indonesia’s Anak Krakatau",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/indonesias-anak-krakatau/",
+      "sourcePublishedAt": "2026-09-16T15:23:51Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
+      "firstFetchedAt": "2026-09-16T18:14:14Z"
+    },
+    {
+      "id": "b7e43fc8ba687e8c67912946",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Curiosity Postcard Celebrates Rover’s 5,000th Day on Mars",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/photojournal/curiosity-postcard-celebrates-rovers-5000th-day-on-mars/",
+      "sourcePublishedAt": "2026-09-16T15:21:27Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
+      "firstFetchedAt": "2026-09-16T18:14:14Z"
+    },
+    {
+      "id": "3a642180f242f3280973d1a1",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Visits Schools Strengthening Florida’s Skilled Workforce",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/nasa-visits-schools-strengthening-floridas-skilled-workforce/",
+      "sourcePublishedAt": "2026-09-16T15:14:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
+      "firstFetchedAt": "2026-09-16T18:14:14Z"
+    },
+    {
+      "id": "3eb545021f358853f020ae12",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Astronaut Reid Wiseman to Join NFL Fans in Baltimore",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-astronaut-reid-wiseman-to-join-nfl-fans-in-baltimore/",
+      "sourcePublishedAt": "2026-09-16T15:00:18Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
+      "firstFetchedAt": "2026-09-16T18:14:14Z"
+    },
+    {
+      "id": "ae3f74c26f1695a68414024c",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Integrated Medical Model (IMM)",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/general/nasas-integrated-medical-model-imm/",
+      "sourcePublishedAt": "2026-09-16T14:50:23Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
+      "firstFetchedAt": "2026-09-16T18:14:14Z"
+    },
+    {
+      "id": "710396950977efedd60edcbd",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Newfound ‘Baby’ Planet Smashes Record for Youngest Known World",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/universe/newfound-baby-planet-smashes-record-for-youngest-known-world/",
+      "sourcePublishedAt": "2026-09-16T14:34:47Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
+      "firstFetchedAt": "2026-09-16T18:14:14Z"
+    },
     {
       "id": "9b9123b78b32ebe54a6d5fb8",
       "sourceId": "github",
@@ -32,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-16-code-scanning-ai-scan-no-longer-requires-codeql-default-setup",
       "sourcePublishedAt": "2026-09-16T13:26:06Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
       "firstFetchedAt": "2026-09-16T14:18:57Z"
     },
     {
@@ -43,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-16-webbs-view-of-m64/",
       "sourcePublishedAt": "2026-09-16T04:05:00Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
       "firstFetchedAt": "2026-09-16T13:58:35Z"
     },
     {
@@ -54,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/general/nasa-ames-stars-of-the-month-september-2026/",
       "sourcePublishedAt": "2026-09-15T23:46:11Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
       "firstFetchedAt": "2026-09-16T13:58:35Z"
     },
     {
@@ -65,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-15-enforce-github-advanced-security-configurations",
       "sourcePublishedAt": "2026-09-15T19:31:58Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -76,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions",
       "sourcePublishedAt": "2026-09-15T19:07:47Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -98,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-15-sha-1-in-https-on-github-sunset",
       "sourcePublishedAt": "2026-09-15T16:47:20Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -186,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-14-configure-cost-and-quality-in-copilot-auto-model-selection",
       "sourcePublishedAt": "2026-09-14T16:05:27Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -197,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-11-profiles-now-show-your-highest-achievement-badge-tier",
       "sourcePublishedAt": "2026-09-11T22:39:50Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -208,7 +296,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics",
       "sourcePublishedAt": "2026-09-11T21:30:30Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -219,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review",
       "sourcePublishedAt": "2026-09-11T20:00:07Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -230,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-10-github-copilot-weekly-releases-september-7",
       "sourcePublishedAt": "2026-09-10T22:55:07Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -241,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-10-refreshed-repository-pull-requests-page-in-public-preview",
       "sourcePublishedAt": "2026-09-10T21:27:17Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
+      "fetchedAt": "2026-09-16T18:14:14Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
