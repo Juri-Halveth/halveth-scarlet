@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-16T18:14:14Z",
+  "generatedAt": "2026-09-16T21:23:12Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-16T18:14:14Z",
-      "lastSuccessAt": "2026-09-16T18:14:14Z",
+      "lastAttemptAt": "2026-09-16T21:23:12Z",
+      "lastSuccessAt": "2026-09-16T21:23:12Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,57 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-16T18:14:14Z",
-      "lastSuccessAt": "2026-09-16T18:14:14Z",
+      "lastAttemptAt": "2026-09-16T21:23:12Z",
+      "lastSuccessAt": "2026-09-16T21:23:12Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "e663f5ea5d5fe975e04a7e74",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Passion Meets Precision at NASA’s Flight Research Lab",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/people-of-nasa/armstrong-people/passion-meets-precision-at-nasas-flight-research-lab/",
+      "sourcePublishedAt": "2026-09-16T21:06:08Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
+      "firstFetchedAt": "2026-09-16T21:23:12Z"
+    },
+    {
+      "id": "509b91e3e4df2739cbaa978e",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "SCIM user responses now include a profileUrl attribute",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-16-scim-user-responses-now-include-a-profileurl-attribute",
+      "sourcePublishedAt": "2026-09-16T20:19:58Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
+      "firstFetchedAt": "2026-09-16T21:23:12Z"
+    },
+    {
+      "id": "41f2b23db141d620003afb9b",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Copilot budget increase requests are generally available",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available",
+      "sourcePublishedAt": "2026-09-16T20:17:18Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
+      "firstFetchedAt": "2026-09-16T21:23:12Z"
+    },
+    {
+      "id": "ef8ec3770539c9aecb5fe1de",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Moon Orbiter Spots New, ‘Once-in-Century’ Moon Crater",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/solar-system/moon/nasas-moon-orbiter-spots-new-once-in-century-moon-crater/",
+      "sourcePublishedAt": "2026-09-16T18:06:35Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
+      "firstFetchedAt": "2026-09-16T21:23:12Z"
+    },
     {
       "id": "6b6f9a8e2d180b8bf66b74ca",
       "sourceId": "nasa",
@@ -32,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/technology/space-comms/nasa-celebrates-restoration-of-guam-station-damaged-by-typhoon-mawar/",
       "sourcePublishedAt": "2026-09-16T16:12:01Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T18:14:14Z"
     },
     {
@@ -43,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/science-research/earth-science/nasa-watches-earths-weight-finds-center-of-mass/",
       "sourcePublishedAt": "2026-09-16T16:08:00Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T18:14:14Z"
     },
     {
@@ -54,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/indonesias-anak-krakatau/",
       "sourcePublishedAt": "2026-09-16T15:23:51Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T18:14:14Z"
     },
     {
@@ -65,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/photojournal/curiosity-postcard-celebrates-rovers-5000th-day-on-mars/",
       "sourcePublishedAt": "2026-09-16T15:21:27Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T18:14:14Z"
     },
     {
@@ -76,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-visits-schools-strengthening-floridas-skilled-workforce/",
       "sourcePublishedAt": "2026-09-16T15:14:57Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T18:14:14Z"
     },
     {
@@ -87,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-astronaut-reid-wiseman-to-join-nfl-fans-in-baltimore/",
       "sourcePublishedAt": "2026-09-16T15:00:18Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T18:14:14Z"
     },
     {
@@ -98,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/general/nasas-integrated-medical-model-imm/",
       "sourcePublishedAt": "2026-09-16T14:50:23Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T18:14:14Z"
     },
     {
@@ -109,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/universe/newfound-baby-planet-smashes-record-for-youngest-known-world/",
       "sourcePublishedAt": "2026-09-16T14:34:47Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T18:14:14Z"
     },
     {
@@ -120,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-16-code-scanning-ai-scan-no-longer-requires-codeql-default-setup",
       "sourcePublishedAt": "2026-09-16T13:26:06Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T14:18:57Z"
     },
     {
@@ -153,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-15-enforce-github-advanced-security-configurations",
       "sourcePublishedAt": "2026-09-15T19:31:58Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -164,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions",
       "sourcePublishedAt": "2026-09-15T19:07:47Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -186,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-15-sha-1-in-https-on-github-sunset",
       "sourcePublishedAt": "2026-09-15T16:47:20Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -274,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-14-configure-cost-and-quality-in-copilot-auto-model-selection",
       "sourcePublishedAt": "2026-09-14T16:05:27Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -285,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-11-profiles-now-show-your-highest-achievement-badge-tier",
       "sourcePublishedAt": "2026-09-11T22:39:50Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -296,7 +340,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics",
       "sourcePublishedAt": "2026-09-11T21:30:30Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -307,7 +351,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review",
       "sourcePublishedAt": "2026-09-11T20:00:07Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
+      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
