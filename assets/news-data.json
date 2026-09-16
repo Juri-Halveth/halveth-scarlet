@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-16T13:59:26Z",
+  "refreshPolicy": "hourly; last-good retained on failure",
+  "staleAfterMinutes": 180,
+  "sources": [
+    {
+      "id": "nasa",
+      "label": "NASA",
+      "feedUrl": "https://www.nasa.gov/news-release/feed/",
+      "lastAttemptAt": "2026-09-16T13:59:26Z",
+      "lastSuccessAt": "2026-09-16T13:59:26Z",
+      "status": "fresh",
+      "error": null
+    },
+    {
+      "id": "github",
+      "label": "GitHub Changelog",
+      "feedUrl": "https://github.blog/changelog/feed/",
+      "lastAttemptAt": "2026-09-16T13:59:26Z",
+      "lastSuccessAt": "2026-09-16T13:59:26Z",
+      "status": "fresh",
+      "error": null
+    }
+  ],
+  "items": [
+    {
+      "id": "ec8184b7a4a18e0ac4af3cfc",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 September 16 – Webb’s View of M64",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-september-16-webbs-view-of-m64/",
+      "sourcePublishedAt": "2026-09-16T04:05:00Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:58:35Z"
+    },
+    {
+      "id": "185880306f1f62231a7a5862",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Ames Stars of the Month: September 2026",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/general/nasa-ames-stars-of-the-month-september-2026/",
+      "sourcePublishedAt": "2026-09-15T23:46:11Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:58:35Z"
+    },
+    {
+      "id": "3c75a69d7db995ab411d0f3a",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Enforce GitHub Advanced Security configurations",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-15-enforce-github-advanced-security-configurations",
+      "sourcePublishedAt": "2026-09-15T19:31:58Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:59:26Z"
+    },
+    {
+      "id": "547415ff1661069968904c1d",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Copilot suggests custom properties definitions",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions",
+      "sourcePublishedAt": "2026-09-15T19:07:47Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:59:26Z"
+    },
+    {
+      "id": "1445656c8aca9fb6c73d1258",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Invites Media to International Observe the Moon Night",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-international-observe-the-moon-night/",
+      "sourcePublishedAt": "2026-09-15T18:55:33Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:58:35Z"
+    },
+    {
+      "id": "75750532babc26210b56a736",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "SHA-1 in HTTPS on GitHub sunset",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-15-sha-1-in-https-on-github-sunset",
+      "sourcePublishedAt": "2026-09-15T16:47:20Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:59:26Z"
+    },
+    {
+      "id": "23e4c4e407df229054ea8555",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Celebrate International Observe the Moon Night with NASA",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/goddard/celebrate-international-observe-the-moon-night-with-nasa/",
+      "sourcePublishedAt": "2026-09-15T16:15:12Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:58:35Z"
+    },
+    {
+      "id": "92721cbea280174893e25559",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Artemis III Crew Visits NASA Kennedy’s Vehicle Assembly Building",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/artemis-iii-crew-visits-nasa-kennedys-vehicle-assembly-building/",
+      "sourcePublishedAt": "2026-09-15T16:14:24Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:58:35Z"
+    },
+    {
+      "id": "2702e3fc73ec2d04a6a7b7a6",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Travel",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/nssc/travel/",
+      "sourcePublishedAt": "2026-09-15T13:38:56Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:58:35Z"
+    },
+    {
+      "id": "f13eeab336a4d418ec8889c3",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 September 15 – A Daytime Eclipse: Moon Occults Venus",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-september-15-a-daytime-eclipse-moon-occults-venus/",
+      "sourcePublishedAt": "2026-09-15T04:05:00Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:58:35Z"
+    },
+    {
+      "id": "3ec43b9b8f9db26cc1eb6fe4",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Webinar 9/23: NASA CSDA Program Update 2026",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/science-research/earth-science/webinar-9-23-nasa-csda-program-update-2026/",
+      "sourcePublishedAt": "2026-09-14T21:04:04Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:58:35Z"
+    },
+    {
+      "id": "d75334071cc5f42edc4653d7",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "New Crops, Health Research Proposals to Help NASA Advance Exploration",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/science-research/biological-physical-sciences/new-crops-health-research-proposals-to-help-nasa-advance-exploration/",
+      "sourcePublishedAt": "2026-09-14T19:00:00Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:58:35Z"
+    },
+    {
+      "id": "05e93f769cd4144a24c8ae55",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Welcomes Djibouti as Newest Artemis Accords Signatory",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/organizations/oiir/artemis-accords/nasa-welcomes-djibouti-as-newest-artemis-accords-signatory/",
+      "sourcePublishedAt": "2026-09-14T16:46:07Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:58:35Z"
+    },
+    {
+      "id": "ef18d943849cad0ec28717e1",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Configure cost and quality in Copilot auto model selection",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-14-configure-cost-and-quality-in-copilot-auto-model-selection",
+      "sourcePublishedAt": "2026-09-14T16:05:27Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:59:26Z"
+    },
+    {
+      "id": "abac871d4d980ef63d4bb572",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Profiles now show your highest achievement badge tier",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-11-profiles-now-show-your-highest-achievement-badge-tier",
+      "sourcePublishedAt": "2026-09-11T22:39:50Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:59:26Z"
+    },
+    {
+      "id": "28ba300194033bae7a74b0e4",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Add VS Code Agents to Copilot usage metrics",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics",
+      "sourcePublishedAt": "2026-09-11T21:30:30Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:59:26Z"
+    },
+    {
+      "id": "f5b7434d849eacf13f00d2da",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Auto-resolution and analysis updates in Copilot code review",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review",
+      "sourcePublishedAt": "2026-09-11T20:00:07Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:59:26Z"
+    },
+    {
+      "id": "ca8127be73ee177493222544",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Copilot weekly releases — September 7",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-10-github-copilot-weekly-releases-september-7",
+      "sourcePublishedAt": "2026-09-10T22:55:07Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:59:26Z"
+    },
+    {
+      "id": "93a7e5f07da1e902422f02a0",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Refreshed repository pull requests page in public preview",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-10-refreshed-repository-pull-requests-page-in-public-preview",
+      "sourcePublishedAt": "2026-09-10T21:27:17Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:59:26Z"
+    },
+    {
+      "id": "e51cda40dc5087bae31fb246",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "AI Scan for pull request APIs in public preview",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-10-ai-scan-for-pull-request-apis-in-public-preview",
+      "sourcePublishedAt": "2026-09-10T20:20:58Z",
+      "fetchedAt": "2026-09-16T13:59:26Z",
+      "firstFetchedAt": "2026-09-16T13:59:26Z"
+    }
+  ]
+}

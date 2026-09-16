@@ -6,13 +6,13 @@ Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer geme
 
 **Direkt auf Englisch / Open in English:** https://juri-halveth.github.io/halveth-scarlet/?lang=en
 
-**Urheberschaft und Beteiligung / Authorship and participation:** © 2026 Juri Halveth (Juri Janovski). HALVETH beansprucht die Rechte an den eigenen Thesen, Texten, Modellen, Abbildungen und dem Code. Eine öffentliche GitHub-Fassung ist kein Rechteverzicht. Kommerzielle Nutzung geschützter HALVETH-Bestandteile erfordert eine vorherige schriftliche Lizenz und Beteiligungsvereinbarung. Einzelheiten: [HALVETH-RIGHTS.md](HALVETH-RIGHTS.md), [HALVETH-RIGHTS.json](HALVETH-RIGHTS.json) und [LICENSES.md](LICENSES.md).
+**Urheberschaft und Beteiligung / Authorship and participation:** © 2026 Juri Halveth (Juri Janovski). HALVETH beansprucht die Rechte an den eigenen Thesen, Texten, Modellen, Abbildungen und dem Code. Eine öffentliche GitHub-Fassung ist kein Rechteverzicht. Neue eigene Beiträge unter HALVETH PIRL 2.0 sind **Source Available**. Die kommerziellen Bedingungen gelten nur im Umfang der jeweiligen Rechte; frühere MIT-, ISC- und Creative-Commons-Freigaben sowie Drittanbieterrechte bleiben bestehen. Lizenzanfragen: **security@halveth.de**. Einzelheiten: [HALVETH-RIGHTS.md](HALVETH-RIGHTS.md), [HALVETH-RIGHTS.json](HALVETH-RIGHTS.json) und [LICENSES.md](LICENSES.md).
 
 ## Deutsch und Englisch / German and English
 
-Die Erde, alle 66 Gartenkarten, das Choice Atelier und die fünf Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern diese lokale Präferenz. Seiten mit direktem Sprachwechsel behalten ihren Zustand; andere Ansichten laden neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
+Die Erde, alle 69 Profilseiten, das Choice Atelier und die Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern diese lokale Präferenz. Seiten mit direktem Sprachwechsel behalten ihren Zustand; andere Ansichten laden neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
 
-The Earth scene, all 66 garden cards, the Choice Atelier and all five research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally. In-place language pages preserve their state; other views reload. Source records and proper names retain their original form.
+The Earth scene, all 69 profile pages, the Choice Atelier and the research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally. In-place language pages preserve their state; other views reload. Source records and proper names retain their original form.
 
 - [Earth in English](https://juri-halveth.github.io/halveth-scarlet/?lang=en)
 - [Ego, Dormammu and the garden](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/?lang=en)
@@ -28,7 +28,7 @@ English coverage includes countdowns, game commentary, settings, accessibility l
 - Um 00, 03, 06, 09, 12, 15, 18 und 21 Uhr nach Berliner Zeit beginnt ein 22-sekündiges Scarlet-Spielevent. Jeweils eine tatsächlich vergangene Stunde vorher erscheint der Countdown. Zombie-Scarlet, fallende Wortsteine und beschriftete Spielkommentare bilden das Finale; danach wird die Szene automatisch grün. Ein Herz beendet das Finale sofort oder beruhigt die bevorstehende Runde für den aktuellen Seitenbesuch. Vorschauen verändern die Einstellung für automatische Events nicht.
 - Die Erde lässt sich ziehen und über die Pfeiltasten drehen. `Pos1` setzt die Ansicht zurück. Der Farbstimmungsregler bleibt unter dem Herz. Die früheren sichtbaren Wiederholungs- und Pausesymbole entfallen; Bewegung lässt sich im Informationsdialog reduzieren. Auch die Systemeinstellung für reduzierte Bewegung wird berücksichtigt.
 - Über **„Ton aus“** werden synthetisierte Spielklänge nach einem bewussten Klick aktiviert. Die Lautstärke lässt sich im Informationsdialog einstellen; Ton und Bewegung sind unabhängig schaltbar. Keine Audiodateien oder Sprachdienste werden nachgeladen. In versteckten Tabs stoppt die Tonausgabe.
-- Der Newsticker zeigt drei datierte Quellenmeldungen von NASA beziehungsweise GitHub. „Alle Quellen“ öffnet Original-Links, Zusammenfassungen und einen datierten öffentlichen Bitcoin-Blockbezug. Die Nachrichten sind ein **redaktioneller Snapshot vom 12.09.2026**, kein Live-Feed. Spielkommentare bleiben sichtbar als solche gekennzeichnet.
+- Der Newsticker liest den zuletzt veröffentlichten RSS-Abruf aus NASA und GitHub. [News & Quellen](news/) zeigt Veröffentlichungsdatum, Abrufzeit und Fehler beziehungsweise veraltete Stände. GitHub Actions versucht stündlich zu aktualisieren. Der frühere Snapshot vom 12.09.2026 bleibt über „Archiv“ erhalten. Spielkommentare bleiben als solche gekennzeichnet.
 - Das Informationssymbol öffnet die Gestaltungsnotiz, Quellen und Einstellungen. Der HALVETH-Link führt zur bestehenden Forschungsnotiz. Frühere Bilddateien bleiben im Repository erhalten.
 
 ## Tagesanzeige und Umsetzung
@@ -73,16 +73,16 @@ The daily ring follows the Europe/Berlin civil clock, resets at midnight and rem
 
 This is a standalone static HTML/CSS/JavaScript website with an embedded Earth texture and accompanying event assets, hosted on GitHub Pages. It needs no API keys or third-party runtime libraries. Rendering is capped, and animation work stops in hidden tabs. Previous artwork and the existing research note remain available in the repository.
 
-The news ticker contains three dated NASA/GitHub source items from a 12 September 2026 editorial snapshot, not a live news feed. A public Bitcoin block is linked as a read-only reference with its hash and observation time; no blockchain transaction, on-chain site anchoring or partnership is claimed.
+The news ticker reads the latest published NASA/GitHub RSS snapshot. The separate [news page](news/?lang=en) displays publication and retrieval times, refresh failures and stale state. GitHub Actions attempts hourly refreshes; scheduling is best effort. The 12 September 2026 snapshot remains available as an archive. A public Bitcoin block is linked as a read-only reference with its hash and observation time; no blockchain transaction, on-chain site anchoring or partnership is claimed.
 
 Published by HALVETH as an independent fan project. Not an official Marvel or NASA publication.
 
 
 ## Garten, Reddit und Erdzoom
 
-Die VERACHEL-Blase öffnet direkt ihr Namensfeld. CELSIUS öffnet als zweite lokale Tür seine fiktionale Portalstimme; `#celsius` ist der direkte Einstieg. Die 22 übrigen Blasen und die zwölf Figuren im Orbit führen nach einer kurzen Tunnelanimation zum Reddit-Profil u/Halveth-Juri. „Garten · Perspektiven“ öffnet 69 durchsuchbare Karten; `π-TREFFPUNKTE` führt zur öffentlichen P/Z/E/A-Forschungsansicht und `CHOICE ATELIER` in den lokalen Collage-Raum. Die Theorie-Texte zu Ego, Dormammu, den Guardians und Celsius stehen auf der zweisprachigen Unterseite. Als Reddit-Ziel ist das vom Nutzer angegebene Profil hinterlegt; ein veröffentlichter Beitragslink ist noch nicht konfiguriert.
+Alle zwölf Orbitfiguren und sämtliche Gartenblasen öffnen ihre eigene statische Profilseite. Das [Profilverzeichnis](entities/) und der Garten verwenden dasselbe Entitätsregister. VERACHELs Namensfeld steht auf ihrem Profil; alte Hash-Einstiege führen zur passenden Entität. Jede Seite führt vorhandene Rolle, These, Quellen, Inhaltsstand und ein GitHub-Dossier. Fehlende historische Geschichten sind sichtbar als fehlend markiert; neue Überleitungen sind redaktionell gekennzeichnet.
 
-Der Tunnel dauert 720 ms. Escape oder „Hier bleiben“ bricht ihn ab; reduzierte Bewegung und pausierte Animationen überspringen ihn. Strg-/Cmd- und Mittelklick verwenden die normalen Linkfunktionen des Browsers. Beim Zurückkehren von Reddit schließt sich die Übergangsansicht. Die Seite veröffentlicht selbst keine Reddit-Beiträge.
+Reddit ist ein getrennter Veröffentlichungskanal: Der tägliche Quellenentwurf richtet sich an u/Halveth und bleibt vorerst lokal beziehungsweise im Repository. Es gibt keine automatische Reddit-Weiterleitung aus Figurenprofilen.
 
 Scrollen, Zwei-Finger-Gesten und Plus/Minus zoomen die Erde von 1× bis 4×. Beim Hineinzoomen wird ein zeitversetztes MODIS-Tagesmosaik von NASA GIBS angefragt. Der angefragte Bildtag bleibt sichtbar. Bei Fehlern bleibt Blue Marble erhalten; erneute Zoominteraktion ermöglicht nach 30 Sekunden einen neuen Versuch. Private Quelltexte und nicht zugeordnete private Namen werden nicht veröffentlicht.
 
@@ -90,9 +90,9 @@ Das Quellen-/Hashmanifest ist eine öffentliche Referenz außerhalb der Blockcha
 
 ## Garden, Reddit and Earth zoom
 
-The VERACHEL bubble opens its name field directly. CELSIUS is a second local door that opens his fictional portal voice; `#celsius` is the direct entry. The other 22 bubbles and the twelve orbiting figures lead to the user-supplied Reddit profile u/Halveth-Juri through a short tunnel transition. “Garden · Perspectives” contains 69 searchable cards; `π-TREFFPUNKTE` opens the public P/Z/E/A research view and `CHOICE ATELIER` opens the local collage space. No published post URL is configured; the full theory text is available on this site's bilingual article.
+The twelve orbit figures and every garden bubble open their own static profile. The [directory](entities/?lang=en) and garden use one entity registry. VERACHEL retains the name field on her profile. Legacy hashes lead to the corresponding profile. Each page binds existing role, thesis, sources, content date and GitHub dossier; unavailable historical stories and new editorial bridges are clearly identified.
 
-The transition lasts 720 ms, supports Escape/cancellation, and is skipped for reduced motion or paused animations. Modified clicks retain native browser behavior; returning from Reddit clears the transition. The website itself does not publish Reddit posts.
+Reddit is a separate publication channel. The daily source digest targets u/Halveth in draft mode; figure links do not redirect there.
 
 Scroll, pinch, +/- or keyboard +/- zoom the globe from 1x to 4x. Home resets the view. Zooming in requests a 2048x1024 NASA GIBS MODIS mosaic for the previous UTC day. The requested day is displayed; imagery is delayed and coverage can be incomplete. Blue Marble remains the fallback. Sound is opt-in and reduced motion is respected.
 
@@ -120,9 +120,9 @@ The [Pinterest review](collage/PINTEREST-RESEARCH.md) and [source register](coll
 
 ## VERACHEL-Namensfeld / VERACHEL name field
 
-Die VERACHEL-Perspektive öffnet im Garten ein dichtes, zweisprachiges Namensfeld. Zehn ausgewählte Anzeigesignale erscheinen größer und heller; mehr als hundert kleine Namen sowie A–Z und `∞` halten den Raum sichtbar offen. Die Auswahl ist eine Lesbarkeits- und Gestaltungsentscheidung, keine Wertung von Menschen. `ANDREA BOTEZ` verweist ausschließlich auf das bereits öffentlich verlinkte Medienobjekt. Die übrigen Einträge sind Projekt- oder offene Anzeigetoken. Keine Nennung behauptet Identität, Zustimmung, Beziehung, Vertretung oder Beteiligung.
+Die [VERACHEL-Profilseite](entities/verachel/) enthält das dichte, zweisprachige Namensfeld. Zehn ausgewählte Anzeigesignale erscheinen größer und heller; mehr als hundert kleine Namen sowie A–Z und `∞` halten den Raum sichtbar offen. Die Auswahl ist eine Lesbarkeits- und Gestaltungsentscheidung, keine Wertung von Menschen. `ANDREA BOTEZ` verweist ausschließlich auf das bereits öffentlich verlinkte Medienobjekt. Die übrigen Einträge sind Projekt- oder offene Anzeigetoken. Keine Nennung behauptet Identität, Zustimmung, Beziehung, Vertretung oder Beteiligung.
 
-The VERACHEL perspective opens a dense bilingual name field in the garden. Ten selected display signals appear larger and brighter, while more than one hundred tiny names plus A–Z and `∞` keep the space visibly open. Selection controls legibility and composition; it does not rank people. `ANDREA BOTEZ` is solely a link to the already public media object. The other entries are project or open display tokens. No listing claims identity, consent, relationship, representation, or participation.
+The [VERACHEL profile](entities/verachel/?lang=en) contains the dense bilingual name field. Ten selected display signals appear larger and brighter, while more than one hundred tiny names plus A–Z and `∞` keep the space visibly open. Selection controls legibility and composition; it does not rank people. `ANDREA BOTEZ` is solely a link to the already public media object. The other entries are project or open display tokens. No listing claims identity, consent, relationship, representation, or participation.
 
 ## Bitcoin-Transaktionsfluss / Bitcoin transaction flow
 
@@ -187,3 +187,26 @@ A small Q link at the lower right of the Earth opens six collapsible topic cards
 The edition is an internal editorial and technical review with a finite declared scope, not independent certification or an audit of every file, project or event. [Sources](forschung/tagesstand-2026-09-13/sources.json), [topic coverage](forschung/tagesstand-2026-09-13/topics.json) and the [historical release receipt v1.0.0](forschung/tagesstand-2026-09-13/snapshot.json), bound to the [exact Git blobs at `c9147f2`](https://github.com/Juri-Halveth/halveth-scarlet/tree/c9147f2d393f13dcbc4871bf7c5999924404bcc6/forschung/tagesstand-2026-09-13/), are explicit. The Q footer links to this daily edition.
 
 Q receipt correction: version 1.0.0 used local CRLF bytes while Git published LF-normalised blobs. Version 1.0.1 corrects its hashes to Git blob bytes and declares that contract. Earlier receipts remain in Git history. Neither receipt proves scientific truth, independent time or authorship.
+
+
+## Profile, News und Deployment · 16.09.2026
+
+- **69 Profile**: `assets/universe-data.js` bindet Ziele und Quellen; `tools/build_profiles.mjs` erzeugt statische Seiten und GitHub-Dossiers. `--check` prüft, dass die erzeugten Dateien zum Register passen.
+- **News**: Zwei freigegebene Primärfeeds, stündlicher Abrufversuch, letzte gültige Daten bei Ausfällen. [Betriebsbeschreibung](news/README.md).
+- **Reddit**: Höchstens fünf neue Meldungen pro Berliner Kalendertag, Zielzeit 18:17. GitHub Actions kann verspätet starten. Ohne neue Meldungen entsteht kein Entwurf. Diese Fassung enthält ausschließlich den Entwurfsadapter und keine Reddit-Zugangsdaten. Post-IDs werden nur für tatsächlich bestätigte Veröffentlichungen geführt.
+- **Videos**: Bestehender [Brightcast-Beitrag](forschung/brightcast-starlight/), MP4 und Untertitel bleiben verfügbar. Eine spätere Produktionsstufe verwendet freigegebene Skripte und Medien; bezahlte Generierung und automatischer Upload sind nicht eingerichtet.
+- **Rechte**: [Lizenzkarte](LICENSES.md) und [Rechteerklärung](HALVETH-RIGHTS.md) gelten je Material und Version. `robots.txt` am Projektpfad ist ergänzend; wirksame Ursprungsregeln stehen auf `https://juri-halveth.github.io/robots.txt`. Robots ist keine Zugriffssperre.
+
+Prüfung und öffentlicher Build (Node 24, Python 3.14, keine Paketinstallation):
+
+```sh
+node tools/build_site.mjs
+node --test tests/*.test.cjs
+python -m unittest discover -s tests -p 'test_*.py'
+```
+
+Der Build prüft lokale HTML-Ziele und Abschnittsverweise und schreibt ausschließlich öffentliche Dateien nach `.site-build/`. `.github/workflows/pages.yml` testet und veröffentlicht dieses Artefakt. `build-info.json` auf der Website nennt den tatsächlich gebauten Commit. Der Newsworkflow ruft den Pagesworkflow nach seinem Datencommit ausdrücklich auf.
+
+Rückrollreferenz vor diesem Ausbau: `c333d1bddbba1dc6d8a573d2e5c52e8e9596c88a`. Historische Releasepakete und ihre Receipts bleiben unverändert. Ein Rückrollen erfolgt als nachvollziehbare Wiederveröffentlichung eines gewählten Standes, ohne Git-Historie zu löschen.
+
+The release adds 69 individual profiles, a separate dated news feed and a **draft-only** daily Reddit digest. Historical grants and third-party rights remain applicable. The Pages workflow builds, tests and publishes an explicit public artifact; the live `build-info.json` records its source revision.

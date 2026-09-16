@@ -28,7 +28,8 @@
     "file": "LICENSE-HALVETH-PIRL-2.0.md",
     "nonCommercialPublicInterestUse": "GRANTED_WITH_CONDITIONS",
     "commercialUse": "NOT_GRANTED",
-    "commercialPermission": "PRIOR_WRITTEN_LICENSE_AND_PARTICIPATION_AGREEMENT_REQUIRED"
+    "commercialPermission": "PRIOR_WRITTEN_LICENSE_AND_PARTICIPATION_AGREEMENT_REQUIRED",
+    "classification": "SOURCE_AVAILABLE_NOT_OSI_OPEN_SOURCE"
   },
   "textAndDataMining": {
     "reservation": true,
@@ -43,5 +44,10 @@
   "thirdPartyMaterial": "EXCLUDED_AND_RETAINS_ITS_OWN_RIGHTS",
   "peopleAndIndependentSystems": "NO_OWNERSHIP_OR_CONTROL_CLAIM",
   "effectiveFrom": "first public commit containing this declaration",
-  "recordedDate": "2026-09-13"
+  "recordedDate": "2026-09-13",
+  "contact": {
+    "email": "security@halveth.de",
+    "purpose": "Rights, attribution and written commercial permission requests"
+  },
+  "clarifiedDate": "2026-09-16"
 }

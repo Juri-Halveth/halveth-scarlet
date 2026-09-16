@@ -2,6 +2,11 @@
 
 Copyright (c) 2026 Juri Janovski, publishing as Juri Halveth.
 
+**Classification:** source-available with a conditional non-commercial
+public-interest permission. HALVETH PIRL 2.0 is not an OSI-approved open-source
+license. Public visibility and free learning access do not change the license
+assigned to a specific file, contribution and version.
+
 | Material | License state |
 | --- | --- |
 | Original HALVETH text, theses, research questions, selection, arrangement, models, image elements only to the extent of rights actually held, HTML, CSS and JavaScript beginning with the first public commit containing this map | [HALVETH Public-Interest Research License 2.0](LICENSE-HALVETH-PIRL-2.0.md) |
@@ -24,3 +29,7 @@ third-party characters, names, costume or character design, source material,
 trademarks, or a real person's likeness. Asset provenance and unresolved fields
 are recorded in `assets/portal-artwork.json`, `assets/choice-atelier-artwork.json`
 and their adjacent prompt receipts.
+
+For permission requests, identify the exact paths and commit, intended use and
+required rights, and contact **security@halveth.de**. A request, download or
+attribution alone creates no commercial agreement or payment obligation.

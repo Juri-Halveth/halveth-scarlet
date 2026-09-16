@@ -1,27 +1,53 @@
 (()=>{'use strict';
 const L=window.HalvethLanguage||{t:value=>value,get:()=>'de',link:path=>path};
 const raw=window.HalvethUniverse;
-const data={...raw,entities:raw.entities.map(e=>L.get()==='en'?{...e,...e.en}:e)},scene=document.querySelector('.scene'),dialog=document.querySelector('#entity-dialog');
-const byId=new Map(data.entities.map(e=>[e.id,e])),title=document.querySelector('#entity-title'),kind=document.querySelector('#entity-kind'),role=document.querySelector('#entity-role'),body=document.querySelector('#entity-body'),source=document.querySelector('#entity-source'),read=document.querySelector('#entity-read'),reddit=document.querySelector('#entity-reddit'),directory=document.querySelector('#entity-list');
-const fieldRaw=data.verachelNameField,field=fieldRaw?{...fieldRaw,...fieldRaw[L.get()]}:null,fieldPanel=document.querySelector('#verachel-name-field'),fieldEyebrow=document.querySelector('#verachel-name-eyebrow'),fieldTitle=document.querySelector('#verachel-name-title'),fieldDescription=document.querySelector('#verachel-name-description'),fieldSignals=document.querySelector('#verachel-signal-grid'),fieldMicroLabel=document.querySelector('#verachel-micro-label'),fieldMicro=document.querySelector('#verachel-micro-field'),fieldListLabel=document.querySelector('#verachel-list-label'),fieldList=document.querySelector('#verachel-list'),fieldNote=document.querySelector('#verachel-name-note');
-const article='forschung/figuren-und-perspektiven/';
-const redditTarget=e=>window.HalvethRedditTunnel.validDestination(e.redditUrl||data.redditPostUrl||data.redditDestination)||data.redditDestination;
-function renderNameField(e){if(!fieldPanel)return;const visible=e.id==='verachel'&&field;if(!visible){fieldPanel.hidden=true;return;}fieldPanel.hidden=false;fieldEyebrow.textContent=field.eyebrow;fieldTitle.textContent=field.title;fieldDescription.textContent=field.description;fieldMicroLabel.textContent=field.microLabel;fieldMicro.textContent=field.microNames.join(' · ');fieldListLabel.textContent=field.listLabel;fieldNote.textContent=field.sourceNote;fieldSignals.replaceChildren();fieldList.replaceChildren();for(const item of field.highlights){const signal=document.createElement(item.source?'a':'span');signal.className='verachel-signal';signal.textContent=item.label;signal.dataset.code=item.code;signal.dataset.state=item.sourceState;signal.style.setProperty('--signal-tone',item.tone);if(item.source){signal.href=item.source;signal.target='_blank';signal.rel='noopener noreferrer';}signal.setAttribute('aria-label',item.label+' · '+item.code);fieldSignals.append(signal);}for(const name of field.microNames){const item=document.createElement('li');item.textContent=name;fieldList.append(item);}}
-function show(id){const e=byId.get(id);if(!e)return;title.textContent=e.label;kind.textContent=e.kind;role.textContent=e.role;body.textContent=e.note||L.t('Diese Perspektive lädt zum Erkunden und Vergleichen ein. Ihre Funktion ist eine Projektdefinition.');renderNameField(e);source.textContent=e.sourceLabel;read.href=e.url?L.link(e.url):L.link(article+'#'+(e.section||'garden'));read.textContent=e.url?L.t('Quelle öffnen ↗'):L.t('Gedanken weiterlesen ↗');const publicUrl=new URL(article+'#'+(e.section||'garden'),data.site);publicUrl.searchParams.set('lang',L.get());reddit.href=redditTarget(e)||'https://www.reddit.com/submit?'+new URLSearchParams({url:publicUrl.href,title:'HALVETH · '+e.label+L.t(' · Eine andere Perspektive')});reddit.textContent=data.redditDestination?L.t('Zu HALVETH auf Reddit ↗'):L.t('Auf Reddit teilen ↗');document.querySelector('#reddit-note').textContent=data.redditDestination?L.t('Der Link öffnet das hinterlegte Reddit-Ziel.'):L.t('Öffnet deinen Reddit-Beitragsentwurf. Veröffentlicht wird erst dort durch dich.');if(!dialog.open)dialog.showModal();}
+const entities=raw.entities.map(entity=>L.get()==='en'?{...entity,...entity.en}:entity);
+const byId=new Map(entities.map(entity=>[entity.id,entity]));
+const dialog=document.querySelector('#entity-dialog'),directory=document.querySelector('#entity-list');
+const target=entity=>L.link(entity.profilePath);
+const profileLabel=entity=>entity.label+(L.get()==='en'?' · Open profile':' · Profil öffnen');
 const tones=['#b7ffe1','#b5c9ff','#efb0d8','#e5d8a5'];
-data.featured.forEach((id,i)=>{const e=byId.get(id);if(!e)return;const isFieldDoor=e.id==='verachel'&&field,isLocalDoor=isFieldDoor||e.localDialog===true,doorLabel=isFieldDoor?field.doorLabel:e.doorLabel,b=document.createElement(isLocalDoor?'button':'a');b.className='entity-bubble';b.dataset.entity=id;b.textContent=e.label;b.style.setProperty('--bubble-tone',tones[i%4]);b.style.setProperty('--delay',(-i*.73)+'s');if(isLocalDoor){b.type='button';b.setAttribute('aria-haspopup','dialog');b.setAttribute('aria-controls','entity-dialog');b.setAttribute('aria-label',e.label+' · '+doorLabel);b.title=e.label+' · '+doorLabel;b.addEventListener('click',()=>{show(e.id);dialog.scrollTop=0;title.focus();});}else{b.href=redditTarget(e);b.rel='noreferrer';b.setAttribute('aria-label',e.label+L.t(' · Zu HALVETH auf Reddit'));b.title=e.label+' · Reddit';window.HalvethRedditTunnel.bind(b,e.label);}document.querySelector(i<data.featured.length/2?'.constellation-left':'.constellation-right').append(b);});
-for(const e of data.entities){const b=document.createElement('button'),nameTokens=e.id==='verachel'&&field?[...field.highlights.map(item=>item.label),...field.microNames].join(' '):'';b.type='button';b.textContent=e.label;b.dataset.search=(e.label+' '+e.role+' '+nameTokens).toLocaleLowerCase(L.get());b.addEventListener('click',()=>{show(e.id);dialog.scrollTop=0;title.focus();});directory.append(b);}
-for(const link of document.querySelectorAll('.figure')){const e=byId.get(link.dataset.figure);if(e){link.href=redditTarget(e);link.setAttribute('aria-label',e.label+L.t(' · Zu HALVETH auf Reddit'));link.title=e.label+' · Reddit';window.HalvethRedditTunnel.bind(link,e.label);}}
-let constellationHashOpen=false;
-const openConstellation=(fromHash=false,id=null)=>{constellationHashOpen=fromHash;show(id||(fromHash?'juri':'mira'));document.querySelector('.entity-directory').open=true;document.querySelector('#entity-filter').focus();};
-const hashEntityId=()=>{try{return decodeURIComponent(location.hash.slice(1));}catch{return '';}};
-const syncConstellationHash=()=>{const id=hashEntityId();if(id==='team'){openConstellation(true);return;}if(byId.has(id)){openConstellation(true,id);return;}if(constellationHashOpen&&dialog.open)dialog.close();constellationHashOpen=false;};
-document.querySelector('#garden-open').addEventListener('click',()=>openConstellation(false));
-if(location.hash)queueMicrotask(syncConstellationHash);
-window.addEventListener('hashchange',syncConstellationHash);
+raw.featured.forEach((id,index)=>{
+  const entity=byId.get(id);if(!entity)return;
+  const link=document.createElement('a');link.className='entity-bubble';link.dataset.entity=id;
+  link.textContent=entity.label;link.href=target(entity);link.setAttribute('aria-label',profileLabel(entity));
+  link.title=profileLabel(entity);link.style.setProperty('--bubble-tone',tones[index%4]);link.style.setProperty('--delay',(-index*.73)+'s');
+  document.querySelector(index<raw.featured.length/2?'.constellation-left':'.constellation-right').append(link);
+});
+for(const entity of entities){
+  const link=document.createElement('a');link.href=target(entity);link.textContent=entity.label;link.dataset.entity=entity.id;
+  const fieldNames=entity.id==='verachel'?[...raw.verachelNameField.highlights.map(item=>item.label),...raw.verachelNameField.microNames].join(' '):'';
+  link.dataset.search=(entity.label+' '+entity.role+' '+fieldNames).toLocaleLowerCase(L.get());
+  link.setAttribute('aria-label',profileLabel(entity));directory.append(link);
+}
+for(const link of document.querySelectorAll('.figure')){
+  const entity=byId.get(link.dataset.figure);if(!entity)continue;
+  link.href=target(entity);link.setAttribute('aria-label',profileLabel(entity));link.title=profileLabel(entity);
+}
+document.querySelector('#directory-count').textContent=entities.length+(L.get()==='en'?' profiles & sources':' Profile & Quellen');
+let openedFromHash=false;
+const hashId=()=>{try{return decodeURIComponent(location.hash.slice(1));}catch{return '';}};
+function openDirectory(fromHash=false){
+  openedFromHash=fromHash;if(!dialog.open)dialog.showModal();document.querySelector('#entity-filter').focus();
+}
+function syncHash(){
+  const id=hashId();if(id==='team'){openDirectory(true);return;}
+  if(byId.has(id)){window.location.replace(target(byId.get(id)));return;}
+  if(openedFromHash&&dialog.open)dialog.close();openedFromHash=false;
+}
+document.querySelector('#garden-open').addEventListener('click',()=>openDirectory(false));
 document.querySelector('#entity-close').addEventListener('click',()=>dialog.close());
-dialog.addEventListener('close',()=>{if(!constellationHashOpen)return;constellationHashOpen=false;const id=hashEntityId();if(id==='team'||byId.has(id)){const url=new URL(location.href);url.hash='';history.replaceState(history.state,'',url);}});
-document.querySelector('#entity-filter').addEventListener('input',e=>{let n=0;for(const b of directory.children){b.hidden=!b.dataset.search.includes(e.target.value.toLocaleLowerCase(L.get()));if(!b.hidden)n++;}document.querySelector('#empty-directory').hidden=n>0;});
-document.querySelector('#directory-count').textContent=data.entities.length+L.t(' Perspektiven & Quellen');
-for(const button of document.querySelectorAll('[data-chain]'))button.addEventListener('click',()=>show(button.dataset.chain));
+dialog.addEventListener('close',()=>{
+  if(!openedFromHash)return;openedFromHash=false;
+  if(hashId()==='team'){const url=new URL(location.href);url.hash='';history.replaceState(history.state,'',url);}
+});
+document.querySelector('#entity-filter').addEventListener('input',event=>{
+  const query=event.target.value.toLocaleLowerCase(L.get());let count=0;
+  for(const link of directory.children){link.hidden=!link.dataset.search.includes(query);if(!link.hidden)count++;}
+  document.querySelector('#empty-directory').hidden=count>0;
+});
+for(const button of document.querySelectorAll('[data-chain]'))button.addEventListener('click',()=>{
+  const entity=byId.get(button.dataset.chain);if(entity)window.location.assign(target(entity));
+});
+window.addEventListener('hashchange',syncHash);if(location.hash)queueMicrotask(syncHash);
 })();

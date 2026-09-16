@@ -33,3 +33,17 @@ notice follow the current license map.
 
 The associated machine-readable declaration is
 [`HALVETH-RIGHTS.json`](HALVETH-RIGHTS.json).
+
+## Practical use and contact
+
+The current HALVETH PIRL 2.0 material is **source-available**: its conditional
+non-commercial public-interest permission and separate commercial licensing
+route are described in the license. It is not represented as OSI-approved open
+source. Earlier effective grants continue to govern their historical and
+overlapping material.
+
+For attribution, cite the specific work, Juri Halveth and the commit or version
+used; preserve the notices required by the applicable license. For a commercial
+request, send the paths, revision and proposed use to **security@halveth.de**.
+Compensation, permitted uses and any participation are agreed in writing; this
+notice does not establish a contract or a fee by itself.

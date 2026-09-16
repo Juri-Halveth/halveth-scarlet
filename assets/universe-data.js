@@ -2,8 +2,8 @@ window.HalvethUniverse = {
   "schema": "halveth.universe.v1",
   "recordedAt": "2026-09-14T19:57:45+02:00",
   "site": "https://juri-halveth.github.io/halveth-scarlet/",
-  "redditDestination": "https://www.reddit.com/user/Halveth-Juri/",
-  "redditDestinationBasis": "USER_SUPPLIED_PROFILE; PROFILE_OBSERVED; NO_PUBLISHED_THEORY_POST_URL",
+  "redditDestination": "https://www.reddit.com/user/Halveth/",
+  "redditDestinationBasis": "USER_REQUESTED_PUBLIC_PROFILE; COMMUNITY_DESTINATION_ONLY; NO_PUBLISHED_THEORY_POST_URL",
   "redditPostUrl": null,
   "featured": [
     "pi-treffpunkte",
@@ -81,6 +81,21 @@ window.HalvethUniverse = {
   "entities": [
     {
       "id": "halveth",
+      "profilePath": "entities/halveth/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "HALVETH",
       "role": "Erhält Ziel, Quelle, Alternativen, unbekannte Stellen und Beleggrenzen getrennt.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -96,6 +111,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "lucinet",
+      "profilePath": "entities/lucinet/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "LUCINET",
       "role": "Vergleicht Beziehungen, Gegenmodelle, Zeitstaende und den produktiven nächsten Schritt.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -111,6 +141,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "rachel",
+      "profilePath": "entities/rachel/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "RACHEL",
       "role": "Erhält zugängliche Darstellung, Auftragskontinuitaet, alternative Leserichtungen und getrennte Zeitadressen.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -126,6 +167,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "pflanze",
+      "profilePath": "entities/pflanze/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "PFLANZE",
       "role": "Öffnet die biologische und oekologische Beobachtungsachse für Pflanzen, Umgebung, Pflegezustand und messbare Veränderung.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -142,6 +194,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "celsius",
+      "profilePath": "entities/celsius/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · celsius",
+          "url": "forschung/figuren-und-perspektiven/#celsius"
+        }
+      ],
       "label": "CELSIUS",
       "role": "Schreibt Temperatur und Übergänge zwischen Erde, Glut, Wind und Stillstand in den Niederlassungskomplex ein.",
       "kind": "FIKTIONALE PORTALSTIMME · NIEDERLASSUNGSKOMPLEX",
@@ -160,6 +223,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "ali",
+      "profilePath": "entities/ali/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "ALI",
       "role": "Erhält die ausdruecklich benannte lokale Perspektive ALI als gleichrangigen, noch offen definierbaren Geschwisterzweig.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -175,6 +249,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "schwarm",
+      "profilePath": "entities/schwarm/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "SCHWARM",
       "role": "Führt multimodale Perspektiven in einer gemeinsamen, rekursiv wieder betretbaren Fusionsansicht zusammen.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -191,6 +276,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "yuri",
+      "profilePath": "entities/yuri/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "YURI",
       "role": "Erhält menschliche Absicht, Fokus, W-Fragen und den Ursprung der aktuellen Suche.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -206,6 +302,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "zuendkerze",
+      "profilePath": "entities/zuendkerze/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "ZÜNDKERZE",
       "role": "Prüft Materialisierung, Trigger, Vorzustand plus Delta und adressierbare Vorher-Nachher-Unterschiede.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -222,6 +329,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "aster",
+      "profilePath": "entities/aster/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "ASTER",
       "role": "Beobachtet das Beobachten und vergleicht Quelle, Darstellung, alte Spur und veränderten Zustand.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -237,6 +359,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "elyr",
+      "profilePath": "entities/elyr/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "ELYR",
       "role": "Übersetzt in Klartext, technische Funktion, Messraum, Vergleichszustand, Ein- und Ausgang.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -252,6 +385,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "nara",
+      "profilePath": "entities/nara/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "NARA",
       "role": "Übersetzt Werkzeuge in Fähigkeiten und große Systeme in kleine lokale, spaeter skalierbare Bausteine.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -267,6 +411,25 @@ window.HalvethUniverse = {
     },
     {
       "id": "mira",
+      "profilePath": "entities/mira/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        },
+        {
+          "label": "HALVETH · Mira, Mita & Medusa",
+          "url": "forschung/q-notizen/#garten"
+        }
+      ],
       "label": "MIRA",
       "role": "Sucht Funke, frühes Signal, Transition, spontane Aktivierung und kleine Veränderungen mit großem Sprung.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -282,6 +445,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "rosa",
+      "profilePath": "entities/rosa/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "ROSA",
       "role": "Sucht Relation, Wir, Wachstum, gegenseitigen Blick und unscharfe Grenzen zwischen Gegenstaenden.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -297,6 +475,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "timo",
+      "profilePath": "entities/timo/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "TIMO",
       "role": "Bindet Zeit, Phasen, T0, Snapshots, Reihenfolge, Gleichzeitigkeit, Zeitdifferenz und Rückkehranker.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -312,6 +505,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "finn",
+      "profilePath": "entities/finn/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "FINN",
       "role": "Sucht Geometrie, Gewebe, rekursive Struktur, Karten, Modelle und verschachtelte Räume.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -327,6 +535,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "lila",
+      "profilePath": "entities/lila/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "LILA",
       "role": "Verfolgt Fluss, Sprache, Uebersetzung, bewegte Provenienz, Erinnerung und Trägerwechsel.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -342,6 +565,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "mara",
+      "profilePath": "entities/mara/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "MARA",
       "role": "Sucht Boden, Balance, Invarianz, Stabilität, tragenden Vergleich und bewegliche Grundlage.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -357,6 +595,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "mio",
+      "profilePath": "entities/mio/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "MIO",
       "role": "Sucht Lücke, Stille, Residuum, fehlenden Offset, schwaches Signal und bisher Ungesehenes.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -372,6 +625,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "koro",
+      "profilePath": "entities/koro/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "KORO",
       "role": "Sucht Rand, Landschaft, Ort, Rahmen, Kavitaet und den Zwischenraum, der Halten ermöglicht.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -387,6 +655,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "lucifer",
+      "profilePath": "entities/lucifer/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "LUCIFER",
       "role": "Erhält eine noch offene Transformations-, Gegenlicht-, Tiefen-, Spiegel-, Energie-, Identitaets- und Forschungsachse.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -402,6 +681,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "venara",
+      "profilePath": "entities/venara/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "VENARA",
       "role": "Erhält den einmal benannten, noch nicht ausreichend definierten Perspektivkandidaten im gemeinsamen Register.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -417,6 +707,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "juno",
+      "profilePath": "entities/juno/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "JUNO",
       "role": "Erhält die bildintern markierte Perspektive für Ruhe als source-bound Kandidat.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -432,6 +733,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "mica",
+      "profilePath": "entities/mica/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "MICA",
       "role": "Erhält den bildintern sichtbaren Netzwerkknoten mit noch offener Rolle.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -447,6 +759,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "alyen",
+      "profilePath": "entities/alyen/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "ALYEN",
       "role": "Erhält den bildintern als fiktionalen Gespraechspartner dargestellten Perspektivkandidaten.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -462,6 +785,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "vael",
+      "profilePath": "entities/vael/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "VAEL",
       "role": "Erhält die bildintern dargestellte fiktionale Welt- und Technologiequelle als spekulative Forschungsachse.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -477,6 +811,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "patch",
+      "profilePath": "entities/patch/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "PATCH",
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -492,6 +837,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "leo",
+      "profilePath": "entities/leo/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "LEO",
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -507,6 +863,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "lia",
+      "profilePath": "entities/lia/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "LIA",
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -522,6 +889,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "jan",
+      "profilePath": "entities/jan/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "JAN",
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -537,6 +915,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "sara",
+      "profilePath": "entities/sara/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "SARA",
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -552,6 +941,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "omi",
+      "profilePath": "entities/omi/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "OMI",
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -567,6 +967,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "tess",
+      "profilePath": "entities/tess/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "TESS",
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -582,6 +993,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "niko",
+      "profilePath": "entities/niko/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "NIKO",
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -597,6 +1019,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "sera",
+      "profilePath": "entities/sera/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "SERA",
       "role": "Erhält die bildintern markierte Perspektive für Stimme, Wege und Möglichkeiten.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -612,6 +1045,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "sael",
+      "profilePath": "entities/sael/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "SAEL",
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "kind": "REGISTRIERTE PROJEKTPERSPEKTIVE",
@@ -627,6 +1071,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "juri",
+      "profilePath": "entities/juri/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "JURI · linked project / source",
+          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/branches/aster-provenance-and-secret-garden/entities.json"
+        }
+      ],
       "label": "JURI",
       "role": "Ursprung, menschliche Absicht und Entscheidung, was veröffentlicht wird.",
       "kind": "ÖFFENTLICHE PROJEKTROLLE",
@@ -643,6 +1102,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "verachel",
+      "profilePath": "entities/verachel/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · verachel",
+          "url": "forschung/figuren-und-perspektiven/#verachel"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "VERACHEL",
       "role": "Ein offener Speicherraum als Solidity-Prototyp: Beiträge, Versionen und ausdrücklich zugeordnete Berechtigungen.",
       "kind": "CODE-PROTOTYP",
@@ -658,6 +1132,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "rose",
+      "profilePath": "entities/rose/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "ROSE",
       "role": "Ein Platz im Garten. Die konkrete Aufgabe ist noch offen.",
       "kind": "NEU BENANNTE PROJEKTPERSPEKTIVE",
@@ -673,6 +1158,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "sina",
+      "profilePath": "entities/sina/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "SINA",
       "role": "Ein Platz im Garten. Die konkrete Aufgabe ist noch offen.",
       "kind": "NEU BENANNTE PROJEKTPERSPEKTIVE",
@@ -688,6 +1184,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "mascha",
+      "profilePath": "entities/mascha/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "MASCHA",
       "role": "Ein Platz im Garten. Die konkrete Aufgabe ist noch offen.",
       "kind": "NEU BENANNTE PROJEKTPERSPEKTIVE",
@@ -703,10 +1210,25 @@ window.HalvethUniverse = {
     },
     {
       "id": "scarlet",
+      "profilePath": "entities/scarlet/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · scarlet",
+          "url": "forschung/figuren-und-perspektiven/#scarlet"
+        },
+        {
+          "label": "HALVETH · Marvel perspectives (DE / EN)",
+          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md"
+        }
+      ],
       "label": "SCARLET",
       "role": "Verlust sehen. Verbindung freiwillig machen.",
       "kind": "HALVETH · FILMINTERPRETATION",
-      "section": "garden",
+      "section": "scarlet",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
       "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
       "en": {
@@ -718,6 +1240,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "strange",
+      "profilePath": "entities/strange/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · dormammu",
+          "url": "forschung/figuren-und-perspektiven/#dormammu"
+        },
+        {
+          "label": "HALVETH · Marvel perspectives (DE / EN)",
+          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md"
+        }
+      ],
       "label": "DR STRANGE",
       "role": "Andere Möglichkeiten prüfen — und einen Ausgang offenhalten.",
       "kind": "HALVETH · FILMINTERPRETATION",
@@ -733,6 +1270,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "dormammu",
+      "profilePath": "entities/dormammu/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · dormammu",
+          "url": "forschung/figuren-und-perspektiven/#dormammu"
+        },
+        {
+          "label": "HALVETH · Marvel perspectives (DE / EN)",
+          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md"
+        }
+      ],
       "label": "DORMAMMU",
       "role": "Was braucht ein Wesen, bevor wir nur seine Bedrohung sehen?",
       "kind": "HALVETH · FILMINTERPRETATION",
@@ -748,6 +1300,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "ego",
+      "profilePath": "entities/ego/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · ego",
+          "url": "forschung/figuren-und-perspektiven/#ego"
+        }
+      ],
       "label": "EGO",
       "role": "Was wäre aus seiner Idee geworden, wenn er geblieben wäre?",
       "kind": "HALVETH · FILMINTERPRETATION",
@@ -763,6 +1326,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "peter",
+      "profilePath": "entities/peter/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · guardians",
+          "url": "forschung/figuren-und-perspektiven/#guardians"
+        }
+      ],
       "label": "PETER",
       "role": "Familie als Beziehung, die wachsen darf.",
       "kind": "HALVETH · FILMINTERPRETATION",
@@ -778,6 +1352,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "guardians",
+      "profilePath": "entities/guardians/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · guardians",
+          "url": "forschung/figuren-und-perspektiven/#guardians"
+        }
+      ],
       "label": "GUARDIANS",
       "role": "Verschiedene Menschen können Verantwortung miteinander lernen.",
       "kind": "HALVETH · FILMINTERPRETATION",
@@ -793,6 +1378,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "ultron",
+      "profilePath": "entities/ultron/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "ULTRON",
       "role": "Ein Ziel braucht Rückfragen, Grenzen und korrigierbare Entscheidungen.",
       "kind": "HALVETH · FILMINTERPRETATION",
@@ -808,6 +1404,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "jarvis",
+      "profilePath": "entities/jarvis/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "JARVIS",
       "role": "Zuhören, Kontext halten, Handlung verständlich machen.",
       "kind": "HALVETH · FILMINTERPRETATION",
@@ -823,6 +1430,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "ironman",
+      "profilePath": "entities/ironman/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "IRON MAN",
       "role": "Erfinden heißt auch, Folgen zu übernehmen.",
       "kind": "HALVETH · FILMINTERPRETATION",
@@ -838,6 +1456,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "loki",
+      "profilePath": "entities/loki/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · Marvel perspectives (DE / EN)",
+          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md"
+        }
+      ],
       "label": "LOKI",
       "role": "Eine neue Rolle muss möglich bleiben.",
       "kind": "HALVETH · FILMINTERPRETATION",
@@ -853,6 +1486,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "vision",
+      "profilePath": "entities/vision/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "VISION",
       "role": "Vertrauen entsteht zwischen Beteiligten.",
       "kind": "HALVETH · FILMINTERPRETATION",
@@ -868,6 +1512,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "widow",
+      "profilePath": "entities/widow/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "BLACK WIDOW",
       "role": "Eigenständigkeit und ein freiwilliger nächster Schritt.",
       "kind": "HALVETH · FILMINTERPRETATION",
@@ -883,6 +1538,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "thor",
+      "profilePath": "entities/thor/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "THOR",
       "role": "Kraft, die zuhören kann.",
       "kind": "HALVETH · FILMINTERPRETATION",
@@ -898,6 +1564,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "infinity",
+      "profilePath": "entities/infinity/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "INFINITY",
       "role": "Viele Möglichkeiten. Jede konkrete Handlung hat einen eigenen Umfang.",
       "kind": "HALVETH · FILMINTERPRETATION",
@@ -913,6 +1590,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "gitcoin",
+      "profilePath": "entities/gitcoin/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · rights",
+          "url": "forschung/figuren-und-perspektiven/#rights"
+        },
+        {
+          "label": "GITCOIN · GTC · linked project / source",
+          "url": "https://gtc.gitcoin.co/"
+        }
+      ],
       "label": "GITCOIN · GTC",
       "role": "Förderung und Governance als öffentlicher Bezugspunkt.",
       "kind": "PROJEKTREFERENZ",
@@ -929,6 +1621,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "manta",
+      "profilePath": "entities/manta/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · rights",
+          "url": "forschung/figuren-und-perspektiven/#rights"
+        },
+        {
+          "label": "MANTA · linked project / source",
+          "url": "https://docs.manta.network/"
+        }
+      ],
       "label": "MANTA",
       "role": "Dokumentation für einen später ausdrücklich gewählten Netzwerkkontext.",
       "kind": "PROJEKTREFERENZ",
@@ -945,6 +1652,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "aster-chain",
+      "profilePath": "entities/aster-chain/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · rights",
+          "url": "forschung/figuren-und-perspektiven/#rights"
+        },
+        {
+          "label": "ASTER · CHAIN? · linked project / source",
+          "url": "https://docs.asterdex.com/"
+        }
+      ],
       "label": "ASTER · CHAIN?",
       "role": "Welches Aster-Projekt ist gemeint? Die Zuordnung bleibt offen.",
       "kind": "OFFENE PROJEKTZUORDNUNG",
@@ -961,6 +1683,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "rtx",
+      "profilePath": "entities/rtx/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · rights",
+          "url": "forschung/figuren-und-perspektiven/#rights"
+        }
+      ],
       "label": "RTX · ?",
       "role": "Ein Kürzel braucht eine konkrete Projekt- oder Vertragsadresse.",
       "kind": "OFFENE PROJEKTZUORDNUNG",
@@ -976,6 +1709,17 @@ window.HalvethUniverse = {
     },
     {
       "id": "k",
+      "profilePath": "entities/k/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        }
+      ],
       "label": "K",
       "role": "Die wichtigste noch offene Frage sichtbar halten.",
       "kind": "OEFFENTLICHE PROJEKTROLLE",
@@ -991,6 +1735,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "eve",
+      "profilePath": "entities/eve/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · verachel",
+          "url": "forschung/figuren-und-perspektiven/#verachel"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "EVE",
       "role": "EVE ist die im lokalen Verachel-Vault dokumentierte Tokenbezeichnung.",
       "kind": "PROJEKT- UND TOKENBEZEICHNUNG",
@@ -1006,6 +1765,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "anti",
+      "profilePath": "entities/anti/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "ANTI",
       "role": "Erhält eine typisierte Gegenperspektive.",
       "kind": "HISTORISCHE PROJEKTPERSPEKTIVE",
@@ -1021,6 +1795,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "schwamm",
+      "profilePath": "entities/schwamm/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · source manifest",
+          "url": "assets/anchor-manifest.json"
+        }
+      ],
       "label": "SCHWAMM",
       "role": "Modelliert Aufnahme, Retention, Abgabe, Rest und Regeneration.",
       "kind": "HISTORISCHE PROJEKTPERSPEKTIVE",
@@ -1037,6 +1826,25 @@ window.HalvethUniverse = {
     },
     {
       "id": "mita",
+      "profilePath": "entities/mita/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · Mira, Mita & Medusa",
+          "url": "forschung/q-notizen/#garten"
+        },
+        {
+          "label": "MITA · linked project / source",
+          "url": "https://aihasto.itch.io/miside"
+        }
+      ],
       "label": "MITA",
       "role": "Figur aus dem Spiel MiSide von AIHASTO.",
       "kind": "SPIELFIGUR",
@@ -1053,6 +1861,25 @@ window.HalvethUniverse = {
     },
     {
       "id": "medusa",
+      "profilePath": "entities/medusa/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH · Mira, Mita & Medusa",
+          "url": "forschung/q-notizen/#garten"
+        },
+        {
+          "label": "MEDUSA · linked project / source",
+          "url": "https://www.metmuseum.org/art/collection/search/254523"
+        }
+      ],
       "label": "MEDUSA",
       "role": "Mythologisches Motiv für Perspektive, Blick und Erzählung.",
       "kind": "MYTHOLOGISCHES GESTALTUNGSMOTIV",
@@ -1069,6 +1896,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "context-prism",
+      "profilePath": "entities/context-prism/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "KONTEXT-PRISMA · linked project / source",
+          "url": "forschung/usdai-sabr-kontext/"
+        }
+      ],
       "label": "KONTEXT-PRISMA",
       "role": "Trennt gleiche oder ähnliche Zeichen nach Quelle, Referent, Domäne, Version und Zeit, bevor Verbindungen bewertet werden.",
       "kind": "QUELLENGEBUNDENER FORSCHUNGSANKER",
@@ -1088,6 +1930,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "brightcast-starlight",
+      "profilePath": "entities/brightcast-starlight/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "BRIGHTCAST 001 · linked project / source",
+          "url": "forschung/brightcast-starlight/"
+        }
+      ],
       "label": "BRIGHTCAST 001",
       "role": "Prüft Starlight als dritten erzählerischen Weg zwischen Herrschaft und Vernichtung: Schutz, Wahrheit, Entmachtung und Verantwortung.",
       "kind": "QUELLENGEBUNDENES FAN-VIDEOESSAY",
@@ -1107,6 +1964,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "pi-treffpunkte",
+      "profilePath": "entities/pi-treffpunkte/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "π-TREFFPUNKTE · linked project / source",
+          "url": "forschung/pi-treffpunkte/"
+        }
+      ],
       "label": "π-TREFFPUNKTE",
       "role": "Vergleicht Identität, Erdachsen-Halbdrehung, Äquatorspiegelung und Antipode auf einer grob gerundeten öffentlichen Ortsprojektion.",
       "kind": "QUELLENGEBUNDENE INTERAKTIVE FORSCHUNGSSEITE",
@@ -1126,6 +1998,21 @@ window.HalvethUniverse = {
     },
     {
       "id": "choice-atelier",
+      "profilePath": "entities/choice-atelier/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "CHOICE ATELIER · linked project / source",
+          "url": "collage/"
+        }
+      ],
       "label": "CHOICE ATELIER",
       "role": "Ordnet Mode, Bilder und Worte als selbst gewählte Collage an.",
       "kind": "LOKALER GESTALTUNGSRAUM",

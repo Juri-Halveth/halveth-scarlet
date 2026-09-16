@@ -24,12 +24,16 @@
     {id:'team',path:'./#team',index:'08',image:'nexus',accent:'#ff7ac8',de:'Die Konstellation',en:'The constellation',deNote:'69 öffentliche Karten: Perspektiven, Figuren, Projekte und Quellen',enNote:'69 public cards: perspectives, characters, projects and sources'},
     {id:'collage',path:'collage/',index:'09',image:'gate',accent:'#ff9a71',de:'Choice Atelier',en:'Choice Atelier',deNote:'Mode, Collage und eigene Wahl',enNote:'Fashion, collage and your own choice'},
     {id:'brightcast',path:'forschung/brightcast-starlight/',index:'10',image:'scarlet',accent:'#ff4f76',de:'Brightcast 001',en:'Brightcast 001',deNote:'Starlight und der dritte Weg',enNote:'Starlight and the third route'},
-    {id:'pi',path:'forschung/pi-treffpunkte/',index:'11',image:'nexus',accent:'#b05cff',de:'π-Treffpunkte',en:'π meeting points',deNote:'Plus Codes, vier Symmetrien, klare Beleggrenzen',enNote:'Plus Codes, four symmetries, clear evidence limits'}
+    {id:'pi',path:'forschung/pi-treffpunkte/',index:'11',image:'nexus',accent:'#b05cff',de:'π-Treffpunkte',en:'π meeting points',deNote:'Plus Codes, vier Symmetrien, klare Beleggrenzen',enNote:'Plus Codes, four symmetries, clear evidence limits'},
+    {id:'entities',path:'entities/',index:'12',image:'nexus',accent:'#ff7ac8',de:'Profile & Geschichten',en:'Profiles & stories',deNote:'Eigene Seiten mit Geschichten, Thesen und Quellen',enNote:'Individual pages with stories, theses and sources'},
+    {id:'news',path:'news/',index:'13',image:'machine',accent:'#90cfff',de:'Quellen-News',en:'Source news',deNote:'Datierte Meldungen und sichtbarer Abrufstand',enNote:'Dated stories and visible retrieval status'},
+    {id:'prism',path:'forschung/usdai-sabr-kontext/',index:'14',image:'nexus',accent:'#79f5ce',de:'Kontext-Prisma',en:'Context prism',deNote:'USDAI und SABR im jeweiligen Kontext',enNote:'USDAI and SABR in their respective contexts'}
   ];
 
   const normalized=(url)=>decodeURI(url.pathname).replace(/index\.html$/i,'').replace(/\/+$/,'/')||'/';
   const here=normalized(location);
-  const current=routes.find(route=>route.id!=='team'&&normalized(new URL(route.path,base))===here)||routes[0];
+  const current=routes.find(route=>route.id!=='team'&&normalized(new URL(route.path,base))===here)
+    ||(here.startsWith(normalized(new URL('entities/',base)))?routes.find(route=>route.id==='entities'):routes[0]);
   const language=()=>{
     const query=new URLSearchParams(location.search).get('lang');
     if(query==='en'||query==='de')return query;
@@ -85,7 +89,7 @@
     map.setAttribute('aria-label',english?'Scarlet portal map':'Scarlet-Portalplan');
     map.querySelector('.portal-map-close').setAttribute('aria-label',english?'Close portal map':'Portalplan schließen');
     map.querySelector('.portal-map-kicker').textContent=english?'THE CONNECTED UNIVERSE':'DAS VERBUNDENE UNIVERSUM';
-    map.querySelector('h2').textContent=english?'Twelve portals. One constellation.':'Zwölf Portale. Eine Konstellation.';
+    map.querySelector('h2').textContent=routes.length+(english?' portals. One constellation.':' Portale. Eine Konstellation.');
     map.querySelector('.portal-map-intro').textContent=english?"I'm Juri. HALVETH is my open garden for big questions, traceable sources, and voluntary exploration together. I decide what I publish; you keep your choice. Project texts and fan interpretations are not personal messages or relationship claims. Public submissions can still contain personal data, so share only what you consciously want to make public. The whole public constellation travels with us.":'Ich bin Juri. HALVETH ist mein offener Garten für große Fragen, nachvollziehbare Quellen und freiwilliges gemeinsames Prüfen. Ich entscheide, was ich veröffentliche; du behältst deine Wahl. Projekttexte und Faninterpretationen sind keine persönlichen Nachrichten oder Beziehungsbehauptungen. Öffentlich eingereichte Angaben können trotzdem personenbezogen sein; teile nur, was du bewusst veröffentlichen willst. Die ganze öffentliche Konstellation reist mit.';
     map.querySelector('.portal-map-foot-left').textContent=english?'The em dash connects clauses without pretending to prove a cause.':'Der Gedankenstrich verbindet Satzteile, ohne eine Ursache vorzutäuschen.';
     const grid=map.querySelector('.portal-grid');
