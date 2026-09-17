@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "idempotencyKey": "012d7fcc033c9ca54132c1381b9a6fe5bb3ec4927616f9d5734334e255fa6983",
+  "adapterId": "draft",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "attempts": 1,
+  "attemptedAt": "2026-09-17T17:02:26.355Z",
+  "itemIds": [
+    "0b880b53719b15266f857d15",
+    "e9c1827473aea1a5cf45b5e3",
+    "1cbc3dc7d279763a0fd0a040",
+    "e663f5ea5d5fe975e04a7e74",
+    "c9cdd1ff5261c95b9d461851"
+  ],
+  "confirmedAt": "2026-09-17T17:02:26.355Z"
+}

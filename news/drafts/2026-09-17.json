@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-17",
+  "createdAt": "2026-09-17T17:02:26.355Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-09-17",
+  "body": "# HALVETH Quellen-Update · 2026-09-17\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [NASA Unveils Enterprise, the First Space Shuttle](https://www.nasa.gov/image-article/nasa-unveils-enterprise-the-first-space-shuttle/) · veröffentlicht 2026-09-17\n- **NASA** · Originaltitel (EN): [APOD: 2026 September 17 – A Treasure Chest in the Carina Nebula](https://science.nasa.gov/image-article/apod-2026-september-17-a-treasure-chest-in-the-carina-nebula/) · veröffentlicht 2026-09-17\n- **NASA** · Originaltitel (EN): [Summer Goes Out With a Heat Dome](https://science.nasa.gov/earth/earth-observatory/summer-goes-out-with-a-heat-dome/) · veröffentlicht 2026-09-17\n- **NASA** · Originaltitel (EN): [Passion Meets Precision at NASA’s Flight Research Lab](https://www.nasa.gov/people-of-nasa/armstrong-people/passion-meets-precision-at-nasas-flight-research-lab/) · veröffentlicht 2026-09-16\n- **GitHub Changelog** · Originaltitel (EN): [Automate SSO authorization for classic PATs and SSH keys](https://github.blog/changelog/2026-09-16-automate-sso-authorization-for-classic-pats-and-ssh-keys) · veröffentlicht 2026-09-16\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "0b880b53719b15266f857d15",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Unveils Enterprise, the First Space Shuttle",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/nasa-unveils-enterprise-the-first-space-shuttle/",
+      "sourcePublishedAt": "2026-09-17T15:22:42Z",
+      "fetchedAt": "2026-09-17T17:02:25Z",
+      "firstFetchedAt": "2026-09-17T17:02:25Z"
+    },
+    {
+      "id": "e9c1827473aea1a5cf45b5e3",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 September 17 – A Treasure Chest in the Carina Nebula",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-september-17-a-treasure-chest-in-the-carina-nebula/",
+      "sourcePublishedAt": "2026-09-17T04:05:00Z",
+      "fetchedAt": "2026-09-17T17:02:25Z",
+      "firstFetchedAt": "2026-09-17T06:10:26Z"
+    },
+    {
+      "id": "1cbc3dc7d279763a0fd0a040",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Summer Goes Out With a Heat Dome",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/summer-goes-out-with-a-heat-dome/",
+      "sourcePublishedAt": "2026-09-17T04:01:00Z",
+      "fetchedAt": "2026-09-17T17:02:25Z",
+      "firstFetchedAt": "2026-09-17T06:10:26Z"
+    },
+    {
+      "id": "e663f5ea5d5fe975e04a7e74",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Passion Meets Precision at NASA’s Flight Research Lab",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/people-of-nasa/armstrong-people/passion-meets-precision-at-nasas-flight-research-lab/",
+      "sourcePublishedAt": "2026-09-16T21:06:08Z",
+      "fetchedAt": "2026-09-17T17:02:25Z",
+      "firstFetchedAt": "2026-09-16T21:23:12Z"
+    },
+    {
+      "id": "c9cdd1ff5261c95b9d461851",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Automate SSO authorization for classic PATs and SSH keys",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-16-automate-sso-authorization-for-classic-pats-and-ssh-keys",
+      "sourcePublishedAt": "2026-09-16T20:20:16Z",
+      "fetchedAt": "2026-09-17T17:02:25Z",
+      "firstFetchedAt": "2026-09-17T00:34:25Z"
+    }
+  ],
+  "idempotencyKey": "012d7fcc033c9ca54132c1381b9a6fe5bb3ec4927616f9d5734334e255fa6983"
+}
