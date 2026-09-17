@@ -19,6 +19,7 @@ The Earth scene, all 69 profile pages, the Choice Atelier and the research pages
 - [Forms and connections](https://juri-halveth.github.io/halveth-scarlet/forschung/formen-und-verbindungen/?lang=en)
 - [Bitcoin transaction flow](https://juri-halveth.github.io/halveth-scarlet/forschung/transaktionsfluss/?lang=en)
 - [DE → DEBBI · Hela, Scarlet and the third route](https://juri-halveth.github.io/halveth-scarlet/forschung/de-debbi-hela/?lang=en)
+- [Handwritten convergences · scan, mirror, light and traceability](https://juri-halveth.github.io/halveth-scarlet/forschung/handschriftliche-konvergenzen/?lang=en)
 
 English coverage includes countdowns, game commentary, settings, accessibility labels, satellite loading and error states. Satellite and source dates keep their documented reference; switching the language does not refresh a source snapshot. The test suite also checks language precedence, internal links and complete card translations.
 
