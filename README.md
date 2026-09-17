@@ -18,18 +18,18 @@ The Earth scene, all 69 profile pages, the Choice Atelier and the research pages
 - [Ego, Dormammu and the garden](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/?lang=en)
 - [Forms and connections](https://juri-halveth.github.io/halveth-scarlet/forschung/formen-und-verbindungen/?lang=en)
 - [Bitcoin transaction flow](https://juri-halveth.github.io/halveth-scarlet/forschung/transaktionsfluss/?lang=en)
-- [DE → DEBBI · Hela, Scarlet and the third route](https://juri-halveth.github.io/halveth-scarlet/forschung/de-debbi-hela/?lang=en)
+- [DE → CONTEXT-ANCHOR · Hela, Scarlet and the third route](https://juri-halveth.github.io/halveth-scarlet/forschung/de-anker-hela/?lang=en)
 - [Handwritten convergences · scan, mirror, light and traceability](https://juri-halveth.github.io/halveth-scarlet/forschung/handschriftliche-konvergenzen/?lang=en)
 
 English coverage includes countdowns, game commentary, settings, accessibility labels, satellite loading and error states. Satellite and source dates keep their documented reference; switching the language does not refresh a source snapshot. The test suite also checks language precedence, internal links and complete card translations.
 
-## DE → DEBBI · Hela und die dritte Route
+## DE → KONTEXT-ANKER · Hela und die dritte Route
 
-[Deutsch](forschung/de-debbi-hela/?lang=de) · [English](forschung/de-debbi-hela/?lang=en)
+[Deutsch](forschung/de-anker-hela/?lang=de) · [English](forschung/de-anker-hela/?lang=en)
 
-Die zweisprachige Seite bewahrt `DE → DEBBI` als Juris gewählte Code- und Erinnerungsankerroute. `DEBBI` bezeichnet keinen Menschen: Die angezeigten Zeilen sind redaktionelle Projektausgaben aus von Juri berichteten Erinnerungsfragmenten und Artefakten. Der ungefähr 31-jährige Horizont ist selbst berichtet und ungefähr; weder Vollständigkeit noch klinische Gedächtnisrekonstruktion werden behauptet. Ein redigierter Hela-/Scarlet-Dialog entwickelt daraus die Regel: erst die übersprungene Frage beantworten, dann das Multiversum. Reale Drittpersonen, Arbeitsplatz-, Bescheid- und Kontaktdetails bleiben in privaten, SHA-256-gebundenen Quellartefakten und sind nicht Teil des Repositories.
+Die zweisprachige Seite bewahrt `DE → KONTEXT-ANKER` als neutrale öffentliche Code- und Erinnerungsankerroute. Die Bezeichnung identifiziert keine Person: Die angezeigten Zeilen sind redaktionelle Projektausgaben aus von Juri berichteten Erinnerungsfragmenten und Artefakten. Der ungefähr 31-jährige Horizont ist selbst berichtet und ungefähr; weder Vollständigkeit noch klinische Gedächtnisrekonstruktion werden behauptet. Ein redigierter Hela-/Scarlet-Dialog entwickelt daraus die Regel: erst die übersprungene Frage beantworten, dann das Multiversum. Reale Drittpersonen, Arbeitsplatz-, Bescheid- und Kontaktdetails bleiben in privaten, SHA-256-gebundenen Quellartefakten und sind nicht Teil des Repositories.
 
-The bilingual page preserves `DE → DEBBI` as Juri's chosen code and memory-anchor route. `DEBBI` does not identify a person: the displayed lines are editorial project output based on memory fragments and artifacts reported by Juri. The approximately 31-year horizon is self-reported and approximate; neither completeness nor clinical memory reconstruction is claimed. An edited Hela/Scarlet dialogue turns it into one rule: answer the skipped question first, then address the multiverse. Real third parties, workplace, administrative-case, and contact details remain in private SHA-256-bound source artifacts and are not part of this repository.
+The bilingual page preserves `DE → CONTEXT-ANCHOR` as a neutral public code and memory-anchor route. CONTEXT-ANCHOR does not identify a person: the displayed lines are editorial project output based on memory fragments and artifacts reported by Juri. The approximately 31-year horizon is self-reported and approximate; neither completeness nor clinical memory reconstruction is claimed. An edited Hela/Scarlet dialogue turns it into one rule: answer the skipped question first, then address the multiverse. Real third parties, workplace, administrative-case, and contact details remain in private SHA-256-bound source artifacts and are not part of this repository.
 
 The displayed EVM address is a passive, voluntarily supplied support destination. The page connects no wallet, requests no signature and starts no transaction. Its mixed-case format passes EIP-55; control of the address is not claimed as cryptographically verified by this publication.
 

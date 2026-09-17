@@ -28,7 +28,7 @@
     {id:'entities',path:'entities/',index:'12',image:'nexus',accent:'#ff7ac8',de:'Profile & Geschichten',en:'Profiles & stories',deNote:'Eigene Seiten mit Geschichten, Thesen und Quellen',enNote:'Individual pages with stories, theses and sources'},
     {id:'news',path:'news/',index:'13',image:'machine',accent:'#90cfff',de:'Quellen-News',en:'Source news',deNote:'Datierte Meldungen und sichtbarer Abrufstand',enNote:'Dated stories and visible retrieval status'},
     {id:'prism',path:'forschung/usdai-sabr-kontext/',index:'14',image:'nexus',accent:'#79f5ce',de:'Kontext-Prisma',en:'Context prism',deNote:'USDAI und SABR im jeweiligen Kontext',enNote:'USDAI and SABR in their respective contexts'},
-    {id:'debbi',path:'forschung/de-debbi-hela/',index:'15',image:'scarlet',accent:'#ff6d9f',de:'DE → DEBBI',en:'DE → DEBBI',deNote:'Erst A beantworten, dann Multiversum',enNote:'Answer A first, then the multiverse'}
+    {id:'anchor',path:'forschung/de-anker-hela/',index:'15',image:'scarlet',accent:'#ff6d9f',de:'DE → KONTEXT-ANKER',en:'DE → CONTEXT-ANCHOR',deNote:'Erst A beantworten, dann Multiversum',enNote:'Answer A first, then the multiverse'}
   ];
 
   const normalized=(url)=>decodeURI(url.pathname).replace(/index\.html$/i,'').replace(/\/+$/,'/')||'/';

@@ -17,7 +17,7 @@ const pages = new Map([
   ['forschung/usdai-sabr-kontext/index.html', '../../assets/'],
   ['forschung/brightcast-starlight/index.html', '../../assets/']
   ,['forschung/pi-treffpunkte/index.html', '../../assets/']
-  ,['forschung/de-debbi-hela/index.html', '../../assets/']
+  ,['forschung/de-anker-hela/index.html', '../../assets/']
 ]);
 
 test('every published page loads one shared portal shell from the correct root', () => {
@@ -91,7 +91,7 @@ test('responsive layout has no fractional pixel gap below desktop', () => {
 test('portal shell exposes all routes and motion-safe controls', () => {
   const script = fs.readFileSync(path.join(root, 'assets/portal-shell.js'), 'utf8');
   const style = fs.readFileSync(path.join(root, 'assets/portal-shell.css'), 'utf8');
-  for (const route of ['./', 'room/', 'snapshot/', 'collage/', 'entities/', 'news/', 'forschung/usdai-sabr-kontext/', 'forschung/figuren-und-perspektiven/', 'forschung/formen-und-verbindungen/', 'forschung/transaktionsfluss/', 'forschung/q-notizen/', 'forschung/tagesstand-2026-09-13/', 'forschung/brightcast-starlight/', 'forschung/pi-treffpunkte/', 'forschung/de-debbi-hela/', './#team']) {
+  for (const route of ['./', 'room/', 'snapshot/', 'collage/', 'entities/', 'news/', 'forschung/usdai-sabr-kontext/', 'forschung/figuren-und-perspektiven/', 'forschung/formen-und-verbindungen/', 'forschung/transaktionsfluss/', 'forschung/q-notizen/', 'forschung/tagesstand-2026-09-13/', 'forschung/brightcast-starlight/', 'forschung/pi-treffpunkte/', 'forschung/de-anker-hela/', './#team']) {
     assert(script.includes(`path:'${route}'`), route);
   }
   assert(script.includes("routes.length+(english?"), 'portal count follows the actual route registry');
@@ -116,7 +116,7 @@ test('research CSP permits only the local portal presentation assets', () => {
     'forschung/usdai-sabr-kontext/index.html',
     'forschung/brightcast-starlight/index.html',
     'forschung/pi-treffpunkte/index.html',
-    'forschung/de-debbi-hela/index.html',
+    'forschung/de-anker-hela/index.html',
     'collage/index.html'
   ]) {
     const html = fs.readFileSync(path.join(root, relative), 'utf8');

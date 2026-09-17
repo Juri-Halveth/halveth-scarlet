@@ -81,7 +81,7 @@ body.portal-ready > :not(.portal-atmosphere):not(.portal-shell):not(.portal-map)
 .portal-route-flow{--portal-accent:var(--portal-gold)}
 .portal-route-q{--portal-accent:var(--portal-violet)}
 .portal-route-day{--portal-accent:#90cfff}
-.portal-route-debbi{--portal-accent:#ff6d9f;--portal-image-position:68% 50%}
+.portal-route-anchor{--portal-accent:#ff6d9f;--portal-image-position:68% 50%}
 
 .portal-skip{
   position:fixed;

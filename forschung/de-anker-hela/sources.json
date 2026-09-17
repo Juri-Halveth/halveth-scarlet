@@ -1,22 +1,22 @@
 {
-  "schema": "halveth.de-debbi-hela.public-sources.v2",
+  "schema": "halveth.de-anker-hela.public-sources.v3",
   "publishedAt": "2026-09-17",
   "sourceState": "PUBLIC_DERIVATIVE_OF_PRIVATE_REQUEST_TEXT_WITH_USER_PROVENANCE_CORRECTION",
   "publicArtifact": {
     "path": "public-monologue.md",
-    "bytes": 4454,
-    "sha256": "b7e28b3899d2ce749a70a59656bc3cea20abe28608c2e135590e1defd3ea7875"
+    "bytes": 4441,
+    "sha256": "b15327e9213de3e10b762be702df0cec88e27e3fcfe1f74f9f59dc36713a1aed"
   },
   "claims": [
     {
       "id": "C01",
-      "statement": "DE to DEBBI is Juri's selected creative continuation.",
+      "statement": "DE to CONTEXT-ANCHOR is Juri's selected creative continuation.",
       "state": "USER_SELECTED_CONTINUATION",
       "sourceRefs": ["P01"]
     },
     {
       "id": "C02",
-      "statement": "DEBBI is a Juri-defined program-code and memory-anchor concept. Displayed DEBBI lines are editorial project output and are not attributed to a real person.",
+      "statement": "CONTEXT-ANCHOR is a neutral public research ID for a Juri-defined program-code and memory-anchor concept. Displayed lines are editorial project output and are not attributed to a real person.",
       "state": "USER_DEFINED_PROGRAM_CODE_MEMORY_ANCHOR",
       "sourceRefs": ["P01"]
     },

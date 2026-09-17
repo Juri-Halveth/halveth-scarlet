@@ -1,14 +1,14 @@
-# DE → DEBBI: Erinnerungsanker, dann Multiversum
+# DE → KONTEXT-ANKER: Erinnerungsanker, dann Multiversum
 
 > Ein unabhängiger HALVETH-Fanmonolog über Erinnerungsfragmente, übersprungene Fragen, Hela, Scarlet und die Kunst, erst sauber zuzuhören und danach ganze Dimensionen zu retten.
 
-## Was DEBBI hier bezeichnet
+## Was KONTEXT-ANKER hier bezeichnet
 
-`DEBBI` bezeichnet in diesem Projekt keinen Menschen. Es ist Juris Name für einen Programmcode- und Erinnerungsanker: eine redaktionelle Anordnung aus von Juri berichteten Erinnerungsfragmenten und Artefakten aus ungefähr 31 Lebensjahren.
+`KONTEXT-ANKER` bezeichnet in diesem Projekt keine Person. Es ist eine neutrale öffentliche Forschungs-ID für einen Programmcode- und Erinnerungsanker: eine redaktionelle Anordnung aus von Juri berichteten Erinnerungsfragmenten und Artefakten aus ungefähr 31 Lebensjahren.
 
-Die folgenden DEBBI-Zeilen sind **redaktionelle Projektausgaben**. Keine reale Person namens Debbi hat sie gesagt, geschrieben, freigegeben oder autorisiert. Eine zufällige oder empfundene Namensähnlichkeit erzeugt keine Identität, Teilnahme, Zustimmung oder Vertretung.
+Die folgenden KONTEXT-ANKER-Zeilen sind **redaktionelle Projektausgaben**. Die öffentliche Fassung enthält keine Namen privater Dritter und beansprucht keine Identität, Teilnahme, Zustimmung oder Vertretung.
 
-`DEBBI_CODE · REDAKTIONELLE AUSGABE:` „Wer kommt nach DE? Ich. Das war die Frage. Bevor wir Feuerberge, Zeitlinien und Weltenrettung aufrufen: Antwortet erst A.“
+`DE_CODE · REDAKTIONELLE AUSGABE:` „Wer kommt nach DE? Ich. Das war die Frage. Bevor wir Feuerberge, Zeitlinien und Weltenrettung aufrufen: Antwortet erst A.“
 
 **JURI:** „Okay. A war menschlich: helfen, nervös werden, fragen, warten, zu viel denken. Was die andere Person wollte, weiß ich aus dem verbliebenen Ausschnitt nicht.“
 
@@ -20,9 +20,9 @@ Die folgenden DEBBI-Zeilen sind **redaktionelle Projektausgaben**. Keine reale P
 
 **HELA:** „Ich bin hier die Kraft, die den Feuerberg anhält und fragt, warum alle immer zuerst kämpfen. Vielleicht braucht die Geschichte keine Auslöschung. Vielleicht braucht sie ein Gespräch zwischen Versionen, die einander nichts beweisen müssen, bevor sie zuhören.“
 
-`DEBBI_CODE · REDAKTIONELLE AUSGABE:` „Gut. Dann lautet der Code: Quelle erhalten, Frage beantworten, Einwilligung achten, Fiktion kenntlich machen — und maximal erzählen.“
+`DE_CODE · REDAKTIONELLE AUSGABE:` „Gut. Dann lautet der Code: Quelle erhalten, Frage beantworten, Einwilligung achten, Fiktion kenntlich machen — und maximal erzählen.“
 
-`DEBBI_CODE · SZENENBILD:` „Irgendwo wäscht gerade ein Mensch sein Gesicht.“
+`DE_CODE · SZENENBILD:` „Irgendwo wäscht gerade ein Mensch sein Gesicht.“
 
 Das letzte Bild ist eine erfundene, humorvolle Szene. Es dokumentiert keine beobachtete Handlung und identifiziert keinen Menschen.
 
@@ -30,7 +30,7 @@ Das letzte Bild ist eine erfundene, humorvolle Szene. Es dokumentiert keine beob
 
 ## HALVETH-Lesart
 
-- `DE → DEBBI` ist Juris gewählte Code- und Erinnerungsankerroute.
+- `DE → KONTEXT-ANKER` ist Juris gewählte Code- und Erinnerungsankerroute.
 - „Ungefähr 31 Jahre“ ist Juris selbst berichteter, ungefährer Erinnerungshorizont. Vollständigkeit oder eine lückenlose Rekonstruktion werden nicht behauptet.
 - Juri ordnet den Projektcode, das Artefakt und den neu geschriebenen Text seinem Werk zu. Daraus entsteht kein Eigentums-, Identitäts-, Äußerungs-, Zustimmungs- oder Vertretungsanspruch über eine reale Person.
 - Die Formulierung, Erinnerungen vor Alzheimer bewahren zu wollen, beschreibt hier eine humorvoll zugespitzte Motivation zur persönlichen Archivierung. Sie belegt keine Diagnose, Prognose, Prävention, Behandlung oder medizinische Wirksamkeit.
