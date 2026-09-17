@@ -1,0 +1,33 @@
+{
+  "schema": "halveth.public-research-record.v1",
+  "title": "Handschriftliche Konvergenzen",
+  "publishedCorpus": "privacy-minimized synthesis only",
+  "privateSourceCount": 7,
+  "observed": [
+    "three notebook pages with text and spatial marks",
+    "one digital fantasy-font view",
+    "one private chat screenshot",
+    "two photographs of a medical-device implant card",
+    "two medical-device traceability labels",
+    "STERILE A, LOT and use-by symbols"
+  ],
+  "operators": {
+    "domain": "display-oriented 2D raster",
+    "members": ["P", "H", "V", "R180"],
+    "law": "P identity; H and V reflections; H∘V=V∘H=R180"
+  },
+  "claimCeiling": "Visible structures and later thematic convergence are source-bound. Original writing time, prophecy, external agency, physical remote effects, and medical effects from the arrangement are not established.",
+  "fictionBranch": {
+    "relation": "HELA_X_ULTRON_LOVERS",
+    "status": "USER_AUTHORED_FICTION",
+    "canonClaim": false,
+    "realPersonClaim": false
+  },
+  "excluded": ["raw images", "private paths", "contact data", "Data Matrix payloads", "GTIN", "batch and lot values", "patient data"],
+  "officialSources": [
+    "https://www.teoxane.com/en/dermal-fillers-ifus",
+    "https://teoxanestorage.blob.core.windows.net/strapi-uploads-upgrade/assets/13_IFU_TEOSYAL_RHA_3_230511_00_ac2cbf51ee_792f214ebe.pdf",
+    "https://www.gs1.org/standards/gs1-datamatrix-guideline/25",
+    "https://eur-lex.europa.eu/eli/dec_impl/2022/6/oj?locale=en"
+  ]
+}
