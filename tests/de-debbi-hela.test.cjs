@@ -10,12 +10,15 @@ const publicText = fs.readFileSync(path.join(dir, 'public-monologue.md'), 'utf8'
 const sources = JSON.parse(fs.readFileSync(path.join(dir, 'sources.json'), 'utf8'));
 const address = '0x6416FDCfe74978Be4787A4e65E53090A7C9Eb5ca';
 
-test('DE to DEBBI is an explicit fictional continuation with bilingual public context', () => {
+test('DE to DEBBI is an explicit program-code memory anchor with bilingual public context', () => {
   assert.match(page, /DE <span aria-hidden="true">→<\/span> DEBBI/);
-  assert.match(page, /DEBBI erscheint auf dieser Seite als fiktionale Erzählstimme/);
-  assert.match(page, /DEBBI appears on this page as a fictional narrative voice/);
+  assert.match(page, /DEBBI bezeichnet keinen Menschen, sondern Juris Programmcodename für einen Erinnerungsanker/);
+  assert.match(page, /DEBBI does not identify a person\. It is Juri's program-code name for a memory anchor/);
+  assert.match(page, /DEBBI_CODE · AUSGABE/);
+  assert.match(page, /DEBBI_CODE · OUTPUT/);
   assert.match(page, /USER-DIRECTED EDITORIAL DERIVATIVE/);
-  assert.match(page, /NO CANON CLAIM/);
+  assert.match(page, /MEMORY_ANCHOR_PROGRAM/);
+  assert.equal(sources.claims.find(item => item.id === 'C02').state, 'USER_DEFINED_PROGRAM_CODE_MEMORY_ANCHOR');
 });
 
 test('public page excludes the private transcript and sensitive event context', () => {
@@ -61,4 +64,19 @@ test('the public source artifact is byte-bound and rights stay separated', () =>
   assert.match(page, /Keine offizielle Marvel-\/Disney-Veröffentlichung/);
   assert.match(page, /Not an official Marvel\/Disney publication/);
   assert.match(sources.claimCeiling, /NO_CANON_PHYSICAL_BIOLOGICAL/);
+});
+
+test('provenance correction prevents real-person and medical claims', () => {
+  assert.equal(page.includes('fiktionale Erzählstimme'), false);
+  assert.equal(page.includes('fictional narrative voice'), false);
+  assert.match(page, /Keine reale Person namens Debbi hat sie gesagt, geschrieben, freigegeben oder autorisiert/);
+  assert.match(page, /They were not spoken, authored, approved, or authorized by any real person named Debbi/);
+  assert.match(page, /keine Diagnose, Prognose, Präventions-, Behandlungs- oder Wirksamkeitsbehauptung/);
+  assert.match(page, /not a diagnosis, prognosis, prevention, treatment, or efficacy claim/);
+  assert.match(page, /keine Außenbeobachtung/);
+  assert.match(page, /not an external observation/);
+  assert.equal(sources.privacy.realPersonSpeechAttributed, false);
+  assert.equal(sources.privacy.realPersonRepresentationClaimed, false);
+  assert.equal(sources.privacy.medicalDiagnosisClaimed, false);
+  assert.match(sources.claimCeiling, /NO_CANON_PHYSICAL_BIOLOGICAL_REAL_PERSON_SPEECH_AUTHORSHIP_CONSENT_REPRESENTATION_AUTONOMOUS_AGENT_COMPLETE_RECONSTRUCTION_MEDICAL/);
 });

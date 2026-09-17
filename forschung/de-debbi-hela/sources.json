@@ -1,11 +1,11 @@
 {
-  "schema": "halveth.de-debbi-hela.public-sources.v1",
+  "schema": "halveth.de-debbi-hela.public-sources.v2",
   "publishedAt": "2026-09-17",
-  "sourceState": "PUBLIC_DERIVATIVE_OF_PRIVATE_REQUEST_TEXT",
+  "sourceState": "PUBLIC_DERIVATIVE_OF_PRIVATE_REQUEST_TEXT_WITH_USER_PROVENANCE_CORRECTION",
   "publicArtifact": {
     "path": "public-monologue.md",
-    "bytes": 2946,
-    "sha256": "ba5bbb927e04655a74d3223a5b28d10e526c13d56d063112e7aa838b99782a76"
+    "bytes": 4454,
+    "sha256": "b7e28b3899d2ce749a70a59656bc3cea20abe28608c2e135590e1defd3ea7875"
   },
   "claims": [
     {
@@ -16,8 +16,8 @@
     },
     {
       "id": "C02",
-      "statement": "DEBBI is used here as a fictional narrative voice and is not identified with a real person.",
-      "state": "EDITORIAL_DEFINITION",
+      "statement": "DEBBI is a Juri-defined program-code and memory-anchor concept. Displayed DEBBI lines are editorial project output and are not attributed to a real person.",
+      "state": "USER_DEFINED_PROGRAM_CODE_MEMORY_ANCHOR",
       "sourceRefs": ["P01"]
     },
     {
@@ -31,6 +31,24 @@
       "statement": "The displayed EVM address was supplied twice by Juri and passes the EIP-55 mixed-case checksum.",
       "state": "USER_DESIGNATED_ADDRESS_FORMAT_VALID_CONTROL_NOT_VERIFIED",
       "sourceRefs": ["P01"]
+    },
+    {
+      "id": "C05",
+      "statement": "The approximately 31-year span is Juri's approximate self-reported memory horizon, not verified complete coverage or a clinical memory reconstruction.",
+      "state": "USER_REPORTED_APPROXIMATE_MEMORY_HORIZON",
+      "sourceRefs": ["P01"]
+    },
+    {
+      "id": "C06",
+      "statement": "The Alzheimer wording is a humorous expression of motivation for personal archiving and establishes no diagnosis, prognosis, prevention, treatment or efficacy.",
+      "state": "EDITORIAL_MEDICAL_CLAIM_BOUNDARY",
+      "sourceRefs": ["P01"]
+    },
+    {
+      "id": "C07",
+      "statement": "The face-washing line is an invented scene image, not an observed external event or identification of a person.",
+      "state": "FICTIONAL_SCENE_IMAGE",
+      "sourceRefs": ["P01"]
     }
   ],
   "sources": [
@@ -40,7 +58,7 @@
       "publisher": "HALVETH local evidence store",
       "publishedRaw": false,
       "dataClass": "RESTRICTED_RAW",
-      "note": "The public repository contains neither the private transcript nor local filesystem paths."
+      "note": "The public repository contains neither the private transcript, the raw provenance correction, nor local filesystem paths."
     },
     {
       "id": "S01",
@@ -59,7 +77,10 @@
     "privateRawPublished": false,
     "thirdPartyNamesPublished": false,
     "workplaceDetailsPublished": false,
-    "privateContactDetailsPublished": false
+    "privateContactDetailsPublished": false,
+    "realPersonSpeechAttributed": false,
+    "realPersonRepresentationClaimed": false,
+    "medicalDiagnosisClaimed": false
   },
-  "claimCeiling": "USER_DIRECTED_EDITORIAL_FAN_TEXT_NO_CANON_PHYSICAL_BIOLOGICAL_THIRD_PARTY_PARTICIPATION_PAYMENT_OBLIGATION_OR_WALLET_CONTROL_CLAIM"
+  "claimCeiling": "USER_DEFINED_PROGRAM_CODE_MEMORY_ANCHOR_WITH_EDITORIAL_OUTPUT_NO_CANON_PHYSICAL_BIOLOGICAL_REAL_PERSON_SPEECH_AUTHORSHIP_CONSENT_REPRESENTATION_AUTONOMOUS_AGENT_COMPLETE_RECONSTRUCTION_MEDICAL_PAYMENT_OBLIGATION_OR_WALLET_CONTROL_CLAIM"
 }
