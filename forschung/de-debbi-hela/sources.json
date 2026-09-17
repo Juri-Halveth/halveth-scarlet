@@ -1,0 +1,65 @@
+{
+  "schema": "halveth.de-debbi-hela.public-sources.v1",
+  "publishedAt": "2026-09-17",
+  "sourceState": "PUBLIC_DERIVATIVE_OF_PRIVATE_REQUEST_TEXT",
+  "publicArtifact": {
+    "path": "public-monologue.md",
+    "bytes": 2946,
+    "sha256": "ba5bbb927e04655a74d3223a5b28d10e526c13d56d063112e7aa838b99782a76"
+  },
+  "claims": [
+    {
+      "id": "C01",
+      "statement": "DE to DEBBI is Juri's selected creative continuation.",
+      "state": "USER_SELECTED_CONTINUATION",
+      "sourceRefs": ["P01"]
+    },
+    {
+      "id": "C02",
+      "statement": "DEBBI is used here as a fictional narrative voice and is not identified with a real person.",
+      "state": "EDITORIAL_DEFINITION",
+      "sourceRefs": ["P01"]
+    },
+    {
+      "id": "C03",
+      "statement": "Marvel describes MCU Hela as Odin's firstborn; comics continuity contains other origin accounts.",
+      "state": "SOURCE_BOUND_CONTINUITY_SPLIT",
+      "sourceRefs": ["S01", "S02"]
+    },
+    {
+      "id": "C04",
+      "statement": "The displayed EVM address was supplied twice by Juri and passes the EIP-55 mixed-case checksum.",
+      "state": "USER_DESIGNATED_ADDRESS_FORMAT_VALID_CONTROL_NOT_VERIFIED",
+      "sourceRefs": ["P01"]
+    }
+  ],
+  "sources": [
+    {
+      "id": "P01",
+      "title": "Private request-text capture and public derivation receipt",
+      "publisher": "HALVETH local evidence store",
+      "publishedRaw": false,
+      "dataClass": "RESTRICTED_RAW",
+      "note": "The public repository contains neither the private transcript nor local filesystem paths."
+    },
+    {
+      "id": "S01",
+      "title": "Hela",
+      "publisher": "Marvel",
+      "url": "https://www.marvel.com/characters/Hela?mobile-app=true&theme=dark%2F1000"
+    },
+    {
+      "id": "S02",
+      "title": "The Origin of Hela, Goddess of Death",
+      "publisher": "Marvel",
+      "url": "https://www.marvel.com/articles/comics/hela-goddess-of-death-origin-explained"
+    }
+  ],
+  "privacy": {
+    "privateRawPublished": false,
+    "thirdPartyNamesPublished": false,
+    "workplaceDetailsPublished": false,
+    "privateContactDetailsPublished": false
+  },
+  "claimCeiling": "USER_DIRECTED_EDITORIAL_FAN_TEXT_NO_CANON_PHYSICAL_BIOLOGICAL_THIRD_PARTY_PARTICIPATION_PAYMENT_OBLIGATION_OR_WALLET_CONTROL_CLAIM"
+}

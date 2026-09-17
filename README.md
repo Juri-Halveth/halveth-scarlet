@@ -18,8 +18,19 @@ The Earth scene, all 69 profile pages, the Choice Atelier and the research pages
 - [Ego, Dormammu and the garden](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/?lang=en)
 - [Forms and connections](https://juri-halveth.github.io/halveth-scarlet/forschung/formen-und-verbindungen/?lang=en)
 - [Bitcoin transaction flow](https://juri-halveth.github.io/halveth-scarlet/forschung/transaktionsfluss/?lang=en)
+- [DE → DEBBI · Hela, Scarlet and the third route](https://juri-halveth.github.io/halveth-scarlet/forschung/de-debbi-hela/?lang=en)
 
 English coverage includes countdowns, game commentary, settings, accessibility labels, satellite loading and error states. Satellite and source dates keep their documented reference; switching the language does not refresh a source snapshot. The test suite also checks language precedence, internal links and complete card translations.
+
+## DE → DEBBI · Hela und die dritte Route
+
+[Deutsch](forschung/de-debbi-hela/?lang=de) · [English](forschung/de-debbi-hela/?lang=en)
+
+Die zweisprachige Seite bewahrt `DE → DEBBI` als Juris gewählte Namensfortführung und führt Debbi ausschließlich als fiktionale Erzählstimme. Ein redigierter Hela-/Scarlet-Dialog entwickelt daraus die Regel: erst die übersprungene Frage beantworten, dann das Multiversum. Reale Drittpersonen, Arbeitsplatz-, Bescheid- und Kontaktdetails bleiben im privaten, SHA-256-gebundenen Quellartefakt und sind nicht Teil des Repositories.
+
+The bilingual page preserves `DE → DEBBI` as Juri's chosen name continuation and uses Debbi solely as a fictional narrative voice. An edited Hela/Scarlet dialogue turns it into one rule: answer the skipped question first, then address the multiverse. Real third parties, workplace, administrative-case, and contact details remain in the private SHA-256-bound source artifact and are not part of this repository.
+
+The displayed EVM address is a passive, voluntarily supplied support destination. The page connects no wallet, requests no signature and starts no transaction. Its mixed-case format passes EIP-55; control of the address is not claimed as cryptographically verified by this publication.
 
 ## Die Szene
 
