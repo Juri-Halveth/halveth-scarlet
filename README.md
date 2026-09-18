@@ -8,6 +8,14 @@ Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer geme
 
 **Urheberschaft und Beteiligung / Authorship and participation:** © 2026 Juri Halveth (Juri Janovski). HALVETH beansprucht die Rechte an den eigenen Thesen, Texten, Modellen, Abbildungen und dem Code. Eine öffentliche GitHub-Fassung ist kein Rechteverzicht. Neue eigene Beiträge unter HALVETH PIRL 2.0 sind **Source Available**. Die kommerziellen Bedingungen gelten nur im Umfang der jeweiligen Rechte; frühere MIT-, ISC- und Creative-Commons-Freigaben sowie Drittanbieterrechte bleiben bestehen. Lizenzanfragen: **security@halveth.de**. Einzelheiten: [HALVETH-RIGHTS.md](HALVETH-RIGHTS.md), [HALVETH-RIGHTS.json](HALVETH-RIGHTS.json) und [LICENSES.md](LICENSES.md).
 
+## HALVETH Research · 18.09.2026
+
+[Deutsch](forschung/halveth-research/?lang=de) · [English](forschung/halveth-research/?lang=en) · [Forschungsnotiz / Research note](https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_RESEARCH_2026-09-18.md)
+
+**Forschung prüfen. Entscheidungen erklären.** Die neue Research-Seite trennt beobachtetes Verhalten, Anwendbarkeit, Auswirkung, Angriffshistorie und Vergütungsregeln. Sie erläutert das Prinzip einer begründeten menschlichen Prüfung. Zum 18. September 2026 ist eine lokale Beschwerde an Immunefi zur Gebühreneinordnung und zur menschlichen Prüfung vorbereitet; im gesichteten Stand liegt kein Versandbeleg vor. Eine anerkannte Schwachstelle oder eine Auszahlung wird damit nicht behauptet.
+
+**Review research. Explain decisions.** The Research page separates observed behavior, applicability, impact, attack history and reward rules, and explains the principle of reasoned human review. As of 18 September 2026, a local complaint to Immunefi about fee classification and human review is prepared; the reviewed record contains no delivery receipt. This announcement makes no claim of an accepted vulnerability or a payout.
+
 ## Deutsch und Englisch / German and English
 
 Die Erde, alle 69 Profilseiten, das Choice Atelier und die Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern diese lokale Präferenz. Seiten mit direktem Sprachwechsel behalten ihren Zustand; andere Ansichten laden neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
