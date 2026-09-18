@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-18T04:47:58Z",
+  "generatedAt": "2026-09-18T09:48:43Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-18T04:47:58Z",
-      "lastSuccessAt": "2026-09-18T04:47:58Z",
+      "lastAttemptAt": "2026-09-18T09:48:43Z",
+      "lastSuccessAt": "2026-09-18T09:48:43Z",
       "status": "fresh",
       "error": null
     },
@@ -17,8 +17,8 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-18T04:47:58Z",
-      "lastSuccessAt": "2026-09-18T04:47:58Z",
+      "lastAttemptAt": "2026-09-18T09:48:43Z",
+      "lastSuccessAt": "2026-09-18T09:48:43Z",
       "status": "fresh",
       "error": null
     }
@@ -32,7 +32,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-18-messier-33-the-triangulum-galaxy/",
       "sourcePublishedAt": "2026-09-18T04:05:00Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-18T04:47:58Z"
     },
     {
@@ -43,7 +43,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement",
       "sourcePublishedAt": "2026-09-17T21:47:27Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
     },
     {
@@ -54,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api",
       "sourcePublishedAt": "2026-09-17T21:08:50Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
     },
     {
@@ -65,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-awards-launch-services-for-starburst-gamma-ray-detector/",
       "sourcePublishedAt": "2026-09-17T20:37:09Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
     },
     {
@@ -76,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-spacexs-35th-resupply-launch-to-space-station/",
       "sourcePublishedAt": "2026-09-17T18:32:30Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-17T20:21:07Z"
     },
     {
@@ -87,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration",
       "sourcePublishedAt": "2026-09-17T16:27:16Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-17T20:21:07Z"
     },
     {
@@ -98,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available",
       "sourcePublishedAt": "2026-09-17T15:45:26Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-17T20:21:07Z"
     },
     {
@@ -109,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-unveils-enterprise-the-first-space-shuttle/",
       "sourcePublishedAt": "2026-09-17T15:22:42Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-17T17:02:25Z"
     },
     {
@@ -120,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-17-a-treasure-chest-in-the-carina-nebula/",
       "sourcePublishedAt": "2026-09-17T04:05:00Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-17T06:10:26Z"
     },
     {
@@ -131,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/summer-goes-out-with-a-heat-dome/",
       "sourcePublishedAt": "2026-09-17T04:01:00Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-17T06:10:26Z"
     },
     {
@@ -142,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/people-of-nasa/armstrong-people/passion-meets-precision-at-nasas-flight-research-lab/",
       "sourcePublishedAt": "2026-09-16T21:06:08Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-16T21:23:12Z"
     },
     {
@@ -153,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-16-automate-sso-authorization-for-classic-pats-and-ssh-keys",
       "sourcePublishedAt": "2026-09-16T20:20:16Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-17T00:34:25Z"
     },
     {
@@ -164,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-16-scim-user-responses-now-include-a-profileurl-attribute",
       "sourcePublishedAt": "2026-09-16T20:19:58Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-16T21:23:12Z"
     },
     {
@@ -175,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available",
       "sourcePublishedAt": "2026-09-16T20:17:18Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-16T21:23:12Z"
     },
     {
@@ -186,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/solar-system/moon/nasas-moon-orbiter-spots-new-once-in-century-moon-crater/",
       "sourcePublishedAt": "2026-09-16T18:06:35Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-16T21:23:12Z"
     },
     {
@@ -197,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/technology/space-comms/nasa-celebrates-restoration-of-guam-station-damaged-by-typhoon-mawar/",
       "sourcePublishedAt": "2026-09-16T16:12:01Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-16T18:14:14Z"
     },
     {
@@ -208,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/science-research/earth-science/nasa-watches-earths-weight-finds-center-of-mass/",
       "sourcePublishedAt": "2026-09-16T16:08:00Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-16T18:14:14Z"
     },
     {
@@ -285,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-16-code-scanning-ai-scan-no-longer-requires-codeql-default-setup",
       "sourcePublishedAt": "2026-09-16T13:26:06Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-16T14:18:57Z"
     },
     {
@@ -318,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-15-enforce-github-advanced-security-configurations",
       "sourcePublishedAt": "2026-09-15T19:31:58Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
@@ -329,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions",
       "sourcePublishedAt": "2026-09-15T19:07:47Z",
-      "fetchedAt": "2026-09-18T04:47:58Z",
+      "fetchedAt": "2026-09-18T09:48:43Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {
