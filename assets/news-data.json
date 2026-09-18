@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-18T14:32:18Z",
+  "generatedAt": "2026-09-18T18:31:14Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-18T14:32:18Z",
-      "lastSuccessAt": "2026-09-18T14:32:18Z",
+      "lastAttemptAt": "2026-09-18T18:31:14Z",
+      "lastSuccessAt": "2026-09-18T18:31:14Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,46 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-18T14:32:18Z",
-      "lastSuccessAt": "2026-09-18T14:32:18Z",
+      "lastAttemptAt": "2026-09-18T18:31:14Z",
+      "lastSuccessAt": "2026-09-18T18:31:14Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "4f937e072c6920ec30d87d43",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Stage-only npm tokens for safer automation",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-18-stage-only-npm-tokens-for-safer-automation",
+      "sourcePublishedAt": "2026-09-18T16:37:50Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
+      "firstFetchedAt": "2026-09-18T18:31:14Z"
+    },
+    {
+      "id": "8a863be8b83805c6aafa3299",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Awards SpaceX Three Crew Flights to Space Station",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/missions/station/commercial-crew/nasa-awards-spacex-three-crew-flights-to-space-station/",
+      "sourcePublishedAt": "2026-09-18T16:02:31Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
+      "firstFetchedAt": "2026-09-18T18:31:14Z"
+    },
+    {
+      "id": "ab329bef0417d4bf9c280c69",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "COSI Telescope Comes Together",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/cosi-telescope-comes-together/",
+      "sourcePublishedAt": "2026-09-18T15:45:03Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
+      "firstFetchedAt": "2026-09-18T18:31:14Z"
+    },
     {
       "id": "62d937d9bc4a192dcc196719",
       "sourceId": "nasa",
@@ -32,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/uncategorized/nasas-hubble-spots-an-out-of-sync-galaxy/",
       "sourcePublishedAt": "2026-09-18T13:38:12Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-18T14:32:18Z"
     },
     {
@@ -43,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-18-messier-33-the-triangulum-galaxy/",
       "sourcePublishedAt": "2026-09-18T04:05:00Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-18T04:47:58Z"
     },
     {
@@ -54,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement",
       "sourcePublishedAt": "2026-09-17T21:47:27Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
     },
     {
@@ -65,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api",
       "sourcePublishedAt": "2026-09-17T21:08:50Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
     },
     {
@@ -76,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-awards-launch-services-for-starburst-gamma-ray-detector/",
       "sourcePublishedAt": "2026-09-17T20:37:09Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
     },
     {
@@ -87,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-spacexs-35th-resupply-launch-to-space-station/",
       "sourcePublishedAt": "2026-09-17T18:32:30Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-17T20:21:07Z"
     },
     {
@@ -98,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration",
       "sourcePublishedAt": "2026-09-17T16:27:16Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-17T20:21:07Z"
     },
     {
@@ -109,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available",
       "sourcePublishedAt": "2026-09-17T15:45:26Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-17T20:21:07Z"
     },
     {
@@ -120,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-unveils-enterprise-the-first-space-shuttle/",
       "sourcePublishedAt": "2026-09-17T15:22:42Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-17T17:02:25Z"
     },
     {
@@ -131,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-17-a-treasure-chest-in-the-carina-nebula/",
       "sourcePublishedAt": "2026-09-17T04:05:00Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-17T06:10:26Z"
     },
     {
@@ -142,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/summer-goes-out-with-a-heat-dome/",
       "sourcePublishedAt": "2026-09-17T04:01:00Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-17T06:10:26Z"
     },
     {
@@ -153,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/people-of-nasa/armstrong-people/passion-meets-precision-at-nasas-flight-research-lab/",
       "sourcePublishedAt": "2026-09-16T21:06:08Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-16T21:23:12Z"
     },
     {
@@ -164,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-16-automate-sso-authorization-for-classic-pats-and-ssh-keys",
       "sourcePublishedAt": "2026-09-16T20:20:16Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-17T00:34:25Z"
     },
     {
@@ -175,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-16-scim-user-responses-now-include-a-profileurl-attribute",
       "sourcePublishedAt": "2026-09-16T20:19:58Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-16T21:23:12Z"
     },
     {
@@ -186,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available",
       "sourcePublishedAt": "2026-09-16T20:17:18Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-16T21:23:12Z"
     },
     {
@@ -296,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-16-code-scanning-ai-scan-no-longer-requires-codeql-default-setup",
       "sourcePublishedAt": "2026-09-16T13:26:06Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-16T14:18:57Z"
     },
     {
@@ -329,7 +362,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-15-enforce-github-advanced-security-configurations",
       "sourcePublishedAt": "2026-09-15T19:31:58Z",
-      "fetchedAt": "2026-09-18T14:32:18Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     },
     {

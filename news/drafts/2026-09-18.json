@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-18",
+  "createdAt": "2026-09-18T18:31:14.405Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-09-18",
+  "body": "# HALVETH Quellen-Update · 2026-09-18\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **GitHub Changelog** · Originaltitel (EN): [Stage-only npm tokens for safer automation](https://github.blog/changelog/2026-09-18-stage-only-npm-tokens-for-safer-automation) · veröffentlicht 2026-09-18\n- **NASA** · Originaltitel (EN): [NASA Awards SpaceX Three Crew Flights to Space Station](https://www.nasa.gov/missions/station/commercial-crew/nasa-awards-spacex-three-crew-flights-to-space-station/) · veröffentlicht 2026-09-18\n- **NASA** · Originaltitel (EN): [COSI Telescope Comes Together](https://www.nasa.gov/image-article/cosi-telescope-comes-together/) · veröffentlicht 2026-09-18\n- **NASA** · Originaltitel (EN): [NASA’s Hubble Spots an Out-of-Sync Galaxy](https://science.nasa.gov/uncategorized/nasas-hubble-spots-an-out-of-sync-galaxy/) · veröffentlicht 2026-09-18\n- **NASA** · Originaltitel (EN): [APOD: 2026 September 18 – Messier 33: The Triangulum Galaxy](https://science.nasa.gov/image-article/apod-2026-september-18-messier-33-the-triangulum-galaxy/) · veröffentlicht 2026-09-18\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "4f937e072c6920ec30d87d43",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Stage-only npm tokens for safer automation",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-18-stage-only-npm-tokens-for-safer-automation",
+      "sourcePublishedAt": "2026-09-18T16:37:50Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
+      "firstFetchedAt": "2026-09-18T18:31:14Z"
+    },
+    {
+      "id": "8a863be8b83805c6aafa3299",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Awards SpaceX Three Crew Flights to Space Station",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/missions/station/commercial-crew/nasa-awards-spacex-three-crew-flights-to-space-station/",
+      "sourcePublishedAt": "2026-09-18T16:02:31Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
+      "firstFetchedAt": "2026-09-18T18:31:14Z"
+    },
+    {
+      "id": "ab329bef0417d4bf9c280c69",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "COSI Telescope Comes Together",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/cosi-telescope-comes-together/",
+      "sourcePublishedAt": "2026-09-18T15:45:03Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
+      "firstFetchedAt": "2026-09-18T18:31:14Z"
+    },
+    {
+      "id": "62d937d9bc4a192dcc196719",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Hubble Spots an Out-of-Sync Galaxy",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/uncategorized/nasas-hubble-spots-an-out-of-sync-galaxy/",
+      "sourcePublishedAt": "2026-09-18T13:38:12Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
+      "firstFetchedAt": "2026-09-18T14:32:18Z"
+    },
+    {
+      "id": "5ca9809aa46fb908d3530aca",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 September 18 – Messier 33: The Triangulum Galaxy",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-september-18-messier-33-the-triangulum-galaxy/",
+      "sourcePublishedAt": "2026-09-18T04:05:00Z",
+      "fetchedAt": "2026-09-18T18:31:14Z",
+      "firstFetchedAt": "2026-09-18T04:47:58Z"
+    }
+  ],
+  "idempotencyKey": "57b7dd85728904a4e82929d01f5501c65605fe840013b97ac4f30ff18461dc01"
+}
