@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-20",
+  "createdAt": "2026-09-20T16:50:16.396Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-09-20",
+  "body": "# HALVETH Quellen-Update · 2026-09-20\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [APOD: 2026 September 20 – Analemma over the Callanish Stones](https://science.nasa.gov/image-article/apod-2026-september-20-analemma-over-the-callanish-stones/) · veröffentlicht 2026-09-20\n- **GitHub Changelog** · Originaltitel (EN): [Upcoming deprecation of selected GitHub Copilot models in mid-October](https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october) · veröffentlicht 2026-09-18\n- **NASA** · Originaltitel (EN): [NASA-JAXA XRISM Mission Sees Pulsar Gathering Companion’s ‘Wind’](https://science.nasa.gov/missions/xrism/xrism-sees-pulsar-gathering-companions-wind/) · veröffentlicht 2026-09-18\n- **GitHub Changelog** · Originaltitel (EN): [Copilot impact dashboard now shows feature engagement](https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement) · veröffentlicht 2026-09-17\n- **GitHub Changelog** · Originaltitel (EN): [Agentic CLI customizations now in the usage metrics API](https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api) · veröffentlicht 2026-09-17\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "bd58adb8d8b903f31aadefc4",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 September 20 – Analemma over the Callanish Stones",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-september-20-analemma-over-the-callanish-stones/",
+      "sourcePublishedAt": "2026-09-20T04:05:00Z",
+      "fetchedAt": "2026-09-20T16:50:16Z",
+      "firstFetchedAt": "2026-09-20T06:20:55Z"
+    },
+    {
+      "id": "4cbf947485c627798e6c2a1e",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Upcoming deprecation of selected GitHub Copilot models in mid-October",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october",
+      "sourcePublishedAt": "2026-09-18T19:00:00Z",
+      "fetchedAt": "2026-09-20T16:50:16Z",
+      "firstFetchedAt": "2026-09-18T21:43:41Z"
+    },
+    {
+      "id": "86591bbda4f8bbef4b395ba4",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA-JAXA XRISM Mission Sees Pulsar Gathering Companion’s ‘Wind’",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/missions/xrism/xrism-sees-pulsar-gathering-companions-wind/",
+      "sourcePublishedAt": "2026-09-18T18:02:53Z",
+      "fetchedAt": "2026-09-20T16:50:16Z",
+      "firstFetchedAt": "2026-09-18T21:43:41Z"
+    },
+    {
+      "id": "553eb3c867220f4c8b6d99e9",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Copilot impact dashboard now shows feature engagement",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement",
+      "sourcePublishedAt": "2026-09-17T21:47:27Z",
+      "fetchedAt": "2026-09-20T16:50:16Z",
+      "firstFetchedAt": "2026-09-17T23:33:58Z"
+    },
+    {
+      "id": "74fc977f691fc14677d3d30f",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Agentic CLI customizations now in the usage metrics API",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api",
+      "sourcePublishedAt": "2026-09-17T21:08:50Z",
+      "fetchedAt": "2026-09-20T16:50:16Z",
+      "firstFetchedAt": "2026-09-17T23:33:58Z"
+    }
+  ],
+  "idempotencyKey": "fbadf15e2fdee32012e1ce4de41f9ff50cf3bb7845fa988c9691010a6de7ed30"
+}
