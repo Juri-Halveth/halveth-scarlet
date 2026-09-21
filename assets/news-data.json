@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T06:24:30Z",
+  "generatedAt": "2026-09-21T14:13:45Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-21T06:24:30Z",
-      "lastSuccessAt": "2026-09-21T06:24:30Z",
+      "lastAttemptAt": "2026-09-21T14:13:45Z",
+      "lastSuccessAt": "2026-09-21T14:13:45Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,35 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-21T06:24:30Z",
-      "lastSuccessAt": "2026-09-21T06:24:30Z",
+      "lastAttemptAt": "2026-09-21T14:13:45Z",
+      "lastSuccessAt": "2026-09-21T14:13:45Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "2e69e877109be4158ad77604",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Widely Attended Gatherings (WAGs) Determinations",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/organizations/nasa-ethics-advice-for-widely-attended-gatherings-wags/",
+      "sourcePublishedAt": "2026-09-21T12:59:26Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
+      "firstFetchedAt": "2026-09-21T14:13:45Z"
+    },
+    {
+      "id": "0fbc4280b1f11a34dfbcf730",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Johnson Space Center Sparks Curiosity at Houston’s 33rd Annual Japan Festival",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/johnson/johnson-space-center-sparks-curiosity-at-houstons-33rd-annual-japan-festival/",
+      "sourcePublishedAt": "2026-09-21T11:11:42Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
+      "firstFetchedAt": "2026-09-21T14:13:45Z"
+    },
     {
       "id": "3e308b542f4c40b2786f77d9",
       "sourceId": "nasa",
@@ -32,8 +54,19 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-21-cocoon-nebula-wide-field/",
       "sourcePublishedAt": "2026-09-21T04:05:00Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-21T06:24:30Z"
+    },
+    {
+      "id": "e3a5e0cb687ba0be96bb5913",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Arctic Melt Season Length Levels Off",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/arctic-melt-season-length-levels-off/",
+      "sourcePublishedAt": "2026-09-21T04:00:00Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
+      "firstFetchedAt": "2026-09-21T14:13:45Z"
     },
     {
       "id": "bd58adb8d8b903f31aadefc4",
@@ -43,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-20-analemma-over-the-callanish-stones/",
       "sourcePublishedAt": "2026-09-20T04:05:00Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-20T06:20:55Z"
     },
     {
@@ -54,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-19-a-zodiacal-night/",
       "sourcePublishedAt": "2026-09-19T04:05:00Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-19T05:56:19Z"
     },
     {
@@ -65,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience",
       "sourcePublishedAt": "2026-09-18T20:17:22Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -76,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-albania-artemis-accords-signing-ceremony/",
       "sourcePublishedAt": "2026-09-18T19:56:08Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -87,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-manage-the-code-coverage-ruleset-condition-with-the-rest-api",
       "sourcePublishedAt": "2026-09-18T19:23:49Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -98,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14",
       "sourcePublishedAt": "2026-09-18T19:21:22Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -109,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october",
       "sourcePublishedAt": "2026-09-18T19:00:00Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -120,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/xrism/xrism-sees-pulsar-gathering-companions-wind/",
       "sourcePublishedAt": "2026-09-18T18:02:53Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -131,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-stage-only-npm-tokens-for-safer-automation",
       "sourcePublishedAt": "2026-09-18T16:37:50Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-18T18:31:14Z"
     },
     {
@@ -142,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/missions/station/commercial-crew/nasa-awards-spacex-three-crew-flights-to-space-station/",
       "sourcePublishedAt": "2026-09-18T16:02:31Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-18T18:31:14Z"
     },
     {
@@ -153,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/cosi-telescope-comes-together/",
       "sourcePublishedAt": "2026-09-18T15:45:03Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-18T18:31:14Z"
     },
     {
@@ -186,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement",
       "sourcePublishedAt": "2026-09-17T21:47:27Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
     },
     {
@@ -197,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api",
       "sourcePublishedAt": "2026-09-17T21:08:50Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
     },
     {
@@ -230,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration",
       "sourcePublishedAt": "2026-09-17T16:27:16Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-17T20:21:07Z"
     },
     {
@@ -241,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available",
       "sourcePublishedAt": "2026-09-17T15:45:26Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-17T20:21:07Z"
     },
     {
@@ -296,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-16-automate-sso-authorization-for-classic-pats-and-ssh-keys",
       "sourcePublishedAt": "2026-09-16T20:20:16Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
+      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-17T00:34:25Z"
     },
     {
@@ -496,39 +529,6 @@
       "sourcePublishedAt": "2026-09-15T16:47:20Z",
       "fetchedAt": "2026-09-17T20:21:07Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
-    },
-    {
-      "id": "23e4c4e407df229054ea8555",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Celebrate International Observe the Moon Night with NASA",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/centers-and-facilities/goddard/celebrate-international-observe-the-moon-night-with-nasa/",
-      "sourcePublishedAt": "2026-09-15T16:15:12Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
-      "firstFetchedAt": "2026-09-16T13:58:35Z"
-    },
-    {
-      "id": "92721cbea280174893e25559",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Artemis III Crew Visits NASA Kennedy’s Vehicle Assembly Building",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/artemis-iii-crew-visits-nasa-kennedys-vehicle-assembly-building/",
-      "sourcePublishedAt": "2026-09-15T16:14:24Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
-      "firstFetchedAt": "2026-09-16T13:58:35Z"
-    },
-    {
-      "id": "2702e3fc73ec2d04a6a7b7a6",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Travel",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/centers-and-facilities/nssc/travel/",
-      "sourcePublishedAt": "2026-09-15T13:38:56Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
-      "firstFetchedAt": "2026-09-16T13:58:35Z"
     },
     {
       "id": "ef18d943849cad0ec28717e1",
