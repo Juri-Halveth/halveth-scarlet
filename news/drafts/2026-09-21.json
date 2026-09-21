@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-21",
+  "createdAt": "2026-09-21T19:32:13.842Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-09-21",
+  "body": "# HALVETH Quellen-Update · 2026-09-21\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [NASA Astronaut Reid Wiseman Attends Ravens vs. Saints Game](https://www.nasa.gov/image-article/nasa-astronaut-reid-wiseman-attends-ravens-vs-saints-game/) · veröffentlicht 2026-09-21\n- **NASA** · Originaltitel (EN): [NASA Discovery Reveals Complex Water Systems on Early Mars](https://www.nasa.gov/solar-system/planets/mars/nasa-discovery-reveals-complex-water-systems-on-early-mars/) · veröffentlicht 2026-09-21\n- **GitHub Changelog** · Originaltitel (EN): [Grok 4.7 is now available in GitHub Copilot](https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot) · veröffentlicht 2026-09-21\n- **NASA** · Originaltitel (EN): [Widely Attended Gatherings (WAGs) Determinations](https://www.nasa.gov/organizations/nasa-ethics-advice-for-widely-attended-gatherings-wags/) · veröffentlicht 2026-09-21\n- **NASA** · Originaltitel (EN): [Johnson Space Center Sparks Curiosity at Houston’s 33rd Annual Japan Festival](https://www.nasa.gov/centers-and-facilities/johnson/johnson-space-center-sparks-curiosity-at-houstons-33rd-annual-japan-festival/) · veröffentlicht 2026-09-21\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "adad4cb6ad45eb0bb80fc2eb",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Astronaut Reid Wiseman Attends Ravens vs. Saints Game",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/nasa-astronaut-reid-wiseman-attends-ravens-vs-saints-game/",
+      "sourcePublishedAt": "2026-09-21T18:43:13Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
+      "firstFetchedAt": "2026-09-21T19:32:13Z"
+    },
+    {
+      "id": "a6bdcfb76b04d856e4b26e4e",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Discovery Reveals Complex Water Systems on Early Mars",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/solar-system/planets/mars/nasa-discovery-reveals-complex-water-systems-on-early-mars/",
+      "sourcePublishedAt": "2026-09-21T16:54:43Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
+      "firstFetchedAt": "2026-09-21T19:32:13Z"
+    },
+    {
+      "id": "9c38b0e540fa6708e9ee0116",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Grok 4.7 is now available in GitHub Copilot",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot",
+      "sourcePublishedAt": "2026-09-21T14:54:12Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
+      "firstFetchedAt": "2026-09-21T19:32:13Z"
+    },
+    {
+      "id": "2e69e877109be4158ad77604",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Widely Attended Gatherings (WAGs) Determinations",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/organizations/nasa-ethics-advice-for-widely-attended-gatherings-wags/",
+      "sourcePublishedAt": "2026-09-21T12:59:26Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
+      "firstFetchedAt": "2026-09-21T14:13:45Z"
+    },
+    {
+      "id": "0fbc4280b1f11a34dfbcf730",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Johnson Space Center Sparks Curiosity at Houston’s 33rd Annual Japan Festival",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/johnson/johnson-space-center-sparks-curiosity-at-houstons-33rd-annual-japan-festival/",
+      "sourcePublishedAt": "2026-09-21T11:11:42Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
+      "firstFetchedAt": "2026-09-21T14:13:45Z"
+    }
+  ],
+  "idempotencyKey": "648c44ed3b7092acf6564579eb8a34e4bcd7f98f827c302e91fc4bc7e3194428"
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T14:13:45Z",
+  "generatedAt": "2026-09-21T19:32:13Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-21T14:13:45Z",
-      "lastSuccessAt": "2026-09-21T14:13:45Z",
+      "lastAttemptAt": "2026-09-21T19:32:13Z",
+      "lastSuccessAt": "2026-09-21T19:32:13Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,46 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-21T14:13:45Z",
-      "lastSuccessAt": "2026-09-21T14:13:45Z",
+      "lastAttemptAt": "2026-09-21T19:32:13Z",
+      "lastSuccessAt": "2026-09-21T19:32:13Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "adad4cb6ad45eb0bb80fc2eb",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Astronaut Reid Wiseman Attends Ravens vs. Saints Game",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/nasa-astronaut-reid-wiseman-attends-ravens-vs-saints-game/",
+      "sourcePublishedAt": "2026-09-21T18:43:13Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
+      "firstFetchedAt": "2026-09-21T19:32:13Z"
+    },
+    {
+      "id": "a6bdcfb76b04d856e4b26e4e",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Discovery Reveals Complex Water Systems on Early Mars",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/solar-system/planets/mars/nasa-discovery-reveals-complex-water-systems-on-early-mars/",
+      "sourcePublishedAt": "2026-09-21T16:54:43Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
+      "firstFetchedAt": "2026-09-21T19:32:13Z"
+    },
+    {
+      "id": "9c38b0e540fa6708e9ee0116",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Grok 4.7 is now available in GitHub Copilot",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot",
+      "sourcePublishedAt": "2026-09-21T14:54:12Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
+      "firstFetchedAt": "2026-09-21T19:32:13Z"
+    },
     {
       "id": "2e69e877109be4158ad77604",
       "sourceId": "nasa",
@@ -32,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/organizations/nasa-ethics-advice-for-widely-attended-gatherings-wags/",
       "sourcePublishedAt": "2026-09-21T12:59:26Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-21T14:13:45Z"
     },
     {
@@ -43,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/johnson/johnson-space-center-sparks-curiosity-at-houstons-33rd-annual-japan-festival/",
       "sourcePublishedAt": "2026-09-21T11:11:42Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-21T14:13:45Z"
     },
     {
@@ -54,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-21-cocoon-nebula-wide-field/",
       "sourcePublishedAt": "2026-09-21T04:05:00Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-21T06:24:30Z"
     },
     {
@@ -65,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/arctic-melt-season-length-levels-off/",
       "sourcePublishedAt": "2026-09-21T04:00:00Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-21T14:13:45Z"
     },
     {
@@ -76,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-20-analemma-over-the-callanish-stones/",
       "sourcePublishedAt": "2026-09-20T04:05:00Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-20T06:20:55Z"
     },
     {
@@ -87,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-19-a-zodiacal-night/",
       "sourcePublishedAt": "2026-09-19T04:05:00Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-19T05:56:19Z"
     },
     {
@@ -98,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience",
       "sourcePublishedAt": "2026-09-18T20:17:22Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -109,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-albania-artemis-accords-signing-ceremony/",
       "sourcePublishedAt": "2026-09-18T19:56:08Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -120,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-manage-the-code-coverage-ruleset-condition-with-the-rest-api",
       "sourcePublishedAt": "2026-09-18T19:23:49Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -131,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14",
       "sourcePublishedAt": "2026-09-18T19:21:22Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -142,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october",
       "sourcePublishedAt": "2026-09-18T19:00:00Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -153,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/xrism/xrism-sees-pulsar-gathering-companions-wind/",
       "sourcePublishedAt": "2026-09-18T18:02:53Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -164,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-stage-only-npm-tokens-for-safer-automation",
       "sourcePublishedAt": "2026-09-18T16:37:50Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-18T18:31:14Z"
     },
     {
@@ -219,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement",
       "sourcePublishedAt": "2026-09-17T21:47:27Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
     },
     {
@@ -230,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api",
       "sourcePublishedAt": "2026-09-17T21:08:50Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
     },
     {
@@ -263,7 +296,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration",
       "sourcePublishedAt": "2026-09-17T16:27:16Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-17T20:21:07Z"
     },
     {
@@ -274,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available",
       "sourcePublishedAt": "2026-09-17T15:45:26Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
+      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-17T20:21:07Z"
     },
     {
@@ -476,17 +509,6 @@
       "firstFetchedAt": "2026-09-16T13:58:35Z"
     },
     {
-      "id": "185880306f1f62231a7a5862",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Ames Stars of the Month: September 2026",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/general/nasa-ames-stars-of-the-month-september-2026/",
-      "sourcePublishedAt": "2026-09-15T23:46:11Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
-      "firstFetchedAt": "2026-09-16T13:58:35Z"
-    },
-    {
       "id": "3c75a69d7db995ab411d0f3a",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -507,17 +529,6 @@
       "sourcePublishedAt": "2026-09-15T19:07:47Z",
       "fetchedAt": "2026-09-18T14:32:18Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
-    },
-    {
-      "id": "1445656c8aca9fb6c73d1258",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Invites Media to International Observe the Moon Night",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-international-observe-the-moon-night/",
-      "sourcePublishedAt": "2026-09-15T18:55:33Z",
-      "fetchedAt": "2026-09-16T14:18:57Z",
-      "firstFetchedAt": "2026-09-16T13:58:35Z"
     },
     {
       "id": "75750532babc26210b56a736",
