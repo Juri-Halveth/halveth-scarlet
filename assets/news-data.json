@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T19:32:13Z",
+  "generatedAt": "2026-09-21T23:19:01Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-21T19:32:13Z",
-      "lastSuccessAt": "2026-09-21T19:32:13Z",
+      "lastAttemptAt": "2026-09-21T23:19:01Z",
+      "lastSuccessAt": "2026-09-21T23:19:01Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,68 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-21T19:32:13Z",
-      "lastSuccessAt": "2026-09-21T19:32:13Z",
+      "lastAttemptAt": "2026-09-21T23:19:01Z",
+      "lastSuccessAt": "2026-09-21T23:19:01Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "10f011856a3bbb8d44fadabd",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Embracing the Equinox",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/embracing-the-equinox/",
+      "sourcePublishedAt": "2026-09-21T21:55:40Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
+      "firstFetchedAt": "2026-09-21T23:19:01Z"
+    },
+    {
+      "id": "fe01e73753d247ec87cd88dc",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Welcomes Albania as Newest Artemis Accords Signatory",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-albania-as-newest-artemis-accords-signatory/",
+      "sourcePublishedAt": "2026-09-21T21:21:32Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
+      "firstFetchedAt": "2026-09-21T23:19:01Z"
+    },
+    {
+      "id": "f631d543deb02b097c676cd1",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Enterprise adds credential inventory exports",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-21-github-enterprise-adds-credential-inventory-exports",
+      "sourcePublishedAt": "2026-09-21T21:13:18Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
+      "firstFetchedAt": "2026-09-21T23:19:01Z"
+    },
+    {
+      "id": "abfb5f1554f5ebfeeb2525cb",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Kicks Off Nationwide Effort to Prepare Tomorrow’s Space Workforce",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/learning-resources/nasa-kicks-off-nationwide-effort-to-prepare-tomorrows-space-workforce/",
+      "sourcePublishedAt": "2026-09-21T21:03:04Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
+      "firstFetchedAt": "2026-09-21T23:19:01Z"
+    },
+    {
+      "id": "e880a9ccf943b57efed4754b",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Perseverance’s View of ‘Turquoise Bay’",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/photojournal/perseverances-view-of-turquoise-bay/",
+      "sourcePublishedAt": "2026-09-21T19:17:59Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
+      "firstFetchedAt": "2026-09-21T23:19:01Z"
+    },
     {
       "id": "adad4cb6ad45eb0bb80fc2eb",
       "sourceId": "nasa",
@@ -32,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-astronaut-reid-wiseman-attends-ravens-vs-saints-game/",
       "sourcePublishedAt": "2026-09-21T18:43:13Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-21T19:32:13Z"
     },
     {
@@ -43,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/solar-system/planets/mars/nasa-discovery-reveals-complex-water-systems-on-early-mars/",
       "sourcePublishedAt": "2026-09-21T16:54:43Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-21T19:32:13Z"
     },
     {
@@ -54,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot",
       "sourcePublishedAt": "2026-09-21T14:54:12Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-21T19:32:13Z"
     },
     {
@@ -65,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/organizations/nasa-ethics-advice-for-widely-attended-gatherings-wags/",
       "sourcePublishedAt": "2026-09-21T12:59:26Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-21T14:13:45Z"
     },
     {
@@ -76,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/johnson/johnson-space-center-sparks-curiosity-at-houstons-33rd-annual-japan-festival/",
       "sourcePublishedAt": "2026-09-21T11:11:42Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-21T14:13:45Z"
     },
     {
@@ -87,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-21-cocoon-nebula-wide-field/",
       "sourcePublishedAt": "2026-09-21T04:05:00Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-21T06:24:30Z"
     },
     {
@@ -98,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/arctic-melt-season-length-levels-off/",
       "sourcePublishedAt": "2026-09-21T04:00:00Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-21T14:13:45Z"
     },
     {
@@ -131,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience",
       "sourcePublishedAt": "2026-09-18T20:17:22Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -153,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-manage-the-code-coverage-ruleset-condition-with-the-rest-api",
       "sourcePublishedAt": "2026-09-18T19:23:49Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -164,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14",
       "sourcePublishedAt": "2026-09-18T19:21:22Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -175,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october",
       "sourcePublishedAt": "2026-09-18T19:00:00Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -197,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-stage-only-npm-tokens-for-safer-automation",
       "sourcePublishedAt": "2026-09-18T16:37:50Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-18T18:31:14Z"
     },
     {
@@ -252,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement",
       "sourcePublishedAt": "2026-09-17T21:47:27Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
     },
     {
@@ -263,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api",
       "sourcePublishedAt": "2026-09-17T21:08:50Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
     },
     {
@@ -296,7 +351,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration",
       "sourcePublishedAt": "2026-09-17T16:27:16Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
+      "fetchedAt": "2026-09-21T23:19:01Z",
       "firstFetchedAt": "2026-09-17T20:21:07Z"
     },
     {
@@ -454,39 +509,6 @@
       "firstFetchedAt": "2026-09-16T18:14:14Z"
     },
     {
-      "id": "3eb545021f358853f020ae12",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Astronaut Reid Wiseman to Join NFL Fans in Baltimore",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-astronaut-reid-wiseman-to-join-nfl-fans-in-baltimore/",
-      "sourcePublishedAt": "2026-09-16T15:00:18Z",
-      "fetchedAt": "2026-09-17T11:45:57Z",
-      "firstFetchedAt": "2026-09-16T18:14:14Z"
-    },
-    {
-      "id": "ae3f74c26f1695a68414024c",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s Integrated Medical Model (IMM)",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/general/nasas-integrated-medical-model-imm/",
-      "sourcePublishedAt": "2026-09-16T14:50:23Z",
-      "fetchedAt": "2026-09-17T00:34:25Z",
-      "firstFetchedAt": "2026-09-16T18:14:14Z"
-    },
-    {
-      "id": "710396950977efedd60edcbd",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Newfound ‘Baby’ Planet Smashes Record for Youngest Known World",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/universe/newfound-baby-planet-smashes-record-for-youngest-known-world/",
-      "sourcePublishedAt": "2026-09-16T14:34:47Z",
-      "fetchedAt": "2026-09-17T00:34:25Z",
-      "firstFetchedAt": "2026-09-16T18:14:14Z"
-    },
-    {
       "id": "9b9123b78b32ebe54a6d5fb8",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -496,17 +518,6 @@
       "sourcePublishedAt": "2026-09-16T13:26:06Z",
       "fetchedAt": "2026-09-18T18:31:14Z",
       "firstFetchedAt": "2026-09-16T14:18:57Z"
-    },
-    {
-      "id": "ec8184b7a4a18e0ac4af3cfc",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 September 16 – Webb’s View of M64",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-september-16-webbs-view-of-m64/",
-      "sourcePublishedAt": "2026-09-16T04:05:00Z",
-      "fetchedAt": "2026-09-16T18:14:14Z",
-      "firstFetchedAt": "2026-09-16T13:58:35Z"
     },
     {
       "id": "3c75a69d7db995ab411d0f3a",
