@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T10:00:28Z",
+  "generatedAt": "2026-09-22T14:57:30Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-22T10:00:28Z",
-      "lastSuccessAt": "2026-09-22T10:00:28Z",
+      "lastAttemptAt": "2026-09-22T14:57:30Z",
+      "lastSuccessAt": "2026-09-22T14:57:30Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,24 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-22T10:00:28Z",
-      "lastSuccessAt": "2026-09-22T10:00:28Z",
+      "lastAttemptAt": "2026-09-22T14:57:30Z",
+      "lastSuccessAt": "2026-09-22T14:57:30Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "4c11cdbda5fe098ae1c5b6be",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Astronaut to Answer Questions from New Hampshire Students",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/learning-resources/nasa-astronaut-to-answer-questions-from-new-hampshire-students/",
+      "sourcePublishedAt": "2026-09-22T13:38:53Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
+      "firstFetchedAt": "2026-09-22T14:57:30Z"
+    },
     {
       "id": "3822e53281df1dc0922def79",
       "sourceId": "github",
@@ -32,8 +43,19 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-deprecation-notice-all-platform-codeql-bundle",
       "sourcePublishedAt": "2026-09-22T09:21:03Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-22T10:00:28Z"
+    },
+    {
+      "id": "240a5ca10cdfdb11db837748",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "An Epic View of the Seasons",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/an-epic-view-of-the-seasons/",
+      "sourcePublishedAt": "2026-09-22T04:01:00Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
+      "firstFetchedAt": "2026-09-22T14:57:30Z"
     },
     {
       "id": "5580c57bea18417fa16e109b",
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-21-refreshed-repository-pull-requests-page-generally-available",
       "sourcePublishedAt": "2026-09-22T01:25:53Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-22T05:01:04Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/embracing-the-equinox/",
       "sourcePublishedAt": "2026-09-21T21:55:40Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-21T23:19:01Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-albania-as-newest-artemis-accords-signatory/",
       "sourcePublishedAt": "2026-09-21T21:21:32Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-21T23:19:01Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-21-github-enterprise-adds-credential-inventory-exports",
       "sourcePublishedAt": "2026-09-21T21:13:18Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-21T23:19:01Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/learning-resources/nasa-kicks-off-nationwide-effort-to-prepare-tomorrows-space-workforce/",
       "sourcePublishedAt": "2026-09-21T21:03:04Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-21T23:19:01Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/photojournal/perseverances-view-of-turquoise-bay/",
       "sourcePublishedAt": "2026-09-21T19:17:59Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-21T23:19:01Z"
     },
     {
@@ -109,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-astronaut-reid-wiseman-attends-ravens-vs-saints-game/",
       "sourcePublishedAt": "2026-09-21T18:43:13Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-21T19:32:13Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/solar-system/planets/mars/nasa-discovery-reveals-complex-water-systems-on-early-mars/",
       "sourcePublishedAt": "2026-09-21T16:54:43Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-21T19:32:13Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot",
       "sourcePublishedAt": "2026-09-21T14:54:12Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-21T19:32:13Z"
     },
     {
@@ -142,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/organizations/nasa-ethics-advice-for-widely-attended-gatherings-wags/",
       "sourcePublishedAt": "2026-09-21T12:59:26Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-21T14:13:45Z"
     },
     {
@@ -153,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/johnson/johnson-space-center-sparks-curiosity-at-houstons-33rd-annual-japan-festival/",
       "sourcePublishedAt": "2026-09-21T11:11:42Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-21T14:13:45Z"
     },
     {
@@ -208,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience",
       "sourcePublishedAt": "2026-09-18T20:17:22Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -230,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-manage-the-code-coverage-ruleset-condition-with-the-rest-api",
       "sourcePublishedAt": "2026-09-18T19:23:49Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -241,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14",
       "sourcePublishedAt": "2026-09-18T19:21:22Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -252,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october",
       "sourcePublishedAt": "2026-09-18T19:00:00Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -274,7 +296,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-18-stage-only-npm-tokens-for-safer-automation",
       "sourcePublishedAt": "2026-09-18T16:37:50Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-18T18:31:14Z"
     },
     {
@@ -329,7 +351,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement",
       "sourcePublishedAt": "2026-09-17T21:47:27Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
+      "fetchedAt": "2026-09-22T14:57:30Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
     },
     {
@@ -506,28 +528,6 @@
       "url": "https://www.nasa.gov/image-article/indonesias-anak-krakatau/",
       "sourcePublishedAt": "2026-09-16T15:23:51Z",
       "fetchedAt": "2026-09-17T23:33:58Z",
-      "firstFetchedAt": "2026-09-16T18:14:14Z"
-    },
-    {
-      "id": "b7e43fc8ba687e8c67912946",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Curiosity Postcard Celebrates Rover’s 5,000th Day on Mars",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/photojournal/curiosity-postcard-celebrates-rovers-5000th-day-on-mars/",
-      "sourcePublishedAt": "2026-09-16T15:21:27Z",
-      "fetchedAt": "2026-09-17T20:21:07Z",
-      "firstFetchedAt": "2026-09-16T18:14:14Z"
-    },
-    {
-      "id": "3a642180f242f3280973d1a1",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Visits Schools Strengthening Florida’s Skilled Workforce",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/nasa-visits-schools-strengthening-floridas-skilled-workforce/",
-      "sourcePublishedAt": "2026-09-16T15:14:57Z",
-      "fetchedAt": "2026-09-17T17:02:25Z",
       "firstFetchedAt": "2026-09-16T18:14:14Z"
     },
     {
