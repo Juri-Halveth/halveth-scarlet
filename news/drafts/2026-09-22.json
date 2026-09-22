@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-22",
+  "createdAt": "2026-09-22T18:56:52.622Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-09-22",
+  "body": "# HALVETH Quellen-Update · 2026-09-22\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [NASA-Funded Research Finds Complex Life Defying Record Heat](https://science.nasa.gov/earth/nasa-funded-research-finds-complex-life-defying-record-heat/) · veröffentlicht 2026-09-22\n- **GitHub Changelog** · Originaltitel (EN): [Claude Opus 5.5 is now available in GitHub Copilot](https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot) · veröffentlicht 2026-09-22\n- **GitHub Changelog** · Originaltitel (EN): [OpenAI’s GPT-6 Sol and GPT-6 Luna now available](https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available) · veröffentlicht 2026-09-22\n- **NASA** · Originaltitel (EN): [NASA’s Chandra Finds Unusual Objects in Pinwheel Galaxy](https://www.nasa.gov/image-article/nasas-chandra-finds-unusual-objects-in-pinwheel-galaxy/) · veröffentlicht 2026-09-22\n- **NASA** · Originaltitel (EN): [NASA Astronaut to Answer Questions from New Hampshire Students](https://www.nasa.gov/learning-resources/nasa-astronaut-to-answer-questions-from-new-hampshire-students/) · veröffentlicht 2026-09-22\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "888d7735f1121d17e767d040",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA-Funded Research Finds Complex Life Defying Record Heat",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/nasa-funded-research-finds-complex-life-defying-record-heat/",
+      "sourcePublishedAt": "2026-09-22T17:33:10Z",
+      "fetchedAt": "2026-09-22T18:56:52Z",
+      "firstFetchedAt": "2026-09-22T18:56:52Z"
+    },
+    {
+      "id": "235d6f2bbf750d6c0d6191c6",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Claude Opus 5.5 is now available in GitHub Copilot",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot",
+      "sourcePublishedAt": "2026-09-22T17:10:23Z",
+      "fetchedAt": "2026-09-22T18:56:52Z",
+      "firstFetchedAt": "2026-09-22T18:56:52Z"
+    },
+    {
+      "id": "f05a574f35fedc0736fa62a1",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "OpenAI’s GPT-6 Sol and GPT-6 Luna now available",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available",
+      "sourcePublishedAt": "2026-09-22T17:00:14Z",
+      "fetchedAt": "2026-09-22T18:56:52Z",
+      "firstFetchedAt": "2026-09-22T18:56:52Z"
+    },
+    {
+      "id": "4743b55245c37a957ea9f845",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Chandra Finds Unusual Objects in Pinwheel Galaxy",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/nasas-chandra-finds-unusual-objects-in-pinwheel-galaxy/",
+      "sourcePublishedAt": "2026-09-22T15:40:48Z",
+      "fetchedAt": "2026-09-22T18:56:52Z",
+      "firstFetchedAt": "2026-09-22T18:56:52Z"
+    },
+    {
+      "id": "4c11cdbda5fe098ae1c5b6be",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Astronaut to Answer Questions from New Hampshire Students",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/learning-resources/nasa-astronaut-to-answer-questions-from-new-hampshire-students/",
+      "sourcePublishedAt": "2026-09-22T13:38:53Z",
+      "fetchedAt": "2026-09-22T18:56:52Z",
+      "firstFetchedAt": "2026-09-22T14:57:30Z"
+    }
+  ],
+  "idempotencyKey": "9998e062cecc8304abb0f65dc83a1a6d23d5ec90ed639a79ed0f39678c4ec090"
+}
