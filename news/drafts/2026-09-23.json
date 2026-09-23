@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-23",
+  "createdAt": "2026-09-23T17:05:30.955Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-09-23",
+  "body": "# HALVETH Quellen-Update · 2026-09-23\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [Shannon Lucid’s Record-Setting Mission Aboard Mir](https://www.nasa.gov/image-article/shannon-lucids-record-setting-mission-aboard-mir/) · veröffentlicht 2026-09-23\n- **GitHub Changelog** · Originaltitel (EN): [Local sandboxing in the GitHub Copilot app](https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app) · veröffentlicht 2026-09-23\n- **NASA** · Originaltitel (EN): [FFA 2026 Hyperwall Schedule](https://science.nasa.gov/earth/ffa-2026-hyperwall-schedule/) · veröffentlicht 2026-09-23\n- **NASA** · Originaltitel (EN): [Risk of Hydrazine Use Following Freeze–Thaw Exposure](https://www.nasa.gov/general/risk-of-hydrazine-use-following-freeze-thaw-exposure/) · veröffentlicht 2026-09-23\n- **NASA** · Originaltitel (EN): [NASA’s Hubble Seeks Lensed Supernova, Marks 200,000 Orbits](https://science.nasa.gov/missions/hubble/nasas-hubble-seeks-lensed-supernova-marks-200000-orbits/) · veröffentlicht 2026-09-23\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "0b80ed774f96e971015f6759",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Shannon Lucid’s Record-Setting Mission Aboard Mir",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/shannon-lucids-record-setting-mission-aboard-mir/",
+      "sourcePublishedAt": "2026-09-23T16:03:37Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
+      "firstFetchedAt": "2026-09-23T17:05:30Z"
+    },
+    {
+      "id": "63e0251438a40139e79aeee0",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Local sandboxing in the GitHub Copilot app",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
+      "sourcePublishedAt": "2026-09-23T15:00:57Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
+      "firstFetchedAt": "2026-09-23T17:05:30Z"
+    },
+    {
+      "id": "af6805586712c24263ab6106",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "FFA 2026 Hyperwall Schedule",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/ffa-2026-hyperwall-schedule/",
+      "sourcePublishedAt": "2026-09-23T14:58:13Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
+      "firstFetchedAt": "2026-09-23T17:05:30Z"
+    },
+    {
+      "id": "42139e78e0b4efb0cb656a08",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Risk of Hydrazine Use Following Freeze–Thaw Exposure",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/general/risk-of-hydrazine-use-following-freeze-thaw-exposure/",
+      "sourcePublishedAt": "2026-09-23T14:31:58Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
+      "firstFetchedAt": "2026-09-23T17:05:30Z"
+    },
+    {
+      "id": "722e7f303e5de9103ecfc0ca",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Hubble Seeks Lensed Supernova, Marks 200,000 Orbits",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-seeks-lensed-supernova-marks-200000-orbits/",
+      "sourcePublishedAt": "2026-09-23T13:55:34Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
+      "firstFetchedAt": "2026-09-23T17:05:30Z"
+    }
+  ],
+  "idempotencyKey": "97ac20d03ce59b67edd1b78b6ec5b001f9cdf00e99f78fa560262213cc034eed"
+}

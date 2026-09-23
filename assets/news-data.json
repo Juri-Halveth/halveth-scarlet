@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-23T11:41:59Z",
+  "generatedAt": "2026-09-23T17:05:30Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-23T11:41:59Z",
-      "lastSuccessAt": "2026-09-23T11:41:59Z",
+      "lastAttemptAt": "2026-09-23T17:05:30Z",
+      "lastSuccessAt": "2026-09-23T17:05:30Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,68 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-23T11:41:59Z",
-      "lastSuccessAt": "2026-09-23T11:41:59Z",
+      "lastAttemptAt": "2026-09-23T17:05:30Z",
+      "lastSuccessAt": "2026-09-23T17:05:30Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "0b80ed774f96e971015f6759",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Shannon Lucid’s Record-Setting Mission Aboard Mir",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/shannon-lucids-record-setting-mission-aboard-mir/",
+      "sourcePublishedAt": "2026-09-23T16:03:37Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
+      "firstFetchedAt": "2026-09-23T17:05:30Z"
+    },
+    {
+      "id": "63e0251438a40139e79aeee0",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Local sandboxing in the GitHub Copilot app",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
+      "sourcePublishedAt": "2026-09-23T15:00:57Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
+      "firstFetchedAt": "2026-09-23T17:05:30Z"
+    },
+    {
+      "id": "af6805586712c24263ab6106",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "FFA 2026 Hyperwall Schedule",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/ffa-2026-hyperwall-schedule/",
+      "sourcePublishedAt": "2026-09-23T14:58:13Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
+      "firstFetchedAt": "2026-09-23T17:05:30Z"
+    },
+    {
+      "id": "42139e78e0b4efb0cb656a08",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Risk of Hydrazine Use Following Freeze–Thaw Exposure",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/general/risk-of-hydrazine-use-following-freeze-thaw-exposure/",
+      "sourcePublishedAt": "2026-09-23T14:31:58Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
+      "firstFetchedAt": "2026-09-23T17:05:30Z"
+    },
+    {
+      "id": "722e7f303e5de9103ecfc0ca",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Hubble Seeks Lensed Supernova, Marks 200,000 Orbits",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-seeks-lensed-supernova-marks-200000-orbits/",
+      "sourcePublishedAt": "2026-09-23T13:55:34Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
+      "firstFetchedAt": "2026-09-23T17:05:30Z"
+    },
     {
       "id": "8f119bd854ae6748dd4ebadb",
       "sourceId": "nasa",
@@ -32,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-23-the-mcgetchin-crater/",
       "sourcePublishedAt": "2026-09-23T04:05:00Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -43,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/boom-year-for-desert-blooms/",
       "sourcePublishedAt": "2026-09-23T04:01:00Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -54,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app",
       "sourcePublishedAt": "2026-09-23T02:14:54Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -65,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5010-5015-checking-out-the-bands/",
       "sourcePublishedAt": "2026-09-23T00:40:16Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -76,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains",
       "sourcePublishedAt": "2026-09-23T00:34:18Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -87,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing",
       "sourcePublishedAt": "2026-09-22T22:24:48Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-23T00:37:35Z"
     },
     {
@@ -98,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/organizations/ochmo/risks-of-decompression-sickness-and-venous-thromboembolism-during-spaceflight-and-patent-foramen-ovale-implications/",
       "sourcePublishedAt": "2026-09-22T19:19:45Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-22T22:12:40Z"
     },
     {
@@ -120,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/science-research/planetary-science/nasa-funded-research-finds-complex-life-defying-record-heat/",
       "sourcePublishedAt": "2026-09-22T17:33:10Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-22T22:12:40Z"
     },
     {
@@ -131,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot",
       "sourcePublishedAt": "2026-09-22T17:10:23Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-22T18:56:52Z"
     },
     {
@@ -142,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available",
       "sourcePublishedAt": "2026-09-22T17:00:14Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-22T18:56:52Z"
     },
     {
@@ -153,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasas-chandra-finds-unusual-objects-in-pinwheel-galaxy/",
       "sourcePublishedAt": "2026-09-22T15:40:48Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-22T18:56:52Z"
     },
     {
@@ -164,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-security-improvements-for-ssh",
       "sourcePublishedAt": "2026-09-22T14:11:47Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-22T22:12:40Z"
     },
     {
@@ -186,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-deprecation-notice-all-platform-codeql-bundle",
       "sourcePublishedAt": "2026-09-22T09:21:03Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-22T10:00:28Z"
     },
     {
@@ -219,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-21-refreshed-repository-pull-requests-page-generally-available",
       "sourcePublishedAt": "2026-09-22T01:25:53Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-22T05:01:04Z"
     },
     {
@@ -252,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-21-github-enterprise-adds-credential-inventory-exports",
       "sourcePublishedAt": "2026-09-21T21:13:18Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
+      "fetchedAt": "2026-09-23T17:05:30Z",
       "firstFetchedAt": "2026-09-21T23:19:01Z"
     },
     {
@@ -476,28 +531,6 @@
       "firstFetchedAt": "2026-09-18T18:31:14Z"
     },
     {
-      "id": "62d937d9bc4a192dcc196719",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s Hubble Spots an Out-of-Sync Galaxy",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/uncategorized/nasas-hubble-spots-an-out-of-sync-galaxy/",
-      "sourcePublishedAt": "2026-09-18T13:38:12Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
-      "firstFetchedAt": "2026-09-18T14:32:18Z"
-    },
-    {
-      "id": "5ca9809aa46fb908d3530aca",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 September 18 – Messier 33: The Triangulum Galaxy",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-september-18-messier-33-the-triangulum-galaxy/",
-      "sourcePublishedAt": "2026-09-18T04:05:00Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
-      "firstFetchedAt": "2026-09-18T04:47:58Z"
-    },
-    {
       "id": "553eb3c867220f4c8b6d99e9",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -518,28 +551,6 @@
       "sourcePublishedAt": "2026-09-17T21:08:50Z",
       "fetchedAt": "2026-09-22T05:01:04Z",
       "firstFetchedAt": "2026-09-17T23:33:58Z"
-    },
-    {
-      "id": "4893b761b0380215bf841a84",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Awards Launch Services for StarBurst Gamma-Ray Detector",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-awards-launch-services-for-starburst-gamma-ray-detector/",
-      "sourcePublishedAt": "2026-09-17T20:37:09Z",
-      "fetchedAt": "2026-09-21T06:24:30Z",
-      "firstFetchedAt": "2026-09-17T23:33:58Z"
-    },
-    {
-      "id": "2e502463a1f22e394e9b7042",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Invites Media to SpaceX’s 35th Resupply Launch to Space Station",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-spacexs-35th-resupply-launch-to-space-station/",
-      "sourcePublishedAt": "2026-09-17T18:32:30Z",
-      "fetchedAt": "2026-09-21T01:09:17Z",
-      "firstFetchedAt": "2026-09-17T20:21:07Z"
     },
     {
       "id": "9550dbfcc4d908968eb736bf",
@@ -671,17 +682,6 @@
       "url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics",
       "sourcePublishedAt": "2026-09-11T21:30:30Z",
       "fetchedAt": "2026-09-17T17:02:25Z",
-      "firstFetchedAt": "2026-09-16T13:59:26Z"
-    },
-    {
-      "id": "f5b7434d849eacf13f00d2da",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Auto-resolution and analysis updates in Copilot code review",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review",
-      "sourcePublishedAt": "2026-09-11T20:00:07Z",
-      "fetchedAt": "2026-09-16T21:23:12Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     }
   ]
