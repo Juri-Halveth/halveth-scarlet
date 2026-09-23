@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-23T17:05:30Z",
+  "generatedAt": "2026-09-23T20:25:28Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-23T17:05:30Z",
-      "lastSuccessAt": "2026-09-23T17:05:30Z",
+      "lastAttemptAt": "2026-09-23T20:25:28Z",
+      "lastSuccessAt": "2026-09-23T20:25:28Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,46 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-23T17:05:30Z",
-      "lastSuccessAt": "2026-09-23T17:05:30Z",
+      "lastAttemptAt": "2026-09-23T20:25:28Z",
+      "lastSuccessAt": "2026-09-23T20:25:28Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "ae710f9874083e5b0b13c062",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Aircraft to Make Low-Altitude Research Flights Over Colorado",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/general/nasa-aircraft-to-make-low-altitude-research-flights-over-colorado/",
+      "sourcePublishedAt": "2026-09-23T19:03:03Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
+      "firstFetchedAt": "2026-09-23T20:25:28Z"
+    },
+    {
+      "id": "1cb0361e8192ecc511d428f3",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Hubble Telescope Reaches Milestone, Looks for Elusive Supernova",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/nasas-hubble-telescope-reaches-milestone-looks-for-elusive-supernova/",
+      "sourcePublishedAt": "2026-09-23T18:43:43Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
+      "firstFetchedAt": "2026-09-23T20:25:28Z"
+    },
+    {
+      "id": "07adcb70e5ace7bdf167b56b",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Arctic Sea Ice Reaches 2026 Annual Minimum Extent",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/science-research/earth-science/climate-science/sea-ice/arctic-sea-ice-2026-min/",
+      "sourcePublishedAt": "2026-09-23T17:15:32Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
+      "firstFetchedAt": "2026-09-23T20:25:28Z"
+    },
     {
       "id": "0b80ed774f96e971015f6759",
       "sourceId": "nasa",
@@ -32,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/shannon-lucids-record-setting-mission-aboard-mir/",
       "sourcePublishedAt": "2026-09-23T16:03:37Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -43,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
       "sourcePublishedAt": "2026-09-23T15:00:57Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -54,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/ffa-2026-hyperwall-schedule/",
       "sourcePublishedAt": "2026-09-23T14:58:13Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -65,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/general/risk-of-hydrazine-use-following-freeze-thaw-exposure/",
       "sourcePublishedAt": "2026-09-23T14:31:58Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -76,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-seeks-lensed-supernova-marks-200000-orbits/",
       "sourcePublishedAt": "2026-09-23T13:55:34Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -87,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-23-the-mcgetchin-crater/",
       "sourcePublishedAt": "2026-09-23T04:05:00Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -98,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/boom-year-for-desert-blooms/",
       "sourcePublishedAt": "2026-09-23T04:01:00Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -109,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app",
       "sourcePublishedAt": "2026-09-23T02:14:54Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -120,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5010-5015-checking-out-the-bands/",
       "sourcePublishedAt": "2026-09-23T00:40:16Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -131,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains",
       "sourcePublishedAt": "2026-09-23T00:34:18Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -142,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing",
       "sourcePublishedAt": "2026-09-22T22:24:48Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-23T00:37:35Z"
     },
     {
@@ -186,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot",
       "sourcePublishedAt": "2026-09-22T17:10:23Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-22T18:56:52Z"
     },
     {
@@ -197,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available",
       "sourcePublishedAt": "2026-09-22T17:00:14Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-22T18:56:52Z"
     },
     {
@@ -219,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-security-improvements-for-ssh",
       "sourcePublishedAt": "2026-09-22T14:11:47Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-22T22:12:40Z"
     },
     {
@@ -241,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-deprecation-notice-all-platform-codeql-bundle",
       "sourcePublishedAt": "2026-09-22T09:21:03Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-22T10:00:28Z"
     },
     {
@@ -274,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-21-refreshed-repository-pull-requests-page-generally-available",
       "sourcePublishedAt": "2026-09-22T01:25:53Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-22T05:01:04Z"
     },
     {
@@ -307,7 +340,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-21-github-enterprise-adds-credential-inventory-exports",
       "sourcePublishedAt": "2026-09-21T21:13:18Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
+      "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-21T23:19:01Z"
     },
     {
@@ -487,17 +520,6 @@
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
-      "id": "86591bbda4f8bbef4b395ba4",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA-JAXA XRISM Mission Sees Pulsar Gathering Companion’s ‘Wind’",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/missions/xrism/xrism-sees-pulsar-gathering-companions-wind/",
-      "sourcePublishedAt": "2026-09-18T18:02:53Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
-      "firstFetchedAt": "2026-09-18T21:43:41Z"
-    },
-    {
       "id": "4f937e072c6920ec30d87d43",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -506,28 +528,6 @@
       "url": "https://github.blog/changelog/2026-09-18-stage-only-npm-tokens-for-safer-automation",
       "sourcePublishedAt": "2026-09-18T16:37:50Z",
       "fetchedAt": "2026-09-22T14:57:30Z",
-      "firstFetchedAt": "2026-09-18T18:31:14Z"
-    },
-    {
-      "id": "8a863be8b83805c6aafa3299",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Awards SpaceX Three Crew Flights to Space Station",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/missions/station/commercial-crew/nasa-awards-spacex-three-crew-flights-to-space-station/",
-      "sourcePublishedAt": "2026-09-18T16:02:31Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
-      "firstFetchedAt": "2026-09-18T18:31:14Z"
-    },
-    {
-      "id": "ab329bef0417d4bf9c280c69",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "COSI Telescope Comes Together",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/cosi-telescope-comes-together/",
-      "sourcePublishedAt": "2026-09-18T15:45:03Z",
-      "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-18T18:31:14Z"
     },
     {
