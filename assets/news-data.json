@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-23T20:25:28Z",
+  "generatedAt": "2026-09-23T23:44:01Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-23T20:25:28Z",
-      "lastSuccessAt": "2026-09-23T20:25:28Z",
+      "lastAttemptAt": "2026-09-23T23:44:01Z",
+      "lastSuccessAt": "2026-09-23T23:44:01Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,68 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-23T20:25:28Z",
-      "lastSuccessAt": "2026-09-23T20:25:28Z",
+      "lastAttemptAt": "2026-09-23T23:44:01Z",
+      "lastSuccessAt": "2026-09-23T23:44:01Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "31ffdb014ec9d15cac34375c",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Modernizes Commercial Airline Systems",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/directorates/armd/aosp/nasa-modernizes-commercial-airline-systems/",
+      "sourcePublishedAt": "2026-09-23T22:08:54Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
+      "firstFetchedAt": "2026-09-23T23:44:01Z"
+    },
+    {
+      "id": "63a2ad410a3d1bd18d9be639",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "More ways to request and configure Copilot code reviews",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews",
+      "sourcePublishedAt": "2026-09-23T21:25:58Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
+      "firstFetchedAt": "2026-09-23T23:44:01Z"
+    },
+    {
+      "id": "906dd6ad8541fe086da776ac",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Node 20 is no longer available in GitHub Actions",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions",
+      "sourcePublishedAt": "2026-09-23T20:46:07Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
+      "firstFetchedAt": "2026-09-23T23:44:01Z"
+    },
+    {
+      "id": "ebb05a3da38456567a6fb466",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Welcomes Croatia as Newest Artemis Accords Signatory",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/organizations/oiir/artemis-accords/nasa-welcomes-croatia-as-newest-artemis-accords-signatory/",
+      "sourcePublishedAt": "2026-09-23T20:37:19Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
+      "firstFetchedAt": "2026-09-23T23:44:01Z"
+    },
+    {
+      "id": "3086f8aba320482b9c5fe7e2",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Selects Far-Infrared Telescope as First in New Mission Class",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-selects-far-infrared-telescope-as-first-in-new-mission-class/",
+      "sourcePublishedAt": "2026-09-23T20:09:42Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
+      "firstFetchedAt": "2026-09-23T23:44:01Z"
+    },
     {
       "id": "ae710f9874083e5b0b13c062",
       "sourceId": "nasa",
@@ -32,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/general/nasa-aircraft-to-make-low-altitude-research-flights-over-colorado/",
       "sourcePublishedAt": "2026-09-23T19:03:03Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-23T20:25:28Z"
     },
     {
@@ -43,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasas-hubble-telescope-reaches-milestone-looks-for-elusive-supernova/",
       "sourcePublishedAt": "2026-09-23T18:43:43Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-23T20:25:28Z"
     },
     {
@@ -54,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/science-research/earth-science/climate-science/sea-ice/arctic-sea-ice-2026-min/",
       "sourcePublishedAt": "2026-09-23T17:15:32Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-23T20:25:28Z"
     },
     {
@@ -65,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/shannon-lucids-record-setting-mission-aboard-mir/",
       "sourcePublishedAt": "2026-09-23T16:03:37Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -76,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
       "sourcePublishedAt": "2026-09-23T15:00:57Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -87,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/ffa-2026-hyperwall-schedule/",
       "sourcePublishedAt": "2026-09-23T14:58:13Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -98,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/general/risk-of-hydrazine-use-following-freeze-thaw-exposure/",
       "sourcePublishedAt": "2026-09-23T14:31:58Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -109,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-seeks-lensed-supernova-marks-200000-orbits/",
       "sourcePublishedAt": "2026-09-23T13:55:34Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -142,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app",
       "sourcePublishedAt": "2026-09-23T02:14:54Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -164,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains",
       "sourcePublishedAt": "2026-09-23T00:34:18Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -175,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing",
       "sourcePublishedAt": "2026-09-22T22:24:48Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-23T00:37:35Z"
     },
     {
@@ -219,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot",
       "sourcePublishedAt": "2026-09-22T17:10:23Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-22T18:56:52Z"
     },
     {
@@ -230,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available",
       "sourcePublishedAt": "2026-09-22T17:00:14Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-22T18:56:52Z"
     },
     {
@@ -252,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-security-improvements-for-ssh",
       "sourcePublishedAt": "2026-09-22T14:11:47Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-22T22:12:40Z"
     },
     {
@@ -274,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-deprecation-notice-all-platform-codeql-bundle",
       "sourcePublishedAt": "2026-09-22T09:21:03Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
+      "fetchedAt": "2026-09-23T23:44:01Z",
       "firstFetchedAt": "2026-09-22T10:00:28Z"
     },
     {
@@ -443,28 +498,6 @@
       "firstFetchedAt": "2026-09-21T14:13:45Z"
     },
     {
-      "id": "bd58adb8d8b903f31aadefc4",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 September 20 – Analemma over the Callanish Stones",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-september-20-analemma-over-the-callanish-stones/",
-      "sourcePublishedAt": "2026-09-20T04:05:00Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
-      "firstFetchedAt": "2026-09-20T06:20:55Z"
-    },
-    {
-      "id": "eb5280f683ccbbe6ef5b6b85",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 September 19 – A Zodiacal Night",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-september-19-a-zodiacal-night/",
-      "sourcePublishedAt": "2026-09-19T04:05:00Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
-      "firstFetchedAt": "2026-09-19T05:56:19Z"
-    },
-    {
       "id": "90422616cebb86f46f0aadee",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -473,17 +506,6 @@
       "url": "https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience",
       "sourcePublishedAt": "2026-09-18T20:17:22Z",
       "fetchedAt": "2026-09-23T00:37:35Z",
-      "firstFetchedAt": "2026-09-18T21:43:41Z"
-    },
-    {
-      "id": "57c41774142bca9d2e1768ac",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Invites Media to Albania Artemis Accords Signing Ceremony",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-albania-artemis-accords-signing-ceremony/",
-      "sourcePublishedAt": "2026-09-18T19:56:08Z",
-      "fetchedAt": "2026-09-21T19:32:13Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     },
     {
@@ -660,28 +682,6 @@
       "url": "https://github.blog/changelog/2026-09-14-configure-cost-and-quality-in-copilot-auto-model-selection",
       "sourcePublishedAt": "2026-09-14T16:05:27Z",
       "fetchedAt": "2026-09-17T20:21:07Z",
-      "firstFetchedAt": "2026-09-16T13:59:26Z"
-    },
-    {
-      "id": "abac871d4d980ef63d4bb572",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Profiles now show your highest achievement badge tier",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-11-profiles-now-show-your-highest-achievement-badge-tier",
-      "sourcePublishedAt": "2026-09-11T22:39:50Z",
-      "fetchedAt": "2026-09-17T17:02:25Z",
-      "firstFetchedAt": "2026-09-16T13:59:26Z"
-    },
-    {
-      "id": "28ba300194033bae7a74b0e4",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Add VS Code Agents to Copilot usage metrics",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics",
-      "sourcePublishedAt": "2026-09-11T21:30:30Z",
-      "fetchedAt": "2026-09-17T17:02:25Z",
       "firstFetchedAt": "2026-09-16T13:59:26Z"
     }
   ]
