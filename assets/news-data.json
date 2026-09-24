@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-23T23:44:01Z",
+  "generatedAt": "2026-09-24T04:56:04Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-23T23:44:01Z",
-      "lastSuccessAt": "2026-09-23T23:44:01Z",
+      "lastAttemptAt": "2026-09-24T04:56:04Z",
+      "lastSuccessAt": "2026-09-24T04:56:04Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,35 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-23T23:44:01Z",
-      "lastSuccessAt": "2026-09-23T23:44:01Z",
+      "lastAttemptAt": "2026-09-24T04:56:04Z",
+      "lastSuccessAt": "2026-09-24T04:56:04Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "ee129251f7c807d2c0288cd0",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 September 24 – The Ghosts of Five Supernovas",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-september-24-the-ghosts-of-five-supernovas/",
+      "sourcePublishedAt": "2026-09-24T04:05:00Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
+      "firstFetchedAt": "2026-09-24T04:56:04Z"
+    },
+    {
+      "id": "c031d5cea85ce932cd6f0035",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Cloudy Cloak Over the Northwest",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/cloudy-cloak-over-the-northwest/",
+      "sourcePublishedAt": "2026-09-24T04:01:00Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
+      "firstFetchedAt": "2026-09-24T04:56:04Z"
+    },
     {
       "id": "31ffdb014ec9d15cac34375c",
       "sourceId": "nasa",
@@ -32,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/directorates/armd/aosp/nasa-modernizes-commercial-airline-systems/",
       "sourcePublishedAt": "2026-09-23T22:08:54Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T23:44:01Z"
     },
     {
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews",
       "sourcePublishedAt": "2026-09-23T21:25:58Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T23:44:01Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions",
       "sourcePublishedAt": "2026-09-23T20:46:07Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T23:44:01Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/organizations/oiir/artemis-accords/nasa-welcomes-croatia-as-newest-artemis-accords-signatory/",
       "sourcePublishedAt": "2026-09-23T20:37:19Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T23:44:01Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-selects-far-infrared-telescope-as-first-in-new-mission-class/",
       "sourcePublishedAt": "2026-09-23T20:09:42Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T23:44:01Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/general/nasa-aircraft-to-make-low-altitude-research-flights-over-colorado/",
       "sourcePublishedAt": "2026-09-23T19:03:03Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T20:25:28Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasas-hubble-telescope-reaches-milestone-looks-for-elusive-supernova/",
       "sourcePublishedAt": "2026-09-23T18:43:43Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T20:25:28Z"
     },
     {
@@ -109,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/science-research/earth-science/climate-science/sea-ice/arctic-sea-ice-2026-min/",
       "sourcePublishedAt": "2026-09-23T17:15:32Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T20:25:28Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/shannon-lucids-record-setting-mission-aboard-mir/",
       "sourcePublishedAt": "2026-09-23T16:03:37Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
       "sourcePublishedAt": "2026-09-23T15:00:57Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -142,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/ffa-2026-hyperwall-schedule/",
       "sourcePublishedAt": "2026-09-23T14:58:13Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -197,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app",
       "sourcePublishedAt": "2026-09-23T02:14:54Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -219,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains",
       "sourcePublishedAt": "2026-09-23T00:34:18Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -230,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing",
       "sourcePublishedAt": "2026-09-22T22:24:48Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T00:37:35Z"
     },
     {
@@ -274,7 +296,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot",
       "sourcePublishedAt": "2026-09-22T17:10:23Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-22T18:56:52Z"
     },
     {
@@ -285,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available",
       "sourcePublishedAt": "2026-09-22T17:00:14Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-22T18:56:52Z"
     },
     {
@@ -307,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-security-improvements-for-ssh",
       "sourcePublishedAt": "2026-09-22T14:11:47Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-22T22:12:40Z"
     },
     {
@@ -329,7 +351,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-deprecation-notice-all-platform-codeql-bundle",
       "sourcePublishedAt": "2026-09-22T09:21:03Z",
-      "fetchedAt": "2026-09-23T23:44:01Z",
+      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-22T10:00:28Z"
     },
     {
@@ -473,28 +495,6 @@
       "url": "https://www.nasa.gov/centers-and-facilities/johnson/johnson-space-center-sparks-curiosity-at-houstons-33rd-annual-japan-festival/",
       "sourcePublishedAt": "2026-09-21T11:11:42Z",
       "fetchedAt": "2026-09-22T14:57:30Z",
-      "firstFetchedAt": "2026-09-21T14:13:45Z"
-    },
-    {
-      "id": "3e308b542f4c40b2786f77d9",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 September 21 – Cocoon Nebula Wide Field",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-september-21-cocoon-nebula-wide-field/",
-      "sourcePublishedAt": "2026-09-21T04:05:00Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
-      "firstFetchedAt": "2026-09-21T06:24:30Z"
-    },
-    {
-      "id": "e3a5e0cb687ba0be96bb5913",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Arctic Melt Season Length Levels Off",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/earth/earth-observatory/arctic-melt-season-length-levels-off/",
-      "sourcePublishedAt": "2026-09-21T04:00:00Z",
-      "fetchedAt": "2026-09-22T10:00:28Z",
       "firstFetchedAt": "2026-09-21T14:13:45Z"
     },
     {
