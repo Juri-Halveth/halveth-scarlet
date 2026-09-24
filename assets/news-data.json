@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-24T15:09:36Z",
+  "generatedAt": "2026-09-24T19:12:56Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-24T15:09:36Z",
-      "lastSuccessAt": "2026-09-24T15:09:36Z",
+      "lastAttemptAt": "2026-09-24T19:12:56Z",
+      "lastSuccessAt": "2026-09-24T19:12:56Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,68 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-24T15:09:36Z",
-      "lastSuccessAt": "2026-09-24T15:09:36Z",
+      "lastAttemptAt": "2026-09-24T19:12:56Z",
+      "lastSuccessAt": "2026-09-24T19:12:56Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "2702e3fc73ec2d04a6a7b7a6",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Travel",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/nssc/travel/",
+      "sourcePublishedAt": "2026-09-24T18:06:14Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
+      "firstFetchedAt": "2026-09-24T19:12:56Z"
+    },
+    {
+      "id": "815f9d86aa2d6a3f4cfa62b9",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Unveils Winning Designs for Mars Space Food Systems Challenge",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/centennial-challenges/nasa-unveils-winning-designs-for-mars-space-food-systems-challenge/",
+      "sourcePublishedAt": "2026-09-24T18:01:45Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
+      "firstFetchedAt": "2026-09-24T19:12:56Z"
+    },
+    {
+      "id": "374729f9d1137d25e2e0703f",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Machines for Mars Make Beer Bubbly",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/technology/tech-transfer-spinoffs/nasas-machines-for-mars-make-beer-bubbly/",
+      "sourcePublishedAt": "2026-09-24T16:41:01Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
+      "firstFetchedAt": "2026-09-24T19:12:56Z"
+    },
+    {
+      "id": "0ebf71de7d0fb4f329b3becf",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Practicing for Safe Landings on the Moon and Beyond",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/practicing-for-safe-landings-on-the-moon-and-beyond/",
+      "sourcePublishedAt": "2026-09-24T16:29:19Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
+      "firstFetchedAt": "2026-09-24T19:12:56Z"
+    },
+    {
+      "id": "0040b4ad2fba9cc6e6878d32",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "US-India Satellite Captures Time-lapse Video of Volcanic Eruption",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/missions/nisar/us-india-satellite-captures-time-lapse-video-of-volcanic-eruption/",
+      "sourcePublishedAt": "2026-09-24T15:47:17Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
+      "firstFetchedAt": "2026-09-24T19:12:56Z"
+    },
     {
       "id": "5ea52f9f0ad18133b7752d46",
       "sourceId": "nasa",
@@ -32,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/humans-in-space/nasa-to-study-human-health-performance-during-crew-13-mission/",
       "sourcePublishedAt": "2026-09-24T13:53:48Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-24T15:09:36Z"
     },
     {
@@ -43,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-24-the-ghosts-of-five-supernovas/",
       "sourcePublishedAt": "2026-09-24T04:05:00Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-24T04:56:04Z"
     },
     {
@@ -54,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/cloudy-cloak-over-the-northwest/",
       "sourcePublishedAt": "2026-09-24T04:01:00Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-24T04:56:04Z"
     },
     {
@@ -65,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/directorates/armd/aosp/nasa-modernizes-commercial-airline-systems/",
       "sourcePublishedAt": "2026-09-23T22:08:54Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-23T23:44:01Z"
     },
     {
@@ -76,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews",
       "sourcePublishedAt": "2026-09-23T21:25:58Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-23T23:44:01Z"
     },
     {
@@ -87,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions",
       "sourcePublishedAt": "2026-09-23T20:46:07Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-23T23:44:01Z"
     },
     {
@@ -98,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/organizations/oiir/artemis-accords/nasa-welcomes-croatia-as-newest-artemis-accords-signatory/",
       "sourcePublishedAt": "2026-09-23T20:37:19Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-23T23:44:01Z"
     },
     {
@@ -164,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
       "sourcePublishedAt": "2026-09-23T15:00:57Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -230,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app",
       "sourcePublishedAt": "2026-09-23T02:14:54Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -252,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains",
       "sourcePublishedAt": "2026-09-23T00:34:18Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-23T06:01:13Z"
     },
     {
@@ -263,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing",
       "sourcePublishedAt": "2026-09-22T22:24:48Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-23T00:37:35Z"
     },
     {
@@ -307,7 +362,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot",
       "sourcePublishedAt": "2026-09-22T17:10:23Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-22T18:56:52Z"
     },
     {
@@ -318,7 +373,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available",
       "sourcePublishedAt": "2026-09-22T17:00:14Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-22T18:56:52Z"
     },
     {
@@ -340,7 +395,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-security-improvements-for-ssh",
       "sourcePublishedAt": "2026-09-22T14:11:47Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-22T22:12:40Z"
     },
     {
@@ -362,7 +417,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-22-deprecation-notice-all-platform-codeql-bundle",
       "sourcePublishedAt": "2026-09-22T09:21:03Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
       "firstFetchedAt": "2026-09-22T10:00:28Z"
     },
     {
@@ -432,50 +487,6 @@
       "firstFetchedAt": "2026-09-21T23:19:01Z"
     },
     {
-      "id": "abfb5f1554f5ebfeeb2525cb",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Kicks Off Nationwide Effort to Prepare Tomorrow’s Space Workforce",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/learning-resources/nasa-kicks-off-nationwide-effort-to-prepare-tomorrows-space-workforce/",
-      "sourcePublishedAt": "2026-09-21T21:03:04Z",
-      "fetchedAt": "2026-09-23T00:37:35Z",
-      "firstFetchedAt": "2026-09-21T23:19:01Z"
-    },
-    {
-      "id": "e880a9ccf943b57efed4754b",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Perseverance’s View of ‘Turquoise Bay’",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/photojournal/perseverances-view-of-turquoise-bay/",
-      "sourcePublishedAt": "2026-09-21T19:17:59Z",
-      "fetchedAt": "2026-09-23T00:37:35Z",
-      "firstFetchedAt": "2026-09-21T23:19:01Z"
-    },
-    {
-      "id": "adad4cb6ad45eb0bb80fc2eb",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Astronaut Reid Wiseman Attends Ravens vs. Saints Game",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/nasa-astronaut-reid-wiseman-attends-ravens-vs-saints-game/",
-      "sourcePublishedAt": "2026-09-21T18:43:13Z",
-      "fetchedAt": "2026-09-22T18:56:52Z",
-      "firstFetchedAt": "2026-09-21T19:32:13Z"
-    },
-    {
-      "id": "a6bdcfb76b04d856e4b26e4e",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Discovery Reveals Complex Water Systems on Early Mars",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/solar-system/planets/mars/nasa-discovery-reveals-complex-water-systems-on-early-mars/",
-      "sourcePublishedAt": "2026-09-21T16:54:43Z",
-      "fetchedAt": "2026-09-22T18:56:52Z",
-      "firstFetchedAt": "2026-09-21T19:32:13Z"
-    },
-    {
       "id": "9c38b0e540fa6708e9ee0116",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -485,17 +496,6 @@
       "sourcePublishedAt": "2026-09-21T14:54:12Z",
       "fetchedAt": "2026-09-23T11:41:59Z",
       "firstFetchedAt": "2026-09-21T19:32:13Z"
-    },
-    {
-      "id": "2e69e877109be4158ad77604",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Widely Attended Gatherings (WAGs) Determinations",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/organizations/nasa-ethics-advice-for-widely-attended-gatherings-wags/",
-      "sourcePublishedAt": "2026-09-21T12:59:26Z",
-      "fetchedAt": "2026-09-22T14:57:30Z",
-      "firstFetchedAt": "2026-09-21T14:13:45Z"
     },
     {
       "id": "90422616cebb86f46f0aadee",

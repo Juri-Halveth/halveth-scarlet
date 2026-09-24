@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-24",
+  "createdAt": "2026-09-24T19:12:56.367Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-09-24",
+  "body": "# HALVETH Quellen-Update · 2026-09-24\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [Travel](https://www.nasa.gov/centers-and-facilities/nssc/travel/) · veröffentlicht 2026-09-24\n- **NASA** · Originaltitel (EN): [NASA Unveils Winning Designs for Mars Space Food Systems Challenge](https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/centennial-challenges/nasa-unveils-winning-designs-for-mars-space-food-systems-challenge/) · veröffentlicht 2026-09-24\n- **NASA** · Originaltitel (EN): [NASA’s Machines for Mars Make Beer Bubbly](https://www.nasa.gov/technology/tech-transfer-spinoffs/nasas-machines-for-mars-make-beer-bubbly/) · veröffentlicht 2026-09-24\n- **NASA** · Originaltitel (EN): [Practicing for Safe Landings on the Moon and Beyond](https://www.nasa.gov/image-article/practicing-for-safe-landings-on-the-moon-and-beyond/) · veröffentlicht 2026-09-24\n- **NASA** · Originaltitel (EN): [US-India Satellite Captures Time-lapse Video of Volcanic Eruption](https://www.nasa.gov/missions/nisar/us-india-satellite-captures-time-lapse-video-of-volcanic-eruption/) · veröffentlicht 2026-09-24\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "2702e3fc73ec2d04a6a7b7a6",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Travel",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/nssc/travel/",
+      "sourcePublishedAt": "2026-09-24T18:06:14Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
+      "firstFetchedAt": "2026-09-24T19:12:56Z"
+    },
+    {
+      "id": "815f9d86aa2d6a3f4cfa62b9",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Unveils Winning Designs for Mars Space Food Systems Challenge",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/centennial-challenges/nasa-unveils-winning-designs-for-mars-space-food-systems-challenge/",
+      "sourcePublishedAt": "2026-09-24T18:01:45Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
+      "firstFetchedAt": "2026-09-24T19:12:56Z"
+    },
+    {
+      "id": "374729f9d1137d25e2e0703f",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Machines for Mars Make Beer Bubbly",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/technology/tech-transfer-spinoffs/nasas-machines-for-mars-make-beer-bubbly/",
+      "sourcePublishedAt": "2026-09-24T16:41:01Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
+      "firstFetchedAt": "2026-09-24T19:12:56Z"
+    },
+    {
+      "id": "0ebf71de7d0fb4f329b3becf",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Practicing for Safe Landings on the Moon and Beyond",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/practicing-for-safe-landings-on-the-moon-and-beyond/",
+      "sourcePublishedAt": "2026-09-24T16:29:19Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
+      "firstFetchedAt": "2026-09-24T19:12:56Z"
+    },
+    {
+      "id": "0040b4ad2fba9cc6e6878d32",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "US-India Satellite Captures Time-lapse Video of Volcanic Eruption",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/missions/nisar/us-india-satellite-captures-time-lapse-video-of-volcanic-eruption/",
+      "sourcePublishedAt": "2026-09-24T15:47:17Z",
+      "fetchedAt": "2026-09-24T19:12:56Z",
+      "firstFetchedAt": "2026-09-24T19:12:56Z"
+    }
+  ],
+  "idempotencyKey": "8c5cdde2e6c4d0de1dfb21ac6f07a394b8bcc8677c68510f8fb2334d7b79e95c"
+}
