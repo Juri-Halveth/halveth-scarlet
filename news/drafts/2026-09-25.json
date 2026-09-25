@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-25",
+  "createdAt": "2026-09-25T18:39:26.871Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-09-25",
+  "body": "# HALVETH Quellen-Update · 2026-09-25\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **GitHub Changelog** · Originaltitel (EN): [Agentic autofix now uses Copilot Memory](https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory) · veröffentlicht 2026-09-25\n- **NASA** · Originaltitel (EN): [2026-2027 DWU: Middle School Design Challenge](https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-middle-school-design-challenge/) · veröffentlicht 2026-09-25\n- **NASA** · Originaltitel (EN): [2026-2027 DWU: High School Engineering Challenge](https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-high-school-engineering-challenge/) · veröffentlicht 2026-09-25\n- **GitHub Changelog** · Originaltitel (EN): [GitHub Copilot weekly releases — September 21](https://github.blog/changelog/2026-09-25-github-copilot-weekly-releases-september-21) · veröffentlicht 2026-09-25\n- **GitHub Changelog** · Originaltitel (EN): [Updates to GitHub Copilot for Slack and Microsoft Teams](https://github.blog/changelog/2026-09-25-updates-to-github-copilot-for-slack-and-microsoft-teams) · veröffentlicht 2026-09-25\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "2653f5794fb9985f870ebc6b",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Agentic autofix now uses Copilot Memory",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory",
+      "sourcePublishedAt": "2026-09-25T17:25:50Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
+    },
+    {
+      "id": "495eb9eedc69e00ba7463e38",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "2026-2027 DWU: Middle School Design Challenge",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-middle-school-design-challenge/",
+      "sourcePublishedAt": "2026-09-25T17:20:51Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
+    },
+    {
+      "id": "bada438938219258597e41c2",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "2026-2027 DWU: High School Engineering Challenge",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-high-school-engineering-challenge/",
+      "sourcePublishedAt": "2026-09-25T17:19:42Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
+    },
+    {
+      "id": "48eaa8bbafaa8bc422c903d5",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Copilot weekly releases — September 21",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-25-github-copilot-weekly-releases-september-21",
+      "sourcePublishedAt": "2026-09-25T16:42:48Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
+    },
+    {
+      "id": "c1d4e08f8273da72d80ce3ab",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Updates to GitHub Copilot for Slack and Microsoft Teams",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-25-updates-to-github-copilot-for-slack-and-microsoft-teams",
+      "sourcePublishedAt": "2026-09-25T16:33:42Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
+    }
+  ],
+  "idempotencyKey": "37994f81707ec9626082f3f8b916dbe08c6972b72571a8ac39e4b725e2f9019e"
+}

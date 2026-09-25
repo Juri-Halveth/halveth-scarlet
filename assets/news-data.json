@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-25T13:51:17Z",
+  "generatedAt": "2026-09-25T18:39:26Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-25T13:51:17Z",
-      "lastSuccessAt": "2026-09-25T13:51:17Z",
+      "lastAttemptAt": "2026-09-25T18:39:26Z",
+      "lastSuccessAt": "2026-09-25T18:39:26Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,90 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-25T13:51:17Z",
-      "lastSuccessAt": "2026-09-25T13:51:17Z",
+      "lastAttemptAt": "2026-09-25T18:39:26Z",
+      "lastSuccessAt": "2026-09-25T18:39:26Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "2653f5794fb9985f870ebc6b",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Agentic autofix now uses Copilot Memory",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory",
+      "sourcePublishedAt": "2026-09-25T17:25:50Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
+    },
+    {
+      "id": "495eb9eedc69e00ba7463e38",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "2026-2027 DWU: Middle School Design Challenge",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-middle-school-design-challenge/",
+      "sourcePublishedAt": "2026-09-25T17:20:51Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
+    },
+    {
+      "id": "bada438938219258597e41c2",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "2026-2027 DWU: High School Engineering Challenge",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-high-school-engineering-challenge/",
+      "sourcePublishedAt": "2026-09-25T17:19:42Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
+    },
+    {
+      "id": "48eaa8bbafaa8bc422c903d5",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Copilot weekly releases — September 21",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-25-github-copilot-weekly-releases-september-21",
+      "sourcePublishedAt": "2026-09-25T16:42:48Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
+    },
+    {
+      "id": "c1d4e08f8273da72d80ce3ab",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Updates to GitHub Copilot for Slack and Microsoft Teams",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-25-updates-to-github-copilot-for-slack-and-microsoft-teams",
+      "sourcePublishedAt": "2026-09-25T16:33:42Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
+    },
+    {
+      "id": "daee4569bcbc531e7bf52223",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Hubble Spots Chaotic Secret in Galaxy",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/hubble-spots-chaotic-secret-in-galaxy/",
+      "sourcePublishedAt": "2026-09-25T15:54:10Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
+    },
+    {
+      "id": "9fe2ca4bc2547f131cea9432",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "TB 26-07 Aluminum Alloy 2219 Material Guidance",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-07-aluminum-alloy-2219-material-guidance/",
+      "sourcePublishedAt": "2026-09-25T14:45:51Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
+    },
     {
       "id": "f79e7d7a633843bfcb6cfc44",
       "sourceId": "github",
@@ -32,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-codeql-2-27-1-adds-c-and-c-query-and-kotlin-2-4-20-support",
       "sourcePublishedAt": "2026-09-25T09:55:23Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
       "firstFetchedAt": "2026-09-25T13:51:17Z"
     },
     {
@@ -43,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-25-globular-star-cluster-omega-centauri/",
       "sourcePublishedAt": "2026-09-25T04:05:00Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
       "firstFetchedAt": "2026-09-25T07:52:32Z"
     },
     {
@@ -54,18 +131,18 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/explosive-intensification-for-hurricane-polo/",
       "sourcePublishedAt": "2026-09-25T04:01:00Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
       "firstFetchedAt": "2026-09-25T07:52:32Z"
     },
     {
       "id": "9111ec33ec962e74818200f5",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
-      "title": "Default Enablement of Copilot Features for Copilot Business and Enterprise",
+      "title": "Default Enablement of Copilot features for Copilot Business and Enterprise",
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise",
       "sourcePublishedAt": "2026-09-25T03:13:23Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
       "firstFetchedAt": "2026-09-25T07:52:32Z"
     },
     {
@@ -76,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-cote-divoire-as-newest-artemis-accords-signatory/",
       "sourcePublishedAt": "2026-09-24T21:27:17Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
       "firstFetchedAt": "2026-09-24T22:27:29Z"
     },
     {
@@ -87,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-shares-spacex-crew-14-assignments-for-space-station-mission/",
       "sourcePublishedAt": "2026-09-24T21:15:46Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
       "firstFetchedAt": "2026-09-24T22:27:29Z"
     },
     {
@@ -98,8 +175,19 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-24-require-proof-of-presence-for-high-impact-actions",
       "sourcePublishedAt": "2026-09-24T20:28:33Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
       "firstFetchedAt": "2026-09-24T22:27:29Z"
+    },
+    {
+      "id": "b0dcef92ac9905685f7b7365",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Expired GitHub Actions artifacts no longer shown in UI and API",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-24-expired-github-actions-artifacts-no-longer-shown-in-ui-and-api",
+      "sourcePublishedAt": "2026-09-24T19:13:02Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
       "id": "2702e3fc73ec2d04a6a7b7a6",
@@ -109,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/nssc/travel/",
       "sourcePublishedAt": "2026-09-24T18:06:14Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
       "firstFetchedAt": "2026-09-24T19:12:56Z"
     },
     {
@@ -120,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/centennial-challenges/nasa-unveils-winning-designs-for-mars-space-food-systems-challenge/",
       "sourcePublishedAt": "2026-09-24T18:01:45Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
       "firstFetchedAt": "2026-09-24T19:12:56Z"
     },
     {
@@ -208,7 +296,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews",
       "sourcePublishedAt": "2026-09-23T21:25:58Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
       "firstFetchedAt": "2026-09-23T23:44:01Z"
     },
     {
@@ -219,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions",
       "sourcePublishedAt": "2026-09-23T20:46:07Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
       "firstFetchedAt": "2026-09-23T23:44:01Z"
     },
     {
@@ -296,7 +384,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
       "sourcePublishedAt": "2026-09-23T15:00:57Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
+      "fetchedAt": "2026-09-25T18:39:26Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
@@ -410,28 +498,6 @@
       "firstFetchedAt": "2026-09-22T22:12:40Z"
     },
     {
-      "id": "888d7735f1121d17e767d040",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA-Funded Research Finds Complex Life Defying Record Heat",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/earth/nasa-funded-research-finds-complex-life-defying-record-heat/",
-      "sourcePublishedAt": "2026-09-22T17:33:10Z",
-      "fetchedAt": "2026-09-22T18:56:52Z",
-      "firstFetchedAt": "2026-09-22T18:56:52Z"
-    },
-    {
-      "id": "7c7c6ac4153677ff6e656206",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA-Funded Research Finds Complex Life Defying Record Heat",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/science-research/planetary-science/nasa-funded-research-finds-complex-life-defying-record-heat/",
-      "sourcePublishedAt": "2026-09-22T17:33:10Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
-      "firstFetchedAt": "2026-09-22T22:12:40Z"
-    },
-    {
       "id": "235d6f2bbf750d6c0d6191c6",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -454,17 +520,6 @@
       "firstFetchedAt": "2026-09-22T18:56:52Z"
     },
     {
-      "id": "4743b55245c37a957ea9f845",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s Chandra Finds Unusual Objects in Pinwheel Galaxy",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/nasas-chandra-finds-unusual-objects-in-pinwheel-galaxy/",
-      "sourcePublishedAt": "2026-09-22T15:40:48Z",
-      "fetchedAt": "2026-09-23T17:05:30Z",
-      "firstFetchedAt": "2026-09-22T18:56:52Z"
-    },
-    {
       "id": "01037b2410289b4f9f5f94f3",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -474,17 +529,6 @@
       "sourcePublishedAt": "2026-09-22T14:11:47Z",
       "fetchedAt": "2026-09-25T01:33:15Z",
       "firstFetchedAt": "2026-09-22T22:12:40Z"
-    },
-    {
-      "id": "4c11cdbda5fe098ae1c5b6be",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Astronaut to Answer Questions from New Hampshire Students",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/learning-resources/nasa-astronaut-to-answer-questions-from-new-hampshire-students/",
-      "sourcePublishedAt": "2026-09-22T13:38:53Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
-      "firstFetchedAt": "2026-09-22T14:57:30Z"
     },
     {
       "id": "3822e53281df1dc0922def79",
@@ -639,50 +683,6 @@
       "sourcePublishedAt": "2026-09-16T20:20:16Z",
       "fetchedAt": "2026-09-21T14:13:45Z",
       "firstFetchedAt": "2026-09-17T00:34:25Z"
-    },
-    {
-      "id": "509b91e3e4df2739cbaa978e",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "SCIM user responses now include a profileUrl attribute",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-16-scim-user-responses-now-include-a-profileurl-attribute",
-      "sourcePublishedAt": "2026-09-16T20:19:58Z",
-      "fetchedAt": "2026-09-18T18:31:14Z",
-      "firstFetchedAt": "2026-09-16T21:23:12Z"
-    },
-    {
-      "id": "41f2b23db141d620003afb9b",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Copilot budget increase requests are generally available",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available",
-      "sourcePublishedAt": "2026-09-16T20:17:18Z",
-      "fetchedAt": "2026-09-18T18:31:14Z",
-      "firstFetchedAt": "2026-09-16T21:23:12Z"
-    },
-    {
-      "id": "9b9123b78b32ebe54a6d5fb8",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Code scanning AI Scan no longer requires CodeQL default setup",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-16-code-scanning-ai-scan-no-longer-requires-codeql-default-setup",
-      "sourcePublishedAt": "2026-09-16T13:26:06Z",
-      "fetchedAt": "2026-09-18T18:31:14Z",
-      "firstFetchedAt": "2026-09-16T14:18:57Z"
-    },
-    {
-      "id": "3c75a69d7db995ab411d0f3a",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Enforce GitHub Advanced Security configurations",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-15-enforce-github-advanced-security-configurations",
-      "sourcePublishedAt": "2026-09-15T19:31:58Z",
-      "fetchedAt": "2026-09-18T18:31:14Z",
-      "firstFetchedAt": "2026-09-16T13:59:26Z"
     }
   ]
 }
