@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-26T07:45:50Z",
+  "generatedAt": "2026-09-26T13:08:38Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-26T07:45:50Z",
-      "lastSuccessAt": "2026-09-26T07:45:50Z",
+      "lastAttemptAt": "2026-09-26T13:08:38Z",
+      "lastSuccessAt": "2026-09-26T13:08:38Z",
       "status": "fresh",
       "error": null
     },
@@ -17,8 +17,8 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-26T07:45:50Z",
-      "lastSuccessAt": "2026-09-26T07:45:50Z",
+      "lastAttemptAt": "2026-09-26T13:08:38Z",
+      "lastSuccessAt": "2026-09-26T13:08:38Z",
       "status": "fresh",
       "error": null
     }
@@ -32,7 +32,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-26-mirrored-meteor-and-milky-way/",
       "sourcePublishedAt": "2026-09-26T04:05:00Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-26T07:45:50Z"
     },
     {
@@ -43,7 +43,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator",
       "sourcePublishedAt": "2026-09-25T23:24:57Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -54,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-boeing-to-provide-update-on-starliner-development/",
       "sourcePublishedAt": "2026-09-25T22:06:50Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -65,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-usage-metrics-api-adds-pull-request-review-stages",
       "sourcePublishedAt": "2026-09-25T21:09:40Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -76,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-san-marino-signing-the-artemis-accords/",
       "sourcePublishedAt": "2026-09-25T19:53:03Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -87,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/directorates/rtmd/nasa-tests-dual-mode-propulsion-cubesat-ahead-of-launch/",
       "sourcePublishedAt": "2026-09-25T19:36:10Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -98,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-personal-saved-views-for-repository-issues-and-more",
       "sourcePublishedAt": "2026-09-25T19:05:03Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -109,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-changes-to-query-results-in-the-github-actions-api-and-ui",
       "sourcePublishedAt": "2026-09-25T18:17:06Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -120,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory",
       "sourcePublishedAt": "2026-09-25T17:25:50Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -131,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-middle-school-design-challenge/",
       "sourcePublishedAt": "2026-09-25T17:20:51Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -142,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-high-school-engineering-challenge/",
       "sourcePublishedAt": "2026-09-25T17:19:42Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -153,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-github-copilot-weekly-releases-september-21",
       "sourcePublishedAt": "2026-09-25T16:42:48Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -164,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-updates-to-github-copilot-for-slack-and-microsoft-teams",
       "sourcePublishedAt": "2026-09-25T16:33:42Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -175,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/hubble-spots-chaotic-secret-in-galaxy/",
       "sourcePublishedAt": "2026-09-25T15:54:10Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -186,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-07-aluminum-alloy-2219-material-guidance/",
       "sourcePublishedAt": "2026-09-25T14:45:51Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -197,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-codeql-2-27-1-adds-c-and-c-query-and-kotlin-2-4-20-support",
       "sourcePublishedAt": "2026-09-25T09:55:23Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T13:51:17Z"
     },
     {
@@ -208,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-25-globular-star-cluster-omega-centauri/",
       "sourcePublishedAt": "2026-09-25T04:05:00Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T07:52:32Z"
     },
     {
@@ -219,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/explosive-intensification-for-hurricane-polo/",
       "sourcePublishedAt": "2026-09-25T04:01:00Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T07:52:32Z"
     },
     {
@@ -230,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise",
       "sourcePublishedAt": "2026-09-25T03:13:23Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-25T07:52:32Z"
     },
     {
@@ -263,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-24-require-proof-of-presence-for-high-impact-actions",
       "sourcePublishedAt": "2026-09-24T20:28:33Z",
-      "fetchedAt": "2026-09-26T07:45:50Z",
+      "fetchedAt": "2026-09-26T13:08:38Z",
       "firstFetchedAt": "2026-09-24T22:27:29Z"
     },
     {
