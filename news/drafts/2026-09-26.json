@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-26",
+  "createdAt": "2026-09-26T17:12:58.253Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-09-26",
+  "body": "# HALVETH Quellen-Update · 2026-09-26\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [APOD: 2026 September 26 – Mirrored Meteor and Milky Way](https://science.nasa.gov/image-article/apod-2026-september-26-mirrored-meteor-and-milky-way/) · veröffentlicht 2026-09-26\n- **GitHub Changelog** · Originaltitel (EN): [Enterprise managed settings in-product validator](https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator) · veröffentlicht 2026-09-25\n- **NASA** · Originaltitel (EN): [NASA, Boeing to Provide Update on Starliner Development](https://www.nasa.gov/news-release/nasa-boeing-to-provide-update-on-starliner-development/) · veröffentlicht 2026-09-25\n- **GitHub Changelog** · Originaltitel (EN): [Usage metrics API adds pull request review stages](https://github.blog/changelog/2026-09-25-usage-metrics-api-adds-pull-request-review-stages) · veröffentlicht 2026-09-25\n- **NASA** · Originaltitel (EN): [NASA Welcomes San Marino Signing the Artemis Accords](https://www.nasa.gov/organizations/oiir/nasa-welcomes-san-marino-signing-the-artemis-accords/) · veröffentlicht 2026-09-25\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "73ee9728200881584eb1d7ea",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 September 26 – Mirrored Meteor and Milky Way",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-september-26-mirrored-meteor-and-milky-way/",
+      "sourcePublishedAt": "2026-09-26T04:05:00Z",
+      "fetchedAt": "2026-09-26T17:12:57Z",
+      "firstFetchedAt": "2026-09-26T07:45:50Z"
+    },
+    {
+      "id": "07dade88210664e3a861290c",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Enterprise managed settings in-product validator",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator",
+      "sourcePublishedAt": "2026-09-25T23:24:57Z",
+      "fetchedAt": "2026-09-26T17:12:57Z",
+      "firstFetchedAt": "2026-09-26T01:36:44Z"
+    },
+    {
+      "id": "7940e22eb73f541dee2d1471",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA, Boeing to Provide Update on Starliner Development",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-boeing-to-provide-update-on-starliner-development/",
+      "sourcePublishedAt": "2026-09-25T22:06:50Z",
+      "fetchedAt": "2026-09-26T17:12:57Z",
+      "firstFetchedAt": "2026-09-25T22:23:42Z"
+    },
+    {
+      "id": "0a10d0252c63a3f9d568712c",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Usage metrics API adds pull request review stages",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-25-usage-metrics-api-adds-pull-request-review-stages",
+      "sourcePublishedAt": "2026-09-25T21:09:40Z",
+      "fetchedAt": "2026-09-26T17:12:57Z",
+      "firstFetchedAt": "2026-09-26T01:36:44Z"
+    },
+    {
+      "id": "420ec31d089e6561f6be574a",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Welcomes San Marino Signing the Artemis Accords",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-san-marino-signing-the-artemis-accords/",
+      "sourcePublishedAt": "2026-09-25T19:53:03Z",
+      "fetchedAt": "2026-09-26T17:12:57Z",
+      "firstFetchedAt": "2026-09-25T22:23:42Z"
+    }
+  ],
+  "idempotencyKey": "6a9dc64f61b2f488b83484d48558049711536ab2fd5f8990736c1868beffc60b"
+}
