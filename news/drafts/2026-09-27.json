@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-27",
+  "createdAt": "2026-09-27T18:27:10.913Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-09-27",
+  "body": "# HALVETH Quellen-Update · 2026-09-27\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [APOD: 2026 September 27 – Andromeda Before and After Photoshop](https://science.nasa.gov/image-article/apod-2026-september-27-andromeda-before-photoshop/) · veröffentlicht 2026-09-27\n- **NASA** · Originaltitel (EN): [NASA Tests Dual Mode Propulsion CubeSat Ahead of Launch](https://www.nasa.gov/directorates/rtmd/nasa-tests-dual-mode-propulsion-cubesat-ahead-of-launch/) · veröffentlicht 2026-09-25\n- **GitHub Changelog** · Originaltitel (EN): [Private saved views for repository issues and “Relates to” issue relationship is generally available](https://github.blog/changelog/2026-09-25-personal-saved-views-for-repository-issues-and-more) · veröffentlicht 2026-09-25\n- **GitHub Changelog** · Originaltitel (EN): [Changes to query results in the GitHub Actions API and UI](https://github.blog/changelog/2026-09-25-changes-to-query-results-in-the-github-actions-api-and-ui) · veröffentlicht 2026-09-25\n- **NASA** · Originaltitel (EN): [Hubble Spots Chaotic Secret in Galaxy](https://www.nasa.gov/image-article/hubble-spots-chaotic-secret-in-galaxy/) · veröffentlicht 2026-09-25\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "95e766db855ece975411c77a",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 September 27 – Andromeda Before and After Photoshop",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-september-27-andromeda-before-photoshop/",
+      "sourcePublishedAt": "2026-09-27T04:05:00Z",
+      "fetchedAt": "2026-09-27T18:27:10Z",
+      "firstFetchedAt": "2026-09-27T08:14:33Z"
+    },
+    {
+      "id": "ce79877d0bd6a1fcad5da788",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Tests Dual Mode Propulsion CubeSat Ahead of Launch",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/directorates/rtmd/nasa-tests-dual-mode-propulsion-cubesat-ahead-of-launch/",
+      "sourcePublishedAt": "2026-09-25T19:36:10Z",
+      "fetchedAt": "2026-09-27T18:27:10Z",
+      "firstFetchedAt": "2026-09-25T22:23:42Z"
+    },
+    {
+      "id": "10030137c3a01f3444e23ded",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Private saved views for repository issues and “Relates to” issue relationship is generally available",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-25-personal-saved-views-for-repository-issues-and-more",
+      "sourcePublishedAt": "2026-09-25T19:05:03Z",
+      "fetchedAt": "2026-09-27T18:27:10Z",
+      "firstFetchedAt": "2026-09-25T22:23:42Z"
+    },
+    {
+      "id": "de36fa73b8545f5faefd5fad",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Changes to query results in the GitHub Actions API and UI",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-25-changes-to-query-results-in-the-github-actions-api-and-ui",
+      "sourcePublishedAt": "2026-09-25T18:17:06Z",
+      "fetchedAt": "2026-09-27T18:27:10Z",
+      "firstFetchedAt": "2026-09-25T22:23:42Z"
+    },
+    {
+      "id": "daee4569bcbc531e7bf52223",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Hubble Spots Chaotic Secret in Galaxy",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/hubble-spots-chaotic-secret-in-galaxy/",
+      "sourcePublishedAt": "2026-09-25T15:54:10Z",
+      "fetchedAt": "2026-09-27T18:27:10Z",
+      "firstFetchedAt": "2026-09-25T18:39:26Z"
+    }
+  ],
+  "idempotencyKey": "aa5036f7c5cca4da037fb4167b3938edaf5209fd9cb8f0f77c12766eb24037ee"
+}
