@@ -1,5 +1,14 @@
 # HALVETH · Ein Herz für die Erde
 
+<!-- HALVETH_WORK_CERTIFICATES_V1_1 -->
+## Juri Janovski / Juri Halveth – Privates HALVETH-Werkzertifikat
+
+[Privates HALVETH-Werkzertifikat: Dokumentierte Weboberfläche und Forschungsdarstellung – HALVETH Scarlet](https://juri-halveth.github.io/werkzertifikate/#werk-halveth-scarlet).
+
+HALVETH VERACHEL STUDIOS · Quellstand, dokumentierte Ergebnisse und SHA-256-Belege stehen im Werkzertifikat. Private, mit Codex erstellte Werkdokumentation; keine ISTQB- oder sonstige Personenzertifizierung.
+<!-- /HALVETH_WORK_CERTIFICATES_V1_1 -->
+
+
 Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer gemeinsamen Umlaufbahn und ein Herz als Hauptaktion. Mint, Blau und Rosé bilden die Atmosphäre; geschwungene Doppelbänder greifen das Yin-Yang-Motiv auf.
 
 **Website:** https://juri-halveth.github.io/halveth-scarlet/
