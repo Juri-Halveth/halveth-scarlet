@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-28T06:58:09Z",
+  "generatedAt": "2026-09-28T15:31:58Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-28T06:58:09Z",
-      "lastSuccessAt": "2026-09-28T06:58:09Z",
+      "lastAttemptAt": "2026-09-28T15:31:58Z",
+      "lastSuccessAt": "2026-09-28T15:31:58Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,68 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-28T06:58:09Z",
-      "lastSuccessAt": "2026-09-28T06:58:09Z",
+      "lastAttemptAt": "2026-09-28T15:31:58Z",
+      "lastSuccessAt": "2026-09-28T15:31:58Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "825d01f7bfb9a5d422ff8c60",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Space Station View of Earth at Night",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/space-station-view-of-earth-at-night/",
+      "sourcePublishedAt": "2026-09-28T15:21:36Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
+      "firstFetchedAt": "2026-09-28T15:31:58Z"
+    },
+    {
+      "id": "3a5310176237c677f42bbcd0",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA ORBIT Challenge 2027",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/nasa-orbit-challenge-2027/",
+      "sourcePublishedAt": "2026-09-28T14:56:39Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
+      "firstFetchedAt": "2026-09-28T15:31:58Z"
+    },
+    {
+      "id": "3345e4961abae9b56d346140",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Contractor to Civil Servant: NASA Welcomes Kristie Foster",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/stennis/contractor-to-civil-servant-kristie-foster/",
+      "sourcePublishedAt": "2026-09-28T13:00:00Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
+      "firstFetchedAt": "2026-09-28T15:31:58Z"
+    },
+    {
+      "id": "8f15ff8ee2c66c7f98d79f01",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 September 28 – Cosmic Latte: The Average Color of the Universe",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-september-28-cosmic-latte-the-average-color-of-the-universe/",
+      "sourcePublishedAt": "2026-09-28T11:14:27Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
+      "firstFetchedAt": "2026-09-28T15:31:58Z"
+    },
+    {
+      "id": "cef4101e9d933eadd7fc76df",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Reliable Robots: Meet Johnson’s Dexterous Robotics Team",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/johnson/reliable-robots-meet-johnsons-dexterous-robotics-team/",
+      "sourcePublishedAt": "2026-09-28T10:00:00Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
+      "firstFetchedAt": "2026-09-28T15:31:58Z"
+    },
     {
       "id": "c88ef522a895f600c053f518",
       "sourceId": "nasa",
@@ -32,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/uncovering-the-valleys-hidden-below-greenlands-ice/",
       "sourcePublishedAt": "2026-09-28T04:00:00Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-28T06:58:09Z"
     },
     {
@@ -43,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-27-andromeda-before-photoshop/",
       "sourcePublishedAt": "2026-09-27T04:05:00Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-27T08:14:33Z"
     },
     {
@@ -54,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-26-mirrored-meteor-and-milky-way/",
       "sourcePublishedAt": "2026-09-26T04:05:00Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-26T07:45:50Z"
     },
     {
@@ -65,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator",
       "sourcePublishedAt": "2026-09-25T23:24:57Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -76,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-boeing-to-provide-update-on-starliner-development/",
       "sourcePublishedAt": "2026-09-25T22:06:50Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -87,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-usage-metrics-api-adds-pull-request-review-stages",
       "sourcePublishedAt": "2026-09-25T21:09:40Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -98,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-san-marino-signing-the-artemis-accords/",
       "sourcePublishedAt": "2026-09-25T19:53:03Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -120,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-personal-saved-views-for-repository-issues-and-more",
       "sourcePublishedAt": "2026-09-25T19:05:03Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -131,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-changes-to-query-results-in-the-github-actions-api-and-ui",
       "sourcePublishedAt": "2026-09-25T18:17:06Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -142,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory",
       "sourcePublishedAt": "2026-09-25T17:25:50Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -175,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-github-copilot-weekly-releases-september-21",
       "sourcePublishedAt": "2026-09-25T16:42:48Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -186,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-updates-to-github-copilot-for-slack-and-microsoft-teams",
       "sourcePublishedAt": "2026-09-25T16:33:42Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -219,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-codeql-2-27-1-adds-c-and-c-query-and-kotlin-2-4-20-support",
       "sourcePublishedAt": "2026-09-25T09:55:23Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-25T13:51:17Z"
     },
     {
@@ -252,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise",
       "sourcePublishedAt": "2026-09-25T03:13:23Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-25T07:52:32Z"
     },
     {
@@ -285,7 +340,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-24-require-proof-of-presence-for-high-impact-actions",
       "sourcePublishedAt": "2026-09-24T20:28:33Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-28T15:31:58Z",
       "firstFetchedAt": "2026-09-24T22:27:29Z"
     },
     {
@@ -443,50 +498,6 @@
       "firstFetchedAt": "2026-09-23T23:44:01Z"
     },
     {
-      "id": "ae710f9874083e5b0b13c062",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Aircraft to Make Low-Altitude Research Flights Over Colorado",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/general/nasa-aircraft-to-make-low-altitude-research-flights-over-colorado/",
-      "sourcePublishedAt": "2026-09-23T19:03:03Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
-      "firstFetchedAt": "2026-09-23T20:25:28Z"
-    },
-    {
-      "id": "1cb0361e8192ecc511d428f3",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s Hubble Telescope Reaches Milestone, Looks for Elusive Supernova",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/nasas-hubble-telescope-reaches-milestone-looks-for-elusive-supernova/",
-      "sourcePublishedAt": "2026-09-23T18:43:43Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
-      "firstFetchedAt": "2026-09-23T20:25:28Z"
-    },
-    {
-      "id": "07adcb70e5ace7bdf167b56b",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Arctic Sea Ice Reaches 2026 Annual Minimum Extent",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/science-research/earth-science/climate-science/sea-ice/arctic-sea-ice-2026-min/",
-      "sourcePublishedAt": "2026-09-23T17:15:32Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
-      "firstFetchedAt": "2026-09-23T20:25:28Z"
-    },
-    {
-      "id": "0b80ed774f96e971015f6759",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Shannon Lucid’s Record-Setting Mission Aboard Mir",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/shannon-lucids-record-setting-mission-aboard-mir/",
-      "sourcePublishedAt": "2026-09-23T16:03:37Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
-      "firstFetchedAt": "2026-09-23T17:05:30Z"
-    },
-    {
       "id": "63e0251438a40139e79aeee0",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -495,17 +506,6 @@
       "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
       "sourcePublishedAt": "2026-09-23T15:00:57Z",
       "fetchedAt": "2026-09-25T18:39:26Z",
-      "firstFetchedAt": "2026-09-23T17:05:30Z"
-    },
-    {
-      "id": "af6805586712c24263ab6106",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "FFA 2026 Hyperwall Schedule",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/earth/ffa-2026-hyperwall-schedule/",
-      "sourcePublishedAt": "2026-09-23T14:58:13Z",
-      "fetchedAt": "2026-09-24T04:56:04Z",
       "firstFetchedAt": "2026-09-23T17:05:30Z"
     },
     {
