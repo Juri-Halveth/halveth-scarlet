@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-28T15:31:58Z",
+  "generatedAt": "2026-09-28T22:04:16Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-28T15:31:58Z",
-      "lastSuccessAt": "2026-09-28T15:31:58Z",
+      "lastAttemptAt": "2026-09-28T22:04:16Z",
+      "lastSuccessAt": "2026-09-28T22:04:16Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,101 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-28T15:31:58Z",
-      "lastSuccessAt": "2026-09-28T15:31:58Z",
+      "lastAttemptAt": "2026-09-28T22:04:16Z",
+      "lastSuccessAt": "2026-09-28T22:04:16Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "a46bcd27818f4235dc650559",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA, Boeing Share Update on Commercial Starliner Development Plans",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-boeing-share-update-on-commercial-starliner-development-plans/",
+      "sourcePublishedAt": "2026-09-28T19:26:57Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
+      "firstFetchedAt": "2026-09-28T22:04:16Z"
+    },
+    {
+      "id": "1d09516522abfde5d3cf8f8a",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Self-hosted runner version enforcement date has moved",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved",
+      "sourcePublishedAt": "2026-09-28T19:22:46Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
+      "firstFetchedAt": "2026-09-28T22:04:16Z"
+    },
+    {
+      "id": "cb4dd9417c8d4020b6746acd",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Armstrong Celebrates 80 Years of Flight Innovation",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-armstrong-celebrates-80-years-of-flight-innovation/",
+      "sourcePublishedAt": "2026-09-28T19:20:01Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
+      "firstFetchedAt": "2026-09-28T22:04:16Z"
+    },
+    {
+      "id": "469712811c22e040083a3bd4",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Claude Sonnet 5.5 in GitHub Copilot",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot",
+      "sourcePublishedAt": "2026-09-28T18:03:57Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
+      "firstFetchedAt": "2026-09-28T22:04:16Z"
+    },
+    {
+      "id": "a46bc2af204ae5fc969f7f82",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Highlights Lessons Learned From Swift Boost Mission",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/missions/swift/nasa-highlights-lessons-learned-from-swift-boost-mission/",
+      "sourcePublishedAt": "2026-09-28T17:44:33Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
+      "firstFetchedAt": "2026-09-28T22:04:16Z"
+    },
+    {
+      "id": "2b4ea05246078b91b92a211a",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Celebrates as Artemis Accords Surpasses 75 Signatories",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-celebrates-as-artemis-accords-surpasses-75-signatories/",
+      "sourcePublishedAt": "2026-09-28T16:26:45Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
+      "firstFetchedAt": "2026-09-28T22:04:16Z"
+    },
+    {
+      "id": "6b0802f815a4d4906b2147cd",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Meet NASA’s Artemis II Crew During Houston Public Event",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/meet-nasas-artemis-ii-crew-during-houston-public-event/",
+      "sourcePublishedAt": "2026-09-28T16:16:40Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
+      "firstFetchedAt": "2026-09-28T22:04:16Z"
+    },
+    {
+      "id": "3480bbae929c06ab6d68bbe1",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "What You Need to Know About NASA’s SpaceX Crew-13 Mission",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/missions/station/commercial-crew/what-you-need-to-know-about-nasas-spacex-crew-13-mission/",
+      "sourcePublishedAt": "2026-09-28T16:09:09Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
+      "firstFetchedAt": "2026-09-28T22:04:16Z"
+    },
     {
       "id": "825d01f7bfb9a5d422ff8c60",
       "sourceId": "nasa",
@@ -32,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/space-station-view-of-earth-at-night/",
       "sourcePublishedAt": "2026-09-28T15:21:36Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
       "firstFetchedAt": "2026-09-28T15:31:58Z"
     },
     {
@@ -43,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/nasa-orbit-challenge-2027/",
       "sourcePublishedAt": "2026-09-28T14:56:39Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
       "firstFetchedAt": "2026-09-28T15:31:58Z"
     },
     {
@@ -54,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/stennis/contractor-to-civil-servant-kristie-foster/",
       "sourcePublishedAt": "2026-09-28T13:00:00Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
       "firstFetchedAt": "2026-09-28T15:31:58Z"
     },
     {
@@ -65,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-28-cosmic-latte-the-average-color-of-the-universe/",
       "sourcePublishedAt": "2026-09-28T11:14:27Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
       "firstFetchedAt": "2026-09-28T15:31:58Z"
     },
     {
@@ -120,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator",
       "sourcePublishedAt": "2026-09-25T23:24:57Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -142,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-usage-metrics-api-adds-pull-request-review-stages",
       "sourcePublishedAt": "2026-09-25T21:09:40Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -175,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-personal-saved-views-for-repository-issues-and-more",
       "sourcePublishedAt": "2026-09-25T19:05:03Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -186,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-changes-to-query-results-in-the-github-actions-api-and-ui",
       "sourcePublishedAt": "2026-09-25T18:17:06Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -197,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory",
       "sourcePublishedAt": "2026-09-25T17:25:50Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -230,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-github-copilot-weekly-releases-september-21",
       "sourcePublishedAt": "2026-09-25T16:42:48Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -241,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-updates-to-github-copilot-for-slack-and-microsoft-teams",
       "sourcePublishedAt": "2026-09-25T16:33:42Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -274,7 +362,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-codeql-2-27-1-adds-c-and-c-query-and-kotlin-2-4-20-support",
       "sourcePublishedAt": "2026-09-25T09:55:23Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
+      "fetchedAt": "2026-09-28T22:04:16Z",
       "firstFetchedAt": "2026-09-25T13:51:17Z"
     },
     {
@@ -410,50 +498,6 @@
       "firstFetchedAt": "2026-09-24T19:12:56Z"
     },
     {
-      "id": "5ea52f9f0ad18133b7752d46",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA to Study Human Health, Performance During Crew-13 Mission",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/humans-in-space/nasa-to-study-human-health-performance-during-crew-13-mission/",
-      "sourcePublishedAt": "2026-09-24T13:53:48Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
-      "firstFetchedAt": "2026-09-24T15:09:36Z"
-    },
-    {
-      "id": "ee129251f7c807d2c0288cd0",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 September 24 – The Ghosts of Five Supernovas",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-september-24-the-ghosts-of-five-supernovas/",
-      "sourcePublishedAt": "2026-09-24T04:05:00Z",
-      "fetchedAt": "2026-09-25T01:33:15Z",
-      "firstFetchedAt": "2026-09-24T04:56:04Z"
-    },
-    {
-      "id": "c031d5cea85ce932cd6f0035",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Cloudy Cloak Over the Northwest",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/earth/earth-observatory/cloudy-cloak-over-the-northwest/",
-      "sourcePublishedAt": "2026-09-24T04:01:00Z",
-      "fetchedAt": "2026-09-25T01:33:15Z",
-      "firstFetchedAt": "2026-09-24T04:56:04Z"
-    },
-    {
-      "id": "31ffdb014ec9d15cac34375c",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Modernizes Commercial Airline Systems",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/directorates/armd/aosp/nasa-modernizes-commercial-airline-systems/",
-      "sourcePublishedAt": "2026-09-23T22:08:54Z",
-      "fetchedAt": "2026-09-24T19:12:56Z",
-      "firstFetchedAt": "2026-09-23T23:44:01Z"
-    },
-    {
       "id": "63a2ad410a3d1bd18d9be639",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -473,28 +517,6 @@
       "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions",
       "sourcePublishedAt": "2026-09-23T20:46:07Z",
       "fetchedAt": "2026-09-25T18:39:26Z",
-      "firstFetchedAt": "2026-09-23T23:44:01Z"
-    },
-    {
-      "id": "ebb05a3da38456567a6fb466",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Welcomes Croatia as Newest Artemis Accords Signatory",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/organizations/oiir/artemis-accords/nasa-welcomes-croatia-as-newest-artemis-accords-signatory/",
-      "sourcePublishedAt": "2026-09-23T20:37:19Z",
-      "fetchedAt": "2026-09-24T19:12:56Z",
-      "firstFetchedAt": "2026-09-23T23:44:01Z"
-    },
-    {
-      "id": "3086f8aba320482b9c5fe7e2",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Selects Far-Infrared Telescope as First in New Mission Class",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-selects-far-infrared-telescope-as-first-in-new-mission-class/",
-      "sourcePublishedAt": "2026-09-23T20:09:42Z",
-      "fetchedAt": "2026-09-24T15:09:36Z",
       "firstFetchedAt": "2026-09-23T23:44:01Z"
     },
     {
@@ -661,28 +683,6 @@
       "sourcePublishedAt": "2026-09-18T19:00:00Z",
       "fetchedAt": "2026-09-22T18:56:52Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
-    },
-    {
-      "id": "4f937e072c6920ec30d87d43",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Stage-only npm tokens for safer automation",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-18-stage-only-npm-tokens-for-safer-automation",
-      "sourcePublishedAt": "2026-09-18T16:37:50Z",
-      "fetchedAt": "2026-09-22T14:57:30Z",
-      "firstFetchedAt": "2026-09-18T18:31:14Z"
-    },
-    {
-      "id": "553eb3c867220f4c8b6d99e9",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Copilot impact dashboard now shows feature engagement",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement",
-      "sourcePublishedAt": "2026-09-17T21:47:27Z",
-      "fetchedAt": "2026-09-22T14:57:30Z",
-      "firstFetchedAt": "2026-09-17T23:33:58Z"
     }
   ]
 }
