@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T02:00:14Z",
+  "generatedAt": "2026-09-29T08:34:49Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-29T02:00:14Z",
-      "lastSuccessAt": "2026-09-29T02:00:14Z",
+      "lastAttemptAt": "2026-09-29T08:34:49Z",
+      "lastSuccessAt": "2026-09-29T08:34:49Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,35 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-29T02:00:14Z",
-      "lastSuccessAt": "2026-09-29T02:00:14Z",
+      "lastAttemptAt": "2026-09-29T08:34:49Z",
+      "lastSuccessAt": "2026-09-29T08:34:49Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "9ddc0b147baf1c7966fb8470",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 September 29 – Sh2-188: The Shrimp Nebula",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-september-29-sh2-188-the-shrimp-nebula/",
+      "sourcePublishedAt": "2026-09-29T04:05:00Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
+      "firstFetchedAt": "2026-09-29T08:34:49Z"
+    },
+    {
+      "id": "9af33721059920ad650e0d2c",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Fire Cloud with a Pileus on Top",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/fire-cloud-with-a-pileus-on-top/",
+      "sourcePublishedAt": "2026-09-29T04:01:00Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
+      "firstFetchedAt": "2026-09-29T08:34:49Z"
+    },
     {
       "id": "86bb234b12ff9f0cd6a1a3dd",
       "sourceId": "nasa",
@@ -32,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/blog/mars-has-its-charmes/",
       "sourcePublishedAt": "2026-09-29T01:27:52Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-29T02:00:14Z"
     },
     {
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spooky-stargazing/",
       "sourcePublishedAt": "2026-09-28T22:48:56Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-29T02:00:14Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-boeing-share-update-on-commercial-starliner-development-plans/",
       "sourcePublishedAt": "2026-09-28T19:26:57Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved",
       "sourcePublishedAt": "2026-09-28T19:22:46Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-armstrong-celebrates-80-years-of-flight-innovation/",
       "sourcePublishedAt": "2026-09-28T19:20:01Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot",
       "sourcePublishedAt": "2026-09-28T18:03:57Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/swift/nasa-highlights-lessons-learned-from-swift-boost-mission/",
       "sourcePublishedAt": "2026-09-28T17:44:33Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -109,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-celebrates-as-artemis-accords-surpasses-75-signatories/",
       "sourcePublishedAt": "2026-09-28T16:26:45Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/meet-nasas-artemis-ii-crew-during-houston-public-event/",
       "sourcePublishedAt": "2026-09-28T16:16:40Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/missions/station/commercial-crew/what-you-need-to-know-about-nasas-spacex-crew-13-mission/",
       "sourcePublishedAt": "2026-09-28T16:09:09Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -230,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator",
       "sourcePublishedAt": "2026-09-25T23:24:57Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -252,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-usage-metrics-api-adds-pull-request-review-stages",
       "sourcePublishedAt": "2026-09-25T21:09:40Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -285,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-personal-saved-views-for-repository-issues-and-more",
       "sourcePublishedAt": "2026-09-25T19:05:03Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -296,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-changes-to-query-results-in-the-github-actions-api-and-ui",
       "sourcePublishedAt": "2026-09-25T18:17:06Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -307,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory",
       "sourcePublishedAt": "2026-09-25T17:25:50Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -340,7 +362,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-github-copilot-weekly-releases-september-21",
       "sourcePublishedAt": "2026-09-25T16:42:48Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -351,7 +373,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-updates-to-github-copilot-for-slack-and-microsoft-teams",
       "sourcePublishedAt": "2026-09-25T16:33:42Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -384,7 +406,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-codeql-2-27-1-adds-c-and-c-query-and-kotlin-2-4-20-support",
       "sourcePublishedAt": "2026-09-25T09:55:23Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
+      "fetchedAt": "2026-09-29T08:34:49Z",
       "firstFetchedAt": "2026-09-25T13:51:17Z"
     },
     {
@@ -473,28 +495,6 @@
       "url": "https://www.nasa.gov/centers-and-facilities/nssc/travel/",
       "sourcePublishedAt": "2026-09-24T18:06:14Z",
       "fetchedAt": "2026-09-25T18:39:26Z",
-      "firstFetchedAt": "2026-09-24T19:12:56Z"
-    },
-    {
-      "id": "815f9d86aa2d6a3f4cfa62b9",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Unveils Winning Designs for Mars Space Food Systems Challenge",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/centennial-challenges/nasa-unveils-winning-designs-for-mars-space-food-systems-challenge/",
-      "sourcePublishedAt": "2026-09-24T18:01:45Z",
-      "fetchedAt": "2026-09-25T18:39:26Z",
-      "firstFetchedAt": "2026-09-24T19:12:56Z"
-    },
-    {
-      "id": "374729f9d1137d25e2e0703f",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s Machines for Mars Make Beer Bubbly",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/technology/tech-transfer-spinoffs/nasas-machines-for-mars-make-beer-bubbly/",
-      "sourcePublishedAt": "2026-09-24T16:41:01Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
       "firstFetchedAt": "2026-09-24T19:12:56Z"
     },
     {
