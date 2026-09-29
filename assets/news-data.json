@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T15:55:23Z",
+  "generatedAt": "2026-09-29T20:50:38Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-29T15:55:23Z",
-      "lastSuccessAt": "2026-09-29T15:55:23Z",
+      "lastAttemptAt": "2026-09-29T20:50:38Z",
+      "lastSuccessAt": "2026-09-29T20:50:38Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,68 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-29T15:55:23Z",
-      "lastSuccessAt": "2026-09-29T15:55:23Z",
+      "lastAttemptAt": "2026-09-29T20:50:38Z",
+      "lastSuccessAt": "2026-09-29T20:50:38Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "568916bdaa008480a885e6f8",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Adds Blue Origin New Glenn 9×4 to Launch Services Contract",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-adds-blue-origin-new-glenn-9x4-to-launch-services-contract/",
+      "sourcePublishedAt": "2026-09-29T20:08:01Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
+      "firstFetchedAt": "2026-09-29T20:50:38Z"
+    },
+    {
+      "id": "20d614df3f96df84d10bb3f1",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Repository custom runner settings for Dependabot",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-29-repository-custom-runner-settings-for-dependabot",
+      "sourcePublishedAt": "2026-09-29T19:10:00Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
+      "firstFetchedAt": "2026-09-29T20:50:38Z"
+    },
+    {
+      "id": "ff9ce9a1f122a83f75dd3942",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Sets Crew-13 Launch, Docking Coverage",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-sets-crew-13-launch-docking-coverage/",
+      "sourcePublishedAt": "2026-09-29T18:57:14Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
+      "firstFetchedAt": "2026-09-29T20:50:38Z"
+    },
+    {
+      "id": "d259a5a11ae20b4989eb2723",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Bring business context with external custom properties",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-29-bring-business-context-with-external-custom-properties",
+      "sourcePublishedAt": "2026-09-29T18:40:27Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
+      "firstFetchedAt": "2026-09-29T20:50:38Z"
+    },
+    {
+      "id": "27fa41ed5cc26a14950e98a4",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GPT-6.1 Sol in GitHub Copilot",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot",
+      "sourcePublishedAt": "2026-09-29T17:02:27Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
+      "firstFetchedAt": "2026-09-29T20:50:38Z"
+    },
     {
       "id": "7f78ba7f32439b21f16f39ee",
       "sourceId": "nasa",
@@ -32,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/crew-13-rocket-and-spacecraft-at-launch-pad/",
       "sourcePublishedAt": "2026-09-29T15:31:56Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-29T15:55:23Z"
     },
     {
@@ -43,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/learning-resources/research-program-for-students/",
       "sourcePublishedAt": "2026-09-29T15:11:15Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-29T15:55:23Z"
     },
     {
@@ -54,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/directorates/stmd/space-tech-research-grants/nstgro/nstgro-2026/",
       "sourcePublishedAt": "2026-09-29T14:20:08Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-29T15:55:23Z"
     },
     {
@@ -65,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-made-material-moon-manufacturing/",
       "sourcePublishedAt": "2026-09-29T14:00:00Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-29T15:55:23Z"
     },
     {
@@ -76,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-29-sh2-188-the-shrimp-nebula/",
       "sourcePublishedAt": "2026-09-29T04:05:00Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-29T08:34:49Z"
     },
     {
@@ -87,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/fire-cloud-with-a-pileus-on-top/",
       "sourcePublishedAt": "2026-09-29T04:01:00Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-29T08:34:49Z"
     },
     {
@@ -98,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/blog/mars-has-its-charmes/",
       "sourcePublishedAt": "2026-09-29T01:27:52Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-29T02:00:14Z"
     },
     {
@@ -109,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spooky-stargazing/",
       "sourcePublishedAt": "2026-09-28T22:48:56Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-29T02:00:14Z"
     },
     {
@@ -131,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved",
       "sourcePublishedAt": "2026-09-28T19:22:46Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -153,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot",
       "sourcePublishedAt": "2026-09-28T18:03:57Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -296,7 +351,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator",
       "sourcePublishedAt": "2026-09-25T23:24:57Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -318,7 +373,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-usage-metrics-api-adds-pull-request-review-stages",
       "sourcePublishedAt": "2026-09-25T21:09:40Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -351,7 +406,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-personal-saved-views-for-repository-issues-and-more",
       "sourcePublishedAt": "2026-09-25T19:05:03Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -362,7 +417,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-changes-to-query-results-in-the-github-actions-api-and-ui",
       "sourcePublishedAt": "2026-09-25T18:17:06Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -373,7 +428,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory",
       "sourcePublishedAt": "2026-09-25T17:25:50Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -432,17 +487,6 @@
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
-      "id": "9fe2ca4bc2547f131cea9432",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "TB 26-07 Aluminum Alloy 2219 Material Guidance",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-07-aluminum-alloy-2219-material-guidance/",
-      "sourcePublishedAt": "2026-09-25T14:45:51Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
-      "firstFetchedAt": "2026-09-25T18:39:26Z"
-    },
-    {
       "id": "f79e7d7a633843bfcb6cfc44",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -452,17 +496,6 @@
       "sourcePublishedAt": "2026-09-25T09:55:23Z",
       "fetchedAt": "2026-09-29T15:55:23Z",
       "firstFetchedAt": "2026-09-25T13:51:17Z"
-    },
-    {
-      "id": "89137d4be7927727b49bdd36",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 September 25 – Globular Star Cluster Omega Centauri",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-september-25-globular-star-cluster-omega-centauri/",
-      "sourcePublishedAt": "2026-09-25T04:05:00Z",
-      "fetchedAt": "2026-09-28T00:51:54Z",
-      "firstFetchedAt": "2026-09-25T07:52:32Z"
     },
     {
       "id": "9111ec33ec962e74818200f5",
@@ -649,39 +682,6 @@
       "url": "https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience",
       "sourcePublishedAt": "2026-09-18T20:17:22Z",
       "fetchedAt": "2026-09-23T00:37:35Z",
-      "firstFetchedAt": "2026-09-18T21:43:41Z"
-    },
-    {
-      "id": "32006e5a8d11086972b602db",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Manage the code coverage ruleset condition with the REST API",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-18-manage-the-code-coverage-ruleset-condition-with-the-rest-api",
-      "sourcePublishedAt": "2026-09-18T19:23:49Z",
-      "fetchedAt": "2026-09-23T00:37:35Z",
-      "firstFetchedAt": "2026-09-18T21:43:41Z"
-    },
-    {
-      "id": "d1bb380da0e9010a972938ed",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "GitHub Copilot weekly releases — September 14",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14",
-      "sourcePublishedAt": "2026-09-18T19:21:22Z",
-      "fetchedAt": "2026-09-22T22:12:40Z",
-      "firstFetchedAt": "2026-09-18T21:43:41Z"
-    },
-    {
-      "id": "4cbf947485c627798e6c2a1e",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Upcoming deprecation of selected GitHub Copilot models in mid-October",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october",
-      "sourcePublishedAt": "2026-09-18T19:00:00Z",
-      "fetchedAt": "2026-09-22T18:56:52Z",
       "firstFetchedAt": "2026-09-18T21:43:41Z"
     }
   ]

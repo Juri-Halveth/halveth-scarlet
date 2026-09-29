@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-29",
+  "createdAt": "2026-09-29T20:50:38.501Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-09-29",
+  "body": "# HALVETH Quellen-Update · 2026-09-29\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [NASA Adds Blue Origin New Glenn 9×4 to Launch Services Contract](https://www.nasa.gov/news-release/nasa-adds-blue-origin-new-glenn-9x4-to-launch-services-contract/) · veröffentlicht 2026-09-29\n- **GitHub Changelog** · Originaltitel (EN): [Repository custom runner settings for Dependabot](https://github.blog/changelog/2026-09-29-repository-custom-runner-settings-for-dependabot) · veröffentlicht 2026-09-29\n- **NASA** · Originaltitel (EN): [NASA Sets Crew-13 Launch, Docking Coverage](https://www.nasa.gov/news-release/nasa-sets-crew-13-launch-docking-coverage/) · veröffentlicht 2026-09-29\n- **GitHub Changelog** · Originaltitel (EN): [Bring business context with external custom properties](https://github.blog/changelog/2026-09-29-bring-business-context-with-external-custom-properties) · veröffentlicht 2026-09-29\n- **GitHub Changelog** · Originaltitel (EN): [GPT-6.1 Sol in GitHub Copilot](https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot) · veröffentlicht 2026-09-29\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "568916bdaa008480a885e6f8",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Adds Blue Origin New Glenn 9×4 to Launch Services Contract",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-adds-blue-origin-new-glenn-9x4-to-launch-services-contract/",
+      "sourcePublishedAt": "2026-09-29T20:08:01Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
+      "firstFetchedAt": "2026-09-29T20:50:38Z"
+    },
+    {
+      "id": "20d614df3f96df84d10bb3f1",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Repository custom runner settings for Dependabot",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-29-repository-custom-runner-settings-for-dependabot",
+      "sourcePublishedAt": "2026-09-29T19:10:00Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
+      "firstFetchedAt": "2026-09-29T20:50:38Z"
+    },
+    {
+      "id": "ff9ce9a1f122a83f75dd3942",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Sets Crew-13 Launch, Docking Coverage",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-sets-crew-13-launch-docking-coverage/",
+      "sourcePublishedAt": "2026-09-29T18:57:14Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
+      "firstFetchedAt": "2026-09-29T20:50:38Z"
+    },
+    {
+      "id": "d259a5a11ae20b4989eb2723",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Bring business context with external custom properties",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-29-bring-business-context-with-external-custom-properties",
+      "sourcePublishedAt": "2026-09-29T18:40:27Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
+      "firstFetchedAt": "2026-09-29T20:50:38Z"
+    },
+    {
+      "id": "27fa41ed5cc26a14950e98a4",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GPT-6.1 Sol in GitHub Copilot",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot",
+      "sourcePublishedAt": "2026-09-29T17:02:27Z",
+      "fetchedAt": "2026-09-29T20:50:38Z",
+      "firstFetchedAt": "2026-09-29T20:50:38Z"
+    }
+  ],
+  "idempotencyKey": "08ee3b7691cfd6a2ca45a547dc655c22d0a305b9ef6d868be65cc4900685685f"
+}
