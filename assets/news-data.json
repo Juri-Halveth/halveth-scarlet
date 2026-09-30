@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T20:50:38Z",
+  "generatedAt": "2026-09-30T00:30:03Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-29T20:50:38Z",
-      "lastSuccessAt": "2026-09-29T20:50:38Z",
+      "lastAttemptAt": "2026-09-30T00:30:03Z",
+      "lastSuccessAt": "2026-09-30T00:30:03Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,46 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-29T20:50:38Z",
-      "lastSuccessAt": "2026-09-29T20:50:38Z",
+      "lastAttemptAt": "2026-09-30T00:30:03Z",
+      "lastSuccessAt": "2026-09-30T00:30:03Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "c3bccf2fbab336e5659f90eb",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Opens 2027 Human Lander Challenge for Lunar Communications",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-opens-2027-human-lander-challenge-for-lunar-communications/",
+      "sourcePublishedAt": "2026-09-29T21:27:56Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
+      "firstFetchedAt": "2026-09-30T00:30:03Z"
+    },
+    {
+      "id": "43dd486a44c022d1c9063cf0",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Awards Orbital Safety Analysis Support Services Contract",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-awards-orbital-safety-analysis-support-services-contract/",
+      "sourcePublishedAt": "2026-09-29T21:00:00Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
+      "firstFetchedAt": "2026-09-30T00:30:03Z"
+    },
+    {
+      "id": "13c370f12b2c8312380e1870",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Features Exploration, Science at International Space Conference",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-features-exploration-science-at-international-space-conference/",
+      "sourcePublishedAt": "2026-09-29T20:55:24Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
+      "firstFetchedAt": "2026-09-30T00:30:03Z"
+    },
     {
       "id": "568916bdaa008480a885e6f8",
       "sourceId": "nasa",
@@ -32,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-adds-blue-origin-new-glenn-9x4-to-launch-services-contract/",
       "sourcePublishedAt": "2026-09-29T20:08:01Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -43,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-29-repository-custom-runner-settings-for-dependabot",
       "sourcePublishedAt": "2026-09-29T19:10:00Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -54,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-sets-crew-13-launch-docking-coverage/",
       "sourcePublishedAt": "2026-09-29T18:57:14Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -65,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-29-bring-business-context-with-external-custom-properties",
       "sourcePublishedAt": "2026-09-29T18:40:27Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -76,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot",
       "sourcePublishedAt": "2026-09-29T17:02:27Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -87,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/crew-13-rocket-and-spacecraft-at-launch-pad/",
       "sourcePublishedAt": "2026-09-29T15:31:56Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-29T15:55:23Z"
     },
     {
@@ -98,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/learning-resources/research-program-for-students/",
       "sourcePublishedAt": "2026-09-29T15:11:15Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-29T15:55:23Z"
     },
     {
@@ -109,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/directorates/stmd/space-tech-research-grants/nstgro/nstgro-2026/",
       "sourcePublishedAt": "2026-09-29T14:20:08Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-29T15:55:23Z"
     },
     {
@@ -120,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-made-material-moon-manufacturing/",
       "sourcePublishedAt": "2026-09-29T14:00:00Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-29T15:55:23Z"
     },
     {
@@ -131,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-29-sh2-188-the-shrimp-nebula/",
       "sourcePublishedAt": "2026-09-29T04:05:00Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-29T08:34:49Z"
     },
     {
@@ -186,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved",
       "sourcePublishedAt": "2026-09-28T19:22:46Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -208,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot",
       "sourcePublishedAt": "2026-09-28T18:03:57Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -351,7 +384,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator",
       "sourcePublishedAt": "2026-09-25T23:24:57Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -373,7 +406,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-usage-metrics-api-adds-pull-request-review-stages",
       "sourcePublishedAt": "2026-09-25T21:09:40Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -406,7 +439,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-personal-saved-views-for-repository-issues-and-more",
       "sourcePublishedAt": "2026-09-25T19:05:03Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -417,7 +450,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-changes-to-query-results-in-the-github-actions-api-and-ui",
       "sourcePublishedAt": "2026-09-25T18:17:06Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -428,29 +461,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory",
       "sourcePublishedAt": "2026-09-25T17:25:50Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
-      "firstFetchedAt": "2026-09-25T18:39:26Z"
-    },
-    {
-      "id": "495eb9eedc69e00ba7463e38",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "2026-2027 DWU: Middle School Design Challenge",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-middle-school-design-challenge/",
-      "sourcePublishedAt": "2026-09-25T17:20:51Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
-      "firstFetchedAt": "2026-09-25T18:39:26Z"
-    },
-    {
-      "id": "bada438938219258597e41c2",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "2026-2027 DWU: High School Engineering Challenge",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-high-school-engineering-challenge/",
-      "sourcePublishedAt": "2026-09-25T17:19:42Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
+      "fetchedAt": "2026-09-30T00:30:03Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
@@ -473,17 +484,6 @@
       "url": "https://github.blog/changelog/2026-09-25-updates-to-github-copilot-for-slack-and-microsoft-teams",
       "sourcePublishedAt": "2026-09-25T16:33:42Z",
       "fetchedAt": "2026-09-29T15:55:23Z",
-      "firstFetchedAt": "2026-09-25T18:39:26Z"
-    },
-    {
-      "id": "daee4569bcbc531e7bf52223",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Hubble Spots Chaotic Secret in Galaxy",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/hubble-spots-chaotic-secret-in-galaxy/",
-      "sourcePublishedAt": "2026-09-25T15:54:10Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
