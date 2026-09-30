@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T00:30:03Z",
+  "generatedAt": "2026-09-30T06:46:15Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-30T00:30:03Z",
-      "lastSuccessAt": "2026-09-30T00:30:03Z",
+      "lastAttemptAt": "2026-09-30T06:46:15Z",
+      "lastSuccessAt": "2026-09-30T06:46:15Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,35 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-30T00:30:03Z",
-      "lastSuccessAt": "2026-09-30T00:30:03Z",
+      "lastAttemptAt": "2026-09-30T06:46:15Z",
+      "lastSuccessAt": "2026-09-30T06:46:15Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "d906757401ffc4abe3b46eac",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 September 30 – Arp 78: Peculiar Galaxy in Aries",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-september-30-arp-78-peculiar-galaxy-in-aries/",
+      "sourcePublishedAt": "2026-09-30T04:05:00Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
+      "firstFetchedAt": "2026-09-30T06:46:15Z"
+    },
+    {
+      "id": "7b80d485c9a5a57564e66aee",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Powerful Storms Continue to Prowl the Pacific",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/powerful-storms-continue-to-prowl-the-pacific/",
+      "sourcePublishedAt": "2026-09-30T04:01:00Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
+      "firstFetchedAt": "2026-09-30T06:46:15Z"
+    },
     {
       "id": "c3bccf2fbab336e5659f90eb",
       "sourceId": "nasa",
@@ -32,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-opens-2027-human-lander-challenge-for-lunar-communications/",
       "sourcePublishedAt": "2026-09-29T21:27:56Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-30T00:30:03Z"
     },
     {
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-awards-orbital-safety-analysis-support-services-contract/",
       "sourcePublishedAt": "2026-09-29T21:00:00Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-30T00:30:03Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-features-exploration-science-at-international-space-conference/",
       "sourcePublishedAt": "2026-09-29T20:55:24Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-30T00:30:03Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-adds-blue-origin-new-glenn-9x4-to-launch-services-contract/",
       "sourcePublishedAt": "2026-09-29T20:08:01Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-29-repository-custom-runner-settings-for-dependabot",
       "sourcePublishedAt": "2026-09-29T19:10:00Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-sets-crew-13-launch-docking-coverage/",
       "sourcePublishedAt": "2026-09-29T18:57:14Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-29-bring-business-context-with-external-custom-properties",
       "sourcePublishedAt": "2026-09-29T18:40:27Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -109,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot",
       "sourcePublishedAt": "2026-09-29T17:02:27Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/crew-13-rocket-and-spacecraft-at-launch-pad/",
       "sourcePublishedAt": "2026-09-29T15:31:56Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-29T15:55:23Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/learning-resources/research-program-for-students/",
       "sourcePublishedAt": "2026-09-29T15:11:15Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-29T15:55:23Z"
     },
     {
@@ -142,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/directorates/stmd/space-tech-research-grants/nstgro/nstgro-2026/",
       "sourcePublishedAt": "2026-09-29T14:20:08Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-29T15:55:23Z"
     },
     {
@@ -219,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved",
       "sourcePublishedAt": "2026-09-28T19:22:46Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -241,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot",
       "sourcePublishedAt": "2026-09-28T18:03:57Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -384,7 +406,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator",
       "sourcePublishedAt": "2026-09-25T23:24:57Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -406,30 +428,8 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-usage-metrics-api-adds-pull-request-review-stages",
       "sourcePublishedAt": "2026-09-25T21:09:40Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
-    },
-    {
-      "id": "420ec31d089e6561f6be574a",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Welcomes San Marino Signing the Artemis Accords",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-san-marino-signing-the-artemis-accords/",
-      "sourcePublishedAt": "2026-09-25T19:53:03Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
-      "firstFetchedAt": "2026-09-25T22:23:42Z"
-    },
-    {
-      "id": "ce79877d0bd6a1fcad5da788",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Tests Dual Mode Propulsion CubeSat Ahead of Launch",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/directorates/rtmd/nasa-tests-dual-mode-propulsion-cubesat-ahead-of-launch/",
-      "sourcePublishedAt": "2026-09-25T19:36:10Z",
-      "fetchedAt": "2026-09-28T06:58:09Z",
-      "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
       "id": "10030137c3a01f3444e23ded",
@@ -439,7 +439,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-personal-saved-views-for-repository-issues-and-more",
       "sourcePublishedAt": "2026-09-25T19:05:03Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -450,7 +450,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-changes-to-query-results-in-the-github-actions-api-and-ui",
       "sourcePublishedAt": "2026-09-25T18:17:06Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
@@ -461,7 +461,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory",
       "sourcePublishedAt": "2026-09-25T17:25:50Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
+      "fetchedAt": "2026-09-30T06:46:15Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
     },
     {
