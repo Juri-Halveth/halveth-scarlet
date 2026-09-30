@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T13:47:21Z",
+  "generatedAt": "2026-09-30T19:23:51Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-09-30T13:47:21Z",
-      "lastSuccessAt": "2026-09-30T13:47:21Z",
+      "lastAttemptAt": "2026-09-30T19:23:51Z",
+      "lastSuccessAt": "2026-09-30T19:23:51Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,68 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-09-30T13:47:21Z",
-      "lastSuccessAt": "2026-09-30T13:47:21Z",
+      "lastAttemptAt": "2026-09-30T19:23:51Z",
+      "lastSuccessAt": "2026-09-30T19:23:51Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "36f187f19da9e2fe763a539c",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA, International Partners Advance Work on Space Crops",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/science-research/biological-physical-sciences/nasa-international-partners-advance-work-on-space-crops/",
+      "sourcePublishedAt": "2026-09-30T18:38:20Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
+      "firstFetchedAt": "2026-09-30T19:23:51Z"
+    },
+    {
+      "id": "db2ff24385aabeaecb4dabfd",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Star Trails",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/star-trails/",
+      "sourcePublishedAt": "2026-09-30T17:50:50Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
+      "firstFetchedAt": "2026-09-30T19:23:51Z"
+    },
+    {
+      "id": "83c42770fe17223cd9044dc5",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Advanced Security trials for GitHub Team",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-30-github-advanced-security-trials-for-github-team",
+      "sourcePublishedAt": "2026-09-30T16:48:24Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
+      "firstFetchedAt": "2026-09-30T19:23:51Z"
+    },
+    {
+      "id": "cad13c49eff0df4a6694b1ab",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "HydraFusion in VS Code and the GitHub Copilot app",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app",
+      "sourcePublishedAt": "2026-09-30T14:31:19Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
+      "firstFetchedAt": "2026-09-30T19:23:51Z"
+    },
+    {
+      "id": "7ecb75d17d50c9e8eb8978a3",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "X25519-only TLS ends for GHE.com on October 7",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-30-x25519-only-tls-ends-for-ghe-com-on-september-15",
+      "sourcePublishedAt": "2026-09-30T13:30:24Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
+      "firstFetchedAt": "2026-09-30T19:23:51Z"
+    },
     {
       "id": "d906757401ffc4abe3b46eac",
       "sourceId": "nasa",
@@ -32,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-september-30-arp-78-peculiar-galaxy-in-aries/",
       "sourcePublishedAt": "2026-09-30T04:05:00Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-30T06:46:15Z"
     },
     {
@@ -43,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/powerful-storms-continue-to-prowl-the-pacific/",
       "sourcePublishedAt": "2026-09-30T04:01:00Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-30T06:46:15Z"
     },
     {
@@ -54,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-opens-2027-human-lander-challenge-for-lunar-communications/",
       "sourcePublishedAt": "2026-09-29T21:27:56Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-30T00:30:03Z"
     },
     {
@@ -65,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-awards-orbital-safety-analysis-support-services-contract/",
       "sourcePublishedAt": "2026-09-29T21:00:00Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-30T00:30:03Z"
     },
     {
@@ -76,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-features-exploration-science-at-international-space-conference/",
       "sourcePublishedAt": "2026-09-29T20:55:24Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-30T00:30:03Z"
     },
     {
@@ -87,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-adds-blue-origin-new-glenn-9x4-to-launch-services-contract/",
       "sourcePublishedAt": "2026-09-29T20:08:01Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -98,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-29-repository-custom-runner-settings-for-dependabot",
       "sourcePublishedAt": "2026-09-29T19:10:00Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -109,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-sets-crew-13-launch-docking-coverage/",
       "sourcePublishedAt": "2026-09-29T18:57:14Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -120,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-29-bring-business-context-with-external-custom-properties",
       "sourcePublishedAt": "2026-09-29T18:40:27Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -131,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot",
       "sourcePublishedAt": "2026-09-29T17:02:27Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
     },
     {
@@ -142,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/crew-13-rocket-and-spacecraft-at-launch-pad/",
       "sourcePublishedAt": "2026-09-29T15:31:56Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-29T15:55:23Z"
     },
     {
@@ -241,7 +296,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved",
       "sourcePublishedAt": "2026-09-28T19:22:46Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -263,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot",
       "sourcePublishedAt": "2026-09-28T18:03:57Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
@@ -388,17 +443,6 @@
       "firstFetchedAt": "2026-09-27T08:14:33Z"
     },
     {
-      "id": "73ee9728200881584eb1d7ea",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 September 26 – Mirrored Meteor and Milky Way",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-september-26-mirrored-meteor-and-milky-way/",
-      "sourcePublishedAt": "2026-09-26T04:05:00Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
-      "firstFetchedAt": "2026-09-26T07:45:50Z"
-    },
-    {
       "id": "07dade88210664e3a861290c",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -406,19 +450,8 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator",
       "sourcePublishedAt": "2026-09-25T23:24:57Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
-    },
-    {
-      "id": "7940e22eb73f541dee2d1471",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA, Boeing to Provide Update on Starliner Development",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-boeing-to-provide-update-on-starliner-development/",
-      "sourcePublishedAt": "2026-09-25T22:06:50Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
-      "firstFetchedAt": "2026-09-25T22:23:42Z"
     },
     {
       "id": "0a10d0252c63a3f9d568712c",
@@ -428,7 +461,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-25-usage-metrics-api-adds-pull-request-review-stages",
       "sourcePublishedAt": "2026-09-25T21:09:40Z",
-      "fetchedAt": "2026-09-30T13:47:21Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
       "firstFetchedAt": "2026-09-26T01:36:44Z"
     },
     {
@@ -650,39 +683,6 @@
       "sourcePublishedAt": "2026-09-22T01:25:53Z",
       "fetchedAt": "2026-09-23T20:25:28Z",
       "firstFetchedAt": "2026-09-22T05:01:04Z"
-    },
-    {
-      "id": "f631d543deb02b097c676cd1",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "GitHub Enterprise adds credential inventory exports",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-21-github-enterprise-adds-credential-inventory-exports",
-      "sourcePublishedAt": "2026-09-21T21:13:18Z",
-      "fetchedAt": "2026-09-23T20:25:28Z",
-      "firstFetchedAt": "2026-09-21T23:19:01Z"
-    },
-    {
-      "id": "9c38b0e540fa6708e9ee0116",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Grok 4.7 is now available in GitHub Copilot",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot",
-      "sourcePublishedAt": "2026-09-21T14:54:12Z",
-      "fetchedAt": "2026-09-23T11:41:59Z",
-      "firstFetchedAt": "2026-09-21T19:32:13Z"
-    },
-    {
-      "id": "90422616cebb86f46f0aadee",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Copilot code review: An improved review experience",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience",
-      "sourcePublishedAt": "2026-09-18T20:17:22Z",
-      "fetchedAt": "2026-09-23T00:37:35Z",
-      "firstFetchedAt": "2026-09-18T21:43:41Z"
     }
   ]
 }

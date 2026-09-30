@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-30",
+  "createdAt": "2026-09-30T19:23:51.489Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-09-30",
+  "body": "# HALVETH Quellen-Update · 2026-09-30\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [NASA, International Partners Advance Work on Space Crops](https://science.nasa.gov/science-research/biological-physical-sciences/nasa-international-partners-advance-work-on-space-crops/) · veröffentlicht 2026-09-30\n- **NASA** · Originaltitel (EN): [Star Trails](https://www.nasa.gov/image-article/star-trails/) · veröffentlicht 2026-09-30\n- **GitHub Changelog** · Originaltitel (EN): [GitHub Advanced Security trials for GitHub Team](https://github.blog/changelog/2026-09-30-github-advanced-security-trials-for-github-team) · veröffentlicht 2026-09-30\n- **GitHub Changelog** · Originaltitel (EN): [HydraFusion in VS Code and the GitHub Copilot app](https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app) · veröffentlicht 2026-09-30\n- **GitHub Changelog** · Originaltitel (EN): [X25519-only TLS ends for GHE.com on October 7](https://github.blog/changelog/2026-09-30-x25519-only-tls-ends-for-ghe-com-on-september-15) · veröffentlicht 2026-09-30\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "36f187f19da9e2fe763a539c",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA, International Partners Advance Work on Space Crops",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/science-research/biological-physical-sciences/nasa-international-partners-advance-work-on-space-crops/",
+      "sourcePublishedAt": "2026-09-30T18:38:20Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
+      "firstFetchedAt": "2026-09-30T19:23:51Z"
+    },
+    {
+      "id": "db2ff24385aabeaecb4dabfd",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Star Trails",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/star-trails/",
+      "sourcePublishedAt": "2026-09-30T17:50:50Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
+      "firstFetchedAt": "2026-09-30T19:23:51Z"
+    },
+    {
+      "id": "83c42770fe17223cd9044dc5",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Advanced Security trials for GitHub Team",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-30-github-advanced-security-trials-for-github-team",
+      "sourcePublishedAt": "2026-09-30T16:48:24Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
+      "firstFetchedAt": "2026-09-30T19:23:51Z"
+    },
+    {
+      "id": "cad13c49eff0df4a6694b1ab",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "HydraFusion in VS Code and the GitHub Copilot app",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app",
+      "sourcePublishedAt": "2026-09-30T14:31:19Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
+      "firstFetchedAt": "2026-09-30T19:23:51Z"
+    },
+    {
+      "id": "7ecb75d17d50c9e8eb8978a3",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "X25519-only TLS ends for GHE.com on October 7",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-09-30-x25519-only-tls-ends-for-ghe-com-on-september-15",
+      "sourcePublishedAt": "2026-09-30T13:30:24Z",
+      "fetchedAt": "2026-09-30T19:23:51Z",
+      "firstFetchedAt": "2026-09-30T19:23:51Z"
+    }
+  ],
+  "idempotencyKey": "d408c04ed0606fc4d6264db8c613e19de8952d1043142b30514391d4a0b5a97c"
+}
