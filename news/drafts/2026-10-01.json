@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "createdAt": "2026-10-01T19:34:04.113Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-10-01",
+  "body": "# HALVETH Quellen-Update · 2026-10-01\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **GitHub Changelog** · Originaltitel (EN): [GitHub Copilot can now interact with desktop apps with computer use](https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps) · veröffentlicht 2026-10-01\n- **GitHub Changelog** · Originaltitel (EN): [GitHub Copilot in VS Code, September 2026 releases](https://github.blog/changelog/2026-10-01-github-copilot-in-vs-code-september-2026-releases) · veröffentlicht 2026-10-01\n- **NASA** · Originaltitel (EN): [NASA’s SpaceX Crew-13 Launches](https://www.nasa.gov/image-article/nasas-spacex-crew-13-launches/) · veröffentlicht 2026-10-01\n- **GitHub Changelog** · Originaltitel (EN): [Actions retention now covers checks, runs, and statuses](https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses) · veröffentlicht 2026-10-01\n- **NASA** · Originaltitel (EN): [What’s Up: October 2026 Skywatching Tips from NASA](https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/) · veröffentlicht 2026-10-01\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "e11a5d7f0be16c7ae710cb40",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Copilot can now interact with desktop apps with computer use",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps",
+      "sourcePublishedAt": "2026-10-01T19:11:26Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "d8efb6ae3f1c14fd22be9554",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Copilot in VS Code, September 2026 releases",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-github-copilot-in-vs-code-september-2026-releases",
+      "sourcePublishedAt": "2026-10-01T19:09:10Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "0ab78ce3d86aee2f6b9c7c74",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s SpaceX Crew-13 Launches",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/nasas-spacex-crew-13-launches/",
+      "sourcePublishedAt": "2026-10-01T18:05:38Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "753db708944fe737e729b791",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Actions retention now covers checks, runs, and statuses",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses",
+      "sourcePublishedAt": "2026-10-01T17:59:54Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "e2c78b8df324231e1e4f15c9",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "What’s Up: October 2026 Skywatching Tips from NASA",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/",
+      "sourcePublishedAt": "2026-10-01T16:58:10Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    }
+  ],
+  "idempotencyKey": "281e657cda74b636908b200f9cde83a468893aca64908101038f02b9b1d1d097"
+}

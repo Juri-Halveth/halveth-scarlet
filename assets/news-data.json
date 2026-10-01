@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-01T13:22:02Z",
+  "generatedAt": "2026-10-01T19:34:03Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-01T13:22:02Z",
-      "lastSuccessAt": "2026-10-01T13:22:02Z",
+      "lastAttemptAt": "2026-10-01T19:34:03Z",
+      "lastSuccessAt": "2026-10-01T19:34:03Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,145 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-01T13:22:02Z",
-      "lastSuccessAt": "2026-10-01T13:22:02Z",
+      "lastAttemptAt": "2026-10-01T19:34:03Z",
+      "lastSuccessAt": "2026-10-01T19:34:03Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "e11a5d7f0be16c7ae710cb40",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Copilot can now interact with desktop apps with computer use",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps",
+      "sourcePublishedAt": "2026-10-01T19:11:26Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "d8efb6ae3f1c14fd22be9554",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Copilot in VS Code, September 2026 releases",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-github-copilot-in-vs-code-september-2026-releases",
+      "sourcePublishedAt": "2026-10-01T19:09:10Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "0ab78ce3d86aee2f6b9c7c74",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s SpaceX Crew-13 Launches",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/nasas-spacex-crew-13-launches/",
+      "sourcePublishedAt": "2026-10-01T18:05:38Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "753db708944fe737e729b791",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Actions retention now covers checks, runs, and statuses",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses",
+      "sourcePublishedAt": "2026-10-01T17:59:54Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "e2c78b8df324231e1e4f15c9",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "What’s Up: October 2026 Skywatching Tips from NASA",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/",
+      "sourcePublishedAt": "2026-10-01T16:58:10Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "1b08c1a560be6fc559cd4345",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Scheduled code scanning skips inactive repositories",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-scheduled-code-scanning-skips-inactive-repositories",
+      "sourcePublishedAt": "2026-10-01T16:49:15Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "8fe4537a2c819686bd258982",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Code coverage uploads no longer fail CI for new branches",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-code-coverage-uploads-no-longer-fail-ci-for-new-branches",
+      "sourcePublishedAt": "2026-10-01T16:49:05Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "1b1903c96c873dca5e4db30d",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "New dashboard experience now the default",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-new-dashboard-experience-now-the-default",
+      "sourcePublishedAt": "2026-10-01T16:14:56Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "cc530636f53150f8479850be",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s SpaceX Crew-13 Launches to International Space Station",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasas-spacex-crew-13-launches-to-international-space-station/",
+      "sourcePublishedAt": "2026-10-01T15:59:24Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "e77dbfb3ff372c8397520da1",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub async merge API generally available",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-github-async-merge-api-generally-available",
+      "sourcePublishedAt": "2026-10-01T14:00:51Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "6dd5f16404b729895df22a26",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Webb Provides Crash Course on Planet-Shattering Collisions",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/missions/webb/nasas-webb-provides-crash-course-on-planet-shattering-collisions/",
+      "sourcePublishedAt": "2026-10-01T14:00:00Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "a343b310e28c339784b31ba4",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Actions Runner Controller release 0.15.0",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-actions-runner-controller-release-0-15-0",
+      "sourcePublishedAt": "2026-10-01T13:01:31Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
+      "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
     {
       "id": "b1f90b956474857f13043c29",
       "sourceId": "nasa",
@@ -32,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-1-harvest-moon-with-belt-of-venus-and-erupting-mount-etna/",
       "sourcePublishedAt": "2026-10-01T04:05:00Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
       "firstFetchedAt": "2026-10-01T06:00:09Z"
     },
     {
@@ -43,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/an-agricultural-island-in-the-saskatchewan-river-delta/",
       "sourcePublishedAt": "2026-10-01T04:00:00Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
       "firstFetchedAt": "2026-10-01T06:00:09Z"
     },
     {
@@ -54,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5016-5021-fantastic-minerals-and-how-to-detect-them/",
       "sourcePublishedAt": "2026-09-30T23:37:47Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
       "firstFetchedAt": "2026-10-01T06:00:09Z"
     },
     {
@@ -65,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/get-involved/citizen-science/help-overlap-zoo-reveal-cosmic-dust/",
       "sourcePublishedAt": "2026-09-30T21:19:33Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
       "firstFetchedAt": "2026-09-30T23:53:20Z"
     },
     {
@@ -76,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-adds-new-science-investigations-for-moon-base/",
       "sourcePublishedAt": "2026-09-30T21:11:23Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
       "firstFetchedAt": "2026-09-30T23:53:20Z"
     },
     {
@@ -87,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-30-opt-in-dist-tag-permissions-for-npm-trusted-publishing",
       "sourcePublishedAt": "2026-09-30T21:03:09Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
       "firstFetchedAt": "2026-09-30T23:53:20Z"
     },
     {
@@ -98,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-awards-contract-to-develop-5g-communications-for-moon/",
       "sourcePublishedAt": "2026-09-30T20:41:26Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
       "firstFetchedAt": "2026-09-30T23:53:20Z"
     },
     {
@@ -131,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-30-github-advanced-security-trials-for-github-team",
       "sourcePublishedAt": "2026-09-30T16:48:24Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
+      "fetchedAt": "2026-10-01T19:34:03Z",
       "firstFetchedAt": "2026-09-30T19:23:51Z"
     },
     {
@@ -410,50 +542,6 @@
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
-      "id": "2b4ea05246078b91b92a211a",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Celebrates as Artemis Accords Surpasses 75 Signatories",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-celebrates-as-artemis-accords-surpasses-75-signatories/",
-      "sourcePublishedAt": "2026-09-28T16:26:45Z",
-      "fetchedAt": "2026-09-29T08:34:49Z",
-      "firstFetchedAt": "2026-09-28T22:04:16Z"
-    },
-    {
-      "id": "6b0802f815a4d4906b2147cd",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Meet NASA’s Artemis II Crew During Houston Public Event",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/meet-nasas-artemis-ii-crew-during-houston-public-event/",
-      "sourcePublishedAt": "2026-09-28T16:16:40Z",
-      "fetchedAt": "2026-09-29T08:34:49Z",
-      "firstFetchedAt": "2026-09-28T22:04:16Z"
-    },
-    {
-      "id": "3480bbae929c06ab6d68bbe1",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "What You Need to Know About NASA’s SpaceX Crew-13 Mission",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/missions/station/commercial-crew/what-you-need-to-know-about-nasas-spacex-crew-13-mission/",
-      "sourcePublishedAt": "2026-09-28T16:09:09Z",
-      "fetchedAt": "2026-09-29T08:34:49Z",
-      "firstFetchedAt": "2026-09-28T22:04:16Z"
-    },
-    {
-      "id": "825d01f7bfb9a5d422ff8c60",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Space Station View of Earth at Night",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/space-station-view-of-earth-at-night/",
-      "sourcePublishedAt": "2026-09-28T15:21:36Z",
-      "fetchedAt": "2026-09-29T02:00:14Z",
-      "firstFetchedAt": "2026-09-28T15:31:58Z"
-    },
-    {
       "id": "07dade88210664e3a861290c",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -595,94 +683,6 @@
       "sourcePublishedAt": "2026-09-23T20:46:07Z",
       "fetchedAt": "2026-09-25T18:39:26Z",
       "firstFetchedAt": "2026-09-23T23:44:01Z"
-    },
-    {
-      "id": "63e0251438a40139e79aeee0",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Local sandboxing in the GitHub Copilot app",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
-      "sourcePublishedAt": "2026-09-23T15:00:57Z",
-      "fetchedAt": "2026-09-25T18:39:26Z",
-      "firstFetchedAt": "2026-09-23T17:05:30Z"
-    },
-    {
-      "id": "cf4f876c079667faff553980",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "OpenTelemetry in the GitHub Copilot app",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app",
-      "sourcePublishedAt": "2026-09-23T02:14:54Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
-      "firstFetchedAt": "2026-09-23T06:01:13Z"
-    },
-    {
-      "id": "18036a2d23f1f8494acfaf6b",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "New features and improvements in Copilot for JetBrains",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains",
-      "sourcePublishedAt": "2026-09-23T00:34:18Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
-      "firstFetchedAt": "2026-09-23T06:01:13Z"
-    },
-    {
-      "id": "566dfe7d34b559d7ec3b71f0",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Faster C++ code intelligence with whole codebase indexing",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing",
-      "sourcePublishedAt": "2026-09-22T22:24:48Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
-      "firstFetchedAt": "2026-09-23T00:37:35Z"
-    },
-    {
-      "id": "235d6f2bbf750d6c0d6191c6",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Claude Opus 5.5 is now available in GitHub Copilot",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot",
-      "sourcePublishedAt": "2026-09-22T17:10:23Z",
-      "fetchedAt": "2026-09-25T13:51:17Z",
-      "firstFetchedAt": "2026-09-22T18:56:52Z"
-    },
-    {
-      "id": "f05a574f35fedc0736fa62a1",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "OpenAI’s GPT-6 Sol and GPT-6 Luna now available",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available",
-      "sourcePublishedAt": "2026-09-22T17:00:14Z",
-      "fetchedAt": "2026-09-25T07:52:32Z",
-      "firstFetchedAt": "2026-09-22T18:56:52Z"
-    },
-    {
-      "id": "01037b2410289b4f9f5f94f3",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Security improvements for SSH",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-22-security-improvements-for-ssh",
-      "sourcePublishedAt": "2026-09-22T14:11:47Z",
-      "fetchedAt": "2026-09-25T01:33:15Z",
-      "firstFetchedAt": "2026-09-22T22:12:40Z"
-    },
-    {
-      "id": "3822e53281df1dc0922def79",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Deprecation notice: All-platform CodeQL bundle",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-22-deprecation-notice-all-platform-codeql-bundle",
-      "sourcePublishedAt": "2026-09-22T09:21:03Z",
-      "fetchedAt": "2026-09-24T19:12:56Z",
-      "firstFetchedAt": "2026-09-22T10:00:28Z"
     }
   ]
 }
