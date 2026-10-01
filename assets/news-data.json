@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-01T19:34:03Z",
+  "generatedAt": "2026-10-01T23:54:28Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-01T19:34:03Z",
-      "lastSuccessAt": "2026-10-01T19:34:03Z",
+      "lastAttemptAt": "2026-10-01T23:54:28Z",
+      "lastSuccessAt": "2026-10-01T23:54:28Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,46 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-01T19:34:03Z",
-      "lastSuccessAt": "2026-10-01T19:34:03Z",
+      "lastAttemptAt": "2026-10-01T23:54:28Z",
+      "lastSuccessAt": "2026-10-01T23:54:28Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "35024e295166c18f37946372",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Awards Enterprise Logistics Support Services Agreements",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-awards-enterprise-logistics-support-services-agreements/",
+      "sourcePublishedAt": "2026-10-01T20:34:27Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
+      "firstFetchedAt": "2026-10-01T23:54:28Z"
+    },
+    {
+      "id": "b3abbf9a49122235f36a1b34",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Rate limits for private vulnerability reports",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-rate-limits-for-private-vulnerability-reports",
+      "sourcePublishedAt": "2026-10-01T19:57:39Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
+      "firstFetchedAt": "2026-10-01T23:54:28Z"
+    },
+    {
+      "id": "771239a6e9a1d874244729a5",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Structured forms for private vulnerability reports",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-structured-forms-for-private-vulnerability-reports",
+      "sourcePublishedAt": "2026-10-01T19:57:28Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
+      "firstFetchedAt": "2026-10-01T23:54:28Z"
+    },
     {
       "id": "e11a5d7f0be16c7ae710cb40",
       "sourceId": "github",
@@ -32,8 +65,19 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps",
       "sourcePublishedAt": "2026-10-01T19:11:26Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "038fee3588d7f55541e39725",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Actions: macOS 14 runner image retirement",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-github-actions-macos-14-runner-image-retirement",
+      "sourcePublishedAt": "2026-10-01T19:11:23Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
+      "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
       "id": "d8efb6ae3f1c14fd22be9554",
@@ -43,8 +87,19 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-github-copilot-in-vs-code-september-2026-releases",
       "sourcePublishedAt": "2026-10-01T19:09:10Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "00ef16fda49de0e157dc8784",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Accessibility statements highlighted on repository overview",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-accessibility-statements-highlighted-on-repository-overview",
+      "sourcePublishedAt": "2026-10-01T19:04:32Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
+      "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
       "id": "0ab78ce3d86aee2f6b9c7c74",
@@ -54,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasas-spacex-crew-13-launches/",
       "sourcePublishedAt": "2026-10-01T18:05:38Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -65,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses",
       "sourcePublishedAt": "2026-10-01T17:59:54Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -76,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/",
       "sourcePublishedAt": "2026-10-01T16:58:10Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -87,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-scheduled-code-scanning-skips-inactive-repositories",
       "sourcePublishedAt": "2026-10-01T16:49:15Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -98,8 +153,19 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-code-coverage-uploads-no-longer-fail-ci-for-new-branches",
       "sourcePublishedAt": "2026-10-01T16:49:05Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
+    },
+    {
+      "id": "20f94898ac7397b2decb7e67",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Dynamic workflows in Copilot CLI and the Copilot app",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app",
+      "sourcePublishedAt": "2026-10-01T16:30:10Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
+      "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
       "id": "1b1903c96c873dca5e4db30d",
@@ -120,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasas-spacex-crew-13-launches-to-international-space-station/",
       "sourcePublishedAt": "2026-10-01T15:59:24Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -142,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/webb/nasas-webb-provides-crash-course-on-planet-shattering-collisions/",
       "sourcePublishedAt": "2026-10-01T14:00:00Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -164,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-1-harvest-moon-with-belt-of-venus-and-erupting-mount-etna/",
       "sourcePublishedAt": "2026-10-01T04:05:00Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-10-01T06:00:09Z"
     },
     {
@@ -175,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/an-agricultural-island-in-the-saskatchewan-river-delta/",
       "sourcePublishedAt": "2026-10-01T04:00:00Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-10-01T06:00:09Z"
     },
     {
@@ -186,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5016-5021-fantastic-minerals-and-how-to-detect-them/",
       "sourcePublishedAt": "2026-09-30T23:37:47Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-10-01T06:00:09Z"
     },
     {
@@ -197,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/get-involved/citizen-science/help-overlap-zoo-reveal-cosmic-dust/",
       "sourcePublishedAt": "2026-09-30T21:19:33Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-09-30T23:53:20Z"
     },
     {
@@ -208,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-adds-new-science-investigations-for-moon-base/",
       "sourcePublishedAt": "2026-09-30T21:11:23Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
+      "fetchedAt": "2026-10-01T23:54:28Z",
       "firstFetchedAt": "2026-09-30T23:53:20Z"
     },
     {
@@ -531,17 +597,6 @@
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     },
     {
-      "id": "a46bc2af204ae5fc969f7f82",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Highlights Lessons Learned From Swift Boost Mission",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/missions/swift/nasa-highlights-lessons-learned-from-swift-boost-mission/",
-      "sourcePublishedAt": "2026-09-28T17:44:33Z",
-      "fetchedAt": "2026-09-29T08:34:49Z",
-      "firstFetchedAt": "2026-09-28T22:04:16Z"
-    },
-    {
       "id": "07dade88210664e3a861290c",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -628,61 +683,6 @@
       "sourcePublishedAt": "2026-09-25T09:55:23Z",
       "fetchedAt": "2026-09-29T15:55:23Z",
       "firstFetchedAt": "2026-09-25T13:51:17Z"
-    },
-    {
-      "id": "9111ec33ec962e74818200f5",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Default Enablement of Copilot features for Copilot Business and Enterprise",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise",
-      "sourcePublishedAt": "2026-09-25T03:13:23Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
-      "firstFetchedAt": "2026-09-25T07:52:32Z"
-    },
-    {
-      "id": "b0878320c6bd0cfba3b38a1d",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Require proof of presence for high-impact actions",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-24-require-proof-of-presence-for-high-impact-actions",
-      "sourcePublishedAt": "2026-09-24T20:28:33Z",
-      "fetchedAt": "2026-09-28T15:31:58Z",
-      "firstFetchedAt": "2026-09-24T22:27:29Z"
-    },
-    {
-      "id": "b0dcef92ac9905685f7b7365",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Expired GitHub Actions artifacts no longer shown in UI and API",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-24-expired-github-actions-artifacts-no-longer-shown-in-ui-and-api",
-      "sourcePublishedAt": "2026-09-24T19:13:02Z",
-      "fetchedAt": "2026-09-25T22:23:42Z",
-      "firstFetchedAt": "2026-09-25T18:39:26Z"
-    },
-    {
-      "id": "63a2ad410a3d1bd18d9be639",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "More ways to request and configure Copilot code reviews",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews",
-      "sourcePublishedAt": "2026-09-23T21:25:58Z",
-      "fetchedAt": "2026-09-25T22:23:42Z",
-      "firstFetchedAt": "2026-09-23T23:44:01Z"
-    },
-    {
-      "id": "906dd6ad8541fe086da776ac",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Node 20 is no longer available in GitHub Actions",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions",
-      "sourcePublishedAt": "2026-09-23T20:46:07Z",
-      "fetchedAt": "2026-09-25T18:39:26Z",
-      "firstFetchedAt": "2026-09-23T23:44:01Z"
     }
   ]
 }
