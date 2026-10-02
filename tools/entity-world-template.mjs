@@ -78,7 +78,7 @@ export function entityWorldBody({ cards, languageButtons, count }) {
   <section id="studio-impulse" role="tabpanel" aria-labelledby="studio-tab-impulse">
     <label for="studio-item">${bi('Gegenstand','Object')}</label><select id="studio-item"><option value="chocolate">Schokoladentafel</option><option value="book">Geschichtenbuch</option><option value="beacon">Leuchtzeichen</option></select>
     <div class="studio-value"><strong id="studio-value">3,00 €</strong><span>${bi('Beispielwert · keine Zahlung','Example value · no payment')}</span></div>
-    <button id="studio-create" class="studio-primary">${icon('gift')}${bi('Kostenlos erscheinen lassen','Create for free')}</button>
+    <div class="studio-create-actions"><button id="studio-create" class="studio-primary">${icon('gift')}${bi('Kostenlos erscheinen lassen','Create for free')}</button><button id="studio-repeat" class="icon-button" title="Letzten Impuls wiederholen" data-en-title="Repeat last impulse" aria-label="Letzten Impuls wiederholen" data-en-aria-label="Repeat last impulse" disabled>${icon('copy')}</button></div>
     <ol id="studio-events" class="studio-feed" aria-label="Gegenstandsereignisse" data-en-aria-label="Object events"></ol>
   </section>
   <section id="studio-chat" role="tabpanel" aria-labelledby="studio-tab-chat" hidden>

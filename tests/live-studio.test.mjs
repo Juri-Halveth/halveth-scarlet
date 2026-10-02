@@ -145,7 +145,7 @@ async function stream(studio) {
   };
 }
 
-test('two SSE clients observe the same gift and chat once, and a reconnect receives the retained snapshot', options, async t => {
+test('two SSE clients share new and repeated deliveries, and reconnect restores those delivery identities', options, async t => {
   const studio = await start(t);
   const status = json(await studio.request('/api/studio/status'), 200);
   assert.equal(status.mode, 'LOOPBACK_DEMO'); assert.equal(status.sequence, 0); assert.equal(status.retained, 0);
@@ -156,31 +156,40 @@ test('two SSE clients observe the same gift and chat once, and a reconnect recei
   assert.equal(json(await studio.request('/api/studio/status'), 200).clients, 2);
   const envelopes = [];
   for (const [index, event] of [gift(), chat()].entries()) {
-    assert.deepEqual(json(await studio.post(event), 201), { state: 'RECEIVED_DEMO', sequence: index + 1, eventId: event.id });
+    const receipt = json(await studio.post(event), 201);
+    assert.equal(receipt.state, 'RECEIVED_DEMO'); assert.equal(receipt.sequence, index * 2 + 1); assert.equal(receipt.eventId, event.id);
     const [a, b] = await Promise.all([first.next('world-event'), second.next('world-event')]);
-    assert.deepEqual(a, b); assert.deepEqual(a.event, event); assert.equal(a.sequence, index + 1);
+    assert.deepEqual(a, b); assert.deepEqual(a.event, event); assert.equal(a.sequence, index * 2 + 1);
+    assert.equal(a.deliveryId, receipt.deliveryId);
     assert.equal(new Date(a.receivedAt).toISOString(), a.receivedAt); envelopes.push(a);
-    assert.deepEqual(json(await studio.post(Object.fromEntries(Object.entries(event).reverse())), 200), { state: 'ALREADY_RECEIVED', eventId: event.id });
+    const repeated = json(await studio.post(Object.fromEntries(Object.entries(event).reverse())), 201);
+    assert.equal(repeated.state, 'REPEATED_DEMO'); assert.equal(repeated.eventId, event.id);
+    assert.notEqual(repeated.deliveryId, receipt.deliveryId);
+    const again = await first.next('world-event');
+    assert.deepEqual(again, await second.next('world-event')); assert.deepEqual(again.event, event);
+    assert.equal(again.deliveryId, repeated.deliveryId); assert.equal(again.sequence, index * 2 + 2);
+    envelopes.push(again);
   }
   await second.close();
   const reconnect = await stream(studio);
-  assert.deepEqual(await reconnect.next('snapshot'), { instanceId: status.instanceId, sequence: 2, events: envelopes });
+  assert.deepEqual(await reconnect.next('snapshot'), { instanceId: status.instanceId, sequence: 4, events: envelopes });
   const sentinel = chat(3);
   json(await studio.post(sentinel), 201);
   for (const client of [first, reconnect]) assert.deepEqual((await client.next('world-event')).event, sentinel);
-  assert.deepEqual(first.history.filter(message => message.type === 'world-event').map(message => message.data.sequence), [1, 2, 3]);
-  assert.deepEqual(second.history.filter(message => message.type === 'world-event').map(message => message.data.sequence), [1, 2]);
+  assert.deepEqual(first.history.filter(message => message.type === 'world-event').map(message => message.data.sequence), [1, 2, 3, 4, 5]);
+  assert.deepEqual(second.history.filter(message => message.type === 'world-event').map(message => message.data.sequence), [1, 2, 3, 4]);
   const after = json(await studio.request('/api/studio/status'), 200);
-  assert.equal(after.sequence, 3); assert.equal(after.retained, 3);
+  assert.equal(after.sequence, 5); assert.equal(after.retained, 5);
 });
 
-test('conflicting IDs reject the changed event while the original remains idempotent', options, async t => {
+test('conflicting source IDs reject changed content while another original delivery is accepted', options, async t => {
   const studio = await start(t), original = gift();
   json(await studio.post(original), 201);
   assert.deepEqual(json(await studio.post({ ...original, displayName: 'Changed viewer' }), 400), { error: 'INVALID_DEMO_EVENT' });
-  assert.deepEqual(json(await studio.post(original), 200), { state: 'ALREADY_RECEIVED', eventId: original.id });
+  const repeated = json(await studio.post(original), 201);
+  assert.equal(repeated.state, 'REPEATED_DEMO'); assert.equal(repeated.eventId, original.id);
   const client = await stream(studio), snapshot = await client.next('snapshot');
-  assert.equal(snapshot.sequence, 1); assert.equal(snapshot.events.length, 1);
+  assert.equal(snapshot.sequence, 2); assert.equal(snapshot.events.length, 2);
   assert.deepEqual(snapshot.events[0].event, original);
 });
 

@@ -187,14 +187,15 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
   host.dataset.entityCount = String(entries.length); host.dataset.visibleEntities = String(entries.length);
   host.dataset.selected = selected; host.dataset.mode = mode; host.dataset.state = 'READY';
   return {
-    materialize(raw, focus = false) {
-      let event;
-      try { event = validateWorldEvent(raw); } catch { return; }
+    materialize(raw, focus = false, appearanceId) {
+      let event, instance;
+      try { event = validateWorldEvent(raw); instance = appearanceId === undefined ? event : validateWorldEvent({ ...event, id: appearanceId }); } catch { return; }
       if (event.kind !== 'GIFT_DEMO') return;
-      const result = gifts.add(event, clock);
+      const result = gifts.add(instance, clock);
       if (!result) return;
       host.dataset.giftCount = String(gifts.count);
       host.dataset.lastGift = event.item; host.dataset.lastGiftId = event.id;
+      host.dataset.lastAppearanceId = instance.id;
       if (focus) {
         switchMode('all'); controls.target.copy(result.position); controls.target.y += .6;
         camera.position.copy(controls.target).add(new T.Vector3(3.2, 3.1, 4.4)); controls.update();

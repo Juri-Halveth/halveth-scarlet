@@ -169,6 +169,6 @@ $('moment-export').addEventListener('click', () => {
 });
 window.addEventListener('halveth:language', () => { renderSelection(); renderTimeline(); renderSearch(); renderDestinations(); updatePause(); });
 window.addEventListener('hashchange', () => { if (ids.has(location.hash.slice(1))) select(location.hash.slice(1)); });
-window.addEventListener('halveth:world-gift', event => scene?.materialize?.(event.detail.event, event.detail.focus));
+window.addEventListener('halveth:world-gift', event => scene?.materialize?.(event.detail.event, event.detail.focus, event.detail.appearanceId));
 window.addEventListener('halveth:world-stage', event => scene?.broadcast?.(event.detail === true));
 renderSelection(); renderTimeline(); renderDestinations(); updatePause(); startScene();

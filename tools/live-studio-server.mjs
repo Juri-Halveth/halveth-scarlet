@@ -45,11 +45,11 @@ export function createStudioServer({ root = fileURLToPath(new URL('../.site-buil
       let length = 0; const chunks = [];
       for await (const chunk of req) { length += chunk.length; if (length > 4096) { json(res, 413, { error: 'EVENT_TOO_LARGE' }); return; } chunks.push(chunk); }
       const event = validateWorldEvent(JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(Buffer.concat(chunks))));
-      if (!journal.append(event)) { json(res, 200, { state: 'ALREADY_RECEIVED', eventId: event.id }); return; }
-      const envelope = { sequence: ++sequence, receivedAt: new Date().toISOString(), event };
+      const firstReceipt = journal.append(event);
+      const envelope = { sequence: ++sequence, deliveryId: randomUUID(), receivedAt: new Date().toISOString(), event };
       envelopes.push(envelope); if (envelopes.length > 100) envelopes.shift();
       for (const client of clients) send(client, 'world-event', envelope);
-      json(res, 201, { state: 'RECEIVED_DEMO', sequence, eventId: event.id });
+      json(res, 201, { state: firstReceipt ? 'RECEIVED_DEMO' : 'REPEATED_DEMO', sequence, eventId: event.id, deliveryId: envelope.deliveryId });
     } catch { if (!res.headersSent) json(res, 400, { error: 'INVALID_DEMO_EVENT' }); }
   });
   server.requestTimeout = 10000;

@@ -40,7 +40,7 @@ test('pause, reduced motion and rewind sample the same explicit world time', () 
     gifts.update(12); assert.equal(prop.scale.x, 1); assert.equal(ring.visible, false);
   } finally { gifts.dispose(); }
 });
-test('visible prop count stays bounded and evicted event IDs stay deduplicated', () => {
+test('visible prop count stays bounded and an existing appearance ID does not re-render', () => {
   const gifts = createWorldGifts(T);
   try {
     for (let i = 0; i < 30; i++) gifts.add(gift(i), i);

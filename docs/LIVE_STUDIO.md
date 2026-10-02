@@ -7,6 +7,11 @@ creates a chocolate bar, storybook or beacon. Example euro amounts are fixed
 design values, not prices, exchange rates, quotes or received payments. These
 are rendered digital objects, not physical matter or NFTs.
 
+The copy-icon button beside creation repeats the latest gift impulse. Each
+repeat creates another visible instance, with its own position and appearance
+ID, while retaining the original event ID. Preview and incoming local-room
+events continue in one combined browser view; connecting does not clear it.
+
 The GitHub Pages version provides a per-page preview chat and event session.
 It does not share messages with other public visitors. The clean stage view
 can be captured by streaming software; opening it does not start a livestream.
@@ -53,6 +58,11 @@ Invoke-RestMethod -Method Post -Uri 'http://127.0.0.1:8842/api/studio/events' `
 
 `GET /api/studio/status` reports the local instance and retained event count.
 `GET /api/studio/stream` emits an initial SSE snapshot and subsequent events.
+Every accepted POST produces a fresh `deliveryId`, even when it repeats an
+unchanged event ID. The response is HTTP 201 with `RECEIVED_DEMO` or
+`REPEATED_DEMO`, and its `deliveryId` matches the emitted SSE envelope. An
+automatic POST retry can therefore create another object. This API is for
+free demo impulses, not idempotent financial settlement.
 Only `CHAT` and `GIFT_DEMO` are accepted. Chat uses `text` (1..280 UTF-16 code
 units), not `item` or `exampleEuroCents`. Display names are 1..32 code units.
 Control characters, invalid Unicode, unknown fields and payment claims fail
@@ -65,12 +75,20 @@ submit demo events. Never forward this port to the Internet.
 
 ## Session and time
 
-The relay retains 100 events in memory and supports up to 16 event streams.
+The relay retains 100 delivery envelopes in memory and supports up to 16 event streams.
 Request bodies are limited to 4096 bytes; input is rate-limited to a burst of
-30 and approximately one new token per second. Event IDs are deduplicated
-within the retained journal window; a conflicting retained ID is rejected.
-The scene displays the 24 newest gifts. Each renderer retains gift IDs for its
-current lifetime to avoid rendering duplicates after eviction.
+30 and approximately one new token per second. The source journal retains
+100 distinct event IDs for content consistency: repeating an unchanged ID
+creates a new delivery; changing its retained content is rejected.
+The scene still displays the 24 newest gift instances. This existing renderer
+limit was not changed. Each renderer retains appearance IDs for its lifetime;
+two objects can share a source event ID while having distinct appearance IDs.
+
+The SSE event and HTTP acknowledgement of one delivery reference the same
+appearance. A reconnect restores recorded appearances; a new POST, the repeat
+button or a new delivery ID creates another. Legacy envelopes without a
+delivery ID become fresh appearances on arrival. Restart older local relays
+to use the current repeated-POST protocol.
 
 `createdAt` comes from the sender; `receivedAt` and `sequence` come from the
 relay. Neither is a blockchain confirmation. Reconnected clients receive the
@@ -79,7 +97,16 @@ clocks are not synchronized: gift types and deterministic positions match,
 but animation phases can differ. Rewinding the scene can hide objects before
 their local appearance time; it does not undo events or external operations.
 
-Session export is explicit and contains display names and chat text. There is
+Session export uses `halveth.studio-session.v2` and contains display names,
+chat text and an appearance history. Each appearance binds its source event,
+local observation time, delivery/appearance ID, occurrence number and origin
+(`BROWSER_PREVIEW` or `LOOPBACK_DEMO`). These origins are metadata inside the
+combined view, not separate rooms. The top-level `mode` describes the current
+connection, not proof that every earlier event was transmitted to the relay.
+Preview history is not automatically uploaded when connecting.
+
+The appearance history is held for the page lifetime. Very long sessions can
+grow memory usage; this release adds no automatic history purge. There is
 no automatic upload or chat file log. Reloading the public preview loses its
 session. Existing character moments remain under their existing storage key.
 
