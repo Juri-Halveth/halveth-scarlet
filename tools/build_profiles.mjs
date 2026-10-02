@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import {fileURLToPath} from 'node:url';
+import {entityWorldBody} from './entity-world-template.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const check = process.argv.includes('--check');
@@ -63,7 +64,9 @@ for (const entity of data.entities) {
 }
 
 const cards = data.entities.map(entity => `<li data-search="${escape([entity.label, entity.role, entity.en.role, entity.kind, entity.en.kind].join(' ').toLowerCase())}"><a href="${escape(entity.id)}/"><h2>${escape(entity.label)}</h2><p><span data-lang="de">${escape(entity.role)}</span><span data-lang="en">${escape(entity.en.role)}</span></p><small><span data-lang="de">${escape(entity.kind)}</span><span data-lang="en">${escape(entity.en.kind)}</span></small></a></li>`).join('\n');
-expected.set('entities/index.html', `${head('Die Konstellation · HALVETH', `${data.entities.length} Profile mit Rollen, Geschichten, Thesen und Quellen.`, 'entities/', '../')}<body><main class="profile-main"><nav class="profile-top"><a href="../"><span data-lang="de">← Zur Erde</span><span data-lang="en">← Back to Earth</span></a>${languageButtons}</nav><header class="profile-hero"><p class="eyebrow">HALVETH / LUCINET</p><h1><span data-lang="de">Die Konstellation.</span><span data-lang="en">The constellation.</span></h1><p class="profile-lead"><span data-lang="de">${data.entities.length} eigenständige Profile. Eine gemeinsame Quelle für Rollen, Geschichten und weiterführende Gedanken.</span><span data-lang="en">${data.entities.length} distinct profiles. A shared home for roles, stories and ideas to explore.</span></p></header><label for="profile-search"><span data-lang="de">Name, Rolle oder Thema</span><span data-lang="en">Name, role or subject</span></label><input id="profile-search" type="search" autocomplete="off"><p id="profile-results" role="status" aria-live="polite"></p><ul class="profile-grid">${cards}</ul></main><script src="../assets/entity-profile.js" defer></script>${footer('../')}`);
+expected.set('entities/index.html', head('Die Konstellation · HALVETH', `${data.entities.length} Figuren, Rollen, Geschichten und Quellen im interaktiven 3D-Raum.`, 'entities/', '../')
+  .replace('</head>', '<link rel="stylesheet" href="../assets/entity-world.css"></head>')
+  + entityWorldBody({cards, languageButtons, count: data.entities.length}));
 
 for (const [file, content] of expected) {
   const destination = path.join(root, file);

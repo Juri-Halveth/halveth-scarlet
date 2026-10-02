@@ -13,6 +13,8 @@ assigned to a specific file, contribution and version.
 | `HALVETH-RIGHTS.md`, `HALVETH-RIGHTS.json`, `halveth-rights.schema.json`, `sitemap.xml`, this map and new original rights metadata | [HALVETH Public-Interest Research License 2.0](LICENSE-HALVETH-PIRL-2.0.md) |
 | Linked studies, quotations, Marvel characters and names, NASA materials and other third-party content | Their respective owners and terms; excluded from HALVETH licensing |
 | License texts | The copying permission stated in the license text |
+| Bundled Three.js and OrbitControls in `assets/entity-vendor/runtime.mjs` | MIT; see `assets/entity-vendor/three.LICENSE.txt` |
+| Bundled Lucide icons in `assets/entity-vendor/runtime.mjs` | ISC and included MIT icon notices; see `assets/entity-vendor/lucide.LICENSE.txt` |
 
 The historical parent is `1b87cfc8b6202bf5706e7f80a05ef487667cf1ba`. Earlier Scarlet
 commits contained no repository-wide public license. Default copyright and the

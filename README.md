@@ -247,3 +247,40 @@ Der Build prüft lokale HTML-Ziele und Abschnittsverweise und schreibt ausschlie
 Rückrollreferenz vor diesem Ausbau: `c333d1bddbba1dc6d8a573d2e5c52e8e9596c88a`. Historische Releasepakete und ihre Receipts bleiben unverändert. Ein Rückrollen erfolgt als nachvollziehbare Wiederveröffentlichung eines gewählten Standes, ohne Git-Historie zu löschen.
 
 The release adds 69 individual profiles, a separate dated news feed and a **draft-only** daily Reddit digest. Historical grants and third-party rights remain applicable. The Pages workflow builds, tests and publishes an explicit public artifact; the live `build-info.json` records its source revision.
+
+## Figurenraum / Character world - 02.10.2026
+
+[`entities/`](entities/?lang=de#scarlet) now opens an interactive Three.js scene with
+all 69 existing profiles. Encounter mode focuses one character; the overview
+shows all 69. Search, direct selection, camera rotation, zoom, reduced motion,
+DE/EN and the original story/source pages remain available. Without JavaScript
+or WebGL, the static directory retains all profile links.
+
+The stylized figures are editable visual interpretations, not definitive
+identities or evidence of independently running agents. The registry, role
+descriptions and source dossiers remain unchanged. No API jobs, wallet access,
+agent executions or financial actions are added by this view.
+
+"3D + time" means spatial models plus explicitly saved browser selections. A
+moment stores only the selected profile ID and the browser clock's ISO timestamp
+under `halveth-character-moments-v1`; the most recent 80 are retained locally.
+They can be revisited and exported, never automatically uploaded. These records
+are neither physical time travel nor an independently verified history.
+Malformed existing storage is preserved rather than overwritten.
+
+Runtime dependencies use the existing pinned packages in `tools/ashbound/`.
+The generated runtime and its third-party license notices are committed so the
+Pages build does not depend on a CDN or package installation.
+
+```sh
+node tools/ashbound/build-entity-runtime.mjs
+node tools/build_site.mjs
+node --test tests/*.test.cjs
+python -m unittest discover -s tests -p 'test_*.py'
+node tools/serve_site.mjs 8841
+```
+
+The optional preview serves only `.site-build/` on `127.0.0.1:8841`, including the
+JavaScript MIME type required for ES modules. Browser QA covers desktop and
+mobile widths, nonblank animated canvases, selection, all 69 rendered models,
+timeline replay/export, pause, reduced motion and the static fallback.
