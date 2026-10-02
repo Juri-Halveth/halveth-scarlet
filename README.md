@@ -250,19 +250,36 @@ The release adds 69 individual profiles, a separate dated news feed and a **draf
 
 ## Figurenraum / Character world - 02.10.2026
 
-[`entities/`](entities/?lang=de#scarlet) now opens an interactive Three.js scene with
-all 69 existing profiles. Encounter mode focuses one character; the overview
-shows all 69. Search, direct selection, camera rotation, zoom, reduced motion,
-DE/EN and the original story/source pages remain available. Without JavaScript
-or WebGL, the static directory retains all profile links.
+[`entities/`](entities/?lang=de#scarlet) opens an interactive Three.js world with
+all 69 existing profiles walking along deterministic curved routes. Articulated
+hips, knees, feet, arms and capes follow the walking phase. Follow mode tracks
+the selected character; Explore releases the camera; Overview frames the current
+positions of all 69. The profile panel opens on demand rather than covering the
+world by default. Search, DE/EN and the original story/source pages remain
+available. Without JavaScript or WebGL, the static directory retains all links.
+
+The circular platform and fixed rows have been replaced by streamed architectural
+sectors: a common plaza, glass garden, observatory and further landscape. A fixed
+5-by-5 pool of 96-unit sectors is regenerated from coordinates as the camera moves.
+This keeps the active geometry bounded while allowing travel beyond the original
+scene. The destination menu moves the camera between landmarks. Orbit, zoom and
+pan work with mouse or touch; focused-canvas navigation uses WASD/arrows, Q/E for
+height and Shift for faster travel. The on-screen movement controls also support
+touch. No maximum camera-distance clamp surrounds the original plaza.
 
 The stylized figures are editable visual interpretations, not definitive
 identities or evidence of independently running agents. The registry, role
 descriptions and source dossiers remain unchanged. No API jobs, wallet access,
 agent executions or financial actions are added by this view.
 
-"3D + time" means spatial models plus explicitly saved browser selections. A
-moment stores only the selected profile ID and the browser clock's ISO timestamp
+Scene time controls deterministic choreography, independently of the browser
+clock. Pause freezes the figures while the camera remains usable; the time panel
+can step 30 scene seconds backwards/forwards and select half, normal or double
+speed. Reduced-motion preference starts the scene paused. This is visual scene
+animation, not independently running agents or external job execution.
+
+The existing saved-moment format remains unchanged. A moment stores only the
+selected profile ID and the browser clock's ISO timestamp
 under `halveth-character-moments-v1`; the most recent 80 are retained locally.
 They can be revisited and exported, never automatically uploaded. These records
 are neither physical time travel nor an independently verified history.
@@ -282,5 +299,8 @@ node tools/serve_site.mjs 8841
 
 The optional preview serves only `.site-build/` on `127.0.0.1:8841`, including the
 JavaScript MIME type required for ES modules. Browser QA covers desktop and
-mobile widths, nonblank animated canvases, selection, all 69 rendered models,
-timeline replay/export, pause, reduced motion and the static fallback.
+mobile widths, nonblank animated canvases, translation of all 69 figures,
+selection, free travel, distant sectors, scene-time replay, saved-moment export,
+pause, reduced motion and the static fallback. Unit tests cover route continuity,
+reordered registries, reversible scene time, articulated poses and bounded
+environment resources.

@@ -4,11 +4,13 @@
 <header class="world-header">
   <a class="world-brand" href="../"><i data-lucide="orbit" aria-hidden="true"></i><span>HALVETH<small><span data-lang="de">DIE KONSTELLATION</span><span data-lang="en">THE CONSTELLATION</span></small></span></a>
   <div class="world-modes" role="group" aria-label="Ansicht" data-en-aria-label="View">
-    <button type="button" id="mode-focus" aria-pressed="true"><i data-lucide="focus" aria-hidden="true"></i><span data-lang="de">Begegnung</span><span data-lang="en">Encounter</span></button>
-    <button type="button" id="mode-all" aria-pressed="false"><i data-lucide="users" aria-hidden="true"></i><span data-lang="de">Alle</span><span data-lang="en">All</span> <span>69</span></button>
+    <button type="button" id="mode-focus" aria-pressed="true"><i data-lucide="focus" aria-hidden="true"></i><span data-lang="de">Folgen</span><span data-lang="en">Follow</span></button>
+    <button type="button" id="mode-all" aria-pressed="false"><i data-lucide="compass" aria-hidden="true"></i><span data-lang="de">Erkunden</span><span data-lang="en">Explore</span></button>
+    <button type="button" id="mode-overview" aria-pressed="false" title="Alle Figuren im Raum" data-en-title="All characters in the world"><i data-lucide="users" aria-hidden="true"></i><span>69</span></button>
   </div>
   <div class="world-header-actions">
     <button class="icon-button" id="world-search-open" type="button" title="Figur suchen" data-en-title="Find character" aria-label="Figur suchen" data-en-aria-label="Find character"><i data-lucide="search" aria-hidden="true"></i></button>
+    <button class="icon-button" id="entity-info-toggle" type="button" title="Profil anzeigen" data-en-title="Show profile" aria-label="Profil anzeigen" data-en-aria-label="Show profile" aria-expanded="false" aria-controls="entity-inspector"><i data-lucide="book-open" aria-hidden="true"></i></button>
     <button class="icon-button" id="world-pause" type="button" title="Bewegung pausieren" data-en-title="Pause motion" aria-label="Bewegung pausieren" data-en-aria-label="Pause motion" aria-pressed="false"><i data-lucide="pause" aria-hidden="true"></i></button>
     <div class="profile-languages" aria-label="Sprache / Language"><button type="button" data-set-lang="de">DE</button><button type="button" data-set-lang="en">EN</button></div>
   </div>
@@ -16,7 +18,7 @@
 <main id="world-main" class="world-main">
   <section class="world-stage" aria-label="Figurenraum" data-en-aria-label="Character world">
     <div id="world-canvas" class="world-canvas"></div>
-    <div class="world-heading"><p>HALVETH / LUCINET</p><h1><span data-lang="de">Raum für alle.</span><span data-lang="en">Room for everyone.</span></h1><span>69 <span data-lang="de">Figuren</span><span data-lang="en">characters</span> <span aria-hidden="true">/</span> 3D + <span data-lang="de">Zeit</span><span data-lang="en">time</span></span></div>
+    <div class="world-heading"><p>HALVETH / LUCINET</p><h1><span data-lang="de">Raum für alle.</span><span data-lang="en">Room for everyone.</span></h1><span>69 <span data-lang="de">Figuren</span><span data-lang="en">characters</span> <span aria-hidden="true">/</span> <output id="world-clock" aria-label="Szenenzeit" data-en-aria-label="Scene time">00:00</output></span><label class="world-destination"><i data-lucide="map-pin" aria-hidden="true"></i><select id="world-destination" aria-label="Ort besuchen" data-en-aria-label="Visit place"><option value="commons">Konstellation</option><option value="garden">Glasgarten</option><option value="arcades">Echohallen</option><option value="beyond">Weiter draußen</option></select></label></div>
     <div id="world-loading" class="world-loading" role="status"><span data-lang="de">Figuren entstehen …</span><span data-lang="en">Characters taking shape …</span></div>
     <div id="world-error" class="world-error" role="alert" hidden><p><span data-lang="de">3D ist gerade nicht verfügbar. Die Profile bleiben erreichbar.</span><span data-lang="en">3D is unavailable. The profiles remain accessible.</span></p><button type="button" id="world-retry"><span data-lang="de">Erneut laden</span><span data-lang="en">Retry</span></button><button type="button" id="world-fallback"><span data-lang="de">Profile öffnen</span><span data-lang="en">Open profiles</span></button></div>
     <div class="world-camera-controls" role="group" aria-label="Kamera" data-en-aria-label="Camera">
@@ -26,8 +28,16 @@
       <button class="icon-button" id="camera-out" title="Weiter" data-en-title="Zoom out" aria-label="Weiter" data-en-aria-label="Zoom out"><i data-lucide="minus" aria-hidden="true"></i></button>
       <button class="icon-button" id="camera-reset" title="Kamera zurücksetzen" data-en-title="Reset camera" aria-label="Kamera zurücksetzen" data-en-aria-label="Reset camera"><i data-lucide="scan" aria-hidden="true"></i></button>
     </div>
-    <aside class="world-inspector" aria-labelledby="entity-name">
-      <div class="entity-meta"><span id="entity-number"></span><span class="entity-status"><span data-lang="de">Profil gebunden</span><span data-lang="en">Profile bound</span></span></div>
+    <div class="world-movement" role="group" aria-label="Bewegen" data-en-aria-label="Move">
+      <button class="icon-button" id="move-forward" title="Vorwärts (W)" data-en-title="Forward (W)" aria-label="Vorwärts" data-en-aria-label="Forward"><i data-lucide="arrow-up" aria-hidden="true"></i></button>
+      <button class="icon-button" id="move-left" title="Nach links (A)" data-en-title="Left (A)" aria-label="Nach links" data-en-aria-label="Left"><i data-lucide="arrow-left" aria-hidden="true"></i></button>
+      <button class="icon-button" id="move-back" title="Rückwärts (S)" data-en-title="Backward (S)" aria-label="Rückwärts" data-en-aria-label="Backward"><i data-lucide="arrow-down" aria-hidden="true"></i></button>
+      <button class="icon-button" id="move-right" title="Nach rechts (D)" data-en-title="Right (D)" aria-label="Nach rechts" data-en-aria-label="Right"><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+      <button class="icon-button" id="move-up" title="Aufsteigen (E)" data-en-title="Ascend (E)" aria-label="Aufsteigen" data-en-aria-label="Ascend"><i data-lucide="chevrons-up" aria-hidden="true"></i></button>
+      <button class="icon-button" id="move-down" title="Absteigen (Q)" data-en-title="Descend (Q)" aria-label="Absteigen" data-en-aria-label="Descend"><i data-lucide="chevrons-down" aria-hidden="true"></i></button>
+    </div>
+    <aside id="entity-inspector" class="world-inspector" aria-labelledby="entity-name" hidden>
+      <div class="entity-meta"><span id="entity-number"></span><button class="icon-button" id="entity-info-close" type="button" title="Profil schließen" data-en-title="Close profile" aria-label="Profil schließen" data-en-aria-label="Close profile"><i data-lucide="x" aria-hidden="true"></i></button></div>
       <h2 id="entity-name">SCARLET</h2>
       <p id="entity-role"></p>
       <p id="entity-kind" class="entity-kind"></p>
@@ -48,6 +58,7 @@
     </div>
     <a class="world-reading" href="#profile-directory" id="directory-open"><span data-lang="de">Verzeichnis</span><span data-lang="en">Directory</span><i data-lucide="list" aria-hidden="true"></i></a>
     <div id="world-timeline" class="world-timeline" hidden>
+      <div class="scene-time-controls"><button class="icon-button" id="scene-back" title="Szenenzeit 30 Sekunden zurück" data-en-title="Scene time back 30 seconds" aria-label="Szenenzeit zurück" data-en-aria-label="Rewind scene"><i data-lucide="rewind" aria-hidden="true"></i></button><label for="scene-speed"><span data-lang="de">Weltlauf</span><span data-lang="en">World pace</span></label><select id="scene-speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select><button class="icon-button" id="scene-forward" title="Szenenzeit 30 Sekunden vor" data-en-title="Scene time forward 30 seconds" aria-label="Szenenzeit vor" data-en-aria-label="Advance scene"><i data-lucide="fast-forward" aria-hidden="true"></i></button></div>
       <label for="moment-slider"><span data-lang="de">Gemerkte Momente auf diesem Gerät</span><span data-lang="en">Kept moments on this device</span></label>
       <input id="moment-slider" type="range" min="0" max="0" value="0" step="1" disabled>
       <output id="moment-time" for="moment-slider"></output>

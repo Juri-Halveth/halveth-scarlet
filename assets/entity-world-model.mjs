@@ -2,6 +2,13 @@ export const TIMELINE_KEY = 'halveth-character-moments-v1';
 export const MAX_MOMENTS = 80;
 export const MOMENT_SCHEMA = 'halveth.character-moments.v1';
 
+export const WORLD_DESTINATIONS = Object.freeze([
+  { id: 'commons', de: 'Konstellation', en: 'Constellation', position: [0, 1, 0] },
+  { id: 'garden', de: 'Glasgarten', en: 'Glass garden', position: [64, 1, -60] },
+  { id: 'arcades', de: 'Echohallen', en: 'Echo arcades', position: [-72, 1, -40] },
+  { id: 'beyond', de: 'Weiter draussen', en: 'Further out', position: [0, 4, -230] }
+]);
+
 export function orderedEntities(entities) {
   const preferred = ['scarlet', 'rachel', 'lucinet', 'dormammu', 'ego', 'strange', 'juri', 'verachel', 'mira', 'mita', 'halveth'];
   const seen = new Set();

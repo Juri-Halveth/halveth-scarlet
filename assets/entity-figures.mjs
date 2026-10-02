@@ -205,17 +205,30 @@ export function createEntityFigure(T, entity = {}, index = 0) {
   const width = .91 + fraction(8) * .17;
   const legLengthOffset = (fraction(0) - .5) * .12;
   const shoulder = (outfit === 'armor' || outfit === 'guardian' || fiery ? .46 : .38) * width;
-  const core = joint(group, 'torso-joint', 0, .97 + legLengthOffset, 0);
+  const pelvisHeight = .97 + legLengthOffset;
+  const pelvis = joint(group, 'hips-joint', 0, pelvisHeight, 0);
+  const core = joint(pelvis, 'torso-joint');
   const head = joint(core, 'head-joint', 0, 1.02, 0);
   head.scale.setScalar(.96 + fraction(20) * .07);
   const clothes = robotic ? 'metal' : 'cloth';
   const legColor = botanical ? '#74634a' : dark;
+  const hips = [], knees = [], ankles = [];
+  const thighLength = .315 + legLengthOffset / 2;
+  const shinLength = .41 + legLengthOffset / 2;
+  const legReach = thighLength + shinLength;
   for (const sign of [-1, 1]) {
     const x = sign * (.165 + fraction(16) * .025);
-    part(group, 'box', legColor, clothes, [x, .565 + legLengthOffset / 2, -.025], [.205, .59 + legLengthOffset, .235]);
-    part(group, 'box', botanical ? '#536441' : dark, 'cloth', [x, .14, .055], [.265, .28, .405]);
-    part(group, 'box', accent, robotic ? 'metal' : 'cloth', [x, .265, .028], [.269, .06, .31]);
-    part(group, 'box', '#41444a', 'cloth', [x, .035, .061], [.272, .07, .412]);
+    const side = sign < 0 ? 'left' : 'right';
+    const hip = joint(pelvis, `${side}-hip`, x, -.105, -.025);
+    const knee = joint(hip, `${side}-knee`, 0, -thighLength, 0);
+    const ankle = joint(knee, `${side}-ankle`, 0, -shinLength, 0);
+    part(hip, 'box', legColor, clothes, [0, -thighLength / 2, 0], [.205, thighLength + .02, .235]);
+    part(knee, 'ball', legColor, clothes, [0, 0, 0], [.205, .18, .235]);
+    part(knee, 'box', legColor, clothes, [0, -(shinLength - .13) / 2, 0], [.205, shinLength - .11, .235]);
+    part(ankle, 'box', botanical ? '#536441' : dark, 'cloth', [0, 0, .08], [.265, .28, .405]);
+    part(ankle, 'box', accent, robotic ? 'metal' : 'cloth', [0, .125, .053], [.269, .06, .31]);
+    part(ankle, 'box', '#41444a', 'cloth', [0, -.105, .086], [.272, .07, .412]);
+    hips.push(hip); knees.push(knee); ankles.push(ankle);
   }
   part(core, 'box', primary, clothes, [0, -.012, 0], [.58 * width, .25, .36]);
   part(core, 'taper', primary, clothes, [0, .385, 0], [.8 * width, .69, .47]);
@@ -493,22 +506,60 @@ export function createEntityFigure(T, entity = {}, index = 0) {
   const elbowRest = elbows.map(elbow => elbow.rotation.x);
   let disposed = false;
 
-  function animate(timeSeconds = 0, active = false, reducedMotion = false) {
+  // A supplied phase owns the entire walking pose, including when the parent pauses it.
+  // Speed is a nonnegative stride/cadence multiplier, capped at 2; zero rests the rig.
+  function animate(timeSeconds = 0, active = false, reducedMotion = false, motion = {}) {
     if (disposed) return;
     const time = Number.isFinite(timeSeconds) ? timeSeconds : 0;
-    const moving = !reducedMotion, energy = active ? 1 : .36;
-    const wave = moving ? Math.sin(time * 1.65 + phase) * energy : 0;
-    const slow = moving ? Math.sin(time * .91 + phase) * energy : 0;
+    const speed = Number.isFinite(motion?.speed) ? Math.min(2, Math.max(0, motion.speed)) : 1;
+    const requestedWalk = motion?.walking === true;
+    const moving = !reducedMotion && (!requestedWalk || speed > 0);
+    const walking = moving && requestedWalk;
+    const step = (Number.isFinite(motion?.phase) ? motion.phase : time * (4 * speed) + phase) % TAU;
+    const strength = walking ? Math.min(speed, 1.5) : 0;
+    const swing = walking ? Math.sin(step) : 0;
+    const stride = .26 * strength;
+    const footZ = walking ? -Math.cos(step) * stride : 0;
+    const energy = active ? 1 : .36;
+    const wave = moving ? (walking ? swing : Math.sin(time * 1.65 + phase)) * energy : 0;
+    const slow = moving ? (walking ? Math.sin(step + .5) : Math.sin(time * .91 + phase)) * energy : 0;
+    // Lower the pelvis just enough for two-segment legs to reach a level stance foot.
+    const drop = walking ? legReach - Math.sqrt(legReach * legReach - footZ * footZ) + .022 * strength : 0;
+    pelvis.position.set(.018 * swing * strength, pelvisHeight - drop, 0);
+    pelvis.rotation.y = swing * .045 * strength;
+    core.rotation.x = .045 * strength;
+    core.rotation.y = -swing * .08 * strength;
     core.rotation.z = slow * .012;
     head.rotation.y = slow * .065;
     head.rotation.x = wave * .018;
+    for (let i = 0; i < hips.length; i++) {
+      if (!walking) {
+        hips[i].rotation.x = knees[i].rotation.x = ankles[i].rotation.x = 0;
+        continue;
+      }
+      const sign = i === 0 ? 1 : -1;
+      const lift = Math.max(0, swing * sign) * .15 * strength;
+      const down = legReach - drop - lift, forward = footZ * sign;
+      const distance = Math.hypot(down, forward);
+      const hipBend = Math.acos(T.MathUtils.clamp(
+        (thighLength * thighLength + distance * distance - shinLength * shinLength) / (2 * thighLength * distance), -1, 1));
+      const kneeBend = Math.PI - Math.acos(T.MathUtils.clamp(
+        (thighLength * thighLength + shinLength * shinLength - distance * distance) / (2 * thighLength * shinLength), -1, 1));
+      hips[i].rotation.x = Math.atan2(-forward, down) - hipBend;
+      knees[i].rotation.x = kneeBend;
+      ankles[i].rotation.x = -hips[i].rotation.x - kneeBend;
+    }
     for (let i = 0; i < arms.length; i++) {
       const sign = i === 0 ? -1 : 1;
-      arms[i].rotation.x = rest[i].x + wave * .035 * sign;
+      arms[i].rotation.x = rest[i].x + (walking ? Math.cos(step) * .48 * strength * sign : wave * .035 * sign);
       arms[i].rotation.z = rest[i].z + slow * .018 * sign;
-      elbows[i].rotation.x = elbowRest[i] + wave * .028;
+      elbows[i].rotation.x = elbowRest[i] + (walking ? -.12 * strength - Math.max(0, swing * sign) * .16 * strength : wave * .028);
     }
-    if (cape) { cape.rotation.x = wave * .022; cape.rotation.z = slow * .014; }
+    if (cape) {
+      cape.rotation.x = walking ? .12 * strength + Math.sin(step * 2 - .6) * .065 * strength : wave * .022;
+      cape.rotation.y = swing * .045 * strength;
+      cape.rotation.z = walking ? Math.sin(step - .5) * .055 * strength : slow * .014;
+    }
   }
 
   function dispose() {

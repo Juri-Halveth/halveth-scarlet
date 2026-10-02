@@ -1,6 +1,6 @@
 import * as runtime from './entity-vendor/runtime.mjs';
 import { createCharacterWorld } from './entity-world-scene.mjs';
-import { orderedEntities, matchingEntities, neighbors, readMoments, appendMoment, TIMELINE_KEY, MOMENT_SCHEMA, MAX_MOMENTS } from './entity-world-model.mjs';
+import { orderedEntities, matchingEntities, neighbors, readMoments, appendMoment, TIMELINE_KEY, MOMENT_SCHEMA, MAX_MOMENTS, WORLD_DESTINATIONS } from './entity-world-model.mjs';
 
 const $ = id => document.getElementById(id);
 const entities = orderedEntities(window.HalvethUniverse.entities);
@@ -46,9 +46,13 @@ function select(id, announce = true) {
 }
 function setMode(next) {
   mode = next; scene?.setMode(next);
-  $('mode-focus').setAttribute('aria-pressed', String(next === 'focus'));
-  $('mode-all').setAttribute('aria-pressed', String(next === 'all'));
-  document.body.dataset.worldMode = next;
+  renderMode();
+}
+function renderMode() {
+  $('mode-focus').setAttribute('aria-pressed', String(mode === 'focus'));
+  $('mode-all').setAttribute('aria-pressed', String(mode === 'all'));
+  $('mode-overview').setAttribute('aria-pressed', String(mode === 'overview'));
+  document.body.dataset.worldMode = mode;
 }
 function updatePause() {
   scene?.pause(paused);
@@ -64,6 +68,11 @@ function startScene() {
     scene = createCharacterWorld($('world-canvas'), entities, {
       paused,
       onSelect(id) { select(id); setMode('focus'); },
+      onModeChange(next) { mode = next; renderMode(); },
+      onClock(time) {
+        const seconds = Math.floor(Math.abs(time));
+        $('world-clock').textContent = `${time < 0 ? '-' : ''}${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
+      },
       onError(reason) { $('world-error').hidden = reason === 'CONTEXT_RESTORED'; }
     });
     scene.select(selected); scene.setMode(mode); $('world-loading').hidden = true;
@@ -106,11 +115,36 @@ $('world-search-close').addEventListener('click', () => $('world-search').close(
 $('entity-search').addEventListener('input', renderSearch);
 $('mode-focus').addEventListener('click', () => setMode('focus'));
 $('mode-all').addEventListener('click', () => setMode('all'));
+$('mode-overview').addEventListener('click', () => setMode('overview'));
+function showInspector(open) {
+  $('entity-inspector').hidden = !open;
+  $('entity-info-toggle').setAttribute('aria-expanded', String(open));
+}
+$('entity-info-toggle').addEventListener('click', () => showInspector($('entity-inspector').hidden));
+$('entity-info-close').addEventListener('click', () => showInspector(false));
+function renderDestinations() {
+  const value = $('world-destination').value;
+  $('world-destination').replaceChildren(...WORLD_DESTINATIONS.map(place => {
+    const option = document.createElement('option'); option.value = place.id; option.textContent = place[lang()]; return option;
+  }));
+  $('world-destination').value = value || 'commons';
+}
+$('world-destination').addEventListener('change', () => scene?.visit($('world-destination').value));
+$('scene-back').addEventListener('click', () => scene?.seek(-30));
+$('scene-forward').addEventListener('click', () => scene?.seek(30));
+$('scene-speed').addEventListener('change', () => scene?.setRate(Number($('scene-speed').value)));
+for (const [id, vector] of [['move-forward', [0,0,1]], ['move-back', [0,0,-1]], ['move-left', [-1,0,0]], ['move-right', [1,0,0]], ['move-up', [0,1,0]], ['move-down', [0,-1,0]]]) {
+  const button = $(id);
+  button.addEventListener('pointerdown', event => { event.preventDefault(); button.setPointerCapture(event.pointerId); scene?.hold(...vector); });
+  const release = () => scene?.hold(0,0,0);
+  for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) button.addEventListener(type, release);
+  button.addEventListener('click', event => { if (event.detail === 0) scene?.move(...vector); });
+}
 $('world-pause').addEventListener('click', () => { paused = !paused; updatePause(); });
 reduced.addEventListener('change', event => { paused = event.matches; updatePause(); });
 for (const [id, method, value] of [['camera-left','rotate',-1],['camera-right','rotate',1],['camera-in','zoom',1],['camera-out','zoom',-1],['camera-reset','reset',0]]) $(id).addEventListener('click', () => scene?.[method](value));
 for (const [id, delta] of [['entity-prev', -1], ['entity-next', 1]]) $(id).addEventListener('click', () => {
-  const index = entities.findIndex(e => e.id === selected); select(entities[(index + delta + entities.length) % entities.length].id);
+  const index = entities.findIndex(e => e.id === selected); select(entities[(index + delta + entities.length) % entities.length].id); setMode('focus');
 });
 $('directory-open').addEventListener('click', openDirectory);
 $('world-fallback').addEventListener('click', () => { $('profile-directory').hidden = false; $('profile-directory').scrollIntoView(); });
@@ -132,6 +166,6 @@ $('moment-export').addEventListener('click', () => {
   const url = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2) + '\n'], { type: 'application/json' }));
   const a = document.createElement('a'); a.href = url; a.download = 'halveth-character-moments.json'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
-window.addEventListener('halveth:language', () => { renderSelection(); renderTimeline(); renderSearch(); updatePause(); });
+window.addEventListener('halveth:language', () => { renderSelection(); renderTimeline(); renderSearch(); renderDestinations(); updatePause(); });
 window.addEventListener('hashchange', () => { if (ids.has(location.hash.slice(1))) select(location.hash.slice(1)); });
-renderSelection(); renderTimeline(); updatePause(); startScene();
+renderSelection(); renderTimeline(); renderDestinations(); updatePause(); startScene();
