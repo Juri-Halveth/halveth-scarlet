@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-02T12:40:42Z",
+  "generatedAt": "2026-10-02T18:27:14Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-02T12:40:42Z",
-      "lastSuccessAt": "2026-10-02T12:40:42Z",
+      "lastAttemptAt": "2026-10-02T18:27:14Z",
+      "lastSuccessAt": "2026-10-02T18:27:14Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,90 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-02T12:40:42Z",
-      "lastSuccessAt": "2026-10-02T12:40:42Z",
+      "lastAttemptAt": "2026-10-02T18:27:14Z",
+      "lastSuccessAt": "2026-10-02T18:27:14Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "42ac6ad06a31a70c99dd992a",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "La NASA abre solicitudes para próxima promoción de directores de vuelo",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/la-nasa-abre-solicitudes-para-proxima-promocion-de-directores-de-vuelo/",
+      "sourcePublishedAt": "2026-10-02T16:36:25Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
+      "firstFetchedAt": "2026-10-02T18:27:14Z"
+    },
+    {
+      "id": "f8e81583208193a62a4e4f41",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Campaign Explores Clouds Spawned by Wildfires",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/natural-disasters/wildfires/nasa-campaign-explores-clouds-spawned-by-wildfires/",
+      "sourcePublishedAt": "2026-10-02T16:34:57Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
+      "firstFetchedAt": "2026-10-02T18:27:14Z"
+    },
+    {
+      "id": "2b3fb9c367c3391384b26e4c",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Model Wing Lights Up During First Pressure Sensitive Paint Tests",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/langley/nasa-model-wing-lights-up-during-first-pressure-sensitive-paint-tests/",
+      "sourcePublishedAt": "2026-10-02T16:10:55Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
+      "firstFetchedAt": "2026-10-02T18:27:14Z"
+    },
+    {
+      "id": "fab738555ca449b6f77bb10f",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Opens Applications for Next Class of Flight Directors",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-opens-applications-for-next-class-of-flight-directors/",
+      "sourcePublishedAt": "2026-10-02T15:49:26Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
+      "firstFetchedAt": "2026-10-02T18:27:14Z"
+    },
+    {
+      "id": "532f5738d0696fe383323bc0",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "New fields for SecurityAdvisory GraphQL API",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-02-new-fields-for-securityadvisory-graphql-api",
+      "sourcePublishedAt": "2026-10-02T13:18:00Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
+      "firstFetchedAt": "2026-10-02T18:27:14Z"
+    },
+    {
+      "id": "59fc4a70abc335f98eb4944f",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Confidential comments on repository security advisories",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-02-confidential-comments-on-repository-security-advisories",
+      "sourcePublishedAt": "2026-10-02T13:15:40Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
+      "firstFetchedAt": "2026-10-02T18:27:14Z"
+    },
+    {
+      "id": "8430be4786d88a5d85b2a4e2",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Repository security advisory comments API in public preview",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-02-repository-security-advisory-comments-api-in-public-preview",
+      "sourcePublishedAt": "2026-10-02T13:15:25Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
+      "firstFetchedAt": "2026-10-02T18:27:14Z"
+    },
     {
       "id": "8260199402adf7737316f877",
       "sourceId": "nasa",
@@ -32,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-2-the-complete-sharpless-catalog-313-nebulae/",
       "sourcePublishedAt": "2026-10-02T04:05:00Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
       "firstFetchedAt": "2026-10-02T05:42:34Z"
     },
     {
@@ -43,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/rains-swamp-the-gandak-river/",
       "sourcePublishedAt": "2026-10-02T04:01:00Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
       "firstFetchedAt": "2026-10-02T05:42:34Z"
     },
     {
@@ -54,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/solar-system/10-things-movie-night/",
       "sourcePublishedAt": "2026-10-02T00:25:36Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
       "firstFetchedAt": "2026-10-02T05:42:34Z"
     },
     {
@@ -65,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-awards-enterprise-logistics-support-services-agreements/",
       "sourcePublishedAt": "2026-10-01T20:34:27Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -76,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-rate-limits-for-private-vulnerability-reports",
       "sourcePublishedAt": "2026-10-01T19:57:39Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -87,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-structured-forms-for-private-vulnerability-reports",
       "sourcePublishedAt": "2026-10-01T19:57:28Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -98,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps",
       "sourcePublishedAt": "2026-10-01T19:11:26Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -109,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-github-actions-macos-14-runner-image-retirement",
       "sourcePublishedAt": "2026-10-01T19:11:23Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -120,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-github-copilot-in-vs-code-september-2026-releases",
       "sourcePublishedAt": "2026-10-01T19:09:10Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -131,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-accessibility-statements-highlighted-on-repository-overview",
       "sourcePublishedAt": "2026-10-01T19:04:32Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -142,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasas-spacex-crew-13-launches/",
       "sourcePublishedAt": "2026-10-01T18:05:38Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -153,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses",
       "sourcePublishedAt": "2026-10-01T17:59:54Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -164,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/",
       "sourcePublishedAt": "2026-10-01T16:58:10Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
+      "fetchedAt": "2026-10-02T18:27:14Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -531,50 +608,6 @@
       "firstFetchedAt": "2026-09-29T15:55:23Z"
     },
     {
-      "id": "d0182df9dcd371a6579c9b16",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Under the Microscope: NASA-Made Material for Moon Manufacturing",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/nasa-made-material-moon-manufacturing/",
-      "sourcePublishedAt": "2026-09-29T14:00:00Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
-      "firstFetchedAt": "2026-09-29T15:55:23Z"
-    },
-    {
-      "id": "9ddc0b147baf1c7966fb8470",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 September 29 – Sh2-188: The Shrimp Nebula",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-september-29-sh2-188-the-shrimp-nebula/",
-      "sourcePublishedAt": "2026-09-29T04:05:00Z",
-      "fetchedAt": "2026-09-30T00:30:03Z",
-      "firstFetchedAt": "2026-09-29T08:34:49Z"
-    },
-    {
-      "id": "9af33721059920ad650e0d2c",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Fire Cloud with a Pileus on Top",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/earth/earth-observatory/fire-cloud-with-a-pileus-on-top/",
-      "sourcePublishedAt": "2026-09-29T04:01:00Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
-      "firstFetchedAt": "2026-09-29T08:34:49Z"
-    },
-    {
-      "id": "86bb234b12ff9f0cd6a1a3dd",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Mars Has Its Charmes",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/blog/mars-has-its-charmes/",
-      "sourcePublishedAt": "2026-09-29T01:27:52Z",
-      "fetchedAt": "2026-09-29T20:50:38Z",
-      "firstFetchedAt": "2026-09-29T02:00:14Z"
-    },
-    {
       "id": "1d09516522abfde5d3cf8f8a",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -650,39 +683,6 @@
       "sourcePublishedAt": "2026-09-25T17:25:50Z",
       "fetchedAt": "2026-09-30T13:47:21Z",
       "firstFetchedAt": "2026-09-25T18:39:26Z"
-    },
-    {
-      "id": "48eaa8bbafaa8bc422c903d5",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "GitHub Copilot weekly releases — September 21",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-25-github-copilot-weekly-releases-september-21",
-      "sourcePublishedAt": "2026-09-25T16:42:48Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
-      "firstFetchedAt": "2026-09-25T18:39:26Z"
-    },
-    {
-      "id": "c1d4e08f8273da72d80ce3ab",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Updates to GitHub Copilot for Slack and Microsoft Teams",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-25-updates-to-github-copilot-for-slack-and-microsoft-teams",
-      "sourcePublishedAt": "2026-09-25T16:33:42Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
-      "firstFetchedAt": "2026-09-25T18:39:26Z"
-    },
-    {
-      "id": "f79e7d7a633843bfcb6cfc44",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "CodeQL 2.27.1 adds C and C++ query and Kotlin 2.4.20 support",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-25-codeql-2-27-1-adds-c-and-c-query-and-kotlin-2-4-20-support",
-      "sourcePublishedAt": "2026-09-25T09:55:23Z",
-      "fetchedAt": "2026-09-29T15:55:23Z",
-      "firstFetchedAt": "2026-09-25T13:51:17Z"
     }
   ]
 }
