@@ -3,6 +3,8 @@ import { createEntityFigure } from './entity-figures.mjs';
 import { createRoamingPaths, sampleRoamingPath } from './entity-world-motion.mjs';
 import { WORLD_DESTINATIONS } from './entity-world-model.mjs';
 import { createWorldEnvironment } from './entity-world-environment.mjs';
+import { createWorldGifts } from './entity-world-gifts.mjs';
+import { validateWorldEvent } from './world-events.mjs';
 
 export function createCharacterWorld(host, entities, { onSelect, onError, onModeChange = () => {}, onClock = () => {}, paused = false }) {
   const renderer = new T.WebGLRenderer({ antialias: true, powerPreference: 'default' });
@@ -29,6 +31,9 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
   controls.maxPolarAngle = Math.PI - .01;
   const environment = createWorldEnvironment(T);
   scene.add(environment.group);
+  const gifts = createWorldGifts(T);
+  scene.add(gifts.group);
+  controls.autoRotateSpeed = .4;
   scene.add(new T.HemisphereLight('#f4ffee', '#54505b', 2.5));
   const key = new T.DirectionalLight('#ffefd4', 3.1); key.position.set(18, 32, 21); scene.add(key);
   const rim = new T.DirectionalLight('#91d8e1', 1.4); rim.position.set(-24, 14, -30); scene.add(rim);
@@ -166,7 +171,8 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
     travel(held.x + has('KeyD', 'ArrowRight') - has('KeyA', 'ArrowLeft'), held.y + has('KeyE') - has('KeyQ'), held.z + has('KeyW', 'ArrowUp') - has('KeyS', 'ArrowDown'), dt, has('ShiftLeft', 'ShiftRight') ? 32 : 12);
     if (!paused) clock += dt * rate;
     if (!paused || dirty) {
-      sample(); environment.update(camera.position, clock);
+      sample(); environment.update(camera.position, clock); gifts.update(clock, paused);
+      if (controls.autoRotate && !paused) controls.update(dt);
       renderer.render(scene, camera); frames++; host.dataset.frames = String(frames); dirty = false;
       host.dataset.cameraPosition = camera.position.toArray().map(n => n.toFixed(2)).join(',');
       host.dataset.activeChunks = String(environment.chunkCount);
@@ -181,6 +187,21 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
   host.dataset.entityCount = String(entries.length); host.dataset.visibleEntities = String(entries.length);
   host.dataset.selected = selected; host.dataset.mode = mode; host.dataset.state = 'READY';
   return {
+    materialize(raw, focus = false) {
+      let event;
+      try { event = validateWorldEvent(raw); } catch { return; }
+      if (event.kind !== 'GIFT_DEMO') return;
+      const result = gifts.add(event, clock);
+      if (!result) return;
+      host.dataset.giftCount = String(gifts.count);
+      host.dataset.lastGift = event.item; host.dataset.lastGiftId = event.id;
+      if (focus) {
+        switchMode('all'); controls.target.copy(result.position); controls.target.y += .6;
+        camera.position.copy(controls.target).add(new T.Vector3(3.2, 3.1, 4.4)); controls.update();
+      }
+      dirty = true;
+    },
+    broadcast(value) { controls.autoRotate = Boolean(value); dirty = true; },
     select(id) {
       if (!entries.some(e => e.entity.id === id)) return;
       selected = id; host.dataset.selected = selected;
@@ -218,7 +239,7 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
       canvas.removeEventListener('pointerdown', onDown); canvas.removeEventListener('pointerup', onUp);
       canvas.removeEventListener('pointercancel', clearInput); canvas.removeEventListener('keydown', onKeyDown); canvas.removeEventListener('blur', clearInput);
       canvas.removeEventListener('webglcontextlost', onLost); canvas.removeEventListener('webglcontextrestored', onRestored);
-      entries.forEach(entry => entry.figure.dispose()); environment.dispose();
+      entries.forEach(entry => entry.figure.dispose()); environment.dispose(); gifts.dispose();
       shadowGeometry.dispose(); shadowMaterial.dispose(); markGeometry.dispose(); markMaterial.dispose();
       renderer.dispose(); canvas.remove();
     }

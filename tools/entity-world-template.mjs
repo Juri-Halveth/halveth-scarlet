@@ -57,6 +57,7 @@ export function entityWorldBody({ cards, languageButtons, count }) {
     <div class="world-time-controls">
       <button id="moment-save" class="moment-save" type="button">${icon('bookmark-plus')}${bi('Moment merken','Keep moment')}</button>
       <button id="time-toggle" type="button" aria-expanded="false" aria-controls="world-timeline">${icon('history')}${bi('Zeitspur','Timeline')} <span id="moment-count">0</span></button>
+      <button id="studio-toggle" type="button" aria-expanded="false" aria-controls="world-studio">${icon('radio')}Studio</button>
     </div>
     <a class="world-reading" href="#profile-directory" id="directory-open">${bi('Verzeichnis','Directory')}${icon('list')}</a>
     <div id="world-timeline" class="world-timeline" hidden>
@@ -69,6 +70,36 @@ export function entityWorldBody({ cards, languageButtons, count }) {
     <p id="world-status" class="world-status" role="status" aria-live="polite"></p>
   </section>
 </main>
+<aside id="world-studio" class="world-studio" aria-labelledby="studio-title" hidden>
+  <header><div><small id="studio-mode">${bi('GERÄTE-VORSCHAU','DEVICE PREVIEW')}</small><h2 id="studio-title">${bi('Weltstudio','World studio')}</h2></div><button id="studio-close" class="icon-button" title="Studio schließen" data-en-title="Close studio" aria-label="Studio schließen" data-en-aria-label="Close studio">${icon('x')}</button></header>
+  <div class="studio-toolbar"><button id="studio-stage" title="Bühnenansicht" data-en-title="Stage view">${icon('scan')}${bi('Bühne','Stage')}</button><button id="studio-export" title="Sitzung exportieren" data-en-title="Export session" aria-label="Sitzung exportieren" data-en-aria-label="Export session">${icon('download')}</button><button id="studio-relay" hidden>${icon('radio')}${bi('Lokalen Raum verbinden','Connect local room')}</button></div>
+  <label for="studio-name">${bi('Anzeigename','Display name')}</label><input id="studio-name" maxlength="32" value="Gast" autocomplete="off">
+  <div class="studio-tabs" role="tablist" aria-label="Studio"><button id="studio-tab-impulse" role="tab" aria-selected="true" aria-controls="studio-impulse">${bi('Impulse','Impulses')}</button><button id="studio-tab-chat" role="tab" aria-selected="false" aria-controls="studio-chat">Chat</button><button id="studio-tab-support" role="tab" aria-selected="false" aria-controls="studio-support">Wallet</button></div>
+  <section id="studio-impulse" role="tabpanel" aria-labelledby="studio-tab-impulse">
+    <label for="studio-item">${bi('Gegenstand','Object')}</label><select id="studio-item"><option value="chocolate">Schokoladentafel</option><option value="book">Geschichtenbuch</option><option value="beacon">Leuchtzeichen</option></select>
+    <div class="studio-value"><strong id="studio-value">3,00 €</strong><span>${bi('Beispielwert · keine Zahlung','Example value · no payment')}</span></div>
+    <button id="studio-create" class="studio-primary">${icon('gift')}${bi('Kostenlos erscheinen lassen','Create for free')}</button>
+    <ol id="studio-events" class="studio-feed" aria-label="Gegenstandsereignisse" data-en-aria-label="Object events"></ol>
+  </section>
+  <section id="studio-chat" role="tabpanel" aria-labelledby="studio-tab-chat" hidden>
+    <p id="studio-chat-scope" class="studio-caption">${bi('Vorschau auf diesem Gerät','Preview on this device')}</p>
+    <ol id="studio-messages" class="studio-feed" aria-label="Chat" aria-live="polite" aria-relevant="additions"></ol>
+    <form id="studio-chat-form"><label for="studio-message">${bi('Nachricht','Message')}</label><div class="studio-compose"><input id="studio-message" maxlength="280" required autocomplete="off"><button class="icon-button" type="submit" title="Nachricht senden" data-en-title="Send message" aria-label="Nachricht senden" data-en-aria-label="Send message">${icon('send')}</button></div></form>
+  </section>
+  <section id="studio-support" role="tabpanel" aria-labelledby="studio-tab-support" hidden>
+    <p class="studio-caption">${bi('Vorgesehener Empfänger','Intended recipient')}</p><code id="studio-recipient"></code>
+    <button id="studio-copy">${icon('copy')}${bi('Adresse kopieren','Copy address')}</button>
+    <p class="studio-caption">${bi('Chain / Token offen · Zahlungen inaktiv','Chain / token pending · payments inactive')}</p>
+    <details id="studio-wallet-details"><summary>${bi('Eigene Wallet','Your wallet')}</summary>
+      <select id="studio-wallet-provider" aria-label="Wallet-Anbieter" data-en-aria-label="Wallet provider"></select>
+      <button id="studio-wallet-connect">${icon('wallet')}${bi('Wallet verbinden','Connect wallet')}</button><button id="studio-wallet-disconnect" hidden>${bi('Trennen','Disconnect')}</button>
+      <p id="studio-wallet-state" class="studio-caption"></p><code id="studio-wallet-account"></code>
+    </details>
+  </section>
+  <p id="studio-status" class="studio-caption" role="status"></p>
+</aside>
+<button id="studio-stage-exit" class="studio-stage-exit" hidden>${icon('scan')}${bi('Bühne verlassen','Leave stage')}</button>
+<output id="studio-toast" class="studio-toast" hidden></output>
 <dialog id="world-search" class="world-search" aria-labelledby="search-title">
   <header><h2 id="search-title">${bi('Wen besuchen wir?','Who shall we visit?')}</h2><button class="icon-button" type="button" id="world-search-close" aria-label="Schließen" data-en-aria-label="Close">${icon('x')}</button></header>
   <label for="entity-search">${bi('Name oder Rolle','Name or role')}</label><input type="search" id="entity-search" autocomplete="off">
@@ -78,6 +109,6 @@ export function entityWorldBody({ cards, languageButtons, count }) {
   <label for="profile-search">${bi('Name, Rolle oder Thema','Name, role or subject')}</label><input id="profile-search" type="search" autocomplete="off"><p id="profile-results" role="status" aria-live="polite"></p><ul class="profile-grid">${cards}</ul>
 </section>
 <noscript><p class="world-noscript">${bi('Die 69 Profile stehen im Verzeichnis. Für den 3D-Raum wird JavaScript benötigt.','The 69 profiles are available in the directory. The 3D world requires JavaScript.')}</p></noscript>
-<script src="../assets/universe-data.js"></script><script src="../assets/entity-profile.js" defer></script><script src="../assets/entity-world-loader.js" defer></script>
+<script src="../assets/universe-data.js"></script><script src="../assets/entity-profile.js" defer></script><script src="../assets/entity-world-loader.js" defer></script><script src="../assets/wallet-connection.js" defer></script><script type="module" src="../assets/entity-world-studio.mjs"></script>
 </body></html>\n`;
 }

@@ -255,7 +255,7 @@ test('world assets stay local and the page disables external API connections', (
   const policy = /<meta\b[^>]*http-equiv="Content-Security-Policy"[^>]*content="([^"]+)"/.exec(html)?.[1];
   assert.ok(policy);
   const directives = new Map(policy.split(';').map(value => value.trim().split(/\s+/)).filter(parts => parts[0]).map(([name, ...values]) => [name, values]));
-  assert.deepEqual(directives.get('connect-src'), ["'none'"]);
+  assert.deepEqual(directives.get('connect-src'), ["'self'"]);
   assert.deepEqual(directives.get('script-src'), ["'self'"]);
   for (const [, src] of html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)) {
     assert.ok(src.startsWith('../assets/'), src);

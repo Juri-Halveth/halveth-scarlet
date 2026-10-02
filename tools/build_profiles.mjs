@@ -65,7 +65,8 @@ for (const entity of data.entities) {
 
 const cards = data.entities.map(entity => `<li data-search="${escape([entity.label, entity.role, entity.en.role, entity.kind, entity.en.kind].join(' ').toLowerCase())}"><a href="${escape(entity.id)}/"><h2>${escape(entity.label)}</h2><p><span data-lang="de">${escape(entity.role)}</span><span data-lang="en">${escape(entity.en.role)}</span></p><small><span data-lang="de">${escape(entity.kind)}</span><span data-lang="en">${escape(entity.en.kind)}</span></small></a></li>`).join('\n');
 expected.set('entities/index.html', head('Die Konstellation · HALVETH', `${data.entities.length} Figuren, Rollen, Geschichten und Quellen im interaktiven 3D-Raum.`, 'entities/', '../')
-  .replace('</head>', '<link rel="stylesheet" href="../assets/entity-world.css"></head>')
+  .replace("connect-src 'none'", "connect-src 'self'")
+  .replace('</head>', '<link rel="stylesheet" href="../assets/entity-world.css"><link rel="stylesheet" href="../assets/entity-world-studio.css"></head>')
   + entityWorldBody({cards, languageButtons, count: data.entities.length}));
 
 for (const [file, content] of expected) {
