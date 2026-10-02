@@ -44,15 +44,28 @@ Local storage key `ashbound-save-v1` contains choice indices, selected location,
 companion IDs and read-book indices. Language uses `ashbound-language`.
 Neither field contains identity or account data. Save import is size-bounded,
 schema-checked and replayed through Ink before replacing the current state.
-Malformed saves leave the current state intact. Clearing browser data removes
-the local save; the visitor can export before clearing.
+Malformed imports leave the current state intact. A rejected local save is
+retained under a unique `ashbound-recovery-<time>` key and remains downloadable
+as its exact original text. If that backup cannot be written and read back,
+automatic saving is suspended so the original is not overwritten. Clearing
+browser data removes local saves and recovery copies; export before clearing.
+
+Story load failures expose a retry action and keep undo disabled. Both compiled
+languages are checked before play. WebGL loss leaves the story usable and
+restoration resumes the renderer without reloading the page or losing choices.
 
 ## Verification boundaries
 
 Unit tests exhaust both language branches and check model and state contracts.
 Headless Chromium screenshots and canvas checks cover declared desktop/mobile
 viewports, not every GPU, browser, screen or assistive technology. The existing
-installed OpenMW graphics candidate remains a separate native QA task.
+uninstalled OpenMW graphics candidate remains a separate native QA task.
+
+`tools/ashbound/qa.cjs` covers layouts and main journeys;
+`tools/ashbound/failure-qa.cjs` covers unavailable/malformed stories, pending
+controls, rejected saves, failed backups, unavailable storage, absent/lost
+WebGL and rapid animation restarts. Both use `CODEX_NODE_PACKAGES` for an
+existing Playwright runtime and optional `ASHBOUND_CHROME` / `ASHBOUND_LIVE_BASE`.
 
 ## Sources and licences
 

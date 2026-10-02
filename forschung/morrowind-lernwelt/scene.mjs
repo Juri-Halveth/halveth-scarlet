@@ -1,7 +1,7 @@
 import { THREE as T, OrbitControls } from './vendor/runtime.mjs';
 import { REGIONS, rng } from './core.mjs';
 
-export function createWorld(host, { onSelect, onError, reducedMotion = false }) {
+export function createWorld(host, { onSelect, onError, onRestore, reducedMotion = false }) {
   const renderer = new T.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
   renderer.outputColorSpace = T.SRGBColorSpace;
@@ -64,6 +64,7 @@ export function createWorld(host, { onSelect, onError, reducedMotion = false }) 
     cylinder(4.7,5.4,1.5,8,pale,site,0,-1,0);
     cylinder(5.6,5.6,.18,8,gold,site,0,-.15,0);
     const area=new T.Mesh(new T.CylinderGeometry(6,6,13,12),new T.MeshBasicMaterial({visible:false}));
+    geometries.push(area.geometry);materials.push(area.material);
     area.position.y=3;area.userData.region=region.id;site.add(area);hits.push(area);
     if(region.id==='haven'){
       for(let i=0;i<3;i++){
@@ -129,7 +130,7 @@ export function createWorld(host, { onSelect, onError, reducedMotion = false }) 
     ray.setFromCamera(pointer,camera);const hit=ray.intersectObjects(hits)[0];if(hit)onSelect(hit.object.userData.region);
   });
   const reset=()=>{camera.position.set(innerWidth<700?64:53,innerWidth<700?61:44,innerWidth<700?90:64);controls.target.set(innerWidth<700?0:-1,1,0);controls.update();}; reset();
-  let enabled=true,motion=!reducedMotion,frames=0,last=0,elapsed=0,invalid=true;
+  let enabled=true,visible=true,lost=false,motion=!reducedMotion,frames=0,last=0,elapsed=0,invalid=true;
   const resize=()=>{const rect=host.getBoundingClientRect();if(!rect.width||!rect.height)return;renderer.setSize(rect.width,rect.height,false);camera.aspect=rect.width/rect.height;camera.updateProjectionMatrix();invalid=true;};
   const observer=new ResizeObserver(resize);observer.observe(host);
   controls.addEventListener('change',()=>{invalid=true;});
@@ -143,8 +144,8 @@ export function createWorld(host, { onSelect, onError, reducedMotion = false }) 
       camera.position.copy(new T.Vector3().setFromSpherical(s).add(controls.target));controls.update();
     }else return;e.preventDefault();invalid=true;
   });
-  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();enabled=false;onError();});
-  canvas.addEventListener('webglcontextrestored',()=>location.reload());
+  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();lost=true;enabled=false;onError();});
+  canvas.addEventListener('webglcontextrestored',()=>{lost=false;enabled=visible;invalid=true;onRestore?.();});
   const floats=[];scene.traverse(o=>{if(o.userData.float)floats.push({o,y:o.position.y});});
   renderer.setAnimationLoop(now=>{
     if(!enabled||document.hidden||now-last<33)return;
@@ -154,7 +155,7 @@ export function createWorld(host, { onSelect, onError, reducedMotion = false }) 
   });
   return {
     select(id){const r=REGIONS.find(r=>r.id===id);if(r){selector.position.set(r.position[0],r.position[1]-.1,r.position[2]);invalid=true;}},
-    reset,zoom,visible(value){enabled=value;invalid=true;},motion(value){motion=value;invalid=true;},
+    reset,zoom,visible(value){visible=value;enabled=value&&!lost;invalid=true;},motion(value){motion=value;invalid=true;},
     quality(value){renderer.setPixelRatio(Math.min(devicePixelRatio,value==='high'?2:1.5));resize();},
     get stats(){return {frames,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,width:canvas.width,height:canvas.height,motion};},
     dispose(){renderer.setAnimationLoop(null);observer.disconnect();controls.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();renderer.dispose();}

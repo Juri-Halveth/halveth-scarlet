@@ -17,12 +17,21 @@ const entities=window.HalvethUniverse.entities;
 const ids=new Set(entities.map(e=>e.id));
 const initial=()=>({schema:'halveth.ashbound.save.v1',version:VERSION,choices:[],region:'haven',party:['scarlet','lucinet','rachel'],books:[]});
 let state=initial(), compiled, current, world, activeTab='world', activeBook=null, mode='pause', audio=null, sound=false;
-let motion=!matchMedia('(prefers-reduced-motion: reduce)').matches, fallTime=0,fallRunning=false,fallLast=null;
-try{const saved=safeStorage.get('ashbound-save-v1');if(saved)state=validateSave(JSON.parse(saved),ids);}catch{/* Invalid local data does not replace the playable default. */}
+let storyStatus='loading', recoveryRaw=null, saveProtected=false, sceneUnavailable=false;
+let motion=!matchMedia('(prefers-reduced-motion: reduce)').matches, fallTime=0,fallRunning=false,fallLast=null,fallFrame=null;
+const saved=safeStorage.get('ashbound-save-v1');
+try{if(saved){if(saved.length>16384)throw new Error('size');state=validateSave(JSON.parse(saved),ids);}}catch{preserveRejectedSave(saved);}
 const tabs=[['world','compass'],['story','book-open'],['lab','flask-conical'],['books','book-open'],['council','users'],['journal','history']];
 let toastTimer;
 function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,5500);}
-function save(){if(!safeStorage.set('ashbound-save-v1',JSON.stringify(state)))toast(t('storageError'));}
+function preserveRejectedSave(raw){
+  recoveryRaw=raw;
+  const prefix=`ashbound-recovery-${Date.now()}`;let key=prefix,index=0;
+  while(safeStorage.get(key)!==null)key=`${prefix}-${++index}`;
+  // An unsuccessful backup must never permit overwriting the rejected original.
+  saveProtected=!safeStorage.set(key,raw)||safeStorage.get(key)!==raw;
+}
+function save(){if(saveProtected){toast(t('recoveryProtected'));return;}if(!compiled){toast(t('storyLoading'));return;}if(!safeStorage.set('ashbound-save-v1',JSON.stringify(state)))toast(t('storageError'));}
 function chime(){
   if(!sound||document.hidden)return;
   try{audio??=new AudioContext();audio.resume();const gain=audio.createGain();gain.connect(audio.destination);gain.gain.setValueAtTime(.025,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.0001,audio.currentTime+.55);
@@ -36,7 +45,8 @@ function translate(){
   document.querySelectorAll('[data-placeholder]').forEach(n=>n.placeholder=t(n.dataset.placeholder));
   $('tabs').replaceChildren(...tabs.map(([key,name])=>{const b=el('button');b.append(icon(name),el('span',t(key)));b.type='button';b.dataset.tab=key;if(key===activeTab)b.setAttribute('aria-current','page');b.onclick=()=>show(key);return b;}));
   $('places').replaceChildren(...REGIONS.map((r,i)=>{const b=el('button');b.append(el('span',String(i+1).padStart(2,'0')),el('span',r[lang]));b.dataset.region=r.id;b.onclick=()=>selectPlace(r.id);return b;}));
-  renderPlace();renderBooks();renderCouncil();renderModes();renderJournal();if(compiled)renderStory();
+  renderPlace();renderBooks();renderCouncil();renderModes();renderStory();renderJournal();
+  if(sceneUnavailable)$('scene-status').textContent=t('fallback');
   if(activeBook!==null)openBook(activeBook,false);
   drawFall();sample();icons();
 }
@@ -46,7 +56,7 @@ function show(tab){
   for(const b of $('tabs').children){if(b.dataset.tab===tab)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');}
   history.replaceState(null,'',`${location.pathname}?lang=${lang}#${tab}`);
   world?.visible(tab==='world');
-  if(tab!=='lab'){fallRunning=false;fallLast=null;}
+  if(tab!=='lab')stopFall();
   if(tab==='lab'){drawFall();sample();}
   if(tab==='journal')renderJournal();window.scrollTo({top:0,behavior:'instant'});
 }
@@ -57,7 +67,12 @@ function renderPlace(){
 }
 function selectPlace(id){if(!REGIONS.some(r=>r.id===id))return;state.region=id;renderPlace();save();chime();}
 function renderStory(){
-  try{current=replay(runtime.Story,compiled[lang],state.choices);}catch{state.choices=[];current=replay(runtime.Story,compiled[lang],[]);toast(t('invalid'));}
+  if(!compiled){
+    $('undo').disabled=true;$('story-content').replaceChildren(el('p',t(storyStatus==='error'?'error':'storyLoading')));
+    if(storyStatus==='error'){const button=el('button',undefined,'primary');button.id='story-retry';button.append(icon('rotate-ccw'),el('span',t('retry')));button.onclick=loadStories;$('story-content').append(button);icons();}
+    return;
+  }
+  current=replay(runtime.Story,compiled[lang],state.choices);
   const {frame}=current,host=$('story-content');host.replaceChildren();
   const title=el('h2',frame.lines[frame.headingIndex]);host.append(title);
   frame.lines.forEach((line,i)=>{if(i!==frame.headingIndex)host.append(el('p',line));});
@@ -101,12 +116,14 @@ function renderBooks(){
 function openBook(i,showDialog=true){activeBook=i;const book=BOOKS[i][lang];$('book-name').textContent=book[0];$('book-author').textContent=book[1];$('book-text').replaceChildren(...book[2].split('\n').map(p=>el('p',p)));
   if(showDialog){if(!state.books.includes(i)){state.books.push(i);save();renderBooks();}$('book-dialog').showModal();}}
 function renderJournal(){
+  $('recovery-notice').hidden=recoveryRaw===null;
+  $('recovery-message').textContent=t(saveProtected?'recoveryProtected':'recovered');
   const host=$('journey-record');host.replaceChildren();
   if(!state.choices.length)host.append(el('li',t('noDecisions')));
   else if(compiled){const result=replay(runtime.Story,compiled[lang],state.choices);state.choices.forEach((choice,i)=>{const frame=result.history[i];host.append(el('li',`${i+1}. ${frame.lines[frame.headingIndex]}: ${frame.choices[choice]}`));});}
 }
 function renderModes(){
-  $('mode-switch').replaceChildren(...MODES.map(m=>{const b=el('button',t(m));b.dataset.mode=m;b.setAttribute('aria-pressed',String(m===mode));b.onclick=()=>{mode=m;fallTime=0;fallRunning=false;renderModes();drawFall();};return b;}));
+  $('mode-switch').replaceChildren(...MODES.map(m=>{const b=el('button',t(m));b.dataset.mode=m;b.setAttribute('aria-pressed',String(m===mode));b.onclick=()=>{mode=m;fallTime=0;stopFall();renderModes();drawFall();};return b;}));
   $('mode-note').textContent=t(mode==='pause'?'pausedNote':mode==='stop'?'stopNote':'restoreNote');
   $('energy-label').textContent=t(mode==='restore'?'restoreEnergy':'energy');
 }
@@ -126,11 +143,13 @@ function drawFall(){
   $('fall-status').textContent=`t = ${result.elapsed.toFixed(2)} s | h = ${result.height.toFixed(2)} m | v = ${result.velocity.toFixed(2)} m/s`;
   return result;
 }
+function stopFall(){fallRunning=false;fallLast=null;if(fallFrame!==null)cancelAnimationFrame(fallFrame);fallFrame=null;}
 function stepFall(now){
+  fallFrame=null;
   if(!fallRunning)return;
-  if(document.hidden||activeTab!=='lab'){fallRunning=false;fallLast=null;return;}
+  if(document.hidden||activeTab!=='lab'){stopFall();return;}
   if(fallLast!==null)fallTime+=Math.min((now-fallLast)/1000,.08);fallLast=now;
-  const result=drawFall();if(result.landed||mode==='pause'||fallTime>=30){fallRunning=false;fallLast=null;return;}requestAnimationFrame(stepFall);
+  const result=drawFall();if(result.landed||mode==='pause'||fallTime>=30){stopFall();return;}fallFrame=requestAnimationFrame(stepFall);
 }
 function sample(){
   if(!$('probability').checkValidity()||!$('seed').checkValidity())return;
@@ -140,17 +159,19 @@ function sample(){
   const c=$('hit-canvas'),ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);const cols=100,rows=Math.ceil(result.count/cols),w=c.width/Math.min(result.count,cols),h=c.height/rows;
   result.hits.forEach((hit,i)=>{ctx.fillStyle=hit?'#a6d9b4':'#46584c';ctx.fillRect((i%cols)*w,Math.floor(i/cols)*h,Math.max(1,w-2),Math.max(1,h-2));});
 }
-function exportSave(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download='ASHBOUND-save.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function downloadText(text,name){const blob=new Blob([text],{type:'application/json'}),url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function exportSave(){downloadText(JSON.stringify(state,null,2),'ASHBOUND-save.json');}
+$('recovery-export').onclick=()=>{if(recoveryRaw!==null)downloadText(recoveryRaw,'ASHBOUND-rejected-original.json');};
 $('language').onclick=()=>{lang=lang==='de'?'en':'de';safeStorage.set('ashbound-language',lang);translate();show(activeTab);};
-$('enter-story').onclick=()=>show('story');$('undo').onclick=()=>{state.choices.pop();renderStory();state.region=current.frame.tags.find(s=>s.startsWith('region:'))?.split(':')[1].trim()||'haven';save();renderPlace();renderJournal();};
+$('enter-story').onclick=()=>show('story');$('undo').onclick=()=>{if(!compiled||!state.choices.length)return;state.choices.pop();renderStory();state.region=current.frame.tags.find(s=>s.startsWith('region:'))?.split(':')[1].trim()||'haven';save();renderPlace();renderJournal();};
 $('restart').onclick=()=>{if(confirm(t('resetConfirm'))){exportSave();state=initial();save();translate();show('story');}};
 $('entity-search').oninput=renderCouncil;$('export').onclick=exportSave;
 $('import').onchange=async e=>{
   const file=e.target.files[0];if(!file)return;
   try{if(file.size>16384)throw new Error('size');const next=validateSave(JSON.parse(await file.text()),ids);if(!compiled)throw new Error('loading');replay(runtime.Story,compiled[lang],next.choices);state=next;save();translate();toast(t('imported'));}catch{toast(t('invalid'));}finally{e.target.value='';}
 };
-for(const id of ['height','speed','mass'])$(id).oninput=()=>{fallTime=0;fallRunning=false;drawFall();};
-$('fall-run').onclick=()=>{fallTime=0;fallLast=null;if(!fallRunning){fallRunning=true;requestAnimationFrame(stepFall);}chime();};
+for(const id of ['height','speed','mass'])$(id).oninput=()=>{fallTime=0;stopFall();drawFall();};
+$('fall-run').onclick=()=>{stopFall();fallTime=0;fallRunning=true;fallFrame=requestAnimationFrame(stepFall);chime();};
 $('sample').onclick=()=>{if(!$('probability').reportValidity()||!$('seed').reportValidity())return;sample();chime();};
 $('model-max').onclick=()=>{$('probability').value='1';sample();};
 $('settings-open').onclick=()=>$('settings-dialog').showModal();
@@ -159,13 +180,23 @@ for(const d of document.querySelectorAll('dialog'))d.addEventListener('click',e=
 $('book-dialog').onclose=()=>{activeBook=null;};
 $('motion').checked=motion;$('motion').onchange=()=>{motion=$('motion').checked;world?.motion(motion);};
 $('sound').onchange=()=>{sound=$('sound').checked;if(sound)chime();else audio?.suspend();};
-document.addEventListener('visibilitychange',()=>{if(document.hidden){audio?.suspend();fallRunning=false;fallLast=null;}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){audio?.suspend();stopFall();}});
 $('quality').onchange=()=>world?.quality($('quality').value);
 $('zoom-in').onclick=()=>world?.zoom(.88);$('zoom-out').onclick=()=>world?.zoom(1.12);$('fit').onclick=()=>world?.reset();
 translate();show(location.hash.slice(1));
-try{world=createWorld($('scene'),{onSelect:selectPlace,reducedMotion:!motion,onError:()=>{$('scene-status').hidden=false;$('scene-status').textContent=t('fallback');}});world.select(state.region);world.visible(activeTab==='world');$('scene-status').hidden=true;}catch{$('scene-status').textContent=t('fallback');for(const id of ['zoom-in','zoom-out','fit'])$(id).disabled=true;}
-try{
-  const de=await fetch('story.de.json'),en=await fetch('story.en.json');if(!de.ok||!en.ok)throw new Error('story-fetch');
-  compiled={de:await de.json(),en:await en.json()};renderStory();renderJournal();document.body.dataset.ready='true';
-}catch{$('story-content').replaceChildren(el('p',t('error')));document.body.dataset.ready='error';}
+function sceneFallback(){sceneUnavailable=true;$('scene-status').hidden=false;$('scene-status').textContent=t('fallback');for(const id of ['zoom-in','zoom-out','fit'])$(id).disabled=true;}
+function sceneRestored(){sceneUnavailable=false;$('scene-status').hidden=true;for(const id of ['zoom-in','zoom-out','fit'])$(id).disabled=false;}
+try{world=createWorld($('scene'),{onSelect:selectPlace,reducedMotion:!motion,onError:sceneFallback,onRestore:sceneRestored});world.select(state.region);world.visible(activeTab==='world');$('scene-status').hidden=true;}catch{sceneFallback();}
+async function loadStories(){
+  storyStatus='loading';document.body.dataset.ready='loading';renderStory();
+  try{
+    const de=await fetch('story.de.json',{signal:AbortSignal.timeout(15000)}),en=await fetch('story.en.json',{signal:AbortSignal.timeout(15000)});if(!de.ok||!en.ok)throw new Error('story-fetch');
+    const next={de:await de.json(),en:await en.json()};
+    for(const data of Object.values(next))replay(runtime.Story,data,[]);
+    try{for(const data of Object.values(next))replay(runtime.Story,data,state.choices);}catch{preserveRejectedSave(saved??JSON.stringify(state));state.choices=[];}
+    compiled=next;storyStatus='ready';renderStory();renderJournal();document.body.dataset.ready='true';
+    if(recoveryRaw!==null)toast(t(saveProtected?'recoveryProtected':'recovered'));
+  }catch{compiled=undefined;storyStatus='error';document.body.dataset.ready='error';renderStory();}
+}
+await loadStories();
 Object.defineProperty(window,'AshboundDiagnostics',{get:()=>({version:VERSION,entities:entities.length,region:state.region,choices:[...state.choices],party:[...state.party],books:[...state.books],tab:activeTab,scene:world?.stats??null})});
