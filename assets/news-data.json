@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-02T05:42:34Z",
+  "generatedAt": "2026-10-02T12:40:42Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-02T05:42:34Z",
-      "lastSuccessAt": "2026-10-02T05:42:34Z",
+      "lastAttemptAt": "2026-10-02T12:40:42Z",
+      "lastSuccessAt": "2026-10-02T12:40:42Z",
       "status": "fresh",
       "error": null
     },
@@ -17,8 +17,8 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-02T05:42:34Z",
-      "lastSuccessAt": "2026-10-02T05:42:34Z",
+      "lastAttemptAt": "2026-10-02T12:40:42Z",
+      "lastSuccessAt": "2026-10-02T12:40:42Z",
       "status": "fresh",
       "error": null
     }
@@ -32,7 +32,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-2-the-complete-sharpless-catalog-313-nebulae/",
       "sourcePublishedAt": "2026-10-02T04:05:00Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-02T05:42:34Z"
     },
     {
@@ -43,7 +43,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/rains-swamp-the-gandak-river/",
       "sourcePublishedAt": "2026-10-02T04:01:00Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-02T05:42:34Z"
     },
     {
@@ -54,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/solar-system/10-things-movie-night/",
       "sourcePublishedAt": "2026-10-02T00:25:36Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-02T05:42:34Z"
     },
     {
@@ -65,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-awards-enterprise-logistics-support-services-agreements/",
       "sourcePublishedAt": "2026-10-01T20:34:27Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -76,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-rate-limits-for-private-vulnerability-reports",
       "sourcePublishedAt": "2026-10-01T19:57:39Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -87,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-structured-forms-for-private-vulnerability-reports",
       "sourcePublishedAt": "2026-10-01T19:57:28Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -98,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps",
       "sourcePublishedAt": "2026-10-01T19:11:26Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -109,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-github-actions-macos-14-runner-image-retirement",
       "sourcePublishedAt": "2026-10-01T19:11:23Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -120,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-github-copilot-in-vs-code-september-2026-releases",
       "sourcePublishedAt": "2026-10-01T19:09:10Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -131,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-accessibility-statements-highlighted-on-repository-overview",
       "sourcePublishedAt": "2026-10-01T19:04:32Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -142,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasas-spacex-crew-13-launches/",
       "sourcePublishedAt": "2026-10-01T18:05:38Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -153,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses",
       "sourcePublishedAt": "2026-10-01T17:59:54Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -164,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/",
       "sourcePublishedAt": "2026-10-01T16:58:10Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -175,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-scheduled-code-scanning-skips-inactive-repositories",
       "sourcePublishedAt": "2026-10-01T16:49:15Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -186,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-code-coverage-uploads-no-longer-fail-ci-for-new-branches",
       "sourcePublishedAt": "2026-10-01T16:49:05Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -197,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app",
       "sourcePublishedAt": "2026-10-01T16:30:10Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -219,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasas-spacex-crew-13-launches-to-international-space-station/",
       "sourcePublishedAt": "2026-10-01T15:59:24Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -241,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/webb/nasas-webb-provides-crash-course-on-planet-shattering-collisions/",
       "sourcePublishedAt": "2026-10-01T14:00:00Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -263,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-1-harvest-moon-with-belt-of-venus-and-erupting-mount-etna/",
       "sourcePublishedAt": "2026-10-01T04:05:00Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T06:00:09Z"
     },
     {
@@ -274,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/an-agricultural-island-in-the-saskatchewan-river-delta/",
       "sourcePublishedAt": "2026-10-01T04:00:00Z",
-      "fetchedAt": "2026-10-02T05:42:34Z",
+      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T06:00:09Z"
     },
     {
