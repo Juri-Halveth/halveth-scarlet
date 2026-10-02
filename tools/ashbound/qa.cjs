@@ -31,12 +31,13 @@ async function main(){
   const base=process.env.ASHBOUND_LIVE_BASE||local;
   const launch={headless:true,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']};
   if(process.env.ASHBOUND_CHROME)launch.executablePath=process.env.ASHBOUND_CHROME;
-  const browser=await chromium.launch(launch),reports=[];
+  const browser=await chromium.launch(launch),reports=[],homeEntries=[];
   try{
     for(const viewport of [{width:1440,height:900},{width:1920,height:1080},{width:390,height:844},{width:768,height:1024}]){
       const context=await browser.newContext({viewport,locale:'de-DE'}),page=await context.newPage(),errors=[];
       page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
-      await page.goto(base+'forschung/morrowind-lernwelt/?lang=de',{waitUntil:'networkidle'});
+      // Page readiness is app-bound; host browser integrations may keep requests open.
+      await page.goto(base+'forschung/morrowind-lernwelt/?lang=de',{waitUntil:'domcontentloaded'});
       await page.waitForFunction(()=>document.body.dataset.ready==='true'&&window.AshboundDiagnostics?.scene?.frames>6,null,{timeout:20000});
       const prefix=`${viewport.width}x${viewport.height}`;
       await noOverflow(page);
@@ -48,7 +49,7 @@ async function main(){
       assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[0]);
       await page.locator('#language').click();assert.equal(await page.locator('html').getAttribute('lang'),'en');
       assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[0]);
-      await page.reload({waitUntil:'networkidle'});await page.waitForFunction(()=>document.body.dataset.ready==='true');
+      await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(()=>document.body.dataset.ready==='true');
       assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[0]);
       await page.locator('#undo').click();assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[]);
       for(let i=0;i<5;i++)await page.locator('.choices button').first().click();assert.equal(await page.locator('.choices button').count(),0);
@@ -81,7 +82,18 @@ async function main(){
     await page.goto(base+'forschung/morrowind-lernwelt/?lang=en');await page.waitForFunction(()=>document.body.dataset.ready==='true');
     await sleep(700);const first=await page.evaluate(()=>AshboundDiagnostics.scene.frames);await sleep(700);assert.equal(await page.evaluate(()=>AshboundDiagnostics.scene.frames),first);
     await page.locator('#zoom-in').click();await sleep(100);assert.ok(await page.evaluate(()=>AshboundDiagnostics.scene.frames)>first);await context.close();
-    fs.writeFileSync(path.join(output,'QA.json'),JSON.stringify({base,recordedAt:new Date().toISOString(),renderer:'Chromium ANGLE software',reports,reducedMotion:'PASS'},null,2));
+    for(const viewport of [{width:1440,height:900},{width:390,height:844}]){
+      const context=await browser.newContext({viewport}),page=await context.newPage();
+      await page.goto(base,{waitUntil:'domcontentloaded'});
+      const entry=page.locator('#ashbound-entry');await entry.waitFor();
+      const hit=await entry.evaluate(n=>{const r=n.getBoundingClientRect();return {url:n.href,visible:document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)===n};});
+      assert.ok(hit.visible,JSON.stringify({viewport,hit}));assert.match(hit.url,/forschung\/morrowind-lernwelt\//);
+      await page.screenshot({path:path.join(output,`home-${viewport.width}.png`),fullPage:false});
+      await entry.click();await page.waitForURL(/forschung\/morrowind-lernwelt/);
+      await page.waitForFunction(()=>document.body.dataset.ready==='true');
+      homeEntries.push({viewport,status:'PASS'});await context.close();
+    }
+    fs.writeFileSync(path.join(output,'QA.json'),JSON.stringify({base,recordedAt:new Date().toISOString(),renderer:'Chromium ANGLE software',reports,homeEntries,reducedMotion:'PASS'},null,2));
     console.log(JSON.stringify({status:'PASS',base,viewports:reports.length,output},null,2));
   }finally{await browser.close();server.close();}
 }
