@@ -1,0 +1,15 @@
+ASHBOUND 1.0.0
+
+Three.js 0.186.1, including OrbitControls: MIT, see three.LICENSE.txt.
+InkJS 2.4.0: MIT, see inkjs.LICENSE.txt.
+Lucide 1.49.0: ISC, see lucide.LICENSE.txt and the upstream package notices.
+Bundled with esbuild 0.28.2. No runtime CDN requests.
+
+New geometry, UI code and fan story are HALVETH contributions under the
+repository's existing HALVETH PIRL 2.0 terms. Public source availability does
+not change those terms into an unrestricted open-source licence.
+The Elder Scrolls / Morrowind and referenced characters retain their owners'
+rights. Marvel and MiSide references retain their respective rights.
+This is an independent, noncanonical fan learning project, not an official
+game, endorsement, engine replacement or redistribution of game assets.
+No original game textures, music, models, book text or dialogue are included.

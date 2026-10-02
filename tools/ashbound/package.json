@@ -1,0 +1,12 @@
+{
+  "name": "halveth-ashbound-build",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node build.mjs" },
+  "dependencies": {
+    "esbuild": "0.28.2",
+    "inkjs": "2.4.0",
+    "lucide": "1.49.0",
+    "three": "0.186.1"
+  }
+}

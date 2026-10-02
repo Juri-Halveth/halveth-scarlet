@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111415">
+  <meta name="description" content="ASHBOUND: eine interaktive Morrowind-Fan-Chronik mit 3D-Insel, sechs Kapiteln, Zauberlabor und Scarlets 69 Perspektiven.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>ASHBOUND / Morrowind Lernwelt / HALVETH</title>
+  <link rel="canonical" href="https://juri-halveth.github.io/halveth-scarlet/forschung/morrowind-lernwelt/">
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="world.css">
+  <script src="../../assets/universe-data.js"></script>
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt / Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="../../"><i data-lucide="sparkles"></i><span>HALVETH <small>/ SCARLET</small></span></a>
+    <nav id="tabs" aria-label="Lernwelt / Learning world"></nav>
+    <div class="header-tools"><button class="icon" id="settings-open" title="Einstellungen / Settings" aria-label="Einstellungen / Settings"><i data-lucide="settings"></i></button><button id="language" class="language" aria-label="Sprache / Language">EN</button></div>
+  </header>
+  <main id="main">
+    <section id="world" class="view">
+      <div class="world-stage">
+        <div id="scene" aria-label="Interaktive Insel / Interactive island"><div id="scene-status" role="status">Die Insel entsteht …</div></div>
+        <div class="world-title"><p data-t="subtitle"></p><h1>ASHBOUND</h1><p class="tagline" data-t="tagline"></p></div>
+        <nav id="places" class="places" aria-label="Orte / Places"></nav>
+        <div class="scene-tools"><button class="icon" id="zoom-in" data-title="zoomIn"><i data-lucide="plus"></i></button><button class="icon" id="zoom-out" data-title="zoomOut"><i data-lucide="minus"></i></button><button class="icon" id="fit" data-title="fit"><i data-lucide="rotate-ccw"></i></button></div>
+        <div class="location-strip"><div><span class="eyebrow" id="location-number">01 / 06</span><h2 id="location-name"></h2><p id="location-note"></p></div><button id="enter-story" class="primary"><span data-t="explore"></span><i data-lucide="arrow-right"></i></button></div>
+      </div>
+      <div class="world-bottom"><span>06 <span data-t="world"></span></span><span>69 <span data-t="results"></span></span><span>03 <span data-t="learning"></span></span><span class="edition">FAN CHRONICLE / 01</span></div>
+    </section>
+    <section id="story" class="view reading" hidden>
+      <div class="section-heading"><div><p class="eyebrow">ASHBOUND / <span data-t="reality"></span></p><h1 data-t="story"></h1></div><div class="button-row"><button class="icon" id="undo" data-title="back"><i data-lucide="arrow-left"></i></button><button class="icon" id="restart" data-title="restart"><i data-lucide="rotate-ccw"></i></button></div></div>
+      <div class="story-layout"><aside><ol id="chapter-list"></ol><h3 data-t="party"></h3><div id="story-party"></div></aside><article id="story-content" aria-live="polite"></article></div>
+    </section>
+    <section id="lab" class="view wide" hidden>
+      <div class="section-heading"><div><p class="eyebrow" data-t="learning"></p><h1 data-t="labTitle"></h1><p data-t="labNote"></p></div></div>
+      <div class="lab-grid"><div class="lab-controls"><div id="mode-switch" class="segmented"></div><p id="mode-note"></p><label><span data-t="height"></span><output id="height-value"></output><input id="height" type="range" min="1" max="100" value="40"></label><label><span data-t="speed"></span><output id="speed-value"></output><input id="speed" type="range" min="0" max="50" value="15"></label><label><span data-t="mass"></span><output id="mass-value"></output><input id="mass" type="range" min="1" max="100" value="10"></label><button id="fall-run" class="primary"><i data-lucide="play"></i><span data-t="run"></span></button><div class="measurement"><span id="energy-label"></span><strong id="energy-value"></strong></div></div><div class="fall-display"><canvas id="fall-canvas" width="800" height="500" aria-label="Fallmodell / Falling model"></canvas><output id="fall-status"></output></div></div>
+      <section class="fortune"><div class="section-heading"><div><p class="eyebrow">FORTUNA / MAX-X</p><h2 data-t="fortune"></h2><p data-t="fortuneNote"></p></div></div><div class="fortune-inputs"><label><span data-t="probability"></span><input id="probability" type="number" min="0" max="1" step="0.01" value="0.5" required></label><label><span data-t="count"></span><select id="count"><option>10</option><option selected>100</option><option>1000</option></select></label><label><span data-t="seed"></span><input id="seed" type="number" min="0" max="4294967295" step="1" value="2026" required></label><button id="sample" class="primary"><i data-lucide="sparkles"></i><span data-t="sample"></span></button><button id="model-max" class="text-button" data-t="modelMax"></button></div><div id="hit-results" class="metrics"></div><canvas id="hit-canvas" width="1200" height="140" aria-label="Trefferreihe / Hit sequence"></canvas><p class="quiet" data-t="fortuneHelp"></p></section>
+    </section>
+    <section id="books" class="view wide" hidden><div class="section-heading"><div><p class="eyebrow" data-t="collection"></p><h1 data-t="bookTitle"></h1></div><span id="book-count"></span></div><div id="bookshelf"></div></section>
+    <section id="council" class="view wide" hidden><div class="section-heading"><div><p class="eyebrow">HALVETH / LUCINET / SCARLET</p><h1 data-t="councilTitle"></h1><p data-t="perspectiveNote"></p></div></div><div class="council-bar"><label class="search-label"><i data-lucide="search"></i><input type="search" id="entity-search" autocomplete="off" data-placeholder="search" aria-label="Name oder Rolle / Name or role"></label><output id="entity-count" aria-live="polite"></output></div><div id="party-strip"></div><div id="entity-grid"></div></section>
+    <section id="journal" class="view reading" hidden><div class="section-heading"><div><p class="eyebrow">LOCAL / VERSION 1.0</p><h1 data-t="journalTitle"></h1><p data-t="journalNote"></p></div></div><div class="button-row"><button id="export" class="primary"><i data-lucide="download"></i><span data-t="download"></span></button><label class="text-button import-label"><i data-lucide="history"></i><span data-t="import"></span><input id="import" type="file" accept="application/json,.json"></label></div><ol id="journey-record"></ol><h2 data-t="archiveSources"></h2><div class="source-grid"><a href="story.de.ink">Ink / Deutsch</a><a href="story.en.ink">Ink / English</a><a href="https://home.cern/science/physics/antimatter/">CERN / Antimatter</a><a href="https://doi.org/10.1038/s41586-023-06527-1">ALPHA-g / Nature 2023</a><a href="https://github.com/Juri-Halveth/halveth-scarlet/tree/main/forschung/morrowind-lernwelt" data-t="source"></a><a href="README.md">Release / 1.0.0</a></div></section>
+  </main>
+  <footer><p data-t="rights"></p><div><span data-t="footer"></span><a href="../../" data-t="home"></a><a href="../../LICENSES.md">Rechte / Rights</a><a href="vendor/NOTICE.txt">Credits</a></div></footer>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="book-dialog"><div class="dialog-head"><span class="eyebrow" data-t="reality"></span><button class="icon" data-close="book-dialog" data-title="close"><i data-lucide="x"></i></button></div><h2 id="book-name"></h2><p id="book-author" class="quiet"></p><div id="book-text"></div></dialog>
+  <dialog id="settings-dialog"><div class="dialog-head"><h2 data-t="graphics"></h2><button class="icon" data-close="settings-dialog" data-title="close"><i data-lucide="x"></i></button></div><label><span data-t="graphics"></span><select id="quality"><option value="balanced" data-t="balanced"></option><option value="high" data-t="high"></option></select></label><label class="toggle"><span data-t="motion"></span><input id="motion" type="checkbox"></label><label class="toggle"><span data-t="sound"></span><input id="sound" type="checkbox"></label><p class="quiet" data-t="credits"></p></dialog>
+  <noscript><p>JavaScript ist fuer die interaktive Welt erforderlich. Die <a href="story.de.ink">deutsche Chronik</a>, <a href="story.en.ink">English chronicle</a> und <a href="../../entities/">69 Profile</a> bleiben lesbar.</p></noscript>
+</body>
+</html>
