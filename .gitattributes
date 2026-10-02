@@ -4,3 +4,6 @@ forschung/pi-treffpunkte/data/public-model.json -text
 # Keep existing Brightcast caption bytes identical to the recorded release manifest.
 assets/brightcast/*.vtt -text
 assets/brightcast/*.srt -text
+# Preserve upstream shader strings and licence bytes in the generated bundle.
+forschung/morrowind-lernwelt/vendor/runtime.mjs -text -whitespace
+forschung/morrowind-lernwelt/vendor/*.LICENSE.txt -text -whitespace
