@@ -1,17 +1,12 @@
 # HALVETH · Ein Herz für die Erde
 
-## ASHBOUND / Morrowind Lernwelt
+## Lernstudio
 
-[Direkt spielen](https://juri-halveth.github.io/halveth-scarlet/forschung/morrowind-lernwelt/?lang=de)
- · [Play in English](https://juri-halveth.github.io/halveth-scarlet/forschung/morrowind-lernwelt/?lang=en)
- · [Quellcode und Build](forschung/morrowind-lernwelt/README.md)
-
-Die neue, eigenständige Fan-Chronik verbindet sechs originale 3D-Orte, sechs
-verzweigte Kapitel, sechs Bücher, alle 69 bestehenden Profile und ein lokales
-FREEZE-/FORTUNA-Lehrlabor. Drei mögliche Enden, Rückschritte und exportierbare
-Spielstände bleiben im Browser. Die ursprüngliche Morrowind-Installation wird
-nicht verändert. Neue Szenen sind kein Kanon; private Anhänge und Original-
-Spielassets sind nicht Teil dieser Veröffentlichung.
+Die eigenstaendige Morrowind-Fan-Lernwelt wurde auf Betreiberwunsch aus der
+Website und ihrer Navigation entfernt. Ihr Quellstand bleibt als historischer
+Bestand erhalten und wird nicht mehr vom Pages-Build ausgeliefert.
+Das bestehende [Lernstudio](https://github.com/Juri-Halveth/lernstudio) und das
+lokal installierte Morrowind sind getrennte Projekte.
 
 <!-- HALVETH_WORK_CERTIFICATES_V1_1 -->
 ## Juri Janovski / Juri Halveth – Privates HALVETH-Werkzertifikat
