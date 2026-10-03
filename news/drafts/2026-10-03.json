@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-03",
+  "createdAt": "2026-10-03T17:58:32.552Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-10-03",
+  "body": "# HALVETH Quellen-Update · 2026-10-03\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [APOD: 2026 October 3 – Selfie at Vera Rubin Ridge](https://science.nasa.gov/image-article/apod-2026-october-3-selfie-at-vera-rubin-ridge/) · veröffentlicht 2026-10-03\n- **GitHub Changelog** · Originaltitel (EN): [Stateless GitHub App installation tokens rolled out](https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out) · veröffentlicht 2026-10-02\n- **NASA** · Originaltitel (EN): [NASA Astronaut Christina Koch to Join NFL Fans in Philadelphia](https://www.nasa.gov/news-release/nasa-astronaut-christina-koch-to-join-nfl-fans-in-philadelphia/) · veröffentlicht 2026-10-02\n- **NASA** · Originaltitel (EN): [Heading Home: NASA’s SpaceX Crew-12 Concludes Station Science Mission](https://www.nasa.gov/missions/station/iss-research/heading-home-nasas-spacex-crew-12-concludes-station-science-mission/) · veröffentlicht 2026-10-02\n- **GitHub Changelog** · Originaltitel (EN): [Copilot code review: API support and new default effort level](https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level) · veröffentlicht 2026-10-02\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "32d936fd69e9a889106d2eda",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 October 3 – Selfie at Vera Rubin Ridge",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-3-selfie-at-vera-rubin-ridge/",
+      "sourcePublishedAt": "2026-10-03T04:05:00Z",
+      "fetchedAt": "2026-10-03T17:58:32Z",
+      "firstFetchedAt": "2026-10-03T08:10:44Z"
+    },
+    {
+      "id": "4ce371788dc0c71f881482b5",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Stateless GitHub App installation tokens rolled out",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out",
+      "sourcePublishedAt": "2026-10-02T22:18:23Z",
+      "fetchedAt": "2026-10-03T17:58:32Z",
+      "firstFetchedAt": "2026-10-02T22:59:30Z"
+    },
+    {
+      "id": "4de9c63a1c81f9784abf24f2",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Astronaut Christina Koch to Join NFL Fans in Philadelphia",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-astronaut-christina-koch-to-join-nfl-fans-in-philadelphia/",
+      "sourcePublishedAt": "2026-10-02T19:54:54Z",
+      "fetchedAt": "2026-10-03T17:58:32Z",
+      "firstFetchedAt": "2026-10-02T22:59:30Z"
+    },
+    {
+      "id": "9303edfce056f1aa358aa8cc",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Heading Home: NASA’s SpaceX Crew-12 Concludes Station Science Mission",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/missions/station/iss-research/heading-home-nasas-spacex-crew-12-concludes-station-science-mission/",
+      "sourcePublishedAt": "2026-10-02T19:30:00Z",
+      "fetchedAt": "2026-10-03T17:58:32Z",
+      "firstFetchedAt": "2026-10-02T22:59:30Z"
+    },
+    {
+      "id": "be3b1d34107991259e7d370e",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Copilot code review: API support and new default effort level",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level",
+      "sourcePublishedAt": "2026-10-02T19:13:50Z",
+      "fetchedAt": "2026-10-03T17:58:32Z",
+      "firstFetchedAt": "2026-10-02T22:59:30Z"
+    }
+  ],
+  "idempotencyKey": "180f8605c97f7a3509cb30385dedadf3e41d355122f818cca4a8c3cec9f9dd80"
+}
