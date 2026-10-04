@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-04",
+  "createdAt": "2026-10-04T17:37:45.746Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-10-04",
+  "body": "# HALVETH Quellen-Update · 2026-10-04\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [APOD: 2026 October 4 – Supernumerary Rainbows over New Jersey](https://science.nasa.gov/image-article/apod-2026-october-4-supernumerary-rainbows-over-new-jersey/) · veröffentlicht 2026-10-04\n- **NASA** · Originaltitel (EN): [NASA’s DAVINCI Probe Can Stand the Heat](https://www.nasa.gov/image-article/nasas-davinci-probe-can-stand-the-heat/) · veröffentlicht 2026-10-02\n- **GitHub Changelog** · Originaltitel (EN): [Selected models in GitHub Copilot deprecated](https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated) · veröffentlicht 2026-10-02\n- **GitHub Changelog** · Originaltitel (EN): [Confidential comments on repository security advisories](https://github.blog/changelog/2026-10-02-confidential-comments-on-repository-security-advisories) · veröffentlicht 2026-10-02\n- **GitHub Changelog** · Originaltitel (EN): [Repository security advisory comments API in public preview](https://github.blog/changelog/2026-10-02-repository-security-advisory-comments-api-in-public-preview) · veröffentlicht 2026-10-02\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "518ef5b89828b8623ce59fa6",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 October 4 – Supernumerary Rainbows over New Jersey",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-4-supernumerary-rainbows-over-new-jersey/",
+      "sourcePublishedAt": "2026-10-04T04:05:00Z",
+      "fetchedAt": "2026-10-04T17:37:45Z",
+      "firstFetchedAt": "2026-10-04T06:58:31Z"
+    },
+    {
+      "id": "9bb52c5a3fc5a2a20f42c6f2",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s DAVINCI Probe Can Stand the Heat",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/nasas-davinci-probe-can-stand-the-heat/",
+      "sourcePublishedAt": "2026-10-02T19:00:36Z",
+      "fetchedAt": "2026-10-04T17:37:45Z",
+      "firstFetchedAt": "2026-10-02T22:59:30Z"
+    },
+    {
+      "id": "705956e4f1fcd62c79bb3c1f",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Selected models in GitHub Copilot deprecated",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated",
+      "sourcePublishedAt": "2026-10-02T18:24:19Z",
+      "fetchedAt": "2026-10-04T17:37:45Z",
+      "firstFetchedAt": "2026-10-02T22:59:30Z"
+    },
+    {
+      "id": "59fc4a70abc335f98eb4944f",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Confidential comments on repository security advisories",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-02-confidential-comments-on-repository-security-advisories",
+      "sourcePublishedAt": "2026-10-02T13:15:40Z",
+      "fetchedAt": "2026-10-04T17:37:45Z",
+      "firstFetchedAt": "2026-10-02T18:27:14Z"
+    },
+    {
+      "id": "8430be4786d88a5d85b2a4e2",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Repository security advisory comments API in public preview",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-02-repository-security-advisory-comments-api-in-public-preview",
+      "sourcePublishedAt": "2026-10-02T13:15:25Z",
+      "fetchedAt": "2026-10-04T17:37:45Z",
+      "firstFetchedAt": "2026-10-02T18:27:14Z"
+    }
+  ],
+  "idempotencyKey": "db342b497638a112d7293522403fa0950b6e80720b93f6dd08558290f670d6b3"
+}
