@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T17:37:45Z",
+  "generatedAt": "2026-10-04T21:31:02Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-04T17:37:45Z",
-      "lastSuccessAt": "2026-10-04T17:37:45Z",
+      "lastAttemptAt": "2026-10-04T21:31:02Z",
+      "lastSuccessAt": "2026-10-04T21:31:02Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,24 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-04T17:37:45Z",
-      "lastSuccessAt": "2026-10-04T17:37:45Z",
+      "lastAttemptAt": "2026-10-04T21:31:02Z",
+      "lastSuccessAt": "2026-10-04T21:31:02Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "daace20f47f2cb1bd010b5c9",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Mapping the Gaps in NASA’s Return to the Moon, featuring Richard Spolzino",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/general/mapping-the-gaps-in-nasas-return-to-the-moon-featuring-richard-spolzino/",
+      "sourcePublishedAt": "2026-10-04T19:10:59Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
+      "firstFetchedAt": "2026-10-04T21:31:02Z"
+    },
     {
       "id": "518ef5b89828b8623ce59fa6",
       "sourceId": "nasa",
@@ -32,7 +43,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-4-supernumerary-rainbows-over-new-jersey/",
       "sourcePublishedAt": "2026-10-04T04:05:00Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-04T06:58:31Z"
     },
     {
@@ -43,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-3-selfie-at-vera-rubin-ridge/",
       "sourcePublishedAt": "2026-10-03T04:05:00Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-03T08:10:44Z"
     },
     {
@@ -54,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out",
       "sourcePublishedAt": "2026-10-02T22:18:23Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -65,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-astronaut-christina-koch-to-join-nfl-fans-in-philadelphia/",
       "sourcePublishedAt": "2026-10-02T19:54:54Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -76,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/missions/station/iss-research/heading-home-nasas-spacex-crew-12-concludes-station-science-mission/",
       "sourcePublishedAt": "2026-10-02T19:30:00Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -87,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level",
       "sourcePublishedAt": "2026-10-02T19:13:50Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -98,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasas-davinci-probe-can-stand-the-heat/",
       "sourcePublishedAt": "2026-10-02T19:00:36Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -109,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated",
       "sourcePublishedAt": "2026-10-02T18:24:19Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -120,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/la-nasa-abre-solicitudes-para-proxima-promocion-de-directores-de-vuelo/",
       "sourcePublishedAt": "2026-10-02T16:36:25Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -142,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/langley/nasa-model-wing-lights-up-during-first-pressure-sensitive-paint-tests/",
       "sourcePublishedAt": "2026-10-02T16:10:55Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -153,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-opens-applications-for-next-class-of-flight-directors/",
       "sourcePublishedAt": "2026-10-02T15:49:26Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -164,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-new-fields-for-securityadvisory-graphql-api",
       "sourcePublishedAt": "2026-10-02T13:18:00Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -175,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-confidential-comments-on-repository-security-advisories",
       "sourcePublishedAt": "2026-10-02T13:15:40Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -186,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-repository-security-advisory-comments-api-in-public-preview",
       "sourcePublishedAt": "2026-10-02T13:15:25Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -197,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-2-the-complete-sharpless-catalog-313-nebulae/",
       "sourcePublishedAt": "2026-10-02T04:05:00Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-02T05:42:34Z"
     },
     {
@@ -241,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-rate-limits-for-private-vulnerability-reports",
       "sourcePublishedAt": "2026-10-01T19:57:39Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -252,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-structured-forms-for-private-vulnerability-reports",
       "sourcePublishedAt": "2026-10-01T19:57:28Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -263,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps",
       "sourcePublishedAt": "2026-10-01T19:11:26Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -274,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-github-actions-macos-14-runner-image-retirement",
       "sourcePublishedAt": "2026-10-01T19:11:23Z",
-      "fetchedAt": "2026-10-04T17:37:45Z",
+      "fetchedAt": "2026-10-04T21:31:02Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -593,17 +604,6 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-awards-orbital-safety-analysis-support-services-contract/",
       "sourcePublishedAt": "2026-09-29T21:00:00Z",
-      "fetchedAt": "2026-09-30T23:53:20Z",
-      "firstFetchedAt": "2026-09-30T00:30:03Z"
-    },
-    {
-      "id": "13c370f12b2c8312380e1870",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Features Exploration, Science at International Space Conference",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-features-exploration-science-at-international-space-conference/",
-      "sourcePublishedAt": "2026-09-29T20:55:24Z",
       "fetchedAt": "2026-09-30T23:53:20Z",
       "firstFetchedAt": "2026-09-30T00:30:03Z"
     },
