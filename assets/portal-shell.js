@@ -38,9 +38,12 @@
     ||(here.startsWith(normalized(new URL('entities/',base)))?routes.find(route=>route.id==='entities'):routes[0]);
   const language=()=>{
     const query=new URLSearchParams(location.search).get('lang');
-    if(query==='en'||query==='de')return query;
-    return document.documentElement.lang.toLowerCase().startsWith('en')?'en':'de';
+    const selected=window.HalvethLanguage?.get?.()||query||document.documentElement.lang.toLowerCase();
+    return ['de','en','ru'].includes(selected)?selected:'de';
   };
+  const routeText=(route,suffix='')=>language()==='ru'
+    ? (window.HalvethHubLanguage?.t(route['de'+suffix])||route['de'+suffix])
+    : route[language()+suffix];
   const routeURL=(route,lang)=>{
     const url=new URL(route.path,base);
     url.searchParams.set('lang',lang);
@@ -78,14 +81,14 @@
     skip.textContent=english?'Skip to content':'Zum Inhalt springen';
     shell.querySelector('[data-portal-home]').href=routeURL(routes[0],lang);
     shell.querySelector('.portal-route-index').textContent='PORTAL '+current.index;
-    shell.querySelector('.portal-route-name').textContent=current[lang];
+    shell.querySelector('.portal-route-name').textContent=routeText(current);
     shell.querySelector('.portal-map-button span').textContent=english?'All rooms':'Alle Räume';
     shell.querySelector('.portal-map-button').setAttribute('aria-label',english?'Open the portal map':'Portalplan öffnen');
     for(const id of quickIds){
       const link=shell.querySelector('[data-portal-quick="'+id+'"]');
       const route=routes.find(item=>item.id===id);
       link.href=routeURL(route,lang);
-      link.setAttribute('aria-label',route[lang]);
+      link.setAttribute('aria-label',routeText(route));
       if(route.id===current.id)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');
     }
     map.setAttribute('aria-label',english?'Scarlet portal map':'Scarlet-Portalplan');
@@ -104,8 +107,8 @@
       link.style.setProperty('--node-accent',route.accent);
       if(route.id===current.id)link.setAttribute('aria-current','page');
       const number=document.createElement('span');number.className='portal-node-number';number.textContent='PORTAL '+route.index;
-      const title=document.createElement('strong');title.textContent=route[lang];
-      const note=document.createElement('small');note.textContent=route[lang+'Note'];
+      const title=document.createElement('strong');title.textContent=routeText(route);
+      const note=document.createElement('small');note.textContent=routeText(route,'Note');
       link.append(number,title,note);
       return link;
     }));

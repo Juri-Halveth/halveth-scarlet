@@ -6,8 +6,12 @@ function bindFilter(inputId,selector,statusId,attribute){
   const entries=[...document.querySelectorAll(selector)];
   const render=()=>{
     const query=input.value.trim().toLocaleLowerCase(language());let count=0;
-    for(const entry of entries){entry.hidden=!String(entry.dataset[attribute]||'').toLocaleLowerCase(language()).includes(query);if(!entry.hidden)count++;}
-    status.textContent=language()==='en'?`${count} of ${entries.length} entries`:`${count} von ${entries.length} Einträgen`;
+    for(const entry of entries){
+      const source=String(entry.dataset[attribute]||'');
+      const labels=[...(entry.querySelectorAll?.('h2,[data-lang="de"],[data-lang="en"]')||[])].map(node=>window.HalvethHubLanguage?.searchable(node.textContent)||node.textContent);
+      entry.hidden=![source,...labels].join(' ').toLocaleLowerCase(language()).includes(query);if(!entry.hidden)count++;
+    }
+    status.textContent=language()==='ru'?`${count} из ${entries.length} записей`:language()==='en'?`${count} of ${entries.length} entries`:`${count} von ${entries.length} Einträgen`;
   };
   input.addEventListener('input',render);window.addEventListener('halveth:language',render);render();
 }

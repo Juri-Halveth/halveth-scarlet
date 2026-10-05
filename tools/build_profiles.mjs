@@ -60,7 +60,7 @@ for (const entity of data.entities) {
   const sources = entity.sourceRefs.map(ref => `<li><a href="${escape(safeURL(localURL(ref.url)))}">${escape(ref.label)}</a></li>`).join('');
   const companion = entity.url || `forschung/figuren-und-perspektiven/#${entity.section || 'garden'}`;
   const html = `${head(`${entity.label} · HALVETH`, entity.role, entity.profilePath, '../../')}<body data-entity-id="${escape(entity.id)}"><main class="profile-main"><nav class="profile-top"><a href="../"><span data-lang="de">← Alle Perspektiven</span><span data-lang="en">← All perspectives</span></a>${languageButtons}</nav><header class="profile-hero"><p class="eyebrow"><span data-lang="de">${escape(entity.kind)}</span><span data-lang="en">${escape(entity.en.kind)}</span></p><h1>${escape(entity.label)}</h1><p class="profile-lead"><span data-lang="de">${escape(entity.role)}</span><span data-lang="en">${escape(entity.en.role)}</span></p><div class="profile-actions"><a class="primary" href="${github}${sourcePath}"><span data-lang="de">Dossier auf GitHub ↗</span><span data-lang="en">Dossier on GitHub ↗</span></a><a href="${escape(localURL(companion))}"><span data-lang="de">Vertiefung öffnen ↗</span><span data-lang="en">Explore the source ↗</span></a></div></header><article class="profile-content"><div data-lang="de" lang="de">${profileBody(sections[1])}</div><div data-lang="en" lang="en">${profileBody(sections[2])}</div></article>${entity.id === 'verachel' ? nameField() : ''}<aside class="profile-sources"><h2><span data-lang="de">Quellen &amp; Verbindungen</span><span data-lang="en">Sources &amp; connections</span></h2><ul>${sources}</ul><p class="muted"><span data-lang="de">${escape(entity.sourceLabel)}</span><span data-lang="en">${escape(entity.en.sourceLabel)}</span></p></aside><nav class="profile-bottom"><a href="../../#team"><span data-lang="de">Zur Konstellation auf der Erde</span><span data-lang="en">Back to the Earth constellation</span></a><a href="../"><span data-lang="de">Alle ${data.entities.length} Profile</span><span data-lang="en">All ${data.entities.length} profiles</span></a></nav></main>${entity.id === 'verachel' ? '<script src="../../assets/entity-profile.js" defer></script>' : ''}${footer('../../')}`;
-  expected.set(`${entity.profilePath}index.html`, html);
+  expected.set(`${entity.profilePath}index.html`, withLanguages(html,'../../'));
 }
 
 const cards = data.entities.map(entity => `<li data-search="${escape([entity.label, entity.role, entity.en.role, entity.kind, entity.en.kind].join(' ').toLowerCase())}"><a href="${escape(entity.id)}/"><h2>${escape(entity.label)}</h2><p><span data-lang="de">${escape(entity.role)}</span><span data-lang="en">${escape(entity.en.role)}</span></p><small><span data-lang="de">${escape(entity.kind)}</span><span data-lang="en">${escape(entity.en.kind)}</span></small></a></li>`).join('\n');
@@ -68,6 +68,12 @@ expected.set('entities/index.html', head('Die Konstellation · HALVETH', `${data
   .replace("connect-src 'none'", "connect-src 'self'")
   .replace('</head>', '<link rel="stylesheet" href="../assets/entity-world.css"><link rel="stylesheet" href="../assets/entity-world-studio.css"></head>')
   + entityWorldBody({cards, languageButtons, count: data.entities.length}));
+expected.set('entities/index.html',withLanguages(expected.get('entities/index.html'),'../'));
+
+function withLanguages(html,prefix){
+ const assets=prefix+'languages/';
+ return html.replace(/(<head[^>]*>)/,match=>match+'<!-- HUB_LANGUAGES_START --><link rel="stylesheet" href="'+assets+'hub-language.css"><script src="'+assets+'catalog.js" defer></script><script src="'+assets+'hub-language.js" defer></script><!-- HUB_LANGUAGES_END -->');
+}
 
 for (const [file, content] of expected) {
   const destination = path.join(root, file);

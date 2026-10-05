@@ -119,6 +119,21 @@ test('search supports zero results, all results, whitespace, case and both role 
   assert.equal(JSON.stringify(registry), snapshot);
 });
 
+test('Russian role search retains original profile objects and source references', async () => {
+  const { matchingEntities } = await modelPromise;
+  const catalog = JSON.parse(read('languages/catalog.json')).strings;
+  const searchable = value => [value, ...Object.values(catalog[value] || {})].join(' ');
+  let translatedRoles = 0;
+  for (const entity of entities) {
+    const role = catalog[entity.role]?.ru;
+    if (!role) continue;
+    translatedRoles++;
+    assert.ok(matchingEntities(entities, role, searchable).includes(entity), entity.id);
+  }
+  assert.ok(translatedRoles > 0);
+  assert.equal(JSON.stringify(registry), snapshot);
+});
+
 test('neighbors remain distinct source objects in the selected section and obey the limit', async () => {
   const { orderedEntities, neighbors } = await modelPromise;
   const ordered = orderedEntities(entities);
@@ -258,7 +273,7 @@ test('world assets stay local and the page disables external API connections', (
   assert.deepEqual(directives.get('connect-src'), ["'self'"]);
   assert.deepEqual(directives.get('script-src'), ["'self'"]);
   for (const [, src] of html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)) {
-    assert.ok(src.startsWith('../assets/'), src);
+    assert.ok(src.startsWith('../assets/') || /^\.\.\/languages\/(?:catalog|hub-language)\.js$/.test(src), src);
     assert.ok(fs.existsSync(path.resolve(root, 'entities', src)), src);
   }
   for (const file of ['assets/entity-world-loader.js', 'assets/entity-world.mjs', 'assets/entity-world-scene.mjs', 'assets/entity-world-model.mjs', 'assets/entity-figures.mjs', 'assets/entity-profile.js', 'assets/language.js']) {

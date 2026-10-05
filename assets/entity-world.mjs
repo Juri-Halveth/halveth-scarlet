@@ -84,7 +84,7 @@ function startScene() {
 }
 
 function renderSearch() {
-  const found = matchingEntities(entities, $('entity-search').value);
+  const found = matchingEntities(entities, $('entity-search').value, value => window.HalvethHubLanguage?.searchable(value) || value);
   $('entity-search-count').textContent = `${found.length} / ${entities.length}`;
   $('entity-search-results').replaceChildren(...found.map(entity => {
     const button = document.createElement('button'); button.type = 'button';
@@ -126,7 +126,7 @@ $('entity-info-close').addEventListener('click', () => showInspector(false));
 function renderDestinations() {
   const value = $('world-destination').value;
   $('world-destination').replaceChildren(...WORLD_DESTINATIONS.map(place => {
-    const option = document.createElement('option'); option.value = place.id; option.textContent = place[lang()]; return option;
+    const option = document.createElement('option'); option.value = place.id; option.textContent = lang() === 'ru' ? (window.HalvethHubLanguage?.t(place.de) || place.de) : place[lang()]; return option;
   }));
   $('world-destination').value = value || 'commons';
 }

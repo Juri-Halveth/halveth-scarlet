@@ -21,8 +21,9 @@
   let imageRequest=0;
 
   let lastStatus={de:'',en:''};
-  function language(){return window.HalvethLanguage?.get?.()==='en'?'en':'de';}
-  function say(de,en){lastStatus={de,en};status.textContent=lastStatus[language()];}
+  function language(){return window.HalvethLanguage?.get?.()||'de';}
+  function localize(de,en){return language()==='ru'?(window.HalvethHubLanguage?.t(de)||de):language()==='en'?en:de;}
+  function say(de,en){lastStatus={de,en};status.textContent=localize(de,en);}
 
   function roundedRect(ctx,x,y,width,height,radius){
     const r=Math.min(radius,width/2,height/2);
@@ -129,7 +130,7 @@
   document.querySelectorAll('[data-choice-lane]').forEach(button=>button.addEventListener('click',()=>{
     button.dataset.choiceLane=core.cycleLane(button.dataset.choiceLane);
     const labels={de:{mine:'Meine Wahl',ask:'Erst fragen',no:'Nicht für mich'},en:{mine:'My choice',ask:'Ask first',no:'Not for me'}};
-    const lang=language();button.querySelector('small').textContent=labels[lang][button.dataset.choiceLane];
+    const lane=button.dataset.choiceLane;button.querySelector('small').textContent=localize(labels.de[lane],labels.en[lane]);
   }));
 
   magnetButton?.addEventListener('click',async()=>{
@@ -140,10 +141,10 @@
   });
 
   function renderDynamicLanguage(){
-    if(localOnly)localOnly.textContent=language()==='en'?'Local only · no upload · no tracking':'Nur lokal · kein Upload · kein Tracking';
-    status.textContent=lastStatus[language()];
+    if(localOnly)localOnly.textContent=localize('Nur lokal · kein Upload · kein Tracking','Local only · no upload · no tracking');
+    status.textContent=localize(lastStatus.de,lastStatus.en);
     const labels={de:{mine:'Meine Wahl',ask:'Erst fragen',no:'Nicht für mich'},en:{mine:'My choice',ask:'Ask first',no:'Not for me'}};
-    document.querySelectorAll('[data-choice-lane]').forEach(button=>{const label=button.querySelector('small');if(label)label.textContent=labels[language()][button.dataset.choiceLane];});
+    document.querySelectorAll('[data-choice-lane]').forEach(button=>{const label=button.querySelector('small'),lane=button.dataset.choiceLane;if(label)label.textContent=localize(labels.de[lane],labels.en[lane]);});
   }
   window.addEventListener('halveth:language',renderDynamicLanguage);
   window.addEventListener('beforeunload',clearObjectUrls);
