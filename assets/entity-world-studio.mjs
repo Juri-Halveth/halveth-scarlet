@@ -3,6 +3,7 @@ import { createAppearanceLog } from './world-appearances.mjs';
 const $ = id => document.getElementById(id);
 const language = () => window.HalvethLanguage?.get() || 'de';
 const t = (de, en) => language() === 'en' ? en : de;
+const itemLabel = item => language() === 'ru' ? (window.HalvethHubLanguage?.t(item.de) || item.de) : item[language()];
 const journal = createEventJournal(100), appearances = createAppearanceLog(), requestedFocus = new Set();
 const localHost = location.protocol === 'http:' && location.hostname === '127.0.0.1';
 let relay = null, connected = false, rendererCanvas, renderedCount = 0, lastGift, toastTimer, wallet, walletUnsubscribe;
@@ -34,7 +35,7 @@ function renderMode() {
 function renderItems() {
   const selected = $('studio-item').value;
   $('studio-item').replaceChildren(...ITEMS.map(item => {
-    const option = document.createElement('option'); option.value = item.id; option.textContent = item[language()]; return option;
+    const option = document.createElement('option'); option.value = item.id; option.textContent = itemLabel(item); return option;
   }));
   $('studio-item').value = selected || 'chocolate'; renderValue();
 }
@@ -45,7 +46,7 @@ function renderValue() {
 function row(event, appearance) {
   const li = document.createElement('li'), title = document.createElement('strong'), body = document.createElement('p'), time = document.createElement('time');
   title.textContent = event.displayName;
-  body.textContent = event.kind === 'CHAT' ? event.text : `${ITEMS.find(item => item.id === event.item)[language()]} · ${t('Testimpuls', 'Test impulse')}`;
+  body.textContent = event.kind === 'CHAT' ? event.text : `${itemLabel(ITEMS.find(item => item.id === event.item))} · ${t('Testimpuls', 'Test impulse')}`;
   if (appearance?.occurrence > 1) body.textContent += ` · ${t('Wiederholung', 'Repeat')} ${appearance.occurrence - 1}`;
   time.dateTime = appearance?.observedAt || event.createdAt;
   time.textContent = new Intl.DateTimeFormat(language(), { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date(time.dateTime));
@@ -84,7 +85,7 @@ function receive(raw, focus = false, notify = false, delivery) {
   } else if (!added) return;
   renderFeed(); flushGifts(); renderMode();
   if (notify && event.kind === 'GIFT_DEMO') {
-    $('studio-toast').textContent = `${event.displayName} · ${ITEMS.find(item => item.id === event.item)[language()]} · ${t('Testimpuls', 'Test impulse')}`;
+    $('studio-toast').textContent = `${event.displayName} · ${itemLabel(ITEMS.find(item => item.id === event.item))} · ${t('Testimpuls', 'Test impulse')}`;
     $('studio-toast').hidden = false; clearTimeout(toastTimer);
     toastTimer = setTimeout(() => { $('studio-toast').hidden = true; }, 4500);
   }

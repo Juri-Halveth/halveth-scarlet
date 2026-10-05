@@ -1,6 +1,6 @@
 /* Explicit language URLs outrank the visitor's remembered preference. */
 (()=>{'use strict';
-const supported=new Set(['de','en']);
+const supported=new Set(['de','en','ru']);
 const current=new URL(window.location.href);
 let saved=null;try{saved=localStorage.getItem('halveth-language');}catch{}
 const requested=current.searchParams.get('lang');
@@ -9,7 +9,7 @@ const inPlace=document.documentElement.hasAttribute?.('data-language-in-place')=
 const boundButtons=new WeakSet();
 let translations=null;
 document.documentElement.lang=language;
-function t(value){return language==='en'?(window.HalvethEnglish?.[value]??value):value;}
+function t(value){return language==='ru'?(window.HalvethHubTranslations?.[value]?.ru??value):language==='en'?(window.HalvethEnglish?.[value]??window.HalvethHubTranslations?.[value]?.en??value):value;}
 function link(path,lang=language){const u=new URL(path,document.baseURI);if(u.origin===current.origin&&(/\/$/.test(u.pathname)||/\.html$/.test(u.pathname))){u.searchParams.set('lang',lang);}return u.href;}
 function set(lang){
   if(!supported.has(lang))return;
@@ -27,7 +27,7 @@ function captureTranslations(){
   for(const node of nodes){
     if(!node.parentElement||node.parentElement.closest('script,style,code,pre,textarea,[data-lang="de"],[data-en]'))continue;
     const original=node.nodeValue,key=original.trim(),out=english(key);
-    if(out!==key)updates.push(()=>{node.nodeValue=language==='en'?original.replace(key,out):original;});
+    if(out!==key||window.HalvethHubTranslations?.[key]?.ru)updates.push(()=>{node.nodeValue=language==='en'?original.replace(key,out):language==='ru'?original.replace(key,window.HalvethHubTranslations?.[key]?.ru??key):original;});
   }
   for(const node of document.querySelectorAll('*')){
     if(node.closest('[data-lang="de"]'))continue;
@@ -36,13 +36,13 @@ function captureTranslations(){
       const original=node.getAttribute(attr),explicit=node.getAttribute('data-en-'+attr);
       const translated=explicit??(original===null?null:english(original));
       if(translated!==original)updates.push(()=>{
-        const value=language==='en'?translated:original;
+        const value=language==='en'?translated:language==='ru'?(window.HalvethHubTranslations?.[original]?.ru??original):original;
         if(value===null)node.removeAttribute(attr);else node.setAttribute(attr,value);
       });
     }
     if(node.hasAttribute('data-en')){
       const original=node.textContent,translated=node.getAttribute('data-en');
-      updates.push(()=>{const value=language==='en'?translated:original;if(node.textContent!==value)node.textContent=value;});
+      updates.push(()=>{const value=language==='en'?translated:language==='ru'?(window.HalvethHubTranslations?.[original]?.ru??original):original;if(node.textContent!==value)node.textContent=value;});
     }
   }
   return updates;

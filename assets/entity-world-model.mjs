@@ -22,10 +22,10 @@ export function orderedEntities(entities) {
   });
 }
 
-export function matchingEntities(entities, query) {
+export function matchingEntities(entities, query, searchable = value => value) {
   const fold = value => value.normalize('NFC').toLocaleLowerCase('de-DE').replace(/\u00df/g, 'ss');
   const needle = fold(query.trim());
-  return entities.filter(entity => fold([entity.id, entity.label, entity.role, entity.en.role].join(' ')).includes(needle));
+  return entities.filter(entity => fold([entity.id, entity.label, searchable(entity.role), entity.en.role].join(' ')).includes(needle));
 }
 
 export function neighbors(entities, selected, limit = 4) {
