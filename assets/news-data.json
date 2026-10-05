@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-05T16:04:27Z",
+  "generatedAt": "2026-10-05T22:40:38Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-05T16:04:27Z",
-      "lastSuccessAt": "2026-10-05T16:04:27Z",
+      "lastAttemptAt": "2026-10-05T22:40:38Z",
+      "lastSuccessAt": "2026-10-05T22:40:38Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,35 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-05T16:04:27Z",
-      "lastSuccessAt": "2026-10-05T16:04:27Z",
+      "lastAttemptAt": "2026-10-05T22:40:38Z",
+      "lastSuccessAt": "2026-10-05T22:40:38Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "4fdb28d7bb2823af19bc7de2",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA to Stream SpaceX Crew-12 Return, Splashdown Live",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-to-stream-spacex-crew-12-return-splashdown-live/",
+      "sourcePublishedAt": "2026-10-05T21:44:40Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
+      "firstFetchedAt": "2026-10-05T22:40:38Z"
+    },
+    {
+      "id": "871b1228ab37b44b7c0cd9b2",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Astronaut Christina Koch at Eagles vs. Rams",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/nasa-astronaut-christina-koch-at-eagles-vs-rams/",
+      "sourcePublishedAt": "2026-10-05T17:42:56Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
+      "firstFetchedAt": "2026-10-05T22:40:38Z"
+    },
     {
       "id": "765a970371b92d31e8e0130f",
       "sourceId": "nasa",
@@ -32,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-testing-aims-at-supercooled-large-droplet-aviation-safety/",
       "sourcePublishedAt": "2026-10-05T15:27:23Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-05T16:04:27Z"
     },
     {
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/hubble/suspected-second-generation-planet-solves-nasa-hubble-cold-case/",
       "sourcePublishedAt": "2026-10-05T15:00:35Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-05T16:04:27Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-5-m104-the-sombrero-galaxys-tidal-streams/",
       "sourcePublishedAt": "2026-10-05T04:05:00Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-05T07:06:22Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/moon-like-madagascar/",
       "sourcePublishedAt": "2026-10-05T04:01:00Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-05T07:06:22Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5022-5028-cashing-in-at-cache-creek/",
       "sourcePublishedAt": "2026-10-04T21:13:07Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-05T00:58:05Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/general/mapping-the-gaps-in-nasas-return-to-the-moon-featuring-richard-spolzino/",
       "sourcePublishedAt": "2026-10-04T19:10:59Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-04T21:31:02Z"
     },
     {
@@ -109,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-4-supernumerary-rainbows-over-new-jersey/",
       "sourcePublishedAt": "2026-10-04T04:05:00Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-04T06:58:31Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-3-selfie-at-vera-rubin-ridge/",
       "sourcePublishedAt": "2026-10-03T04:05:00Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-03T08:10:44Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out",
       "sourcePublishedAt": "2026-10-02T22:18:23Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -164,8 +186,30 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level",
       "sourcePublishedAt": "2026-10-02T19:13:50Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
+    },
+    {
+      "id": "bc794def379f1205969c01e2",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Unvalidated npm trusted publishing configurations now expire",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-02-unvalidated-npm-trusted-publishing-configurations-now-expire",
+      "sourcePublishedAt": "2026-10-02T19:07:04Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
+      "firstFetchedAt": "2026-10-05T22:40:38Z"
+    },
+    {
+      "id": "ed5596d5eeaa86a57cbe892a",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "npm staged publishing now supports creating new packages",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-02-npm-staged-publishing-now-supports-creating-new-packages",
+      "sourcePublishedAt": "2026-10-02T19:05:17Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
+      "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
       "id": "9bb52c5a3fc5a2a20f42c6f2",
@@ -186,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated",
       "sourcePublishedAt": "2026-10-02T18:24:19Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -241,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-new-fields-for-securityadvisory-graphql-api",
       "sourcePublishedAt": "2026-10-02T13:18:00Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -252,7 +296,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-confidential-comments-on-repository-security-advisories",
       "sourcePublishedAt": "2026-10-02T13:15:40Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -263,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-repository-security-advisory-comments-api-in-public-preview",
       "sourcePublishedAt": "2026-10-02T13:15:25Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -318,7 +362,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-rate-limits-for-private-vulnerability-reports",
       "sourcePublishedAt": "2026-10-01T19:57:39Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -329,7 +373,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-structured-forms-for-private-vulnerability-reports",
       "sourcePublishedAt": "2026-10-01T19:57:28Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
+      "fetchedAt": "2026-10-05T22:40:38Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -542,17 +586,6 @@
       "firstFetchedAt": "2026-09-30T23:53:20Z"
     },
     {
-      "id": "26168bbb22b5ac3c5d9abbc9",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Adds New Science Investigations for Moon Base",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-adds-new-science-investigations-for-moon-base/",
-      "sourcePublishedAt": "2026-09-30T21:11:23Z",
-      "fetchedAt": "2026-10-01T23:54:28Z",
-      "firstFetchedAt": "2026-09-30T23:53:20Z"
-    },
-    {
       "id": "8f738e218bb88ed3b1aa81c4",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -560,17 +593,6 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-30-opt-in-dist-tag-permissions-for-npm-trusted-publishing",
       "sourcePublishedAt": "2026-09-30T21:03:09Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
-      "firstFetchedAt": "2026-09-30T23:53:20Z"
-    },
-    {
-      "id": "8786d5238db8791f04ed8943",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Awards Contract to Develop 5G Communications for Moon",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-awards-contract-to-develop-5g-communications-for-moon/",
-      "sourcePublishedAt": "2026-09-30T20:41:26Z",
       "fetchedAt": "2026-10-01T19:34:03Z",
       "firstFetchedAt": "2026-09-30T23:53:20Z"
     },
@@ -661,28 +683,6 @@
       "sourcePublishedAt": "2026-09-28T18:03:57Z",
       "fetchedAt": "2026-10-01T13:22:02Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
-    },
-    {
-      "id": "07dade88210664e3a861290c",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Enterprise managed settings in-product validator",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator",
-      "sourcePublishedAt": "2026-09-25T23:24:57Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
-      "firstFetchedAt": "2026-09-26T01:36:44Z"
-    },
-    {
-      "id": "0a10d0252c63a3f9d568712c",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Usage metrics API adds pull request review stages",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-25-usage-metrics-api-adds-pull-request-review-stages",
-      "sourcePublishedAt": "2026-09-25T21:09:40Z",
-      "fetchedAt": "2026-09-30T19:23:51Z",
-      "firstFetchedAt": "2026-09-26T01:36:44Z"
     }
   ]
 }
