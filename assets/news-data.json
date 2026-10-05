@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-05T00:58:05Z",
+  "generatedAt": "2026-10-05T07:06:22Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-05T00:58:05Z",
-      "lastSuccessAt": "2026-10-05T00:58:05Z",
+      "lastAttemptAt": "2026-10-05T07:06:22Z",
+      "lastSuccessAt": "2026-10-05T07:06:22Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,35 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-05T00:58:05Z",
-      "lastSuccessAt": "2026-10-05T00:58:05Z",
+      "lastAttemptAt": "2026-10-05T07:06:22Z",
+      "lastSuccessAt": "2026-10-05T07:06:22Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "8c26b031cff235acd1102e91",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 October 5 – M104: The Sombrero Galaxy’s Tidal Streams",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-5-m104-the-sombrero-galaxys-tidal-streams/",
+      "sourcePublishedAt": "2026-10-05T04:05:00Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
+      "firstFetchedAt": "2026-10-05T07:06:22Z"
+    },
+    {
+      "id": "e1514e913c3eba38cca622f4",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Moon-Like Madagascar",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/moon-like-madagascar/",
+      "sourcePublishedAt": "2026-10-05T04:01:00Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
+      "firstFetchedAt": "2026-10-05T07:06:22Z"
+    },
     {
       "id": "6f8f713ea15a1ab9dc91f602",
       "sourceId": "nasa",
@@ -32,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5022-5028-cashing-in-at-cache-creek/",
       "sourcePublishedAt": "2026-10-04T21:13:07Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-05T00:58:05Z"
     },
     {
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/general/mapping-the-gaps-in-nasas-return-to-the-moon-featuring-richard-spolzino/",
       "sourcePublishedAt": "2026-10-04T19:10:59Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-04T21:31:02Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-4-supernumerary-rainbows-over-new-jersey/",
       "sourcePublishedAt": "2026-10-04T04:05:00Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-04T06:58:31Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-3-selfie-at-vera-rubin-ridge/",
       "sourcePublishedAt": "2026-10-03T04:05:00Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-03T08:10:44Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out",
       "sourcePublishedAt": "2026-10-02T22:18:23Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-astronaut-christina-koch-to-join-nfl-fans-in-philadelphia/",
       "sourcePublishedAt": "2026-10-02T19:54:54Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/missions/station/iss-research/heading-home-nasas-spacex-crew-12-concludes-station-science-mission/",
       "sourcePublishedAt": "2026-10-02T19:30:00Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -109,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level",
       "sourcePublishedAt": "2026-10-02T19:13:50Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasas-davinci-probe-can-stand-the-heat/",
       "sourcePublishedAt": "2026-10-02T19:00:36Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated",
       "sourcePublishedAt": "2026-10-02T18:24:19Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -142,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/la-nasa-abre-solicitudes-para-proxima-promocion-de-directores-de-vuelo/",
       "sourcePublishedAt": "2026-10-02T16:36:25Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -186,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-new-fields-for-securityadvisory-graphql-api",
       "sourcePublishedAt": "2026-10-02T13:18:00Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -197,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-confidential-comments-on-repository-security-advisories",
       "sourcePublishedAt": "2026-10-02T13:15:40Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -208,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-repository-security-advisory-comments-api-in-public-preview",
       "sourcePublishedAt": "2026-10-02T13:15:25Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -263,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-rate-limits-for-private-vulnerability-reports",
       "sourcePublishedAt": "2026-10-01T19:57:39Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -274,7 +296,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-structured-forms-for-private-vulnerability-reports",
       "sourcePublishedAt": "2026-10-01T19:57:28Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -285,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps",
       "sourcePublishedAt": "2026-10-01T19:11:26Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -296,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-github-actions-macos-14-runner-image-retirement",
       "sourcePublishedAt": "2026-10-01T19:11:23Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
+      "fetchedAt": "2026-10-05T07:06:22Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -584,28 +606,6 @@
       "sourcePublishedAt": "2026-09-30T04:05:00Z",
       "fetchedAt": "2026-10-01T13:22:02Z",
       "firstFetchedAt": "2026-09-30T06:46:15Z"
-    },
-    {
-      "id": "7b80d485c9a5a57564e66aee",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Powerful Storms Continue to Prowl the Pacific",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/earth/earth-observatory/powerful-storms-continue-to-prowl-the-pacific/",
-      "sourcePublishedAt": "2026-09-30T04:01:00Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
-      "firstFetchedAt": "2026-09-30T06:46:15Z"
-    },
-    {
-      "id": "c3bccf2fbab336e5659f90eb",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Opens 2027 Human Lander Challenge for Lunar Communications",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-opens-2027-human-lander-challenge-for-lunar-communications/",
-      "sourcePublishedAt": "2026-09-29T21:27:56Z",
-      "fetchedAt": "2026-09-30T23:53:20Z",
-      "firstFetchedAt": "2026-09-30T00:30:03Z"
     },
     {
       "id": "20d614df3f96df84d10bb3f1",
