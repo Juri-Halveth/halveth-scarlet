@@ -1,0 +1,19 @@
+{
+  "schema": "halveth.ip-public-commitment.v1",
+  "recordedAt": "2026-10-05T23:44:14.997109+00:00",
+  "project": "HALVETH / LUCINET",
+  "scope": "Bounded privately retained project snapshot",
+  "algorithm": "SHA-256",
+  "commitment": "57eecb3d0c5b0f23379810a136299c5fc5b4d2be1cc66aeedea78f519b553304",
+  "openingContract": {
+    "algorithm": "SHA256(UTF8(domainAscii) || 0x00 || HEXDECODE(nonceHex) || exact_manifest_file_bytes)",
+    "domainAscii": "HALVETH-IP-COMMITMENT-V1",
+    "nonceBytes": 32,
+    "noncePublic": false,
+    "manifestPublic": false
+  },
+  "claimCeiling": "Matching bytes when opened; no authorship, ownership, patent filing, priority or trusted timestamp established",
+  "technicalDisclosure": false,
+  "publicationTime": "NOT_RECORDED_IN_THIS_CANDIDATE",
+  "independentTimestamp": "NOT_OBTAINED"
+}

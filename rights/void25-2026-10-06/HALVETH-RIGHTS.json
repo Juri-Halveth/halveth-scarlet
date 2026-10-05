@@ -1,0 +1,39 @@
+{
+  "schema": "halveth.ip-rights-claim.v1",
+  "recordedAt": "2026-10-05T23:44:14.997109+00:00",
+  "claimant": {
+    "publicName": "Juri Halveth",
+    "github": "Juri-Halveth",
+    "githubUserId": 302215590,
+    "contact": "security@halveth.de",
+    "evidenceState": "USER_CLAIM_WITH_EXISTING_PUBLIC_IDENTITY_NOTICE",
+    "authenticationScope": "Authenticated GitHub account observed; not a title determination"
+  },
+  "claimTextDe": "Juri Halveth beansprucht die ihm zustehenden Rechte an den eigenen schutzfähigen Beiträgen des gebundenen HALVETH/LUCINET-Arbeitsstands weltweit, einschließlich einer Nutzung im Weltraum, soweit das jeweils anwendbare Recht diese Rechte anerkennt. Wirksame frühere Lizenzen, gesetzliche Befugnisse und Rechte Dritter bleiben gewahrt.",
+  "territoryIntent": {
+    "earth": "WORLDWIDE_TO_EXTENT_OF_APPLICABLE_RIGHTS",
+    "outerSpace": "INCLUDED_WHERE_APPLICABLE_LAW_RECOGNIZES_RIGHTS",
+    "universalPatent": "NOT_CLAIMED"
+  },
+  "license": "LicenseRef-HALVETH-PIRL-2.0",
+  "licenseScope": "Only exact metadata paths assigned in LICENSES.md; privately retained source bytes not licensed by this public packet",
+  "textAndDataMining": {
+    "reservation": "TO_THE_EXTENT_LEGALLY_RESERVABLE",
+    "exceptionsAndPriorGrantsPreserved": true
+  },
+  "rightsStatus": {
+    "copyright": "CLAIMED_TO_EXTENT_PROTECTABLE_AND_CONTROLLED",
+    "authorshipChain": "PARTIAL_REQUIRES_CONTRIBUTION_REVIEW",
+    "patentApplication": "NO_FILING_EVIDENCE_BOUND",
+    "patentGrant": "NO_GRANT_EVIDENCE_BOUND",
+    "registeredTrademark": "NOT_ASSESSED",
+    "exclusiveOwnershipOfGeneralIdeas": "NOT_CLAIMED"
+  },
+  "aiAssistance": "Task artifacts include AI-assisted drafting and implementation; protectability and title are not automatically established by prompting, hashes or publication.",
+  "historicalLicenses": "PRESERVED",
+  "thirdPartyRights": "PRESERVED",
+  "statutoryPermissions": "PRESERVED",
+  "patentLicenseGrant": "NONE_EXPRESSLY_ADDED_BY_THIS_NOTICE",
+  "paymentObligation": "NO_AUTOMATIC_OBLIGATION",
+  "bindingCommitment": "57eecb3d0c5b0f23379810a136299c5fc5b4d2be1cc66aeedea78f519b553304"
+}
