@@ -69,7 +69,7 @@ function contacts() {
 
 test('the moving model owns actual position, prior position, velocity and spatial observations', () => {
   const engine = create(), before = engine.snapshot(); engine.advance(5000); const after = engine.snapshot();
-  assert.equal(after.version, '2.0.0');
+  assert.equal(after.version, live.VERSION);
   assert.equal(after.world.units, 'MODEL_UNITS');
   assert(roots(after).some(node => {
     const old = before.nodes.find(candidate => candidate.id === node.id);

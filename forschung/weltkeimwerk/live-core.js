@@ -6,7 +6,7 @@
   else root.GStarLiving = api;
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
-  const VERSION = '2.0.0';
+  const VERSION = '3.0.0';
   const LIMITS = Object.freeze({ roots: 128, depth: 2, inbox: 8, signals: 512, events: 256, waves: 64, stepMs: 50, speed: 1.1 });
   const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
   const copy = value => JSON.parse(JSON.stringify(value));
@@ -39,11 +39,16 @@
     let tick = 0, remainder = 0, sequence = 0, signalSequence = 0, rootCursor = 0;
     let accepted = 0, emitted = 0, rejected = 0, gapMs = 0;
     let contacts = 0, waveSequence = 0, waveReceipts = 0, waveCapacityDrops = 0, environmentInputs = 0;
+    let bondsFormed = 0, bondsReleased = 0, morphologyChanges = 0;
     const channelTransitions = { SIGNAL: 0, CONTACT: 0, WAVE: 0, ENVIRONMENT: 0, CONTAINED: 0 };
     const area = Math.max(24, sources.length * 2.7);
     const world = { width: Math.sqrt(area * 1.6), height: Math.sqrt(area / 1.6), area,
       units: 'MODEL_UNITS', field: 'LAVA_STYLE_CONVECTION_V1', boundary: 'REFLECTING_MEMBRANE', physicsSubsteps: 2 };
     const nodes = [], roots = [], events = [], signals = [], waves = [], index = new Map(), lastContacts = new Map();
+    const bonds = [], assemblies = [];
+    const habitat = { columns: 32, rows: 20, values: new Array(640).fill(0), revision: 0, policy: 'DECAYING_SHARED_TRACE' };
+    const habitatNext = new Array(640).fill(0);
+    const symbols = ['X', 'G', 'Δ', 'Ω', 'λ', '∑', '◇', 'Ψ'];
     function record(type, subject, data = {}) {
       events.push({ sequence: ++sequence, tick, modelMs: tick * LIMITS.stepMs, type, subject, ...data });
       if (events.length > LIMITS.events) events.shift();
@@ -66,8 +71,10 @@
           y: Math.sin(angle) * Math.sqrt((order + 0.5) / sources.length) * (world.height / 2 - .7)
         },
         previousPosition: null, velocity: { x: 0, y: 0 },
-        body: { radius: parent ? parent.body.radius * .42 : .47 + (initial % 12) / 100 },
-        sensors: { temperature: .5, density: 0, boundaryDistance: 0, flowX: 0, flowY: 0, wavePressure: 0, observedAt: tick * LIMITS.stepMs },
+        body: { radius: parent ? parent.body.radius * .42 : .47 + (initial % 12) / 100,
+          baseRadius: parent ? parent.body.radius * .42 : .47 + (initial % 12) / 100 },
+        morphology: { form: 'SEED', angle: initial % 628 / 100, elongation: 1, corners: 0, scale: 1, revision: 0, symbol: symbols[initial % symbols.length] },
+        sensors: { temperature: .5, density: 0, boundaryDistance: 0, flowX: 0, flowY: 0, wavePressure: 0, trace: 0, traceDx: 0, traceDy: 0, observedAt: tick * LIMITS.stepMs },
         memory: { contacts: 0, waves: 0, avoidance: .12, meanImpulse: 0, temperature: .25 + (initial % 50) / 100, peers: {} },
         nextSense: tick * LIMITS.stepMs + 5000 + initial % 9000, nextWaveInput: 0,
         lastTouch: null,
@@ -134,10 +141,84 @@
     function environmentAt(position, now) {
       const nx = (position.x + world.width / 2) / world.width, ny = (position.y + world.height / 2) / world.height;
       const phase = nx * Math.PI * 3 + now / 33000;
+      const gx = clamp(Math.floor(nx * habitat.columns), 1, habitat.columns - 2), gy = clamp(Math.floor(ny * habitat.rows), 1, habitat.rows - 2);
+      const hi = gy * habitat.columns + gx;
       return { temperature: clamp(.5 + (ny - .5) * 1.25, .02, .98),
         flowX: Math.sin(phase) * Math.cos(ny * Math.PI) * .34,
         flowY: -Math.cos(phase) * Math.sin(ny * Math.PI) * .23,
+        trace: habitat.values[hi], traceDx: (habitat.values[hi + 1] - habitat.values[hi - 1]) * habitat.columns / world.width,
+        traceDy: (habitat.values[hi + habitat.columns] - habitat.values[hi - habitat.columns]) * habitat.rows / world.height,
         boundaryDistance: Math.max(0, Math.min(world.width / 2 - Math.abs(position.x), world.height / 2 - Math.abs(position.y))) };
+    }
+    function updateHabitat() {
+      const { columns: w, rows: h, values: v } = habitat;
+      for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+        const i = y * w + x;
+        const mean = (v[y * w + Math.max(0,x-1)] + v[y * w + Math.min(w-1,x+1)] + v[Math.max(0,y-1)*w+x] + v[Math.min(h-1,y+1)*w+x]) * .25;
+        habitatNext[i] = v[i] * .956 + mean * .04;
+      }
+      for (const node of roots) {
+        const x = clamp(Math.floor((node.position.x / world.width + .5) * w),0,w-1);
+        const y = clamp(Math.floor((node.position.y / world.height + .5) * h),0,h-1);
+        habitatNext[y*w+x] = Math.min(1,habitatNext[y*w+x] + .018 + Math.min(.018,node.memory.contacts * .0005));
+      }
+      for (let i=0;i<v.length;i++) v[i] = habitatNext[i];
+      habitat.revision++;
+    }
+    function bondDegree(id) { let count=0; for (const bond of bonds) if (bond.source===id || bond.target===id) count++; return count; }
+    function join(a,b,now) {
+      if (bonds.length >= roots.length*2 || bondDegree(a.id)>=3 || bondDegree(b.id)>=3 || bonds.some(e=>(e.source===a.id&&e.target===b.id)||(e.source===b.id&&e.target===a.id))) return;
+      if (a.memory.contacts<2 || b.memory.contacts<2) return;
+      const bond={ id:'bond-'+(++bondsFormed),source:a.id,target:b.id,restLength:(a.body.radius+b.body.radius)*1.16,
+        bornAt:now,expiresAt:now+22000+((a.initialGenome^b.initialGenome)>>>0)%17000,mode:(a.order+b.order)%3===0?'ARCH':'LATTICE' };
+      bonds.push(bond); record('BOND_FORM',a.id,{...bond});
+    }
+    function moveBonds(dt) {
+      const now=tick*LIMITS.stepMs;
+      for(let i=bonds.length-1;i>=0;i--) {
+        const bond=bonds[i],a=index.get(bond.source),b=index.get(bond.target);
+        const dx=b.position.x-a.position.x,dy=b.position.y-a.position.y,d=Math.hypot(dx,dy);
+        if(now>=bond.expiresAt || d>bond.restLength*3.2) { bonds.splice(i,1);bondsReleased++;record('BOND_RELEASE',a.id,{id:bond.id,target:b.id,reason:now>=bond.expiresAt?'LIFETIME':'SEPARATION'});continue; }
+        if(d<1e-6)continue;
+        const nx=dx/d,ny=dy/d,force=clamp((d-bond.restLength)*.48,-.22,.45)*dt;
+        const angle=Math.atan2(dy,dx),base=(a.morphology.angle+b.morphology.angle)/2,order=bond.mode==='ARCH'?3:4;
+        const side=Math.sin((angle-base)*order)*.08*dt;
+        a.velocity.x+=nx*force-ny*side;a.velocity.y+=ny*force+nx*side;
+        b.velocity.x-=nx*force-ny*side;b.velocity.y-=ny*force+nx*side;
+        const align=Math.sin((b.morphology.angle-a.morphology.angle)*order)*dt*.12;
+        a.morphology.angle+=align;b.morphology.angle-=align;
+      }
+    }
+    function morph() {
+      const now=tick*LIMITS.stepMs;
+      for(const node of roots) {
+        const m=node.morphology,s=node.sensors,degree=bondDegree(node.id),speed=Math.hypot(node.velocity.x,node.velocity.y);
+        const form=degree>=2?'TILE':degree===1||speed>.32?'FILAMENT':s.trace>.15?'PETAL':'SHELL';
+        const elongation=form==='FILAMENT'?.40:form==='TILE'?.88:form==='PETAL'?.73:.94;
+        const corners=form==='TILE'?.92:form==='SHELL'?.22:0;
+        const scale=clamp(.92+(node.initialGenome%13)*.012-s.density*.018,.72,1.08);
+        if(form!==m.form){m.form=form;m.revision++;morphologyChanges++;record('FORM_CHANGE',node.id,{form,revision:m.revision,bondDegree:degree,trace:s.trace,density:s.density});}
+        m.elongation+=(elongation-m.elongation)*.12;m.corners+=(corners-m.corners)*.1;m.scale+=(scale-m.scale)*.1;
+        if(!degree&&speed>.02) m.angle+=Math.sin(Math.atan2(node.velocity.y,node.velocity.x)-m.angle)*.06;
+        m.angle=Math.atan2(Math.sin(m.angle),Math.cos(m.angle));
+        node.body.radius=node.body.baseRadius*m.scale;
+      }
+    }
+    function refreshAssemblies() {
+      const now=tick*LIMITS.stepMs;
+      assemblies.length=0;
+      const visited=new Set();
+      for(const root of roots) {
+        if(visited.has(root.id)||!bondDegree(root.id))continue;
+        const members=[],queue=[root.id];visited.add(root.id);
+        for(let q=0;q<queue.length;q++) {
+          const id=queue[q];members.push(id);
+          for(const b of bonds){const other=b.source===id?b.target:b.target===id?b.source:null;if(other&&!visited.has(other)){visited.add(other);queue.push(other);}}
+        }
+        members.sort();let x=0,y=0,coherence=0;
+        for(const id of members){const n=index.get(id);x+=n.position.x;y+=n.position.y;coherence+=n.morphology.corners;}
+        assemblies.push({id:'assembly-'+members.join('+'),members,center:{x:x/members.length,y:y/members.length},mode:coherence/members.length>.35?'LATTICE':'CHAIN',coherence:coherence/members.length,observedAt:now});
+      }
     }
     function contain(node) {
       for (const axis of ['x', 'y']) {
@@ -167,6 +248,7 @@
         distance, radii: a.body.radius + b.body.radius, normal: { x: nx, y: ny }, impulse,
         velocitiesBefore: [beforeA, beforeB], velocitiesAfter: [{ ...a.velocity }, { ...b.velocity }],
         avoidanceBefore: previousAvoidance, avoidanceAfter: [a.memory.avoidance,b.memory.avoidance] });
+      join(a,b,now);
       stimulus(a.id, b, 'CONTACT', aPayload, id); stimulus(b.id, a, 'CONTACT', bPayload, id);
       if (waves.length < LIMITS.waves) {
         waves.push({ id: 'wave-' + (++waveSequence), source: a.id, partner: b.id,
@@ -185,18 +267,22 @@
           const edge = Math.abs(node.position.y) / (world.height / 2);
           node.memory.temperature += (field.temperature - node.memory.temperature) * dt * (edge > .55 ? .55 : .035);
           const wander = now / 7900 + node.initialGenome % 100;
-          const desiredX = field.flowX + Math.sin(wander) * .13;
-          const desiredY = field.flowY + (.5 - node.memory.temperature) * 1.45 + Math.cos(wander * .77) * .08;
+          const desiredX = field.flowX + Math.sin(wander) * .13 + clamp(field.traceDx,-.5,.5)*.22;
+          const desiredY = field.flowY + (.5 - node.memory.temperature) * 1.45 + Math.cos(wander * .77) * .08 + clamp(field.traceDy,-.5,.5)*.22;
           node.velocity.x += (desiredX - node.velocity.x) * dt * .9;
           node.velocity.y += (desiredY - node.velocity.y) * dt * .9;
           node.position.x += node.velocity.x * dt; node.position.y += node.velocity.y * dt;
           contain(node);
         }
+        moveBonds(dt);
         for (let i = 0; i < roots.length; i++) for (let j = i + 1; j < roots.length; j++) {
           const a = roots[i], b = roots[j];
-          let dx = b.position.x - a.position.x, dy = b.position.y - a.position.y, distance = Math.hypot(dx,dy);
+          let dx = b.position.x - a.position.x, dy = b.position.y - a.position.y;
+          const radii = a.body.radius + b.body.radius;
+          if(dx*dx+dy*dy>=radii*radii*4)continue;
+          let distance = Math.hypot(dx,dy);
           if (distance < .000001) { dx = .000001; dy = 0; distance = .000001; }
-          const nx = dx / distance, ny = dy / distance, radii = a.body.radius + b.body.radius;
+          const nx = dx / distance, ny = dy / distance;
           const avoidance = (a.memory.avoidance + b.memory.avoidance) / 2;
           // Contact experience increases the sensed spacing and its steering force.
           const reach = radii * (1.12 + avoidance * .2);
@@ -228,6 +314,8 @@
     function placeChildren(now, resetHistory = false) {
       for (const node of nodes) if (node.depth) {
         const parent = index.get(node.parentId), angle = now / 23000 + node.initialGenome % 628 / 100;
+        node.body.radius=parent.body.radius*.42;
+        node.morphology={...parent.morphology,symbol:node.morphology.symbol};
         node.previousPosition = { ...node.position };
         node.position.x = parent.position.x + Math.cos(angle) * parent.body.radius * .32;
         node.position.y = parent.position.y + Math.sin(angle) * parent.body.radius * .32;
@@ -264,7 +352,8 @@
       tick++;
       const now = tick * LIMITS.stepMs;
       if (tick % 20 === 0) enterRoot();
-      move(); propagateWaves();
+      if(tick%5===0){updateHabitat();morph();}
+      move(); propagateWaves(); refreshAssemblies();
       for (let i = signals.length - 1; i >= 0; i--) {
         if (signals[i].arrivesAt <= now) {
           const signal = signals.splice(i, 1)[0]; receive(index.get(signal.target), signal);
@@ -284,12 +373,11 @@
         if (node.depth === 0 && now >= node.nextPulse) {
           // Every profile is eligible. Least-sent first prevents a permanent local clique;
           // current distance only breaks ties, so movement also changes encounters.
-          const candidates = roots.filter(other => other !== node).sort((a, b) => {
-            const pa = node.memory.peers[a.id], pb = node.memory.peers[b.id];
-            const d = other => Math.hypot(node.position.x - other.position.x, node.position.y - other.position.y);
-            return (pa?.sent || 0) - (pb?.sent || 0) || d(a) - d(b) || a.order - b.order;
-          });
-          const target = candidates[0] || node;
+          let target=node,bestSent=Infinity,bestDistance=Infinity;
+          for(const other of roots)if(other!==node){
+            const sent=node.memory.peers[other.id]?.sent||0,dx=node.position.x-other.position.x,dy=node.position.y-other.position.y,d=dx*dx+dy*dy;
+            if(sent<bestSent||(sent===bestSent&&(d<bestDistance||(d===bestDistance&&other.order<target.order)))){target=other;bestSent=sent;bestDistance=d;}
+          }
           send(node, target);
           node.nextPulse = now + 4200 + node.genome % 1800;
         }
@@ -320,6 +408,7 @@
           }
         }
         placeChildren(tick * LIMITS.stepMs, true);
+        refreshAssemblies();
         // A new view geometry starts new local wavefront observations.
         waves.length = 0;
         record('WORLD_RESHAPE', 'world', { aspect, width, height, area: world.area, endedWavefronts: true });
@@ -329,6 +418,7 @@
         remainder += deltaMs;
         while (remainder + 1e-8 >= LIMITS.stepMs) { remainder -= LIMITS.stepMs; step(); }
         if (remainder < 0) remainder = 0;
+        return { tick, modelMs:tick*LIMITS.stepMs, remainderMs:remainder };
       },
       gap(durationMs) {
         if (!Number.isFinite(durationMs) || durationMs < 0) throw new RangeError('invalid gap');
@@ -338,18 +428,27 @@
       snapshot(projection = 'full') {
         if (projection !== 'full' && projection !== 'render') throw new TypeError('unknown snapshot projection');
         const render = projection === 'render';
-        return copy({ version: VERSION, seed, modelMs: tick * LIMITS.stepMs, tick,
+        const value = { version: VERSION, seed, modelMs: tick * LIMITS.stepMs, tick,
           counts: { sourceProfiles: sources.length, roots: roots.length, cells: nodes.length, transitions: accepted, emitted, rejected,
-            contacts, wavesEmitted: waveSequence, waveReceipts, waveCapacityDrops, environmentInputs, channelTransitions },
+            contacts, wavesEmitted: waveSequence, waveReceipts, waveCapacityDrops, environmentInputs, channelTransitions, bondsFormed,bondsReleased,morphologyChanges },
           nodes: render ? nodes.map(node => ({ id: node.id, label: node.label, depth: node.depth, order: node.order,
             parentId: node.parentId, initialGenome: node.initialGenome, genome: node.genome, revision: node.revision,
             phase: node.phase, phaseAt: node.phaseAt, bornAt: node.bornAt, children: node.children,
             position: node.position, previousPosition: node.previousPosition, velocity: node.velocity, body: node.body,
-            lastTouch: node.lastTouch, temperature: node.memory.temperature, sensors: node.sensors })) : nodes,
-          signals, waves, world, events: render ? [] : events, routing: { policy: 'ALL_PROFILES_LEAST_SENT_THEN_CURRENT_DISTANCE', eligiblePairs: roots.length * Math.max(0,roots.length - 1) },
+            lastTouch: node.lastTouch, morphology:node.morphology,temperature: node.memory.temperature, sensors: node.sensors })) : nodes,
+          signals, waves, world,bonds,assemblies,habitat, events: render ? [] : events, routing: { policy: 'ALL_PROFILES_LEAST_SENT_THEN_CURRENT_DISTANCE', eligiblePairs: roots.length * Math.max(0,roots.length - 1) },
           timing: { stepMs: LIMITS.stepMs, remainderMs: remainder, displayGapMs: gapMs },
           coverage: { history: render ? 'OMITTED_FROM_RENDER_PROJECTION' : 'BOUNDED_RECENT_EVENTS', firstSequence: events[0]?.sequence || 0, lastSequence: sequence, retained: events.length, projection },
-          model: 'LOCAL_MOVING_CELL_ECOLOGY', limits: LIMITS });
+          model: 'LOCAL_MOVING_CELL_ECOLOGY', limits: LIMITS };
+        if(!render)return copy(value);
+        // Explicit detached projection avoids serializing/parsing hundreds of kilobytes per paint.
+        value.counts.channelTransitions={...channelTransitions};
+        value.nodes=value.nodes.map(n=>({...n,children:n.children.slice(),position:{...n.position},previousPosition:{...n.previousPosition},velocity:{...n.velocity},body:{...n.body},sensors:{...n.sensors},morphology:{...n.morphology},lastTouch:n.lastTouch?{...n.lastTouch}:null}));
+        value.signals=signals.map(s=>({...s}));value.waves=waves.map(w=>({...w,hits:w.hits.slice()}));
+        value.world={...world};value.limits={...LIMITS};value.bonds=bonds.map(b=>({...b}));
+        value.assemblies=assemblies.map(a=>({...a,members:a.members.slice(),center:{...a.center}}));
+        value.habitat={...habitat,values:habitat.values.slice()};
+        return value;
       }
     });
   }

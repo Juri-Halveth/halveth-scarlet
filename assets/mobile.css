@@ -1,0 +1,45 @@
+/* One shared phone layer on every built page. The living GStar canvas owns
+   its viewport and receives its own mobile layout. */
+@media(max-width:700px){
+  html:not([data-gstar-live=true]){scroll-padding-top:16px;scroll-padding-bottom:max(24px,env(safe-area-inset-bottom));-webkit-text-size-adjust:100%}
+  html:not([data-gstar-live=true]) body{min-width:0;overflow-wrap:anywhere}
+  html:not([data-gstar-live=true]) :is(main,article,section,header,footer,nav,form,fieldset){min-width:0}
+  html:not([data-gstar-live=true]) :is(button,select,summary,input:not([type=checkbox]):not([type=radio]):not([type=hidden])){min-height:44px}
+  html:not([data-gstar-live=true]) :is(button,select){min-width:44px}
+  html:not([data-gstar-live=true]) :is(input,select,textarea){font-size:16px;max-width:100%;box-sizing:border-box}
+  html:not([data-gstar-live=true]) input:is([type=checkbox],[type=radio]){min-width:22px;min-height:22px;flex-shrink:0}
+  html:not([data-gstar-live=true]) :is(button,a,input,select,textarea,summary){scroll-margin-block:20px;touch-action:manipulation}
+  html:not([data-gstar-live=true]) :is(pre,.table-wrap,.table-scroll){max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+  html:not([data-gstar-live=true]) :is(.profile-top,.profile-bottom,.profile-actions,.actions,.toolbar){flex-wrap:wrap}
+  html:not([data-gstar-live=true]) .profile-main{padding:24px 18px max(36px,env(safe-area-inset-bottom))}
+  html:not([data-gstar-live=true]) :is(.profile-sources,.profile-names){padding:20px}
+  html:not([data-gstar-live=true]) .profile-hero{padding:32px 0 26px}
+  html:not([data-gstar-live=true]) :is(dialog,.post-dialog,.entity-dialog){max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain}
+  html:not([data-gstar-live=true]) .portal-map{max-width:calc(100vw - 16px);overflow:hidden}
+
+  /* Home tools wrap separately from the shared language and route header. */
+  .portal-route-home .topbar{position:relative;inset:auto;margin:0 14px;padding:8px 0;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;min-height:60px}
+  .portal-route-home .topbar .brand{display:none}
+  .portal-route-home .top-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+  .portal-route-home .garden-open{margin:0 auto 0 0;max-width:none;font-size:11px;line-height:1.35;padding:10px 12px}
+  .portal-route-home .sound-toggle{font-size:12px;padding:10px}
+  .portal-route-home .info-button{width:44px;height:44px}
+  .portal-route-home .room-entry{display:none}
+  /* Keep the illustrated orbit positioned, then let the readable controls and
+     stories determine the remaining document height instead of fixed offsets. */
+  .portal-route-home .scene{min-height:0;height:auto;padding-bottom:16px}
+  .portal-route-home .scene>main{display:flex;flex-direction:column;gap:12px;padding:calc(var(--earth-y) + var(--orbit)*.5) 18px 0}
+  .portal-route-home :is(.earth-navigation,.constellation,.newswire,.chain-dock,.heart-controls){position:relative;inset:auto;transform:none;width:100%;max-width:100%;margin:0}
+  .portal-route-home .earth-navigation{order:1}
+  .portal-route-home .constellation-left{order:2}
+  .portal-route-home .constellation-right{order:3}
+  .portal-route-home .newswire{order:4}
+  .portal-route-home .chain-dock{order:5}
+  .portal-route-home .heart-controls{order:6;padding:20px 0}
+  .portal-route-home .newswire a{max-height:none;overflow:visible}
+  .portal-route-home .entity-bubble{height:44px;min-width:84px;font-size:11px}
+  .portal-route-home .chain-links :is(button,.transaction-ref-link){min-height:44px;font-size:11px}
+  .portal-route-home .credits{position:relative;bottom:auto;margin-top:12px;font-size:11px;line-height:1.5;padding:0 12px}
+  .portal-route-home .credits a{display:inline-flex;align-items:center;min-height:44px;padding:8px}
+  .portal-route-home .globe-control{touch-action:none}
+}

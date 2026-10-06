@@ -79,6 +79,33 @@
   map.innerHTML='<div class="portal-map-inner"><header class="portal-map-header"><div><p class="portal-map-kicker"></p><h2></h2><p class="portal-map-intro"></p></div><button class="portal-map-close" type="button" aria-label="Close">×</button></header><nav class="portal-grid"></nav><footer class="portal-map-foot"><span class="portal-map-foot-left"></span><span>HALVETH / SCARLET / 2026</span></footer></div>';
 
   const quickIds=['home','room','snapshot'];
+  // Reuse the actual hub links and their handlers, never a duplicate switcher.
+  const languageSlot=document.createElement('div');
+  languageSlot.className='portal-language-slot';
+  shell.append(languageSlot);
+  const mobile=matchMedia('(max-width: 700px)');
+  let languageHome=null;
+  const syncLanguageNavigation=()=>{
+    const nav=document.querySelector('[data-hub-navigation]');
+    if(mobile.matches&&nav){
+      if(nav.parentNode!==languageSlot){
+        languageHome={nav,parent:nav.parentNode,next:nav.nextSibling};
+        languageSlot.append(nav);
+      }
+      document.body.classList.add('portal-language-integrated');
+    }else{
+      if(languageHome&&languageHome.nav.parentNode===languageSlot){
+        const {nav,parent,next}=languageHome;
+        if(parent?.isConnected)parent.insertBefore(nav,next?.parentNode===parent?next:null);
+        else document.body.prepend(nav);
+      }
+      document.body.classList.toggle('portal-language-integrated',false);
+      languageHome=null;
+    }
+  };
+  mobile.addEventListener?.('change',syncLanguageNavigation);
+  document.addEventListener('DOMContentLoaded',()=>setTimeout(syncLanguageNavigation,0),{once:true});
+  window.addEventListener?.('halveth:language',()=>setTimeout(syncLanguageNavigation,0));
   const render=()=>{
     const lang=language();
     const english=lang==='en';
@@ -165,6 +192,7 @@
 
   render();
   applyMotion();
-  document.body.prepend(skip,atmosphere);
-  document.body.append(shell,map);
+  document.body.prepend(skip,atmosphere,shell);
+  document.body.append(map);
+  syncLanguageNavigation();
 })();
