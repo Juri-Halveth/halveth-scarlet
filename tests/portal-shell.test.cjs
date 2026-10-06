@@ -19,6 +19,7 @@ const pages = new Map([
   ,['forschung/pi-treffpunkte/index.html', '../../assets/']
   ,['forschung/de-anker-hela/index.html', '../../assets/']
   ,['forschung/halveth-research/index.html', '../../assets/']
+  ,['forschung/grenzbeobachter/index.html', '../../assets/']
 ]);
 
 test('every published page loads one shared portal shell from the correct root', () => {
@@ -92,7 +93,7 @@ test('responsive layout has no fractional pixel gap below desktop', () => {
 test('portal shell exposes all routes and motion-safe controls', () => {
   const script = fs.readFileSync(path.join(root, 'assets/portal-shell.js'), 'utf8');
   const style = fs.readFileSync(path.join(root, 'assets/portal-shell.css'), 'utf8');
-  for (const route of ['./', 'room/', 'snapshot/', 'collage/', 'entities/', 'news/', 'forschung/usdai-sabr-kontext/', 'forschung/figuren-und-perspektiven/', 'forschung/formen-und-verbindungen/', 'forschung/transaktionsfluss/', 'forschung/q-notizen/', 'forschung/tagesstand-2026-09-13/', 'forschung/brightcast-starlight/', 'forschung/pi-treffpunkte/', 'forschung/de-anker-hela/', 'forschung/halveth-research/', './#team']) {
+  for (const route of ['./', 'room/', 'snapshot/', 'collage/', 'entities/', 'news/', 'forschung/usdai-sabr-kontext/', 'forschung/figuren-und-perspektiven/', 'forschung/formen-und-verbindungen/', 'forschung/transaktionsfluss/', 'forschung/q-notizen/', 'forschung/tagesstand-2026-09-13/', 'forschung/brightcast-starlight/', 'forschung/pi-treffpunkte/', 'forschung/de-anker-hela/', 'forschung/halveth-research/', 'forschung/grenzbeobachter/', './#team']) {
     assert(script.includes(`path:'${route}'`), route);
   }
   assert(script.includes("routes.length+(english?"), 'portal count follows the actual route registry');
@@ -119,6 +120,7 @@ test('research CSP permits only the local portal presentation assets', () => {
     'forschung/pi-treffpunkte/index.html',
     'forschung/de-anker-hela/index.html',
     'forschung/halveth-research/index.html',
+    'forschung/grenzbeobachter/index.html',
     'collage/index.html'
   ]) {
     const html = fs.readFileSync(path.join(root, relative), 'utf8');
@@ -129,4 +131,21 @@ test('research CSP permits only the local portal presentation assets', () => {
   const brightcast = fs.readFileSync(path.join(root, 'forschung/brightcast-starlight/index.html'), 'utf8');
   assert(brightcast.includes("media-src 'self'"));
   assert(brightcast.includes('<track kind="captions"'));
+});
+
+test('boundary observers keeps model execution inside local page resources', () => {
+  const html = fs.readFileSync(path.join(root, 'forschung/grenzbeobachter/index.html'), 'utf8');
+  for (const directive of ["connect-src 'none'", "script-src 'self'", "base-uri 'none'", "form-action 'none'"]) {
+    assert(html.includes(directive), directive);
+  }
+  const pageURL = new URL('https://juri-halveth.github.io/halveth-scarlet/forschung/grenzbeobachter/');
+  for (const match of html.matchAll(/<(?:script|link)\b[^>]*>/gi)) {
+    const tag = match[0];
+    if (/^<link/i.test(tag) && !/\brel=["']stylesheet["']/i.test(tag)) continue;
+    const reference = /\b(?:src|href)=["']([^"']+)["']/i.exec(tag);
+    assert(reference, `External file reference required: ${tag}`);
+    const resource = new URL(reference[1], pageURL);
+    assert.equal(resource.origin, pageURL.origin, `Local origin: ${reference[1]}`);
+    assert(resource.pathname.startsWith('/halveth-scarlet/'), `Local project resource: ${reference[1]}`);
+  }
 });

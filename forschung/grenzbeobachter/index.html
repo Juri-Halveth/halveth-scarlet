@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="de" data-language-in-place data-supported-languages="de en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="author" content="HALVETH">
+  <meta name="rights" content="New original HALVETH contributions: Source Available under HALVETH PIRL 2.0. Prior grants and third-party rights remain applicable; see LICENSES.md.">
+  <meta name="description" content="Zwei Beobachter, ein synthetisches Modell: regelmäßige und adaptive Messung an 25 Grenzpunkten mit gleichem Budget vergleichen.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HALVETH · Scarlet Portal">
+  <meta property="og:title" content="Grenzbeobachter · HALVETH">
+  <meta property="og:description" content="Gleicher Modellverlauf. Gleiches Messbudget. Zwei Wege, Veränderung zu beobachten.">
+  <meta property="og:url" content="https://juri-halveth.github.io/halveth-scarlet/forschung/grenzbeobachter/">
+  <meta property="og:image" content="https://juri-halveth.github.io/halveth-scarlet/assets/portal-nexus.webp">
+  <meta property="og:image:alt" content="Kosmischer HALVETH-Nexus als Portal zur Grenzbeobachter-Demo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <link rel="canonical" href="https://juri-halveth.github.io/halveth-scarlet/forschung/grenzbeobachter/">
+  <link rel="alternate" hreflang="de" href="https://juri-halveth.github.io/halveth-scarlet/forschung/grenzbeobachter/?lang=de">
+  <link rel="alternate" hreflang="en" href="https://juri-halveth.github.io/halveth-scarlet/forschung/grenzbeobachter/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://juri-halveth.github.io/halveth-scarlet/forschung/grenzbeobachter/">
+  <link rel="license" href="../../LICENSE-HALVETH-PIRL-2.0.md">
+  <link rel="icon" href="../../assets/portal-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/portal-shell.css?v=choice-atelier-20260914">
+  <link rel="stylesheet" href="observers.css?v=1.0.0">
+  <script defer src="core.js?v=1.0.0"></script>
+  <script defer src="observers-ui.js?v=1.0.0"></script>
+  <script defer src="../../assets/portal-shell.js?v=choice-atelier-20260914"></script>
+  <title>Grenzbeobachter · HALVETH</title>
+</head>
+<body>
+  <a class="skip-link" href="#boundary-main" data-i18n="skip">Zum Versuch</a>
+  <main id="boundary-main" class="boundary-app">
+    <nav class="local-nav" aria-label="Seitennavigation" data-i18n-aria="pageNav">
+      <a href="../../" class="home-link"><span aria-hidden="true">↖</span> <span data-i18n="back">Zum Nexus</span></a>
+      <div class="language-switch" role="group" aria-label="Sprache" data-i18n-aria="language">
+        <button type="button" data-set-lang="de" lang="de" aria-pressed="true">DE</button>
+        <button type="button" data-set-lang="en" lang="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow"><span class="tiny-star" aria-hidden="true">✦</span> HALVETH / LUCINET <span class="eyebrow-divider">/</span> <span data-i18n="lab">MODELL-LABOR 01</span></p>
+      <div class="hero-row"><div><h1 data-i18n="title">Grenzbeobachter</h1><p class="hero-subtitle" data-i18n="subtitle">Zwei Blickrichtungen. Ein gemeinsamer Verlauf.</p></div><span class="version-tag">v1.0.0</span></div>
+      <p class="lead" data-i18n="lead">25 Messorte, ein gleiches Budget: Eine Regel schaut regelmäßig weiter. Die andere richtet ihre nächsten Messungen an dem aus, was sie bereits gesehen hat.</p>
+      <div class="contract-tags"><span data-i18n="synthetic">Synthetisches Modell</span><span data-i18n="offline">Läuft in deinem Browser</span><span data-i18n="finite">Endlicher Versuch</span></div>
+    </header>
+
+    <section class="experiment" aria-labelledby="experiment-title">
+      <div class="section-top"><div><p class="section-kicker" data-i18n="liveComparison">DER VERGLEICH</p><h2 id="experiment-title" data-i18n="sameWorld">Eine Welt. Zwei Messpläne.</h2></div><label class="truth-toggle"><input id="show-truth" type="checkbox"><span class="toggle-track" aria-hidden="true"></span><span data-i18n="showTruth">Modellverlauf zeigen</span></label></div>
+      <p class="truth-note" data-i18n="truthNote">Die zuschaltbare Referenzansicht gehört zur Darstellung. Die Beobachter erhalten nur ihre eigenen bisherigen Messungen.</p>
+      <div class="observer-grid">
+        <article class="observer-card regular-card" aria-labelledby="regular-title">
+          <header class="observer-heading"><div class="observer-number" aria-hidden="true">01</div><div><p class="card-kicker" data-i18n="fixedPolicy">FESTER MESSPLAN</p><h3 id="regular-title" data-i18n="regular">Regelmäßig</h3></div><span class="observer-glyph" aria-hidden="true">↻</span></header>
+          <div class="canvas-wrap"><canvas id="regular-canvas" width="500" height="500" role="img" aria-label="25 Grenzpunkte der regelmäßigen Beobachtung">25 Messorte. Die aktuellen Proben sind im Text unter dieser Darstellung aufgeführt.</canvas><div class="ring-center" aria-hidden="true"><span class="ring-label" data-i18n="modelStep">MODELLSCHRITT</span><strong class="ring-tick">0</strong><span class="ring-total">/ 160</span></div></div>
+          <p class="policy-copy" data-i18n="regularCopy">Durchquert die Messorte in einer festen Reihenfolge.</p>
+          <div class="sample-line"><span data-i18n="lastSites">Zuletzt gemessen</span><strong id="regular-sites">—</strong></div>
+        </article>
+        <article class="observer-card adaptive-card" aria-labelledby="adaptive-title">
+          <header class="observer-heading"><div class="observer-number" aria-hidden="true">02</div><div><p class="card-kicker" data-i18n="adaptivePolicy">ANGEPASSTER MESSPLAN</p><h3 id="adaptive-title" data-i18n="adaptive">Adaptiv</h3></div><span class="observer-glyph" aria-hidden="true">⌁</span></header>
+          <div class="canvas-wrap"><canvas id="adaptive-canvas" width="500" height="500" role="img" aria-label="25 Grenzpunkte der adaptiven Beobachtung">25 Messorte. Die aktuellen Proben sind im Text unter dieser Darstellung aufgeführt.</canvas><div class="ring-center" aria-hidden="true"><span class="ring-label" data-i18n="modelStep">MODELLSCHRITT</span><strong class="ring-tick">0</strong><span class="ring-total">/ 160</span></div></div>
+          <p class="policy-copy" data-i18n="adaptiveCopy">Verbindet weitere Erkundung mit dem Nachsehen an zuvor aktiven Orten.</p>
+          <div class="sample-line"><span data-i18n="lastSites">Zuletzt gemessen</span><strong id="adaptive-sites">—</strong></div>
+        </article>
+      </div>
+      <div class="legend" aria-label="Legende" data-i18n-aria="legend"><span><i class="legend-mark measured-empty" aria-hidden="true"></i><span data-i18n="measuredEmpty">Gemessen · inaktiv</span></span><span><i class="legend-mark measured-active" aria-hidden="true"></i><span data-i18n="measuredActive">Gemessen · aktiv</span></span><span><i class="legend-mark unmeasured" aria-hidden="true"></i><span data-i18n="unmeasured">In diesem Schritt ungemessen</span></span><span class="truth-legend" hidden><i class="legend-mark truth-mark" aria-hidden="true"></i><span data-i18n="truthLegend">Aktiv im Modell</span></span></div>
+    </section>
+
+    <section class="control-panel" aria-labelledby="controls-title">
+      <div class="section-top"><div><p class="section-kicker" data-i18n="yourExperiment">DEIN VERSUCH</p><h2 id="controls-title" data-i18n="controlsTitle">Den Blick verändern.</h2></div><span id="run-state" class="state-badge" data-state="ready">Bereit</span></div>
+      <div class="settings-grid">
+        <label class="field"><span data-i18n="seed">Startwert / Seed</span><input id="seed" type="number" min="0" max="4294967295" step="1" value="271828" inputmode="numeric"><small data-i18n="seedHint">Gleicher Startwert, gleicher Modellverlauf.</small></label>
+        <label class="field"><span data-i18n="scenario">Szenario</span><select id="scenario"><option value="drift" data-i18n="drift">Wandernde Aktivität</option><option value="scatter" data-i18n="scatter">Verstreute Aktivität</option></select><small data-i18n="scenarioHint">Zwei unterschiedliche Arten der Veränderung.</small></label>
+        <label class="field"><span data-i18n="budget">Messungen pro Schritt</span><input id="budget" type="number" min="1" max="25" step="1" value="4" inputmode="numeric"><small data-i18n="budgetHint">Für beide Beobachter genau gleich.</small></label>
+        <label class="field"><span data-i18n="steps">Modellschritte</span><select id="steps"><option value="80">80</option><option value="160" selected>160</option><option value="320">320</option></select><small data-i18n="stepsHint">Hier endet der Versuch automatisch.</small></label>
+      </div>
+      <div class="playback-row"><div class="playback-actions"><button id="start" class="primary-button" type="button"><span id="start-icon" aria-hidden="true">▶</span><span id="start-text">Starten</span></button><button id="step" class="secondary-button" type="button"><span aria-hidden="true">↦</span><span data-i18n="oneStep">Einzelschritt</span></button><button id="reset" class="quiet-button" type="button"><span aria-hidden="true">↺</span><span data-i18n="reset">Zurücksetzen</span></button></div><label class="speed-control"><span><span data-i18n="speed">Wiedergabetakt</span><output id="speed-value" for="speed">180 ms</output></span><input id="speed" type="range" min="80" max="600" step="20" value="180"><small data-i18n="speedHint">Ändert die Darstellung, nicht das Modellergebnis.</small></label></div>
+      <div class="progress-track" role="progressbar" aria-label="Fortschritt des Modelllaufs" data-i18n-aria="progressLabel" aria-valuemin="0" aria-valuemax="160" aria-valuenow="0"><div id="progress-fill"></div></div>
+      <div class="run-footer"><span id="progress-text">0 / 160 Modellschritte</span><span><span data-i18n="activeTime">Aktive Laufdauer</span> <strong id="active-time">0,0 s</strong></span><button id="export" class="text-button" type="button"><span data-i18n="export">Versuch als JSON</span> <span aria-hidden="true">↓</span></button></div>
+      <p id="status" class="status-text" role="status" aria-live="polite">Bereit für deinen ersten Modellschritt.</p>
+      <p class="settings-note" data-i18n="settingsNote">Ein angefangener Lauf behält seine Einstellungen. Zurücksetzen öffnet einen neuen Versuch. Bei einem ausgeblendeten Tab pausiert der Lauf.</p>
+    </section>
+
+    <section class="results-panel" aria-labelledby="results-title">
+      <div class="section-top"><div><p class="section-kicker" data-i18n="resultsKicker">BEOBACHTUNG & REFERENZ</p><h2 id="results-title" data-i18n="resultsTitle">Was ist angekommen?</h2></div><span class="reference-badge" data-i18n="referenceBadge">Auswertung am synthetischen Modell</span></div>
+      <p class="results-intro" data-i18n="resultsIntro">Ein Treffer bedeutet: Eine Probe traf den aktiven Ort eines Modellereignisses. Diese Zuordnung entsteht im nachgelagerten Vergleich mit der Referenz.</p>
+      <div class="table-wrap"><table><caption class="sr-only" data-i18n="tableCaption">Kennzahlen beider Beobachtungsregeln für den bisherigen Modellverlauf</caption><thead><tr><th scope="col" data-i18n="metric">Kennzahl</th><th scope="col" class="regular-color" data-i18n="regular">Regelmäßig</th><th scope="col" class="adaptive-color" data-i18n="adaptive">Adaptiv</th></tr></thead><tbody>
+        <tr><th scope="row" data-i18n="samples">Messversuche</th><td id="regular-samples">0</td><td id="adaptive-samples">0</td></tr>
+        <tr class="featured-metric"><th scope="row" data-i18n="detected">Modellereignisse getroffen</th><td id="regular-detected">0</td><td id="adaptive-detected">0</td></tr>
+        <tr><th scope="row" data-i18n="missed">Beendete Ereignisse verpasst</th><td id="regular-missed">0</td><td id="adaptive-missed">0</td></tr>
+        <tr><th scope="row" data-i18n="pending">Aktive Ereignisse noch ungetroffen</th><td id="regular-pending">0</td><td id="adaptive-pending">0</td></tr>
+        <tr><th scope="row" data-i18n="recall">Anteil getroffener Ereignisse</th><td id="regular-recall">—</td><td id="adaptive-recall">—</td></tr>
+        <tr><th scope="row" data-i18n="latency">Mittlere Trefferlatenz (Schritte)</th><td id="regular-latency">—</td><td id="adaptive-latency">—</td></tr>
+        <tr><th scope="row" data-i18n="blind">Größte Messlücke (Schritte)</th><td id="regular-blind">0</td><td id="adaptive-blind">0</td></tr>
+        <tr><th scope="row" data-i18n="coverage">Mindestens einmal gemessene Orte</th><td id="regular-coverage">0 / 25</td><td id="adaptive-coverage">0 / 25</td></tr>
+      </tbody></table></div>
+      <p id="denominator" class="denominator">Bisher begonnene Modellereignisse: 0</p>
+      <p class="metric-note" data-i18n="metricNote">Latenz = erster Treffer minus Ereignisbeginn; sie bezieht sich nur auf Treffer. „—“ bedeutet: noch keine Grundlage für diesen Wert. Die Messlücke zählt ungemessene Schritte je Ort einschließlich der Ränder des bisherigen Laufs.</p>
+    </section>
+
+    <section class="method-panel" aria-labelledby="method-title"><div><p class="section-kicker" data-i18n="methodKicker">DER VERTRAG</p><h2 id="method-title" data-i18n="methodTitle">Neugier mit sichtbaren Regeln.</h2></div><div class="method-grid"><article><span class="method-index" aria-hidden="true">01</span><h3 data-i18n="fairTitle">Gleiche Ausgangslage</h3><p data-i18n="fairCopy">Beide Regeln arbeiten am gleichen Modell mit gleichem Budget. Eine adaptive Regel kann je nach Szenario auch schlechter abschneiden.</p></article><article><span class="method-index" aria-hidden="true">02</span><h3 data-i18n="boundaryTitle">Eine erklärte Modellgrenze</h3><p data-i18n="boundaryCopy">Die Regeln erhalten vergangene eigene Proben. Der vollständige Modellverlauf gehört zum Erzeuger und zur Auswertung. Alle Rollen laufen in derselben Anwendung.</p></article><article><span class="method-index" aria-hidden="true">03</span><h3 data-i18n="receiptTitle">Ein Lauf zum Mitnehmen</h3><p data-i18n="receiptCopy">Der JSON-Export enthält Konfiguration, Modellverlauf, Entscheidungen und Messungen. Sein Hash prüft die Konsistenz der exportierten Daten; Herkunft und Außenwahrheit sind eigene Fragen.</p></article></div></section>
+    <footer class="page-footer"><span>HALVETH / SCARLET <span aria-hidden="true">✦</span> <span data-i18n="footerModel">Eine Simulation zum Weiterfragen.</span></span><a href="../../LICENSES.md" data-i18n="rights">Rechte & Quellen</a></footer>
+    <noscript><p class="noscript">Dieser lokale Modellversuch benötigt JavaScript. This local model experiment requires JavaScript.</p></noscript>
+  </main>
+</body>
+</html>
