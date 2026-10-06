@@ -43,4 +43,15 @@
   .portal-route-home .credits a{display:inline-flex;align-items:center;min-height:44px;padding:8px}
   .portal-route-home .globe-control{touch-action:none}
   .portal-route-home #q-entry{position:relative;inset:auto;z-index:1;transform:none;margin:12px max(18px,env(safe-area-inset-right)) max(18px,env(safe-area-inset-bottom)) auto}
+  /* The separate 3D directory owns its header; allow its larger touch targets
+     and embedded language links to determine height before the scene begins. */
+  .entity-world-page .world-header{height:auto;min-height:108px}
+  .entity-world-page .world-header-actions{width:100%;min-width:0;flex-wrap:wrap;gap:6px}
+  .entity-world-page .world-header-actions .profile-languages{flex:1 1 100%;min-width:0}
+  .entity-world-page .hub-navigation.hub-navigation--embedded{display:flex;flex-wrap:wrap;gap:4px;padding:0;max-width:100%}
+  .entity-world-page .hub-navigation a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;font-size:12px}
+  .entity-world-page .hub-navigation a:first-child{flex:1;min-width:90px;max-width:none;overflow:visible;white-space:normal;text-align:left;justify-content:flex-start}
+  .entity-world-page :is(.world-header-actions,.world-camera-controls,.world-movement) .icon-button{width:44px;height:44px;min-width:44px;min-height:44px}
+  .entity-world-page .world-movement{grid-template-columns:repeat(4,44px);grid-template-rows:repeat(2,44px);gap:5px}
+  .entity-world-page .world-camera-controls{bottom:116px}
 }
