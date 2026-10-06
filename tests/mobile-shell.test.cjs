@@ -1,6 +1,7 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const root=path.join(__dirname,'..');
+const {createHash}=require('node:crypto');
 function fixture({mobile=true,hub=true,embedded=false}={}){
   const all=[],windowEvents=new Map(),documentEvents=new Map(),mediaEvents=new Map();
   function element(tag='div'){
@@ -76,6 +77,17 @@ test('every built HTML receives one local mobile stylesheet after its page style
     assert.equal(mobile.length,1,file);assert.equal(links.at(-1)[1],mobile[0][1],file);
     assert.ok(fs.existsSync(path.resolve(path.dirname(file),mobile[0][1].split('?')[0])),file);
     assert.ok(/name="viewport"/.test(head),file);
+    const source=fs.readFileSync(path.join(root,path.relative(build,file)),'utf8');
+    const assetRefs=(text,name)=>[...text.matchAll(/\b(?:src|href)=(["'])([^"']+)\1/g)].filter(m=>m[2].split('?')[0].endsWith(name));
+    for(const name of ['assets/portal-shell.css','assets/portal-shell.js','languages/hub-language.css','assets/mobile.css']){
+      const refs=assetRefs(html,name);
+      // Portal resources are optional page inputs; the two CSS layers are
+      // injected into every page. A build must preserve the actual input set.
+      const expectedCount=name.startsWith('assets/portal-shell.')?assetRefs(source,name).length:1;
+      assert.equal(refs.length,expectedCount,file+' '+name);
+      const expected=createHash('sha256').update(fs.readFileSync(path.join(build,name))).digest('hex');
+      for(const ref of refs)assert.equal(new URL(ref[2],'https://local.test/').searchParams.get('v'),expected,file+' '+name);
+    }
   }}walk(build);
   assert.equal(count,JSON.parse(fs.readFileSync(path.join(build,'build-info.json'),'utf8')).htmlPages);
   assert.ok(count>=89,'expected the whole current site');
