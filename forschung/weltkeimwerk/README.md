@@ -1,3 +1,40 @@
+# G^* · Weltkeimwerk — Live
+
+[Raum öffnen / Open space](./) · [Frühere Werkstatt / Earlier workshop](werkstatt.html)
+
+## Deutsch
+
+Die Hauptseite beginnt automatisch. Die 69 öffentlichen Profile aus `assets/universe-data.js` erhalten sichtbaren Raum. Lokale Impulse erreichen ihre Ports, durchlaufen die Membran und ändern den gespeicherten Kernzustand. Nach wiederholten Übergängen entsteht eine innere Zelle, die weitere Impulse vom Parent erhält. Zellinhalt, Membranparameter und nachfolgende Verbindungswahl verändern sich gemeinsam nach den hier definierten Softwareregeln.
+
+Es gibt keine Formulare, Startschritte oder Inspektoren. Die einzige Schaltfläche pausiert den Lauf. Die lokale Geräteuhr bleibt dabei sichtbar. Der alte manuelle Textkern und seine Werkstatt sind weiterhin unter `werkstatt.html` erreichbar; bestehende Exporte gehören zu diesem unveränderten Kern.
+
+`live-core.js` führt eine separate automatische Zellgrammatik in Version 1.0.0. Ein Seed, derselbe Profilstand und dieselbe Modellzeit erzeugen denselben Zustand. Der Renderer nutzt `performance.now()` und 50-ms-Modellschritte. Die angezeigte Uhr verwendet getrennt `Date`. Ein Hintergrund-Tab pausiert die Entfaltung; fehlende Anzeigezeit wird als Lücke gezählt. Ein Frame verarbeitet höchstens 250 ms und erfindet keine lückenlose Hintergrundbeobachtung. Die Geräteuhr ist nicht extern kalibriert. Siehe [MDN: monotone Zeitbasis](https://developer.mozilla.org/en-US/docs/Web/API/Performance/now) und [MDN: Animationszyklen und Hintergrund-Tabs](https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Fundamentals).
+
+Rekursion endet bei Tiefe zwei: pro Profil höchstens eine innere Zelle und deren innere Zelle. Der 69-Profil-Stand umfasst damit höchstens 207 Modellzellen. Nach Erreichen der Population laufen Zustandswechsel weiter. Eingangsqueues sind auf acht Einträge, gleichzeitig fliegende Signale auf 512 und die lesbare Ereignishistorie auf die letzten 256 Ereignisse begrenzt; Kapazitätsverluste und der erhaltene Sequenzbereich werden ausdrücklich gezählt. Die Seite speichert diesen flüchtigen Lauf nicht und startet beim Neuladen neu. Reduzierte Bewegung zeigt feste Positionen und höchstens eine Zustandsdarstellung je Sekunde. `window.GStarLiveView.snapshot()` liefert eine abgetrennte Leseansicht für Entwicklung und Tests.
+
+Die Profile sind veröffentlichte Perspektiven, Figuren und Projekte. Ihre Zellinstanzen führen lokale Regeln aus; Profilnamen behaupten weder unabhängige KI-Agenten noch Beteiligung realer Personen. Signale sind interne Softwarenachrichten. Farben, X, X* und X′ stellen definierte Modellphasen dar. Der 32-Bit-Genomwert steuert die Darstellung und Transformation; er ist kein kryptografischer Beleg. Es gibt keine Netzabfrage, externe Selbstmodifikation oder biologische Wirkungsmessung. Der private Ausgangstext und die gelieferten Bilder gehören nicht zum öffentlichen Release.
+
+## English
+
+The main route starts by itself. The 69 published profiles occupy the space, exchange local signals, change their stored cores and membranes, and grow nested cells. There are no forms or start steps. One button pauses the unfolding; the separate local wall clock remains live. The earlier manual text ledger is preserved at `werkstatt.html`.
+
+The automatic grammar is deterministic for a fixed profile snapshot, seed and model time. It uses 50-ms steps driven by monotonic active elapsed time. Hidden tabs pause; display gaps are counted. The local wall clock is uncalibrated. Recursion is bounded to two nested levels, giving at most 207 cells for the current 69 profiles. States continue changing at that limit. Input queues, in-flight signals and retained recent history are bounded, with explicit loss counts and sequence coverage. Reduced-motion rendering uses fixed positions and one refresh per second. Reloading starts a new ephemeral run. The read-only developer snapshot is `window.GStarLiveView.snapshot()`.
+
+These are local software cells based on published project profiles, not evidence of independent AI agents, real-person participation, biological effects or self-modifying external systems. No runtime network calls are made. Private source material is excluded from the release.
+
+## Validation
+
+```sh
+node --test tests/gstar-live.test.cjs
+node tools/build_site.mjs
+```
+
+The test suite includes frame-partition equivalence, actual port/membrane/core transitions, all 69 profile identities, inherited child state, detached read views, invalid time rejection, explicit display gaps, and a virtual one-hour run. A virtual run is not a measured hour of browser operation.
+
+---
+
+## Earlier manual ledger · retained API documentation
+
 # G^* · Weltkeimwerk
 
 [Öffnen / Open](./) · [Grenzbeobachter / Boundary observers](../grenzbeobachter/) · [Lizenzkarte / License map](../../LICENSES.md)
