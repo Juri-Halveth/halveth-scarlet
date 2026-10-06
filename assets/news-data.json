@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-06T10:23:15Z",
+  "generatedAt": "2026-10-06T17:13:35Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-06T10:23:15Z",
-      "lastSuccessAt": "2026-10-06T10:23:15Z",
+      "lastAttemptAt": "2026-10-06T17:13:35Z",
+      "lastSuccessAt": "2026-10-06T17:13:35Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,57 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-06T10:23:15Z",
-      "lastSuccessAt": "2026-10-06T10:23:15Z",
+      "lastAttemptAt": "2026-10-06T17:13:35Z",
+      "lastSuccessAt": "2026-10-06T17:13:35Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "003e0e2143d68a6a2f899fa3",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Astronomers Solve Cosmic Cold Case with NASA Hubble Data",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/astronomers-solve-cosmic-cold-case-with-nasa-hubble-data/",
+      "sourcePublishedAt": "2026-10-06T16:09:13Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
+      "firstFetchedAt": "2026-10-06T17:13:35Z"
+    },
+    {
+      "id": "66089d1385a5a0b1e4690291",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Curiosity Rover Catches Stunning Martian Dawn",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/missions/mars-science-laboratory/curiosity-rover/nasas-curiosity-rover-catches-stunning-martian-dawn/",
+      "sourcePublishedAt": "2026-10-06T15:30:07Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
+      "firstFetchedAt": "2026-10-06T17:13:35Z"
+    },
+    {
+      "id": "cfa12f85fd0d4abee3a2a4f3",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Webb Captures Commotion From Nebula’s Stellar Jets",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/missions/webb/nasas-webb-captures-commotion-from-nebulas-stellar-jets/",
+      "sourcePublishedAt": "2026-10-06T13:00:00Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
+      "firstFetchedAt": "2026-10-06T17:13:35Z"
+    },
+    {
+      "id": "06753ef5f068b713de285275",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Code scanning AI Scan enablement status in security overview",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-06-code-scanning-ai-scan-enablement-status-in-security-overview",
+      "sourcePublishedAt": "2026-10-06T10:23:38Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
+      "firstFetchedAt": "2026-10-06T17:13:35Z"
+    },
     {
       "id": "6a337996fce9b648126cacdb",
       "sourceId": "nasa",
@@ -32,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-6-a-complete-auroral-oval-from-smile/",
       "sourcePublishedAt": "2026-10-06T04:05:00Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-06T10:23:15Z"
     },
     {
@@ -43,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/the-beaver-brown-waters-of-rupert-bay/",
       "sourcePublishedAt": "2026-10-06T04:01:00Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-06T10:23:15Z"
     },
     {
@@ -54,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5029-5035-back-in-the-lab/",
       "sourcePublishedAt": "2026-10-06T01:04:01Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-06T03:01:36Z"
     },
     {
@@ -65,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/blog/a-journey-to-the-depths-of-ancient-mars/",
       "sourcePublishedAt": "2026-10-06T00:48:54Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-06T03:01:36Z"
     },
     {
@@ -76,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-05-secret-scanning-adds-detectors-for-lovable-supabase-and-more",
       "sourcePublishedAt": "2026-10-05T22:42:14Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-06T03:01:36Z"
     },
     {
@@ -87,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-to-stream-spacex-crew-12-return-splashdown-live/",
       "sourcePublishedAt": "2026-10-05T21:44:40Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -98,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-astronaut-christina-koch-at-eagles-vs-rams/",
       "sourcePublishedAt": "2026-10-05T17:42:56Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -109,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-testing-aims-at-supercooled-large-droplet-aviation-safety/",
       "sourcePublishedAt": "2026-10-05T15:27:23Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-05T16:04:27Z"
     },
     {
@@ -208,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out",
       "sourcePublishedAt": "2026-10-02T22:18:23Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -241,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level",
       "sourcePublishedAt": "2026-10-02T19:13:50Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -252,7 +296,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-unvalidated-npm-trusted-publishing-configurations-now-expire",
       "sourcePublishedAt": "2026-10-02T19:07:04Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -263,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-npm-staged-publishing-now-supports-creating-new-packages",
       "sourcePublishedAt": "2026-10-02T19:05:17Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -285,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated",
       "sourcePublishedAt": "2026-10-02T18:24:19Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -340,7 +384,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-new-fields-for-securityadvisory-graphql-api",
       "sourcePublishedAt": "2026-10-02T13:18:00Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -351,7 +395,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-confidential-comments-on-repository-security-advisories",
       "sourcePublishedAt": "2026-10-02T13:15:40Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -362,7 +406,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-repository-security-advisory-comments-api-in-public-preview",
       "sourcePublishedAt": "2026-10-02T13:15:25Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -498,17 +542,6 @@
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
-      "id": "e2c78b8df324231e1e4f15c9",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "What’s Up: October 2026 Skywatching Tips from NASA",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/",
-      "sourcePublishedAt": "2026-10-01T16:58:10Z",
-      "fetchedAt": "2026-10-02T18:27:14Z",
-      "firstFetchedAt": "2026-10-01T19:34:03Z"
-    },
-    {
       "id": "1b08c1a560be6fc559cd4345",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -553,17 +586,6 @@
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
-      "id": "cc530636f53150f8479850be",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s SpaceX Crew-13 Launches to International Space Station",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasas-spacex-crew-13-launches-to-international-space-station/",
-      "sourcePublishedAt": "2026-10-01T15:59:24Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
-      "firstFetchedAt": "2026-10-01T19:34:03Z"
-    },
-    {
       "id": "e77dbfb3ff372c8397520da1",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -572,17 +594,6 @@
       "url": "https://github.blog/changelog/2026-10-01-github-async-merge-api-generally-available",
       "sourcePublishedAt": "2026-10-01T14:00:51Z",
       "fetchedAt": "2026-10-01T19:34:03Z",
-      "firstFetchedAt": "2026-10-01T19:34:03Z"
-    },
-    {
-      "id": "6dd5f16404b729895df22a26",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s Webb Provides Crash Course on Planet-Shattering Collisions",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/missions/webb/nasas-webb-provides-crash-course-on-planet-shattering-collisions/",
-      "sourcePublishedAt": "2026-10-01T14:00:00Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
     },
     {
@@ -672,17 +683,6 @@
       "sourcePublishedAt": "2026-09-29T17:02:27Z",
       "fetchedAt": "2026-10-01T13:22:02Z",
       "firstFetchedAt": "2026-09-29T20:50:38Z"
-    },
-    {
-      "id": "1d09516522abfde5d3cf8f8a",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Self-hosted runner version enforcement date has moved",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved",
-      "sourcePublishedAt": "2026-09-28T19:22:46Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
-      "firstFetchedAt": "2026-09-28T22:04:16Z"
     }
   ]
 }

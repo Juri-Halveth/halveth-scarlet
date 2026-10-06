@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "createdAt": "2026-10-06T17:13:35.514Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-10-06",
+  "body": "# HALVETH Quellen-Update · 2026-10-06\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [Astronomers Solve Cosmic Cold Case with NASA Hubble Data](https://www.nasa.gov/image-article/astronomers-solve-cosmic-cold-case-with-nasa-hubble-data/) · veröffentlicht 2026-10-06\n- **NASA** · Originaltitel (EN): [NASA’s Curiosity Rover Catches Stunning Martian Dawn](https://www.nasa.gov/missions/mars-science-laboratory/curiosity-rover/nasas-curiosity-rover-catches-stunning-martian-dawn/) · veröffentlicht 2026-10-06\n- **NASA** · Originaltitel (EN): [NASA’s Webb Captures Commotion From Nebula’s Stellar Jets](https://science.nasa.gov/missions/webb/nasas-webb-captures-commotion-from-nebulas-stellar-jets/) · veröffentlicht 2026-10-06\n- **GitHub Changelog** · Originaltitel (EN): [Code scanning AI Scan enablement status in security overview](https://github.blog/changelog/2026-10-06-code-scanning-ai-scan-enablement-status-in-security-overview) · veröffentlicht 2026-10-06\n- **NASA** · Originaltitel (EN): [APOD: 2026 October 6 – A Complete Auroral Oval from SMILE](https://science.nasa.gov/image-article/apod-2026-october-6-a-complete-auroral-oval-from-smile/) · veröffentlicht 2026-10-06\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "003e0e2143d68a6a2f899fa3",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Astronomers Solve Cosmic Cold Case with NASA Hubble Data",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/astronomers-solve-cosmic-cold-case-with-nasa-hubble-data/",
+      "sourcePublishedAt": "2026-10-06T16:09:13Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
+      "firstFetchedAt": "2026-10-06T17:13:35Z"
+    },
+    {
+      "id": "66089d1385a5a0b1e4690291",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Curiosity Rover Catches Stunning Martian Dawn",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/missions/mars-science-laboratory/curiosity-rover/nasas-curiosity-rover-catches-stunning-martian-dawn/",
+      "sourcePublishedAt": "2026-10-06T15:30:07Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
+      "firstFetchedAt": "2026-10-06T17:13:35Z"
+    },
+    {
+      "id": "cfa12f85fd0d4abee3a2a4f3",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Webb Captures Commotion From Nebula’s Stellar Jets",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/missions/webb/nasas-webb-captures-commotion-from-nebulas-stellar-jets/",
+      "sourcePublishedAt": "2026-10-06T13:00:00Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
+      "firstFetchedAt": "2026-10-06T17:13:35Z"
+    },
+    {
+      "id": "06753ef5f068b713de285275",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Code scanning AI Scan enablement status in security overview",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-06-code-scanning-ai-scan-enablement-status-in-security-overview",
+      "sourcePublishedAt": "2026-10-06T10:23:38Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
+      "firstFetchedAt": "2026-10-06T17:13:35Z"
+    },
+    {
+      "id": "6a337996fce9b648126cacdb",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 October 6 – A Complete Auroral Oval from SMILE",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-6-a-complete-auroral-oval-from-smile/",
+      "sourcePublishedAt": "2026-10-06T04:05:00Z",
+      "fetchedAt": "2026-10-06T17:13:35Z",
+      "firstFetchedAt": "2026-10-06T10:23:15Z"
+    }
+  ],
+  "idempotencyKey": "64222f199ecdf2d7ebc2bccb7ca5a14e43b0ad4f5192b286a164fcbeafadd6d9"
+}
