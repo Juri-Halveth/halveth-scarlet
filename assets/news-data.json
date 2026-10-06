@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-06T03:01:36Z",
+  "generatedAt": "2026-10-06T10:23:15Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-06T03:01:36Z",
-      "lastSuccessAt": "2026-10-06T03:01:36Z",
+      "lastAttemptAt": "2026-10-06T10:23:15Z",
+      "lastSuccessAt": "2026-10-06T10:23:15Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,35 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-06T03:01:36Z",
-      "lastSuccessAt": "2026-10-06T03:01:36Z",
+      "lastAttemptAt": "2026-10-06T10:23:15Z",
+      "lastSuccessAt": "2026-10-06T10:23:15Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "6a337996fce9b648126cacdb",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 October 6 – A Complete Auroral Oval from SMILE",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-6-a-complete-auroral-oval-from-smile/",
+      "sourcePublishedAt": "2026-10-06T04:05:00Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
+      "firstFetchedAt": "2026-10-06T10:23:15Z"
+    },
+    {
+      "id": "6d35da0ea915c84fbfa7c302",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "The Beaver Brown Waters of Rupert Bay",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/the-beaver-brown-waters-of-rupert-bay/",
+      "sourcePublishedAt": "2026-10-06T04:01:00Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
+      "firstFetchedAt": "2026-10-06T10:23:15Z"
+    },
     {
       "id": "92ec09c4cd961b3d891e256e",
       "sourceId": "nasa",
@@ -32,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5029-5035-back-in-the-lab/",
       "sourcePublishedAt": "2026-10-06T01:04:01Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-06T03:01:36Z"
     },
     {
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/blog/a-journey-to-the-depths-of-ancient-mars/",
       "sourcePublishedAt": "2026-10-06T00:48:54Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-06T03:01:36Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-05-secret-scanning-adds-detectors-for-lovable-supabase-and-more",
       "sourcePublishedAt": "2026-10-05T22:42:14Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-06T03:01:36Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-to-stream-spacex-crew-12-return-splashdown-live/",
       "sourcePublishedAt": "2026-10-05T21:44:40Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-astronaut-christina-koch-at-eagles-vs-rams/",
       "sourcePublishedAt": "2026-10-05T17:42:56Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-testing-aims-at-supercooled-large-droplet-aviation-safety/",
       "sourcePublishedAt": "2026-10-05T15:27:23Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-05T16:04:27Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/hubble/suspected-second-generation-planet-solves-nasa-hubble-cold-case/",
       "sourcePublishedAt": "2026-10-05T15:00:35Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-05T16:04:27Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-5-m104-the-sombrero-galaxys-tidal-streams/",
       "sourcePublishedAt": "2026-10-05T04:05:00Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-05T07:06:22Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/moon-like-madagascar/",
       "sourcePublishedAt": "2026-10-05T04:01:00Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-05T07:06:22Z"
     },
     {
@@ -186,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out",
       "sourcePublishedAt": "2026-10-02T22:18:23Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -219,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level",
       "sourcePublishedAt": "2026-10-02T19:13:50Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -230,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-unvalidated-npm-trusted-publishing-configurations-now-expire",
       "sourcePublishedAt": "2026-10-02T19:07:04Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -241,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-npm-staged-publishing-now-supports-creating-new-packages",
       "sourcePublishedAt": "2026-10-02T19:05:17Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -263,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated",
       "sourcePublishedAt": "2026-10-02T18:24:19Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -318,7 +340,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-new-fields-for-securityadvisory-graphql-api",
       "sourcePublishedAt": "2026-10-02T13:18:00Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -329,7 +351,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-confidential-comments-on-repository-security-advisories",
       "sourcePublishedAt": "2026-10-02T13:15:40Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -340,7 +362,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-repository-security-advisory-comments-api-in-public-preview",
       "sourcePublishedAt": "2026-10-02T13:15:25Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -395,7 +417,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-rate-limits-for-private-vulnerability-reports",
       "sourcePublishedAt": "2026-10-01T19:57:39Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
+      "fetchedAt": "2026-10-06T10:23:15Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -573,28 +595,6 @@
       "sourcePublishedAt": "2026-10-01T13:01:31Z",
       "fetchedAt": "2026-10-01T19:34:03Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
-    },
-    {
-      "id": "b1f90b956474857f13043c29",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 October 1 – Harvest Moon with Erupting Mount Etna",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-october-1-harvest-moon-with-belt-of-venus-and-erupting-mount-etna/",
-      "sourcePublishedAt": "2026-10-01T04:05:00Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
-      "firstFetchedAt": "2026-10-01T06:00:09Z"
-    },
-    {
-      "id": "6843c55c0738db2718030984",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "An Agricultural “Island” in the Saskatchewan River Delta",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/earth/earth-observatory/an-agricultural-island-in-the-saskatchewan-river-delta/",
-      "sourcePublishedAt": "2026-10-01T04:00:00Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
-      "firstFetchedAt": "2026-10-01T06:00:09Z"
     },
     {
       "id": "8f738e218bb88ed3b1aa81c4",
