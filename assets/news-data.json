@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-05T22:40:38Z",
+  "generatedAt": "2026-10-06T03:01:36Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-05T22:40:38Z",
-      "lastSuccessAt": "2026-10-05T22:40:38Z",
+      "lastAttemptAt": "2026-10-06T03:01:36Z",
+      "lastSuccessAt": "2026-10-06T03:01:36Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,46 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-05T22:40:38Z",
-      "lastSuccessAt": "2026-10-05T22:40:38Z",
+      "lastAttemptAt": "2026-10-06T03:01:36Z",
+      "lastSuccessAt": "2026-10-06T03:01:36Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "92ec09c4cd961b3d891e256e",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Curiosity Blog, Sols 5029-5035: Back in the Lab",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5029-5035-back-in-the-lab/",
+      "sourcePublishedAt": "2026-10-06T01:04:01Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
+      "firstFetchedAt": "2026-10-06T03:01:36Z"
+    },
+    {
+      "id": "19aa2698bcfbd428d86c589b",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "A Journey to the Depths of Ancient Mars?",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/blog/a-journey-to-the-depths-of-ancient-mars/",
+      "sourcePublishedAt": "2026-10-06T00:48:54Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
+      "firstFetchedAt": "2026-10-06T03:01:36Z"
+    },
+    {
+      "id": "517fdc831c7b1edb72c4ef54",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Secret scanning adds detectors for Lovable, Supabase, and more",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-05-secret-scanning-adds-detectors-for-lovable-supabase-and-more",
+      "sourcePublishedAt": "2026-10-05T22:42:14Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
+      "firstFetchedAt": "2026-10-06T03:01:36Z"
+    },
     {
       "id": "4fdb28d7bb2823af19bc7de2",
       "sourceId": "nasa",
@@ -32,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-to-stream-spacex-crew-12-return-splashdown-live/",
       "sourcePublishedAt": "2026-10-05T21:44:40Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -43,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-astronaut-christina-koch-at-eagles-vs-rams/",
       "sourcePublishedAt": "2026-10-05T17:42:56Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -54,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasa-testing-aims-at-supercooled-large-droplet-aviation-safety/",
       "sourcePublishedAt": "2026-10-05T15:27:23Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-05T16:04:27Z"
     },
     {
@@ -65,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/hubble/suspected-second-generation-planet-solves-nasa-hubble-cold-case/",
       "sourcePublishedAt": "2026-10-05T15:00:35Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-05T16:04:27Z"
     },
     {
@@ -87,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-5-m104-the-sombrero-galaxys-tidal-streams/",
       "sourcePublishedAt": "2026-10-05T04:05:00Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-05T07:06:22Z"
     },
     {
@@ -98,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/moon-like-madagascar/",
       "sourcePublishedAt": "2026-10-05T04:01:00Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-05T07:06:22Z"
     },
     {
@@ -109,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5022-5028-cashing-in-at-cache-creek/",
       "sourcePublishedAt": "2026-10-04T21:13:07Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-05T00:58:05Z"
     },
     {
@@ -120,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/general/mapping-the-gaps-in-nasas-return-to-the-moon-featuring-richard-spolzino/",
       "sourcePublishedAt": "2026-10-04T19:10:59Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-04T21:31:02Z"
     },
     {
@@ -153,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out",
       "sourcePublishedAt": "2026-10-02T22:18:23Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -186,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level",
       "sourcePublishedAt": "2026-10-02T19:13:50Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -197,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-unvalidated-npm-trusted-publishing-configurations-now-expire",
       "sourcePublishedAt": "2026-10-02T19:07:04Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -208,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-npm-staged-publishing-now-supports-creating-new-packages",
       "sourcePublishedAt": "2026-10-02T19:05:17Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -230,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated",
       "sourcePublishedAt": "2026-10-02T18:24:19Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -285,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-new-fields-for-securityadvisory-graphql-api",
       "sourcePublishedAt": "2026-10-02T13:18:00Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -296,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-confidential-comments-on-repository-security-advisories",
       "sourcePublishedAt": "2026-10-02T13:15:40Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -307,7 +340,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-repository-security-advisory-comments-api-in-public-preview",
       "sourcePublishedAt": "2026-10-02T13:15:25Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
@@ -362,7 +395,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-01-rate-limits-for-private-vulnerability-reports",
       "sourcePublishedAt": "2026-10-01T19:57:39Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
+      "fetchedAt": "2026-10-06T03:01:36Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
     },
     {
@@ -564,28 +597,6 @@
       "firstFetchedAt": "2026-10-01T06:00:09Z"
     },
     {
-      "id": "6da7d26e176dce8c682ed31b",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Curiosity Blog, Sols 5016–5021: Fantastic Minerals and How To Detect Them",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5016-5021-fantastic-minerals-and-how-to-detect-them/",
-      "sourcePublishedAt": "2026-09-30T23:37:47Z",
-      "fetchedAt": "2026-10-01T23:54:28Z",
-      "firstFetchedAt": "2026-10-01T06:00:09Z"
-    },
-    {
-      "id": "4383cfb3d04939e5d1e79521",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Help Overlap Zoo Reveal Cosmic Dust",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/get-involved/citizen-science/help-overlap-zoo-reveal-cosmic-dust/",
-      "sourcePublishedAt": "2026-09-30T21:19:33Z",
-      "fetchedAt": "2026-10-01T23:54:28Z",
-      "firstFetchedAt": "2026-09-30T23:53:20Z"
-    },
-    {
       "id": "8f738e218bb88ed3b1aa81c4",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -670,17 +681,6 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved",
       "sourcePublishedAt": "2026-09-28T19:22:46Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
-      "firstFetchedAt": "2026-09-28T22:04:16Z"
-    },
-    {
-      "id": "469712811c22e040083a3bd4",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Claude Sonnet 5.5 in GitHub Copilot",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot",
-      "sourcePublishedAt": "2026-09-28T18:03:57Z",
       "fetchedAt": "2026-10-01T13:22:02Z",
       "firstFetchedAt": "2026-09-28T22:04:16Z"
     }
