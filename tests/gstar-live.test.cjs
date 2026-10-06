@@ -95,6 +95,7 @@ test('the main entry has no forms, imports, inspector, or start action and retai
   assert.equal((html.match(/<button\b/g) || []).length, 1); assert(html.includes('id="pause"'));
   assert(html.includes('data-gstar-live="true"')); assert(html.includes('data-language-static'));
   assert(html.includes('live-core.js')); assert(html.includes('live.js')); assert(html.includes('universe-data.js'));
+  assert(html.includes('portal-shell.js?v=choice-atelier-20260914&amp;live=2.0.0'), 'cached pre-immersive portal scripts must not add the old navigation');
   assert(!html.includes('src="ui.js')); assert(!html.includes('id="demo"'));
   assert(fs.readFileSync(path.join(root,'forschung/weltkeimwerk/werkstatt.html'),'utf8').includes('id="demo"'));
 });
