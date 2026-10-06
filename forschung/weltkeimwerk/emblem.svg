@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 210" role="img" aria-labelledby="title desc">
+  <title id="title">G^* · Weltkeimwerk</title>
+  <desc id="desc">A newly drawn G with an open star, a golden halo and a trailing transition. A symbolic vocabulary for possibility, origin and materialization.</desc>
+  <defs>
+    <linearGradient id="trail" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#ba4139" stop-opacity="0"/><stop offset=".58" stop-color="#e3634f"/><stop offset="1" stop-color="#f2dfb2"/></linearGradient>
+    <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff7e2"/><stop offset="1" stop-color="#dcbf81"/></linearGradient>
+  </defs>
+  <path d="M13 189C65 185 92 165 113 143M27 204C75 194 94 178 120 150M39 170C71 164 89 154 105 136" fill="none" stroke="url(#trail)" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="159" cy="35" rx="67" ry="13" transform="rotate(-12 159 35)" fill="none" stroke="#dca762" stroke-width="2"/>
+  <path d="M99 38a69 14-12 0 1 62-24" fill="none" stroke="#ffedc2" stroke-width="1" opacity=".6"/>
+  <path d="M204 80C190 62 173 56 154 58C123 61 102 86 102 116C102 151 128 174 158 174C179 174 197 163 207 147V119H165" fill="none" stroke="url(#ivory)" stroke-width="14" stroke-linecap="square" stroke-linejoin="round"/>
+  <path d="M214 48L221 30L229 47" fill="none" stroke="#f5e6c4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M251 40L255 56L269 49L260 62L277 67L260 72L268 86L255 78L250 95L246 78L232 86L239 72L223 67L240 62L232 49L246 56Z" fill="none" stroke="#e2634f" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="250" cy="67" r="3.2" fill="#f5dec0"/>
+  <circle cx="93" cy="172" r="2.8" fill="#dca762"/>
+  <circle cx="81" cy="188" r="1.5" fill="#dca762" opacity=".55"/>
+</svg>
