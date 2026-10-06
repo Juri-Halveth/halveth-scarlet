@@ -42,4 +42,5 @@
   .portal-route-home .credits{position:relative;bottom:auto;margin-top:12px;font-size:11px;line-height:1.5;padding:0 12px}
   .portal-route-home .credits a{display:inline-flex;align-items:center;min-height:44px;padding:8px}
   .portal-route-home .globe-control{touch-action:none}
+  .portal-route-home #q-entry{position:relative;inset:auto;z-index:1;transform:none;margin:12px max(18px,env(safe-area-inset-right)) max(18px,env(safe-area-inset-bottom)) auto}
 }
