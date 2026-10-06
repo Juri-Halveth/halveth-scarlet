@@ -31,6 +31,7 @@
     {id:'anchor',path:'forschung/de-anker-hela/',index:'15',image:'scarlet',accent:'#ff6d9f',de:'DE → KONTEXT-ANKER',en:'DE → CONTEXT-ANCHOR',deNote:'Erst A beantworten, dann Multiversum',enNote:'Answer A first, then the multiverse'},
     {id:'research',path:'forschung/halveth-research/',index:'16',image:'nexus',accent:'#91f1d2',de:'HALVETH Research',en:'HALVETH Research',deNote:'Forschung, Quellen und menschliche Prüfung',enNote:'Research, sources and human review'},
     {id:'boundary',path:'forschung/grenzbeobachter/',index:'17',image:'nexus',accent:'#62dfcf',de:'Grenzbeobachter',en:'Boundary observers',deNote:'Festes und adaptives Beobachten im Modell',enNote:'Fixed and adaptive observation in a model'},
+    {id:'gstar',path:'forschung/weltkeimwerk/',index:'18',image:'nexus',accent:'#dca762',de:'G^* · Weltkeimwerk',en:'G^* · World seedwork',deNote:'Keim, Version, Materialisierung und Beobachtung',enNote:'Seed, version, materialization and observation'},
   ];
 
   const normalized=(url)=>decodeURI(url.pathname).replace(/index\.html$/i,'').replace(/\/+$/,'/')||'/';
