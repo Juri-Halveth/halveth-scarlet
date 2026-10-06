@@ -30,6 +30,7 @@
     {id:'prism',path:'forschung/usdai-sabr-kontext/',index:'14',image:'nexus',accent:'#79f5ce',de:'Kontext-Prisma',en:'Context prism',deNote:'USDAI und SABR im jeweiligen Kontext',enNote:'USDAI and SABR in their respective contexts'},
     {id:'anchor',path:'forschung/de-anker-hela/',index:'15',image:'scarlet',accent:'#ff6d9f',de:'DE → KONTEXT-ANKER',en:'DE → CONTEXT-ANCHOR',deNote:'Erst A beantworten, dann Multiversum',enNote:'Answer A first, then the multiverse'},
     {id:'research',path:'forschung/halveth-research/',index:'16',image:'nexus',accent:'#91f1d2',de:'HALVETH Research',en:'HALVETH Research',deNote:'Forschung, Quellen und menschliche Prüfung',enNote:'Research, sources and human review'},
+    {id:'boundary',path:'forschung/grenzbeobachter/',index:'17',image:'nexus',accent:'#62dfcf',de:'Grenzbeobachter',en:'Boundary observers',deNote:'Festes und adaptives Beobachten im Modell',enNote:'Fixed and adaptive observation in a model'},
   ];
 
   const normalized=(url)=>decodeURI(url.pathname).replace(/index\.html$/i,'').replace(/\/+$/,'/')||'/';
