@@ -8,7 +8,7 @@
   const en = language === 'en';
   document.documentElement.lang = language;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const ui = { paused: false, hidden: document.hidden, width: 0, height: 0, scale: 1, last: performance.now(), lastPaint: -Infinity, lastClock: -Infinity, lastSummary: -Infinity, hiddenAt: null, displayedFrames: 0 };
+  const ui = { paused: false, hidden: document.hidden, width: 0, height: 0, scale: 1, unit: 1, centerY: 0, last: performance.now(), lastPaint: -Infinity, lastClock: -Infinity, lastSummary: -Infinity, hiddenAt: null, displayedFrames: 0 };
   const poses = new Map(), elements = new Map();
   let engine, view;
   const localClock = new Intl.DateTimeFormat(en ? 'en-GB' : 'de-DE', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
@@ -18,7 +18,7 @@
   $('elapsed-label').textContent = en ? 'UNFOLDING' : 'ENTFALTUNG';
   $('world-title').textContent = en ? 'WORLD SEEDWORK' : 'WELTKEIMWERK';
   $('home').setAttribute('aria-label', en ? 'HALVETH home' : 'HALVETH Startseite');
-  $('field').setAttribute('aria-label', en ? 'Automatic cell space: signals enter ports, change cell states, and produce nested cells.' : 'Automatischer Zellraum: Signale erreichen Ports, verändern Zellzustände und erzeugen innere Zellen.');
+  $('field').setAttribute('aria-label', en ? 'Freely moving cells: membranes meet and rebound, touch waves spread through the space, and every profile can exchange signals with every other profile.' : 'Frei bewegte Zellen: Membranen begegnen sich und federn ab, Berührungswellen breiten sich im Raum aus, und jedes Profil kann mit jedem anderen Signale austauschen.');
   function fail(error) {
     ui.paused = true;
     $('error').hidden = false;
@@ -30,12 +30,18 @@
     const seedWords = new Uint32Array(1);
     crypto.getRandomValues(seedWords);
     engine = GStarLiving.create(window.HalvethUniverse.entities, { seed: seedWords[0] || 1 });
-    view = engine.snapshot();
+    view = engine.snapshot('render');
   } catch (error) { fail(error); return; }
   function resize() {
     ui.width = innerWidth; ui.height = innerHeight; ui.scale = Math.min(devicePixelRatio || 1, 2);
     canvas.width = Math.round(ui.width * ui.scale); canvas.height = Math.round(ui.height * ui.scale);
     context.setTransform(ui.scale, 0, 0, ui.scale, 0, 0);
+    const usableW = Math.max(180, ui.width - (ui.width < 600 ? 36 : 110));
+    const usableH = Math.max(180, ui.height - 190);
+    engine.reshape(Math.max(.25, Math.min(4, usableW / usableH)));
+    view = engine.snapshot('render');
+    ui.unit = Math.min(usableW / view.world.width, usableH / view.world.height);
+    ui.centerY = ui.height / 2 + 8;
     poses.clear(); ui.lastPaint = -Infinity;
     if (ui.paused) paint(1000);
   }
@@ -64,37 +70,24 @@
   function updateSummary() {
     updatePopulation();
     const c = view.counts;
-    $('summary').textContent = en ? `${c.roots} of ${c.sourceProfiles} source profiles, ${c.cells} cells, ${c.transitions} local state changes. ${ui.paused ? 'Paused.' : 'Running automatically.'}` : `${c.roots} von ${c.sourceProfiles} Ausgangsprofilen, ${c.cells} Zellen, ${c.transitions} lokale Zustandswechsel. ${ui.paused ? 'Pausiert.' : 'Läuft automatisch.'}`;
+    $('summary').textContent = en ? `${c.roots} of ${c.sourceProfiles} source profiles, ${c.cells} cells, ${c.contacts} membrane contacts, ${c.waveReceipts} wave encounters, ${c.transitions} local state changes. ${ui.paused ? 'Paused.' : 'Running automatically.'}` : `${c.roots} von ${c.sourceProfiles} Ausgangsprofilen, ${c.cells} Zellen, ${c.contacts} Membrankontakte, ${c.waveReceipts} Wellenbegegnungen, ${c.transitions} lokale Zustandswechsel. ${ui.paused ? 'Pausiert.' : 'Läuft automatisch.'}`;
   }
   function positions(delta) {
-    const roots = view.nodes.filter(node => node.depth === 0);
-    const count = reduced.matches ? view.counts.sourceProfiles : roots.length;
-    const usableW = Math.max(220, ui.width - (ui.width < 600 ? 28 : 170));
-    const usableH = Math.max(220, ui.height - 210);
-    const rx = usableW / 2, ry = usableH / 2;
-    const radius = Math.min(115, Math.sqrt(usableW * usableH / (Math.PI * Math.max(count, 5))) * 0.49);
-    const blend = reduced.matches ? 1 : 1 - Math.exp(-delta * 0.004);
-    for (const node of roots) {
-      const t = node.order * 2.399963229728653 + 0.35;
-      const radial = Math.sqrt((node.order + 0.8) / (count + 1)) * 0.87;
-      const drift = reduced.matches ? 0 : Math.sin(view.modelMs / 7600 + node.order) * Math.min(4, radius * .06);
-      const target = { x: ui.width / 2 + Math.cos(t) * radial * rx + drift, y: ui.height / 2 + Math.sin(t) * radial * ry + drift, r: radius * (0.93 + (node.initialGenome % 15) / 100) };
-      let pose = poses.get(node.id);
-      if (!pose) { pose = { ...target, r: reduced.matches ? target.r : target.r * 0.1 }; poses.set(node.id, pose); }
-      for (const key of ['x', 'y', 'r']) pose[key] += (target[key] - pose[key]) * blend;
-    }
-    for (const node of view.nodes.filter(node => node.depth > 0)) {
-      const parent = poses.get(node.parentId);
-      const target = { x: parent.x + parent.r * 0.31, y: parent.y + parent.r * 0.3, r: parent.r * 0.43 };
-      let pose = poses.get(node.id);
-      if (!pose) { pose = { ...target, r: reduced.matches ? target.r : 0 }; poses.set(node.id, pose); }
-      pose.x = target.x; pose.y = target.y; pose.r += (target.r - pose.r) * blend;
+    const fraction = reduced.matches ? 1 : view.timing.remainderMs / view.timing.stepMs;
+    for (const node of view.nodes) {
+      const p = node.previousPosition, q = node.position;
+      poses.set(node.id, { x: ui.width / 2 + (p.x + (q.x - p.x) * fraction) * ui.unit,
+        y: ui.centerY + (p.y + (q.y - p.y) * fraction) * ui.unit,
+        r: node.body.radius * ui.unit });
     }
   }
-  function membrane(pose, node) {
+  function membrane(pose, node, activePorts = []) {
     const { x, y, r } = pose;
     const now = view.modelMs / 1000, pulse = reduced.matches ? 0 : Math.sin(now * 1.3 + node.order) * 0.016;
     const busy = node.phase !== 'REST', core = node.phase === 'CORE';
+    const touchAge = node.lastTouch ? view.modelMs - node.lastTouch.at : Infinity;
+    const touchAngle = node.lastTouch ? Math.atan2(node.lastTouch.ny,node.lastTouch.nx) : 0;
+    const touch = reduced.matches ? 0 : Math.exp(-touchAge / 480);
     const fill = context.createRadialGradient(x - r * .25, y - r * .3, 1, x, y, Math.max(1, r * 1.15));
     fill.addColorStop(0, core ? 'rgba(207,39,28,.22)' : 'rgba(117,28,23,.16)');
     fill.addColorStop(.7, 'rgba(49,9,13,.12)'); fill.addColorStop(1, 'rgba(190,30,29,0)');
@@ -104,16 +97,18 @@
       for (let k = 0; k <= 56; k++) {
         const a = k / 56 * Math.PI * 2;
         const waviness = 0.025 * Math.sin(a * 3 + node.initialGenome % 17 + (reduced.matches ? 0 : now * .27));
-        const rr = r * (1 + pulse + waviness - layer * .045);
+        const indentation = touch * Math.pow(Math.max(0,Math.cos(a - touchAngle)), 6) * .13;
+        const ripple = touch * Math.sin((a - touchAngle) * 5 - touchAge / 85) * .028;
+        const rr = r * (1 + pulse + waviness + ripple - indentation - layer * .045);
         const xx = x + Math.cos(a) * rr, yy = y + Math.sin(a) * rr;
         if (!k) context.moveTo(xx, yy); else context.lineTo(xx, yy);
       }
-      context.strokeStyle = layer ? 'rgba(231,60,49,.13)' : `rgba(255,${core ? 82 : 57},${core ? 61 : 47},${busy ? .8 : .34})`;
+      context.strokeStyle = layer ? 'rgba(231,60,49,.18)' : `rgba(255,${touch > .2 ? 144 : core ? 82 : 57},${touch > .2 ? 100 : core ? 61 : 47},${busy || touch > .1 ? .8 : .48})`;
       context.lineWidth = layer ? .65 : (node.depth ? .8 : 1.05); context.stroke();
     }
     const portAngle = (node.initialGenome % 628) / 100;
-    for (const offset of [0, Math.PI]) {
-      const a = portAngle + offset, px = x + Math.cos(a) * r, py = y + Math.sin(a) * r;
+    for (const a of activePorts.length ? activePorts : [portAngle, portAngle + Math.PI]) {
+      const px = x + Math.cos(a) * r, py = y + Math.sin(a) * r;
       context.beginPath(); context.arc(px, py, node.depth ? 1.5 : 2.3, 0, Math.PI * 2);
       context.fillStyle = node.phase === 'PORT' ? '#ffdfc5' : '#ed5545'; context.fill();
       if (node.phase === 'PORT' && !reduced.matches) {
@@ -141,18 +136,34 @@
     positions(delta);
     const w = ui.width, h = ui.height;
     context.clearRect(0, 0, w, h);
+    const heat = context.createLinearGradient(0,ui.centerY - view.world.height * ui.unit / 2,0,ui.centerY + view.world.height * ui.unit / 2);
+    heat.addColorStop(0,'#29112012'); heat.addColorStop(.6,'#a3261800'); heat.addColorStop(1,'#ab321919');
+    context.fillStyle=heat; context.fillRect(0,0,w,h);
     for (let i = 0; i < 72; i++) {
       const x = ((i * 7919 + 29) % 997) / 997 * w, y = ((i * 4813 + 17) % 991) / 991 * h;
       context.fillStyle = i % 5 ? '#e8735420' : '#dd917339';
       context.fillRect(x, y, i % 5 ? 1 : 1.4, i % 5 ? 1 : 1.4);
     }
+    if (!reduced.matches) for (const wave of view.waves) {
+      const life = (view.modelMs - wave.bornAt) / (wave.expiresAt - wave.bornAt);
+      const x = w / 2 + wave.x * ui.unit, y = ui.centerY + wave.y * ui.unit;
+      context.beginPath(); context.arc(x,y,Math.max(.1,wave.radius * ui.unit),0,Math.PI*2);
+      context.strokeStyle=`rgba(255,104,79,${(1-life)*.24})`; context.lineWidth=1.1; context.stroke();
+      context.beginPath(); context.arc(x,y,Math.max(.1,wave.radius * ui.unit - 3),0,Math.PI*2);
+      context.strokeStyle=`rgba(255,63,58,${(1-life)*.07})`; context.lineWidth=2.8; context.stroke();
+    }
+    const byId = new Map(view.nodes.map(node => [node.id,node])), activePorts = new Map();
     for (const signal of view.signals) {
       const from = poses.get(signal.source), to = poses.get(signal.target);
       if (!from || !to) continue;
       const dx = to.x - from.x, dy = to.y - from.y;
       const internal = signal.kind === 'CONTAINED_SIGNAL';
-      const sourceNode = view.nodes.find(node => node.id === signal.source), targetNode = view.nodes.find(node => node.id === signal.target);
-      const outgoing = (sourceNode.initialGenome % 628) / 100, incoming = (targetNode.initialGenome % 628) / 100 + Math.PI;
+      const sourceNode = byId.get(signal.source), targetNode = byId.get(signal.target);
+      const outgoing = Math.atan2(dy,dx), incoming = outgoing + Math.PI;
+      for (const [id,angle] of [[signal.source,outgoing],[signal.target,incoming]]) {
+        if (!activePorts.has(id)) activePorts.set(id,[]);
+        activePorts.get(id).push(angle);
+      }
       const sx = from.x + Math.cos(outgoing) * (internal ? from.r * .22 : from.r), sy = from.y + Math.sin(outgoing) * (internal ? from.r * .22 : from.r);
       const ex = to.x + Math.cos(incoming) * to.r, ey = to.y + Math.sin(incoming) * to.r;
       const cx = (sx + ex) / 2 - dy * .17, cy = (sy + ey) / 2 + dx * .17;
@@ -167,7 +178,7 @@
       context.fillStyle='#ffac89'; context.beginPath(); context.arc(x,y,1.6,0,Math.PI*2); context.fill();
     }
     for (const node of view.nodes) {
-      const pose = poses.get(node.id); membrane(pose, node);
+      const pose = poses.get(node.id); membrane(pose, node, activePorts.get(node.id));
       if (node.depth) continue;
       let label = elements.get(node.id);
       if (!label) {
@@ -197,7 +208,7 @@
       if (!ui.paused && !ui.hidden) {
         if (delta > 250) engine.gap(delta - 250);
         const previousCells = view.counts.cells;
-        engine.advance(Math.min(250, delta)); view = engine.snapshot();
+        engine.advance(Math.min(250, delta)); view = engine.snapshot('render');
         if (previousCells !== view.counts.cells) updatePopulation();
         if (!reduced.matches || now - ui.lastPaint >= 1000) { paint(Math.min(delta || 16, 100)); ui.lastPaint = now; }
       }
