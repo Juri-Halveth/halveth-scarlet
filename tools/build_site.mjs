@@ -21,10 +21,12 @@ for (const name of [...directories, ...files]) {
 if (fs.existsSync(path.join(output, 'forschung', 'morrowind-lernwelt'))) throw new Error('Retired route must not be published');
 const pages = htmlFiles(output);
 for (const file of pages) {
-  const prefix='../'.repeat(path.relative(output,file).split(path.sep).length-1)+'languages/';
-  const html=fs.readFileSync(file,'utf8').replace(/<!-- HUB_LANGUAGES_START -->[\s\S]*?<!-- HUB_LANGUAGES_END -->/g,'');
+  const relativeRoot='../'.repeat(path.relative(output,file).split(path.sep).length-1);
+  const prefix=relativeRoot+'languages/';
+  const html=fs.readFileSync(file,'utf8').replace(/<!-- HUB_LANGUAGES_START -->[\s\S]*?<!-- HUB_LANGUAGES_END -->/g,'').replace(/<!-- MOBILE_LAYOUT_START -->[\s\S]*?<!-- MOBILE_LAYOUT_END -->/g,'');
   const tags='<!-- HUB_LANGUAGES_START --><link rel="stylesheet" href="'+prefix+'hub-language.css"><script src="'+prefix+'catalog.js" defer></script><script src="'+prefix+'hub-language.js" defer></script><!-- HUB_LANGUAGES_END -->';
-  fs.writeFileSync(file,html.replace(/(<head[^>]*>)/,match=>match+tags));
+  const mobile='<!-- MOBILE_LAYOUT_START --><link rel="stylesheet" href="'+relativeRoot+'assets/mobile.css?v=mobile-20261006"><!-- MOBILE_LAYOUT_END -->';
+  fs.writeFileSync(file,html.replace(/(<head[^>]*>)/,match=>match+tags).replace(/<\/head>/i,mobile+'</head>'));
 }
 const urls = pages.map(file => siteURL + path.relative(output, file).split(path.sep).join('/').replace(/index\.html$/, ''));
 const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls.map(url => `  <url><loc>${url}</loc></url>`).join('\n') + '\n</urlset>\n';

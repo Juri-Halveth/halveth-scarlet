@@ -10,7 +10,9 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const ui = { paused: false, hidden: document.hidden, width: 0, height: 0, scale: 1, unit: 1, centerY: 0, last: performance.now(), lastPaint: -Infinity, lastClock: -Infinity, lastSummary: -Infinity, hiddenAt: null, displayedFrames: 0 };
   const poses = new Map(), elements = new Map();
-  let engine, view;
+  let engine, view, painter;
+  let remainderMs=0,lastLabels=-Infinity;
+  const performanceState={frames:0,drawMs:0,updateMs:0,snapshotMs:0,skippedPaints:0,lastDrawMs:0,quality:1,projectedWaves:0};
   const localClock = new Intl.DateTimeFormat(en ? 'en-GB' : 'de-DE', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
   const localDate = new Intl.DateTimeFormat(en ? 'en-GB' : 'de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
   const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -18,7 +20,7 @@
   $('elapsed-label').textContent = en ? 'UNFOLDING' : 'ENTFALTUNG';
   $('world-title').textContent = en ? 'WORLD SEEDWORK' : 'WELTKEIMWERK';
   $('home').setAttribute('aria-label', en ? 'HALVETH home' : 'HALVETH Startseite');
-  $('field').setAttribute('aria-label', en ? 'Freely moving cells: membranes meet and rebound, touch waves spread through the space, and every profile can exchange signals with every other profile.' : 'Frei bewegte Zellen: Membranen begegnen sich und federn ab, Berührungswellen breiten sich im Raum aus, und jedes Profil kann mit jedem anderen Signale austauschen.');
+  $('field').setAttribute('aria-label', en ? 'Freely moving cells change shape, build temporary formations and leave spatial traces that influence later movement. Every profile can exchange signals with every other profile.' : 'Frei bewegte Zellen verändern ihre Form, bilden zeitweilige Formationen und hinterlassen Raumspuren, die spätere Bewegung beeinflussen. Jedes Profil kann mit jedem anderen Signale austauschen.');
   function fail(error) {
     ui.paused = true;
     $('error').hidden = false;
@@ -27,13 +29,14 @@
   }
   try {
     if (!context) throw new Error('Canvas 2D unavailable');
+    painter = GStarShapes.createPainter(context);
     const seedWords = new Uint32Array(1);
     crypto.getRandomValues(seedWords);
     engine = GStarLiving.create(window.HalvethUniverse.entities, { seed: seedWords[0] || 1 });
     view = engine.snapshot('render');
   } catch (error) { fail(error); return; }
   function resize() {
-    ui.width = innerWidth; ui.height = innerHeight; ui.scale = Math.min(devicePixelRatio || 1, 2);
+    ui.width = innerWidth; ui.height = innerHeight; ui.scale = Math.min(devicePixelRatio || 1, 1.5, Math.sqrt(3200000 / (ui.width * ui.height)));
     canvas.width = Math.round(ui.width * ui.scale); canvas.height = Math.round(ui.height * ui.scale);
     context.setTransform(ui.scale, 0, 0, ui.scale, 0, 0);
     const usableW = Math.max(180, ui.width - (ui.width < 600 ? 36 : 110));
@@ -42,7 +45,7 @@
     view = engine.snapshot('render');
     ui.unit = Math.min(usableW / view.world.width, usableH / view.world.height);
     ui.centerY = ui.height / 2 + 8;
-    poses.clear(); ui.lastPaint = -Infinity;
+    poses.clear(); ui.lastPaint = -Infinity; lastLabels=-Infinity; remainderMs=view.timing.remainderMs;
     if (ui.paused) paint(1000);
   }
   addEventListener('resize', resize); resize();
@@ -70,10 +73,10 @@
   function updateSummary() {
     updatePopulation();
     const c = view.counts;
-    $('summary').textContent = en ? `${c.roots} of ${c.sourceProfiles} source profiles, ${c.cells} cells, ${c.contacts} membrane contacts, ${c.waveReceipts} wave encounters, ${c.transitions} local state changes. ${ui.paused ? 'Paused.' : 'Running automatically.'}` : `${c.roots} von ${c.sourceProfiles} Ausgangsprofilen, ${c.cells} Zellen, ${c.contacts} Membrankontakte, ${c.waveReceipts} Wellenbegegnungen, ${c.transitions} lokale Zustandswechsel. ${ui.paused ? 'Pausiert.' : 'Läuft automatisch.'}`;
+    $('summary').textContent = en ? `${c.roots} of ${c.sourceProfiles} source profiles, ${c.cells} cells, ${c.contacts} membrane contacts, ${view.assemblies.length} formations, ${c.waveReceipts} wave encounters, ${c.transitions} local state changes. ${ui.paused ? 'Paused.' : 'Running automatically.'}` : `${c.roots} von ${c.sourceProfiles} Ausgangsprofilen, ${c.cells} Zellen, ${c.contacts} Membrankontakte, ${view.assemblies.length} Formationen, ${c.waveReceipts} Wellenbegegnungen, ${c.transitions} lokale Zustandswechsel. ${ui.paused ? 'Pausiert.' : 'Läuft automatisch.'}`;
   }
   function positions(delta) {
-    const fraction = reduced.matches ? 1 : view.timing.remainderMs / view.timing.stepMs;
+    const fraction = reduced.matches ? 1 : remainderMs / view.timing.stepMs;
     for (const node of view.nodes) {
       const p = node.previousPosition, q = node.position;
       poses.set(node.id, { x: ui.width / 2 + (p.x + (q.x - p.x) * fraction) * ui.unit,
@@ -81,55 +84,22 @@
         r: node.body.radius * ui.unit });
     }
   }
-  function membrane(pose, node, activePorts = []) {
-    const { x, y, r } = pose;
-    const now = view.modelMs / 1000, pulse = reduced.matches ? 0 : Math.sin(now * 1.3 + node.order) * 0.016;
-    const busy = node.phase !== 'REST', core = node.phase === 'CORE';
-    const touchAge = node.lastTouch ? view.modelMs - node.lastTouch.at : Infinity;
-    const touchAngle = node.lastTouch ? Math.atan2(node.lastTouch.ny,node.lastTouch.nx) : 0;
-    const touch = reduced.matches ? 0 : Math.exp(-touchAge / 480);
-    const fill = context.createRadialGradient(x - r * .25, y - r * .3, 1, x, y, Math.max(1, r * 1.15));
-    fill.addColorStop(0, core ? 'rgba(207,39,28,.22)' : 'rgba(117,28,23,.16)');
-    fill.addColorStop(.7, 'rgba(49,9,13,.12)'); fill.addColorStop(1, 'rgba(190,30,29,0)');
-    context.fillStyle = fill; context.beginPath(); context.arc(x, y, r * 1.15, 0, Math.PI * 2); context.fill();
-    for (let layer = 0; layer < 2; layer++) {
-      context.beginPath();
-      for (let k = 0; k <= 56; k++) {
-        const a = k / 56 * Math.PI * 2;
-        const waviness = 0.025 * Math.sin(a * 3 + node.initialGenome % 17 + (reduced.matches ? 0 : now * .27));
-        const indentation = touch * Math.pow(Math.max(0,Math.cos(a - touchAngle)), 6) * .13;
-        const ripple = touch * Math.sin((a - touchAngle) * 5 - touchAge / 85) * .028;
-        const rr = r * (1 + pulse + waviness + ripple - indentation - layer * .045);
-        const xx = x + Math.cos(a) * rr, yy = y + Math.sin(a) * rr;
-        if (!k) context.moveTo(xx, yy); else context.lineTo(xx, yy);
+  function membrane(pose,node,activePorts=[]) { painter.cell(pose,node,activePorts,view.modelMs+remainderMs,reduced.matches); }
+  function habitatField() {
+    const h=view.habitat,cw=view.world.width*ui.unit/h.columns,ch=view.world.height*ui.unit/h.rows;
+    const left=ui.width/2-view.world.width*ui.unit/2,top=ui.centerY-view.world.height*ui.unit/2;
+    for(let i=0;i<h.values.length;i++)if(h.values[i]>.025){
+      context.fillStyle=`rgba(170,62,73,${Math.min(.18,h.values[i]*.20)})`;
+      context.fillRect(left+(i%h.columns)*cw+1,top+Math.floor(i/h.columns)*ch+1,Math.max(1,cw-2),Math.max(1,ch-2));
+    }
+    for(const bond of view.bonds){
+      const a=poses.get(bond.source),b=poses.get(bond.target);if(!a||!b)continue;
+      const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||1,nx=dx/d,ny=dy/d;
+      context.strokeStyle=bond.mode==='ARCH'?'#e9896850':'#f3758860';context.lineWidth=.8;
+      context.beginPath();context.moveTo(a.x+nx*a.r*.5,a.y+ny*a.r*.5);context.lineTo(b.x-nx*b.r*.5,b.y-ny*b.r*.5);context.stroke();
+      if(bond.mode==='LATTICE'&&d<ui.unit*2.5){
+        const t=Math.min(a.r,b.r)*.33;context.fillStyle='#ad42500c';context.beginPath();context.moveTo(a.x-ny*t,a.y+nx*t);context.lineTo(b.x-ny*t,b.y+nx*t);context.lineTo(b.x+ny*t,b.y-nx*t);context.lineTo(a.x+ny*t,a.y-nx*t);context.closePath();context.fill();
       }
-      context.strokeStyle = layer ? 'rgba(231,60,49,.18)' : `rgba(255,${touch > .2 ? 144 : core ? 82 : 57},${touch > .2 ? 100 : core ? 61 : 47},${busy || touch > .1 ? .8 : .48})`;
-      context.lineWidth = layer ? .65 : (node.depth ? .8 : 1.05); context.stroke();
-    }
-    const portAngle = (node.initialGenome % 628) / 100;
-    for (const a of activePorts.length ? activePorts : [portAngle, portAngle + Math.PI]) {
-      const px = x + Math.cos(a) * r, py = y + Math.sin(a) * r;
-      context.beginPath(); context.arc(px, py, node.depth ? 1.5 : 2.3, 0, Math.PI * 2);
-      context.fillStyle = node.phase === 'PORT' ? '#ffdfc5' : '#ed5545'; context.fill();
-      if (node.phase === 'PORT' && !reduced.matches) {
-        context.beginPath(); context.arc(px, py, 4 + ((view.modelMs - node.phaseAt) / 80), 0, Math.PI * 2);
-        context.strokeStyle = '#ed554548'; context.lineWidth = 1; context.stroke();
-      }
-    }
-    // Radial marks are the current software genome, not decorative measurements.
-    const bits = node.genome.toString(2).padStart(32, '0');
-    context.strokeStyle = core ? '#fb7368a0' : '#d5443b55'; context.lineWidth = node.depth ? .65 : 1.2;
-    for (let i = 0; i < 32; i++) if (bits[i] === '1') {
-      const a = i / 32 * Math.PI * 2;
-      context.beginPath(); context.moveTo(x + Math.cos(a) * r * .76, y + Math.sin(a) * r * .76);
-      context.lineTo(x + Math.cos(a) * r * .84, y + Math.sin(a) * r * .84); context.stroke();
-    }
-    if (node.depth < 2 && r > (node.depth ? 12 : 25)) {
-      context.font = `italic ${Math.max(12, r * (node.depth ? .52 : .4))}px Georgia`;
-      context.textAlign = 'center'; context.textBaseline = 'middle';
-      context.fillStyle = core ? '#ff6754' : node.phase === 'PORT' ? '#f6d4c3' : '#d3877b';
-      const glyph = node.phase === 'PORT' ? 'X*' : node.revision ? 'X′' : 'X';
-      context.fillText(glyph, x - (node.children.length ? r * .24 : 0), y + (node.depth ? 0 : r * .08));
     }
   }
   function paint(delta) {
@@ -144,21 +114,21 @@
       context.fillStyle = i % 5 ? '#e8735420' : '#dd917339';
       context.fillRect(x, y, i % 5 ? 1 : 1.4, i % 5 ? 1 : 1.4);
     }
-    if (!reduced.matches) for (const wave of view.waves) {
+    habitatField();
+    const waveView=view.waves.slice(-24); performanceState.projectedWaves=waveView.length;
+    if (!reduced.matches) for (const wave of waveView) {
       const life = (view.modelMs - wave.bornAt) / (wave.expiresAt - wave.bornAt);
       const x = w / 2 + wave.x * ui.unit, y = ui.centerY + wave.y * ui.unit;
       context.beginPath(); context.arc(x,y,Math.max(.1,wave.radius * ui.unit),0,Math.PI*2);
       context.strokeStyle=`rgba(255,104,79,${(1-life)*.24})`; context.lineWidth=1.1; context.stroke();
-      context.beginPath(); context.arc(x,y,Math.max(.1,wave.radius * ui.unit - 3),0,Math.PI*2);
-      context.strokeStyle=`rgba(255,63,58,${(1-life)*.07})`; context.lineWidth=2.8; context.stroke();
+
     }
-    const byId = new Map(view.nodes.map(node => [node.id,node])), activePorts = new Map();
+    const activePorts = new Map();
     for (const signal of view.signals) {
       const from = poses.get(signal.source), to = poses.get(signal.target);
       if (!from || !to) continue;
       const dx = to.x - from.x, dy = to.y - from.y;
       const internal = signal.kind === 'CONTAINED_SIGNAL';
-      const sourceNode = byId.get(signal.source), targetNode = byId.get(signal.target);
       const outgoing = Math.atan2(dy,dx), incoming = outgoing + Math.PI;
       for (const [id,angle] of [[signal.source,outgoing],[signal.target,incoming]]) {
         if (!activePorts.has(id)) activePorts.set(id,[]);
@@ -172,21 +142,23 @@
       const t = Math.max(0, Math.min(1, (view.modelMs - signal.sentAt) / (signal.arrivesAt - signal.sentAt)));
       const u = reduced.matches ? .5 : t;
       const x = (1-u)*(1-u)*sx + 2*(1-u)*u*cx + u*u*ex, y = (1-u)*(1-u)*sy + 2*(1-u)*u*cy + u*u*ey;
-      const glow = context.createRadialGradient(x,y,0,x,y,internal ? 6 : 13);
-      glow.addColorStop(0,'#ffc3a3cc'); glow.addColorStop(.2,'#ff473b9c'); glow.addColorStop(1,'#ff473b00');
-      context.fillStyle=glow; context.beginPath(); context.arc(x,y,internal ? 6 : 13,0,Math.PI*2); context.fill();
+      const glowRadius=internal?5:10;
+      context.drawImage(painter.glow,x-glowRadius,y-glowRadius,glowRadius*2,glowRadius*2);
       context.fillStyle='#ffac89'; context.beginPath(); context.arc(x,y,1.6,0,Math.PI*2); context.fill();
     }
+    const updateLabels=performance.now()-lastLabels>=65;
+    if(updateLabels)lastLabels=performance.now();
     for (const node of view.nodes) {
       const pose = poses.get(node.id); membrane(pose, node, activePorts.get(node.id));
-      if (node.depth) continue;
+      if (node.depth || !updateLabels) continue;
       let label = elements.get(node.id);
       if (!label) {
         label = document.createElement('span'); label.className = 'inhabitant'; label.dataset.entityId = node.id;
         label.textContent = node.label; label.title = node.label; labels.append(label); elements.set(node.id, label);
       }
-      label.dataset.phase = node.phase;
-      label.style.width = `${pose.r * 1.7}px`;
+      if(label.dataset.phase!==node.phase)label.dataset.phase = node.phase;
+      const labelWidth=Math.round(pose.r*1.7);
+      if(label.dataset.width!==String(labelWidth)){label.dataset.width=String(labelWidth);label.style.width=`${labelWidth}px`;}
       label.style.fontSize = `${Math.max(ui.width < 600 ? 9 : 10, Math.min(13, pose.r * .165))}px`;
       label.style.transform = `translate(${pose.x - pose.r * .85}px,${pose.y - pose.r * (pose.r < 25 ? .2 : .53)}px)`;
       label.style.opacity = Math.min(1, pose.r / 20);
@@ -207,10 +179,24 @@
       const delta = Math.max(0, now - ui.last); ui.last = now;
       if (!ui.paused && !ui.hidden) {
         if (delta > 250) engine.gap(delta - 250);
-        const previousCells = view.counts.cells;
-        engine.advance(Math.min(250, delta)); view = engine.snapshot('render');
-        if (previousCells !== view.counts.cells) updatePopulation();
-        if (!reduced.matches || now - ui.lastPaint >= 1000) { paint(Math.min(delta || 16, 100)); ui.lastPaint = now; }
+        const updateStart=performance.now();
+        const time=engine.advance(Math.min(250,delta));remainderMs=time.remainderMs;
+        performanceState.updateMs+=performance.now()-updateStart;
+        if(time.tick!==view.tick){
+          const snapshotStart=performance.now(),previousCells=view.counts.cells;
+          view=engine.snapshot('render');performanceState.snapshotMs+=performance.now()-snapshotStart;
+          if(previousCells!==view.counts.cells)updatePopulation();
+        }
+        const targetInterval=reduced.matches?1000:performanceState.quality===1?1000/60:1000/30;
+        if(now-ui.lastPaint>=targetInterval-.5){
+          const drawStart=performance.now();paint(Math.min(delta||16,100));ui.lastPaint=now;
+          const cost=performance.now()-drawStart;performanceState.lastDrawMs=cost;performanceState.drawMs+=cost;performanceState.frames++;
+          // Hysteresis follows measured drawing cost; it never changes model time or data.
+          performanceState.drawEMA=performanceState.drawEMA===undefined?cost:performanceState.drawEMA*.97+cost*.03;
+          if(performanceState.drawEMA>15)performanceState.quality=.5;
+          else if(performanceState.drawEMA<8)performanceState.quality=1;
+        }else performanceState.skippedPaints++;
+
       }
       if (now - ui.lastClock >= 200) wallClock(now);
       if (now - ui.lastSummary >= 3000) { updateSummary(); ui.lastSummary = now; }
@@ -218,7 +204,7 @@
     } catch (error) { fail(error); }
   }
   // Inspection is a detached read; the runtime exposes no command or write endpoint.
-  window.GStarLiveView = Object.freeze({ snapshot: () => engine.snapshot(), timing: () => ({ paused: ui.paused, hidden: ui.hidden, reducedMotion: reduced.matches, displayedFrames: ui.displayedFrames, localTimeZone: zone, clockCalibration: 'UNKNOWN' }) });
+  window.GStarLiveView = Object.freeze({ snapshot: () => engine.snapshot(), timing: () => ({ paused: ui.paused, hidden: ui.hidden, reducedMotion: reduced.matches, displayedFrames: ui.displayedFrames, localTimeZone: zone, clockCalibration: 'UNKNOWN', performance: {...performanceState}, pathCacheSize:painter.pathCacheSize() }) });
   paint(1000); wallClock(performance.now()); updateSummary();
   requestAnimationFrame(frame);
 })();
