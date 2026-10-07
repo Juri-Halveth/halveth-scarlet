@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T16:33:03Z",
+  "generatedAt": "2026-10-07T22:00:58Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-07T16:33:03Z",
-      "lastSuccessAt": "2026-10-07T16:33:03Z",
+      "lastAttemptAt": "2026-10-07T22:00:58Z",
+      "lastSuccessAt": "2026-10-07T22:00:58Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,112 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-07T16:33:03Z",
-      "lastSuccessAt": "2026-10-07T16:33:03Z",
+      "lastAttemptAt": "2026-10-07T22:00:58Z",
+      "lastSuccessAt": "2026-10-07T22:00:58Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "fbb1e012c43d81af4b32ee98",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Sets Coverage for SpaceX 35th Station Resupply Launch, Arrival",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-sets-coverage-for-spacex-35th-station-resupply-launch-arrival/",
+      "sourcePublishedAt": "2026-10-07T21:16:42Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
+      "firstFetchedAt": "2026-10-07T22:00:58Z"
+    },
+    {
+      "id": "1992c310d7b6f26d2e563f8b",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s SpaceX 35th Commercial Resupply Mission Overview",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/general/nasas-spacex-35th-commercial-resupply-mission-overview/",
+      "sourcePublishedAt": "2026-10-07T20:17:16Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
+      "firstFetchedAt": "2026-10-07T22:00:58Z"
+    },
+    {
+      "id": "dbbec36cc7dd966c30fcfecd",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s PRIMA Spacecraft (Artist’s Concept)",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/photojournal/nasas-prima-spacecraft-artists-concept/",
+      "sourcePublishedAt": "2026-10-07T20:15:49Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
+      "firstFetchedAt": "2026-10-07T22:00:58Z"
+    },
+    {
+      "id": "d309be13e53a281a3c73dd58",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Claude Haiku 5.5 in GitHub Copilot",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot",
+      "sourcePublishedAt": "2026-10-07T20:12:18Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
+      "firstFetchedAt": "2026-10-07T22:00:58Z"
+    },
+    {
+      "id": "4795a6ae30bd611b4cb996c6",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Curiosity Looks Back After Reaching Elevation Milestone",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/photojournal/nasas-curiosity-looks-back-after-reaching-elevation-milestone/",
+      "sourcePublishedAt": "2026-10-07T17:00:47Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
+      "firstFetchedAt": "2026-10-07T22:00:58Z"
+    },
+    {
+      "id": "82fdbf16285f461005d2b566",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Curiosity Captures Dawn Breaking on Wind-Carved Cliffs",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/photojournal/nasas-curiosity-captures-dawn-breaking-on-wind-carved-cliffs/",
+      "sourcePublishedAt": "2026-10-07T16:49:50Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
+      "firstFetchedAt": "2026-10-07T22:00:58Z"
+    },
+    {
+      "id": "d6b735286b3739eabb6bfc47",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Purpose-built model for leaked secret detection",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection",
+      "sourcePublishedAt": "2026-10-07T16:13:56Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
+      "firstFetchedAt": "2026-10-07T22:00:58Z"
+    },
+    {
+      "id": "1e174328109aea325ae34ff3",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Local sandboxing for GitHub Copilot now generally available",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available",
+      "sourcePublishedAt": "2026-10-07T15:46:17Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
+      "firstFetchedAt": "2026-10-07T22:00:58Z"
+    },
+    {
+      "id": "8241d56116d90ff33b6b9c9b",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Discover local models in GitHub Copilot CLI",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-07-discover-local-models-in-github-copilot-cli",
+      "sourcePublishedAt": "2026-10-07T15:46:13Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
+      "firstFetchedAt": "2026-10-07T22:00:58Z"
+    },
     {
       "id": "2902c3cddd7c1019fd284f36",
       "sourceId": "nasa",
@@ -32,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/artemis-ii-crew-moon-photo-annotations/",
       "sourcePublishedAt": "2026-10-07T15:44:59Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
       "firstFetchedAt": "2026-10-07T16:33:03Z"
     },
     {
@@ -43,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-7-supernova-remnant-pa-30/",
       "sourcePublishedAt": "2026-10-07T04:05:00Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
       "firstFetchedAt": "2026-10-07T08:43:41Z"
     },
     {
@@ -54,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/arctic-sea-ice-shrinks-to-its-2026-minimum/",
       "sourcePublishedAt": "2026-10-07T04:00:00Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
       "firstFetchedAt": "2026-10-07T08:43:41Z"
     },
     {
@@ -65,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics",
       "sourcePublishedAt": "2026-10-06T23:43:00Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
       "firstFetchedAt": "2026-10-07T01:35:05Z"
     },
     {
@@ -76,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available",
       "sourcePublishedAt": "2026-10-06T20:16:41Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
       "firstFetchedAt": "2026-10-06T21:40:26Z"
     },
     {
@@ -87,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-to-cover-northrop-grumman-crs-24-spacecraft-departure/",
       "sourcePublishedAt": "2026-10-06T18:31:40Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
       "firstFetchedAt": "2026-10-06T21:40:26Z"
     },
     {
@@ -98,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/october-2026-satellite-puzzler/",
       "sourcePublishedAt": "2026-10-06T18:27:38Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
       "firstFetchedAt": "2026-10-06T21:40:26Z"
     },
     {
@@ -164,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-code-scanning-ai-scan-enablement-status-in-security-overview",
       "sourcePublishedAt": "2026-10-06T10:23:38Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
       "firstFetchedAt": "2026-10-06T17:13:35Z"
     },
     {
@@ -219,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-05-secret-scanning-adds-detectors-for-lovable-supabase-and-more",
       "sourcePublishedAt": "2026-10-05T22:42:14Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
       "firstFetchedAt": "2026-10-06T03:01:36Z"
     },
     {
@@ -351,29 +450,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out",
       "sourcePublishedAt": "2026-10-02T22:18:23Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
-      "firstFetchedAt": "2026-10-02T22:59:30Z"
-    },
-    {
-      "id": "4de9c63a1c81f9784abf24f2",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Astronaut Christina Koch to Join NFL Fans in Philadelphia",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-astronaut-christina-koch-to-join-nfl-fans-in-philadelphia/",
-      "sourcePublishedAt": "2026-10-02T19:54:54Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
-      "firstFetchedAt": "2026-10-02T22:59:30Z"
-    },
-    {
-      "id": "9303edfce056f1aa358aa8cc",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Heading Home: NASA’s SpaceX Crew-12 Concludes Station Science Mission",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/missions/station/iss-research/heading-home-nasas-spacex-crew-12-concludes-station-science-mission/",
-      "sourcePublishedAt": "2026-10-02T19:30:00Z",
-      "fetchedAt": "2026-10-05T07:06:22Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -384,7 +461,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level",
       "sourcePublishedAt": "2026-10-02T19:13:50Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
+      "fetchedAt": "2026-10-07T22:00:58Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -410,17 +487,6 @@
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
-      "id": "9bb52c5a3fc5a2a20f42c6f2",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s DAVINCI Probe Can Stand the Heat",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/nasas-davinci-probe-can-stand-the-heat/",
-      "sourcePublishedAt": "2026-10-02T19:00:36Z",
-      "fetchedAt": "2026-10-05T07:06:22Z",
-      "firstFetchedAt": "2026-10-02T22:59:30Z"
-    },
-    {
       "id": "705956e4f1fcd62c79bb3c1f",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -430,28 +496,6 @@
       "sourcePublishedAt": "2026-10-02T18:24:19Z",
       "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
-    },
-    {
-      "id": "42ac6ad06a31a70c99dd992a",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "La NASA abre solicitudes para próxima promoción de directores de vuelo",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/la-nasa-abre-solicitudes-para-proxima-promocion-de-directores-de-vuelo/",
-      "sourcePublishedAt": "2026-10-02T16:36:25Z",
-      "fetchedAt": "2026-10-05T07:06:22Z",
-      "firstFetchedAt": "2026-10-02T18:27:14Z"
-    },
-    {
-      "id": "f8e81583208193a62a4e4f41",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Campaign Explores Clouds Spawned by Wildfires",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/earth/natural-disasters/wildfires/nasa-campaign-explores-clouds-spawned-by-wildfires/",
-      "sourcePublishedAt": "2026-10-02T16:34:57Z",
-      "fetchedAt": "2026-10-02T18:27:14Z",
-      "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
       "id": "582da02053b0c8e2d1f60d52",
@@ -639,50 +683,6 @@
       "sourcePublishedAt": "2026-10-01T13:01:31Z",
       "fetchedAt": "2026-10-01T19:34:03Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
-    },
-    {
-      "id": "8f738e218bb88ed3b1aa81c4",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Opt-in dist-tag permissions for npm trusted publishing",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-30-opt-in-dist-tag-permissions-for-npm-trusted-publishing",
-      "sourcePublishedAt": "2026-09-30T21:03:09Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
-      "firstFetchedAt": "2026-09-30T23:53:20Z"
-    },
-    {
-      "id": "83c42770fe17223cd9044dc5",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "GitHub Advanced Security trials for GitHub Team",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-30-github-advanced-security-trials-for-github-team",
-      "sourcePublishedAt": "2026-09-30T16:48:24Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
-      "firstFetchedAt": "2026-09-30T19:23:51Z"
-    },
-    {
-      "id": "cad13c49eff0df4a6694b1ab",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "HydraFusion in VS Code and the GitHub Copilot app",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app",
-      "sourcePublishedAt": "2026-09-30T14:31:19Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
-      "firstFetchedAt": "2026-09-30T19:23:51Z"
-    },
-    {
-      "id": "7ecb75d17d50c9e8eb8978a3",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "X25519-only TLS ends for GHE.com on October 7",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-30-x25519-only-tls-ends-for-ghe-com-on-september-15",
-      "sourcePublishedAt": "2026-09-30T13:30:24Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
-      "firstFetchedAt": "2026-09-30T19:23:51Z"
     }
   ]
 }
