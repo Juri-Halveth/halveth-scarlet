@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T08:43:41Z",
+  "generatedAt": "2026-10-07T16:33:03Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-07T08:43:41Z",
-      "lastSuccessAt": "2026-10-07T08:43:41Z",
+      "lastAttemptAt": "2026-10-07T16:33:03Z",
+      "lastSuccessAt": "2026-10-07T16:33:03Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,24 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-07T08:43:41Z",
-      "lastSuccessAt": "2026-10-07T08:43:41Z",
+      "lastAttemptAt": "2026-10-07T16:33:03Z",
+      "lastSuccessAt": "2026-10-07T16:33:03Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "2902c3cddd7c1019fd284f36",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Artemis II Crew Moon Photo Annotations",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/artemis-ii-crew-moon-photo-annotations/",
+      "sourcePublishedAt": "2026-10-07T15:44:59Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
+      "firstFetchedAt": "2026-10-07T16:33:03Z"
+    },
     {
       "id": "2a162f71f0b694d73bbefc0b",
       "sourceId": "nasa",
@@ -32,7 +43,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-7-supernova-remnant-pa-30/",
       "sourcePublishedAt": "2026-10-07T04:05:00Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-07T08:43:41Z"
     },
     {
@@ -43,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/arctic-sea-ice-shrinks-to-its-2026-minimum/",
       "sourcePublishedAt": "2026-10-07T04:00:00Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-07T08:43:41Z"
     },
     {
@@ -54,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics",
       "sourcePublishedAt": "2026-10-06T23:43:00Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-07T01:35:05Z"
     },
     {
@@ -65,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available",
       "sourcePublishedAt": "2026-10-06T20:16:41Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-06T21:40:26Z"
     },
     {
@@ -76,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-to-cover-northrop-grumman-crs-24-spacecraft-departure/",
       "sourcePublishedAt": "2026-10-06T18:31:40Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-06T21:40:26Z"
     },
     {
@@ -87,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/october-2026-satellite-puzzler/",
       "sourcePublishedAt": "2026-10-06T18:27:38Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-06T21:40:26Z"
     },
     {
@@ -98,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/lunar-grounding-challenge/",
       "sourcePublishedAt": "2026-10-06T18:22:24Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-06T21:40:26Z"
     },
     {
@@ -109,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-glenn-invites-phase-1-proposals-for-aerospace-power-systems-laboratory/",
       "sourcePublishedAt": "2026-10-06T17:55:52Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-06T21:40:26Z"
     },
     {
@@ -120,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/astronomers-solve-cosmic-cold-case-with-nasa-hubble-data/",
       "sourcePublishedAt": "2026-10-06T16:09:13Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-06T17:13:35Z"
     },
     {
@@ -131,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/missions/mars-science-laboratory/curiosity-rover/nasas-curiosity-rover-catches-stunning-martian-dawn/",
       "sourcePublishedAt": "2026-10-06T15:30:07Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-06T17:13:35Z"
     },
     {
@@ -142,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/webb/nasas-webb-captures-commotion-from-nebulas-stellar-jets/",
       "sourcePublishedAt": "2026-10-06T13:00:00Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-06T17:13:35Z"
     },
     {
@@ -153,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-code-scanning-ai-scan-enablement-status-in-security-overview",
       "sourcePublishedAt": "2026-10-06T10:23:38Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-06T17:13:35Z"
     },
     {
@@ -208,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-05-secret-scanning-adds-detectors-for-lovable-supabase-and-more",
       "sourcePublishedAt": "2026-10-05T22:42:14Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-06T03:01:36Z"
     },
     {
@@ -340,7 +351,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out",
       "sourcePublishedAt": "2026-10-02T22:18:23Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -373,7 +384,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level",
       "sourcePublishedAt": "2026-10-02T19:13:50Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -384,7 +395,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-unvalidated-npm-trusted-publishing-configurations-now-expire",
       "sourcePublishedAt": "2026-10-02T19:07:04Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -395,7 +406,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-npm-staged-publishing-now-supports-creating-new-packages",
       "sourcePublishedAt": "2026-10-02T19:05:17Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     },
     {
@@ -417,7 +428,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated",
       "sourcePublishedAt": "2026-10-02T18:24:19Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -443,15 +454,15 @@
       "firstFetchedAt": "2026-10-02T18:27:14Z"
     },
     {
-      "id": "2b3fb9c367c3391384b26e4c",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Model Wing Lights Up During First Pressure Sensitive Paint Tests",
+      "id": "582da02053b0c8e2d1f60d52",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Copilot weekly releases — September 28",
       "titleLanguage": "en",
-      "url": "https://www.nasa.gov/centers-and-facilities/langley/nasa-model-wing-lights-up-during-first-pressure-sensitive-paint-tests/",
-      "sourcePublishedAt": "2026-10-02T16:10:55Z",
-      "fetchedAt": "2026-10-05T00:58:05Z",
-      "firstFetchedAt": "2026-10-02T18:27:14Z"
+      "url": "https://github.blog/changelog/2026-10-02-github-copilot-weekly-releases-september-28",
+      "sourcePublishedAt": "2026-10-02T14:00:30Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
+      "firstFetchedAt": "2026-10-07T16:33:03Z"
     },
     {
       "id": "532f5738d0696fe383323bc0",
@@ -672,17 +683,6 @@
       "sourcePublishedAt": "2026-09-30T13:30:24Z",
       "fetchedAt": "2026-10-01T13:22:02Z",
       "firstFetchedAt": "2026-09-30T19:23:51Z"
-    },
-    {
-      "id": "20d614df3f96df84d10bb3f1",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Repository custom runner settings for Dependabot",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-09-29-repository-custom-runner-settings-for-dependabot",
-      "sourcePublishedAt": "2026-09-29T19:10:00Z",
-      "fetchedAt": "2026-10-01T13:22:02Z",
-      "firstFetchedAt": "2026-09-29T20:50:38Z"
     }
   ]
 }

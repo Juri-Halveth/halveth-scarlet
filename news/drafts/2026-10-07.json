@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-07",
+  "createdAt": "2026-10-07T16:33:03.543Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-10-07",
+  "body": "# HALVETH Quellen-Update · 2026-10-07\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [Artemis II Crew Moon Photo Annotations](https://www.nasa.gov/image-article/artemis-ii-crew-moon-photo-annotations/) · veröffentlicht 2026-10-07\n- **NASA** · Originaltitel (EN): [APOD: 2026 October 7 – Supernova Remnant Pa 30](https://science.nasa.gov/image-article/apod-2026-october-7-supernova-remnant-pa-30/) · veröffentlicht 2026-10-07\n- **NASA** · Originaltitel (EN): [Arctic Sea Ice Shrinks to Its 2026 Minimum](https://science.nasa.gov/earth/earth-observatory/arctic-sea-ice-shrinks-to-its-2026-minimum/) · veröffentlicht 2026-10-07\n- **GitHub Changelog** · Originaltitel (EN): [Update your IDE to restore agent activity in Copilot usage metrics](https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics) · veröffentlicht 2026-10-06\n- **GitHub Changelog** · Originaltitel (EN): [Stacked pull requests generally available](https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available) · veröffentlicht 2026-10-06\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "2902c3cddd7c1019fd284f36",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Artemis II Crew Moon Photo Annotations",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/artemis-ii-crew-moon-photo-annotations/",
+      "sourcePublishedAt": "2026-10-07T15:44:59Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
+      "firstFetchedAt": "2026-10-07T16:33:03Z"
+    },
+    {
+      "id": "2a162f71f0b694d73bbefc0b",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 October 7 – Supernova Remnant Pa 30",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-7-supernova-remnant-pa-30/",
+      "sourcePublishedAt": "2026-10-07T04:05:00Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
+      "firstFetchedAt": "2026-10-07T08:43:41Z"
+    },
+    {
+      "id": "df166618544d78a22d493cde",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Arctic Sea Ice Shrinks to Its 2026 Minimum",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/arctic-sea-ice-shrinks-to-its-2026-minimum/",
+      "sourcePublishedAt": "2026-10-07T04:00:00Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
+      "firstFetchedAt": "2026-10-07T08:43:41Z"
+    },
+    {
+      "id": "f833eccb65deeb7db0bf568a",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Update your IDE to restore agent activity in Copilot usage metrics",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics",
+      "sourcePublishedAt": "2026-10-06T23:43:00Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
+      "firstFetchedAt": "2026-10-07T01:35:05Z"
+    },
+    {
+      "id": "789d3f2f135ddb5fc679634f",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Stacked pull requests generally available",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available",
+      "sourcePublishedAt": "2026-10-06T20:16:41Z",
+      "fetchedAt": "2026-10-07T16:33:03Z",
+      "firstFetchedAt": "2026-10-06T21:40:26Z"
+    }
+  ],
+  "idempotencyKey": "5c0f1034962b80d9e72ebb4ea030d20ba174915fffc8a15294d72f36fcbd45db"
+}
