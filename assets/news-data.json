@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-08T16:31:38Z",
+  "generatedAt": "2026-10-08T22:06:51Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,22 +8,110 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-08T16:31:38Z",
-      "lastSuccessAt": "2026-10-08T09:01:55Z",
-      "status": "failed",
-      "error": "FETCH_OR_VALIDATION_FAILED"
+      "lastAttemptAt": "2026-10-08T22:06:51Z",
+      "lastSuccessAt": "2026-10-08T22:06:51Z",
+      "status": "fresh",
+      "error": null
     },
     {
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-08T16:31:38Z",
-      "lastSuccessAt": "2026-10-08T16:31:38Z",
+      "lastAttemptAt": "2026-10-08T22:06:51Z",
+      "lastSuccessAt": "2026-10-08T22:06:51Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "59ce0cb3c0592a8a60dc3d06",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Briefing to Highlight Contributions to Martian Moons Mission",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-briefing-to-highlight-contributions-to-martian-moons-mission/",
+      "sourcePublishedAt": "2026-10-08T20:22:12Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
+      "firstFetchedAt": "2026-10-08T22:06:51Z"
+    },
+    {
+      "id": "e16f84280efb242f97e1eba3",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Announces Bold Science Initiatives for America’s Golden Age Summit",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-announces-bold-science-initiatives-for-americas-golden-age-summit/",
+      "sourcePublishedAt": "2026-10-08T19:40:00Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
+      "firstFetchedAt": "2026-10-08T22:06:51Z"
+    },
+    {
+      "id": "8b64b8f7c1061221034fae8f",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Triage role users or higher can now archive pull requests",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-08-triage-role-users-or-higher-can-now-archive-pull-requests",
+      "sourcePublishedAt": "2026-10-08T19:01:42Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
+      "firstFetchedAt": "2026-10-08T22:06:51Z"
+    },
+    {
+      "id": "c8f73fc3067539cf0e4ce87d",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s SSPICY Mission to Demonstrate In-Space Inspection Technologies",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/ames/nasas-sspicy-mission-to-demonstrate-in-space-inspection-technologies/",
+      "sourcePublishedAt": "2026-10-08T18:56:25Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
+      "firstFetchedAt": "2026-10-08T22:06:51Z"
+    },
+    {
+      "id": "9f4d01aca69009eaee8e2ad8",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Crew-12 Returns to Earth",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/crew-12-returns-to-earth/",
+      "sourcePublishedAt": "2026-10-08T18:52:27Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
+      "firstFetchedAt": "2026-10-08T22:06:51Z"
+    },
+    {
+      "id": "5a9a117643219a5e7ee4ba66",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/",
+      "sourcePublishedAt": "2026-10-08T18:22:48Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
+      "firstFetchedAt": "2026-10-08T22:06:51Z"
+    },
+    {
+      "id": "e650abdb0bba3a074ee2fb22",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Webb Measures Distance to Farthest Fast Radio Burst, Suggesting Origin",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/",
+      "sourcePublishedAt": "2026-10-08T18:00:00Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
+      "firstFetchedAt": "2026-10-08T22:06:51Z"
+    },
+    {
+      "id": "508dbedb31c35a4cfe4c1134",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s SpaceX Crew‑12 Splashes Down, Sets Briefing to Discuss Mission",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasas-spacex-crew-12-splashes-down-sets-briefing-to-discuss-mission/",
+      "sourcePublishedAt": "2026-10-08T17:02:28Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
+      "firstFetchedAt": "2026-10-08T22:06:51Z"
+    },
     {
       "id": "18d441cbd3f99a19e751ebcc",
       "sourceId": "github",
@@ -32,8 +120,30 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-screen-readers-can-navigate-timelines-as-lists",
       "sourcePublishedAt": "2026-10-08T16:00:56Z",
-      "fetchedAt": "2026-10-08T16:31:38Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
       "firstFetchedAt": "2026-10-08T16:31:38Z"
+    },
+    {
+      "id": "06991627699fd4a6d844a9da",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA, Energy Department Advance New Era of Nuclear-Powered Exploration",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-energy-department-advance-new-era-of-nuclear-powered-exploration/",
+      "sourcePublishedAt": "2026-10-08T15:46:25Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
+      "firstFetchedAt": "2026-10-08T22:06:51Z"
+    },
+    {
+      "id": "4df0bb8433803ae433e96b44",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Advances LISA Mission Contributions With New Test Telescope",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/missions/lisa/nasa-advances-lisa-mission-contributions-with-new-test-telescope/",
+      "sourcePublishedAt": "2026-10-08T15:31:24Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
+      "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
       "id": "3683122ea1883bb615a0c011",
@@ -43,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-draft-pull-requests-count-toward-pull-request-limits",
       "sourcePublishedAt": "2026-10-08T14:25:53Z",
-      "fetchedAt": "2026-10-08T16:31:38Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
       "firstFetchedAt": "2026-10-08T16:31:38Z"
     },
     {
@@ -54,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-8-the-saturn-system-smorgasbord/",
       "sourcePublishedAt": "2026-10-08T04:05:00Z",
-      "fetchedAt": "2026-10-08T09:01:55Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
       "firstFetchedAt": "2026-10-08T09:01:55Z"
     },
     {
@@ -109,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot",
       "sourcePublishedAt": "2026-10-07T20:12:18Z",
-      "fetchedAt": "2026-10-08T16:31:38Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -142,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection",
       "sourcePublishedAt": "2026-10-07T16:13:56Z",
-      "fetchedAt": "2026-10-08T16:31:38Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -153,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available",
       "sourcePublishedAt": "2026-10-07T15:46:17Z",
-      "fetchedAt": "2026-10-08T16:31:38Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -164,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-discover-local-models-in-github-copilot-cli",
       "sourcePublishedAt": "2026-10-07T15:46:13Z",
-      "fetchedAt": "2026-10-08T16:31:38Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -208,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics",
       "sourcePublishedAt": "2026-10-06T23:43:00Z",
-      "fetchedAt": "2026-10-08T16:31:38Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
       "firstFetchedAt": "2026-10-07T01:35:05Z"
     },
     {
@@ -219,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available",
       "sourcePublishedAt": "2026-10-06T20:16:41Z",
-      "fetchedAt": "2026-10-08T16:31:38Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
       "firstFetchedAt": "2026-10-06T21:40:26Z"
     },
     {
@@ -307,7 +417,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-code-scanning-ai-scan-enablement-status-in-security-overview",
       "sourcePublishedAt": "2026-10-06T10:23:38Z",
-      "fetchedAt": "2026-10-08T16:31:38Z",
+      "fetchedAt": "2026-10-08T22:06:51Z",
       "firstFetchedAt": "2026-10-06T17:13:35Z"
     },
     {
@@ -364,105 +474,6 @@
       "sourcePublishedAt": "2026-10-05T22:42:14Z",
       "fetchedAt": "2026-10-08T16:31:38Z",
       "firstFetchedAt": "2026-10-06T03:01:36Z"
-    },
-    {
-      "id": "4fdb28d7bb2823af19bc7de2",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA to Stream SpaceX Crew-12 Return, Splashdown Live",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-to-stream-spacex-crew-12-return-splashdown-live/",
-      "sourcePublishedAt": "2026-10-05T21:44:40Z",
-      "fetchedAt": "2026-10-06T17:13:35Z",
-      "firstFetchedAt": "2026-10-05T22:40:38Z"
-    },
-    {
-      "id": "871b1228ab37b44b7c0cd9b2",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Astronaut Christina Koch at Eagles vs. Rams",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/nasa-astronaut-christina-koch-at-eagles-vs-rams/",
-      "sourcePublishedAt": "2026-10-05T17:42:56Z",
-      "fetchedAt": "2026-10-06T17:13:35Z",
-      "firstFetchedAt": "2026-10-05T22:40:38Z"
-    },
-    {
-      "id": "765a970371b92d31e8e0130f",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Testing Aims at Supercooled Large Droplet Aviation Safety",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/nasa-testing-aims-at-supercooled-large-droplet-aviation-safety/",
-      "sourcePublishedAt": "2026-10-05T15:27:23Z",
-      "fetchedAt": "2026-10-06T17:13:35Z",
-      "firstFetchedAt": "2026-10-05T16:04:27Z"
-    },
-    {
-      "id": "2a40ba055a44d196509c8b1f",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Suspected Second-generation Planet Solves NASA Hubble Cold Case",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/missions/hubble/suspected-second-generation-planet-solves-nasa-hubble-cold-case/",
-      "sourcePublishedAt": "2026-10-05T15:00:35Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
-      "firstFetchedAt": "2026-10-05T16:04:27Z"
-    },
-    {
-      "id": "2e5cc2c870743afa2932a0cf",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Contacting NASA’s Langley Research Center",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/centers-and-facilities/langley/contacting-nasas-langley-research-center/",
-      "sourcePublishedAt": "2026-10-05T14:50:39Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
-      "firstFetchedAt": "2026-10-05T16:04:27Z"
-    },
-    {
-      "id": "8c26b031cff235acd1102e91",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 October 5 – M104: The Sombrero Galaxy’s Tidal Streams",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-october-5-m104-the-sombrero-galaxys-tidal-streams/",
-      "sourcePublishedAt": "2026-10-05T04:05:00Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
-      "firstFetchedAt": "2026-10-05T07:06:22Z"
-    },
-    {
-      "id": "e1514e913c3eba38cca622f4",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Moon-Like Madagascar",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/earth/earth-observatory/moon-like-madagascar/",
-      "sourcePublishedAt": "2026-10-05T04:01:00Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
-      "firstFetchedAt": "2026-10-05T07:06:22Z"
-    },
-    {
-      "id": "6f8f713ea15a1ab9dc91f602",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Curiosity Blog, Sols 5022-5028: Cashing in at Cache Creek",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5022-5028-cashing-in-at-cache-creek/",
-      "sourcePublishedAt": "2026-10-04T21:13:07Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
-      "firstFetchedAt": "2026-10-05T00:58:05Z"
-    },
-    {
-      "id": "daace20f47f2cb1bd010b5c9",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Mapping the Gaps in NASA’s Return to the Moon, featuring Richard Spolzino",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/general/mapping-the-gaps-in-nasas-return-to-the-moon-featuring-richard-spolzino/",
-      "sourcePublishedAt": "2026-10-04T19:10:59Z",
-      "fetchedAt": "2026-10-06T03:01:36Z",
-      "firstFetchedAt": "2026-10-04T21:31:02Z"
     },
     {
       "id": "4ce371788dc0c71f881482b5",
@@ -672,17 +683,6 @@
       "sourcePublishedAt": "2026-10-01T16:30:10Z",
       "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
-    },
-    {
-      "id": "1b1903c96c873dca5e4db30d",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "New dashboard experience now the default",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-01-new-dashboard-experience-now-the-default",
-      "sourcePublishedAt": "2026-10-01T16:14:56Z",
-      "fetchedAt": "2026-10-01T19:34:03Z",
-      "firstFetchedAt": "2026-10-01T19:34:03Z"
     }
   ]
 }
