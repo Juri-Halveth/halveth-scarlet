@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-08T01:58:28Z",
+  "generatedAt": "2026-10-08T09:01:55Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-08T01:58:28Z",
-      "lastSuccessAt": "2026-10-08T01:58:28Z",
+      "lastAttemptAt": "2026-10-08T09:01:55Z",
+      "lastSuccessAt": "2026-10-08T09:01:55Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,35 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-08T01:58:28Z",
-      "lastSuccessAt": "2026-10-08T01:58:28Z",
+      "lastAttemptAt": "2026-10-08T09:01:55Z",
+      "lastSuccessAt": "2026-10-08T09:01:55Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "bddab1e7a6b211714fc1fa9c",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 October 8 – The Saturn System Smörgåsbord",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-8-the-saturn-system-smorgasbord/",
+      "sourcePublishedAt": "2026-10-08T04:05:00Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
+      "firstFetchedAt": "2026-10-08T09:01:55Z"
+    },
+    {
+      "id": "743f4c63b64476e2bc2f0fa1",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Fighting Drought in Texas Cotton Country",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/fighting-drought-in-texas-cotton-country/",
+      "sourcePublishedAt": "2026-10-08T04:01:00Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
+      "firstFetchedAt": "2026-10-08T09:01:55Z"
+    },
     {
       "id": "fbb1e012c43d81af4b32ee98",
       "sourceId": "nasa",
@@ -32,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-sets-coverage-for-spacex-35th-station-resupply-launch-arrival/",
       "sourcePublishedAt": "2026-10-07T21:16:42Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/general/nasas-spacex-35th-commercial-resupply-mission-overview/",
       "sourcePublishedAt": "2026-10-07T20:17:16Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/photojournal/nasas-prima-spacecraft-artists-concept/",
       "sourcePublishedAt": "2026-10-07T20:15:49Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot",
       "sourcePublishedAt": "2026-10-07T20:12:18Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/photojournal/nasas-curiosity-looks-back-after-reaching-elevation-milestone/",
       "sourcePublishedAt": "2026-10-07T17:00:47Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/photojournal/nasas-curiosity-captures-dawn-breaking-on-wind-carved-cliffs/",
       "sourcePublishedAt": "2026-10-07T16:49:50Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection",
       "sourcePublishedAt": "2026-10-07T16:13:56Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -109,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available",
       "sourcePublishedAt": "2026-10-07T15:46:17Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-discover-local-models-in-github-copilot-cli",
       "sourcePublishedAt": "2026-10-07T15:46:13Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/artemis-ii-crew-moon-photo-annotations/",
       "sourcePublishedAt": "2026-10-07T15:44:59Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-07T16:33:03Z"
     },
     {
@@ -142,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-7-supernova-remnant-pa-30/",
       "sourcePublishedAt": "2026-10-07T04:05:00Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-07T08:43:41Z"
     },
     {
@@ -153,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/arctic-sea-ice-shrinks-to-its-2026-minimum/",
       "sourcePublishedAt": "2026-10-07T04:00:00Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-07T08:43:41Z"
     },
     {
@@ -164,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics",
       "sourcePublishedAt": "2026-10-06T23:43:00Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-07T01:35:05Z"
     },
     {
@@ -175,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available",
       "sourcePublishedAt": "2026-10-06T20:16:41Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-06T21:40:26Z"
     },
     {
@@ -263,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-code-scanning-ai-scan-enablement-status-in-security-overview",
       "sourcePublishedAt": "2026-10-06T10:23:38Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-06T17:13:35Z"
     },
     {
@@ -318,7 +340,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-05-secret-scanning-adds-detectors-for-lovable-supabase-and-more",
       "sourcePublishedAt": "2026-10-05T22:42:14Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-06T03:01:36Z"
     },
     {
@@ -421,28 +443,6 @@
       "firstFetchedAt": "2026-10-04T21:31:02Z"
     },
     {
-      "id": "518ef5b89828b8623ce59fa6",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 October 4 – Supernumerary Rainbows over New Jersey",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-october-4-supernumerary-rainbows-over-new-jersey/",
-      "sourcePublishedAt": "2026-10-04T04:05:00Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
-      "firstFetchedAt": "2026-10-04T06:58:31Z"
-    },
-    {
-      "id": "32d936fd69e9a889106d2eda",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 October 3 – Selfie at Vera Rubin Ridge",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-october-3-selfie-at-vera-rubin-ridge/",
-      "sourcePublishedAt": "2026-10-03T04:05:00Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
-      "firstFetchedAt": "2026-10-03T08:10:44Z"
-    },
-    {
       "id": "4ce371788dc0c71f881482b5",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -450,7 +450,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out",
       "sourcePublishedAt": "2026-10-02T22:18:23Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
@@ -461,7 +461,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level",
       "sourcePublishedAt": "2026-10-02T19:13:50Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
+      "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
     },
     {
