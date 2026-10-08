@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-08",
+  "createdAt": "2026-10-08T16:31:38.626Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-10-08",
+  "body": "# HALVETH Quellen-Update · 2026-10-08\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **GitHub Changelog** · Originaltitel (EN): [Screen readers can navigate timelines as lists](https://github.blog/changelog/2026-10-08-screen-readers-can-navigate-timelines-as-lists) · veröffentlicht 2026-10-08\n- **GitHub Changelog** · Originaltitel (EN): [Draft pull requests count toward pull request limits](https://github.blog/changelog/2026-10-08-draft-pull-requests-count-toward-pull-request-limits) · veröffentlicht 2026-10-08\n- **GitHub Changelog** · Originaltitel (EN): [Claude Haiku 5.5 in GitHub Copilot](https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot) · veröffentlicht 2026-10-07\n- **GitHub Changelog** · Originaltitel (EN): [Purpose-built model for leaked secret detection](https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection) · veröffentlicht 2026-10-07\n- **GitHub Changelog** · Originaltitel (EN): [Local sandboxing for GitHub Copilot now generally available](https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available) · veröffentlicht 2026-10-07\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "18d441cbd3f99a19e751ebcc",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Screen readers can navigate timelines as lists",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-08-screen-readers-can-navigate-timelines-as-lists",
+      "sourcePublishedAt": "2026-10-08T16:00:56Z",
+      "fetchedAt": "2026-10-08T16:31:38Z",
+      "firstFetchedAt": "2026-10-08T16:31:38Z"
+    },
+    {
+      "id": "3683122ea1883bb615a0c011",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Draft pull requests count toward pull request limits",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-08-draft-pull-requests-count-toward-pull-request-limits",
+      "sourcePublishedAt": "2026-10-08T14:25:53Z",
+      "fetchedAt": "2026-10-08T16:31:38Z",
+      "firstFetchedAt": "2026-10-08T16:31:38Z"
+    },
+    {
+      "id": "d309be13e53a281a3c73dd58",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Claude Haiku 5.5 in GitHub Copilot",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot",
+      "sourcePublishedAt": "2026-10-07T20:12:18Z",
+      "fetchedAt": "2026-10-08T16:31:38Z",
+      "firstFetchedAt": "2026-10-07T22:00:58Z"
+    },
+    {
+      "id": "d6b735286b3739eabb6bfc47",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Purpose-built model for leaked secret detection",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection",
+      "sourcePublishedAt": "2026-10-07T16:13:56Z",
+      "fetchedAt": "2026-10-08T16:31:38Z",
+      "firstFetchedAt": "2026-10-07T22:00:58Z"
+    },
+    {
+      "id": "1e174328109aea325ae34ff3",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Local sandboxing for GitHub Copilot now generally available",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available",
+      "sourcePublishedAt": "2026-10-07T15:46:17Z",
+      "fetchedAt": "2026-10-08T16:31:38Z",
+      "firstFetchedAt": "2026-10-07T22:00:58Z"
+    }
+  ],
+  "idempotencyKey": "1410eca84638c5ccaf08207e5a9271dcc3a5054dca7870183e08377b137a859a"
+}
