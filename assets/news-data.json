@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-09T02:12:44Z",
+  "generatedAt": "2026-10-09T09:09:49Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-09T02:12:44Z",
-      "lastSuccessAt": "2026-10-09T02:12:44Z",
+      "lastAttemptAt": "2026-10-09T09:09:49Z",
+      "lastSuccessAt": "2026-10-09T09:09:49Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,35 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-09T02:12:44Z",
-      "lastSuccessAt": "2026-10-09T02:12:44Z",
+      "lastAttemptAt": "2026-10-09T09:09:49Z",
+      "lastSuccessAt": "2026-10-09T09:09:49Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "2d43482cb79ba055c79541fd",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 October 9 – Stickney Crater",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-9-stickney-crater/",
+      "sourcePublishedAt": "2026-10-09T04:05:00Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
+      "firstFetchedAt": "2026-10-09T09:09:49Z"
+    },
+    {
+      "id": "4f89388d6e84ff78c35ebe1d",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Floodwaters Overwhelm Thailand",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/",
+      "sourcePublishedAt": "2026-10-09T04:01:00Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
+      "firstFetchedAt": "2026-10-09T09:09:49Z"
+    },
     {
       "id": "59ce0cb3c0592a8a60dc3d06",
       "sourceId": "nasa",
@@ -32,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-briefing-to-highlight-contributions-to-martian-moons-mission/",
       "sourcePublishedAt": "2026-10-08T20:22:12Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-announces-bold-science-initiatives-for-americas-golden-age-summit/",
       "sourcePublishedAt": "2026-10-08T19:40:00Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-triage-role-users-or-higher-can-now-archive-pull-requests",
       "sourcePublishedAt": "2026-10-08T19:01:42Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/ames/nasas-sspicy-mission-to-demonstrate-in-space-inspection-technologies/",
       "sourcePublishedAt": "2026-10-08T18:56:25Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/crew-12-returns-to-earth/",
       "sourcePublishedAt": "2026-10-08T18:52:27Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/",
       "sourcePublishedAt": "2026-10-08T18:22:48Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/",
       "sourcePublishedAt": "2026-10-08T18:00:00Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -109,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasas-spacex-crew-12-splashes-down-sets-briefing-to-discuss-mission/",
       "sourcePublishedAt": "2026-10-08T17:02:28Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-screen-readers-can-navigate-timelines-as-lists",
       "sourcePublishedAt": "2026-10-08T16:00:56Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-08T16:31:38Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-energy-department-advance-new-era-of-nuclear-powered-exploration/",
       "sourcePublishedAt": "2026-10-08T15:46:25Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -153,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-draft-pull-requests-count-toward-pull-request-limits",
       "sourcePublishedAt": "2026-10-08T14:25:53Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-08T16:31:38Z"
     },
     {
@@ -219,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot",
       "sourcePublishedAt": "2026-10-07T20:12:18Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -252,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection",
       "sourcePublishedAt": "2026-10-07T16:13:56Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -263,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available",
       "sourcePublishedAt": "2026-10-07T15:46:17Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -274,7 +296,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-discover-local-models-in-github-copilot-cli",
       "sourcePublishedAt": "2026-10-07T15:46:13Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -318,7 +340,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics",
       "sourcePublishedAt": "2026-10-06T23:43:00Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-07T01:35:05Z"
     },
     {
@@ -329,7 +351,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available",
       "sourcePublishedAt": "2026-10-06T20:16:41Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-06T21:40:26Z"
     },
     {
@@ -417,7 +439,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-code-scanning-ai-scan-enablement-status-in-security-overview",
       "sourcePublishedAt": "2026-10-06T10:23:38Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
+      "fetchedAt": "2026-10-09T09:09:49Z",
       "firstFetchedAt": "2026-10-06T17:13:35Z"
     },
     {
@@ -441,28 +463,6 @@
       "sourcePublishedAt": "2026-10-06T04:01:00Z",
       "fetchedAt": "2026-10-07T01:35:05Z",
       "firstFetchedAt": "2026-10-06T10:23:15Z"
-    },
-    {
-      "id": "92ec09c4cd961b3d891e256e",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Curiosity Blog, Sols 5029-5035: Back in the Lab",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5029-5035-back-in-the-lab/",
-      "sourcePublishedAt": "2026-10-06T01:04:01Z",
-      "fetchedAt": "2026-10-07T01:35:05Z",
-      "firstFetchedAt": "2026-10-06T03:01:36Z"
-    },
-    {
-      "id": "19aa2698bcfbd428d86c589b",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "A Journey to the Depths of Ancient Mars?",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/blog/a-journey-to-the-depths-of-ancient-mars/",
-      "sourcePublishedAt": "2026-10-06T00:48:54Z",
-      "fetchedAt": "2026-10-06T17:13:35Z",
-      "firstFetchedAt": "2026-10-06T03:01:36Z"
     },
     {
       "id": "517fdc831c7b1edb72c4ef54",
