@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-09T16:15:55Z",
+  "generatedAt": "2026-10-09T21:00:06Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-09T16:15:55Z",
-      "lastSuccessAt": "2026-10-09T16:15:55Z",
+      "lastAttemptAt": "2026-10-09T21:00:06Z",
+      "lastSuccessAt": "2026-10-09T21:00:06Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,35 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-09T16:15:55Z",
-      "lastSuccessAt": "2026-10-09T16:15:55Z",
+      "lastAttemptAt": "2026-10-09T21:00:06Z",
+      "lastSuccessAt": "2026-10-09T21:00:06Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "a4106c4b8a33ca378d9f3f2b",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Seeks US Industry Plans for Commercial Space Stations",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-seeks-us-industry-plans-for-commercial-space-stations/",
+      "sourcePublishedAt": "2026-10-09T18:11:44Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
+      "firstFetchedAt": "2026-10-09T21:00:06Z"
+    },
+    {
+      "id": "b85427f614ddb37d467c541d",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Demonstrates Next-Generation Heat Shield Technologies",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/",
+      "sourcePublishedAt": "2026-10-09T16:59:24Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
+      "firstFetchedAt": "2026-10-09T21:00:06Z"
+    },
     {
       "id": "ad1fdecb2580d52be26c4312",
       "sourceId": "nasa",
@@ -32,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/cosmic-house-of-mirrors/",
       "sourcePublishedAt": "2026-10-09T13:57:24Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-09T16:15:55Z"
     },
     {
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-9-stickney-crater/",
       "sourcePublishedAt": "2026-10-09T04:05:00Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-09T09:09:49Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/",
       "sourcePublishedAt": "2026-10-09T04:01:00Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-09T09:09:49Z"
     },
     {
@@ -65,8 +87,19 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-briefing-to-highlight-contributions-to-martian-moons-mission/",
       "sourcePublishedAt": "2026-10-08T20:22:12Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
+    },
+    {
+      "id": "24caa334278b69fd57602bc0",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Copilot code review: New organization billing options and controls",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-08-copilot-code-review-new-organization-billing-options-and-controls",
+      "sourcePublishedAt": "2026-10-08T19:43:05Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
+      "firstFetchedAt": "2026-10-09T21:00:06Z"
     },
     {
       "id": "e16f84280efb242f97e1eba3",
@@ -76,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-announces-bold-science-initiatives-for-americas-golden-age-summit/",
       "sourcePublishedAt": "2026-10-08T19:40:00Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -87,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-triage-role-users-or-higher-can-now-archive-pull-requests",
       "sourcePublishedAt": "2026-10-08T19:01:42Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -98,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/ames/nasas-sspicy-mission-to-demonstrate-in-space-inspection-technologies/",
       "sourcePublishedAt": "2026-10-08T18:56:25Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -109,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/crew-12-returns-to-earth/",
       "sourcePublishedAt": "2026-10-08T18:52:27Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -120,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/",
       "sourcePublishedAt": "2026-10-08T18:22:48Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -153,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-screen-readers-can-navigate-timelines-as-lists",
       "sourcePublishedAt": "2026-10-08T16:00:56Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-08T16:31:38Z"
     },
     {
@@ -186,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-draft-pull-requests-count-toward-pull-request-limits",
       "sourcePublishedAt": "2026-10-08T14:25:53Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-08T16:31:38Z"
     },
     {
@@ -252,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot",
       "sourcePublishedAt": "2026-10-07T20:12:18Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -285,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection",
       "sourcePublishedAt": "2026-10-07T16:13:56Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -296,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available",
       "sourcePublishedAt": "2026-10-07T15:46:17Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -307,7 +340,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-discover-local-models-in-github-copilot-cli",
       "sourcePublishedAt": "2026-10-07T15:46:13Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -351,7 +384,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics",
       "sourcePublishedAt": "2026-10-06T23:43:00Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-07T01:35:05Z"
     },
     {
@@ -362,7 +395,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available",
       "sourcePublishedAt": "2026-10-06T20:16:41Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
       "firstFetchedAt": "2026-10-06T21:40:26Z"
     },
     {
@@ -432,17 +465,6 @@
       "firstFetchedAt": "2026-10-06T17:13:35Z"
     },
     {
-      "id": "cfa12f85fd0d4abee3a2a4f3",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s Webb Captures Commotion From Nebula’s Stellar Jets",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/missions/webb/nasas-webb-captures-commotion-from-nebulas-stellar-jets/",
-      "sourcePublishedAt": "2026-10-06T13:00:00Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
-      "firstFetchedAt": "2026-10-06T17:13:35Z"
-    },
-    {
       "id": "06753ef5f068b713de285275",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -452,17 +474,6 @@
       "sourcePublishedAt": "2026-10-06T10:23:38Z",
       "fetchedAt": "2026-10-09T16:15:55Z",
       "firstFetchedAt": "2026-10-06T17:13:35Z"
-    },
-    {
-      "id": "6a337996fce9b648126cacdb",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 October 6 – A Complete Auroral Oval from SMILE",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-october-6-a-complete-auroral-oval-from-smile/",
-      "sourcePublishedAt": "2026-10-06T04:05:00Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
-      "firstFetchedAt": "2026-10-06T10:23:15Z"
     },
     {
       "id": "517fdc831c7b1edb72c4ef54",
@@ -672,17 +683,6 @@
       "sourcePublishedAt": "2026-10-01T16:49:05Z",
       "fetchedAt": "2026-10-02T12:40:42Z",
       "firstFetchedAt": "2026-10-01T19:34:03Z"
-    },
-    {
-      "id": "20f94898ac7397b2decb7e67",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Dynamic workflows in Copilot CLI and the Copilot app",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app",
-      "sourcePublishedAt": "2026-10-01T16:30:10Z",
-      "fetchedAt": "2026-10-02T12:40:42Z",
-      "firstFetchedAt": "2026-10-01T23:54:28Z"
     }
   ]
 }

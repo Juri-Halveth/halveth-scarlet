@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-09",
+  "createdAt": "2026-10-09T21:00:07.252Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-10-09",
+  "body": "# HALVETH Quellen-Update · 2026-10-09\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [NASA Seeks US Industry Plans for Commercial Space Stations](https://www.nasa.gov/news-release/nasa-seeks-us-industry-plans-for-commercial-space-stations/) · veröffentlicht 2026-10-09\n- **NASA** · Originaltitel (EN): [NASA Demonstrates Next-Generation Heat Shield Technologies](https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/) · veröffentlicht 2026-10-09\n- **NASA** · Originaltitel (EN): [Cosmic House of Mirrors](https://www.nasa.gov/image-article/cosmic-house-of-mirrors/) · veröffentlicht 2026-10-09\n- **NASA** · Originaltitel (EN): [APOD: 2026 October 9 – Stickney Crater](https://science.nasa.gov/image-article/apod-2026-october-9-stickney-crater/) · veröffentlicht 2026-10-09\n- **NASA** · Originaltitel (EN): [Floodwaters Overwhelm Thailand](https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/) · veröffentlicht 2026-10-09\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "a4106c4b8a33ca378d9f3f2b",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Seeks US Industry Plans for Commercial Space Stations",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-seeks-us-industry-plans-for-commercial-space-stations/",
+      "sourcePublishedAt": "2026-10-09T18:11:44Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
+      "firstFetchedAt": "2026-10-09T21:00:06Z"
+    },
+    {
+      "id": "b85427f614ddb37d467c541d",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Demonstrates Next-Generation Heat Shield Technologies",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/",
+      "sourcePublishedAt": "2026-10-09T16:59:24Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
+      "firstFetchedAt": "2026-10-09T21:00:06Z"
+    },
+    {
+      "id": "ad1fdecb2580d52be26c4312",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Cosmic House of Mirrors",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/cosmic-house-of-mirrors/",
+      "sourcePublishedAt": "2026-10-09T13:57:24Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
+      "firstFetchedAt": "2026-10-09T16:15:55Z"
+    },
+    {
+      "id": "2d43482cb79ba055c79541fd",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 October 9 – Stickney Crater",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-9-stickney-crater/",
+      "sourcePublishedAt": "2026-10-09T04:05:00Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
+      "firstFetchedAt": "2026-10-09T09:09:49Z"
+    },
+    {
+      "id": "4f89388d6e84ff78c35ebe1d",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Floodwaters Overwhelm Thailand",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/",
+      "sourcePublishedAt": "2026-10-09T04:01:00Z",
+      "fetchedAt": "2026-10-09T21:00:06Z",
+      "firstFetchedAt": "2026-10-09T09:09:49Z"
+    }
+  ],
+  "idempotencyKey": "cb610de8431a98a5b80fbfeae0ccba006cdf99b82554b0ceafdbcdcff7a9c9a3"
+}
