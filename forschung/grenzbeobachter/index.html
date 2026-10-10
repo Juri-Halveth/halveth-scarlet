@@ -23,8 +23,11 @@
   <link rel="icon" href="../../assets/portal-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../assets/portal-shell.css?v=choice-atelier-20260914">
   <link rel="stylesheet" href="observers.css?v=1.0.0">
+  <link rel="stylesheet" href="workshop.css?v=1.0.0">
   <script defer src="core.js?v=1.0.0"></script>
   <script defer src="observers-ui.js?v=1.0.0"></script>
+  <script defer src="workshop-core.js?v=1.0.0"></script>
+  <script defer src="workshop-ui.js?v=1.0.0"></script>
   <script defer src="../../assets/portal-shell.js?v=choice-atelier-20260914"></script>
   <title>Grenzbeobachter · HALVETH</title>
 </head>
@@ -44,7 +47,56 @@
       <div class="hero-row"><div><h1 data-i18n="title">Grenzbeobachter</h1><p class="hero-subtitle" data-i18n="subtitle">Zwei Blickrichtungen. Ein gemeinsamer Verlauf.</p></div><span class="version-tag">v1.0.0</span></div>
       <p class="lead" data-i18n="lead">25 Messorte, ein gleiches Budget: Eine Regel schaut regelmäßig weiter. Die andere richtet ihre nächsten Messungen an dem aus, was sie bereits gesehen hat.</p>
       <div class="contract-tags"><span data-i18n="synthetic">Synthetisches Modell</span><span data-i18n="offline">Läuft in deinem Browser</span><span data-i18n="finite">Endlicher Versuch</span></div>
+      <a class="workshop-entry" href="#werkstatt" data-work-text="entry">Neu · Übergangswerkstatt öffnen ↗</a>
     </header>
+
+    <section id="werkstatt" class="workshop" aria-labelledby="work-title">
+      <header class="work-heading"><div><p class="section-kicker" data-work-text="kicker">QUELLE · SICHTWEISE · ÜBERGANG</p><h2 id="work-title" data-work-text="title">Wissen behalten. Veränderung prüfen.</h2></div><span class="version-tag">v1.0.0</span></header>
+      <p class="work-intro" data-work-text="intro">Eine Aussage kann benannt bleiben, während ihre Ausführung getrennt behandelt wird. Hier kannst du das mit eigenen Texten und einem kleinen Warteschlangenmodell ausprobieren.</p>
+      <div class="work-grid">
+        <div class="work-source">
+          <label class="field"><span data-work-text="source">Dein Quelltext</span><textarea id="work-source" rows="3" maxlength="4000">Die Schleuse öffnen.</textarea></label>
+          <label class="field"><span data-work-text="reading">Wie ordnest du die ganze Aussage ein?</span><select id="work-reading"><option value="UNKNOWN" data-work-text="unknown">Offen</option><option value="AFFIRMED" data-work-text="affirmed">Bejaht</option><option value="NEGATED" data-work-text="negated">Verneint</option><option value="QUOTED_ONLY" data-work-text="quoted">Nur zitiert</option></select></label>
+          <p class="work-note" data-work-text="readingNote">Du wählst die Lesart selbst. Der genaue Wortlaut bleibt erhalten. Der Text wird als Daten behandelt.</p>
+          <details class="work-details"><summary data-work-text="viewsTitle">Zwei Sichtweisen & ein vorgemerktes Ziel</summary>
+            <div class="work-fields">
+              <label class="field"><span data-work-text="viewA">Sichtweise A</span><textarea id="work-near" rows="2" maxlength="1000">Ich sehe die Vorderseite.</textarea></label>
+              <label class="field"><span data-work-text="viewB">Sichtweise B</span><textarea id="work-far" rows="2" maxlength="1000">Ich sehe die Rückseite.</textarea></label>
+              <label class="field"><span data-work-text="targetKind">Art des vorgemerkten Ziels</span><select id="work-kind"><option value="ROOT">Root</option><option value="LOCAL" data-work-text="local">Lokal</option><option value="GITHUB" selected>GitHub</option><option value="EXTERNAL" data-work-text="external">Extern</option></select></label>
+              <label class="field"><span data-work-text="address">Bezeichnung / semantische Adresse</span><input id="work-address" type="text" maxlength="300" value="UNKNOWN"></label>
+              <p class="work-note" data-work-text="targetNote">Das Ziel wird vorgemerkt. Eine Verbindung und die Identität eines gemeinsamen Ereignisses bleiben offen.</p>
+            </div>
+          </details>
+          <button id="work-bind" type="button" class="primary-button" data-work-text="bind">Quelle binden & Modell öffnen</button>
+        </div>
+        <div class="work-map" aria-label="Vertrag des lokalen Entwurfs" data-work-aria="mapLabel">
+          <div class="work-node"><span class="work-node-number">01</span><div><h3 data-work-text="sourceBound">Quelle</h3><p data-work-text="sourceDesc">Exakter Text · eigene Adresse · SHA-256</p></div></div>
+          <div class="work-node"><span class="work-node-number">02</span><div><h3 data-work-text="candidate">Benannter Inhalt</h3><p data-work-text="candidateDesc">Lesart erhalten · Ausführung separat gesperrt</p></div></div>
+          <div class="work-node"><span class="work-node-number">03</span><div><h3 data-work-text="views">Beobachtungsrahmen</h3><p data-work-text="viewsDesc">A und B separat · gleiche Eingabequelle</p></div></div>
+          <div class="work-node"><span class="work-node-number">04</span><div><h3 data-work-text="relations">Verbindungen</h3><p data-work-text="relationsDesc">Zwei vollständige Endpunkte pro Relation</p></div></div>
+          <p class="work-map-note" data-work-text="mapNote">Jeder Eintrag bekommt einen eigenen Platz. Die Begriffe Root, GitHub und Extern beschreiben hier vorgemerkte Ziele.</p>
+        </div>
+      </div>
+      <p id="work-status" class="work-status" role="status" aria-live="polite"></p>
+      <div id="work-result" hidden>
+        <div class="work-state-row"><span class="work-pill" data-work-text="localDraft">Lokaler Entwurf</span><span class="work-pill" data-work-text="sealed">Quelltext bleibt Daten</span><span id="work-reading-state" class="work-pill"></span></div>
+        <section class="work-model" aria-labelledby="work-model-title">
+          <div class="work-heading"><div><p class="section-kicker" data-work-text="modelKicker">GESICHERTER START · GEPRÜFTE SCHRITTE</p><h3 id="work-model-title" data-work-text="modelTitle">Platz für den nächsten Schritt?</h3></div><p class="work-load"><output id="work-load">30</output><span> / 100</span></p></div>
+          <p class="work-note" data-work-text="modelNote">Eigenes Lehrmodell: Start bei 30 Einträgen, Annahmegrenze 80, Kapazität 100. Der Quelltext steuert dieses Modell nicht. Ein Schritt oberhalb der Grenze erhält den alten Stand.</p>
+          <meter id="work-meter" min="0" max="100" low="0" high="80" optimum="30" value="30" aria-label="Belegung des Modells" data-work-aria="loadLabel">30 / 100</meter>
+          <div class="work-settings"><label class="field"><span data-work-text="incoming">Neue Einträge</span><input id="work-incoming" type="number" min="0" max="100" step="1" value="25"></label><label class="field"><span data-work-text="processed">Davon abarbeiten</span><input id="work-processed" type="number" min="0" max="100" step="1" value="5"></label></div>
+          <div class="work-actions"><button id="work-step" type="button" class="primary-button" data-work-text="step">Prüfen & Modellschritt ausführen</button><button id="work-restore" type="button" class="secondary-button" data-work-text="restore">Startstand wiederherstellen</button></div>
+          <p class="work-note" data-work-text="restoreNote">Wiederherstellen fügt einen neuen Rückkehr-Eintrag hinzu. Die vorherigen Schritte bleiben im Verlauf. Maximal 128 Einträge je Entwurf.</p>
+          <ol id="work-history" class="work-history" aria-label="Bisherige Modellschritte" data-work-aria="historyLabel"></ol>
+        </section>
+        <div class="work-actions"><button id="work-export" type="button" class="secondary-button" data-work-text="export">Entwurf & Verlauf herunterladen</button><span id="work-count" class="work-note"></span></div>
+        <p class="work-note" data-work-text="exportNote">Der Download enthält deine Texte, Lesart, Sichtweisen, Zielangabe und den Modellverlauf. Speichere ihn für später. Die Seite überträgt diese Eingaben nicht.</p>
+        <details class="work-details"><summary data-work-text="receipt">Datenvertrag ansehen</summary><pre id="work-json" tabindex="0"></pre></details>
+      </div>
+      <details class="work-details"><summary data-work-text="importTitle">Gespeicherten Entwurf wieder öffnen</summary><label class="field"><span data-work-text="importLabel">Export aus dieser Werkstatt · bis 256 KiB</span><input id="work-import" type="file" accept=".json,application/json"></label></details>
+      <p class="work-note work-limit" data-work-text="limit">Geprüft werden Textbindung, Datenstruktur und Modellschritte. Gerä­te­zeiten, eingegebene Sichtweisen und externe Ziele sind Angaben. Ein Hash belegt die verglichenen Bytes.</p>
+      <noscript><p class="noscript">Die interaktive Werkstatt benötigt JavaScript. / The interactive workshop requires JavaScript.</p></noscript>
+    </section>
 
     <section class="experiment" aria-labelledby="experiment-title">
       <div class="section-top"><div><p class="section-kicker" data-i18n="liveComparison">DER VERGLEICH</p><h2 id="experiment-title" data-i18n="sameWorld">Eine Welt. Zwei Messpläne.</h2></div><label class="truth-toggle"><input id="show-truth" type="checkbox"><span class="toggle-track" aria-hidden="true"></span><span data-i18n="showTruth">Modellverlauf zeigen</span></label></div>

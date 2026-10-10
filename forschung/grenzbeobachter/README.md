@@ -47,6 +47,70 @@ A future component may add a small versioned knowledge ledger with state revisio
 
 ## Development / Entwicklung
 
+### Übergangswerkstatt / Transition workshop · 1.0.0
+
+[Werkstatt öffnen / Open workshop](./#werkstatt)
+
+Die Werkstatt ergänzt den Messplanvergleich als getrenntes lokales Text- und
+Warteschlangenmodell. Der Nutzer bindet den exakten Quelltext (UTF-8, Bytezahl,
+SHA-256) und wählt die Lesart des ganzen Textes selbst. Auch eine verneinte oder
+nur zitierte Aussage bleibt als `ADDRESSED` erhalten; ihr Ausführungsstatus ist
+separat `SEALED_NOT_EXECUTABLE`. Es gibt keine automatische Sprachdeutung.
+
+Zwei eingegebene Sichtweisen bekommen verschiedene Frame- und Observer-IDs.
+Sie gehören zum gleichen deklarierten Eingabecluster. Gleiche Zeit oder gleicher
+Text setzt ihre Ereignisidentität nicht gleich. `observedAt` und `eventTime`
+bleiben `UNKNOWN`; `recordedAt` stammt von der Geräteuhr.
+
+Jede der drei Relationen enthält zwei Endpunkte mit `kind`, `id`, `digest`,
+`semanticAddress` und `binding`. Lokale Digests werden über die vollständigen
+referenzierten Records neu berechnet. Relationdefinition, Richtung, Scope, Zeit,
+Quelle, Evidenz, Autorität und Schreibbereich bleiben eigene Felder. Ein als
+ROOT, LOCAL, GITHUB oder EXTERNAL vorgemerktes Ziel bleibt `UNBOUND`, sein Digest
+`UNKNOWN`. Ein Name oder eine Adresse löst keine Verbindung aus.
+
+Der Lastversuch verwendet bewusst **Modelleinträge**, keine physikalischen
+Druck-, Temperatur- oder medizinischen Größen. Ausgangslast: 30, Annahmegrenze:
+80, Kapazität: 100. Die Projektion ist
+`max(0, vorher + neueEinträge - Bearbeitungskapazität)`. Bis einschließlich 80
+wird sie übernommen; darüber bleibt der vorherige Stand erhalten. Jede Anfrage
+erzeugt einen neuen Record mit vorherigem, projiziertem und übernommenem Wert,
+Zeit und Digest-Verknüpfung. Die Quelltexte steuern den Versuch nicht.
+Wiederherstellen hängt einen neuen Eintrag mit Ausgangswert 30 an; es löscht
+keine früheren Schritte. Maximal 128 Einträge gehören zu einem Entwurf.
+
+Export enthält die eingegebenen Texte und den Verlauf. Ein Import bis 256 KiB
+prüft den Hash, den geschlossenen Datenvertrag, lokale Endpunkte und jeden
+Modellschritt erneut. Der Hash ist selbst berechnet: Er beweist weder externe
+Herkunft noch Vollständigkeit einer historischen Aufzeichnung. Ein neu
+konstruierter, in sich gültiger Datensatz bleibt eine Selbstauskunft. Die Seite
+speichert Formulardaten nicht automatisch. Vor dem Schließen exportieren.
+Sprachwechsel erhält den Entwurf, Änderungen an Quellenfeldern erfordern eine
+neue Bindung. Bestehende Raum-, Snapshot- und Messplanformate bleiben unverändert.
+
+The workshop is a separate local text and bounded-queue teaching model. Exact
+source text is byte-hashed; its whole-source reading is selected by the user.
+Addressed content remains separate from execution. Two declared viewpoints keep
+distinct frame IDs and unresolved event identity. All relations carry complete
+endpoint addresses; external target proposals stay unbound.
+
+Each queue step checks its projected load before applying it. Above 80 the old
+state is retained. Restore appends a return to the initial load of 30 while
+preserving prior entries. Export/import rechecks hashes, endpoint bindings and
+every transition, with a 128-entry / 256-KiB limit. This validates the declared
+model, not authorship, trusted time, outside observations or external authority.
+Download before closing; input text is not automatically persisted or uploaded.
+
+Focused checks:
+
+```sh
+node --test tests/transition-workshop.test.cjs
+```
+
+Recovery: revert the workshop-only commit and rebuild the site. The original
+sampling experiment and its v1 export remain unchanged. Original local source
+attachments are not included in the public build.
+
 From the repository root:
 
 ```sh

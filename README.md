@@ -184,6 +184,20 @@ Der GTC-Beobachter fragt beim Öffnen den jüngsten indexierten Transfer des in 
 
 When opened, the GTC observer reads the latest indexed transfer of the Ethereum GTC contract identified in Gitcoin’s governance documentation through Blockscout. It displays the block, UTC time and a validated transaction link; the explorer is an indexer and may lag. No wallet, signature, transaction, price feed or background polling; normal browser connection metadata goes to Blockscout.
 
+## Übergangswerkstatt / Transition workshop
+
+Die [Werkstatt im Grenzbeobachter-Labor](forschung/grenzbeobachter/#werkstatt)
+bindet eigene Quelltexte und Lesarten, erhält getrennte Beobachtungsrahmen und
+zeigt vollständige Relationsendpunkte. Ein lokales Warteschlangenmodell macht
+Prüfung, Zustandsänderung und Rückkehr zum Startstand bedienbar. JSON-Export und
+erneutes Einlesen prüfen Textbindung und Verlauf; externe Ziele bleiben als
+Vorschläge erhalten. [Datenvertrag und Modell](forschung/grenzbeobachter/README.md).
+
+The [transition workshop](forschung/grenzbeobachter/?lang=en#werkstatt) keeps
+addressed content, execution status and observation frames separate. A bounded
+queue model supports checked steps and append-only recovery. Export/import
+validates its local records; target labels do not establish external connections.
+
 ## Raum der Spuren / Room of traces
 
 [Raum öffnen](https://juri-halveth.github.io/halveth-scarlet/room/?lang=de) · [Open the room](https://juri-halveth.github.io/halveth-scarlet/room/?lang=en) · [GitHub-Kommentarbereich / GitHub comments](https://github.com/Juri-Halveth/halveth-scarlet/issues/1)
