@@ -17,6 +17,7 @@ assigned to a specific file, contribution and version.
 | Bundled Lucide icons in `assets/entity-vendor/runtime.mjs` | ISC and included MIT icon notices; see `assets/entity-vendor/lucide.LICENSE.txt` |
 | New original HTML, JavaScript, tests and documentation under `forschung/scarlet-wissenschaftszoom/` | HALVETH PIRL 2.0, only to the extent of rights controlled by Juri Janovski; excludes underlying facts, formulas as such and NASA material |
 | NASA-derived JPEGs under `forschung/scarlet-wissenschaftszoom/assets/` | NASA media usage guidelines and source attribution in that folder's `README.md`; excluded from HALVETH PIRL 2.0 |
+| New original HTML, JavaScript, tests and documentation under `forschung/singularity-cannon/` | HALVETH PIRL 2.0 only to the extent of rights controlled by Juri Janovski. The Unreal II title, historical game, other third-party works, facts and methods as such are excluded. The supplied conversation transcript is not published. |
 
 The historical parent is `1b87cfc8b6202bf5706e7f80a05ef487667cf1ba`. Earlier Scarlet
 commits contained no repository-wide public license. Default copyright and the

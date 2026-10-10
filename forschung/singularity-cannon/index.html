@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>HALVETH // SINGULARITY CANNON · Forschungsdemo</title>
+<meta name="description" content="Eigenständige HALVETH-Spielsimulation eines beweglichen Attraktors, inspiriert von Unreal II. Keine reale Schwarze-Loch-Physik.">
+<style>
+:root {color-scheme:dark; --bg:#060a12;--panel:#0e1625;--cyan:#8fffe4;--mint:#b6ffc7;--gold:#f7ca86;--muted:#8996b0;--line:rgba(183,218,229,.15)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#e8f9f8;overflow:hidden}
+#stage{position:relative;width:100vw;height:100dvh;min-height:500px;background:#03070e}
+canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+#fx{pointer-events:auto;cursor:crosshair}
+.vignette{pointer-events:none;position:absolute;inset:0;background:radial-gradient(ellipse at 55% 45%,transparent 22%,rgba(0,0,0,.50) 90%);box-shadow:inset 0 0 130px #03070a}
+.top{pointer-events:none;position:absolute;left:clamp(17px,3vw,42px);top:24px;right:20px;display:flex;gap:15px;align-items:flex-start;justify-content:space-between}
+.eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#90e5d5;font-weight:700}
+h1{font-size:clamp(20px,3.2vw,39px);margin:6px 0 3px;letter-spacing:-.045em;text-shadow:0 3px 30px #091d23}
+.lead{font-size:12px;color:#c0d5d7;max-width:560px;line-height:1.55}
+.ref{font-size:10px;white-space:nowrap;letter-spacing:.16em;color:#e3b981;border:1px solid #e3b98150;border-radius:25px;padding:8px 12px}
+.legend{position:absolute;right:20px;top:116px;max-width:215px;pointer-events:none;background:#04101bab;border:1px solid #75b7b733;backdrop-filter:blur(8px);border-radius:11px;padding:12px 14px}
+.legend p{font-size:11px;line-height:1.45;color:#bacfd4;margin:8px 0 0}.legend strong{font-size:12px;color:#c8ffdc}
+.hud{position:absolute;left:clamp(12px,3vw,40px);bottom:clamp(16px,3vh,35px);width:min(720px,calc(100vw - 26px));border-radius:14px;border:1px solid #9bd8d83d;background:linear-gradient(160deg,#101d30ec,#07101cee);box-shadow:0 20px 80px #000a,0 0 42px #3bd0a713;backdrop-filter:blur(15px);padding:17px 18px 14px}
+.hudTitle{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;letter-spacing:.15em;color:#9ee9dc;text-transform:uppercase;font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 13px}
+.stat{padding:9px 9px;border:1px solid #b0e9da1c;background:#ffffff07;border-radius:8px}
+.stat small{display:block;color:#8c9fad;font-size:10px;letter-spacing:.05em}
+.stat b{display:block;margin-top:5px;font-variant-numeric:tabular-nums;font-size:19px;font-weight:660}
+.controls{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+button{border:1px solid #8acfc454;color:#d9fef5;background:#153344;border-radius:8px;min-height:35px;padding:8px 11px;font-size:12px;font-weight:700;cursor:pointer;transition:background .16s}
+button:hover{background:#245161}
+button.primary{background:#9bf6c8;color:#06221f;border-color:#b9ffdd}
+button.primary:hover{background:#d2ffea}
+button:active{transform:translateY(1px)}
+.rangebar{display:flex;gap:10px;align-items:center;margin-top:12px;font-size:11px;color:#b0d9d2}
+.rangebar label{display:flex;align-items:center;gap:8px}
+input[type=range]{accent-color:#8cfac7;width:100px}
+#strengthValue{display:inline-block;width:28px;text-align:right;font-variant-numeric:tabular-nums;color:#b4ffe5}
+.footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-top:9px;font-size:10px;color:#8098a7}
+#message{position:absolute;top:44%;width:100%;text-align:center;pointer-events:none;font-size:13px;letter-spacing:.16em;color:#e5ffe9;text-shadow:0 0 25px #a2fff3;opacity:0;transition:opacity .25s}
+@media(max-width:680px){.legend,.ref{display:none}.top{top:16px}.lead{max-width:290px}.hud{padding:12px;bottom:11px}.stats{margin:8px 0;gap:5px}.stat{padding:6px}.stat b{font-size:15px}button{padding:7px 9px;font-size:10px;min-height:31px}.rangebar{flex-wrap:wrap}.footer{font-size:9px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main id="stage">
+  <canvas id="space" aria-hidden="true"></canvas>
+  <canvas id="fx" tabindex="0" role="button" aria-label="Interaktive Weltraumsimulation. Klicken, tippen oder Leertaste drücken, um eine Singularität abzufeuern."></canvas>
+  <div class="vignette"></div>
+  <div class="top"><div><div class="eyebrow">VERACHEL STUDIOS // ZEITSPUR-LAB 001</div>
+    <h1>SINGULARITY CANNON <span style="color:#98efc8">/ 2003</span></h1>
+    <div class="lead">Ein langsames Projektil verändert die <b>Flugbahnen</b> um sich herum. Eigenständige Spielsimulation; keine gemessene Gravitation oder relativistische Lichtkrümmung.</div>
+    </div><div class="ref">INSPIRED BY UNREAL II · ORIGINAL DEMO</div></div>
+  <aside class="legend"><strong>FELDPROJEKTION</strong>
+    <p><span style="color:#e5ac86">●</span> Energie / Fragmente<br><span style="color:#a3ffcd">●</span> Projektil / Lichtspur<br><span style="color:#f4edab">◆</span> Gegner / Objekte<br><span style="color:#9bbbcf">■</span> Pickups / Materie</p>
+    <p>Zeige auf ein Ziel und feuere. Feld, Objektbewegung und sichtbare Lichtverzerrung laufen unabhängig.</p>
+  </aside>
+  <div id="message">MATERIE ÜBERSCHRITT DEN HORIZONT</div>
+  <section class="hud" aria-label="Kontrollzentrum">
+    <div class="hudTitle"><span>● LIVE FELD-SIMULATION</span><span id="state" style="color:#e2c58b">FELD AKTIV</span></div>
+    <div class="stats">
+      <div class="stat"><small>OBJEKTE IM RAUM</small><b id="objectsStat">0</b></div>
+      <div class="stat"><small>VERSCHLUCKT</small><b id="eatenStat">0</b></div>
+      <div class="stat"><small>FELDRADIUS</small><b id="rangeStat">0</b></div>
+      <div class="stat"><small>ZEITSPUR</small><b id="timeStat">0.0 s</b></div>
+    </div>
+    <div class="controls">
+      <button class="primary" id="fire">◎ SINGULARITÄT ABSCHIESSEN</button>
+      <button id="spawn">✦ OBJEKTE ERZEUGEN</button>
+      <button id="overdrive">⚡ MAXIMALER SOG</button>
+      <button id="pause">II PAUSE</button>
+      <button id="save">↓ BILD SPEICHERN</button>
+      <button id="reset">↻ NEUSTART</button>
+    </div>
+    <div class="rangebar">
+      <label>SOGSTÄRKE <input type="range" min="20" max="250" value="115" id="force"></label>
+      <span id="strengthValue">115%</span>
+      <label><input type="checkbox" id="trails" checked> Zeitspuren</label>
+      <label><input type="checkbox" id="distort" checked> Lichtkrümmung</label>
+    </div>
+    <div class="footer"><span>MAUS / TOUCH: Ziel auswählen · KLICK: Feuer · SPACE: Feuer · P: Pause · R: Reset</span><span>OFFLINE · <a href="README.md" style="color:#b6ffc7">MODELL &amp; RECHTE</a> · <a href="HALVETH_SINGULARITY_CANNON_2026-10-10.zip" download style="color:#b6ffc7">PAKET ↓</a></span></div>
+  </section>
+</main>
+<script>
+'use strict';
+(() => {
+const stage = document.getElementById('stage');
+const glCanvas = document.getElementById('space');
+const canvas = document.getElementById('fx');
+const ctx=canvas.getContext('2d', {alpha:true});
+let w=0,h=0,dpr=1,gl=null,program=null,uRes=null,uTime=null,uHole=null,uEnabled=null;
+let objects=[],dust=[],sparks=[],beams=[],hole=null,aim={x:0,y:0},pastX=[],elapsed=0,eaten=0,paused=false,frameCount=0,last=performance.now(),lastUI=0;
+const controls={
+  force:document.getElementById('force'),
+  trails:document.getElementById('trails'),
+  distort:document.getElementById('distort')
+};
+let viewport={x:0,y:0};
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const MAX_OBJECTS=200, MAX_SPARKS=600, MAX_BEAMS=24;
+const screenUnit=()=>Math.min(w,h)/720;
+const getBaseRadius=()=>clamp(h*.38,160,300);
+const dom=id=>document.getElementById(id);
+
+function shader(type,src){
+  const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);
+  if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+  return s;
+}
+function setupGL(){
+  try {
+    gl=glCanvas.getContext('webgl',{alpha:false,antialias:false,preserveDrawingBuffer:true});
+    if(!gl) return;
+    const vert=`
+    attribute vec2 a; varying vec2 v;
+    void main(){ v=a; gl_Position=vec4(a,0.,1.); }`;
+    const frag=`
+    precision highp float;
+    uniform vec2 resolution;
+    uniform float time;
+    uniform vec3 hole;
+    uniform float lens;
+    varying vec2 v;
+    float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123);}
+    float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+      return mix(mix(hash(i),hash(i+vec2(1.,0.)),f.x),mix(hash(i+vec2(0.,1.)),hash(i+1.),f.x),f.y);}
+    float field(vec2 p){return .57*noise(p)+.29*noise(p*2.13)+.14*noise(p*4.21);}
+    vec3 background(vec2 p){
+      float mist=field(p*3.7+vec2(2.2,-1.7));
+      float thin=field(p*8.4+4.8);
+      vec3 c=mix(vec3(.005,.015,.035), vec3(.040,.093,.115),pow(mist,2.2));
+      c+=vec3(.045,.027,.078)*max(0.,thin-.46);
+      c+=vec3(.012,.036,.022)*max(0.,field(p*2.6)-.50);
+      vec2 grid=p*240.;vec2 id=floor(grid);vec2 f=fract(grid)-.5;
+      float rnd=hash(id);
+      float st=step(.988,rnd);
+      float radius=mix(.07,.3,hash(id+12.4));
+      float star=st*(1.-smoothstep(radius,radius+0.14,length(f)));
+      c+=star*vec3(.62,.9,1.)*(.35+.65*hash(id+3.));
+      return c;
+    }
+    void main(){
+      vec2 pix=gl_FragCoord.xy;
+      vec2 p=(pix-.5*resolution)/resolution.y;
+      vec2 hc=(hole.xy-.5*resolution)/resolution.y;
+      vec2 v=p-hc;float r=length(v);
+      float active=hole.z;
+      float eps=.00002;
+      float lensing=active*lens*.0027/(r*r+.0055);
+      vec2 backP=p+(r>.001 ? v/r : vec2(0.))*lensing;
+      vec3 col=background(backP);
+      if(active>.01){
+        // Layered cinematic accretion disk viewed at an angle.
+        float re=sqrt(v.x*v.x+pow(v.y*3.4,2.));
+        float theta=atan(v.y*3.4,v.x);
+        float turbulence=noise(vec2(theta*5.0+time*.28,re*36.0-time*.23));
+        float disk=exp(-pow((re-.104)/(.021+.009*turbulence),2.));
+        float disk2=exp(-pow((re-.082)/.034,2.));
+        float warm=clamp(.6+.42*cos(theta-.9),.3,1.2);
+        vec3 light=vec3(1.0,.36,.11)*disk+vec3(.19,.85,.59)*disk2*.32;
+        // Doppler-like asymmetry is an artistic cue, not raytraced GR.
+        light*=warm*(.62+.55*turbulence);
+        float behind=step(0.,v.y); // front disk drawn stronger than rear half
+        col+=active*light*(.55+.45*behind);
+        float ring=exp(-pow((r-.029)/.0053,2.));
+        float bright=exp(-pow((r-.047)/.017,2.));
+        col+=active*vec3(.58,1.0,.77)*ring*1.65;
+        col+=active*vec3(.11,.32,.28)*bright*.23;
+        float core=1.-smoothstep(.020,.026,r);
+        col=mix(col,vec3(.00004,.001,.003),core*active);
+        float polar=sin(theta*13.+time*1.3)*.5+.5;
+        col+=active*vec3(.11,.75,.48)*exp(-pow((r-.036)/.005,2.))*polar*.25;
+      }
+      // soft blue starfield / filmic tonemap
+      col=1.-exp(-col*1.18);
+      col=pow(max(col,0.),vec3(.91));
+      gl_FragColor=vec4(col,1.);
+    }`;
+    program=gl.createProgram();
+    gl.attachShader(program,shader(gl.VERTEX_SHADER,vert));
+    gl.attachShader(program,shader(gl.FRAGMENT_SHADER,frag));
+    gl.linkProgram(program);
+    if(!gl.getProgramParameter(program,gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(program));
+    gl.useProgram(program);
+    const verts=new Float32Array([-1,-1,1,-1,-1,1, 1,-1,1,1,-1,1]);
+    const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+    gl.bufferData(gl.ARRAY_BUFFER,verts,gl.STATIC_DRAW);
+    let loc=gl.getAttribLocation(program,'a');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    uRes=gl.getUniformLocation(program,'resolution');
+    uTime=gl.getUniformLocation(program,'time');
+    uHole=gl.getUniformLocation(program,'hole');
+    uEnabled=gl.getUniformLocation(program,'lens');
+  }catch(e){console.warn('WebGL fallback',e);gl=null;}
+}
+function resize(){
+  const r=stage.getBoundingClientRect();
+  w=r.width;h=r.height;dpr=Math.min(window.devicePixelRatio||1,1.45);
+  canvas.width=Math.max(1,Math.round(w*dpr));canvas.height=Math.max(1,Math.round(h*dpr));
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  glCanvas.width=Math.max(1,Math.round(w*dpr));glCanvas.height=Math.max(1,Math.round(h*dpr));
+  if(gl)gl.viewport(0,0,glCanvas.width,glCanvas.height);
+  if(!aim.x){aim={x:w*.64,y:h*.47};}
+  if(hole){hole.x=clamp(hole.x,28,w-28);hole.y=clamp(hole.y,80,h-28);}
+  if(!objects.length)spawnObjects(64);
+  if(!dust.length)spawnDust(850);
+}
+function spawnObjects(n){
+  const kinds=['enemy','enemy','pickup','rock','rocket'];
+  for(let i=0;i<Math.min(n,MAX_OBJECTS-objects.length);i++){
+    const k=kinds[Math.floor(rnd(0,kinds.length))];
+    const x=rnd(w*.17,w*.94),y=rnd(h*.13,h*.74);
+    const mass=k==='rock'?rnd(1.4,3.7):k==='pickup'?1.1:k==='rocket'?0.6:rnd(.7,1.6);
+    objects.push({x,y,vx:rnd(-24,24),vy:rnd(-20,20),mass,kind:k,rad:k==='rock'?rnd(4,9):k==='enemy'?rnd(5,9):rnd(3,6),age:rnd(0,100),trail:[],hue:rnd(0,1)});
+  }
+}
+function spawnDust(n){
+  for(let i=0;i<n;i++)dust.push({
+    x:rnd(0,w),y:rnd(0,h),vx:rnd(-15,15),vy:rnd(-15,15),z:rnd(.3,1.0),hue:Math.random(),len:rnd(2,11)
+  });
+}
+function makeHole(x,y,launch=false){
+  eaten=0;
+  if(launch){
+    hole={x:w*.115,y:h*.51, vx:clamp((x-w*.115)*.24,-180,180), vy:clamp((y-h*.51)*.24,-120,120),
+      age:0,life:7,seed:Math.random()*100,rad:getBaseRadius(),stationary:false};
+    beams=[{x:hole.x,y:hole.y,r:18,life:.5}];
+    flash('SINGULARITÄT GESTARTET');
+  }else{
+    hole={x,y,vx:0,vy:0,age:0,life:99999,seed:Math.random()*100,rad:getBaseRadius(),stationary:true};
+    flash('FELD BEREIT');
+  }
+}
+function flash(s){const m=dom('message');m.textContent=s;m.style.opacity='1';clearTimeout(flash._timer);flash._timer=setTimeout(()=>m.style.opacity='0',900);}
+function gravitation(obj,dt,powder=false){
+  if(!hole)return false;
+  let dx=hole.x-obj.x,dy=hole.y-obj.y,dist2=dx*dx+dy*dy,dist=Math.sqrt(dist2);
+  const range=hole.rad*(powder?1.19:1.0);
+  if(dist>range || hole.age>hole.life)return false;
+  const edge=clamp((range-dist)/(range*.21),0,1);
+  const taper=Math.sin(edge*Math.PI*.5);
+  const power=Number(controls.force.value)/100;
+  const force=(5.7e6*power*taper)/(dist2+4500);
+  const accel=clamp(force/(powder?.5:obj.mass||1),0,1000);
+  if(dist>.01){
+    obj.vx+=dx/dist*accel*dt;
+    obj.vy+=dy/dist*accel*dt;
+    // Tangential force creates a visible, tunable accretion orbit.
+    const swirl=accel*(powder?.53:.17)*dt;
+    obj.vx+=-dy/dist*swirl;
+    obj.vy+=dx/dist*swirl;
+  }
+  if(dist<(powder?16:20)){
+    return true;
+  }
+  return false;
+}
+function update(dt){
+  elapsed+=dt;
+  if(hole && !hole.stationary){
+    hole.x+=hole.vx*dt;hole.y+=hole.vy*dt;
+    hole.vx*=Math.pow(.983,dt*60);hole.vy*=Math.pow(.983,dt*60);
+    hole.age+=dt;
+    if(hole.age>hole.life)hole=null;
+  }else if(hole){hole.age+=dt;}
+  for(let i=objects.length-1;i>=0;i--){
+    let o=objects[i];
+    const sucked=gravitation(o,dt,false);
+    if(sucked){
+      if(o.kind==='pickup'){
+        // Pickups in Unreal II can be ejected instead of being deleted.
+        let a=rnd(0,Math.PI*2);o.x=hole.x+Math.cos(a)*33;o.y=hole.y+Math.sin(a)*33;
+        o.vx=Math.cos(a)*rnd(150,320);o.vy=Math.sin(a)*rnd(150,320);
+      }else{
+        if(o.kind==='enemy')eaten++;
+        emitSparks(o.x,o.y,15);
+        objects.splice(i,1);continue;
+      }
+    }
+    const damp=Math.pow(.994,dt*60);
+    o.vx*=damp;o.vy*=damp;
+    o.x+=o.vx*dt;o.y+=o.vy*dt;o.age+=dt;
+    if(controls.trails.checked&&frameCount%2===0){o.trail.push([o.x,o.y]);if(o.trail.length>30)o.trail.shift();}
+    if(!controls.trails.checked)o.trail.length=0;
+    if(o.x<0||o.x>w){o.vx*=-.82;o.x=clamp(o.x,0,w)}
+    if(o.y<0||o.y>h){o.vy*=-.82;o.y=clamp(o.y,0,h)}
+  }
+  for(const p of dust){
+    let sucked=gravitation(p,dt,true);
+    if(sucked||p.x<-25||p.x>w+25||p.y<-25||p.y>h+25){
+      if(sucked && sparks.length<MAX_SPARKS){sparks.push({x:hole.x,y:hole.y,vx:rnd(-45,45),vy:rnd(-45,45),life:rnd(.15,.4),color:'#9cffe0'})}
+      p.x=rnd(0,w);p.y=rnd(0,h);p.vx=rnd(-7,7);p.vy=rnd(-7,7);
+    }else{p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=Math.pow(.993,dt*60);p.vy*=Math.pow(.993,dt*60);}
+  }
+  for(let i=sparks.length-1;i>=0;i--){let p=sparks[i];p.life-=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.life<=0)sparks.splice(i,1);}
+  for(let i=beams.length-1;i>=0;i--){beams[i].r+=250*dt;beams[i].life-=dt;if(beams[i].life<=0)beams.splice(i,1)}
+  if(objects.length<16)spawnObjects(34);
+}
+function emitSparks(x,y,n){
+  for(let i=0;i<Math.min(n,MAX_SPARKS-sparks.length);i++){let a=rnd(0,Math.PI*2),s=rnd(40,240);sparks.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:rnd(.2,.8),color:Math.random()<.7?'#baffcf':'#ffab7b'});}
+}
+function renderGL(){
+  if(!gl){ctx.fillStyle='#020915';ctx.fillRect(0,0,w,h);return;}
+  gl.useProgram(program);
+  gl.uniform2f(uRes,glCanvas.width,glCanvas.height);
+  gl.uniform1f(uTime,elapsed);
+  gl.uniform3f(uHole,hole?hole.x*dpr:-9999,hole?(h-hole.y)*dpr:-9999,hole?1:0);
+  gl.uniform1f(uEnabled,controls.distort.checked?1:0);
+  gl.drawArrays(gl.TRIANGLES,0,6);
+}
+function draw(){
+  ctx.clearRect(0,0,w,h);
+  renderGL();
+  // The emitter and shot vector.
+  let shipX=w*.115,shipY=h*.51;
+  ctx.save();ctx.translate(shipX,shipY);
+  let angle=Math.atan2(aim.y-shipY,aim.x-shipX);ctx.rotate(angle);
+  ctx.shadowColor='#7cfdd7';ctx.shadowBlur=18;
+  ctx.strokeStyle='#5fe6d5';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(20,0);ctx.lineTo(-13,-11);ctx.lineTo(-7,0);ctx.lineTo(-13,11);ctx.closePath();ctx.stroke();
+  ctx.fillStyle='#214d62';ctx.fill();ctx.fillStyle='#94ffdb';ctx.fillRect(-15,-2,28,4);ctx.restore();
+  if(!hole){ctx.strokeStyle='#6db3a640';ctx.beginPath();ctx.arc(aim.x,aim.y,15,0,7);ctx.stroke();}
+  // Folded trajectories: time-ordered spatial traces.
+  if(controls.trails.checked){
+    for(const o of objects){
+      if(o.trail.length<2)continue;
+      ctx.beginPath();ctx.moveTo(o.trail[0][0],o.trail[0][1]);
+      for(let j=1;j<o.trail.length;j++)ctx.lineTo(o.trail[j][0],o.trail[j][1]);
+      ctx.strokeStyle=o.kind==='enemy'?'rgba(243,187,110,.23)':o.kind==='pickup'?'rgba(158,202,239,.23)':'rgba(127,253,204,.2)';
+      ctx.lineWidth=1.05;ctx.stroke();
+    }
+  }
+  // visible dust: many individual state carriers
+  for(const p of dust){
+    const speed=Math.hypot(p.vx,p.vy);
+    const size=clamp(p.z*(.55+speed*.007),.5,2.4);
+    ctx.fillStyle=p.hue<.18?'rgba(255,195,132,.40)':'rgba(135,241,218,.44)';
+    ctx.fillRect(p.x,p.y,size,size);
+  }
+  // foreground objects and rockets
+  for(const o of objects){
+    ctx.save();ctx.translate(o.x,o.y);
+    if(o.kind==='enemy'){
+      ctx.rotate(o.age*.28);ctx.shadowColor='#fac78c';ctx.shadowBlur=9;
+      ctx.fillStyle='#e4ae71';ctx.beginPath();for(let j=0;j<5;j++){let a=j*Math.PI*2/5-Math.PI/2;ctx.lineTo(Math.cos(a)*o.rad,Math.sin(a)*o.rad)}
+      ctx.closePath();ctx.fill();
+      ctx.strokeStyle='#805e4c';ctx.stroke();
+    }else if(o.kind==='pickup'){
+      ctx.rotate(Math.PI/4+o.age*.15);ctx.shadowColor='#9bc9ed';ctx.shadowBlur=8;
+      ctx.fillStyle='#6d9eb9';ctx.fillRect(-o.rad,-o.rad,o.rad*2,o.rad*2);
+      ctx.strokeStyle='#c1eaff';ctx.strokeRect(-o.rad,-o.rad,o.rad*2,o.rad*2);
+    }else if(o.kind==='rocket'){
+      let a=Math.atan2(o.vy,o.vx);ctx.rotate(a);ctx.fillStyle='#9affdd';ctx.shadowColor='#a0fee2';ctx.shadowBlur=14;
+      ctx.fillRect(-o.rad*1.2,-1.5,o.rad*2.4,3);
+      ctx.fillStyle='#ffb87a';ctx.fillRect(-o.rad*1.8,-.75,o.rad*.8,1.5);
+    }else{
+      ctx.rotate(o.age*.3);ctx.fillStyle='#70818a';ctx.strokeStyle='#b2c2c2';ctx.lineWidth=1.4;
+      ctx.beginPath();ctx.moveTo(-o.rad,-o.rad*.4);ctx.lineTo(-o.rad*.2,-o.rad);ctx.lineTo(o.rad,o.rad*.1);ctx.lineTo(o.rad*.4,o.rad);ctx.lineTo(-o.rad*.75,o.rad*.56);ctx.closePath();ctx.fill();ctx.stroke();
+    }
+    ctx.restore();
+  }
+  // Field boundary and rotating material frame.
+  if(hole){
+    ctx.save();
+    const radius=hole.rad;const power=Number(controls.force.value)/100;
+    ctx.strokeStyle='rgba(91,250,199,.10)';
+    ctx.lineWidth=1;
+    ctx.setLineDash([3,12]);ctx.beginPath();ctx.arc(hole.x,hole.y,radius,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
+    ctx.strokeStyle='rgba(126,249,226,.08)';
+    for(let j=0;j<4;j++){
+      let a=j*.67+elapsed*.11;
+      ctx.beginPath();ctx.arc(hole.x,hole.y,36+j*26,a,a+Math.PI*.77);ctx.stroke();
+    }
+    // The visual bright ring is rendered in WebGL; this halo follows live field strength.
+    let grad=ctx.createRadialGradient(hole.x,hole.y,13,hole.x,hole.y,100);
+    grad.addColorStop(0,'rgba(190,255,211,0)');
+    grad.addColorStop(.36,'rgba(139,255,206,.10)');
+    grad.addColorStop(1,'rgba(101,249,212,0)');
+    ctx.fillStyle=grad;ctx.beginPath();ctx.arc(hole.x,hole.y,100,0,Math.PI*2);ctx.fill();
+    ctx.font='10px ui-monospace,Consolas,monospace';ctx.fillStyle='#9ef7dc88';
+    ctx.fillText('FELD · '+Math.round(radius)+' PX',hole.x+radius*.7,hole.y-radius*.65);
+    ctx.restore();
+  }
+
+  // GPU-independent accretion rendering: survives blocked WebGL/headless browsers.
+  if(hole){
+    const cx=hole.x,cy=hole.y;
+    ctx.save();
+    ctx.translate(cx,cy);
+    let halo=ctx.createRadialGradient(0,0,0,0,0,155);
+    halo.addColorStop(0,'rgba(0,0,0,0)');
+    halo.addColorStop(.13,'rgba(40,195,130,.23)');
+    halo.addColorStop(.27,'rgba(67,240,177,.13)');
+    halo.addColorStop(.58,'rgba(28,104,90,.085)');
+    halo.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=halo;ctx.beginPath();ctx.arc(0,0,155,0,Math.PI*2);ctx.fill();
+
+    // Dense stylized accretion ring, orbiting with time. Separate from game physics.
+    ctx.rotate(-.16);
+    ctx.globalCompositeOperation='lighter';
+    for(let i=0;i<190;i++){
+      const a=i*Math.PI*2/190+elapsed*.16*(i%5===0?1.6:.75);
+      const r=58+Math.sin(i*23.38+elapsed*.5)*9;
+      const x=Math.cos(a)*r, y=Math.sin(a)*r*.33;
+      const hue=(i%7===0)?'#f8dd9d':(i%3===0?'#c4ffe2':'#76facf');
+      const alpha=.24+.5*(Math.cos(a-1.9)**2);
+      ctx.globalAlpha=alpha;
+      ctx.strokeStyle=hue;
+      ctx.lineWidth=i%9===0?1.9:.85;
+      ctx.beginPath();
+      ctx.moveTo(x,y);
+      const streak=2.5+(i%5)*.7;
+      ctx.lineTo(x-Math.sin(a)*streak,y+Math.cos(a)*streak*.33);
+      ctx.stroke();
+    }
+    ctx.globalAlpha=1;
+    // Elliptical luminous rings and foreground arcs
+    ctx.shadowColor='#79ffd5';ctx.shadowBlur=20;ctx.strokeStyle='rgba(149,255,214,.83)';
+    ctx.lineWidth=2.4;ctx.beginPath();ctx.ellipse(0,0,71,23,0,0,Math.PI*2);ctx.stroke();
+    ctx.shadowColor='#ffc893';ctx.shadowBlur=12;ctx.strokeStyle='rgba(255,198,145,.78)';
+    ctx.lineWidth=1.4;ctx.beginPath();ctx.ellipse(0,0,60,15,0,-.1,Math.PI*.9);ctx.stroke();
+    ctx.globalCompositeOperation='source-over';
+    // Light lens around the event horizon
+    let corona=ctx.createRadialGradient(0,0,7,0,0,38);
+    corona.addColorStop(0,'rgba(0,0,0,0)');
+    corona.addColorStop(.46,'rgba(0,0,0,0)');
+    corona.addColorStop(.56,'rgba(134,255,209,.26)');
+    corona.addColorStop(.63,'rgba(214,255,223,.83)');
+    corona.addColorStop(.69,'rgba(60,219,178,.32)');
+    corona.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=corona;ctx.beginPath();ctx.arc(0,0,39,0,Math.PI*2);ctx.fill();
+    ctx.shadowBlur=0;
+    ctx.fillStyle='#010409';ctx.beginPath();ctx.arc(0,0,18,0,Math.PI*2);ctx.fill();
+    ctx.shadowColor='#b8ffdd';ctx.shadowBlur=18;ctx.strokeStyle='#d3ffe1';ctx.lineWidth=1.3;
+    ctx.beginPath();ctx.arc(0,0,20,0,Math.PI*2);ctx.stroke();
+    ctx.restore();
+  }
+
+  for(const s of sparks){ctx.globalAlpha=clamp(s.life,0,1);ctx.fillStyle=s.color;ctx.fillRect(s.x,s.y,2.0,2.0);}
+  ctx.globalAlpha=1;
+  for(const b of beams){ctx.strokeStyle='rgba(190,255,226,'+clamp(b.life,0,1)*.75+')';ctx.lineWidth=2;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.stroke();}
+  if(frameCount%5===0)refreshUI();
+}
+function refreshUI(){
+  dom('objectsStat').textContent=objects.length;
+  dom('eatenStat').textContent=eaten;
+  dom('rangeStat').textContent=hole?`${Math.round(hole.rad)} px`:'0 px';
+  dom('timeStat').textContent=elapsed.toFixed(1)+' s';
+  dom('strengthValue').textContent=controls.force.value+'%';
+  dom('state').textContent=paused?'PAUSIERT':hole?'FELD AKTIV':'ABGEKLUNGEN';
+}
+function frame(now){
+  const dt=clamp((now-last)/1000,0,1/30);last=now;frameCount++;
+  if(!paused)update(dt);
+  draw();
+  requestAnimationFrame(frame);
+}
+function fire(){makeHole(aim.x,aim.y,true)}
+function reset(){
+  objects=[];dust=[];sparks=[];beams=[];elapsed=0;eaten=0;paused=false;dom('pause').textContent='II PAUSE';aim={x:w*.68,y:h*.47};
+  spawnObjects(64);spawnDust(850);makeHole(w*.63,h*.44,false);refreshUI();
+}
+function getPointer(e){let r=canvas.getBoundingClientRect();aim.x=clamp(e.clientX-r.left,5,w-5);aim.y=clamp(e.clientY-r.top,5,h-5);}
+canvas.addEventListener('pointermove',getPointer);
+canvas.addEventListener('pointerdown',e=>{getPointer(e);fire()});
+dom('fire').addEventListener('click',fire);
+dom('spawn').addEventListener('click',()=>{spawnObjects(45);flash('NEUE OBJEKTE IM FELD')});
+dom('overdrive').addEventListener('click',()=>{
+  controls.force.value='250';
+  if(!hole)makeHole(w*.63,h*.42,false);
+  hole.rad=Math.hypot(w,h)*.77;
+  hole.life=99999;hole.stationary=true;
+  spawnObjects(120);emitSparks(hole.x,hole.y,40);
+  if(beams.length>=MAX_BEAMS)beams.shift();
+  beams.push({x:hole.x,y:hole.y,r:12,life:.6});
+  flash('ÜBERLAST · GANZER RAUM IM FELD');
+});
+dom('pause').addEventListener('click',()=>{
+  paused=!paused;dom('pause').textContent=paused?'▶ WEITER':'II PAUSE';refreshUI();
+});
+dom('reset').addEventListener('click',reset);
+dom('save').addEventListener('click',()=>{
+  try{
+  const c=document.createElement('canvas');c.width=canvas.width;c.height=canvas.height;
+  const x=c.getContext('2d');x.drawImage(glCanvas,0,0);x.drawImage(canvas,0,0);
+  c.toBlob(blob=>{
+    if(!blob){flash('PNG-EXPORT FEHLGESCHLAGEN');return;}
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.download='HALVETH_SINGULARITY_T'+Math.round(elapsed)+'.png';a.href=url;
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),30000);
+    flash('PNG ZUM DOWNLOAD BEREIT');
+  },'image/png');
+  }catch(e){alert('Screenshot nicht möglich: '+e.message)}
+});
+document.addEventListener('keydown',e=>{
+ if(e.altKey||e.ctrlKey||e.metaKey||e.repeat)return;
+ const target=e.target;
+ if(target instanceof HTMLElement && target.closest('button,input,a,textarea,[contenteditable="true"]'))return;
+ if(e.code==='Space'){e.preventDefault();fire()}
+ if(e.code==='KeyP'){dom('pause').click()}
+ if(e.code==='KeyR'){reset()}
+});
+window.addEventListener('resize',resize);
+setupGL();resize();makeHole(w*.63,h*.44,false);requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

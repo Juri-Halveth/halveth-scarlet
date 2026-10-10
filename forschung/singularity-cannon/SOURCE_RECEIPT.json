@@ -1,0 +1,42 @@
+{
+  "schema": "halveth.singularity-source-receipt.v1",
+  "recordedDate": "2026-10-10",
+  "dataClass": "EXTERNAL_MINIMIZED",
+  "providedFiles": [
+    {
+      "name": "HALVETH_SINGULARITY_CANNON_2003_REIMAGINED (1).zip",
+      "bytes": 12992,
+      "sha256": "ad7a6898127b4f1c4d22df1842bc5b869578251f364869470da1d771e254b124"
+    },
+    {
+      "name": "HALVETH_SINGULARITY_CANNON_DEMO (1).html",
+      "bytes": 25877,
+      "sha256": "d4bacbac16017bd5aa351c11ada73eea006f9ff370bdffbcb727f5777a2bce1a"
+    },
+    {
+      "name": "Textdokument (neu).txt",
+      "bytes": 83997,
+      "sha256": "f4303c3c26f0d91df66417a43289d6cc84b6bfc4a51a800da8aeb2be29714a9c",
+      "publication": "not included; conversation and unverified research claims"
+    }
+  ],
+  "zipEntries": [
+    {
+      "name": "HALVETH_SINGULARITY_CANNON_DEMO.html",
+      "bytes": 25877,
+      "sha256": "d4bacbac16017bd5aa351c11ada73eea006f9ff370bdffbcb727f5777a2bce1a",
+      "relation": "byte-identical to separately provided HTML"
+    },
+    {
+      "name": "HALVETH_SINGULARITY_CANNON_README.md",
+      "bytes": 3145,
+      "sha256": "31e1bed68914ec5efd198df2ed87178160952d2ec3b0aec44706fd93eb05f5dd"
+    },
+    {
+      "name": "HALVETH_SINGULARITY_CORE.js",
+      "bytes": 2015,
+      "sha256": "36b9853e8b1688d4adcf5dc5cad74a614171b6a50b241991b0417cd8bf25a477"
+    }
+  ],
+  "claimCeiling": "Hashes bind bytes; they do not establish authorship, invention, historical behavior, physics, or external acceptance."
+}

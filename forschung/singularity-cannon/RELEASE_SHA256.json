@@ -1,0 +1,42 @@
+{
+  "schema": "halveth.singularity-release-sha256.v1",
+  "date": "2026-10-10",
+  "files": [
+    {
+      "path": "LICENSE-HALVETH-PIRL-2.0.md",
+      "bytes": 3844,
+      "sha256": "b65023b027195a22bef97d118fd620114fd689af4d48193f4df2bac03b806388"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5501,
+      "sha256": "acec852fb1ba02d032259d9b0625e8a33a3bb4fe94307c707bd57deb8b1df72c"
+    },
+    {
+      "path": "SOURCE_RECEIPT.json",
+      "bytes": 1482,
+      "sha256": "6632e368bb1e44c3a7cf1c785af556765c257df24b1dbfe03cec0ed9013789c2"
+    },
+    {
+      "path": "index.html",
+      "bytes": 26907,
+      "sha256": "0c0a55acbf3885502ef90cfaa0f0ccde457e65689b9799b1a4eba3ae1450fe3e"
+    },
+    {
+      "path": "package_release.py",
+      "bytes": 1696,
+      "sha256": "e348af8d72cda678bc9829a365cd22bb57cabf5e2a4a52f61eabb533d7d06919"
+    },
+    {
+      "path": "singularity-core.mjs",
+      "bytes": 2853,
+      "sha256": "f02b8a705d06ebfb07ca5c99118529b6a6299449f6c3390cdd0f3f7cf396d7af"
+    },
+    {
+      "path": "singularity-core.test.mjs",
+      "bytes": 1664,
+      "sha256": "571e5a1fffa3b0ca016c363f7d0436df577e801451201899814c20bee9129227"
+    }
+  ],
+  "claimCeiling": "Checksums bind packaged bytes, not authorship, physical correctness, or external acceptance."
+}
