@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-10T00:54:42Z",
+  "generatedAt": "2026-10-10T07:11:44Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-10T00:54:42Z",
-      "lastSuccessAt": "2026-10-10T00:54:42Z",
+      "lastAttemptAt": "2026-10-10T07:11:44Z",
+      "lastSuccessAt": "2026-10-10T07:11:44Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,24 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-10T00:54:42Z",
-      "lastSuccessAt": "2026-10-10T00:54:42Z",
+      "lastAttemptAt": "2026-10-10T07:11:44Z",
+      "lastSuccessAt": "2026-10-10T07:11:44Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "93af22c6863f6734479fabe9",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 October 10 – Lunar Farside",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-10-lunar-farside/",
+      "sourcePublishedAt": "2026-10-10T04:05:00Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
+      "firstFetchedAt": "2026-10-10T07:11:44Z"
+    },
     {
       "id": "ec899f104655cd5da0d36efc",
       "sourceId": "github",
@@ -32,7 +43,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5",
       "sourcePublishedAt": "2026-10-09T22:58:23Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-10T00:54:42Z"
     },
     {
@@ -43,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-09-codeql-2-27-2-improves-c-go-rust-and-javascript-analysis",
       "sourcePublishedAt": "2026-10-09T21:32:54Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-10T00:54:42Z"
     },
     {
@@ -54,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-seeks-us-industry-plans-for-commercial-space-stations/",
       "sourcePublishedAt": "2026-10-09T18:11:44Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-09T21:00:06Z"
     },
     {
@@ -65,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/",
       "sourcePublishedAt": "2026-10-09T16:59:24Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-09T21:00:06Z"
     },
     {
@@ -76,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/cosmic-house-of-mirrors/",
       "sourcePublishedAt": "2026-10-09T13:57:24Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-09T16:15:55Z"
     },
     {
@@ -87,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-9-stickney-crater/",
       "sourcePublishedAt": "2026-10-09T04:05:00Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-09T09:09:49Z"
     },
     {
@@ -98,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/",
       "sourcePublishedAt": "2026-10-09T04:01:00Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-09T09:09:49Z"
     },
     {
@@ -109,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-briefing-to-highlight-contributions-to-martian-moons-mission/",
       "sourcePublishedAt": "2026-10-08T20:22:12Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -120,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-copilot-code-review-new-organization-billing-options-and-controls",
       "sourcePublishedAt": "2026-10-08T19:43:05Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-09T21:00:06Z"
     },
     {
@@ -131,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-announces-bold-science-initiatives-for-americas-golden-age-summit/",
       "sourcePublishedAt": "2026-10-08T19:40:00Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -142,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-triage-role-users-or-higher-can-now-archive-pull-requests",
       "sourcePublishedAt": "2026-10-08T19:01:42Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -153,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/ames/nasas-sspicy-mission-to-demonstrate-in-space-inspection-technologies/",
       "sourcePublishedAt": "2026-10-08T18:56:25Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -164,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/crew-12-returns-to-earth/",
       "sourcePublishedAt": "2026-10-08T18:52:27Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -208,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-screen-readers-can-navigate-timelines-as-lists",
       "sourcePublishedAt": "2026-10-08T16:00:56Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-08T16:31:38Z"
     },
     {
@@ -241,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-draft-pull-requests-count-toward-pull-request-limits",
       "sourcePublishedAt": "2026-10-08T14:25:53Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-08T16:31:38Z"
     },
     {
@@ -307,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot",
       "sourcePublishedAt": "2026-10-07T20:12:18Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -340,7 +351,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection",
       "sourcePublishedAt": "2026-10-07T16:13:56Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -351,7 +362,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available",
       "sourcePublishedAt": "2026-10-07T15:46:17Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -362,7 +373,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-discover-local-models-in-github-copilot-cli",
       "sourcePublishedAt": "2026-10-07T15:46:13Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
+      "fetchedAt": "2026-10-10T07:11:44Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -472,17 +483,6 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/astronomers-solve-cosmic-cold-case-with-nasa-hubble-data/",
       "sourcePublishedAt": "2026-10-06T16:09:13Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
-      "firstFetchedAt": "2026-10-06T17:13:35Z"
-    },
-    {
-      "id": "66089d1385a5a0b1e4690291",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s Curiosity Rover Catches Stunning Martian Dawn",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/missions/mars-science-laboratory/curiosity-rover/nasas-curiosity-rover-catches-stunning-martian-dawn/",
-      "sourcePublishedAt": "2026-10-06T15:30:07Z",
       "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-06T17:13:35Z"
     },
