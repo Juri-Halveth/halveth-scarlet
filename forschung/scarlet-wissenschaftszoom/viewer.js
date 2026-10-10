@@ -25,6 +25,7 @@ export function frameCadence(frames) {
   return {
     fps: gaps.length * 1000 / durationMs,
     p95Ms: gaps[Math.min(gaps.length - 1, Math.ceil(gaps.length * .95) - 1)],
+    longPauseCount: gaps.filter(gap => gap >= 250).length,
     frameCount: frames.length,
     durationMs
   }
@@ -263,7 +264,10 @@ async function main() {
             stage.dataset.benchmarkFps = result.fps.toFixed(2)
             stage.dataset.benchmarkP95Ms = result.p95Ms.toFixed(2)
             stage.dataset.benchmarkFrames = String(result.frameCount)
-            setStatus(`rAF-Takt: ${result.fps.toFixed(1)}/s über ${result.frameCount} Frames in ${(result.durationMs/1000).toFixed(2)} s bei ${n} × ${n} Renderpixeln; p95 ${result.p95Ms.toFixed(1)} ms. 120 rAF/s ${result.fps >= 120 ? 'gemessen' : 'hier nicht gemessen'}; Monitor-Ausgabe und 8K-Echtzeit bleiben offen.`)
+            stage.dataset.benchmarkLongPauses = String(result.longPauseCount)
+            const pauseNote = result.longPauseCount ? ` ${result.longPauseCount} Intervalle ≥250 ms; der Takt ist unstetig, Ursache und stabile Leistung bleiben offen.` : ''
+            const target120Observed = result.fps >= 120 && result.p95Ms <= 1000 / 120 && result.longPauseCount === 0
+            setStatus(`rAF-Takt: ${result.fps.toFixed(1)}/s über ${result.frameCount} Frames in ${(result.durationMs/1000).toFixed(2)} s bei ${n} × ${n} Renderpixeln; p95 ${result.p95Ms.toFixed(1)} ms.${pauseNote} 120 rAF/s ${target120Observed ? 'nach Mittelwert und p95 im Messfenster beobachtet' : 'als stetiger Takt hier nicht belegt'}; Monitor-Ausgabe und 8K-Echtzeit bleiben offen.`)
             benchmark = null; $('benchmark').disabled = false
           }
         }
@@ -278,6 +282,7 @@ async function main() {
       delete stage.dataset.benchmarkFps
       delete stage.dataset.benchmarkP95Ms
       delete stage.dataset.benchmarkFrames
+      delete stage.dataset.benchmarkLongPauses
       setStatus(`FPS-Messung abgebrochen: ${reason} Bitte erneut starten.`)
     }
     function setZoom(z) { if (!Number.isFinite(z)) return; logTarget = Math.log(clampZoom(z)); schedule() }
