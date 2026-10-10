@@ -1,0 +1,19 @@
+# Scarlet · wissenschaftlicher Erdzoom
+
+**Projektleitung und benannte Entwicklung:** Juri Janovski (Juri Halveth), 2026. Diese Scarlet-Fassung adaptiert den lokalen HALVETH-V2.5-Forschungskandidaten. Der Git-Commit und die SHA-256-Werte dokumentieren die veröffentlichten Bytes und den Versionsstand; sie sind kein amtlicher Urheber- oder Patentnachweis.
+
+## Was die Seite zeigt
+
+Die drei umschaltbaren Darstellungen nutzen NASA Blue Marble Next Generation (Oktober 2004) sowie NASAs Relief- und Bathymetrievisualisierungen. Die beiden Grauwertkarten werden grafisch mit dem Farbbild kombiniert; die Pixel sind **keine** auswertbaren numerischen Höhen- oder Tiefenwerte. Der normalisierte Reglerwert `u` ergibt `zoom = exp(u · ln 16)`; eine zeitabhängige Annäherung bewegt die Ansicht zu diesem Wert. Vorschauen mit 2048 × 1024 Pixeln erscheinen zuerst; die 8192 × 4096-Texturen blenden nach dem Laden weich ein. Ein optionaler Klick lädt ein zeitversetztes MODIS/GIBS-Mosaik direkt im Browser von NASA. Das Tagesmosaik ist kein Live-Bild und kein 8K-Quellbild.
+
+Der FPS-Knopf misst die Browser-`requestAnimationFrame`-Kadenz über drei Sekunden. Das ist keine GPU-Framezeit. Der 8K-Knopf exportiert nur auf geeigneter Hardware ein Standbild von 7680 × 4320 Pixeln. Weder 120 FPS noch 8K-Echtzeit oder ein begehbarer Geländeaufbau sind mit diesem Release belegt. Bei 16× bleibt die globale Quellauflösung endlich; regionale Kacheln und echte Messraster sind spätere, getrennt zu prüfende Arbeiten.
+
+## Herkunft und Rechte
+
+Die offiziellen Quellen, Original- und Anzeige-Digests sowie Ableitungsschritte stehen in [SCIENCE_ASSET_RECEIPT.json](SCIENCE_ASSET_RECEIPT.json). Die SHA-256-Werte der Release-Dateien stehen im [Release-Manifest](RELEASE_SHA256.json). Die drei 21.600 × 10.800-Originaldateien verbleiben im lokalen Forschungsbestand und sind hier nicht eingebettet; die sechs abgeleiteten Anzeige- und Vorschaubilder sind im Ordner `assets/` byteweise prüfbar. [NASA-Nutzungsregeln](https://www.nasa.gov/nasa-brand-center/images-and-media/) gelten für NASA-Material. NASA wird als Quelle genannt; weder Unterstützung durch NASA noch Eigentum an deren Bildinhalt wird behauptet.
+
+Für den neu veröffentlichten eigenen HTML-/JavaScript-Beitrag gilt die repo-spezifische [Lizenzzuordnung](../../LICENSES.md) zu [HALVETH PIRL 2.0](../../LICENSE-HALVETH-PIRL-2.0.md), soweit entsprechende Rechte bestehen. NASA-Bilder und Tatsachen sind davon ausgenommen. Diese Veröffentlichung ist **keine Patentanmeldung** und gibt keine Patentnummer oder Priorität vor. Wer einen Patentschutz prüfen will, muss vor weiterer technischer Offenlegung gesondert die Neuheit und den Stand der Technik beurteilen lassen.
+
+## Prüfung
+
+`node --test viewer.test.mjs` prüft Log-Zoom, Inverse, Monotonie und zeitabhängige Glättung. `python verify_assets.py` vergleicht die sechs veröffentlichten Dateien mit den SHA-256-Werten und Abmessungen im Receipt. Ein grüner Test beweist nur diese lokalen Verträge. Für die Browserdarstellung und ihre FPS sind Gerät, Browser, Ausgabe und erneute Live-Messung maßgeblich.

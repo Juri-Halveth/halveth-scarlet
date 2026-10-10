@@ -25,6 +25,8 @@ Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer geme
 
 **Website:** https://juri-halveth.github.io/halveth-scarlet/
 
+**Wissenschaftlicher Erdzoom:** [NASA-Quellen mit stufenloser 1×–16×-Ansicht](forschung/scarlet-wissenschaftszoom/) · [Quellen, Grenzen und SHA-256](forschung/scarlet-wissenschaftszoom/README.md). Die 8192 × 4096 Texturen sind historische NASA-Visualisierungen; 120 FPS und begehbares Gelände werden damit nicht behauptet.
+
 **Direkt auf Englisch / Open in English:** https://juri-halveth.github.io/halveth-scarlet/?lang=en
 
 **Urheberschaft und Beteiligung / Authorship and participation:** © 2026 Juri Halveth (Juri Janovski). HALVETH beansprucht die Rechte an den eigenen Thesen, Texten, Modellen, Abbildungen und dem Code. Eine öffentliche GitHub-Fassung ist kein Rechteverzicht. Neue eigene Beiträge unter HALVETH PIRL 2.0 sind **Source Available**. Die kommerziellen Bedingungen gelten nur im Umfang der jeweiligen Rechte; frühere MIT-, ISC- und Creative-Commons-Freigaben sowie Drittanbieterrechte bleiben bestehen. Lizenzanfragen: **security@halveth.de**. Einzelheiten: [HALVETH-RIGHTS.md](HALVETH-RIGHTS.md), [HALVETH-RIGHTS.json](HALVETH-RIGHTS.json) und [LICENSES.md](LICENSES.md).
