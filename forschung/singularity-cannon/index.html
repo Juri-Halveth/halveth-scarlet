@@ -184,7 +184,7 @@ function setupGL(){
         // Doppler-like asymmetry is an artistic cue, not raytraced GR.
         light*=angularSupply*warm*(.18+1.35*clumps);
         float behind=step(0.,v.y); // front disk drawn stronger than rear half
-        col+=active*light*(.55+.45*behind);
+        col+=active*light*1.8*(.55+.45*behind);
         float core=1.-smoothstep(.020*scale,.026*scale,r);
         col=mix(col,vec3(.00004,.001,.003),core*active);
       }
@@ -478,8 +478,8 @@ function draw(){
     ctx.restore();
   }
 
-  // GPU-independent accretion rendering: survives blocked WebGL/headless browsers.
-  for(const hole of holes){
+  // The Canvas disk is a fallback, not a second disk painted over WebGL.
+  if(!gl)for(const hole of holes){
     const cx=hole.x,cy=hole.y;
     ctx.save();
     ctx.translate(cx,cy);

@@ -32,6 +32,7 @@ Das sichtbare Fenster ist ein endlicher Ausschnitt. Objekte, die ihn verlassen, 
 - Die Bildränder reflektieren Objekte nicht mehr. Ausgetretene Objekte werden außerhalb des Ausschnitts entfernt und neue Objekte strömen vom Rand ein.
 - Die leuchtende Scheibe ist nicht mehr als vollständige Ellipse vorgezeichnet: Helligkeit und Winkelverteilung folgen nahen Tracern, Flecken bewegen sich differenziell und das Leuchten klingt ohne Zufuhr ab. Die Tracer selbst erhalten sichtbare Bewegungsspuren. Dunkler Kern und gravitative Spielwirkung sind davon getrennt.
 - Eine Live-Anzeige zeigt rAF-Takt und Canvas-Pixelgröße als gebundene Laufzeitbeobachtung.
+- Bei verfügbarem WebGL zeichnet Canvas die Akkretionsscheibe nicht noch einmal darüber; seine Scheibenzeichnung bleibt als Fallback erhalten. Das entfernt doppelte Zeichenarbeit, ist aber keine Zusage einer bestimmten Bildrate.
 - Tastenkürzel greifen nicht in fokussierte Schaltflächen, Links oder Formelemente ein.
 - „Alles zurücksetzen“ hebt auch einen vorherigen Pausenzustand auf.
 - Der PNG-Export nutzt einen lokalen Blob-Download und meldet den gestarteten Export sichtbar.
