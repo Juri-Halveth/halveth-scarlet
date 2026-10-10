@@ -8,6 +8,8 @@ Die drei umschaltbaren Darstellungen nutzen NASA Blue Marble Next Generation (Ok
 
 Der FPS-Knopf misst die Browser-`requestAnimationFrame`-Kadenz ab dem ersten Bildzeitpunkt über mindestens drei Sekunden bei einer konstanten, sichtbar angegebenen Canvas-Renderfläche. Tabwechsel, Größenwechsel und ein beginnender 8K-Export brechen die Messung ab; ohne mindestens zwei gültige Bildzeitpunkte erscheint kein FPS-Wert. Das ist weder GPU-Framezeit noch ein Beleg für die Monitorausgabe. Der 8K-Knopf exportiert nur auf geeigneter Hardware ein Standbild von 7680 × 4320 Pixeln. Weder 120 FPS noch 8K-Echtzeit oder ein begehbarer Geländeaufbau sind mit diesem Release belegt. Bei 16× bleibt die globale Quellauflösung endlich; regionale Kacheln und echte Messraster sind spätere, getrennt zu prüfende Arbeiten. Lange Ziehgesten bleiben aktiv, solange der Zeiger erfasst ist; ein einzelner unplausibler Positionssprung wird übersprungen, ohne die Geste abzubrechen. Bei aktivierter Betriebssystemeinstellung für reduzierte Bewegung wechseln Blick und Zoom ohne Animation.
 
+Die WebGL-Texturen nutzen lineare Basisfilterung und wiederholte Längengrade. So bleibt die Textur an der im Südpolblick sichtbaren Längengrad-Grenze ohne die zuvor beobachtete dunkle Mipmap-Linie. Der lokale Bildvergleich umfasst die 2048er Vorschau und die 8192er Detailansicht; die Leistung auf anderen Geräten bleibt separat zu messen.
+
 Die FPS-Ausgabe zählt Abstände ab 250 ms als lange Pausen. Das ist eine
 beobachtete Unstetigkeit, keine Diagnose ihrer Ursache und kein Beleg für
 stabile Renderleistung. Sichtbarkeit und Fokus des Browserdokuments

@@ -56,7 +56,8 @@ void main(){
   n=vec3(n.x,n.y*c+n.z*s,-n.y*s+n.z*c);
   float lon=atan(n.x,n.z)+angle, lat=asin(clamp(n.y,-1.,1.));
   vec3 normal=vec3(cos(lat)*sin(lon),sin(lat),cos(lat)*cos(lon));
-  vec2 uv=vec2(fract(.5+lon/6.28318530718),.5-lat/3.14159265359);
+  // Keep longitude continuous where possible; GL_REPEAT closes the wrap.
+  vec2 uv=vec2(.5+lon/6.28318530718,.5-lat/3.14159265359);
   vec3 lo=texture2D(lowTex,uv).rgb, hi=texture2D(highTex,uv).rgb;
   vec3 tex=mix(lo,hi,detailBlend);
   vec3 earth=texture2D(earthTex,uv).rgb;
@@ -89,8 +90,10 @@ function upload(gl, img) {
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img)
   const pot = (n) => n > 0 && (n & (n - 1)) === 0
   if (pot(img.width) && pot(img.height)) {
-    gl.generateMipmap(gl.TEXTURE_2D)
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR)
+    // Longitude wraps on the visible polar cap. Implicit mip gradients jump at
+    // that branch cut and select a dark low-detail texel strip. Base-level
+    // linear filtering avoids the derivative-dependent seam at every zoom.
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR)
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT)
   } else {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR)
