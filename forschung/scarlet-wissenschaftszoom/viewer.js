@@ -11,6 +11,24 @@ export function unitFromZoom(z) { return Math.log(clampZoom(z)) / LOG_MAX }
 export function smoothToward(value, target, dtMs, timeConstantMs = 95) {
   return value + (target - value) * (1 - Math.exp(-Math.max(0, dtMs) / timeConstantMs))
 }
+export function frameCadence(frames) {
+  if (!Array.isArray(frames) || frames.length < 2) return null
+  const gaps = []
+  for (let i = 1; i < frames.length; i++) {
+    const gap = frames[i] - frames[i - 1]
+    if (!Number.isFinite(gap) || gap <= 0) return null
+    gaps.push(gap)
+  }
+  const durationMs = frames.at(-1) - frames[0]
+  if (!Number.isFinite(durationMs) || durationMs <= 0) return null
+  gaps.sort((a, b) => a - b)
+  return {
+    fps: gaps.length * 1000 / durationMs,
+    p95Ms: gaps[Math.min(gaps.length - 1, Math.ceil(gaps.length * .95) - 1)],
+    frameCount: frames.length,
+    durationMs
+  }
+}
 function astronomy(ms) {
   const mod = (x, n) => ((x % n) + n) % n
   const jd = ms / 86400000 + 2440587.5, jd0 = Math.floor(jd - .5) + .5
@@ -102,13 +120,15 @@ async function main() {
   const canvas = $('globe'), stage = $('stage'), status = $('status'), sourceLine = $('source-line')
   const zoomInput = $('zoom'), zoomValue = $('zoom-value')
   const buttons = Object.fromEntries(Object.keys(modes).map(key => [key, $(`mode-${key}`)]))
-  const controls = [...Object.values(buttons), $('zoom-in'), $('zoom-out'), zoomInput, $('satellite'), $('benchmark'), $('export-8k')]
+  const detailButton = $('detail-toggle')
+  const controls = [...Object.values(buttons), $('zoom-in'), $('zoom-out'), zoomInput, detailButton, $('satellite'), $('benchmark'), $('export-8k')]
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   const firstSky = astronomy(Date.now())
   const startYaw = Math.atan2(firstSky.sun[0], firstSky.sun[2]) - 40 * RAD + firstSky.gmst
   let mode = 'earth', yaw = startYaw, yawTarget = startYaw, latitude = .28, latTarget = .28
   let logZoom = 0, logTarget = 0, dailyDate = null, satelliteState = 'idle'
   let drawPending = false, lastFrame = 0, lastUI = 0, benchmark = null, exportBusy = false
-  let highMode = null, highTexture = null, highToken = 0, detailStart = 0, detailBlend = 0
+  let highMode = null, highTexture = null, highToken = 0, detailStart = 0, detailBlend = 0, detailRequested = false
   let satelliteTexture = null
   try {
     const images = await Promise.all(Object.values(modes).map(cfg => image(cfg.low)))
@@ -133,32 +153,57 @@ async function main() {
     gl.uniform1i(uniforms.lowTex, 0); gl.uniform1i(uniforms.highTex, 1); gl.uniform1i(uniforms.dustTex, 2); gl.uniform1i(uniforms.earthTex, 3)
     canvas.dataset.renderer = 'webgl'
     const setStatus = message => { status.textContent = message }
+    function updateDetailButton() {
+      detailButton.textContent = !detailRequested ? '8192er Detail laden' : highMode === mode && highTexture ? '2048er Vorschau nutzen' : 'Detail-Laden abbrechen'
+      detailButton.setAttribute('aria-pressed', String(detailRequested))
+    }
+    function releaseHigh() {
+      highToken++
+      if (highTexture) {
+        gl.activeTexture(gl.TEXTURE1)
+        gl.bindTexture(gl.TEXTURE_2D, null)
+        gl.activeTexture(gl.TEXTURE3)
+        gl.bindTexture(gl.TEXTURE_2D, null)
+        gl.deleteTexture(highTexture)
+      }
+      highTexture = null; highMode = null; detailBlend = 0
+      refreshUI()
+    }
 
     async function ensureHigh(nextMode) {
+      if (!detailRequested) return
       const token = ++highToken
       if (highMode === nextMode && highTexture) return
       if (maxTexture < 8192) {
+        detailRequested = false; updateDetailButton()
         setStatus(`GPU-Texturgrenze ${maxTexture}px: Vorschau nutzt niedrigere Auflösung; 8K-Textur ist hier nicht verfügbar.`)
+        return
+      }
+      if (nextMode === 'earth' && satelliteState === 'ready') {
+        detailRequested = false; updateDetailButton()
+        setStatus('Das freiwillig geladene NASA-Tagesbild hat 2048 × 1024 Pixel; 8192er Detail ist für die historischen Karten verfügbar.')
         return
       }
       try {
         const img = await image(modes[nextMode].high)
-        if (token !== highToken || mode !== nextMode || satelliteState === 'ready' && mode === 'earth') return
+        if (token !== highToken || !detailRequested || mode !== nextMode || satelliteState === 'ready' && mode === 'earth') return
         const nextTexture = upload(gl, img)
         if (highTexture) gl.deleteTexture(highTexture)
         highTexture = nextTexture; highMode = nextMode
         detailStart = performance.now(); detailBlend = 0
+        updateDetailButton(); refreshUI()
         setStatus(`${modes[nextMode].label}: 8192 × 4096 Quelltextur geladen; Detail wird weich eingeblendet.`)
         schedule()
       } catch (error) {
-        if (token === highToken) setStatus(`Hochauflösende Textur nicht geladen: ${error.message}. Die Vorschau bleibt bedienbar.`)
+        if (token === highToken) { detailRequested = false; updateDetailButton(); setStatus(`Hochauflösende Textur nicht geladen: ${error.message}. Die Vorschau bleibt bedienbar.`) }
       }
     }
     function updateUI(angle, now) {
       const lon = wrapLongitude(angle), phi = latitude
       $('location').textContent = `${(phi/RAD).toFixed(1)}° / ${(lon/RAD).toFixed(1)}°`
       const highActive = highMode === mode && highTexture && !(mode === 'earth' && satelliteState === 'ready')
-      $('image-detail').textContent = mode === 'earth' && satelliteState === 'ready' ? 'GIBS 2048 px' : highActive ? '8192 × 4096' : '2048 × 1024'
+      $('image-detail').textContent = mode === 'earth' && satelliteState === 'ready' ? 'GIBS 2048 × 1024' : highActive ? `8192 × 4096${detailBlend < 1 ? ' · Übergang' : ''}` : '2048 × 1024'
+      $('render-size').textContent = `${canvas.width} × ${canvas.height} px`
       for (const [key, button] of Object.entries(buttons)) button.setAttribute('aria-pressed', String(mode === key))
       zoomInput.value = String(unitFromZoom(Math.exp(logTarget)))
       zoomValue.value = `${Math.exp(logZoom).toFixed(2).replace('.', ',')}×`
@@ -170,6 +215,10 @@ async function main() {
       stage.dataset.detail = highActive ? '8192' : 'preview'
       stage.dataset.renderWidth = String(canvas.width)
       lastUI = now
+    }
+    function refreshUI() {
+      const sky = astronomy(Date.now())
+      updateUI(40 * RAD - sky.gmst + yaw, performance.now())
     }
     function render(width, height, now, update = true) {
       if (canvas.width !== width || canvas.height !== height) { canvas.width = width; canvas.height = height }
@@ -195,47 +244,73 @@ async function main() {
       drawPending = false
       if (document.hidden || exportBusy) return
       const dt = lastFrame ? Math.min(100, now - lastFrame) : 16.7; lastFrame = now
-      logZoom = smoothToward(logZoom, logTarget, dt)
-      yaw = smoothToward(yaw, yawTarget, dt)
-      latitude = smoothToward(latitude, latTarget, dt)
-      if (highMode === mode && highTexture && detailBlend < 1) detailBlend = Math.min(1, (now - detailStart) / 450)
+      logZoom = reducedMotion.matches ? logTarget : smoothToward(logZoom, logTarget, dt)
+      yaw = reducedMotion.matches ? yawTarget : smoothToward(yaw, yawTarget, dt)
+      latitude = reducedMotion.matches ? latTarget : smoothToward(latitude, latTarget, dt)
+      if (highMode === mode && highTexture && detailBlend < 1) detailBlend = reducedMotion.matches ? 1 : Math.min(1, (now - detailStart) / 450)
       const n = Math.min(1440, Math.max(320, Math.round(canvas.clientWidth * Math.min(window.devicePixelRatio || 1, 1.7))))
+      if (benchmark && benchmark.renderSize !== null && benchmark.renderSize !== n) cancelBenchmark('Renderfläche hat sich während der Messung geändert.')
       render(n, n, now, now - lastUI > 35)
       if (benchmark) {
+        if (benchmark.start === null) benchmark.start = now
+        benchmark.renderSize = n
         benchmark.frames.push(now)
         if (now - benchmark.start >= 3000) {
-          const frames = benchmark.frames, gaps = frames.slice(1).map((t, i) => t - frames[i]).sort((a, b) => a - b)
-          const fps = (frames.length - 1) * 1000 / (frames.at(-1) - frames[0])
-          const p95 = gaps[Math.min(gaps.length - 1, Math.floor(gaps.length * .95))]
-          $('fps-result').textContent = `${fps.toFixed(1)} FPS · p95 ${p95.toFixed(1)} ms`
-          stage.dataset.benchmarkFps = fps.toFixed(2); stage.dataset.benchmarkP95Ms = p95.toFixed(2)
-          setStatus(`Gemessene rAF-Bildrate: ${fps.toFixed(1)} FPS bei ${n} × ${n} Renderpixeln, p95 ${p95.toFixed(1)} ms. Ziel 120 FPS ${fps >= 119.5 ? 'erreicht' : 'hier nicht belegt'}.`)
-          benchmark = null; $('benchmark').disabled = false
+          const result = frameCadence(benchmark.frames)
+          if (!result) cancelBenchmark('Zu wenige gültige Bildzeitpunkte für eine FPS-Angabe.')
+          else {
+            $('fps-result').textContent = `${result.fps.toFixed(1)} rAF/s · p95 ${result.p95Ms.toFixed(1)} ms`
+            stage.dataset.benchmarkFps = result.fps.toFixed(2)
+            stage.dataset.benchmarkP95Ms = result.p95Ms.toFixed(2)
+            stage.dataset.benchmarkFrames = String(result.frameCount)
+            setStatus(`rAF-Takt: ${result.fps.toFixed(1)}/s über ${result.frameCount} Frames in ${(result.durationMs/1000).toFixed(2)} s bei ${n} × ${n} Renderpixeln; p95 ${result.p95Ms.toFixed(1)} ms. 120 rAF/s ${result.fps >= 120 ? 'gemessen' : 'hier nicht gemessen'}; Monitor-Ausgabe und 8K-Echtzeit bleiben offen.`)
+            benchmark = null; $('benchmark').disabled = false
+          }
         }
       }
       if (Math.abs(logZoom-logTarget) > .00002 || Math.abs(yaw-yawTarget) > .00002 || Math.abs(latitude-latTarget) > .00002 || detailBlend < 1 && highMode === mode && !!highTexture || benchmark) schedule()
     }
     function schedule() { if (!drawPending) { drawPending = true; requestAnimationFrame(draw) } }
+    function cancelBenchmark(reason) {
+      if (!benchmark) return
+      benchmark = null; $('benchmark').disabled = false
+      $('fps-result').textContent = 'Messung abgebrochen'
+      delete stage.dataset.benchmarkFps
+      delete stage.dataset.benchmarkP95Ms
+      delete stage.dataset.benchmarkFrames
+      setStatus(`FPS-Messung abgebrochen: ${reason} Bitte erneut starten.`)
+    }
     function setZoom(z) { if (!Number.isFinite(z)) return; logTarget = Math.log(clampZoom(z)); schedule() }
     function shift(dx, dy) { yawTarget -= dx * .007 / Math.exp(logZoom); latTarget = Math.max(-1.55, Math.min(1.55, latTarget + dy * .005 / Math.exp(logZoom))); schedule() }
     function setMode(next) {
       if (mode === next && !(next === 'earth' && satelliteState === 'ready')) return
       pointers.clear()
       if (next === 'earth' && satelliteState === 'ready') satelliteState = 'idle'
-      mode = next; detailBlend = 0; highToken++
+      mode = next; releaseHigh(); updateDetailButton()
       detailStart = performance.now()
-      setStatus(`${modes[next].label}. Auflösung wird ohne Wechsel des Blickwinkels verfeinert.`)
-      schedule(); ensureHigh(next)
+      setStatus(`${modes[next].label}. ${detailRequested ? '8192er Detail wird geladen; die Vorschau bleibt sichtbar.' : '2048er Vorschau aktiv; 8192er Detail ist wählbar.'}`)
+      schedule(); if (detailRequested) ensureHigh(next)
     }
     for (const [key, button] of Object.entries(buttons)) button.addEventListener('click', () => setMode(key))
+    detailButton.addEventListener('click', () => {
+      if (detailRequested) {
+        detailRequested = false; releaseHigh(); updateDetailButton()
+        setStatus('2048 × 1024 Vorschau aktiv; 8192er GPU-Textur freigegeben.')
+        schedule()
+      } else {
+        detailRequested = true; updateDetailButton()
+        setStatus('8192 × 4096 Quelltextur wird geladen; die Vorschau bleibt sichtbar.')
+        ensureHigh(mode)
+      }
+    })
     $('zoom-in').addEventListener('click', () => setZoom(Math.exp(logTarget) * 1.35))
     $('zoom-out').addEventListener('click', () => setZoom(Math.exp(logTarget) / 1.35))
     zoomInput.addEventListener('input', () => setZoom(zoomFromUnit(Number(zoomInput.value))))
     stage.addEventListener('wheel', event => { event.preventDefault(); pointers.clear(); setZoom(Math.exp(logTarget) * Math.exp(-event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? 400 : 1) * .0015)) }, {passive:false})
     const pointers = new Map()
     const distance = () => { const p = [...pointers.values()]; return p.length < 2 ? 0 : Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y) }
-    stage.addEventListener('pointerdown', event => { if (event.pointerType === 'mouse' && event.button !== 0) return; pointers.set(event.pointerId,{x:event.clientX,y:event.clientY,t:performance.now()}); stage.setPointerCapture(event.pointerId) })
-    stage.addEventListener('pointermove', event => { if(event.buttons===0){pointers.delete(event.pointerId);return} const old=pointers.get(event.pointerId); if(!old)return; const dx=event.clientX-old.x,dy=event.clientY-old.y; if(performance.now()-old.t>3000||Math.hypot(dx,dy)>100){pointers.delete(event.pointerId);return} const before=distance(); pointers.set(event.pointerId,{x:event.clientX,y:event.clientY,t:performance.now()}); if(pointers.size===2){const after=distance();if(before>0&&after>0)setZoom(Math.exp(logTarget)*after/before)}else shift(dx,dy) })
+    stage.addEventListener('pointerdown', event => { if (event.pointerType === 'mouse' && event.button !== 0) return; pointers.set(event.pointerId,{x:event.clientX,y:event.clientY}); stage.setPointerCapture(event.pointerId) })
+    stage.addEventListener('pointermove', event => { if(event.pointerType === 'mouse' && (event.buttons & 1) === 0){pointers.delete(event.pointerId);return} const old=pointers.get(event.pointerId); if(!old)return; const dx=event.clientX-old.x,dy=event.clientY-old.y; const before=distance(); pointers.set(event.pointerId,{x:event.clientX,y:event.clientY}); if(Math.hypot(dx,dy)>100)return; if(pointers.size===2){const after=distance();if(before>0&&after>0)setZoom(Math.exp(logTarget)*after/before)}else shift(dx,dy) })
     for (const type of ['pointerup','pointercancel','lostpointercapture']) stage.addEventListener(type,event=>pointers.delete(event.pointerId))
     window.addEventListener('pointerup', event => pointers.delete(event.pointerId))
     window.addEventListener('blur', () => pointers.clear())
@@ -248,17 +323,21 @@ async function main() {
       }
     })
     $('benchmark').addEventListener('click', () => {
-      if (benchmark) return
-      benchmark = {start:performance.now(),frames:[]}; $('benchmark').disabled = true
+      if (benchmark || exportBusy) return
+      benchmark = {start:null,frames:[],renderSize:null}; $('benchmark').disabled = true
+      delete stage.dataset.benchmarkFps
+      delete stage.dataset.benchmarkP95Ms
+      delete stage.dataset.benchmarkFrames
       $('fps-result').textContent = 'Messung läuft …'; schedule()
     })
     $('export-8k').addEventListener('click', async () => {
       if (exportBusy) return
       const viewport = gl.getParameter(gl.MAX_VIEWPORT_DIMS)
       if (!highTexture || highMode !== mode || mode === 'earth' && satelliteState === 'ready' || viewport[0] < 7680 || viewport[1] < 4320) {
-        setStatus('8K-Export braucht die geladene 8192er Quelltextur und einen GPU-Viewport von mindestens 7680 × 4320.'); return
+        setStatus('8K-Export: bitte zuerst 8192er Detail laden; außerdem muss der GPU-Viewport mindestens 7680 × 4320 erlauben.'); return
       }
-      exportBusy = true; $('export-8k').disabled = true; stage.style.visibility = 'hidden'
+      cancelBenchmark('8K-Export wurde gestartet.')
+      exportBusy = true; $('export-8k').disabled = true; $('benchmark').disabled = true; stage.style.visibility = 'hidden'
       const oldW = canvas.width, oldH = canvas.height
       try {
         detailBlend = 1
@@ -271,7 +350,7 @@ async function main() {
         anchor.click(); setTimeout(() => URL.revokeObjectURL(url), 60000)
         setStatus(`8K-Standbild ${mode}: 7680 × 4320 PNG erzeugt (${(blob.size/1048576).toFixed(1)} MiB). Das ist keine 8K-Echtzeit-FPS-Messung.`)
       } catch (error) { setStatus(`8K-Export nicht abgeschlossen: ${error.message}`) }
-      finally { canvas.width=oldW; canvas.height=oldH; exportBusy=false; $('export-8k').disabled=false; stage.style.visibility=''; schedule() }
+      finally { canvas.width=oldW; canvas.height=oldH; exportBusy=false; $('export-8k').disabled=false; $('benchmark').disabled=false; stage.style.visibility=''; schedule() }
     })
     $('satellite').addEventListener('click', async () => {
       const day = new Date(Date.now()-86400000).toISOString().slice(0,10)
@@ -284,14 +363,19 @@ async function main() {
         if (img.naturalWidth!==2048||img.naturalHeight!==1024) throw new Error('unerwartete Bildgröße')
         if (satelliteTexture) gl.deleteTexture(satelliteTexture)
         satelliteTexture=upload(gl,img); satelliteState='ready'; mode='earth'
+        detailRequested=false; releaseHigh(); updateDetailButton()
         setStatus(`NASA-MODIS-Mosaik für angefragten Tag ${day} geladen; zeitversetzte Abdeckung, kein Live-Video.`)
       } catch (error) { satelliteState='error'; setStatus(`Tagesmosaik nicht verfügbar: ${error.message}. Gespeicherte NASA-Karte bleibt sichtbar.`) }
       finally { clearTimeout(timer); schedule() }
     })
     window.addEventListener('resize', schedule)
-    document.addEventListener('visibilitychange', () => { if (!document.hidden) schedule() })
-    setStatus('WebGL bereit. Blick und Zoom gleiten kontinuierlich; hochauflösende Detailquelle lädt im Hintergrund.')
-    schedule(); ensureHigh('earth')
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { cancelBenchmark('Tab war unsichtbar.'); lastFrame = 0 }
+      else schedule()
+    })
+    updateDetailButton()
+    setStatus(reducedMotion.matches ? 'WebGL bereit. Reduzierte Bewegung aktiv; 2048er Vorschau geladen. 8192er Detail ist wählbar.' : 'WebGL bereit. Blick und Zoom gleiten kontinuierlich; 2048er Vorschau geladen. 8192er Detail ist wählbar.')
+    schedule()
   } catch (error) {
     controls.forEach(el => el.disabled = true)
     status.textContent = `Interaktive Ansicht nicht gestartet: ${error.message}`

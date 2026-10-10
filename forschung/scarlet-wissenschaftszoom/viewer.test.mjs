@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { zoomFromUnit, unitFromZoom, smoothToward } from './viewer.js'
+import { zoomFromUnit, unitFromZoom, smoothToward, frameCadence } from './viewer.js'
 
 test('zoom maps the full interval continuously and invertibly', () => {
   assert.equal(zoomFromUnit(0), 1)
@@ -23,4 +23,16 @@ test('time based easing advances without an endpoint jump', () => {
     value = next
   }
   assert.ok(value < 16 && value > 1)
+})
+
+test('FPS summary requires actual increasing frame samples', () => {
+  assert.equal(frameCadence([]), null)
+  assert.equal(frameCadence([500]), null)
+  assert.equal(frameCadence([500, 500]), null)
+  assert.equal(frameCadence([500, 499]), null)
+  const frames = Array.from({length: 181}, (_, i) => i * (1000 / 60))
+  const result = frameCadence(frames)
+  assert.ok(Math.abs(result.fps - 60) < 1e-9)
+  assert.ok(Math.abs(result.p95Ms - 1000 / 60) < 1e-9)
+  assert.equal(result.frameCount, 181)
 })
