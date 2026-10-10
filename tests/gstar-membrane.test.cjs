@@ -98,18 +98,18 @@ test('physics, contact memory and wave histories are deterministic across elapse
   assert(whole.snapshot().counts.contacts > 0);
 });
 
-test('all 69 profile roots can send to every other root, including ASTER and RACHEL after full admission', () => {
+test('all 66 profile roots can send to every other root, including ASTER and RACHEL after full admission', () => {
   const engine = create(profiles.length); const profileIds = profiles.map(profile => profile.id);
   let atFull;
-  // Two 68-peer sweeps at <=6 s per pulse, plus 62 s admission, fit within 900 s.
+  // Two 65-peer sweeps at <=6 s per pulse, plus 62 s admission, fit within 900 s.
   // This is a finite model-time check, not a measured fifteen-minute browser observation.
   for (let elapsed = 0; elapsed < 900000; elapsed += 60000) {
     engine.advance(60000); const view = engine.snapshot(); bounded(view);
     if (!atFull && view.counts.roots === profiles.length) atFull = Math.max(...roots(view).map(node => node.bornAt));
   }
   const view = engine.snapshot();
-  assert.equal(view.counts.roots, 69);
-  assert.equal(view.routing.eligiblePairs, 69 * 68);
+  assert.equal(view.counts.roots, 66);
+  assert.equal(view.routing.eligiblePairs, 66 * 65);
   for (const node of roots(view)) for (const id of profileIds) if (id !== node.id) {
     assert(node.memory.peers[id]?.sent > 0, `${node.id} can send to ${id}`);
   }

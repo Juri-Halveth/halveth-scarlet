@@ -90,5 +90,5 @@ test('every built HTML receives one local mobile stylesheet after its page style
     }
   }}walk(build);
   assert.equal(count,JSON.parse(fs.readFileSync(path.join(build,'build-info.json'),'utf8')).htmlPages);
-  assert.ok(count>=89,'expected the whole current site');
+  assert.ok(count>=86,'expected the whole current site');
 });

@@ -42,8 +42,7 @@ const DESIGNS = {
   loki: ['armor', 'long', 3, 'horns'], vision: ['android', 'helmet', 10, 'gem'],
   widow: ['suit', 'bob', 9, 'batons'], thor: ['armor', 'long', 9, 'hammer'],
   infinity: ['guardian', 'crest', 4, 'constellation'], gitcoin: ['mechanic', 'crop', 10, 'tool'],
-  manta: ['coat', 'sidecut', 2, 'fins'], 'aster-chain': ['tech', 'bun', 4, 'array'],
-  rtx: ['robot', 'helmet', 3, 'fins'], k: ['coat', 'bob', 9, 'compass'],
+  k: ['coat', 'bob', 9, 'compass'],
   eve: ['android', 'helmet', 6, 'gem'], anti: ['suit', 'sidecut', 11, 'split'],
   schwamm: ['tunic', 'sponge', 7, 'patches'], mita: ['dress', 'twintails', 0, 'ribbon'],
   medusa: ['robe', 'serpents', 3, 'torque'], 'context-prism': ['guardian', 'crest', 11, 'crystal'],
@@ -312,7 +311,7 @@ export function createEntityFigure(T, entity = {}, index = 0) {
 
   let cape = null;
   const caped = ['sorceress', 'sorcerer', 'guardian', 'robe', 'flame'].includes(outfit) ||
-    ['thor', 'loki', 'vision', 'brightcast-starlight', 'manta'].includes(id);
+    ['thor', 'loki', 'vision', 'brightcast-starlight'].includes(id);
   if (caped) {
     cape = joint(core, 'cape-joint', 0, .78, -.215);
     const capeColor = id === 'strange' || id === 'thor' ? '#ae3545' : primary;

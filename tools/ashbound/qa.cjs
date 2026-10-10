@@ -54,7 +54,7 @@ async function main(){
       await page.locator('#undo').click();assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[]);
       for(let i=0;i<5;i++)await page.locator('.choices button').first().click();assert.equal(await page.locator('.choices button').count(),0);
       await noOverflow(page);await page.screenshot({path:path.join(output,prefix+'-story.png'),fullPage:true});
-      await page.locator('[data-tab="council"]').click();assert.equal(await page.locator('.entity').count(),69);
+      await page.locator('[data-tab="council"]').click();assert.equal(await page.locator('.entity').count(),66);
       await page.locator('#entity-search').fill('Dormammu');assert.equal(await page.locator('.entity').count(),1);
       await page.locator('#party-strip button').first().click();await page.locator('.entity-actions button').click();
       assert.ok((await page.evaluate(()=>AshboundDiagnostics.party)).includes('dormammu'));

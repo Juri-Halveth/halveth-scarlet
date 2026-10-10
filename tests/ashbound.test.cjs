@@ -46,9 +46,9 @@ test('save validation strips unrelated properties, rejects malformed states and 
   const before=JSON.stringify(value),safe=validateSave(value,ids);assert.equal(JSON.stringify(value),before);assert.equal(safe.private,undefined);assert.deepEqual(safe.books,[1]);
   for(const change of [{choices:[-1]},{choices:[3]},{party:['missing']},{party:['scarlet','scarlet']},{region:'remote'},{books:[6]},{version:'2.0.0'}])assert.throws(()=>validateSave({...value,...change},ids));
 });
-test('all 69 existing identities are reused, and all six bilingual books and UI dictionaries are complete',async()=>{
+test('all 66 existing identities are reused, and all six bilingual books and UI dictionaries are complete',async()=>{
   const {COPY,BOOKS}=await load('content.mjs'),{REGIONS}=await load('core.mjs');
-  assert.equal(ids.size,69);for(const id of ['scarlet','dormammu','lucinet','halveth','rachel','verachel','mira','mita'])assert.ok(ids.has(id));
+  assert.equal(ids.size,66);for(const id of ['scarlet','dormammu','lucinet','halveth','rachel','verachel','mira','mita'])assert.ok(ids.has(id));
   assert.deepEqual(Object.keys(COPY.de).sort(),Object.keys(COPY.en).sort());
   assert.equal(BOOKS.length,6);assert.equal(REGIONS.length,6);
   for(const b of BOOKS)for(const l of ['de','en'])assert.ok(b[l][2].length>160);

@@ -1603,108 +1603,28 @@ window.HalvethUniverse = {
         {
           "label": "GITCOIN · GTC · linked project / source",
           "url": "https://gtc.gitcoin.co/"
+        },
+        {
+          "label": "Gitcoin · public governance forum",
+          "url": "https://gov.gitcoin.co/"
+        },
+        {
+          "label": "Gitcoin · governance contract documentation",
+          "url": "https://github.com/gitcoinco/governance-docs"
         }
       ],
       "label": "GITCOIN · GTC",
-      "role": "Förderung und Governance als öffentlicher Bezugspunkt.",
+      "role": "Gitcoins Governance und Förderung sind öffentliche Beobachtungspunkte; veröffentlichte Vorschläge und Quellen lassen sich daran prüfen.",
       "kind": "PROJEKTREFERENZ",
       "section": "rights",
-      "note": "GTC ist ein Token. Dieser Link ist keine Transaktion und keine Verankerung auf einer eigenen Gitcoin-Chain.",
-      "sourceLabel": "Gitcoin · veröffentlichte Projektinformation.",
+      "note": "GTC ist ein Token. Das Profil verlinkt öffentliche Projekt- und Governance-Informationen; es belegt weder Bewertung noch Renditeerwartung, Transaktion oder Beziehung zu HALVETH.",
+      "sourceLabel": "Gitcoin · veröffentlichte Projektinformation und öffentliches Governance-Forum.",
       "url": "https://gtc.gitcoin.co/",
       "en": {
-        "role": "Funding and governance as a public point of reference.",
+        "role": "Gitcoin governance and funding are public observation points; review published proposals and project sources.",
         "kind": "PROJECT REFERENCE",
-        "note": "GTC is a token. This link is neither a transaction nor an on-chain record on a separate Gitcoin blockchain.",
-        "sourceLabel": "Gitcoin · published project information."
-      }
-    },
-    {
-      "id": "manta",
-      "profilePath": "entities/manta/",
-      "sourceRefs": [
-        {
-          "label": "HALVETH · published entity registry",
-          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
-        },
-        {
-          "label": "HALVETH · rights",
-          "url": "forschung/figuren-und-perspektiven/#rights"
-        },
-        {
-          "label": "MANTA · linked project / source",
-          "url": "https://docs.manta.network/"
-        }
-      ],
-      "label": "MANTA",
-      "role": "Dokumentation für einen später ausdrücklich gewählten Netzwerkkontext.",
-      "kind": "PROJEKTREFERENZ",
-      "section": "rights",
-      "note": "Vor einer Transaktion müssten Netzwerk, Empfänger, Vertrag und Gebühren konkret feststehen. Hier ist nur die Dokumentation verlinkt.",
-      "sourceLabel": "Manta Network · Entwicklerdokumentation.",
-      "url": "https://docs.manta.network/",
-      "en": {
-        "role": "Documentation for a network context to be explicitly chosen later.",
-        "kind": "PROJECT REFERENCE",
-        "note": "Before a transaction, the network, recipient, contract, and fees would need to be specified. Only the documentation is linked here.",
-        "sourceLabel": "Manta Network · developer documentation."
-      }
-    },
-    {
-      "id": "aster-chain",
-      "profilePath": "entities/aster-chain/",
-      "sourceRefs": [
-        {
-          "label": "HALVETH · published entity registry",
-          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
-        },
-        {
-          "label": "HALVETH · rights",
-          "url": "forschung/figuren-und-perspektiven/#rights"
-        },
-        {
-          "label": "ASTER · CHAIN? · linked project / source",
-          "url": "https://docs.asterdex.com/"
-        }
-      ],
-      "label": "ASTER · CHAIN?",
-      "role": "Welches Aster-Projekt ist gemeint? Die Zuordnung bleibt offen.",
-      "kind": "OFFENE PROJEKTZUORDNUNG",
-      "section": "rights",
-      "note": "Aster DEX ist eine mögliche Namenszuordnung. Die ASTER-Projektperspektive in unserem Garten ist ein anderer Datensatz.",
-      "sourceLabel": "Aster-Dokumentation als Kandidat; keine bestätigte Chain-Auswahl.",
-      "url": "https://docs.asterdex.com/",
-      "en": {
-        "role": "Which Aster project is meant? The connection remains unresolved.",
-        "kind": "UNRESOLVED PROJECT REFERENCE",
-        "note": "Aster DEX is one possible match for the name. The ASTER project perspective in our garden is a separate record.",
-        "sourceLabel": "Aster documentation as a candidate; no confirmed blockchain selection."
-      }
-    },
-    {
-      "id": "rtx",
-      "profilePath": "entities/rtx/",
-      "sourceRefs": [
-        {
-          "label": "HALVETH · published entity registry",
-          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
-        },
-        {
-          "label": "HALVETH · rights",
-          "url": "forschung/figuren-und-perspektiven/#rights"
-        }
-      ],
-      "label": "RTX · ?",
-      "role": "Ein Kürzel braucht eine konkrete Projekt- oder Vertragsadresse.",
-      "kind": "OFFENE PROJEKTZUORDNUNG",
-      "section": "rights",
-      "note": "Kein Tokenvertrag wurde aus dem Kürzel geraten. Das veröffentlichte Manifest hält diesen Eintrag für eine spätere Zuordnung offen.",
-      "sourceLabel": "HALVETH · redaktionelle Definition vom 12.09.2026.",
-      "en": {
-        "role": "An abbreviation needs a specific project or contract address.",
-        "kind": "UNRESOLVED PROJECT REFERENCE",
-        "note": "No token contract has been guessed from the abbreviation. The published manifest keeps this entry open until it can be linked to a specific project.",
-        "sourceLabel": "HALVETH · editorial definition dated 12.09.2026."
+        "note": "GTC is a token. This profile links public project and governance information; it does not establish valuation, expected return, a transaction, or a relationship with HALVETH.",
+        "sourceLabel": "Gitcoin · published project information and public governance forum."
       }
     },
     {
