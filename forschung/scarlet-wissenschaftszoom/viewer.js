@@ -120,14 +120,15 @@ async function main() {
   const canvas = $('globe'), stage = $('stage'), status = $('status'), sourceLine = $('source-line')
   const zoomInput = $('zoom'), zoomValue = $('zoom-value')
   const buttons = Object.fromEntries(Object.keys(modes).map(key => [key, $(`mode-${key}`)]))
-  const controls = [...Object.values(buttons), $('zoom-in'), $('zoom-out'), zoomInput, $('satellite'), $('benchmark'), $('export-8k')]
+  const detailButton = $('detail-toggle')
+  const controls = [...Object.values(buttons), $('zoom-in'), $('zoom-out'), zoomInput, detailButton, $('satellite'), $('benchmark'), $('export-8k')]
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   const firstSky = astronomy(Date.now())
   const startYaw = Math.atan2(firstSky.sun[0], firstSky.sun[2]) - 40 * RAD + firstSky.gmst
   let mode = 'earth', yaw = startYaw, yawTarget = startYaw, latitude = .28, latTarget = .28
   let logZoom = 0, logTarget = 0, dailyDate = null, satelliteState = 'idle'
   let drawPending = false, lastFrame = 0, lastUI = 0, benchmark = null, exportBusy = false
-  let highMode = null, highTexture = null, highToken = 0, detailStart = 0, detailBlend = 0
+  let highMode = null, highTexture = null, highToken = 0, detailStart = 0, detailBlend = 0, detailRequested = false
   let satelliteTexture = null
   try {
     const images = await Promise.all(Object.values(modes).map(cfg => image(cfg.low)))
@@ -152,25 +153,49 @@ async function main() {
     gl.uniform1i(uniforms.lowTex, 0); gl.uniform1i(uniforms.highTex, 1); gl.uniform1i(uniforms.dustTex, 2); gl.uniform1i(uniforms.earthTex, 3)
     canvas.dataset.renderer = 'webgl'
     const setStatus = message => { status.textContent = message }
+    function updateDetailButton() {
+      detailButton.textContent = !detailRequested ? '8192er Detail laden' : highMode === mode && highTexture ? '2048er Vorschau nutzen' : 'Detail-Laden abbrechen'
+      detailButton.setAttribute('aria-pressed', String(detailRequested))
+    }
+    function releaseHigh() {
+      highToken++
+      if (highTexture) {
+        gl.activeTexture(gl.TEXTURE1)
+        gl.bindTexture(gl.TEXTURE_2D, null)
+        gl.activeTexture(gl.TEXTURE3)
+        gl.bindTexture(gl.TEXTURE_2D, null)
+        gl.deleteTexture(highTexture)
+      }
+      highTexture = null; highMode = null; detailBlend = 0
+      refreshUI()
+    }
 
     async function ensureHigh(nextMode) {
+      if (!detailRequested) return
       const token = ++highToken
       if (highMode === nextMode && highTexture) return
       if (maxTexture < 8192) {
+        detailRequested = false; updateDetailButton()
         setStatus(`GPU-Texturgrenze ${maxTexture}px: Vorschau nutzt niedrigere Auflösung; 8K-Textur ist hier nicht verfügbar.`)
+        return
+      }
+      if (nextMode === 'earth' && satelliteState === 'ready') {
+        detailRequested = false; updateDetailButton()
+        setStatus('Das freiwillig geladene NASA-Tagesbild hat 2048 × 1024 Pixel; 8192er Detail ist für die historischen Karten verfügbar.')
         return
       }
       try {
         const img = await image(modes[nextMode].high)
-        if (token !== highToken || mode !== nextMode || satelliteState === 'ready' && mode === 'earth') return
+        if (token !== highToken || !detailRequested || mode !== nextMode || satelliteState === 'ready' && mode === 'earth') return
         const nextTexture = upload(gl, img)
         if (highTexture) gl.deleteTexture(highTexture)
         highTexture = nextTexture; highMode = nextMode
         detailStart = performance.now(); detailBlend = 0
+        updateDetailButton(); refreshUI()
         setStatus(`${modes[nextMode].label}: 8192 × 4096 Quelltextur geladen; Detail wird weich eingeblendet.`)
         schedule()
       } catch (error) {
-        if (token === highToken) setStatus(`Hochauflösende Textur nicht geladen: ${error.message}. Die Vorschau bleibt bedienbar.`)
+        if (token === highToken) { detailRequested = false; updateDetailButton(); setStatus(`Hochauflösende Textur nicht geladen: ${error.message}. Die Vorschau bleibt bedienbar.`) }
       }
     }
     function updateUI(angle, now) {
@@ -190,6 +215,10 @@ async function main() {
       stage.dataset.detail = highActive ? '8192' : 'preview'
       stage.dataset.renderWidth = String(canvas.width)
       lastUI = now
+    }
+    function refreshUI() {
+      const sky = astronomy(Date.now())
+      updateUI(40 * RAD - sky.gmst + yaw, performance.now())
     }
     function render(width, height, now, update = true) {
       if (canvas.width !== width || canvas.height !== height) { canvas.width = width; canvas.height = height }
@@ -257,12 +286,23 @@ async function main() {
       if (mode === next && !(next === 'earth' && satelliteState === 'ready')) return
       pointers.clear()
       if (next === 'earth' && satelliteState === 'ready') satelliteState = 'idle'
-      mode = next; detailBlend = 0; highToken++
+      mode = next; releaseHigh(); updateDetailButton()
       detailStart = performance.now()
-      setStatus(`${modes[next].label}. Auflösung wird ohne Wechsel des Blickwinkels verfeinert.`)
-      schedule(); ensureHigh(next)
+      setStatus(`${modes[next].label}. ${detailRequested ? '8192er Detail wird geladen; die Vorschau bleibt sichtbar.' : '2048er Vorschau aktiv; 8192er Detail ist wählbar.'}`)
+      schedule(); if (detailRequested) ensureHigh(next)
     }
     for (const [key, button] of Object.entries(buttons)) button.addEventListener('click', () => setMode(key))
+    detailButton.addEventListener('click', () => {
+      if (detailRequested) {
+        detailRequested = false; releaseHigh(); updateDetailButton()
+        setStatus('2048 × 1024 Vorschau aktiv; 8192er GPU-Textur freigegeben.')
+        schedule()
+      } else {
+        detailRequested = true; updateDetailButton()
+        setStatus('8192 × 4096 Quelltextur wird geladen; die Vorschau bleibt sichtbar.')
+        ensureHigh(mode)
+      }
+    })
     $('zoom-in').addEventListener('click', () => setZoom(Math.exp(logTarget) * 1.35))
     $('zoom-out').addEventListener('click', () => setZoom(Math.exp(logTarget) / 1.35))
     zoomInput.addEventListener('input', () => setZoom(zoomFromUnit(Number(zoomInput.value))))
@@ -294,7 +334,7 @@ async function main() {
       if (exportBusy) return
       const viewport = gl.getParameter(gl.MAX_VIEWPORT_DIMS)
       if (!highTexture || highMode !== mode || mode === 'earth' && satelliteState === 'ready' || viewport[0] < 7680 || viewport[1] < 4320) {
-        setStatus('8K-Export braucht die geladene 8192er Quelltextur und einen GPU-Viewport von mindestens 7680 × 4320.'); return
+        setStatus('8K-Export: bitte zuerst 8192er Detail laden; außerdem muss der GPU-Viewport mindestens 7680 × 4320 erlauben.'); return
       }
       cancelBenchmark('8K-Export wurde gestartet.')
       exportBusy = true; $('export-8k').disabled = true; $('benchmark').disabled = true; stage.style.visibility = 'hidden'
@@ -323,6 +363,7 @@ async function main() {
         if (img.naturalWidth!==2048||img.naturalHeight!==1024) throw new Error('unerwartete Bildgröße')
         if (satelliteTexture) gl.deleteTexture(satelliteTexture)
         satelliteTexture=upload(gl,img); satelliteState='ready'; mode='earth'
+        detailRequested=false; releaseHigh(); updateDetailButton()
         setStatus(`NASA-MODIS-Mosaik für angefragten Tag ${day} geladen; zeitversetzte Abdeckung, kein Live-Video.`)
       } catch (error) { satelliteState='error'; setStatus(`Tagesmosaik nicht verfügbar: ${error.message}. Gespeicherte NASA-Karte bleibt sichtbar.`) }
       finally { clearTimeout(timer); schedule() }
@@ -332,8 +373,9 @@ async function main() {
       if (document.hidden) { cancelBenchmark('Tab war unsichtbar.'); lastFrame = 0 }
       else schedule()
     })
-    setStatus(reducedMotion.matches ? 'WebGL bereit. Reduzierte Bewegung aktiv; Detailquelle lädt im Hintergrund.' : 'WebGL bereit. Blick und Zoom gleiten kontinuierlich; hochauflösende Detailquelle lädt im Hintergrund.')
-    schedule(); ensureHigh('earth')
+    updateDetailButton()
+    setStatus(reducedMotion.matches ? 'WebGL bereit. Reduzierte Bewegung aktiv; 2048er Vorschau geladen. 8192er Detail ist wählbar.' : 'WebGL bereit. Blick und Zoom gleiten kontinuierlich; 2048er Vorschau geladen. 8192er Detail ist wählbar.')
+    schedule()
   } catch (error) {
     controls.forEach(el => el.disabled = true)
     status.textContent = `Interaktive Ansicht nicht gestartet: ${error.message}`

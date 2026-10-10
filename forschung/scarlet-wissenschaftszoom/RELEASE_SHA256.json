@@ -5,7 +5,7 @@
   "created_utc": "2026-10-10T13:17:51.796171+00:00",
   "claim_ceiling": "Hash binds listed bytes only; not authorship, priority, patent filing, runtime FPS or scientific truth",
   "files": {
-    "README.md": "489607a2dca2964b3dbb5b296fa2f04d80f74ac75fadfca3d47d3a9c31097f04",
+    "README.md": "411b4843c13a63bfaa26e7296635bbb960c9ff1df83cae8f84e92da7aa209a56",
     "SCIENCE_ASSET_RECEIPT.json": "29a7a0ec436591ecc2a7bba192b998bc8ffc3275ab1f6191ce024622cc60c298",
     "assets/nasa_earth_october_2004_2048.jpg": "8b439bb27a4cc74ab8071feddc259442e0182ead8ae64a6425401daabbc5be51",
     "assets/nasa_earth_october_2004_8192.jpg": "44187735a87be98d491bbadd008d3d3065262a368ea6e5358ef520f56687c9f0",
@@ -13,12 +13,12 @@
     "assets/nasa_land_topography_8192.jpg": "2de16f11a4c07b0a641a939f4daf7b944ab95846aa681fcbb90749bb4731a0a2",
     "assets/nasa_ocean_bathymetry_2048.jpg": "5cfa9452a77502d2ee379df6e12182ec026c96763095839797d783bbd81f7e6d",
     "assets/nasa_ocean_bathymetry_8192.jpg": "6873391fcd4abe260205f262f0c8f995b1410776eb2b4af2badf6d1cb6c1938a",
-    "index.html": "c4fff91202d6a4ca7a51fe58a836ea86785acec0276bd2c27beb5eca78112489",
+    "index.html": "0a860cb6b2edd33f5513199bace407eccb274d8bf8b6d8733302036df6b6a640",
     "package.json": "a90fc33418afa2b9cbf4768524b021135b965ecdf993457505bfae3ac44a8428",
     "verify_assets.py": "1869d142c0904ada510db1b13fd34dd257314bff3b691b6700d59734d2b2e9f8",
-    "viewer.js": "459de65a0c679fb27132702ce2e7e1191899cecee894a3a8c64335a1f0e5383b",
+    "viewer.js": "eaeccc062242b8c5cf092bd389dc33866949b310aee347c4488aef94dd64db5e",
     "viewer.test.mjs": "82fe4f814e717ffd51052d3f2746a43c0a5adb76387e8f971a68c7786f2f5a3e"
   },
   "revision_base_commit": "daa4de63275d48f3c75f007135f863fb89f0f4ce",
-  "updated_utc": "2026-10-10T15:02:36.032800+00:00"
+  "updated_utc": "2026-10-10T15:16:28.945238+00:00"
 }

@@ -9,7 +9,7 @@
     *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 52% 42%,#193a52 0,#081624 47%,#050b14 100%)}
     main{max-width:1500px;margin:auto;padding:28px 32px 42px;display:grid;grid-template-columns:minmax(420px,1.35fr) minmax(340px,.7fr);gap:28px;align-items:start}
     header{grid-column:1/-1}h1{margin:0;font-size:clamp(2rem,3.7vw,3.8rem);line-height:1.02;letter-spacing:-.045em}h1 span{color:#80d6d6}p{line-height:1.45}.lead{margin:10px 0 0;color:#a9c5cc;font-size:1.05rem}
-    .stage{position:relative;min-width:0;aspect-ratio:1;max-width:850px;margin:auto;touch-action:none;outline:0;border-radius:50%;cursor:grab}.stage:active{cursor:grabbing}.stage:focus-visible{box-shadow:0 0 0 3px #a4e6dc}
+    .stage{position:relative;width:100%;min-width:0;aspect-ratio:1;max-width:850px;margin:auto;touch-action:none;outline:0;border-radius:50%;cursor:grab}.stage:active{cursor:grabbing}.stage:focus-visible{box-shadow:0 0 0 3px #a4e6dc}
     #globe{display:block;width:100%;height:100%;border-radius:50%}.stage::after{content:"";position:absolute;inset:2%;border-radius:50%;pointer-events:none;box-shadow:0 0 80px #3b8fc032}
     .panel{min-width:0;padding:24px;border:1px solid #38607077;border-radius:22px;background:#0d2234db;box-shadow:0 18px 45px #0005;backdrop-filter:blur(14px)}
     .eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.13em;color:#89c8ce;text-transform:uppercase}.panel h2{margin:6px 0 12px;font-size:1.45rem}.mode{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:18px 0}.mode button,.controls button,.satellite{border:1px solid #5d9ca6;border-radius:12px;background:#132f42;color:#efffff;padding:12px 10px;font:inherit;font-weight:700;cursor:pointer}.mode button[aria-pressed=true]{background:#82d9c7;color:#07222b;border-color:#82d9c7}.mode button:hover,.controls button:hover,.satellite:hover{filter:brightness(1.15)}.mode button:focus-visible,.controls button:focus-visible,.satellite:focus-visible{outline:3px solid #d6f6b9;outline-offset:2px}
@@ -31,6 +31,7 @@
     <div class="mode"><button id="mode-earth" type="button" aria-pressed="true">NASA-Erdbild</button><button id="mode-topography" type="button" aria-pressed="false">Landrelief</button><button id="mode-bathymetry" type="button" aria-pressed="false">Meeresboden</button></div>
     <p id="source-line">NASA Blue Marble Next Generation · Oktober 2004</p>
     <div class="controls"><button id="zoom-out" type="button" aria-label="Verkleinern">−</button><input id="zoom" type="range" min="0" max="1" step="0.0001" value="0" aria-label="Kontinuierlicher logarithmischer Zoom"><button id="zoom-in" type="button" aria-label="Vergrößern">+</button><output id="zoom-value" for="zoom">1,00×</output></div>
+    <button id="detail-toggle" class="satellite" type="button">8192er Detail laden</button>
     <button id="satellite" class="satellite" type="button">NASA-Tagesbild freiwillig laden</button>
     <div class="actions"><button id="benchmark" type="button">FPS 3 s messen</button><button id="export-8k" type="button">8K-Standbild exportieren</button></div>
     <div class="metrics">
@@ -41,7 +42,7 @@
       <div class="metric"><small>Letzte FPS-Messung</small><strong id="fps-result">—</strong></div>
     </div>
     <p id="status" class="status" role="status">Globus wird vorbereitet …</p>
-    <p class="note">8K bezeichnet ein 8192 × 4096 Quellbild und einen optionalen 7680 × 4320 Export. Die laufende Ansicht passt ihre Rendergröße an den Bildschirm an. 120 FPS sind ein messbares Ziel; Bildschirm und GPU setzen Grenzen.</p>
+    <p class="note">Die 2048er Vorschau startet zuerst. 8192 × 4096 Detail wird erst nach Klick geladen und kann wieder freigegeben werden. 8K-Export ist ein optionales 7680 × 4320 Standbild. Die laufende Ansicht passt ihre Rendergröße an den Bildschirm an. 120 FPS sind ein messbares Ziel; Bildschirm und GPU setzen Grenzen.</p>
     <p class="credit">NASA Blue Marble Next Generation (Oktober 2004): GSFC, Reto Stöckli / Robert Simmon. Relief-/Bathymetrie-Karten: NASA Earth Observatory / GEBCO. <a href="https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-map/" target="_blank" rel="noopener noreferrer">Erdquelle</a> · <a href="https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/topography-bathymetry-maps/" target="_blank" rel="noopener noreferrer">Reliefquellen</a> · <a href="https://nasa-gibs.github.io/gibs-api-docs/access-basics/" target="_blank" rel="noopener noreferrer">GIBS</a></p>
     <p class="credit">Scarlet-Forschungsansicht © 2026 Juri Janovski (Juri Halveth), soweit eigene Rechte bestehen. <a href="README.md">Entwicklung, SHA-256 und Lizenzgrenzen</a>.</p>
   </section>
