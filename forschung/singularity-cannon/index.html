@@ -37,9 +37,10 @@ button:active{transform:translateY(1px)}
 .rangebar label{display:flex;align-items:center;gap:8px}
 input[type=range]{accent-color:#8cfac7;width:100px}
 #strengthValue{display:inline-block;width:28px;text-align:right;font-variant-numeric:tabular-nums;color:#b4ffe5}
-.footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-top:9px;font-size:10px;color:#8098a7}
+.footer{display:grid;grid-template-columns:1fr auto;gap:4px 10px;margin-top:9px;font-size:10px;color:#8098a7}
+.footer>span:first-child{grid-column:1/-1}.footer>span:last-child{justify-self:end}
 #message{position:absolute;top:44%;width:100%;text-align:center;pointer-events:none;font-size:13px;letter-spacing:.16em;color:#e5ffe9;text-shadow:0 0 25px #a2fff3;opacity:0;transition:opacity .25s}
-@media(max-width:680px){.legend,.ref{display:none}.top{top:16px}.lead{max-width:290px}.hud{padding:12px;bottom:11px}.stats{margin:8px 0;gap:5px}.stat{padding:6px}.stat b{font-size:15px}button{padding:7px 9px;font-size:10px;min-height:31px}.rangebar{flex-wrap:wrap}.footer{font-size:9px}}
+@media(max-width:680px){.legend,.ref{display:none}.top{top:16px}.lead{max-width:290px}.hud{padding:12px;bottom:11px}.stats{margin:8px 0;gap:5px}.stat{padding:6px}.stat b{font-size:15px}button{padding:7px 9px;font-size:10px;min-height:31px}.rangebar{flex-wrap:wrap}.footer{font-size:9px;grid-template-columns:1fr}.footer>span:last-child{justify-self:start}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -81,7 +82,7 @@ input[type=range]{accent-color:#8cfac7;width:100px}
       <label><input type="checkbox" id="trails" checked> Zeitspuren</label>
       <label><input type="checkbox" id="distort" checked> Lichtkrümmung</label>
     </div>
-    <div class="footer"><span>KLICK: SCHUSS IN DIE TIEFE · WEITERE SCHÜSSE WARTEN SICHTBAR · NUR RESET BEGINNT BEI 0</span><span>OFFLINE · <a href="README.md" style="color:#b6ffc7">MODELL &amp; RECHTE</a> · <a href="HALVETH_SINGULARITY_CANNON_2026-10-10.zip" download style="color:#b6ffc7">PAKET ↓</a></span></div>
+    <div class="footer"><span>KLICK: SCHUSS IN DIE TIEFE · WEITERE SCHÜSSE WARTEN SICHTBAR · NUR RESET BEGINNT BEI 0</span><span id="renderStat">rAF-TAKT: MISST…</span><span>OFFLINE · <a href="README.md" style="color:#b6ffc7">MODELL &amp; RECHTE</a> · <a href="HALVETH_SINGULARITY_CANNON_2026-10-10.zip" download style="color:#b6ffc7">PAKET ↓</a></span></div>
   </section>
 </main>
 <script>
@@ -93,6 +94,7 @@ const canvas = document.getElementById('fx');
 const ctx=canvas.getContext('2d', {alpha:true});
 let w=0,h=0,dpr=1,gl=null,program=null,uRes=null,uTime=null,uHole=null,uSectors=null,uEnabled=null;
 let objects=[],dust=[],sparks=[],beams=[],holes=[],pendingShots=[],fallbackStars=[],shotsFired=0,aim={x:0,y:0},elapsed=0,eaten=0,paused=false,frameCount=0,last=performance.now();
+let perfWindowStart=last,perfFrames=0;
 const controls={
   force:document.getElementById('force'),
   trails:document.getElementById('trails'),
@@ -540,6 +542,12 @@ function frame(now){
   const dt=clamp((now-last)/1000,0,1/30);last=now;frameCount++;
   if(!paused)update(dt);
   draw();
+  perfFrames++;
+  if(now-perfWindowStart>=1000){
+    const callbacksPerSecond=perfFrames*1000/(now-perfWindowStart);
+    dom('renderStat').textContent=`rAF-TAKT ${callbacksPerSecond.toFixed(0)}/s · ${glCanvas.width}×${glCanvas.height} px`;
+    perfFrames=0;perfWindowStart=now;
+  }
   requestAnimationFrame(frame);
 }
 function fire(){
