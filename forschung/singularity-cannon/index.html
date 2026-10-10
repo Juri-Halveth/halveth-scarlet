@@ -62,7 +62,7 @@ input[type=range]{accent-color:#8cfac7;width:100px}
     <div class="stats">
       <div class="stat"><small>OBJEKTE IM RAUM</small><b id="objectsStat">0</b></div>
       <div class="stat"><small>VERSCHLUCKT</small><b id="eatenStat">0</b></div>
-      <div class="stat"><small>FELDRADIUS</small><b id="rangeStat">0</b></div>
+      <div class="stat"><small>FELDER / RADIUS</small><b id="rangeStat">0</b></div>
       <div class="stat"><small>ZEITSPUR</small><b id="timeStat">0.0 s</b></div>
     </div>
     <div class="controls">
@@ -71,7 +71,7 @@ input[type=range]{accent-color:#8cfac7;width:100px}
       <button id="overdrive">⚡ MAXIMALER SOG</button>
       <button id="pause">II PAUSE</button>
       <button id="save">↓ BILD SPEICHERN</button>
-      <button id="reset">↻ NEUSTART</button>
+      <button id="reset">↻ ALLES ZURÜCKSETZEN</button>
     </div>
     <div class="rangebar">
       <label>SOGSTÄRKE <input type="range" min="20" max="250" value="115" id="force"></label>
@@ -79,7 +79,7 @@ input[type=range]{accent-color:#8cfac7;width:100px}
       <label><input type="checkbox" id="trails" checked> Zeitspuren</label>
       <label><input type="checkbox" id="distort" checked> Lichtkrümmung</label>
     </div>
-    <div class="footer"><span>MAUS / TOUCH: Ziel auswählen · KLICK: Feuer · LEERTASTE: Feuer · P: Pause · R: Reset</span><span>OFFLINE · <a href="README.md" style="color:#b6ffc7">MODELL &amp; RECHTE</a> · <a href="HALVETH_SINGULARITY_CANNON_2026-10-10.zip" download style="color:#b6ffc7">PAKET ↓</a></span></div>
+    <div class="footer"><span>KLICK: weiteres Feld · BIS ZU 4 GLEICHZEITIG · NUR RESET BEGINNT BEI 0 · P: Pause · R: Reset</span><span>OFFLINE · <a href="README.md" style="color:#b6ffc7">MODELL &amp; RECHTE</a> · <a href="HALVETH_SINGULARITY_CANNON_2026-10-10.zip" download style="color:#b6ffc7">PAKET ↓</a></span></div>
   </section>
 </main>
 <script>
@@ -90,7 +90,7 @@ const glCanvas = document.getElementById('space');
 const canvas = document.getElementById('fx');
 const ctx=canvas.getContext('2d', {alpha:true});
 let w=0,h=0,dpr=1,gl=null,program=null,uRes=null,uTime=null,uHole=null,uEnabled=null;
-let objects=[],dust=[],sparks=[],beams=[],hole=null,aim={x:0,y:0},pastX=[],elapsed=0,eaten=0,paused=false,frameCount=0,last=performance.now(),lastUI=0;
+let objects=[],dust=[],sparks=[],beams=[],holes=[],aim={x:0,y:0},pastX=[],elapsed=0,eaten=0,paused=false,frameCount=0,last=performance.now(),lastUI=0;
 const controls={
   force:document.getElementById('force'),
   trails:document.getElementById('trails'),
@@ -99,7 +99,7 @@ const controls={
 let viewport={x:0,y:0};
 const rnd=(a,b)=>a+Math.random()*(b-a);
 const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
-const MAX_OBJECTS=200, MAX_SPARKS=600, MAX_BEAMS=24;
+const MAX_OBJECTS=200, MAX_SPARKS=600, MAX_BEAMS=24, MAX_HOLES=4;
 const screenUnit=()=>Math.min(w,h)/720;
 const getBaseRadius=()=>clamp(h*.38,160,300);
 const dom=id=>document.getElementById(id);
@@ -120,7 +120,7 @@ function setupGL(){
     precision highp float;
     uniform vec2 resolution;
     uniform float time;
-    uniform vec3 hole;
+    uniform vec3 holes[4];
     uniform float lens;
     varying vec2 v;
     float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123);}
@@ -144,13 +144,19 @@ function setupGL(){
     void main(){
       vec2 pix=gl_FragCoord.xy;
       vec2 p=(pix-.5*resolution)/resolution.y;
-      vec2 hc=(hole.xy-.5*resolution)/resolution.y;
-      vec2 v=p-hc;float r=length(v);
-      float active=hole.z;
-      float eps=.00002;
-      float lensing=active*lens*.0027/(r*r+.0055);
-      vec2 backP=p+(r>.001 ? v/r : vec2(0.))*lensing;
+      vec2 backP=p;
+      for(int i=0;i<4;i++){
+        vec2 hc=(holes[i].xy-.5*resolution)/resolution.y;
+        vec2 delta=p-hc;
+        float distanceToHole=length(delta);
+        float lensing=holes[i].z*lens*.0027/(distanceToHole*distanceToHole+.0055);
+        backP+=(distanceToHole>.001 ? delta/distanceToHole : vec2(0.))*lensing;
+      }
       vec3 col=background(backP);
+      for(int i=0;i<4;i++){
+      vec2 hc=(holes[i].xy-.5*resolution)/resolution.y;
+      vec2 v=p-hc;float r=length(v);
+      float active=holes[i].z;
       if(active>.01){
         // Layered cinematic accretion disk viewed at an angle.
         float re=sqrt(v.x*v.x+pow(v.y*3.4,2.));
@@ -173,6 +179,7 @@ function setupGL(){
         float polar=sin(theta*13.+time*1.3)*.5+.5;
         col+=active*vec3(.11,.75,.48)*exp(-pow((r-.036)/.005,2.))*polar*.25;
       }
+      }
       // soft blue starfield / filmic tonemap
       col=1.-exp(-col*1.18);
       col=pow(max(col,0.),vec3(.91));
@@ -192,7 +199,7 @@ function setupGL(){
     gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
     uRes=gl.getUniformLocation(program,'resolution');
     uTime=gl.getUniformLocation(program,'time');
-    uHole=gl.getUniformLocation(program,'hole');
+    uHole=gl.getUniformLocation(program,'holes[0]');
     uEnabled=gl.getUniformLocation(program,'lens');
   }catch(e){console.warn('WebGL fallback',e);gl=null;}
 }
@@ -204,7 +211,6 @@ function resize(){
   glCanvas.width=Math.max(1,Math.round(w*dpr));glCanvas.height=Math.max(1,Math.round(h*dpr));
   if(gl)gl.viewport(0,0,glCanvas.width,glCanvas.height);
   if(!aim.x){aim={x:w*.64,y:h*.47};}
-  if(hole){hole.x=clamp(hole.x,28,w-28);hole.y=clamp(hole.y,80,h-28);}
   if(!objects.length)spawnObjects(64);
   if(!dust.length)spawnDust(850);
 }
@@ -223,56 +229,63 @@ function spawnDust(n){
   });
 }
 function makeHole(x,y,launch=false){
-  eaten=0;
+  if(holes.length>=MAX_HOLES){flash('4 FELDER GLEICHZEITIG · KURZ WARTEN');return null;}
+  let hole;
   if(launch){
     hole={x:w*.115,y:h*.51, vx:clamp((x-w*.115)*.24,-180,180), vy:clamp((y-h*.51)*.24,-120,120),
       age:0,life:7,seed:Math.random()*100,rad:getBaseRadius(),stationary:false};
-    beams=[{x:hole.x,y:hole.y,r:18,life:.5}];
-    flash('SINGULARITÄT GESTARTET');
+    if(beams.length>=MAX_BEAMS)beams.shift();
+    beams.push({x:hole.x,y:hole.y,r:18,life:.5});
+    flash('WEITERES FELD GESTARTET');
   }else{
     hole={x,y,vx:0,vy:0,age:0,life:99999,seed:Math.random()*100,rad:getBaseRadius(),stationary:true};
     flash('FELD BEREIT');
   }
+  holes.push(hole);
+  return hole;
 }
 function flash(s){const m=dom('message');m.textContent=s;m.style.opacity='1';clearTimeout(flash._timer);flash._timer=setTimeout(()=>m.style.opacity='0',900);}
 function gravitation(obj,dt,powder=false){
-  if(!hole)return false;
-  let dx=hole.x-obj.x,dy=hole.y-obj.y,dist2=dx*dx+dy*dy,dist=Math.sqrt(dist2);
-  const range=hole.rad*(powder?1.19:1.0);
-  if(dist>range || hole.age>hole.life)return false;
-  const edge=clamp((range-dist)/(range*.21),0,1);
-  const taper=Math.sin(edge*Math.PI*.5);
-  const power=Number(controls.force.value)/100;
-  const force=(5.7e6*power*taper)/(dist2+4500);
-  const accel=clamp(force/(powder?.5:obj.mass||1),0,1000);
-  if(dist>.01){
-    obj.vx+=dx/dist*accel*dt;
-    obj.vy+=dy/dist*accel*dt;
-    // Tangential force creates a visible, tunable accretion orbit.
-    const swirl=accel*(powder?.53:.17)*dt;
-    obj.vx+=-dy/dist*swirl;
-    obj.vy+=dx/dist*swirl;
+  let absorbedBy=null;
+  for(const hole of holes){
+    let dx=hole.x-obj.x,dy=hole.y-obj.y,dist2=dx*dx+dy*dy,dist=Math.sqrt(dist2);
+    const range=hole.rad*(powder?1.19:1.0);
+    if(dist>range || hole.age>hole.life)continue;
+    const edge=clamp((range-dist)/(range*.21),0,1);
+    const taper=Math.sin(edge*Math.PI*.5);
+    const power=Number(controls.force.value)/100;
+    const force=(5.7e6*power*taper)/(dist2+4500);
+    const accel=clamp(force/(powder?.5:obj.mass||1),0,1000);
+    if(dist>.01){
+      obj.vx+=dx/dist*accel*dt;
+      obj.vy+=dy/dist*accel*dt;
+      // Tangential force creates a visible, tunable accretion orbit.
+      const swirl=accel*(powder?.53:.17)*dt;
+      obj.vx+=-dy/dist*swirl;
+      obj.vy+=dx/dist*swirl;
+    }
+    if(dist<(powder?16:20)){absorbedBy=hole;break;}
   }
-  if(dist<(powder?16:20)){
-    return true;
-  }
-  return false;
+  return absorbedBy;
 }
 function update(dt){
   elapsed+=dt;
-  if(hole && !hole.stationary){
-    hole.x+=hole.vx*dt;hole.y+=hole.vy*dt;
-    hole.vx*=Math.pow(.983,dt*60);hole.vy*=Math.pow(.983,dt*60);
+  for(let i=holes.length-1;i>=0;i--){
+    const hole=holes[i];
+    if(!hole.stationary){
+      hole.x+=hole.vx*dt;hole.y+=hole.vy*dt;
+      hole.vx*=Math.pow(.983,dt*60);hole.vy*=Math.pow(.983,dt*60);
+    }
     hole.age+=dt;
-    if(hole.age>hole.life)hole=null;
-  }else if(hole){hole.age+=dt;}
+    if(hole.age>hole.life)holes.splice(i,1);
+  }
   for(let i=objects.length-1;i>=0;i--){
     let o=objects[i];
-    const sucked=gravitation(o,dt,false);
-    if(sucked){
+    const absorbedBy=gravitation(o,dt,false);
+    if(absorbedBy){
       if(o.kind==='pickup'){
         // Pickups in Unreal II can be ejected instead of being deleted.
-        let a=rnd(0,Math.PI*2);o.x=hole.x+Math.cos(a)*33;o.y=hole.y+Math.sin(a)*33;
+        let a=rnd(0,Math.PI*2);o.x=absorbedBy.x+Math.cos(a)*33;o.y=absorbedBy.y+Math.sin(a)*33;
         o.vx=Math.cos(a)*rnd(150,320);o.vy=Math.sin(a)*rnd(150,320);
       }else{
         if(o.kind==='enemy')eaten++;
@@ -285,19 +298,19 @@ function update(dt){
     o.x+=o.vx*dt;o.y+=o.vy*dt;o.age+=dt;
     if(controls.trails.checked&&frameCount%2===0){o.trail.push([o.x,o.y]);if(o.trail.length>30)o.trail.shift();}
     if(!controls.trails.checked)o.trail.length=0;
-    if(o.x<0||o.x>w){o.vx*=-.82;o.x=clamp(o.x,0,w)}
-    if(o.y<0||o.y>h){o.vy*=-.82;o.y=clamp(o.y,0,h)}
+    // The viewport is a window, not a reflecting wall. Replenishment is separate.
+    if(o.x<-80||o.x>w+80||o.y<-80||o.y>h+80)objects.splice(i,1);
   }
   for(const p of dust){
-    let sucked=gravitation(p,dt,true);
-    if(sucked||p.x<-25||p.x>w+25||p.y<-25||p.y>h+25){
-      if(sucked && sparks.length<MAX_SPARKS){sparks.push({x:hole.x,y:hole.y,vx:rnd(-45,45),vy:rnd(-45,45),life:rnd(.15,.4),color:'#9cffe0'})}
+    const absorbedBy=gravitation(p,dt,true);
+    if(absorbedBy||p.x<-25||p.x>w+25||p.y<-25||p.y>h+25){
+      if(absorbedBy && sparks.length<MAX_SPARKS){sparks.push({x:absorbedBy.x,y:absorbedBy.y,vx:rnd(-45,45),vy:rnd(-45,45),life:rnd(.15,.4),color:'#9cffe0'})}
       p.x=rnd(0,w);p.y=rnd(0,h);p.vx=rnd(-7,7);p.vy=rnd(-7,7);
     }else{p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=Math.pow(.993,dt*60);p.vy*=Math.pow(.993,dt*60);}
   }
   for(let i=sparks.length-1;i>=0;i--){let p=sparks[i];p.life-=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.life<=0)sparks.splice(i,1);}
   for(let i=beams.length-1;i>=0;i--){beams[i].r+=250*dt;beams[i].life-=dt;if(beams[i].life<=0)beams.splice(i,1)}
-  if(objects.length<16)spawnObjects(34);
+  if(frameCount%45===0 && objects.length<64)spawnObjects(64-objects.length);
 }
 function emitSparks(x,y,n){
   for(let i=0;i<Math.min(n,MAX_SPARKS-sparks.length);i++){let a=rnd(0,Math.PI*2),s=rnd(40,240);sparks.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:rnd(.2,.8),color:Math.random()<.7?'#baffcf':'#ffab7b'});}
@@ -307,7 +320,13 @@ function renderGL(){
   gl.useProgram(program);
   gl.uniform2f(uRes,glCanvas.width,glCanvas.height);
   gl.uniform1f(uTime,elapsed);
-  gl.uniform3f(uHole,hole?hole.x*dpr:-9999,hole?(h-hole.y)*dpr:-9999,hole?1:0);
+  const fieldData=new Float32Array(MAX_HOLES*3);
+  for(let i=0;i<holes.length;i++){
+    fieldData[i*3]=holes[i].x*dpr;
+    fieldData[i*3+1]=(h-holes[i].y)*dpr;
+    fieldData[i*3+2]=1;
+  }
+  gl.uniform3fv(uHole,fieldData);
   gl.uniform1f(uEnabled,controls.distort.checked?1:0);
   gl.drawArrays(gl.TRIANGLES,0,6);
 }
@@ -321,7 +340,7 @@ function draw(){
   ctx.shadowColor='#7cfdd7';ctx.shadowBlur=18;
   ctx.strokeStyle='#5fe6d5';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(20,0);ctx.lineTo(-13,-11);ctx.lineTo(-7,0);ctx.lineTo(-13,11);ctx.closePath();ctx.stroke();
   ctx.fillStyle='#214d62';ctx.fill();ctx.fillStyle='#94ffdb';ctx.fillRect(-15,-2,28,4);ctx.restore();
-  if(!hole){ctx.strokeStyle='#6db3a640';ctx.beginPath();ctx.arc(aim.x,aim.y,15,0,7);ctx.stroke();}
+  if(!holes.length){ctx.strokeStyle='#6db3a640';ctx.beginPath();ctx.arc(aim.x,aim.y,15,0,7);ctx.stroke();}
   // Folded trajectories: time-ordered spatial traces.
   if(controls.trails.checked){
     for(const o of objects){
@@ -362,7 +381,7 @@ function draw(){
     ctx.restore();
   }
   // Field boundary and rotating material frame.
-  if(hole){
+  for(const hole of holes){
     ctx.save();
     const radius=hole.rad;const power=Number(controls.force.value)/100;
     ctx.strokeStyle='rgba(91,250,199,.10)';
@@ -385,7 +404,7 @@ function draw(){
   }
 
   // GPU-independent accretion rendering: survives blocked WebGL/headless browsers.
-  if(hole){
+  for(const hole of holes){
     const cx=hole.x,cy=hole.y;
     ctx.save();
     ctx.translate(cx,cy);
@@ -446,10 +465,10 @@ function draw(){
 function refreshUI(){
   dom('objectsStat').textContent=objects.length;
   dom('eatenStat').textContent=eaten;
-  dom('rangeStat').textContent=hole?`${Math.round(hole.rad)} px`:'0 px';
+  dom('rangeStat').textContent=holes.length?`${holes.length} / ${Math.round(holes[holes.length-1].rad)} px`:'0 / 0 px';
   dom('timeStat').textContent=elapsed.toFixed(1)+' s';
   dom('strengthValue').textContent=controls.force.value+'%';
-  dom('state').textContent=paused?'PAUSIERT':hole?'FELD AKTIV':'ABGEKLUNGEN';
+  dom('state').textContent=paused?'PAUSIERT':holes.length?`${holes.length} FELD${holes.length===1?'':'ER'} AKTIV`:'ABGEKLUNGEN';
 }
 function frame(now){
   const dt=clamp((now-last)/1000,0,1/30);last=now;frameCount++;
@@ -459,7 +478,7 @@ function frame(now){
 }
 function fire(){makeHole(aim.x,aim.y,true)}
 function reset(){
-  objects=[];dust=[];sparks=[];beams=[];elapsed=0;eaten=0;paused=false;dom('pause').textContent='II PAUSE';aim={x:w*.68,y:h*.47};
+  objects=[];dust=[];sparks=[];beams=[];holes=[];elapsed=0;eaten=0;paused=false;dom('pause').textContent='II PAUSE';aim={x:w*.68,y:h*.47};
   spawnObjects(64);spawnDust(850);makeHole(w*.63,h*.44,false);refreshUI();
 }
 function getPointer(e){let r=canvas.getBoundingClientRect();aim.x=clamp(e.clientX-r.left,5,w-5);aim.y=clamp(e.clientY-r.top,5,h-5);}
@@ -469,9 +488,9 @@ dom('fire').addEventListener('click',fire);
 dom('spawn').addEventListener('click',()=>{spawnObjects(45);flash('NEUE OBJEKTE IM FELD')});
 dom('overdrive').addEventListener('click',()=>{
   controls.force.value='250';
-  if(!hole)makeHole(w*.63,h*.42,false);
+  let hole=holes[holes.length-1];
+  if(!hole)hole=makeHole(w*.63,h*.42,false);
   hole.rad=Math.hypot(w,h)*.77;
-  hole.life=99999;hole.stationary=true;
   spawnObjects(120);emitSparks(hole.x,hole.y,40);
   if(beams.length>=MAX_BEAMS)beams.shift();
   beams.push({x:hole.x,y:hole.y,r:12,life:.6});

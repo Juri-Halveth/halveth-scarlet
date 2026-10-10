@@ -6,7 +6,7 @@ Diese Veröffentlichung ist eine eigenständige, offline lauffähige **Spielsimu
 
 ## Start und Bedienung
 
-`index.html` direkt im Browser öffnen. Zeiger bewegen und klicken/tippen, um den Attraktor zu starten. Die Schaltflächen steuern zusätzliche Objekte, Sogstärke, Pause, Rücksetzung und einen lokalen PNG-Export. Die Zeichenfläche ist per Tab erreichbar; Leertaste startet dort den Schuss. `P` pausiert und `R` setzt zurück, wenn kein Formelement fokussiert ist. Die Seite lädt keine externen Bibliotheken oder Telemetrie. Der PNG-Export bleibt auf dem eigenen Gerät.
+`index.html` direkt im Browser öffnen. Zeiger bewegen und klicken/tippen, um weitere Attraktoren zu starten. Bis zu vier Felder laufen gleichzeitig; ein weiterer Schuss wartet sichtbar auf einen freien Platz, statt ein Feld oder den Verlauf heimlich zu ersetzen. Die Schaltflächen steuern zusätzliche Objekte, Sogstärke, Pause, bewusste Rücksetzung und einen lokalen PNG-Export. Die Zeichenfläche ist per Tab erreichbar; Leertaste startet dort den Schuss. `P` pausiert und `R` setzt zurück, wenn kein Formelement fokussiert ist. Die Seite lädt keine externen Bibliotheken oder Telemetrie. Der PNG-Export bleibt auf dem eigenen Gerät.
 
 ## Gebundenes Modell
 
@@ -14,11 +14,15 @@ Das Feld berechnet in zwei Dimensionen eine weiche, begrenzte Beschleunigung aus
 
 Die Lichtverzerrung, die Akkretionsscheibe und der Ring sind künstlerische WebGL/Canvas-Darstellungen. Weder Schwarzschild- noch Kerr-Geodäten, Energieerhaltung, reale Materie oder astronomische Messwerte werden berechnet. „Feldradius“ und „Zeitspur“ sind Pixel- und Simulationszeitwerte. Die Bildrate hängt von Gerät und Browser ab; **120 FPS oder 8K sind mit diesem Paket nicht gemessen**.
 
+Das sichtbare Fenster ist ein endlicher Ausschnitt. Objekte, die ihn verlassen, werden nicht an einer unsichtbaren Wand zurückgeworfen; die Demo entfernt sie außerhalb des Ausschnitts und ergänzt neue Objekte. Das ist ein offener Bildfluss, kein persistent berechnetes, unendliches Weltmodell. Die Obergrenze von vier gleichzeitig aktiven Feldern ist ein sichtbares Rechenbudget und begrenzt nicht die kumulative Treffer- oder Zeitspur. Nur „Alles zurücksetzen“ beziehungsweise `R` setzt diese Zähler auf null.
+
 ## Patch gegenüber dem angelieferten Paket
 
 - Der zuvor längenlose Partikelpfad zeichnet jetzt tatsächlich kurze elliptische Lichtspuren.
 - Bei deaktiviertem WebGL bleibt der dunkle Canvas-Hintergrund sichtbar, weil er nach dem Löschen gezeichnet wird.
 - Objekt-, Funken- und Strahlzahlen sind begrenzt; wiederholte Klicks erhöhen sie nicht unbegrenzt.
+- Weitere Klicks fügen laufende Felder hinzu, statt das bisherige Feld und den Trefferzähler zu ersetzen. WebGL und Canvas zeichnen alle aktiven Felder; bei vier Feldern wird ein zusätzlicher Schuss mit einer sichtbaren Meldung zurückgestellt.
+- Die Bildränder reflektieren Objekte nicht mehr. Ausgetretene Objekte werden außerhalb des Ausschnitts entfernt und laufend ergänzt.
 - Tastenkürzel greifen nicht in fokussierte Schaltflächen, Links oder Formelemente ein.
 - „Neustart“ hebt auch einen vorherigen Pausenzustand auf.
 - Der PNG-Export nutzt einen lokalen Blob-Download und meldet den gestarteten Export sichtbar.
