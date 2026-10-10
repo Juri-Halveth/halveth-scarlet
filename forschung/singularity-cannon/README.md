@@ -22,6 +22,7 @@ Die Lichtverzerrung, die Akkretionsscheibe und der Ring sind künstlerische WebG
 - Tastenkürzel greifen nicht in fokussierte Schaltflächen, Links oder Formelemente ein.
 - „Neustart“ hebt auch einen vorherigen Pausenzustand auf.
 - Der PNG-Export nutzt einen lokalen Blob-Download und meldet den gestarteten Export sichtbar.
+- Die öffentliche Scarlet-Navigation bleibt neben dem Referenzlabel frei; die Tastaturhilfe verwendet „Leertaste“, damit die globale Sprachlogik sie nicht als anderes Wort ersetzt.
 - Das Referenzmodul prüft numerische Eingaben und dokumentiert seine Mutationsgrenze.
 
 Diese Änderungen begrenzen einige Last- und Bedienungsfehler. Sie sind keine hardwareübergreifende Leistungs- oder Barrierefreiheitszertifizierung.
