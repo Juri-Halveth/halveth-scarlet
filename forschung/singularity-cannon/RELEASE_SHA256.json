@@ -9,8 +9,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7936,
-      "sha256": "9eb4f19cd7b0213de75c5cb688cbb774fcdc91dbb115c02c3894a1aa2f0386c2"
+      "bytes": 10088,
+      "sha256": "732f70bf9fab812766126c08a4f1a3df7d97cd4c21a8a968af9757e554e8a2ef"
     },
     {
       "path": "SOURCE_RECEIPT.json",
@@ -19,8 +19,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 30436,
-      "sha256": "a5cd66002aca609b011d369d6dc33606ed6c7af2504b6f8f2b17d37b304c2dbc"
+      "bytes": 29868,
+      "sha256": "46d8f0a076fea92ce699864dd1525a1c78c4a7c99b2071983e38b4f017c46d22"
     },
     {
       "path": "package_release.py",
