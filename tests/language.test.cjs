@@ -25,12 +25,18 @@ test('Language switching preserves other URL parameters and the article anchor',
 });
 test('Every garden entity retains a complete English counterpart and stable identity',()=>{
   const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../assets/universe-data.js'),'utf8'),context);
-  const entities=context.window.HalvethUniverse.entities;assert.equal(entities.length,69);assert.equal(new Set(entities.map(e=>e.id)).size,69);
+  const entities=context.window.HalvethUniverse.entities;assert.equal(entities.length,66);assert.equal(new Set(entities.map(e=>e.id)).size,66);
   for(const e of entities)for(const key of ['role','kind','note','sourceLabel']){assert.equal(typeof e.en[key],'string',e.id+'.'+key);if(e[key])assert(e.en[key].length,e.id+'.'+key);}
   const celsius=entities.find(e=>e.id==='celsius');assert.equal(celsius.localDialog,true);assert.equal(celsius.en.doorLabel,'Let Celsius speak');assert(context.window.HalvethUniverse.featured.includes('celsius'));
   const atelier=entities.find(e=>e.id==='choice-atelier');assert.equal(atelier.url,'collage/');assert.match(atelier.note,/lokalen Browser/);
   const brightcast=entities.find(e=>e.id==='brightcast-starlight');assert.equal(brightcast.url,'forschung/brightcast-starlight/');assert(context.window.HalvethUniverse.featured.includes('brightcast-starlight'));
   const pi=entities.find(e=>e.id==='pi-treffpunkte');assert.equal(pi.url,'forschung/pi-treffpunkte/');assert.equal(pi.localDialog,true);assert(context.window.HalvethUniverse.featured.includes('pi-treffpunkte'));
+});
+test('retired coin profiles are absent from the active multilingual catalog and its browser bundle',()=>{
+  const catalog=JSON.parse(fs.readFileSync(path.join(__dirname,'../languages/catalog.json'),'utf8'));
+  const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../languages/catalog.js'),'utf8'),context);
+  assert.equal(JSON.stringify(context.window.HalvethHubTranslations),JSON.stringify(catalog.strings));
+  for(const [key,value] of Object.entries(catalog.strings))assert.doesNotMatch(key+' '+JSON.stringify(value),/manta|aster · chain|rtx/i);
 });
 test('VERACHEL name field keeps ten readable signals and an open non-ranking micro field',()=>{
   const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../assets/universe-data.js'),'utf8'),context);

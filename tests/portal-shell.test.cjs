@@ -98,7 +98,7 @@ test('portal shell exposes all routes and motion-safe controls', () => {
     assert(script.includes(`path:'${route}'`), route);
   }
   assert(script.includes("routes.length+(english?"), 'portal count follows the actual route registry');
-  assert(script.includes("69 public cards: perspectives, characters, projects and sources"));
+  assert(script.includes("66 public cards: perspectives, characters, projects and sources"));
   assert(script.includes("route.id!=='team'"), 'team hash must retain the home route styling');
   assert(script.includes("class=\"portal-motion-button\""));
   assert(script.includes("prefers-reduced-motion: reduce"));

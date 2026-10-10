@@ -41,9 +41,9 @@ Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer geme
 
 ## Deutsch und Englisch / German and English
 
-Die Erde, alle 69 Profilseiten, das Choice Atelier und die Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern diese lokale Präferenz. Seiten mit direktem Sprachwechsel behalten ihren Zustand; andere Ansichten laden neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
+Die Erde, alle 66 aktiven Profilseiten, das Choice Atelier und die Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern diese lokale Präferenz. Seiten mit direktem Sprachwechsel behalten ihren Zustand; andere Ansichten laden neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
 
-The Earth scene, all 69 profile pages, the Choice Atelier and the research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally. In-place language pages preserve their state; other views reload. Source records and proper names retain their original form.
+The Earth scene, all 66 active profile pages, the Choice Atelier and the research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally. In-place language pages preserve their state; other views reload. Source records and proper names retain their original form.
 
 - [Earth in English](https://juri-halveth.github.io/halveth-scarlet/?lang=en)
 - [Ego, Dormammu and the garden](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/?lang=en)
@@ -129,7 +129,7 @@ Reddit ist ein getrennter Veröffentlichungskanal: Der tägliche Quellenentwurf 
 
 Scrollen, Zwei-Finger-Gesten und Plus/Minus zoomen die Erde von 1× bis 4×. Beim Hineinzoomen wird ein zeitversetztes MODIS-Tagesmosaik von NASA GIBS angefragt. Der angefragte Bildtag bleibt sichtbar. Bei Fehlern bleibt Blue Marble erhalten; erneute Zoominteraktion ermöglicht nach 30 Sekunden einen neuen Versuch. Private Quelltexte und nicht zugeordnete private Namen werden nicht veröffentlicht.
 
-Das Quellen-/Hashmanifest ist eine öffentliche Referenz außerhalb der Blockchain. Für GTC, Manta, Aster und RTX bestehen Quellen- beziehungsweise offene Zuordnungskarten; es wurde kein Mint ausgeführt. Beteiligung und konkrete Nutzungsrechte werden ausdrücklich vereinbart.
+Das Quellen-/Hashmanifest ist ein datierter, unveränderter Off-chain-Beleg. Die aktive Startseite führt jetzt GTC und BTC; drei frühere Projektkarten sind aus dem aktuellen Register entfernt. BTC zeigt auf Wunsch lesend den aktuellen Kettenstand. Historische September-Snapshots bleiben als frühere Zustände erhalten. Es wurde kein Mint ausgeführt.
 
 ## Garden, Reddit and Earth zoom
 
@@ -173,6 +173,16 @@ The [VERACHEL profile](entities/verachel/?lang=en) contains the dense bilingual 
 
 The “BTC · FLUSS” link opens a bilingual, fixed transaction-flow example. Amounts are recorded as integer satoshis. The page distinguishes the observed explorer status, the separate API result, arithmetic consistency and unverified block inclusion. It also explains why the displayed fractional size (139.25 vB) differs from BIP141's rounded virtual size (140 vB). It performs no requests to wallets, signatures, transactions or mints. The example does not establish ownership or an on-chain anchor of this website.
 
+
+### BTC-Liveblick / BTC live view
+
+Der optionale BTC-Kettenblick lädt erst beim Öffnen zwei öffentliche GET-Endpunkte von mempool.space: Blockspitze und Gebührenempfehlung. Der Explorer-Link entsteht nur aus einer geprüften 64-stelligen Block-ID. Kein Token, Wallet, Signatur, Transaktion oder Hintergrund-Polling; normale Browser-Verbindungsmetadaten gehen an den API-Anbieter. Gebühren sind unverbindliche Schätzwerte. GTC ×3 ist nur visuelle Hervorhebung und ändert weder Menge noch Kurs. Der historische „BTC · FLUSS“-Beleg bleibt davon getrennt.
+
+The optional BTC chain view requests two public mempool.space GET endpoints only when opened: the latest block and fee estimates. The explorer link is built from a validated 64-character block ID. No token, wallet, signature, transaction or background polling; normal browser connection metadata goes to the API provider. Fee values are estimates, not instructions. GTC ×3 is visual emphasis only and changes neither token amount nor price. The dated “BTC · FLOW” evidence remains separate.
+
+Der GTC-Beobachter fragt beim Öffnen den jüngsten indexierten Transfer des in Gitcoins Governance-Dokumentation gebundenen GTC-Vertrags auf Ethereum über Blockscout ab. Er zeigt Block, UTC-Zeit und einen geprüften Transaktionslink; der Explorer ist ein Indexer und kann nachlaufen. Kein Wallet, keine Signatur, keine Transaktion, kein Kursfeed und kein Hintergrund-Polling; normale Browser-Verbindungsmetadaten gehen an Blockscout.
+
+When opened, the GTC observer reads the latest indexed transfer of the Ethereum GTC contract identified in Gitcoin’s governance documentation through Blockscout. It displays the block, UTC time and a validated transaction link; the explorer is an indexer and may lag. No wallet, signature, transaction, price feed or background polling; normal browser connection metadata goes to Blockscout.
 
 ## Raum der Spuren / Room of traces
 
@@ -234,7 +244,7 @@ Q receipt correction: version 1.0.0 used local CRLF bytes while Git published LF
 
 ## Profile, News und Deployment · 16.09.2026
 
-- **69 Profile**: `assets/universe-data.js` bindet Ziele und Quellen; `tools/build_profiles.mjs` erzeugt statische Seiten und GitHub-Dossiers. `--check` prüft, dass die erzeugten Dateien zum Register passen.
+- **66 aktive Profile**: `assets/universe-data.js` bindet Ziele und Quellen; `tools/build_profiles.mjs` erzeugt statische Seiten und GitHub-Dossiers. `--check` prüft, dass die erzeugten Dateien zum Register passen.
 - **News**: Zwei freigegebene Primärfeeds, stündlicher Abrufversuch, letzte gültige Daten bei Ausfällen. [Betriebsbeschreibung](news/README.md).
 - **Reddit**: Höchstens fünf neue Meldungen pro Berliner Kalendertag, Zielzeit 18:17. GitHub Actions kann verspätet starten. Ohne neue Meldungen entsteht kein Entwurf. Diese Fassung enthält ausschließlich den Entwurfsadapter und keine Reddit-Zugangsdaten. Post-IDs werden nur für tatsächlich bestätigte Veröffentlichungen geführt.
 - **Videos**: Bestehender [Brightcast-Beitrag](forschung/brightcast-starlight/), MP4 und Untertitel bleiben verfügbar. Eine spätere Produktionsstufe verwendet freigegebene Skripte und Medien; bezahlte Generierung und automatischer Upload sind nicht eingerichtet.
@@ -257,10 +267,10 @@ The release adds 69 individual profiles, a separate dated news feed and a **draf
 ## Figurenraum / Character world - 02.10.2026
 
 [`entities/`](entities/?lang=de#scarlet) opens an interactive Three.js world with
-all 69 existing profiles walking along deterministic curved routes. Articulated
+all 66 active profiles walking along deterministic curved routes. Articulated
 hips, knees, feet, arms and capes follow the walking phase. Follow mode tracks
 the selected character; Explore releases the camera; Overview frames the current
-positions of all 69. The profile panel opens on demand rather than covering the
+positions of all 66. The profile panel opens on demand rather than covering the
 world by default. Search, DE/EN and the original story/source pages remain
 available. Without JavaScript or WebGL, the static directory retains all links.
 
@@ -305,7 +315,7 @@ node tools/serve_site.mjs 8841
 
 The optional preview serves only `.site-build/` on `127.0.0.1:8841`, including the
 JavaScript MIME type required for ES modules. Browser QA covers desktop and
-mobile widths, nonblank animated canvases, translation of all 69 figures,
+mobile widths, nonblank animated canvases, translation of all 66 figures,
 selection, free travel, distant sectors, scene-time replay, saved-moment export,
 pause, reduced motion and the static fallback. Unit tests cover route continuity,
 reordered registries, reversible scene time, articulated poses and bounded

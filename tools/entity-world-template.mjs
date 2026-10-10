@@ -108,7 +108,7 @@ export function entityWorldBody({ cards, languageButtons, count }) {
 <section id="profile-directory" class="profile-main world-directory"><h2>${bi('Alle Profile','All profiles')}</h2>
   <label for="profile-search">${bi('Name, Rolle oder Thema','Name, role or subject')}</label><input id="profile-search" type="search" autocomplete="off"><p id="profile-results" role="status" aria-live="polite"></p><ul class="profile-grid">${cards}</ul>
 </section>
-<noscript><p class="world-noscript">${bi('Die 69 Profile stehen im Verzeichnis. Für den 3D-Raum wird JavaScript benötigt.','The 69 profiles are available in the directory. The 3D world requires JavaScript.')}</p></noscript>
+<noscript><p class="world-noscript">${bi(`Die ${count} Profile stehen im Verzeichnis. Für den 3D-Raum wird JavaScript benötigt.`,`The ${count} profiles are available in the directory. The 3D world requires JavaScript.`)}</p></noscript>
 <script src="../assets/universe-data.js"></script><script src="../assets/entity-profile.js" defer></script><script src="../assets/entity-world-loader.js" defer></script><script src="../assets/wallet-connection.js" defer></script><script type="module" src="../assets/entity-world-studio.mjs"></script>
 </body></html>\n`;
 }
