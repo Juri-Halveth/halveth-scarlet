@@ -41,10 +41,10 @@ function directoryParts(html) {
 function assertStaticProfiles(html) {
   const { cards } = directoryParts(html);
   const links = [...cards.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)].map(match => match[1]);
-  assert.equal(links.length, 69);
-  assert.equal(new Set(links).size, 69);
+  assert.equal(links.length, 66);
+  assert.equal(new Set(links).size, 66);
   assert.deepEqual(links.slice().sort(), Array.from(entities, entity => `${entity.id}/`).sort());
-  assert.equal([...cards.matchAll(/<li\b/g)].length, 69);
+  assert.equal([...cards.matchAll(/<li\b/g)].length, 66);
   assert.doesNotMatch(cards, /\bhidden(?:\s|=|>)/);
   for (const entity of entities) {
     assert.equal(entity.profilePath, `entities/${entity.id}/`);
@@ -52,13 +52,13 @@ function assertStaticProfiles(html) {
   }
 }
 
-test('the actual registry has 69 unique IDs and ordering preserves every source object', async () => {
+test('the actual registry has 66 unique IDs and ordering preserves every source object', async () => {
   const { orderedEntities } = await modelPromise;
-  assert.equal(entities.length, 69);
-  assert.equal(ids.size, 69);
+  assert.equal(entities.length, 66);
+  assert.equal(ids.size, 66);
   const ordered = orderedEntities(entities);
   assert.notStrictEqual(ordered, entities);
-  assert.equal(ordered.length, 69);
+  assert.equal(ordered.length, 66);
   assert.deepEqual(entityIds(ordered).sort(), Array.from(ids).sort());
   assert.equal(ordered[0].id, 'scarlet');
   assert.deepEqual(entityIds(orderedEntities(entities)), entityIds(ordered));
@@ -151,7 +151,7 @@ test('neighbors remain distinct source objects in the selected section and obey 
   }
 });
 
-test('gallery coordinates are deterministic, finite and unique for all 69 profiles', async () => {
+test('gallery coordinates are deterministic, finite and unique for all 66 profiles', async () => {
   const { galleryPosition } = await modelPromise;
   for (const count of [1, 2, entities.length]) {
     const positions = Array.from({ length: count }, (_, index) => galleryPosition(index, count));
@@ -163,9 +163,9 @@ test('gallery coordinates are deterministic, finite and unique for all 69 profil
       assert.equal(position[1], 0);
     }
   }
-  const first = galleryPosition(0, 69);
-  const second = galleryPosition(1, 69);
-  const nextRow = galleryPosition(10, 69);
+  const first = galleryPosition(0, 66);
+  const second = galleryPosition(1, 66);
+  const nextRow = galleryPosition(10, 66);
   assert.ok(Math.abs(first[0] + 14.85) < 1e-10);
   assert.ok(Math.abs(first[2] + 12.6) < 1e-10);
   assert.ok(Math.abs(second[0] - first[0] - 3.3) < 1e-10);
@@ -235,23 +235,23 @@ test('malformed stored timelines are INVALID_PRESERVED, never silently normalize
   assert.deepEqual(readMoments(wrap([]), ids), { moments: [], state: 'LOADED' });
 });
 
-test('the generator check verifies the current 69-profile world without writing artifacts', () => {
+test('the generator check verifies the current 66-profile world without writing artifacts', () => {
   const before = read('entities/index.html');
   const output = execFileSync(process.execPath, ['tools/build_profiles.mjs', '--check'], {
     cwd: root, encoding: 'utf8', timeout: 20000
   });
-  assert.match(output, /Verified 69 bilingual entity profiles/);
+  assert.match(output, /Verified 66 bilingual entity profiles/);
   assert.equal(read('entities/index.html'), before);
 });
 
-test('generated HTML and the ES-module template preserve 69 static links before enhancement', async () => {
+test('generated HTML and the ES-module template preserve 66 static links before enhancement', async () => {
   const { entityWorldBody } = await templatePromise;
   const html = read('entities/index.html');
   assertStaticProfiles(html);
   const rendered = entityWorldBody({ cards: directoryParts(html).cards, languageButtons: '', count: entities.length });
   assertStaticProfiles(rendered);
   for (const page of [html, rendered]) {
-    assert.match(page, /<noscript>[\s\S]*69[\s\S]*<\/noscript>/);
+    assert.match(page, /<noscript>[\s\S]*66[\s\S]*<\/noscript>/);
     const loader = /<script\b[^>]*src="\.\.\/assets\/entity-world-loader\.js"[^>]*>/.exec(page)?.[0];
     assert.ok(loader, 'the classic loader is the world entry point');
     assert.match(loader, /\bdefer\b/);

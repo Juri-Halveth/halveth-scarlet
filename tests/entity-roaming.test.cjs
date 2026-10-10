@@ -10,10 +10,10 @@ vm.runInNewContext(fs.readFileSync(path.join(root, 'assets/universe-data.js'), '
 const entities = ctx.window.HalvethUniverse.entities;
 const load = file => import(pathToFileURL(path.join(root, 'assets', file)).href);
 
-test('all 69 characters translate through the world rather than only changing an idle pose', async () => {
+test('all 66 characters translate through the world rather than only changing an idle pose', async () => {
   const { createRoamingPaths, sampleRoamingPath } = await load('entity-world-motion.mjs');
   const routes = createRoamingPaths(entities);
-  assert.equal(routes.length, 69);
+  assert.equal(routes.length, 66);
   const positions = new Set();
   for (const route of routes) {
     const first = sampleRoamingPath(route, 0), later = sampleRoamingPath(route, 8);
@@ -22,7 +22,7 @@ test('all 69 characters translate through the world rather than only changing an
     assert.equal(first.position.y, 0);
     assert.ok(Number.isFinite(first.heading));
   }
-  assert.equal(positions.size, 69);
+  assert.equal(positions.size, 66);
 });
 
 test('world time is reproducible in both directions and identity paths survive registry reordering', async () => {
