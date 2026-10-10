@@ -4,10 +4,15 @@ import { beeinflusse_koerper_durch_singularitaet as step } from './singularity-c
 
 const field = { x: 100, y: 100, radius: 80, strength: 1, horizon: 12 };
 
-test('outside radius leaves body unchanged', () => {
-  const body = { x: 200, y: 100, vx: 0, vy: 0, mass: 1 };
-  assert.deepEqual(step(body, field, 1 / 60), { beruehrt_vom_feld: false, horizonterreicht: false });
-  assert.deepEqual(body, { x: 200, y: 100, vx: 0, vy: 0, mass: 1 });
+test('outside the reference radius still has a weaker, continuous pull', () => {
+  const near = { x: 200, y: 100, vx: 0, vy: 0, mass: 1 };
+  const far = { x: 400, y: 100, vx: 0, vy: 0, mass: 1 };
+  const nearResult = step(near, field, 1 / 60);
+  const farResult = step(far, field, 1 / 60);
+  assert.equal(nearResult.beruehrt_vom_feld, true);
+  assert.equal(farResult.beruehrt_vom_feld, true);
+  assert.ok(nearResult.aktuelle_beschleunigung > farResult.aktuelle_beschleunigung);
+  assert.ok(near.vx < far.vx && far.vx < 0);
 });
 
 test('inside field changes velocity and integrates position once', () => {
@@ -35,4 +40,8 @@ test('invalid numerical contracts fail before mutating the body', () => {
   assert.throws(() => step(body, { ...field, radius: 0 }, 1 / 60), RangeError);
   assert.throws(() => step(body, { ...field, strength: Number.NaN }, 1 / 60), RangeError);
   assert.deepEqual(body, before);
+  const overflow = { x: 1e308, y: 100, vx: 1e308, vy: 0, mass: 1 };
+  const overflowBefore = { ...overflow };
+  assert.throws(() => step(overflow, field, 1e308), RangeError);
+  assert.deepEqual(overflow, overflowBefore);
 });

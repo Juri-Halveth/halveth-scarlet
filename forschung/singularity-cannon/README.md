@@ -6,25 +6,26 @@ Diese Veröffentlichung ist eine eigenständige, offline lauffähige **Spielsimu
 
 ## Start und Bedienung
 
-`index.html` direkt im Browser öffnen. Zeiger bewegen und klicken/tippen, um weitere Attraktoren zu starten. Bis zu vier Felder laufen gleichzeitig; ein weiterer Schuss wartet sichtbar auf einen freien Platz, statt ein Feld oder den Verlauf heimlich zu ersetzen. Die Schaltflächen steuern zusätzliche Objekte, Sogstärke, Pause, bewusste Rücksetzung und einen lokalen PNG-Export. Die Zeichenfläche ist per Tab erreichbar; Leertaste startet dort den Schuss. `P` pausiert und `R` setzt zurück, wenn kein Formelement fokussiert ist. Die Seite lädt keine externen Bibliotheken oder Telemetrie. Der PNG-Export bleibt auf dem eigenen Gerät.
+`index.html` direkt im Browser öffnen. Beim Laden ist kein Feld vorhanden. Zeiger bewegen und klicken/tippen: Jeder Schuss folgt einer stetigen Geraden vom Emitter zum Zeigerziel und zieht sich dort als Projektion in die Bildtiefe zurück. Bis zu vier Felder laufen gleichzeitig; weitere Schüsse werden gezählt und sichtbar in eine Warteschlange gelegt, bis ein Rechenplatz frei wird. Kein Klick setzt Treffer- oder Zeitspur zurück. Die Schaltflächen steuern einströmende Objekte, Sogstärke, Pause, bewusste Rücksetzung und einen lokalen PNG-Export. Die Zeichenfläche ist per Tab erreichbar; Leertaste startet dort den Schuss. `P` pausiert und `R` setzt zurück, wenn kein Formelement fokussiert ist. Die Seite lädt keine externen Bibliotheken oder Telemetrie. Der PNG-Export bleibt auf dem eigenen Gerät.
 
 ## Gebundenes Modell
 
-Das Feld berechnet in zwei Dimensionen eine weiche, begrenzte Beschleunigung aus Distanz, Stärke, Masse und Randgewichtung. Die HTML-Demo ergänzt absichtlich eine tangentiale Komponente, damit Umlaufbahnen visuell erkennbar werden. `singularity-core.mjs` ist ein kleines separates Referenzmodell: Es integriert Geschwindigkeit **und Position** einmal pro Schritt; ein Aufrufer darf die Position danach nicht ein zweites Mal fortschreiben. Die HTML-Demo verwendet dieses Modul nicht, damit ihre einzelne HTML-Datei auch per `file://` offline funktioniert. Ihre Parameter sind für den Spieleffekt gewählt und stimmen nicht vollständig mit dem Referenzmodul überein.
+Das Feld berechnet in zwei Dimensionen eine weiche, begrenzte Beschleunigung aus Distanz, Stärke und Masse. Sein Radius ist ein Weitenmaß der Abnahme, keine harte Wirkungsgrenze; der Beitrag wird in der Ferne kleiner, aber nicht abrupt null. Die HTML-Demo ergänzt absichtlich eine tangentiale Komponente, damit Umlaufbahnen visuell erkennbar werden. Ein kleiner kontinuierlicher Fluss bewegt auch ohne Schuss den Sternhintergrund, Staub und Objekte. Ein aktives Feld krümmt die Darstellung des Hintergrunds und lenkt Staub und Objekte zusätzlich. Die projizierte Bildtiefe verkleinert Weitenmaß, Ring und Einfluss bis zum Abklingen des Schusses. Die Bedienoberfläche ist kein Teil des simulierten Raums. `singularity-core.mjs` ist ein kleines separates Referenzmodell: Es integriert Geschwindigkeit **und Position** einmal pro Schritt; ein Aufrufer darf die Position danach nicht ein zweites Mal fortschreiben. Die HTML-Demo verwendet dieses Modul nicht, damit ihre einzelne HTML-Datei auch per `file://` offline funktioniert. Ihre Parameter sind für den Spieleffekt gewählt und stimmen nicht vollständig mit dem Referenzmodul überein.
 
-Die Lichtverzerrung, die Akkretionsscheibe und der Ring sind künstlerische WebGL/Canvas-Darstellungen. Weder Schwarzschild- noch Kerr-Geodäten, Energieerhaltung, reale Materie oder astronomische Messwerte werden berechnet. „Feldradius“ und „Zeitspur“ sind Pixel- und Simulationszeitwerte. Die Bildrate hängt von Gerät und Browser ab; **120 FPS oder 8K sind mit diesem Paket nicht gemessen**.
+Die Lichtverzerrung, die Akkretionsscheibe, der Ring und das Zurückziehen in die Bildtiefe sind künstlerische WebGL/Canvas-Darstellungen. Die Tiefenvariable ist ein Projektionsparameter, keine gemessene räumliche Koordinate. Weder Schwarzschild- noch Kerr-Geodäten, Energieerhaltung, reale Materie oder astronomische Messwerte werden berechnet. „Zeitspur“ ist Simulationszeit. Die Bildrate hängt von Gerät und Browser ab; **120 FPS oder 8K sind mit diesem Paket nicht gemessen**.
 
-Das sichtbare Fenster ist ein endlicher Ausschnitt. Objekte, die ihn verlassen, werden nicht an einer unsichtbaren Wand zurückgeworfen; die Demo entfernt sie außerhalb des Ausschnitts und ergänzt neue Objekte. Das ist ein offener Bildfluss, kein persistent berechnetes, unendliches Weltmodell. Die Obergrenze von vier gleichzeitig aktiven Feldern ist ein sichtbares Rechenbudget und begrenzt nicht die kumulative Treffer- oder Zeitspur. Nur „Alles zurücksetzen“ beziehungsweise `R` setzt diese Zähler auf null.
+Das sichtbare Fenster ist ein endlicher Ausschnitt. Objekte, die ihn verlassen, werden nicht an einer unsichtbaren Wand zurückgeworfen; die Demo entfernt sie außerhalb des Ausschnitts und lässt neue Objekte am Rand einströmen. Aufgenommene Staub-Tracer werden dort als Darstellungsbestand erneut eingesetzt. Das ist ein offener Bildfluss, kein persistent berechnetes, unendliches Weltmodell. Die Obergrenze von vier gleichzeitig aktiven Feldern ist ein Rechenbudget. Die Warteschlange bewahrt zusätzliche Klicks; aktive Felder, wartende Schüsse und gesamte Schusszahl bleiben unterscheidbar. Nur „Alles zurücksetzen“ beziehungsweise `R` setzt diese Zähler auf null.
 
 ## Patch gegenüber dem angelieferten Paket
 
 - Der zuvor längenlose Partikelpfad zeichnet jetzt tatsächlich kurze elliptische Lichtspuren.
 - Bei deaktiviertem WebGL bleibt der dunkle Canvas-Hintergrund sichtbar, weil er nach dem Löschen gezeichnet wird.
 - Objekt-, Funken- und Strahlzahlen sind begrenzt; wiederholte Klicks erhöhen sie nicht unbegrenzt.
-- Weitere Klicks fügen laufende Felder hinzu, statt das bisherige Feld und den Trefferzähler zu ersetzen. WebGL und Canvas zeichnen alle aktiven Felder; bei vier Feldern wird ein zusätzlicher Schuss mit einer sichtbaren Meldung zurückgestellt.
-- Die Bildränder reflektieren Objekte nicht mehr. Ausgetretene Objekte werden außerhalb des Ausschnitts entfernt und laufend ergänzt.
+- Die Seite startet ohne festes Feld. Jeder Klick wird als Schuss behalten; WebGL und Canvas zeichnen alle aktiven Felder, während weitere Schüsse bei vier aktiven Feldern sichtbar warten.
+- Schüsse erreichen ihr Zeigerziel auf einer stetigen Geraden und verkleinern sich danach als Tiefenprojektion. Hintergrund, Staub und Objekte besitzen einen sanften Grundfluss; aktive Felder beeinflussen ihre sichtbare Bewegung zusätzlich, ohne scharfe Radiuskante.
+- Die Bildränder reflektieren Objekte nicht mehr. Ausgetretene Objekte werden außerhalb des Ausschnitts entfernt und neue Objekte strömen vom Rand ein.
 - Tastenkürzel greifen nicht in fokussierte Schaltflächen, Links oder Formelemente ein.
-- „Neustart“ hebt auch einen vorherigen Pausenzustand auf.
+- „Alles zurücksetzen“ hebt auch einen vorherigen Pausenzustand auf.
 - Der PNG-Export nutzt einen lokalen Blob-Download und meldet den gestarteten Export sichtbar.
 - Die öffentliche Scarlet-Navigation bleibt neben dem Referenzlabel frei; die Tastaturhilfe verwendet „Leertaste“, damit die globale Sprachlogik sie nicht als anderes Wort ersetzt.
 - Das Referenzmodul prüft numerische Eingaben und dokumentiert seine Mutationsgrenze.
@@ -39,6 +40,6 @@ Für den neuen eigenen HTML-, JavaScript-, Test- und Dokumentationsbeitrag gilt 
 
 ## Prüfung
 
-`node --test singularity-core.test.mjs` prüft Außenradius, Horizont, einen inneren Bewegungsschritt und ungültige Eingaben. Browserprüfung muss zusätzlich Darstellung, WebGL-Fallback, Bedienung und Export auf einem konkreten Gerät beobachten. Ein grüner Test bestätigt nur diese lokalen Fälle.
+`node --test singularity-core.test.mjs` prüft den sanften Einfluss außerhalb des Referenzradius, Horizont, einen inneren Bewegungsschritt und ungültige Eingaben. Browserprüfung muss zusätzlich Darstellung, WebGL-Fallback, Bedienung und Export auf einem konkreten Gerät beobachten. Ein grüner Test bestätigt nur diese lokalen Fälle.
 
 `python package_release.py` erzeugt das SHA-256-Manifest und ein sortiertes ZIP mit festem ZIP-Zeitstempel. Das ZIP enthält weder das Gesprächsprotokoll noch Originaldateien des Spiels.

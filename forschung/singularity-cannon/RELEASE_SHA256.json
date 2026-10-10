@@ -9,8 +9,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6762,
-      "sha256": "23a41f3274edbdf18395b180c40718ea8834b384604a32fcc10adfcf4344704d"
+      "bytes": 7936,
+      "sha256": "9eb4f19cd7b0213de75c5cb688cbb774fcdc91dbb115c02c3894a1aa2f0386c2"
     },
     {
       "path": "SOURCE_RECEIPT.json",
@@ -19,8 +19,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 27864,
-      "sha256": "dab3a6dd4bc5362ff147dab99db4c070b9d628f353e1f5a43123e83903549204"
+      "bytes": 30436,
+      "sha256": "a5cd66002aca609b011d369d6dc33606ed6c7af2504b6f8f2b17d37b304c2dbc"
     },
     {
       "path": "package_release.py",
@@ -29,13 +29,13 @@
     },
     {
       "path": "singularity-core.mjs",
-      "bytes": 2853,
-      "sha256": "f02b8a705d06ebfb07ca5c99118529b6a6299449f6c3390cdd0f3f7cf396d7af"
+      "bytes": 3062,
+      "sha256": "d787535b3b4fa23d630eade6edac948c74496f08a78455a2edd641c8cf2de6ba"
     },
     {
       "path": "singularity-core.test.mjs",
-      "bytes": 1664,
-      "sha256": "571e5a1fffa3b0ca016c363f7d0436df577e801451201899814c20bee9129227"
+      "bytes": 2126,
+      "sha256": "5fd86057ffbd33a952311902144805ce56c760924186e52d576337541014f8c3"
     }
   ],
   "claimCeiling": "Checksums bind packaged bytes, not authorship, physical correctness, or external acceptance."

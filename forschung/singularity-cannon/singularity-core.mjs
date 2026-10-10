@@ -10,7 +10,7 @@
  * Die HTML-Demo hat eigene Visualisierungsparameter und nutzt dieses Modul nicht.
  *
  * Die mathematische Idee:
- *   a_r = k / (r² + epsilon) × weicher_Randfaktor / Masse
+ *   a_r = k / (r² + epsilon) × 1/(1 + (r/R)^4) / Masse
  *   v(t + dt) = v(t) + a × dt
  *   x(t + dt) = x(t) + v(t + dt) × dt
  */
@@ -26,18 +26,17 @@ export function beeinflusse_koerper_durch_singularitaet(koerper, feld, delta_zei
   }
   const abstand_x = feld.x - koerper.x;
   const abstand_y = feld.y - koerper.y;
-  const abstand_im_quadrat = abstand_x ** 2 + abstand_y ** 2;
-  const abstand = Math.sqrt(abstand_im_quadrat);
+  const abstand = Math.hypot(abstand_x, abstand_y);
+  const abstand_im_quadrat = abstand ** 2;
 
-  if (abstand >= feld.radius) {
+  if (!Number.isFinite(abstand)) {
     return { beruehrt_vom_feld: false, horizonterreicht: false };
   }
   if (abstand < feld.horizon) {
     return { beruehrt_vom_feld: true, horizonterreicht: true };
   }
 
-  const weicher_rand = Math.min(1, (feld.radius - abstand) / (feld.radius * 0.2));
-  const randgewichtung = Math.sin(weicher_rand * Math.PI / 2);
+  const randgewichtung = 1 / (1 + (abstand / feld.radius) ** 4);
   const stabilisierender_abstand = 4500;
   const wirksame_masse = Math.max(0.05, koerper.mass ?? 1);
   const feldbeschleunigung = Math.min(
@@ -50,13 +49,20 @@ export function beeinflusse_koerper_durch_singularitaet(koerper, feld, delta_zei
   const richtung_y = abstand_y / Math.max(0.001, abstand);
   const tangentiale_verdrehung = 0.17;
 
-  koerper.vx += (richtung_x - richtung_y * tangentiale_verdrehung) * feldbeschleunigung * delta_zeit_in_sekunden;
-  koerper.vy += (richtung_y + richtung_x * tangentiale_verdrehung) * feldbeschleunigung * delta_zeit_in_sekunden;
-  koerper.x += koerper.vx * delta_zeit_in_sekunden;
-  koerper.y += koerper.vy * delta_zeit_in_sekunden;
+  const nextVx = koerper.vx + (richtung_x - richtung_y * tangentiale_verdrehung) * feldbeschleunigung * delta_zeit_in_sekunden;
+  const nextVy = koerper.vy + (richtung_y + richtung_x * tangentiale_verdrehung) * feldbeschleunigung * delta_zeit_in_sekunden;
+  const nextX = koerper.x + nextVx * delta_zeit_in_sekunden;
+  const nextY = koerper.y + nextVy * delta_zeit_in_sekunden;
+  if (![nextX, nextY, nextVx, nextVy].every(Number.isFinite)) {
+    throw new RangeError('Der Bewegungsschritt muss endliche Ausgabewerte behalten');
+  }
+  koerper.vx = nextVx;
+  koerper.vy = nextVy;
+  koerper.x = nextX;
+  koerper.y = nextY;
 
   return {
-    beruehrt_vom_feld: true,
+    beruehrt_vom_feld: feldbeschleunigung > 0,
     horizonterreicht: false,
     aktuelle_beschleunigung: feldbeschleunigung,
     abstand_zum_kern: abstand,
