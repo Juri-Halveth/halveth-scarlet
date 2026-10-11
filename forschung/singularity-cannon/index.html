@@ -14,6 +14,8 @@ html,body{height:100%;margin:0;background:var(--bg);font-family:system-ui,-apple
 canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
 #fx{pointer-events:auto;cursor:crosshair}
 .vignette{pointer-events:none;position:absolute;inset:0;background:radial-gradient(ellipse at 55% 45%,transparent 22%,rgba(0,0,0,.50) 90%);box-shadow:inset 0 0 130px #03070a}
+.field-reactive{--field-x:0px;--field-y:0px;--field-wave:0;--impact-x:50%;--impact-y:50%;--wave-radius:0px;transform:translate3d(var(--field-x),var(--field-y),0)}
+.legend.field-reactive::after,.hud.field-reactive::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:var(--field-wave);border:1px solid #9bffe4;background:radial-gradient(circle at var(--impact-x) var(--impact-y),transparent calc(var(--wave-radius) - 12px),rgba(139,255,221,.38) var(--wave-radius),transparent calc(var(--wave-radius) + 12px));box-shadow:inset 0 0 16px #8effd536,0 0 20px #8effd52b}
 .top{pointer-events:none;position:absolute;left:clamp(17px,3vw,42px);top:24px;right:20px;display:flex;gap:15px;align-items:flex-start;justify-content:space-between}
 .eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#90e5d5;font-weight:700}
 h1{font-size:clamp(20px,3.2vw,39px);margin:6px 0 3px;letter-spacing:-.045em;text-shadow:0 3px 30px #091d23}
@@ -41,7 +43,7 @@ input[type=range]{accent-color:#8cfac7;width:100px}
 .footer>span:first-child{grid-column:1/-1}.footer>span:last-child{justify-self:end}
 #message{position:absolute;top:44%;width:100%;text-align:center;pointer-events:none;font-size:13px;letter-spacing:.16em;color:#e5ffe9;text-shadow:0 0 25px #a2fff3;opacity:0;transition:opacity .25s}
 @media(max-width:680px){.legend,.ref{display:none}.top{top:16px}.lead{max-width:290px}.hud{padding:12px;bottom:11px}.stats{margin:8px 0;gap:5px}.stat{padding:6px}.stat b{font-size:15px}button{padding:7px 9px;font-size:10px;min-height:31px}.rangebar{flex-wrap:wrap}.footer{font-size:9px;grid-template-columns:1fr}.footer>span:last-child{justify-self:start}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.field-reactive{transform:none!important}.field-reactive::after{opacity:0!important}}
 </style>
 </head>
 <body>
@@ -49,18 +51,18 @@ input[type=range]{accent-color:#8cfac7;width:100px}
   <canvas id="space" aria-hidden="true"></canvas>
   <canvas id="fx" tabindex="0" role="button" aria-label="Interaktive Weltraumsimulation. Klicken, tippen oder Leertaste drücken, um eine Singularität abzufeuern."></canvas>
   <div class="vignette"></div>
-  <div class="top"><div><div class="eyebrow">VERACHEL STUDIOS // ZEITSPUR-LAB 001</div>
+  <div class="top"><div class="field-reactive"><div class="eyebrow">VERACHEL STUDIOS // ZEITSPUR-LAB 001</div>
     <h1>SINGULARITY CANNON <span style="color:#98efc8">/ 2003</span></h1>
     <div class="lead">Ein langsames Projektil verändert die <b>Flugbahnen</b> um sich herum. Eigenständige Spielsimulation; keine gemessene Gravitation oder relativistische Lichtkrümmung.</div>
-    </div><div class="ref">INSPIRED BY UNREAL II · ORIGINAL DEMO</div></div>
-  <aside class="legend"><strong>FELDPROJEKTION</strong>
+    </div><div class="ref field-reactive">INSPIRED BY UNREAL II · ORIGINAL DEMO</div></div>
+  <aside class="legend field-reactive"><strong>FELDPROJEKTION</strong>
     <p><span style="color:#e5ac86">●</span> Energie / Fragmente<br><span style="color:#a3ffcd">●</span> Projektil / Lichtspur<br><span style="color:#f4edab">◆</span> Gegner / Objekte<br><span style="color:#9bbbcf">■</span> Pickups / Materie</p>
     <p>Zeige auf ein Ziel und feuere. Das Feld zieht in die Bildtiefe; Sternhintergrund, Staub und Objekte reagieren sichtbar darauf.</p>
     <p><strong>Wovon abhängig?</strong> Abstand, Sogstärke, Objektmasse und Tiefenphase. Der Einfluss wird mit Abstand sanft kleiner.</p>
     <p>Die helle Scheibe entsteht hier erst aus naher Materie und klingt ohne Zufuhr ab. Sie ist keine feste Oberfläche und kein Lebenszeichen.</p>
   </aside>
   <div id="message">MATERIE ÜBERSCHRITT DEN HORIZONT</div>
-  <section class="hud" aria-label="Kontrollzentrum">
+  <section class="hud field-reactive" aria-label="Kontrollzentrum">
     <div class="hudTitle"><span>● LIVE FELD-SIMULATION</span><span id="state" style="color:#e2c58b">BEREIT</span></div>
     <div class="stats">
       <div class="stat"><small>OBJEKTE IM BILD / 200</small><b id="objectsStat">0</b></div>
@@ -81,6 +83,7 @@ input[type=range]{accent-color:#8cfac7;width:100px}
       <span id="strengthValue">115%</span>
       <label><input type="checkbox" id="trails" checked> Zeitspuren</label>
       <label><input type="checkbox" id="distort" checked> Lichtkrümmung</label>
+      <label><input type="checkbox" id="uiWave" checked> UI-Wellen</label>
     </div>
     <div class="footer"><span>KLICK: SCHUSS IN DIE TIEFE · WEITERE SCHÜSSE WARTEN SICHTBAR · NUR RESET BEGINNT BEI 0</span><span id="renderStat">rAF-TAKT: MISST…</span><span>OFFLINE · <a href="README.md" style="color:#b6ffc7">MODELL &amp; RECHTE</a> · <a href="HALVETH_SINGULARITY_CANNON_2026-10-10.zip" download style="color:#b6ffc7">PAKET ↓</a></span></div>
   </section>
@@ -98,8 +101,12 @@ let perfWindowStart=last,perfFrames=0;
 const controls={
   force:document.getElementById('force'),
   trails:document.getElementById('trails'),
-  distort:document.getElementById('distort')
+  distort:document.getElementById('distort'),
+  uiWave:document.getElementById('uiWave')
 };
+const uiSurfaces=[...document.querySelectorAll('.field-reactive')].map(el=>({el,dx:0,dy:0}));
+const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+let uiBounds=[];
 const rnd=(a,b)=>a+Math.random()*(b-a);
 const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
 const MAX_OBJECTS=200, MAX_SPARKS=600, MAX_BEAMS=24, MAX_HOLES=4;
@@ -538,10 +545,48 @@ function refreshUI(){
   const depth=holes.length?Math.round(holes[holes.length-1].depth*100):0;
   dom('state').textContent=paused?'PAUSIERT':pendingShots.length?`${holes.length} AKTIV · ${pendingShots.length} WARTEN`:holes.length?`${holes.length} FELD${holes.length===1?'':'ER'} · TIEFE ${depth}%`:shotsFired?'FELDER WEITERGEZOGEN':'BEREIT';
 }
+function captureInterfaceBounds(){
+  uiBounds=uiSurfaces.map(surface=>{
+    const rect=surface.el.getBoundingClientRect();
+    const dx=reducedMotion.matches?0:surface.dx,dy=reducedMotion.matches?0:surface.dy;
+    return {left:rect.left-dx,top:rect.top-dy,right:rect.right-dx,bottom:rect.bottom-dy};
+  });
+}
+function updateInterfaceField(){
+  if(!uiBounds.length)captureInterfaceBounds();
+  const active=controls.uiWave.checked&&!reducedMotion.matches?holes.filter(hole=>hole.presence>.001):[];
+  uiSurfaces.forEach((surface,i)=>{
+    const rect=uiBounds[i],centerX=(rect.left+rect.right)/2,centerY=(rect.top+rect.bottom)/2;
+    let dx=0,dy=0,glow=0,nearest=null,nearestWeight=0;
+    for(const hole of active){
+      const edgeX=clamp(hole.x,rect.left,rect.right),edgeY=clamp(hole.y,rect.top,rect.bottom);
+      const distance=Math.hypot(hole.x-edgeX,hole.y-edgeY);
+      const range=Math.max(80,hole.rad*1.3);
+      const weight=hole.presence/(1+(distance/range)**2);
+      const wave=Math.sin(hole.age*9-distance/75);
+      const length=Math.max(1,Math.hypot(hole.x-centerX,hole.y-centerY));
+      dx+=(hole.x-centerX)/length*5*weight*wave;
+      dy+=(hole.y-centerY)/length*5*weight*wave;
+      glow=Math.max(glow,weight*(.35+.65*Math.abs(wave)));
+      if(weight>nearestWeight){nearestWeight=weight;nearest=hole;}
+    }
+    surface.dx=clamp(dx,-7,7);surface.dy=clamp(dy,-7,7);
+    const style=surface.el.style;
+    style.setProperty('--field-x',surface.dx.toFixed(2)+'px');
+    style.setProperty('--field-y',surface.dy.toFixed(2)+'px');
+    style.setProperty('--field-wave',glow.toFixed(3));
+    if(nearest){
+      style.setProperty('--impact-x',(nearest.x-rect.left).toFixed(1)+'px');
+      style.setProperty('--impact-y',(nearest.y-rect.top).toFixed(1)+'px');
+      style.setProperty('--wave-radius',(nearest.age*210).toFixed(1)+'px');
+    }
+  });
+}
 function frame(now){
   const dt=clamp((now-last)/1000,0,1/30);last=now;frameCount++;
   if(!paused)update(dt);
   draw();
+  updateInterfaceField();
   perfFrames++;
   if(now-perfWindowStart>=1000){
     const callbacksPerSecond=perfFrames*1000/(now-perfWindowStart);
@@ -603,7 +648,7 @@ document.addEventListener('keydown',e=>{
  if(e.code==='KeyP'){dom('pause').click()}
  if(e.code==='KeyR'){reset()}
 });
-window.addEventListener('resize',resize);
+window.addEventListener('resize',()=>{resize();captureInterfaceBounds()});
 setupGL();resize();refreshUI();requestAnimationFrame(frame);
 })();
 </script>
