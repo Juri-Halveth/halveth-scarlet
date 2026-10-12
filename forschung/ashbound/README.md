@@ -1,12 +1,19 @@
-# ASHBOUND Morrowind Learning World
+# ASHBOUND — eigene Spielwelt
 
-Version 1.0.0 is an interactive, independent fan chronicle inside the existing
-Scarlet website. It is not an OpenMW patch and does not alter installed games,
-saved games, external websites, casino probabilities or operating-system state.
+ASHBOUND is a standalone browser game world inside the Scarlet website. The
+six-place expedition has its own residents, decisions, routes, persistent
+world state and three possible island outcomes. The earlier Ink chronicle and
+equality quest remain separately playable. This build does not alter an
+installed game or its saves.
 
 ## Included
 
 - Six original procedural Three.js locations, orbit/zoom and keyboard controls.
+- A travelling player figure follows connected routes; local decisions light
+  beacons and roads, change the gate and colour the completed world.
+- Six residents offer two revisitable choices each. The gate choice becomes
+  available after the other five places have been shaped. The resulting world
+  is wandering, sheltering or woven, depending on the six choices.
 - Six Ink chapters, 108 complete decision paths and three possible endings.
 - German and English UI, story and six original books.
 - All currently listed Scarlet profiles from the source registry, search and up to three companions.
@@ -41,7 +48,9 @@ The existing GitHub Pages workflow publishes the allowlisted site build.
 ## State and privacy
 
 Local storage key `ashbound-save-v1` contains choice indices, selected location,
-companion IDs and read-book indices. Language uses `ashbound-language`.
+companion IDs, read-book indices, quest progress and expedition decisions.
+Older valid saves receive a fresh expedition without losing their earlier
+choices. Language uses `ashbound-language`.
 Neither field contains identity or account data. Save import is size-bounded,
 schema-checked and replayed through Ink before replacing the current state.
 Malformed imports leave the current state intact. A rejected local save is
@@ -50,9 +59,11 @@ as its exact original text. If that backup cannot be written and read back,
 automatic saving is suspended so the original is not overwritten. Clearing
 browser data removes local saves and recovery copies; export before clearing.
 
-Story load failures expose a retry action and keep undo disabled. Both compiled
-languages are checked before play. WebGL loss leaves the story usable and
-restoration resumes the renderer without reloading the page or losing choices.
+Story load failures expose a retry action and keep undo disabled. The six-place
+expedition can still be played and saved if the Ink chronicle fails to load.
+Both compiled languages are checked before chronicle play. WebGL loss leaves
+the text interactions usable and restoration resumes the renderer without
+reloading the page or losing choices.
 
 ## Verification boundaries
 

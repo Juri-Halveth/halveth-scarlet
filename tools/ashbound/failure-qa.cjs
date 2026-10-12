@@ -17,7 +17,7 @@ const results=[];
 async function main(){
   fs.mkdirSync(output,{recursive:true});
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
-  const base=process.env.ASHBOUND_LIVE_BASE ? new URL('forschung/morrowind-lernwelt/',process.env.ASHBOUND_LIVE_BASE).href : `http://127.0.0.1:${server.address().port}/forschung/morrowind-lernwelt/`;
+  const base=process.env.ASHBOUND_LIVE_BASE ? new URL('forschung/ashbound/',process.env.ASHBOUND_LIVE_BASE).href : `http://127.0.0.1:${server.address().port}/forschung/ashbound/`;
   const browser=await chromium.launch({headless:true,executablePath:process.env.ASHBOUND_CHROME,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']});
   async function check(name,run,setup){
     const context=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'reduce'}),page=await context.newPage(),errors=[];
@@ -71,7 +71,7 @@ async function main(){
     await check('storage unavailable and WebGL absent',async page=>{
       await page.goto(base+'?lang=en');await ready(page);
       assert.match(await page.locator('#scene-status').textContent(),/unavailable/);assert.equal(await page.locator('#zoom-in').isDisabled(),true);
-      await page.locator('#enter-story').click();await page.locator('.choices button').first().click();
+      await page.locator('#enter-story').click();await page.locator('[data-tab="story"]').click();await page.locator('.choices button').first().click();
       assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[0]);
       assert.match(await page.locator('#toast').textContent(),/Storage is unavailable/);
     },async context=>context.addInitScript(()=>{

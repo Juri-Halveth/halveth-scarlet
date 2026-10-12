@@ -7,7 +7,6 @@ import { checkLinks, htmlFiles, siteURL } from './check_links.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = path.join(root, '.site-build');
-const retired = path.join(root, 'forschung', 'morrowind-lernwelt');
 if (path.dirname(output) !== path.resolve(root) || path.basename(output) !== '.site-build') throw new Error('Invalid build destination');
 execFileSync(process.execPath, [path.join(root, 'tools/build_profiles.mjs')], { cwd: root, stdio: 'inherit' });
 fs.rmSync(output, { recursive: true, force: true });
@@ -17,20 +16,22 @@ const files = ['index.html', 'favicon.ico', '.nojekyll', 'robots.txt', 'README.m
 for (const name of [...directories, ...files]) {
   const source = path.join(root, name);
   if (!fs.existsSync(source)) throw new Error(`Required public input missing: ${name}`);
-  fs.cpSync(source, path.join(output, name), { recursive: true, filter: file => file !== retired && !['__pycache__', '.DS_Store'].includes(path.basename(file)) });
+  fs.cpSync(source, path.join(output, name), { recursive: true, filter: file => !['__pycache__', '.DS_Store'].includes(path.basename(file)) });
 }
-if (fs.existsSync(path.join(output, 'forschung', 'morrowind-lernwelt'))) throw new Error('Retired route must not be published');
+if (!fs.existsSync(path.join(output, 'forschung', 'ashbound', 'index.html'))) throw new Error('ASHBOUND public route missing');
 const pages = htmlFiles(output);
 // Version shared presentation by the exact copied bytes, not a release label.
 const assetDigests=Object.fromEntries([
   'assets/portal-shell.css','assets/portal-shell.js','languages/hub-language.css','assets/mobile.css'
 ].map(asset=>[asset,createHash('sha256').update(fs.readFileSync(path.join(output,asset))).digest('hex')]));
 for (const file of pages) {
-  const relativeRoot='../'.repeat(path.relative(output,file).split(path.sep).length-1);
+  const relative=path.relative(output,file).split(path.sep).join('/');
+  const relativeRoot='../'.repeat(relative.split('/').length-1);
+  const standaloneGame=relative==='forschung/ashbound/index.html';
   const prefix=relativeRoot+'languages/';
   const html=fs.readFileSync(file,'utf8').replace(/<!-- HUB_LANGUAGES_START -->[\s\S]*?<!-- HUB_LANGUAGES_END -->/g,'').replace(/<!-- MOBILE_LAYOUT_START -->[\s\S]*?<!-- MOBILE_LAYOUT_END -->/g,'');
-  const tags='<!-- HUB_LANGUAGES_START --><link rel="stylesheet" href="'+prefix+'hub-language.css"><script src="'+prefix+'catalog.js" defer></script><script src="'+prefix+'hub-language.js" defer></script><!-- HUB_LANGUAGES_END -->';
-  const mobile='<!-- MOBILE_LAYOUT_START --><link rel="stylesheet" href="'+relativeRoot+'assets/mobile.css"><!-- MOBILE_LAYOUT_END -->';
+  const tags=standaloneGame?'':'<!-- HUB_LANGUAGES_START --><link rel="stylesheet" href="'+prefix+'hub-language.css"><script src="'+prefix+'catalog.js" defer></script><script src="'+prefix+'hub-language.js" defer></script><!-- HUB_LANGUAGES_END -->';
+  const mobile=standaloneGame?'':'<!-- MOBILE_LAYOUT_START --><link rel="stylesheet" href="'+relativeRoot+'assets/mobile.css"><!-- MOBILE_LAYOUT_END -->';
   const built=html.replace(/(<head[^>]*>)/,match=>match+tags).replace(/<\/head>/i,mobile+'</head>');
   fs.writeFileSync(file,built.replace(/\b(src|href)=(["'])([^"']+)\2/g,(match,attribute,quote,url)=>{
     const pathname=url.split(/[?#]/)[0];

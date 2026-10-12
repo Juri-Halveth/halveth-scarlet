@@ -29,15 +29,19 @@ async function main(){
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   const local=`http://127.0.0.1:${server.address().port}/halveth-scarlet/`;
   const base=process.env.ASHBOUND_LIVE_BASE||local;
+  const viewports=[{width:1440,height:900},{width:1920,height:1080},{width:390,height:844},{width:768,height:1024}];
+  const requestedViewport=process.env.ASHBOUND_QA_VIEWPORT;
+  const selectedViewports=requestedViewport?viewports.filter(viewport=>`${viewport.width}x${viewport.height}`===requestedViewport):viewports;
+  if(!selectedViewports.length)throw new Error(`Unknown ASHBOUND_QA_VIEWPORT: ${requestedViewport}`);
   const launch={headless:true,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']};
   if(process.env.ASHBOUND_CHROME)launch.executablePath=process.env.ASHBOUND_CHROME;
   const browser=await chromium.launch(launch),reports=[];
   try{
-    for(const viewport of [{width:1440,height:900},{width:1920,height:1080},{width:390,height:844},{width:768,height:1024}]){
+    for(const viewport of selectedViewports){
       const context=await browser.newContext({viewport,locale:'de-DE'}),page=await context.newPage(),errors=[];
       page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
       // Page readiness is app-bound; host browser integrations may keep requests open.
-      await page.goto(base+'forschung/morrowind-lernwelt/?lang=de',{waitUntil:'domcontentloaded'});
+      await page.goto(base+'forschung/ashbound/?lang=de',{waitUntil:'domcontentloaded'});
       await page.waitForFunction(()=>document.body.dataset.ready==='true'&&window.AshboundDiagnostics?.scene?.frames>6,null,{timeout:20000});
       const prefix=`${viewport.width}x${viewport.height}`;
       await noOverflow(page);
@@ -62,7 +66,8 @@ async function main(){
       await sleep(600);const b=await page.locator('#scene canvas').screenshot();assert.notEqual(crypto.createHash('sha256').update(a).digest('hex'),crypto.createHash('sha256').update(b).digest('hex'));
       await page.screenshot({path:path.join(output,prefix+'-world.png'),fullPage:true});
       await page.locator('[data-region="gate"]').click();assert.equal(await page.evaluate(()=>AshboundDiagnostics.region),'gate');
-      await page.locator('#enter-story').click();await page.waitForFunction(()=>AshboundDiagnostics.scene.loopActive===false);await page.locator('.choices button').first().click();
+      await page.locator('#enter-story').click();await page.waitForFunction(()=>AshboundDiagnostics.scene.loopActive===false);
+      await page.locator('[data-tab="story"]').click();await page.locator('.choices button').first().click();
       assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[0]);
       await page.locator('#language').click();assert.equal(await page.locator('html').getAttribute('lang'),'en');
       assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[0]);
@@ -85,6 +90,20 @@ async function main(){
       await page.locator('#model-max').click();assert.match(await page.locator('#hit-results').textContent(),/100 \/ 100/);
       await page.locator('#probability').fill('0');await page.locator('#sample').click();assert.match(await page.locator('#hit-results').textContent(),/0 \/ 100/);
       await noOverflow(page);await page.screenshot({path:path.join(output,prefix+'-lab.png'),fullPage:true});
+      await page.locator('[data-tab="kernel"]').click();await page.waitForFunction(()=>AshboundDiagnostics.kernel?.ready===true);
+      assert.equal(await page.evaluate(()=>AshboundDiagnostics.kernel.relation),'=');assert.equal(await page.evaluate(()=>AshboundDiagnostics.kernel.events),1);
+      await page.locator('[data-bit="7"]').click();await page.waitForFunction(()=>AshboundDiagnostics.kernel?.relation==='!');
+      assert.equal(await page.evaluate(()=>AshboundDiagnostics.kernel.events),4);assert.equal(await page.locator('#kernel-relation').textContent(),'!');
+      await page.locator('[data-bit="7"]').click();await page.waitForFunction(()=>AshboundDiagnostics.kernel?.relation==='=');
+      assert.equal(await page.evaluate(()=>AshboundDiagnostics.kernel.events),7);await noOverflow(page);await page.screenshot({path:path.join(output,prefix+'-kernel.png'),fullPage:true});
+      await page.locator('[data-tab="encounter"]').click();await page.waitForFunction(()=>AshboundDiagnostics.tab==='encounter');
+      assert.equal(await page.evaluate(()=>AshboundDiagnostics.quest.progress),0);await page.locator('#encounter-action').click();
+      assert.equal(await page.evaluate(()=>AshboundDiagnostics.quest.progress),1);
+      await page.locator('[data-tab="kernel"]').click();await page.locator('[data-bit="7"]').click();await page.waitForFunction(()=>AshboundDiagnostics.kernel.relation==='!');
+      await page.locator('[data-tab="encounter"]').click();await page.locator('#encounter-action').click();assert.equal(await page.evaluate(()=>AshboundDiagnostics.quest.progress),2);
+      await page.locator('[data-tab="kernel"]').click();await page.locator('[data-bit="7"]').click();await page.waitForFunction(()=>AshboundDiagnostics.kernel.relation==='=');
+      await page.locator('[data-tab="encounter"]').click();await page.locator('#encounter-action').click();assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.quest.steps),['observe','relate','weave']);
+      await noOverflow(page);await page.screenshot({path:path.join(output,prefix+'-encounter.png'),fullPage:true});
       await page.locator('[data-tab="journal"]').click();
       const before=await page.evaluate(()=>AshboundDiagnostics.choices);
       await page.locator('#import').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from('{"schema":"bad"}')});
@@ -97,13 +116,10 @@ async function main(){
       assert.deepEqual(errors,[]);reports.push({viewport,canvas:stats,diagnostics:await page.evaluate(()=>AshboundDiagnostics),errors});await context.close();
     }
     const context=await browser.newContext({viewport:{width:1280,height:800},reducedMotion:'reduce'}),page=await context.newPage();
-    await page.goto(base+'forschung/morrowind-lernwelt/?lang=en');await page.waitForFunction(()=>document.body.dataset.ready==='true');
+    await page.goto(base+'forschung/ashbound/?lang=en');await page.waitForFunction(()=>document.body.dataset.ready==='true');
     await sleep(700);const first=await page.evaluate(()=>AshboundDiagnostics.scene.frames);await sleep(700);assert.equal(await page.evaluate(()=>AshboundDiagnostics.scene.frames),first);
     await page.locator('#zoom-in').click();await sleep(100);assert.ok(await page.evaluate(()=>AshboundDiagnostics.scene.frames)>first);await context.close();
-    // ASHBOUND is intentionally a local source route.  Public-route retirement is
-    // covered by the static contract test; this browser suite verifies the direct
-    // learning-world journey without inventing a portal entry that must not exist.
-    fs.writeFileSync(path.join(output,'QA.json'),JSON.stringify({base,recordedAt:new Date().toISOString(),renderer:'Chromium ANGLE software',reports,publicRoute:'RETIRED_BY_CONTRACT_TEST',reducedMotion:'PASS'},null,2));
+    fs.writeFileSync(path.join(output,'QA.json'),JSON.stringify({base,recordedAt:new Date().toISOString(),renderer:'Chromium ANGLE software',reports,publicRoute:'PUBLIC_BUILD_CANDIDATE',reducedMotion:'PASS'},null,2));
     console.log(JSON.stringify({status:'PASS',base,viewports:reports.length,output},null,2));
   }finally{await browser.close();server.close();}
 }

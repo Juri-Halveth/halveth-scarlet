@@ -94,7 +94,7 @@ test('responsive layout has no fractional pixel gap below desktop', () => {
 test('portal shell exposes all routes and motion-safe controls', () => {
   const script = fs.readFileSync(path.join(root, 'assets/portal-shell.js'), 'utf8');
   const style = fs.readFileSync(path.join(root, 'assets/portal-shell.css'), 'utf8');
-  for (const route of ['./', 'room/', 'snapshot/', 'collage/', 'entities/', 'news/', 'forschung/portal-chess/', 'forschung/usdai-sabr-kontext/', 'forschung/figuren-und-perspektiven/', 'forschung/formen-und-verbindungen/', 'forschung/transaktionsfluss/', 'forschung/q-notizen/', 'forschung/tagesstand-2026-09-13/', 'forschung/brightcast-starlight/', 'forschung/pi-treffpunkte/', 'forschung/de-anker-hela/', 'forschung/halveth-research/', 'forschung/grenzbeobachter/', 'forschung/weltkeimwerk/', './#team']) {
+  for (const route of ['./', 'room/', 'snapshot/', 'collage/', 'entities/', 'news/', 'forschung/portal-chess/', 'forschung/usdai-sabr-kontext/', 'forschung/figuren-und-perspektiven/', 'forschung/formen-und-verbindungen/', 'forschung/transaktionsfluss/', 'forschung/q-notizen/', 'forschung/tagesstand-2026-09-13/', 'forschung/brightcast-starlight/', 'forschung/pi-treffpunkte/', 'forschung/de-anker-hela/', 'forschung/halveth-research/', 'forschung/grenzbeobachter/', 'forschung/weltkeimwerk/', 'forschung/ashbound/', './#team']) {
     assert(script.includes(`path:'${route}'`), route);
   }
   assert(script.includes("routes.length+(english?"), 'portal count follows the actual route registry');

@@ -74,6 +74,11 @@ test('every built HTML receives one local mobile stylesheet after its page style
     const html=fs.readFileSync(file,'utf8'),head=html.slice(0,html.indexOf('</head>'));
     const links=[...head.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g)];
     const mobile=links.filter(m=>m[1].includes('assets/mobile.css?'));
+    const standaloneGame=path.relative(build,file).split(path.sep).join('/')==='forschung/ashbound/index.html';
+    if(standaloneGame){
+      assert.equal(mobile.length,0,file);
+      continue;
+    }
     assert.equal(mobile.length,1,file);assert.equal(links.at(-1)[1],mobile[0][1],file);
     assert.ok(fs.existsSync(path.resolve(path.dirname(file),mobile[0][1].split('?')[0])),file);
     assert.ok(/name="viewport"/.test(head),file);

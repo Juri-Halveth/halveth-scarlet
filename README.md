@@ -6,11 +6,12 @@
 
 ## Lernstudio
 
-Die eigenstaendige Morrowind-Fan-Lernwelt wurde auf Betreiberwunsch aus der
-Website und ihrer Navigation entfernt. Ihr Quellstand bleibt als historischer
-Bestand erhalten und wird nicht mehr vom Pages-Build ausgeliefert.
-Das bestehende [Lernstudio](https://github.com/Juri-Halveth/lernstudio) und das
-lokal installierte Morrowind sind getrennte Projekte.
+Die eigenstaendige [ASHBOUND-Spielwelt](forschung/ashbound/) verbindet
+eine originale 3D-Insel, Chronik, Lehrmodelle und einen lokalen 32-Bit-
+Gleichheitskern. Die frühere Morrowind-Fan-Chronik bleibt als klar abgegrenzte
+Erzählung innerhalb dieses eigenen Spiels erhalten; lokale Morrowind-Installationen
+und das separate [Lernstudio](https://github.com/Juri-Halveth/lernstudio) werden
+nicht verändert.
 
 <!-- HALVETH_WORK_CERTIFICATES_V1_1 -->
 ## Juri Janovski / Juri Halveth – Privates HALVETH-Werkzertifikat
