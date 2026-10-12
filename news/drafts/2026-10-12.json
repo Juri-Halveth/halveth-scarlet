@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-12",
+  "createdAt": "2026-10-12T17:58:30.621Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-10-12",
+  "body": "# HALVETH Quellen-Update · 2026-10-12\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **GitHub Changelog** · Originaltitel (EN): [Push attribution for commits in limited public preview](https://github.blog/changelog/2026-10-12-push-attribution-public-preview) · veröffentlicht 2026-10-12\n- **NASA** · Originaltitel (EN): [APOD: 2026 October 12 – Jupiter and the Moons](https://science.nasa.gov/image-article/apod-2026-october-12-jupiter-and-the-moons/) · veröffentlicht 2026-10-12\n- **NASA** · Originaltitel (EN): [Antarctic Sea Ice Grows to Its 2026 Maximum](https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/) · veröffentlicht 2026-10-12\n- **NASA** · Originaltitel (EN): [NASA’s SSPICY Mission to Demonstrate In-Space Inspection Technologies](https://www.nasa.gov/centers-and-facilities/ames/nasas-sspicy-mission-to-demonstrate-in-space-inspection-technologies/) · veröffentlicht 2026-10-08\n- **NASA** · Originaltitel (EN): [Crew-12 Returns to Earth](https://www.nasa.gov/image-article/crew-12-returns-to-earth/) · veröffentlicht 2026-10-08\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "519145787ddbc1de0b42337f",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Push attribution for commits in limited public preview",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-12-push-attribution-public-preview",
+      "sourcePublishedAt": "2026-10-12T16:30:11Z",
+      "fetchedAt": "2026-10-12T17:58:30Z",
+      "firstFetchedAt": "2026-10-12T17:58:30Z"
+    },
+    {
+      "id": "446843354b9a1b0d7527f2a8",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 October 12 – Jupiter and the Moons",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-12-jupiter-and-the-moons/",
+      "sourcePublishedAt": "2026-10-12T04:05:00Z",
+      "fetchedAt": "2026-10-12T17:58:30Z",
+      "firstFetchedAt": "2026-10-12T07:24:25Z"
+    },
+    {
+      "id": "a7867473cdb52eec78505be6",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Antarctic Sea Ice Grows to Its 2026 Maximum",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/",
+      "sourcePublishedAt": "2026-10-12T04:00:00Z",
+      "fetchedAt": "2026-10-12T17:58:30Z",
+      "firstFetchedAt": "2026-10-12T07:24:25Z"
+    },
+    {
+      "id": "c8f73fc3067539cf0e4ce87d",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s SSPICY Mission to Demonstrate In-Space Inspection Technologies",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/ames/nasas-sspicy-mission-to-demonstrate-in-space-inspection-technologies/",
+      "sourcePublishedAt": "2026-10-08T18:56:25Z",
+      "fetchedAt": "2026-10-11T01:56:44Z",
+      "firstFetchedAt": "2026-10-08T22:06:51Z"
+    },
+    {
+      "id": "9f4d01aca69009eaee8e2ad8",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Crew-12 Returns to Earth",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/crew-12-returns-to-earth/",
+      "sourcePublishedAt": "2026-10-08T18:52:27Z",
+      "fetchedAt": "2026-10-10T13:45:57Z",
+      "firstFetchedAt": "2026-10-08T22:06:51Z"
+    }
+  ],
+  "idempotencyKey": "c44480572fc52d35f3faac8fd9a1e72222f39d8ec3d6454d75d6d04c61142cb6"
+}
