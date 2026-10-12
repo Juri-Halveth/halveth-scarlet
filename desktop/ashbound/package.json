@@ -1,8 +1,8 @@
 {
   "name": "ashbound-desktop",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "Offline Windows desktop candidate for the original ASHBOUND world",
+  "description": "Offline Windows first-person ASHBOUND game prologue",
   "main": "main.cjs",
   "scripts": {
     "prepare-site": "node prepare-site.cjs",

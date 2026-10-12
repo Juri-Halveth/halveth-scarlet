@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080d14">
+  <meta name="description" content="ASHBOUND: ein spielbarer Ich-Perspektive-Prolog mit Magie, Siegeln und einem offenen Aschenpfad.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>ASHBOUND · Die Asche erwacht</title>
+  <link rel="canonical" href="https://juri-halveth.github.io/halveth-scarlet/forschung/ashbound/play/">
+  <link rel="icon" href="../../../favicon.ico">
+  <link rel="stylesheet" href="game.css">
+  <script type="module" src="game.mjs"></script>
+</head>
+<body>
+  <main id="game" aria-label="ASHBOUND Spielwelt">
+    <div id="stage" aria-label="Dreidimensionale Spielwelt"></div>
+    <div id="vignette" aria-hidden="true"></div>
+    <div id="crosshair" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div id="top" class="hud">
+      <span class="mark">ASHBOUND <small>PROLOG · DIE ASCHE ERWACHT</small></span>
+      <div class="objective"><span>AUFTRAG</span><strong id="objective">Erwecke die drei Siegel</strong><small id="counter">0 / 3</small></div>
+      <div class="top-actions"><button id="inventory-button" type="button" aria-label="Ausrüstung öffnen">◈</button><button id="menu-button" type="button" aria-label="Spielmenü öffnen">☰</button></div>
+    </div>
+    <div id="target" class="hud" aria-live="polite"></div>
+    <div id="message" class="hud" role="status" aria-live="polite">Ilyra: Die Asche erinnert sich. Folge dem Licht.</div>
+    <button id="interact" class="hud" type="button" hidden>LESEN <kbd>E</kbd></button>
+    <div id="mana" class="hud"><span>MANA <strong id="mana-number">100 / 100</strong></span><div class="mana-track"><i id="mana-fill"></i></div></div>
+    <div id="spells" class="hud" aria-label="Fähigkeiten">
+      <button type="button" data-spell="pulse"><kbd>1</kbd><b>✦</b><span>IMPULS</span><small>Siegel entzünden</small></button>
+      <button type="button" data-spell="echo"><kbd>2</kbd><b>◉</b><span>RESONANZ</span><small>Verborgenes sehen</small></button>
+      <button type="button" data-spell="still"><kbd>3</kbd><b>◇</b><span>STILLE</span><small>Zeit kurz anhalten</small></button>
+    </div>
+    <div id="touch" class="hud" hidden><div id="stick" aria-label="Bewegen"><span></span></div><div id="touch-hint">Rechts ziehen: Blick · Fähigkeiten unten</div></div>
+    <section id="start" class="modal" aria-labelledby="start-title">
+      <div class="modal-content">
+        <p class="eyebrow">HALVETH · EIN EIGENES SPIELUNIVERSUM</p>
+        <h1 id="start-title">ASH<span>BOUND</span></h1>
+        <p class="lead">Die Asche erwacht.</p>
+        <p class="story">Drei Siegel halten das Tor zur Außenwelt geschlossen. Ilyra hat ihre Stimme im Stein gelassen. Du bist die erste Person, die sie hört.</p>
+        <button id="start-button" class="action" type="button">WELT BETRETEN <span>→</span></button>
+        <p class="controls">WASD bewegen · Maus oder J/L/I/K blicken · Shift rennen · Leertaste springen<br>1 Impuls · 2 Resonanz · 3 Stille · E interagieren · Esc pausieren</p>
+      </div>
+    </section>
+    <section id="pause" class="modal" aria-labelledby="pause-title" hidden>
+      <div class="modal-content compact"><p class="eyebrow">ASHBOUND</p><h2 id="pause-title">Welt angehalten</h2>
+        <button id="resume-button" class="action" type="button">WEITERSPIELEN <span>→</span></button>
+        <button id="reset-button" class="secondary" type="button">PROLOG NEU BEGINNEN</button>
+        <a class="secondary" href="../">CHRONIK & WELTARCHIV</a>
+        <p class="controls">F11 Vollbild · Esc pausieren</p>
+      </div>
+    </section>
+    <section id="book" class="modal" aria-labelledby="book-title" hidden>
+      <div class="book-shell">
+        <div class="book-leaf book-cover"><p class="eyebrow">ASHBOUND · GEFUNDENE SCHRIFT</p><div class="book-emblem" aria-hidden="true">✦</div><h2 id="book-title"></h2><p id="book-author"></p><p class="book-inscription">Lies mit offenen Augen. Die Spur steckt im Text.</p></div>
+        <div class="book-leaf book-page"><p class="book-number" id="book-number">SEITE 01 / 03</p><p id="book-text"></p><div id="book-question" hidden><p id="book-prompt"></p><div id="book-answers"></div></div><div class="book-controls"><button id="book-prev" type="button">← ZURÜCK</button><button id="book-next" type="button">WEITER →</button><button id="book-close" type="button">SCHLIESSEN ✕</button></div></div>
+      </div>
+    </section>
+    <section id="inventory" class="modal" aria-labelledby="inventory-title" hidden>
+      <div class="modal-content compact inventory-content"><p class="eyebrow">DEIN WEG</p><h2 id="inventory-title">Ausrüstung & Wissen</h2><div id="inventory-list"></div><button id="inventory-close" class="action" type="button">ZURÜCK IN DIE WELT <span>→</span></button></div>
+    </section>
+    <section id="ending" class="modal" aria-labelledby="ending-title" hidden>
+      <div class="modal-content compact"><p class="eyebrow">KAPITEL I · DURCHBRUCH</p><h2 id="ending-title">Der Aschenpfad ist offen.</h2>
+        <p class="story">Die drei Kräfte sind keine Schlüssel mehr, sondern Werkzeuge in deiner Hand. Hinter dem Tor beginnt die Welt.</p>
+        <button id="continue-button" class="action" type="button">WEITER ERKUNDEN <span>→</span></button>
+        <a class="secondary" href="../">DIE CHRONIK ENTDECKEN</a>
+      </div>
+    </section>
+    <div id="fatal" role="alert" hidden>Die 3D-Welt konnte nicht geladen werden. Prüfe, ob WebGL verfügbar ist. <a href="../">Zum Weltarchiv</a></div>
+  </main>
+  <noscript><p>JavaScript ist für das Spiel erforderlich. <a href="../">Das Weltarchiv ist hier lesbar.</a></p></noscript>
+</body>
+</html>
