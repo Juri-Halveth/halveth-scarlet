@@ -112,6 +112,12 @@ async function main(){
       await download.saveAs(path.join(output,prefix+'-save.json'));
       await page.locator('#import').setInputFiles(path.join(output,prefix+'-save.json'));await noOverflow(page);
       await page.locator('[data-tab="world"]').click();await page.waitForFunction(()=>AshboundDiagnostics.scene.frames>3&&AshboundDiagnostics.scene.width>0&&AshboundDiagnostics.scene.loopActive===true);
+      await page.locator('[data-region="haven"]').click();await page.locator('#resident-choices button').first().click();
+      await page.locator('[data-region="garden"]').click();await page.locator('#resident-choices button').first().click();
+      await page.locator('[data-tab="journal"]').click();
+      assert.deepEqual(await page.evaluate(()=>['brain-unknown-count','brain-kept-count','brain-linked-count'].map(id=>document.getElementById(id).textContent)),['4','2','1']);
+      assert.match(await page.locator('#brain-linked-list').textContent(),/Aschenhafen.*Garten der Stimmen|Ash Harbour.*Garden of Voices/);
+      await noOverflow(page);await page.screenshot({path:path.join(output,prefix+'-brain.png'),fullPage:true});await page.locator('[data-tab="world"]').click();
       assert.ok((await pixels(await page.locator('#scene canvas').screenshot())).colors>40);
       assert.deepEqual(errors,[]);reports.push({viewport,canvas:stats,diagnostics:await page.evaluate(()=>AshboundDiagnostics),errors});await context.close();
     }
