@@ -4,7 +4,7 @@ import { COPY, BOOKS } from './content.mjs';
 import { createWorld } from './scene.mjs';
 import { bitGroups, createKernel, hexWord, toggleBit } from './kernel.mjs';
 import { attemptStep, createQuest, currentStep, questProgress } from './quest.mjs';
-import { canChoose, chooseRegion, createExpedition, expeditionOutcome, expeditionProgress, visitRegion } from './expedition.mjs';
+import { ROADS, canChoose, chooseRegion, createExpedition, expeditionOutcome, expeditionProgress, visitRegion } from './expedition.mjs';
 
 const $ = id => document.getElementById(id);
 const el = (tag, text, className) => { const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(className)n.className=className;return n; };
@@ -172,6 +172,16 @@ function openBook(i,showDialog=true){activeBook=i;const book=BOOKS[i][lang];$('b
 function renderJournal(){
   $('recovery-notice').hidden=recoveryRaw===null;
   $('recovery-message').textContent=t(saveProtected?'recoveryProtected':'recovered');
+  const shaped=REGIONS.filter((region,index)=>state.expedition.choices[index]!==null);
+  const open=REGIONS.filter((region,index)=>state.expedition.choices[index]===null);
+  const links=ROADS.filter(([a,b])=>shaped.some(region=>region.id===a)&&shaped.some(region=>region.id===b));
+  const label=id=>REGIONS.find(region=>region.id===id)[lang];
+  $('brain-unknown-count').textContent=String(open.length);
+  $('brain-unknown-list').textContent=open.map(region=>region[lang]).join(' · ')||t('brainNone');
+  $('brain-kept-count').textContent=String(shaped.length);
+  $('brain-kept-list').textContent=shaped.map(region=>region[lang]).join(' · ')||t('brainNone');
+  $('brain-linked-count').textContent=String(links.length);
+  $('brain-linked-list').textContent=links.map(([a,b])=>`${label(a)} ↔ ${label(b)}`).join(' · ')||t('brainNone');
   const host=$('journey-record');host.replaceChildren();
   if(!state.choices.length)host.append(el('li',t('noDecisions')));
   else if(compiled){const result=replay(runtime.Story,compiled[lang],state.choices);state.choices.forEach((choice,i)=>{const frame=result.history[i];host.append(el('li',`${i+1}. ${frame.lines[frame.headingIndex]}: ${frame.choices[choice]}`));});}

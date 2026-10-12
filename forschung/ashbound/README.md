@@ -2,9 +2,9 @@
 
 ASHBOUND is a standalone browser game world inside the Scarlet website. The
 six-place expedition has its own residents, decisions, routes, persistent
-world state and three possible island outcomes. The earlier Ink chronicle and
-equality quest remain separately playable. This build does not alter an
-installed game or its saves.
+world state and three possible island outcomes. The Ink chronicle now follows
+the same six original residents; the equality quest remains separately playable.
+This build does not alter an installed game or its saves.
 
 ## Included
 
@@ -17,6 +17,7 @@ installed game or its saves.
 - Six Ink chapters, 108 complete decision paths and three possible endings.
 - German and English UI, story and six original books.
 - All currently listed Scarlet profiles from the source registry, search and up to three companions.
+  Those optional archive guests are separate from the original ASHBOUND cast.
   Companions expose their documented perspectives; they are not live AI agents.
 - FREEZE teaching models for paused simulation time, braking and restoring speed.
   Newtonian constant gravity, no drag, downward initial velocity; not a full
@@ -24,11 +25,17 @@ installed game or its saves.
 - FORTUNA probability simulation with explicit p, count and deterministic seed.
   The xorshift generator is educational and is not a gambling RNG or a guarantee.
 - Local save, step-back, language-preserving decisions, import and export.
+- A journal view keeps unresolved places visible, lists saved decisions and
+  shows roads whose two endpoint places have both been shaped. This applies
+  the user-supplied conceptual Brain Patch 001 (SHA-256
+  `f2a089492c86385c687dbf1342448bf9be576089e5fb6bfd3cf40b38b736ecc7`)
+  to local game state; it makes no external research or autonomous-brain claim.
 - Reduced motion, capped rendering, no autoplay sound, no keys or analytics.
 
-The fan chronicle changes motives and choices in an explicitly alternate story.
-It is not presented as recovered Morrowind canon. Original books and game assets
-are not redistributed. Real-world research and private attachments are excluded.
+The original chronicle and books use ASHBOUND residents, places and events.
+Legacy franchise names have been removed from that narrative; archive guest
+profiles remain separately labelled. Assets from other games are not
+redistributed. Real-world research and private attachments are excluded.
 
 ## Rebuild from PowerShell
 

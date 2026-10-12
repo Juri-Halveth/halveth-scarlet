@@ -22,6 +22,14 @@ test('all 108 Ink paths complete in both languages with matching decisions and v
   visit([]);assert.equal(count,108);assert.equal(endings.size,3);
   assert.throws(()=>replay(Story,stories.de,[2]),/unreachable/);
 });
+test('the ASHBOUND chronicle and books use the six original residents',async()=>{
+  const {BOOKS}=await load('content.mjs');
+  for(const language of ['de','en']){
+    const source=fs.readFileSync(path.join(dir,`story.${language}.ink`),'utf8');
+    for(const name of ['Ilyra','Neral','Kael','Aven','Miora','Serin'])assert.match(source,new RegExp(name));
+    assert.doesNotMatch(source+JSON.stringify(BOOKS.map(book=>book[language])),/Morrowind|Vivec|Dagoth Ur|Doctor Strange|Dormammu|Thor|JARVIS/i);
+  }
+});
 test('paused time, braking and restored velocity remain distinct and conserve declared energy',async()=>{
   const {fall}=await load('core.mjs'),p={height:40,velocity:15,mass:10,time:1};
   const a=fall({...p,mode:'pause'}),b=fall({...p,mode:'stop'}),c=fall({...p,mode:'restore'});

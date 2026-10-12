@@ -8,7 +8,7 @@ VAR fuersorge = 0
 # chapter:1
 The harbour that remembers
 Ash rests on the water. A stone hangs above the bay, and every household tells a different story about why it has not fallen.
-Scarlet waits on the pier beside an empty book. "This time," she says, "no one gets to write the ending for everybody else."
+Ilyra waits with Scarlet on the pier beside an empty book. "This time," Ilyra says, "no one gets to write the ending for everybody else."
 You have not come to complete a prophecy. You have come because three contradictory chronicles describe the same night.
 * [First, I collect the residents' accounts.]
   ~ wissen += 1
@@ -23,8 +23,8 @@ You have not come to complete a prophecy. You have come because three contradict
 # region:archive
 # chapter:2
 The archive of conflicting witnesses
-RACHEL lays out three scrolls: a temple chronicle, an exile's testimony and an incomplete sketch. None speaks for the entire world.
-In this new story, Vivec remembers a rescue. Dagoth Ur remembers betrayal. The missing page might change both accounts, but a missing page is not a verdict.
+Neral lays out three scrolls: a ferry log, a displaced resident's testimony and an incomplete sketch. None speaks for the entire world.
+The ferry reached the harbour. Neral remembers a rescue; the resident remembers a closed landing. The missing page might change both accounts, but a missing page is not a verdict.
 VERACHEL asks: "Whose silence have we mistaken for agreement?"
 * [Keep the conflicting scrolls visible together.]
   ~ wissen += 1
@@ -42,30 +42,30 @@ VERACHEL asks: "Whose silence have we mistaken for agreement?"
 === krater ===
 # region:crater
 # chapter:3
-Dagoth Ur's counteroffer
-At the crater's edge, Dagoth Ur speaks quietly. "I can preserve every voice in the heart. No more loss. No forgetting."
-You ask whether a voice can leave the choir again. For the first time, the mountain falls silent.
-Dormammu steps through the black gate. "Eternity is easy when nobody may leave." Scarlet does not touch the heart. She waits for your decision.
+Kael's counteroffer
+At the crater's edge, Kael speaks quietly. "The ember can keep each voice as an echo. Perhaps then we lose less."
+You ask whether a voice can leave the choir again. For the first time, the forge falls silent.
+Serin stands at the stone gate. "A lasting echo would be a prison if nobody may leave." Scarlet waits for your decision.
 * [A shared memory needs an individual exit for every voice.]
   ~ freiheit += 2
-  Dagoth Ur opens a second gate. Whether his promise holds must be observed later. An exit on a plan is not yet a path somebody has travelled.
+  Kael draws an exit into the forge's ring. Whether his design works must be observed later. An exit on a plan is not yet a path somebody has travelled.
   -> stasis
 * [Test the offer with a voluntary, recoverable echo first.]
   ~ wissen += 2
-  JARVIS separates the echo from the original. The trial ends at an agreed moment. The great union remains a possibility, not an accomplished state.
+  Neral separates the echo from the original and labels both traces. The trial ends at an agreed moment. The great choir remains a possibility, not an accomplished state.
   -> stasis
 * [Protect the villages from the ash first.]
   ~ fuersorge += 2
-  The choir waits. Thor and the harbour workers build a sheltered route. Their help requires no oath of allegiance.
+  The choir waits. Ilyra and the harbour workers build a sheltered route. Their help requires no oath of allegiance.
   -> stasis
 
 === stasis ===
 # region:stasis
 # chapter:4
 The stone and the three spells
-Vivec takes you to the suspended stone. Doctor Strange draws three signs: pause, brake, restore.
-"Pausing the story does not brake the stone," he says. "Writing down an old velocity does not store its energy."
-The spellbook offers three trials. In this fan world they are fiction. In the neighbouring laboratory they are different numerical models.
+Aven takes you to the suspended stone. She draws three signs: pause, brake, restore.
+"Pausing the story does not brake the stone," she says. "Writing down an old velocity does not store its energy."
+Aven's book offers three trials. In ASHBOUND they are game actions. In the neighbouring laboratory they are different numerical models.
 * [Brake the stone and account for its kinetic energy.]
   ~ wissen += 1
   ~ fuersorge += 1
@@ -85,7 +85,7 @@ The spellbook offers three trials. In this fan world they are fiction. In the ne
 # region:garden
 # chapter:5
 Sixty-nine perspectives
-The garden does not contain sixty-nine judges. It contains sixty-nine perspectives from Scarlet's existing constellation. Their names remain linked to their own dossiers.
+Miora places chairs in the garden for many perspectives. The residents remain their own characters; the archive keeps other names from the constellation separate.
 RACHEL asks about the next step. LUCINET asks about connections. HALVETH asks about sources. Scarlet asks about the possibility nobody has been able to try.
 Their answers do not automatically agree. That is why each decision should retain a way back.
 * [Publish the sources and invite counterproposals.]
@@ -105,16 +105,16 @@ Return is not the end
 {
 - freiheit >= 4:
   The ending of open gates
-  The choir remains, but every voice may leave. Dagoth Ur loses his certainty that unity requires possession. Vivec must accept his chronicle beside the others.
+  Serin opens the gate. The choir remains, but every voice may leave. Kael gives up the claim that only he can interpret the echo. Neral places his chronicle beside the others.
   The world does not become free of contradictions. It becomes a place you can enter, change and leave again.
 - wissen >= 4:
   The ending of readable stars
   The heart becomes an archive, not a judge. Measurement, memory and wishes occupy separate pages. The stone gains an observed history instead of a single legend.
-  Scarlet places a blank page beside it. The next chapter belongs to nobody yet.
+  Neral places a blank page beside it. The next chapter belongs to nobody yet.
 - else:
   The ending of a habitable morning
   The boats are safe. The roads stay open. Some riddles remain unanswered, but nobody had to wait beneath the stone for a perfect answer.
   Lamps are lit in the garden. The chronicle records what was preserved and what remains open.
 }
-You have travelled through a new fan story. Morrowind's original story and the other perspectives remain alongside it, unchanged.
+You have travelled through an ASHBOUND story. Ilyra, Neral, Kael, Aven, Miora and Serin remain here to talk; the six places carry your later choices.
 -> END
