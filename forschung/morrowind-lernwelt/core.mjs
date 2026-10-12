@@ -1,3 +1,5 @@
+import { createQuest, validateQuest } from './quest.mjs';
+
 export const VERSION = '1.0.0';
 export const REGIONS = [
   { id: 'haven', de: 'Aschenhafen', en: 'Ash harbour', position: [-17, 2, 13], color: 0x51dec6 },
@@ -46,7 +48,7 @@ export function validateSave(value, ids) {
   if (!Array.isArray(value.party) || value.party.length > 3 || new Set(value.party).size !== value.party.length || value.party.some(id => !ids.has(id))) throw new Error('save-party');
   if (!Array.isArray(value.books) || value.books.length > 6 || value.books.some(id => !Number.isInteger(id) || id < 0 || id > 5)) throw new Error('save-books');
   return { schema: value.schema, version: VERSION, choices: [...value.choices], region: value.region,
-    party: [...value.party], books: [...new Set(value.books)] };
+    party: [...value.party], books: [...new Set(value.books)], quest: value.quest === undefined ? createQuest() : validateQuest(value.quest) };
 }
 export function replay(Story, compiled, choices) {
   const story = new Story(compiled), history = [];

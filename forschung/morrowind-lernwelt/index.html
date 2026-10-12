@@ -4,19 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#111415">
-  <meta name="description" content="ASHBOUND: eine interaktive Morrowind-Fan-Chronik mit 3D-Insel, sechs Kapiteln, Zauberlabor und Scarlets Perspektiven.">
+  <meta name="description" content="ASHBOUND: eine interaktive HALVETH-Spielwelt mit 3D-Insel, Chronik, Zauberlabor und einem spielbaren 32-Bit-Gleichheitskern.">
+  <meta property="og:title" content="ASHBOUND · HALVETH Spielwelt">
+  <meta property="og:description" content="Eine eigene 3D-Spielwelt mit Chronik, Lehrmodellen und einem spielbaren 32-Bit-Gleichheitskern.">
+  <meta property="og:url" content="https://juri-halveth.github.io/halveth-scarlet/forschung/morrowind-lernwelt/">
+  <meta property="og:image" content="https://juri-halveth.github.io/halveth-scarlet/assets/portal-cosmic-gate.webp">
+  <meta property="og:image:alt" content="ASHBOUND, die HALVETH Spielwelt">
+  <meta name="twitter:card" content="summary_large_image">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
-  <title>ASHBOUND / Morrowind Lernwelt / HALVETH</title>
+  <title>ASHBOUND / HALVETH Spielwelt</title>
   <link rel="canonical" href="https://juri-halveth.github.io/halveth-scarlet/forschung/morrowind-lernwelt/">
+  <link rel="alternate" hreflang="de" href="https://juri-halveth.github.io/halveth-scarlet/forschung/morrowind-lernwelt/?lang=de">
+  <link rel="alternate" hreflang="en" href="https://juri-halveth.github.io/halveth-scarlet/forschung/morrowind-lernwelt/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://juri-halveth.github.io/halveth-scarlet/forschung/morrowind-lernwelt/">
   <link rel="icon" href="../../favicon.ico">
   <link rel="stylesheet" href="world.css">
   <script src="../../assets/universe-data.js"></script>
+  <script src="../weltkeimwerk/core.js"></script>
   <script type="module" src="app.mjs"></script>
 </head>
 <body>
   <a class="skip" href="#main">Zum Inhalt / Skip to content</a>
   <header class="topbar">
-    <a class="brand" href="../../"><i data-lucide="sparkles"></i><span>HALVETH <small>/ SCARLET</small></span></a>
+    <a class="brand" href="../../"><i data-lucide="sparkles"></i><span>HALVETH <small>/ ASHBOUND</small></span></a>
     <nav id="tabs" aria-label="Lernwelt / Learning world"></nav>
     <div class="header-tools"><button class="icon" id="settings-open" title="Einstellungen / Settings" aria-label="Einstellungen / Settings"><i data-lucide="settings"></i></button><button id="language" class="language" aria-label="Sprache / Language">EN</button></div>
   </header>
@@ -29,7 +39,16 @@
         <div class="scene-tools"><button class="icon" id="zoom-in" data-title="zoomIn"><i data-lucide="plus"></i></button><button class="icon" id="zoom-out" data-title="zoomOut"><i data-lucide="minus"></i></button><button class="icon" id="fit" data-title="fit"><i data-lucide="rotate-ccw"></i></button></div>
         <div class="location-strip"><div><span class="eyebrow" id="location-number">01 / 06</span><h2 id="location-name"></h2><p id="location-note"></p></div><button id="enter-story" class="primary"><span data-t="explore"></span><i data-lucide="arrow-right"></i></button></div>
       </div>
-      <div class="world-bottom"><span>06 <span data-t="world"></span></span><span><span id="profile-count">66</span><span data-t="results"></span></span><span>03 <span data-t="learning"></span></span><span class="edition">FAN CHRONICLE / 01</span></div>
+      <div class="world-bottom"><span>06 <span data-t="world"></span></span><span><span id="profile-count">66</span><span data-t="results"></span></span><span>03 <span data-t="learning"></span></span><span class="edition">ASHBOUND / VERTICAL SLICE</span></div>
+    </section>
+    <section id="encounter" class="view wide encounter-view" hidden>
+      <div class="section-heading encounter-heading"><div><p class="eyebrow" data-t="encounterKicker"></p><h1 data-t="encounterTitle"></h1><p data-t="encounterNote"></p></div><output id="encounter-progress" class="encounter-progress">00 / 03</output></div>
+      <div class="encounter-stage">
+        <div id="encounter-signal" class="encounter-signal" aria-live="polite">=</div>
+        <div class="encounter-route" aria-hidden="true"><span></span><span></span><span></span></div>
+        <article class="encounter-voice"><p id="encounter-role" class="eyebrow"></p><h2 id="encounter-character"></h2><h3 id="encounter-title"></h3><p id="encounter-copy"></p><button id="encounter-action" class="primary" type="button"><i data-lucide="arrow-right"></i></button><p id="encounter-status" class="quiet" role="status"></p></article>
+        <ol id="encounter-trail" class="encounter-trail" aria-label="Begegnungsfolge / Encounter sequence"></ol>
+      </div>
     </section>
     <section id="story" class="view reading" hidden>
       <div class="section-heading"><div><p class="eyebrow">ASHBOUND / <span data-t="reality"></span></p><h1 data-t="story"></h1></div><div class="button-row"><button class="icon" id="undo" data-title="back" disabled><i data-lucide="arrow-left"></i></button><button class="icon" id="restart" data-title="restart"><i data-lucide="rotate-ccw"></i></button></div></div>
@@ -39,6 +58,17 @@
       <div class="section-heading"><div><p class="eyebrow" data-t="learning"></p><h1 data-t="labTitle"></h1><p data-t="labNote"></p></div></div>
       <div class="lab-grid"><div class="lab-controls"><div id="mode-switch" class="segmented"></div><p id="mode-note"></p><label><span data-t="height"></span><output id="height-value"></output><input id="height" type="range" min="1" max="100" value="40"></label><label><span data-t="speed"></span><output id="speed-value"></output><input id="speed" type="range" min="0" max="50" value="15"></label><label><span data-t="mass"></span><output id="mass-value"></output><input id="mass" type="range" min="1" max="100" value="10"></label><button id="fall-run" class="primary"><i data-lucide="play"></i><span data-t="run"></span></button><div class="measurement"><span id="energy-label"></span><strong id="energy-value"></strong></div></div><div class="fall-display"><canvas id="fall-canvas" width="800" height="500" aria-label="Fallmodell / Falling model"></canvas><output id="fall-status"></output></div></div>
       <section class="fortune"><div class="section-heading"><div><p class="eyebrow">FORTUNA / MAX-X</p><h2 data-t="fortune"></h2><p data-t="fortuneNote"></p></div></div><div class="fortune-inputs"><label><span data-t="probability"></span><input id="probability" type="number" min="0" max="1" step="0.01" value="0.5" required></label><label><span data-t="count"></span><select id="count"><option>10</option><option selected>100</option><option>1000</option></select></label><label><span data-t="seed"></span><input id="seed" type="number" min="0" max="4294967295" step="1" value="2026" required></label><button id="sample" class="primary"><i data-lucide="sparkles"></i><span data-t="sample"></span></button><button id="model-max" class="text-button" data-t="modelMax"></button></div><div id="hit-results" class="metrics"></div><canvas id="hit-canvas" width="1200" height="140" aria-label="Trefferreihe / Hit sequence"></canvas><p class="quiet" data-t="fortuneHelp"></p></section>
+    </section>
+    <section id="kernel" class="view wide kernel-view" hidden>
+      <div class="section-heading kernel-heading"><div><p class="eyebrow">ASHBOUND / G^* / 32 BIT</p><h1 data-t="kernelTitle"></h1><p data-t="kernelNote"></p></div><div class="kernel-relation" id="kernel-relation" aria-live="polite">=</div></div>
+      <div class="kernel-stage">
+        <div class="kernel-orbit" aria-hidden="true"><span class="kernel-star">✦</span><span class="kernel-ring"></span></div>
+        <div class="kernel-copy"><p class="eyebrow" data-t="kernelSeed"></p><output id="kernel-hex" class="kernel-hex">0x4A555249</output><p id="kernel-summary" class="kernel-summary"></p></div>
+        <div id="kernel-bits" class="kernel-bits" aria-label="32-Bit-Zustand / 32-bit state"></div>
+        <div class="kernel-actions"><button id="kernel-snapshot" class="text-button" type="button"><i data-lucide="history"></i><span data-t="kernelSnapshot"></span></button><button id="kernel-reset" class="text-button" type="button"><i data-lucide="rotate-ccw"></i><span data-t="kernelReset"></span></button></div>
+        <p id="kernel-status" class="quiet" role="status"></p>
+      </div>
+      <div class="kernel-ledger" aria-label="Lokale Zustandsfolge / Local state sequence"><span data-t="kernelLedger"></span><strong id="kernel-ledger-count">0</strong><span data-t="kernelEvents"></span></div>
     </section>
     <section id="books" class="view wide" hidden><div class="section-heading"><div><p class="eyebrow" data-t="collection"></p><h1 data-t="bookTitle"></h1></div><span id="book-count"></span></div><div id="bookshelf"></div></section>
     <section id="council" class="view wide" hidden><div class="section-heading"><div><p class="eyebrow">HALVETH / LUCINET / SCARLET</p><h1 data-t="councilTitle"></h1><p data-t="perspectiveNote"></p></div></div><div class="council-bar"><label class="search-label"><i data-lucide="search"></i><input type="search" id="entity-search" autocomplete="off" data-placeholder="search" aria-label="Name oder Rolle / Name or role"></label><output id="entity-count" aria-live="polite"></output></div><div id="party-strip"></div><div id="entity-grid"></div></section>

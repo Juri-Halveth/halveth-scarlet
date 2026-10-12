@@ -44,7 +44,8 @@ test('save validation strips unrelated properties, rejects malformed states and 
   const {validateSave}=await load('core.mjs');
   const value={schema:'halveth.ashbound.save.v1',version:'1.0.0',choices:[0,2],region:'garden',party:['scarlet','dormammu'],books:[1,1],private:'not exported'};
   const before=JSON.stringify(value),safe=validateSave(value,ids);assert.equal(JSON.stringify(value),before);assert.equal(safe.private,undefined);assert.deepEqual(safe.books,[1]);
-  for(const change of [{choices:[-1]},{choices:[3]},{party:['missing']},{party:['scarlet','scarlet']},{region:'remote'},{books:[6]},{version:'2.0.0'}])assert.throws(()=>validateSave({...value,...change},ids));
+  assert.deepEqual(safe.quest.steps,[]);
+  for(const change of [{choices:[-1]},{choices:[3]},{party:['missing']},{party:['scarlet','scarlet']},{region:'remote'},{books:[6]},{quest:{version:'1.0.0',steps:['weave']}},{version:'2.0.0'}])assert.throws(()=>validateSave({...value,...change},ids));
 });
 test('all current identities are reused, and all six bilingual books and UI dictionaries are complete',async()=>{
   const {COPY,BOOKS}=await load('content.mjs'),{REGIONS}=await load('core.mjs');
@@ -53,14 +54,31 @@ test('all current identities are reused, and all six bilingual books and UI dict
   assert.equal(BOOKS.length,6);assert.equal(REGIONS.length,6);
   for(const b of BOOKS)for(const l of ['de','en'])assert.ok(b[l][2].length>160);
 });
-test('historical world uses local dependencies but is retired from the public portal',()=>{
+test('ASHBOUND keeps its local dependencies and is a public game route',()=>{
   const html=fs.readFileSync(path.join(dir,'index.html'),'utf8'),app=fs.readFileSync(path.join(dir,'app.mjs'),'utf8'),qa=fs.readFileSync(path.join(root,'tools/ashbound/qa.cjs'),'utf8');
   assert.match(html,/universe-data\.js/);assert.match(html,/Content-Security-Policy/);assert.doesNotMatch(html,/<script[^>]+src="https:/);
   assert.doesNotMatch(html,/hub-language\.js/);
-  assert.doesNotMatch(fs.readFileSync(path.join(root,'assets/portal-shell.js'),'utf8'),/morrowind-lernwelt/);
-  assert.doesNotMatch(fs.readFileSync(path.join(root,'index.html'),'utf8'),/ashbound-entry/);
+  assert.match(html,/weltkeimwerk\/core\.js/);
+  assert.match(fs.readFileSync(path.join(root,'assets/portal-shell.js'),'utf8'),/morrowind-lernwelt/);
   assert.doesNotMatch(qa,/ashbound-entry/);
-  assert.ok(!fs.existsSync(path.join(root,'.site-build','forschung','morrowind-lernwelt')));
   assert.doesNotMatch(app,/sendTransaction|eth_requestAccounts|fetch\(['"]https:/);
   for(const file of ['three.LICENSE.txt','inkjs.LICENSE.txt','lucide.LICENSE.txt'])assert.ok(fs.existsSync(path.join(dir,'vendor',file)),file);
+});
+test('equality core is exact at the anchor and records bit differences separately',async()=>{
+  const {bitGroups,compareWords,createKernel,hexWord,toggleBit}=await load('kernel.mjs');
+  const anchor=createKernel(0x4a555249);assert.equal(hexWord(anchor.word),'0x4A555249');assert.equal(bitGroups(anchor.word).join('').length,32);
+  assert.deepEqual(compareWords(anchor.seed,anchor.word),{equal:true,relation:'=',delta:0,changedBits:0});
+  const changed=toggleBit(anchor,7);assert.equal(changed.comparison.relation,'!');assert.equal(changed.comparison.changedBits,1);assert.notEqual(changed.word,anchor.word);
+  const returned=toggleBit(changed,7);assert.equal(returned.comparison.relation,'=');assert.equal(returned.word,anchor.seed);
+  assert.throws(()=>toggleBit(anchor,32));
+});
+test('the local encounter makes equality and difference into a bounded three-step game loop',async()=>{
+  const {attemptStep,createQuest,currentStep,questProgress,validateQuest}=await load('quest.mjs');
+  let quest=createQuest();assert.equal(currentStep(quest).id,'observe');
+  assert.equal(attemptStep(quest,'!').accepted,false);
+  let result=attemptStep(quest,'=');assert.equal(result.accepted,true);quest=result.quest;
+  result=attemptStep(quest,'!');assert.equal(result.accepted,true);quest=result.quest;
+  result=attemptStep(quest,'=');assert.equal(result.accepted,true);quest=result.quest;
+  assert.equal(questProgress(quest),3);assert.equal(currentStep(quest),null);assert.equal(attemptStep(quest,'=').reason,'complete');
+  assert.throws(()=>validateQuest({version:'1.0.0',steps:['relate']}));
 });
