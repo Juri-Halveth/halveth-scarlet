@@ -7,3 +7,6 @@ assets/brightcast/*.srt -text
 # Preserve upstream shader strings and licence bytes in the generated bundle.
 forschung/morrowind-lernwelt/vendor/runtime.mjs -text -whitespace
 forschung/morrowind-lernwelt/vendor/*.LICENSE.txt -text -whitespace
+
+# Preserve the byte-bound public DE anchor artifact on every checkout.
+forschung/de-anker-hela/public-monologue.md -text
