@@ -71,7 +71,7 @@ async function main(){
     await check('storage unavailable and WebGL absent',async page=>{
       await page.goto(base+'?lang=en');await ready(page);
       assert.match(await page.locator('#scene-status').textContent(),/unavailable/);assert.equal(await page.locator('#zoom-in').isDisabled(),true);
-      await page.locator('#enter-story').click();await page.locator('.choices button').first().click();
+      await page.locator('#enter-story').click();await page.locator('[data-tab="story"]').click();await page.locator('.choices button').first().click();
       assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[0]);
       assert.match(await page.locator('#toast').textContent(),/Storage is unavailable/);
     },async context=>context.addInitScript(()=>{
