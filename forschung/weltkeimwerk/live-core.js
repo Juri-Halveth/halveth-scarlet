@@ -31,11 +31,9 @@
       seen.add(id);
       return { id, label: scalarText(profile.label, 'profile label', 120), role: scalarText(profile.role, 'profile role', 2048), enRole: scalarText(profile.en?.role === undefined ? profile.role : profile.en.role, 'English role', 2048) };
     });
-    const priority = ['halveth', 'lucinet', 'rachel', 'scarlet', 'aster', 'verachel', 'juri'];
-    sources.sort((a, b) => {
-      const ai = priority.indexOf(a.id), bi = priority.indexOf(b.id);
-      return (ai < 0 ? 1000 : ai) - (bi < 0 ? 1000 : bi);
-    });
+    // Every registered profile enters in the caller's validated source order.
+    // There is no named priority tier: source order keeps seeded runs reproducible
+    // while leaving every profile equally addressable.
     let tick = 0, remainder = 0, sequence = 0, signalSequence = 0, rootCursor = 0;
     let accepted = 0, emitted = 0, rejected = 0, gapMs = 0;
     let contacts = 0, waveSequence = 0, waveReceipts = 0, waveCapacityDrops = 0, environmentInputs = 0;

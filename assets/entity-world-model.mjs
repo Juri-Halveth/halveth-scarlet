@@ -10,16 +10,14 @@ export const WORLD_DESTINATIONS = Object.freeze([
 ]);
 
 export function orderedEntities(entities) {
-  const preferred = ['scarlet', 'rachel', 'lucinet', 'dormammu', 'ego', 'strange', 'juri', 'verachel', 'mira', 'mita', 'halveth'];
   const seen = new Set();
   for (const entity of entities) {
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(entity.id) || seen.has(entity.id)) throw new Error('Invalid entity registry');
     seen.add(entity.id);
   }
-  return [...entities].sort((a, b) => {
-    const rank = id => preferred.includes(id) ? preferred.indexOf(id) : preferred.length;
-    return rank(a.id) - rank(b.id) || entities.indexOf(a) - entities.indexOf(b);
-  });
+  // The registry supplies the presentation order. Validation returns a new array
+  // without elevating a fixed set of names above the rest of the constellation.
+  return [...entities];
 }
 
 export function matchingEntities(entities, query, searchable = value => value) {

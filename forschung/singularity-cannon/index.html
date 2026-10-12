@@ -21,28 +21,16 @@ canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
 h1{font-size:clamp(20px,3.2vw,39px);margin:6px 0 3px;letter-spacing:-.045em;text-shadow:0 3px 30px #091d23}
 .lead{font-size:12px;color:#c0d5d7;max-width:560px;line-height:1.55}
 .ref{font-size:10px;white-space:nowrap;letter-spacing:.16em;color:#e3b981;border:1px solid #e3b98150;border-radius:25px;padding:8px 12px;margin-top:46px}
-.legend{position:absolute;right:20px;top:116px;max-width:215px;pointer-events:none;background:#04101bab;border:1px solid #75b7b733;backdrop-filter:blur(8px);border-radius:11px;padding:12px 14px}
-.legend p{font-size:11px;line-height:1.45;color:#bacfd4;margin:8px 0 0}.legend strong{font-size:12px;color:#c8ffdc}
-.hud{position:absolute;left:clamp(12px,3vw,40px);bottom:clamp(16px,3vh,35px);width:min(720px,calc(100vw - 26px));border-radius:14px;border:1px solid #9bd8d83d;background:linear-gradient(160deg,#101d30ec,#07101cee);box-shadow:0 20px 80px #000a,0 0 42px #3bd0a713;backdrop-filter:blur(15px);padding:17px 18px 14px}
-.hudTitle{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;letter-spacing:.15em;color:#9ee9dc;text-transform:uppercase;font-weight:800}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 13px}
-.stat{padding:9px 9px;border:1px solid #b0e9da1c;background:#ffffff07;border-radius:8px}
-.stat small{display:block;color:#8c9fad;font-size:10px;letter-spacing:.05em}
-.stat b{display:block;margin-top:5px;font-variant-numeric:tabular-nums;font-size:19px;font-weight:660}
-.controls{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
-button{border:1px solid #8acfc454;color:#d9fef5;background:#153344;border-radius:8px;min-height:35px;padding:8px 11px;font-size:12px;font-weight:700;cursor:pointer;transition:background .16s}
-button:hover{background:#245161}
-button.primary{background:#9bf6c8;color:#06221f;border-color:#b9ffdd}
-button.primary:hover{background:#d2ffea}
-button:active{transform:translateY(1px)}
-.rangebar{display:flex;gap:10px;align-items:center;margin-top:12px;font-size:11px;color:#b0d9d2}
-.rangebar label{display:flex;align-items:center;gap:8px}
-input[type=range]{accent-color:#8cfac7;width:100px}
-#strengthValue{display:inline-block;width:28px;text-align:right;font-variant-numeric:tabular-nums;color:#b4ffe5}
-.footer{display:grid;grid-template-columns:1fr auto;gap:4px 10px;margin-top:9px;font-size:10px;color:#8098a7}
-.footer>span:first-child{grid-column:1/-1}.footer>span:last-child{justify-self:end}
+.legend{position:absolute;right:20px;top:116px;max-width:250px;pointer-events:auto;background:#04101baa;border:1px solid #75b7b733;backdrop-filter:blur(8px);border-radius:999px;overflow:hidden}
+.legend summary{display:flex;align-items:center;gap:8px;cursor:pointer;list-style:none;padding:8px 12px;color:#c8ffdc;font-size:10px;font-weight:800;letter-spacing:.14em}.legend summary::-webkit-details-marker{display:none}.legend summary::after{content:'+';margin-left:auto;font-size:15px;color:#90e5d5}.legend[open]{border-radius:11px}.legend[open] summary{border-bottom:1px solid #75b7b733}.legend[open] summary::after{content:'−'}.legend-copy{padding:0 14px 12px}.legend p{font-size:11px;line-height:1.45;color:#bacfd4;margin:8px 0 0}.legend strong{font-size:12px;color:#c8ffdc}
+.hud{position:absolute;left:clamp(12px,3vw,40px);bottom:clamp(16px,3vh,35px);width:min(560px,calc(100vw - 26px));border-radius:14px;border:1px solid #9bd8d83d;background:linear-gradient(160deg,#101d30de,#07101ce8);box-shadow:0 20px 80px #000a,0 0 42px #3bd0a713;backdrop-filter:blur(15px);padding:12px 14px}
+.hud-bar{display:flex;align-items:center;justify-content:space-between;gap:12px}.hudTitle{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;letter-spacing:.15em;color:#9ee9dc;text-transform:uppercase;font-weight:800}.hud-actions{display:flex;align-items:center;gap:7px;flex-shrink:0}
+#hud-toggle{background:transparent;color:#a9cac7;border-color:#8acfc43d}.hud-details{border-top:1px solid #b0e9da1c;margin-top:11px;padding-top:11px}.hud-details[hidden]{display:none}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0 0 12px}.stat{padding:3px 9px;border:0;border-right:1px solid #b0e9da1c;background:transparent;border-radius:0}.stat:first-child{padding-left:0}.stat:last-child{border-right:0;padding-right:0}.stat small{display:block;color:#8c9fad;font-size:10px;letter-spacing:.05em}.stat b{display:block;margin-top:5px;font-variant-numeric:tabular-nums;font-size:18px;font-weight:660}
+.controls{display:flex;align-items:center;flex-wrap:wrap;gap:7px}button{border:1px solid #8acfc454;color:#d9fef5;background:#153344;border-radius:8px;min-height:35px;padding:8px 11px;font-size:12px;font-weight:700;cursor:pointer;transition:background .16s}button:hover{background:#245161}button.primary{background:#9bf6c8;color:#06221f;border-color:#b9ffdd}button.primary:hover{background:#d2ffea}button:active{transform:translateY(1px)}
+.rangebar{display:flex;gap:10px;align-items:center;margin-top:12px;font-size:11px;color:#b0d9d2}.rangebar label{display:flex;align-items:center;gap:8px}input[type=range]{accent-color:#8cfac7;width:100px}#strengthValue{display:inline-block;width:28px;text-align:right;font-variant-numeric:tabular-nums;color:#b4ffe5}.footer{display:grid;grid-template-columns:1fr auto;gap:4px 10px;margin-top:9px;font-size:10px;color:#8098a7}.footer>span:first-child{grid-column:1/-1}.footer>span:last-child{justify-self:end}
 #message{position:absolute;top:44%;width:100%;text-align:center;pointer-events:none;font-size:13px;letter-spacing:.16em;color:#e5ffe9;text-shadow:0 0 25px #a2fff3;opacity:0;transition:opacity .25s}
-@media(max-width:680px){.legend,.ref{display:none}.top{top:16px}.lead{max-width:290px}.hud{padding:12px;bottom:11px}.stats{margin:8px 0;gap:5px}.stat{padding:6px}.stat b{font-size:15px}button{padding:7px 9px;font-size:10px;min-height:31px}.rangebar{flex-wrap:wrap}.footer{font-size:9px;grid-template-columns:1fr}.footer>span:last-child{justify-self:start}}
+@media(max-width:680px){.legend,.ref{display:none}.top{top:16px}.lead{max-width:290px}.hud{left:10px;right:10px;width:auto;bottom:max(10px,env(safe-area-inset-bottom));padding:10px}.hud-bar{align-items:stretch;flex-wrap:wrap;gap:8px}.hudTitle{flex:1 1 100%;font-size:10px}.hud-actions{width:100%}.hud-actions .primary{flex:1}.hud-actions button{min-height:40px}.hud-details{max-height:min(64svh,430px);overflow-y:auto;overscroll-behavior:contain;padding-right:1px}.stats{grid-template-columns:repeat(2,1fr);gap:6px 0;margin-bottom:10px}.stat{padding:4px 8px}.stat:nth-child(2n){border-right:0}.stat:nth-child(2n+1){padding-left:0}.stat b{font-size:16px}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.controls button{width:100%;padding:8px 7px;font-size:10px;min-height:38px}.rangebar{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.rangebar label:first-child{grid-column:1/-1}.rangebar label{justify-content:space-between;gap:6px;font-size:10px}.footer{font-size:9px;grid-template-columns:1fr}.footer>span:last-child{justify-self:start}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.field-reactive{transform:none!important}.field-reactive::after{opacity:0!important}}
 </style>
 </head>
@@ -55,38 +43,43 @@ input[type=range]{accent-color:#8cfac7;width:100px}
     <h1>SINGULARITY CANNON <span style="color:#98efc8">/ 2003</span></h1>
     <div class="lead">Ein langsames Projektil verändert die <b>Flugbahnen</b> um sich herum. Eigenständige Spielsimulation; keine gemessene Gravitation oder relativistische Lichtkrümmung.</div>
     </div><div class="ref field-reactive">INSPIRED BY UNREAL II · ORIGINAL DEMO</div></div>
-  <aside class="legend field-reactive"><strong>FELDPROJEKTION</strong>
-    <p><span style="color:#e5ac86">●</span> Energie / Fragmente<br><span style="color:#a3ffcd">●</span> Projektil / Lichtspur<br><span style="color:#f4edab">◆</span> Gegner / Objekte<br><span style="color:#9bbbcf">■</span> Pickups / Materie</p>
-    <p>Zeige auf ein Ziel und feuere. Das Feld zieht in die Bildtiefe; Sternhintergrund, Staub und Objekte reagieren sichtbar darauf.</p>
-    <p><strong>Wovon abhängig?</strong> Abstand, Sogstärke, Objektmasse und Tiefenphase. Der Einfluss wird mit Abstand sanft kleiner.</p>
-    <p>Die helle Scheibe entsteht hier erst aus naher Materie und klingt ohne Zufuhr ab. Sie ist keine feste Oberfläche und kein Lebenszeichen.</p>
-  </aside>
+  <details class="legend field-reactive">
+    <summary>FELDINFO</summary>
+    <div class="legend-copy"><p><span style="color:#e5ac86">●</span> Energie / Fragmente<br><span style="color:#a3ffcd">●</span> Projektil / Lichtspur<br><span style="color:#f4edab">◆</span> Gegner / Objekte<br><span style="color:#9bbbcf">■</span> Pickups / Materie</p>
+      <p>Zeige auf ein Ziel und feuere. Das Feld zieht in die Bildtiefe; Sternhintergrund, Staub und Objekte reagieren sichtbar darauf.</p>
+      <p><strong>Wovon abhängig?</strong> Abstand, Sogstärke, Objektmasse und Tiefenphase. Der Einfluss wird mit Abstand sanft kleiner.</p>
+      <p>Die helle Scheibe entsteht hier erst aus naher Materie und klingt ohne Zufuhr ab. Sie ist keine feste Oberfläche und kein Lebenszeichen.</p></div>
+  </details>
   <div id="message">MATERIE ÜBERSCHRITT DEN HORIZONT</div>
   <section class="hud field-reactive" aria-label="Kontrollzentrum">
-    <div class="hudTitle"><span>● LIVE FELD-SIMULATION</span><span id="state" style="color:#e2c58b">BEREIT</span></div>
-    <div class="stats">
-      <div class="stat"><small>OBJEKTE IM BILD / 200</small><b id="objectsStat">0</b></div>
-      <div class="stat"><small>VERSCHLUCKT</small><b id="eatenStat">0</b></div>
-      <div class="stat"><small>FELDER / SCHÜSSE</small><b id="rangeStat">0 / 0</b></div>
-      <div class="stat"><small>ZEITSPUR</small><b id="timeStat">0.0 s</b></div>
+    <div class="hud-bar"><div class="hudTitle"><span>● LIVE FELD-SIMULATION</span><span id="state" style="color:#e2c58b">BEREIT</span></div>
+      <div class="hud-actions"><button class="primary" id="fire" type="button">◎ SINGULARITÄT ABSCHIESSEN</button><button id="hud-toggle" type="button" aria-controls="hud-details" aria-expanded="false" aria-label="Weitere Steuerung anzeigen">STEUERUNG</button></div>
     </div>
-    <div class="controls">
-      <button class="primary" id="fire">◎ SINGULARITÄT ABSCHIESSEN</button>
-      <button id="spawn">✦ OBJEKTE ERZEUGEN</button>
-      <button id="overdrive">⚡ MAXIMALER SOG</button>
-      <button id="pause">II PAUSE</button>
-      <button id="save">↓ BILD SPEICHERN</button>
-      <button id="reset">↻ ALLES ZURÜCKSETZEN</button>
+    <div id="hud-details" class="hud-details" hidden>
+      <div class="stats">
+        <div class="stat"><small>OBJEKTE IM BILD / 200</small><b id="objectsStat">0</b></div>
+        <div class="stat"><small>VERSCHLUCKT</small><b id="eatenStat">0</b></div>
+        <div class="stat"><small>FELDER / SCHÜSSE</small><b id="rangeStat">0 / 0</b></div>
+        <div class="stat"><small>ZEITSPUR</small><b id="timeStat">0.0 s</b></div>
+      </div>
+      <div class="controls">
+        <button id="spawn" type="button">✦ OBJEKTE ERZEUGEN</button>
+        <button id="overdrive" type="button">⚡ MAXIMALER SOG</button>
+        <button id="pause" type="button">II PAUSE</button>
+        <button id="save" type="button">↓ BILD SPEICHERN</button>
+        <button id="reset" type="button">↻ ALLES ZURÜCKSETZEN</button>
+      </div>
+      <div class="rangebar">
+        <label>SOGSTÄRKE <input type="range" min="20" max="250" value="115" id="force"></label>
+        <span id="strengthValue">115%</span>
+        <label><input type="checkbox" id="trails" checked> Zeitspuren</label>
+        <label><input type="checkbox" id="distort" checked> Lichtkrümmung</label>
+        <label><input type="checkbox" id="uiWave" checked> UI-Wellen</label>
+      </div>
+      <div class="footer"><span>KLICK: SCHUSS IN DIE TIEFE · WEITERE SCHÜSSE WARTEN SICHTBAR · NUR RESET BEGINNT BEI 0</span><span id="renderStat">rAF-TAKT: MISST…</span><span>OFFLINE · <a href="README.md" style="color:#b6ffc7">MODELL &amp; RECHTE</a> · <a href="HALVETH_SINGULARITY_CANNON_2026-10-10.zip" download style="color:#b6ffc7">PAKET ↓</a></span></div>
     </div>
-    <div class="rangebar">
-      <label>SOGSTÄRKE <input type="range" min="20" max="250" value="115" id="force"></label>
-      <span id="strengthValue">115%</span>
-      <label><input type="checkbox" id="trails" checked> Zeitspuren</label>
-      <label><input type="checkbox" id="distort" checked> Lichtkrümmung</label>
-      <label><input type="checkbox" id="uiWave" checked> UI-Wellen</label>
-    </div>
-    <div class="footer"><span>KLICK: SCHUSS IN DIE TIEFE · WEITERE SCHÜSSE WARTEN SICHTBAR · NUR RESET BEGINNT BEI 0</span><span id="renderStat">rAF-TAKT: MISST…</span><span>OFFLINE · <a href="README.md" style="color:#b6ffc7">MODELL &amp; RECHTE</a> · <a href="HALVETH_SINGULARITY_CANNON_2026-10-10.zip" download style="color:#b6ffc7">PAKET ↓</a></span></div>
   </section>
+
 </main>
 <script>
 'use strict';
@@ -113,8 +106,16 @@ const MAX_OBJECTS=200, MAX_SPARKS=600, MAX_BEAMS=24, MAX_HOLES=4;
 const screenUnit=()=>Math.min(w,h)/720;
 const getBaseRadius=()=>clamp(h*.38,160,300);
 const dom=id=>document.getElementById(id);
+const hudToggle=dom('hud-toggle'),hudDetails=dom('hud-details');
+function setHudExpanded(expanded){
+  hudDetails.hidden=!expanded;
+  hudToggle.setAttribute('aria-expanded',String(expanded));
+  hudToggle.setAttribute('aria-label',expanded?'Weitere Steuerung schließen':'Weitere Steuerung anzeigen');
+  hudToggle.textContent=expanded?'WENIGER':'STEUERUNG';
+}
 
 function shader(type,src){
+
   const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);
   if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
   return s;
@@ -609,6 +610,8 @@ function reset(){
 function getPointer(e){let r=canvas.getBoundingClientRect();aim.x=clamp(e.clientX-r.left,5,w-5);aim.y=clamp(e.clientY-r.top,5,h-5);}
 canvas.addEventListener('pointermove',getPointer);
 canvas.addEventListener('pointerdown',e=>{getPointer(e);fire()});
+hudToggle.addEventListener('click',()=>setHudExpanded(hudDetails.hidden));
+setHudExpanded(false);
 dom('fire').addEventListener('click',fire);
 dom('spawn').addEventListener('click',()=>{const count=spawnObjects(45,true);flash(count?`${count} OBJEKTE STRÖMEN EIN`:'OBJEKTBUDGET BELEGT · KURZ WARTEN')});
 dom('overdrive').addEventListener('click',()=>{

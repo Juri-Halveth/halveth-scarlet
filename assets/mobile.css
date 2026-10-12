@@ -55,3 +55,24 @@
   .entity-world-page .world-movement{grid-template-columns:repeat(4,44px);grid-template-rows:repeat(2,44px);gap:5px}
   .entity-world-page .world-camera-controls{bottom:116px}
 }
+
+/* Scene-first aperture for the home world: the complete directory remains one
+   tap away in the Garden dialog, so duplicate profile rows do not cover the
+   illustrated orbit on a phone. */
+@media(max-width:700px){
+  .portal-route-home .scene>main{gap:10px;padding:calc(var(--earth-y) + var(--orbit)*.5 + 16px) 16px 0}
+  .portal-route-home .constellation{display:none}
+  .portal-route-home .earth-navigation{gap:5px}.portal-route-home .earth-navigation a{font-size:9px;line-height:1.35}
+  .portal-route-home .event-clock{width:190px}.portal-route-home .event-clock time{font-size:22px;margin:4px 0}.portal-route-home .event-clock p{display:none}
+  .portal-route-home .newswire{padding:8px 0;border-top-color:#a9dfd51f}.portal-route-home .newswire-top{gap:6px}.portal-route-home .newswire-top>span,.portal-route-home .newswire small,.portal-route-home .newswire .source-marker{display:none}.portal-route-home .newswire>#news-title{margin:0;min-height:0;font-size:13px;line-height:1.4}
+  .portal-route-home .chain-dock{padding:0;border:0}.portal-route-home .chain-dock>small,.portal-route-home .chain-dock>p,.portal-route-home .chain-dock-note{display:none}.portal-route-home .chain-links{gap:6px}.portal-route-home .chain-links :is(button,.transaction-ref-link){min-height:40px;padding:6px 9px}.portal-route-home .btc-observer{margin-top:6px}
+  .portal-route-home .heart-controls{align-self:center;padding:10px 0 6px;gap:7px}.portal-route-home .heart-button{width:56px;height:56px}.portal-route-home .heart-button svg{width:28px;height:28px}.portal-route-home .heart-hint{display:none}.portal-route-home .mood{width:min(210px,100%)}
+}
+
+/* Desktop keeps the same reachable controls but lets the orbit read as a scene
+   before it reads as a grid of panels. */
+@media(min-width:1000px){
+  .portal-route-home .entity-bubble{background:color-mix(in srgb,var(--bubble-tone) 5%,transparent);box-shadow:none}
+  .portal-route-home .chain-links :is(button,.transaction-ref-link),.portal-route-home .btc-observer summary{background:transparent;box-shadow:none}
+  .portal-route-home :is(.chain-dock,.newswire){border-top-color:#a9dfd51f}
+}

@@ -52,16 +52,16 @@ function assertStaticProfiles(html) {
   }
 }
 
-test('the actual registry has 66 unique IDs and ordering preserves every source object', async () => {
+test('the actual registry has 66 unique IDs and preserves caller-defined source order', async () => {
   const { orderedEntities } = await modelPromise;
   assert.equal(entities.length, 66);
   assert.equal(ids.size, 66);
   const ordered = orderedEntities(entities);
   assert.notStrictEqual(ordered, entities);
   assert.equal(ordered.length, 66);
-  assert.deepEqual(entityIds(ordered).sort(), Array.from(ids).sort());
-  assert.equal(ordered[0].id, 'scarlet');
-  assert.deepEqual(entityIds(orderedEntities(entities)), entityIds(ordered));
+  assert.deepEqual(entityIds(ordered), entityIds(entities));
+  const reversed = [...entities].reverse();
+  assert.deepEqual(entityIds(orderedEntities(reversed)), entityIds(reversed));
   assert.deepEqual(entityIds(orderedEntities(ordered)), entityIds(ordered));
   for (const entity of ordered) {
     const source = entities.find(item => item.id === entity.id);

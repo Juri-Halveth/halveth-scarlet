@@ -92,3 +92,15 @@ test('every built HTML receives one local mobile stylesheet after its page style
   assert.equal(count,JSON.parse(fs.readFileSync(path.join(build,'build-info.json'),'utf8')).htmlPages);
   assert.ok(count>=86,'expected the whole current site');
 });
+
+test('mobile home keeps the full perspective directory behind one Garden control instead of permanent duplicate card rows', () => {
+  const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  const behavior = fs.readFileSync(path.join(root, 'assets', 'universe.js'), 'utf8');
+  const mobile = fs.readFileSync(path.join(root, 'assets', 'mobile.css'), 'utf8');
+  assert.match(home, /id="garden-open"[^>]*aria-haspopup="dialog"/);
+  assert.match(home, /id="entity-dialog"/);
+  assert.match(home, /id="entity-list"/);
+  assert.match(behavior, /#garden-open'\)\.addEventListener\('click',\(\)=>openDirectory\(false\)\)/);
+  assert.match(behavior, /for\(const entity of entities\)/);
+  assert.match(mobile, /\.portal-route-home \.constellation\{display:none\}/);
+});

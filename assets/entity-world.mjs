@@ -10,7 +10,7 @@ const t = (de, en) => lang() === 'en' ? en : de;
 const field = (entity, key) => lang() === 'en' ? entity.en[key] : entity[key];
 const icons = Object.fromEntries(Object.entries(runtime).filter(([key]) => !['THREE', 'OrbitControls', 'createIcons'].includes(key)));
 runtime.createIcons({ icons, attrs: { width: 18, height: 18, 'stroke-width': 1.7 } });
-let selected = ids.has(location.hash.slice(1)) ? location.hash.slice(1) : 'scarlet';
+let selected = ids.has(location.hash.slice(1)) ? location.hash.slice(1) : entities[0].id;
 let mode = 'focus', scene;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = reduced.matches;

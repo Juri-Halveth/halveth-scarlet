@@ -20,6 +20,13 @@ test('the automatic space starts immediately with real public profile IDs', () =
   assert(snapshot.nodes.some(node => node.id === 'rachel'));
   for (const node of snapshot.nodes) assert(profiles.some(profile => profile.id === node.profileId && profile.role === node.role));
 });
+test('profile entrance preserves the validated caller order without a named priority tier', () => {
+  const ids = ['timo', 'mira', 'halveth', 'lucinet', 'rachel'];
+  const subset = ids.map(id => profiles.find(profile => profile.id === id));
+  const snapshot = create(subset).snapshot();
+  assert.deepEqual(snapshot.nodes.map(node => node.profileId), ids);
+  assert.deepEqual(snapshot.events.map(event => event.subject), ids);
+});
 test('all 66 profiles enter automatically and inner cells retain exact ancestry', () => {
   const snapshot = run(create(), 180000);
   assert.equal(snapshot.counts.roots, profiles.length);
