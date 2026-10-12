@@ -1,0 +1,210 @@
+/* Public portfolio bridge for HALVETH Portal Chess. It follows the home scene
+   in normal document flow so the challenge never masks the Earth interaction. */
+.portal-chess-quicklink{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:34px;
+  margin-top:4px;
+  padding:7px 12px;
+  border:1px solid rgba(255,205,111,.42);
+  border-radius:999px;
+  color:#ffe1a3!important;
+  background:linear-gradient(110deg,rgba(29,21,38,.9),rgba(11,33,44,.82));
+  box-shadow:0 0 20px rgba(255,188,89,.12),inset 0 1px rgba(255,255,255,.1);
+  font:700 9px/1.2 "Segoe UI",system-ui,sans-serif!important;
+  letter-spacing:.12em;
+  text-decoration:none!important;
+}
+.portal-chess-quicklink span:first-child{color:#ffd878;font-size:14px;line-height:1}
+.portal-chess-quicklink:hover,.portal-chess-quicklink:focus-visible{
+  border-color:#ffe6ad;
+  background:linear-gradient(110deg,rgba(73,43,48,.96),rgba(15,59,66,.94));
+  color:#fff!important;
+  outline:3px solid rgba(157,245,213,.85);
+  outline-offset:3px;
+}
+
+.portal-chess-feature{
+  position:relative;
+  z-index:2;
+  overflow:hidden;
+  padding:clamp(44px,8vw,104px) max(22px,calc((100vw - 1160px)/2));
+  color:#edf6ff;
+  background:
+    radial-gradient(circle at 86% 22%,rgba(242,164,76,.2),transparent 26%),
+    radial-gradient(circle at 12% 86%,rgba(111,241,209,.15),transparent 32%),
+    linear-gradient(136deg,#080d18,#0d1626 53%,#150f20);
+}
+.portal-chess-feature::before,.portal-chess-feature::after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+}
+.portal-chess-feature::before{
+  inset:0;
+  opacity:.44;
+  background-image:linear-gradient(rgba(156,220,224,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(156,220,224,.08) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(90deg,#000,transparent 76%);
+}
+.portal-chess-feature::after{
+  width:min(48vw,680px);
+  aspect-ratio:1;
+  right:-18vw;
+  top:50%;
+  border:1px solid rgba(255,217,138,.25);
+  border-radius:50%;
+  box-shadow:0 0 0 44px rgba(116,239,205,.035),0 0 0 88px rgba(255,151,189,.025);
+  transform:translateY(-50%);
+}
+.portal-chess-feature-inner{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:minmax(0,1.32fr) minmax(290px,.68fr);
+  gap:clamp(28px,6vw,92px);
+  align-items:center;
+  width:min(1160px,100%);
+  margin:auto;
+  padding:clamp(26px,4.5vw,54px);
+  border:1px solid rgba(191,231,226,.19);
+  border-radius:32px;
+  background:linear-gradient(120deg,rgba(10,22,36,.88),rgba(14,15,29,.76));
+  box-shadow:0 26px 90px rgba(0,0,0,.36),inset 0 1px rgba(255,255,255,.075);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+.portal-chess-feature-kicker{
+  margin:0 0 14px;
+  color:#93f2dc;
+  font:700 11px/1.2 "Segoe UI",system-ui,sans-serif;
+  letter-spacing:.28em;
+}
+.portal-chess-feature h2{
+  max-width:730px;
+  margin:0;
+  color:#fff9ee;
+  font:700 clamp(38px,7vw,88px)/.9 Georgia,"Times New Roman",serif;
+  letter-spacing:-.055em;
+  text-wrap:balance;
+}
+.portal-chess-feature h2::first-letter{color:#ffd777}
+.portal-chess-feature-lede{
+  max-width:690px;
+  margin:24px 0 0;
+  color:#c6d9e0;
+  font:400 clamp(16px,2vw,20px)/1.62 "Segoe UI",system-ui,sans-serif;
+  text-wrap:pretty;
+}
+.portal-chess-feature-facts{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  margin:31px 0 0;
+}
+.portal-chess-feature-facts div{
+  min-width:0;
+  padding:13px 13px 15px;
+  border-top:1px solid rgba(195,237,229,.26);
+  background:rgba(3,11,21,.23);
+}
+.portal-chess-feature-facts dt{
+  margin:0 0 8px;
+  color:#88d6cd;
+  font:700 9px/1.2 "Segoe UI",system-ui,sans-serif;
+  letter-spacing:.2em;
+}
+.portal-chess-feature-facts dd{
+  margin:0;
+  color:#f4f6f1;
+  font:600 13px/1.38 "Segoe UI",system-ui,sans-serif;
+}
+.portal-chess-feature-play{display:grid;justify-items:stretch;gap:13px;min-width:0}
+.portal-chess-mini-board{
+  position:relative;
+  display:grid;
+  place-items:center;
+  min-height:238px;
+  overflow:hidden;
+  border:1px solid rgba(255,218,139,.52);
+  border-radius:22px;
+  color:#fff0c1;
+  background:
+    linear-gradient(45deg,rgba(255,255,255,.035) 25%,transparent 25% 75%,rgba(255,255,255,.035) 75%),
+    linear-gradient(45deg,transparent 25%,rgba(255,255,255,.025) 25% 75%,transparent 75%),
+    radial-gradient(circle at 50% 50%,rgba(255,201,94,.19),transparent 58%),
+    #111628;
+  background-size:44px 44px,44px 44px,auto,auto;
+  background-position:0 0,22px 22px,center,center;
+  box-shadow:inset 0 0 64px rgba(68,241,207,.1),0 20px 54px rgba(0,0,0,.27);
+}
+.portal-chess-mini-board::before,.portal-chess-mini-board::after{
+  content:"";
+  position:absolute;
+  inset:18px;
+  border:1px solid rgba(159,235,211,.27);
+  border-radius:15px;
+}
+.portal-chess-mini-board::after{inset:38px;border-color:rgba(255,209,114,.22);border-radius:50%}
+.portal-chess-mini-board strong{
+  position:relative;
+  z-index:1;
+  padding:12px 16px;
+  border:1px solid rgba(255,230,166,.45);
+  border-radius:999px;
+  color:#fff8e6;
+  background:rgba(8,12,23,.78);
+  box-shadow:0 0 28px rgba(255,192,85,.24);
+  font:700 clamp(23px,4vw,36px)/1 "Segoe UI",system-ui,sans-serif;
+  letter-spacing:.06em;
+}
+.portal-chess-mini-rank{
+  position:absolute;
+  z-index:1;
+  left:16px;
+  right:16px;
+  overflow:hidden;
+  color:#ffdda0;
+  font:500 clamp(14px,2.2vw,21px)/1 "Segoe UI Symbol","Segoe UI",sans-serif;
+  letter-spacing:.12em;
+  text-align:center;
+  text-shadow:0 0 16px currentColor;
+  white-space:nowrap;
+}
+.portal-chess-mini-rank-top{top:22px}.portal-chess-mini-rank-bottom{bottom:22px;color:#a9ffe3}
+.portal-chess-feature-status{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0;padding:0 3px;color:#9bc7ce;font:700 11px/1.2 "Segoe UI",system-ui,sans-serif;letter-spacing:.15em}
+.portal-chess-feature-status>span{width:9px;height:9px;border-radius:50%;background:#9dffdc;box-shadow:0 0 14px #9dffdc}
+.portal-chess-feature-status b{margin-right:auto;font-weight:700}.portal-chess-feature-status em{color:#ffe09d;font-style:normal}
+.portal-chess-feature-action{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  min-height:54px;
+  padding:0 18px 0 21px;
+  border:1px solid #ffe0a0;
+  border-radius:16px;
+  color:#10121c;
+  background:linear-gradient(110deg,#ffe1a0,#a1f4d7);
+  box-shadow:0 16px 34px rgba(127,255,212,.17);
+  font:800 12px/1 "Segoe UI",system-ui,sans-serif;
+  letter-spacing:.16em;
+  text-decoration:none;
+}
+.portal-chess-feature-action span:last-child{font-size:23px;font-weight:400}.portal-chess-feature-action:hover,.portal-chess-feature-action:focus-visible{color:#05080e;background:#fff2cb;outline:3px solid #92f0d6;outline-offset:4px;transform:translateY(-2px)}
+.portal-chess-feature-detail{justify-self:center;color:#b7d5dc;font:600 11px/1.4 "Segoe UI",system-ui,sans-serif;letter-spacing:.09em;text-decoration:none}.portal-chess-feature-detail:hover,.portal-chess-feature-detail:focus-visible{color:#fff2c7;text-decoration:underline;text-underline-offset:4px}
+
+@media(max-width:700px){
+  .portal-chess-quicklink{min-height:44px;padding:8px 14px;font-size:10px!important}
+  .portal-chess-feature{padding:28px 16px max(38px,env(safe-area-inset-bottom));}
+  .portal-chess-feature-inner{grid-template-columns:1fr;gap:25px;padding:25px 20px;border-radius:24px}
+  .portal-chess-feature-copy{order:2}.portal-chess-feature-play{order:1}
+  .portal-chess-feature h2{font-size:clamp(40px,13vw,65px)}
+  .portal-chess-feature-lede{margin-top:18px;font-size:16px;line-height:1.55}
+  .portal-chess-feature-facts{grid-template-columns:1fr;gap:7px;margin-top:23px}
+  .portal-chess-feature-facts div{display:grid;grid-template-columns:94px 1fr;gap:10px;align-items:baseline;padding:12px}
+  .portal-chess-feature-facts dt{margin:0}.portal-chess-mini-board{min-height:205px}
+}
+@media(prefers-reduced-motion:reduce){.portal-chess-feature-action{transition:none}.portal-chess-feature-action:hover,.portal-chess-feature-action:focus-visible{transform:none}}

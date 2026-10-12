@@ -16,24 +16,25 @@
 
   const routes=[
     {id:'home',path:'./',index:'00',image:'gate',accent:'#ffc66e',de:'Nexus',en:'Nexus',deNote:'Erde, Herz und alle Wege',enNote:'Earth, heart and every route'},
-    {id:'room',path:'room/',index:'01',image:'scarlet',accent:'#ff345f',de:'Raum der Spuren',en:'Room of traces',deNote:'Freiwillige Gedanken und Quellen',enNote:'Voluntary thoughts and sources'},
-    {id:'snapshot',path:'snapshot/',index:'02',image:'machine',accent:'#8deeff',de:'Snapshot-Studio',en:'Snapshot studio',deNote:'Lokale Belege zum Mitnehmen',enNote:'Local receipts to take with you'},
-    {id:'figures',path:'forschung/figuren-und-perspektiven/',index:'03',image:'scarlet',accent:'#ff7899',de:'Figuren & Perspektiven',en:'Characters & perspectives',deNote:'Motive, Verantwortung, Alternativen',enNote:'Motives, responsibility, alternatives'},
-    {id:'forms',path:'forschung/formen-und-verbindungen/',index:'04',image:'nexus',accent:'#79f5ce',de:'Formen & Verbindungen',en:'Forms & connections',deNote:'Ähnlichkeit prüfen, Ebenen trennen',enNote:'Test similarities, separate layers'},
-    {id:'flow',path:'forschung/transaktionsfluss/',index:'05',image:'machine',accent:'#ffc66e',de:'Transaktionsfluss',en:'Transaction flow',deNote:'Werte, Struktur und Beleggrenzen',enNote:'Values, structure and evidence limits'},
-    {id:'q',path:'forschung/q-notizen/',index:'06',image:'nexus',accent:'#a795ff',de:'Q-Notizen',en:'Q notebook',deNote:'Große Fragen, gebundene Quellen',enNote:'Big questions, bound sources'},
-    {id:'day',path:'forschung/tagesstand-2026-09-13/',index:'07',image:'gate',accent:'#90cfff',de:'Tagesstand',en:'Daily record',deNote:'Ein nachvollziehbarer Arbeitsstand',enNote:'A traceable working record'},
-    {id:'team',path:'./#team',index:'08',image:'nexus',accent:'#ff7ac8',de:'Die Konstellation',en:'The constellation',deNote:'67 öffentliche Karten: Perspektiven, Figuren, Projekte und Quellen',enNote:'67 public cards: perspectives, characters, projects and sources'},
-    {id:'collage',path:'collage/',index:'09',image:'gate',accent:'#ff9a71',de:'Choice Atelier',en:'Choice Atelier',deNote:'Mode, Collage und eigene Wahl',enNote:'Fashion, collage and your own choice'},
-    {id:'brightcast',path:'forschung/brightcast-starlight/',index:'10',image:'scarlet',accent:'#ff4f76',de:'Brightcast 001',en:'Brightcast 001',deNote:'Starlight und der dritte Weg',enNote:'Starlight and the third route'},
-    {id:'pi',path:'forschung/pi-treffpunkte/',index:'11',image:'nexus',accent:'#b05cff',de:'π-Treffpunkte',en:'π meeting points',deNote:'Plus Codes, vier Symmetrien, klare Beleggrenzen',enNote:'Plus Codes, four symmetries, clear evidence limits'},
-    {id:'entities',path:'entities/',index:'12',image:'nexus',accent:'#ff7ac8',de:'Figurenraum',en:'Character world',deNote:'67 Figuren mit Geschichten, Thesen und Quellen',enNote:'67 characters with stories, theses and sources'},
-    {id:'news',path:'news/',index:'13',image:'machine',accent:'#90cfff',de:'Quellen-News',en:'Source news',deNote:'Datierte Meldungen und sichtbarer Abrufstand',enNote:'Dated stories and visible retrieval status'},
-    {id:'prism',path:'forschung/usdai-sabr-kontext/',index:'14',image:'nexus',accent:'#79f5ce',de:'Kontext-Prisma',en:'Context prism',deNote:'USDAI und SABR im jeweiligen Kontext',enNote:'USDAI and SABR in their respective contexts'},
-    {id:'anchor',path:'forschung/de-anker-hela/',index:'15',image:'scarlet',accent:'#ff6d9f',de:'DE → KONTEXT-ANKER',en:'DE → CONTEXT-ANCHOR',deNote:'Erst A beantworten, dann Multiversum',enNote:'Answer A first, then the multiverse'},
-    {id:'research',path:'forschung/halveth-research/',index:'16',image:'nexus',accent:'#91f1d2',de:'HALVETH Research',en:'HALVETH Research',deNote:'Forschung, Quellen und menschliche Prüfung',enNote:'Research, sources and human review'},
-    {id:'boundary',path:'forschung/grenzbeobachter/',index:'17',image:'nexus',accent:'#62dfcf',de:'Grenzbeobachter',en:'Boundary observers',deNote:'Festes und adaptives Beobachten im Modell',enNote:'Fixed and adaptive observation in a model'},
-    {id:'gstar',path:'forschung/weltkeimwerk/',index:'18',image:'nexus',accent:'#ff443d',de:'G^* · Weltkeimwerk',en:'G^* · World seedwork',deNote:'Ein Zellraum entfaltet sich automatisch in der Zeit',enNote:'A cell space unfolds automatically in time'},
+    {id:'portal-chess',path:'forschung/portal-chess/',index:'01',image:'gate',accent:'#ffd16f',de:'Portal Chess',en:'Portal Chess',deNote:'16 Bauern · 16 Damen · Zugspur-Challenge',enNote:'16 pawns · 16 queens · move-trace challenge'},
+    {id:'room',path:'room/',index:'02',image:'scarlet',accent:'#ff345f',de:'Raum der Spuren',en:'Room of traces',deNote:'Freiwillige Gedanken und Quellen',enNote:'Voluntary thoughts and sources'},
+    {id:'snapshot',path:'snapshot/',index:'03',image:'machine',accent:'#8deeff',de:'Snapshot-Studio',en:'Snapshot studio',deNote:'Lokale Belege zum Mitnehmen',enNote:'Local receipts to take with you'},
+    {id:'figures',path:'forschung/figuren-und-perspektiven/',index:'04',image:'scarlet',accent:'#ff7899',de:'Figuren & Perspektiven',en:'Characters & perspectives',deNote:'Motive, Verantwortung, Alternativen',enNote:'Motives, responsibility, alternatives'},
+    {id:'forms',path:'forschung/formen-und-verbindungen/',index:'05',image:'nexus',accent:'#79f5ce',de:'Formen & Verbindungen',en:'Forms & connections',deNote:'Ähnlichkeit prüfen, Ebenen trennen',enNote:'Test similarities, separate layers'},
+    {id:'flow',path:'forschung/transaktionsfluss/',index:'06',image:'machine',accent:'#ffc66e',de:'Transaktionsfluss',en:'Transaction flow',deNote:'Werte, Struktur und Beleggrenzen',enNote:'Values, structure and evidence limits'},
+    {id:'q',path:'forschung/q-notizen/',index:'07',image:'nexus',accent:'#a795ff',de:'Q-Notizen',en:'Q notebook',deNote:'Große Fragen, gebundene Quellen',enNote:'Big questions, bound sources'},
+    {id:'day',path:'forschung/tagesstand-2026-09-13/',index:'08',image:'gate',accent:'#90cfff',de:'Tagesstand',en:'Daily record',deNote:'Ein nachvollziehbarer Arbeitsstand',enNote:'A traceable working record'},
+    {id:'team',path:'./#team',index:'09',image:'nexus',accent:'#ff7ac8',de:'Die Konstellation',en:'The constellation',deNote:'67 öffentliche Karten: Perspektiven, Figuren, Projekte und Quellen',enNote:'67 public cards: perspectives, characters, projects and sources'},
+    {id:'collage',path:'collage/',index:'10',image:'gate',accent:'#ff9a71',de:'Choice Atelier',en:'Choice Atelier',deNote:'Mode, Collage und eigene Wahl',enNote:'Fashion, collage and your own choice'},
+    {id:'brightcast',path:'forschung/brightcast-starlight/',index:'11',image:'scarlet',accent:'#ff4f76',de:'Brightcast 001',en:'Brightcast 001',deNote:'Starlight und der dritte Weg',enNote:'Starlight and the third route'},
+    {id:'pi',path:'forschung/pi-treffpunkte/',index:'12',image:'nexus',accent:'#b05cff',de:'π-Treffpunkte',en:'π meeting points',deNote:'Plus Codes, vier Symmetrien, klare Beleggrenzen',enNote:'Plus Codes, four symmetries, clear evidence limits'},
+    {id:'entities',path:'entities/',index:'13',image:'nexus',accent:'#ff7ac8',de:'Figurenraum',en:'Character world',deNote:'67 Figuren mit Geschichten, Thesen und Quellen',enNote:'67 characters with stories, theses and sources'},
+    {id:'news',path:'news/',index:'14',image:'machine',accent:'#90cfff',de:'Quellen-News',en:'Source news',deNote:'Datierte Meldungen und sichtbarer Abrufstand',enNote:'Dated stories and visible retrieval status'},
+    {id:'prism',path:'forschung/usdai-sabr-kontext/',index:'15',image:'nexus',accent:'#79f5ce',de:'Kontext-Prisma',en:'Context prism',deNote:'USDAI und SABR im jeweiligen Kontext',enNote:'USDAI and SABR in their respective contexts'},
+    {id:'anchor',path:'forschung/de-anker-hela/',index:'16',image:'scarlet',accent:'#ff6d9f',de:'DE → KONTEXT-ANKER',en:'DE → CONTEXT-ANCHOR',deNote:'Erst A beantworten, dann Multiversum',enNote:'Answer A first, then the multiverse'},
+    {id:'research',path:'forschung/halveth-research/',index:'17',image:'nexus',accent:'#91f1d2',de:'HALVETH Research',en:'HALVETH Research',deNote:'Forschung, Quellen und menschliche Prüfung',enNote:'Research, sources and human review'},
+    {id:'boundary',path:'forschung/grenzbeobachter/',index:'18',image:'nexus',accent:'#62dfcf',de:'Grenzbeobachter',en:'Boundary observers',deNote:'Festes und adaptives Beobachten im Modell',enNote:'Fixed and adaptive observation in a model'},
+    {id:'gstar',path:'forschung/weltkeimwerk/',index:'19',image:'nexus',accent:'#ff443d',de:'G^* · Weltkeimwerk',en:'G^* · World seedwork',deNote:'Ein Zellraum entfaltet sich automatisch in der Zeit',enNote:'A cell space unfolds automatically in time'},
   ];
 
   const normalized=(url)=>decodeURI(url.pathname).replace(/index\.html$/i,'').replace(/\/+$/,'/')||'/';
@@ -72,13 +73,13 @@
 
   const shell=document.createElement('header');
   shell.className='portal-shell';
-  shell.innerHTML='<a class="portal-brand" data-portal-home><span class="portal-brand-mark" aria-hidden="true">∞</span><span class="portal-brand-copy"><strong>JURI / HALVETH</strong><small>SCARLET PORTAL</small></span></a><div class="portal-route-label" aria-live="polite"><span class="portal-route-index"></span><span class="portal-route-name"></span></div><div class="portal-actions"><a class="portal-quick-link" data-portal-quick="home">⌂</a><a class="portal-quick-link" data-portal-quick="room">♡</a><a class="portal-quick-link" data-portal-quick="snapshot">◇</a><button class="portal-motion-button" type="button" aria-pressed="false">Ⅱ</button><button class="portal-map-button" type="button" aria-haspopup="dialog" aria-expanded="false"><i aria-hidden="true">✦</i><span></span></button></div>';
+  shell.innerHTML='<a class="portal-brand" data-portal-home><span class="portal-brand-mark" aria-hidden="true">∞</span><span class="portal-brand-copy"><strong>JURI / HALVETH</strong><small>SCARLET PORTAL</small></span></a><div class="portal-route-label" aria-live="polite"><span class="portal-route-index"></span><span class="portal-route-name"></span></div><div class="portal-actions"><a class="portal-quick-link" data-portal-quick="home">⌂</a><a class="portal-quick-link" data-portal-quick="portal-chess">♟</a><a class="portal-quick-link" data-portal-quick="room">♡</a><button class="portal-motion-button" type="button" aria-pressed="false">Ⅱ</button><button class="portal-map-button" type="button" aria-haspopup="dialog" aria-expanded="false"><i aria-hidden="true">✦</i><span></span></button></div>';
 
   const map=document.createElement('dialog');
   map.className='portal-map';
   map.innerHTML='<div class="portal-map-inner"><header class="portal-map-header"><div><p class="portal-map-kicker"></p><h2></h2><p class="portal-map-intro"></p></div><button class="portal-map-close" type="button" aria-label="Close">×</button></header><nav class="portal-grid"></nav><footer class="portal-map-foot"><span class="portal-map-foot-left"></span><span>HALVETH / SCARLET / 2026</span></footer></div>';
 
-  const quickIds=['home','room','snapshot'];
+  const quickIds=['home','portal-chess','room'];
   // Reuse the actual hub links and their handlers, never a duplicate switcher.
   const languageSlot=document.createElement('div');
   languageSlot.className='portal-language-slot';

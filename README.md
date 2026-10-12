@@ -25,6 +25,10 @@ Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer geme
 
 **Website:** https://juri-halveth.github.io/halveth-scarlet/
 
+## Portfolio-Highlight · HALVETH Portal Chess
+
+**16 Bauern. 16 Damen?** [Die Portal-Chess-Challenge starten](https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/). Vier parallele Bretter führen dieselbe Schachvariation mit vertauschter König-Damen-Achse durch Position, Funktion, Historie und Relation. Die 16/16-Lösungslinie bleibt als spielbare Challenge offen; eine eingegebene Zugspur wird lokal auf Legalität, Bauernherkunft und die vier Originalanker geprüft.
+
 **Wissenschaftlicher Erdzoom:** [NASA-Quellen mit stufenloser 1×–16×-Ansicht](forschung/scarlet-wissenschaftszoom/) · [Quellen, Grenzen und SHA-256](forschung/scarlet-wissenschaftszoom/README.md). Die 8192 × 4096 Texturen sind historische NASA-Visualisierungen; 120 FPS und begehbares Gelände werden damit nicht behauptet.
 
 **Singularity Cannon · Forschungsdemo:** [Offline spielbare, eigenständige Attraktor-Simulation](forschung/singularity-cannon/) · [Modell, Quellen, Rechte und Patchstand](forschung/singularity-cannon/README.md). Von einem Spielmotiv aus *Unreal II* angeregt; keine Originalassets oder reale Schwarze-Loch-Physik.

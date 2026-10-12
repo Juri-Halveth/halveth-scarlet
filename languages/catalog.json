@@ -19703,6 +19703,70 @@
     "Mathe zum Anfassen": {
       "en": "Hands-on mathematics",
       "ru": "Наглядная математика"
+    },
+    "Portal Chess": {
+      "en": "Portal Chess",
+      "ru": "Портальные шахматы"
+    },
+    "16 Bauern · 16 Damen · Zugspur-Challenge": {
+      "en": "16 pawns · 16 queens · move-trace challenge",
+      "ru": "16 пешек · 16 ферзей · испытание с записью ходов"
+    },
+    "PORTFOLIO · SPIELSYSTEME": {
+      "en": "PORTFOLIO · PLAY SYSTEMS",
+      "ru": "ПОРТФОЛИО · ИГРОВЫЕ СИСТЕМЫ"
+    },
+    "16 BAUERN. 16 DAMEN?": {
+      "en": "16 PAWNS. 16 QUEENS?",
+      "ru": "16 ПЕШЕК. 16 ФЕРЗЕЙ?"
+    },
+    "Die Challenge: Kann eine legale Zugspur alle ursprünglichen Bauern zu Damen transformieren, während die vier Originalanker auf dem Brett bleiben?": {
+      "en": "The challenge: can one legal move trace transform every original pawn into a queen while all four original anchors stay on the board?",
+      "ru": "Задача: может ли законная последовательность ходов превратить каждую исходную пешку в ферзя, сохранив на доске все четыре исходные опорные фигуры?"
+    },
+    "MISSION": {
+      "en": "MISSION",
+      "ru": "МИССИЯ"
+    },
+    "16 Originalbauern → Damen": {
+      "en": "16 original pawns → queens",
+      "ru": "16 исходных пешек → ферзи"
+    },
+    "SYSTEM": {
+      "en": "SYSTEM",
+      "ru": "СИСТЕМА"
+    },
+    "4 parallele Bretter · P/F/H/R": {
+      "en": "4 parallel boards · P/F/H/R",
+      "ru": "4 параллельные доски · P/F/H/R"
+    },
+    "PRÜFUNG": {
+      "en": "PROOF",
+      "ru": "ПРОВЕРКА"
+    },
+    "legale Zugspur": {
+      "en": "legal move trace",
+      "ru": "законная последовательность ходов"
+    },
+    "LÖSUNGSLINIE": {
+      "en": "SOLUTION LINE",
+      "ru": "ЛИНИЯ РЕШЕНИЯ"
+    },
+    "CHALLENGE ÖFFNEN": {
+      "en": "OPEN THE CHALLENGE",
+      "ru": "ОТКРЫТЬ ЗАДАЧУ"
+    },
+    "4 Bretter · Zugspur-Prüfer": {
+      "en": "4 boards · move-trace verifier",
+      "ru": "4 доски · проверка записи ходов"
+    },
+    "PORTAL CHESS · 16/16 CHALLENGE": {
+      "en": "PORTAL CHESS · 16/16 CHALLENGE",
+      "ru": "ПОРТАЛЬНЫЕ ШАХМАТЫ · ЗАДАЧА 16/16"
+    },
+    "Portal Chess Challenge öffnen": {
+      "en": "Open the Portal Chess challenge",
+      "ru": "Открыть задачу «Портальные шахматы»"
     }
   }
 }
