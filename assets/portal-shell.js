@@ -35,7 +35,7 @@
     {id:'research',path:'forschung/halveth-research/',index:'17',image:'nexus',accent:'#91f1d2',de:'HALVETH Research',en:'HALVETH Research',deNote:'Forschung, Quellen und menschliche Prüfung',enNote:'Research, sources and human review'},
     {id:'boundary',path:'forschung/grenzbeobachter/',index:'18',image:'nexus',accent:'#62dfcf',de:'Grenzbeobachter',en:'Boundary observers',deNote:'Festes und adaptives Beobachten im Modell',enNote:'Fixed and adaptive observation in a model'},
     {id:'gstar',path:'forschung/weltkeimwerk/',index:'19',image:'nexus',accent:'#ff443d',de:'G^* · Weltkeimwerk',en:'G^* · World seedwork',deNote:'Ein Zellraum entfaltet sich automatisch in der Zeit',enNote:'A cell space unfolds automatically in time'},
-    {id:'ashbound',path:'forschung/ashbound/',index:'20',image:'gate',accent:'#b5ecd9',de:'ASHBOUND · Spielwelt',en:'ASHBOUND · game world',deNote:'3D-Insel, Chronik und 32-Bit-Gleichheitskern',enNote:'3D island, chronicle and 32-bit equality core'},
+    {id:'ashbound',path:'forschung/ashbound/',index:'20',image:'gate',accent:'#b5ecd9',de:'ASHBOUND · Spielwelt',en:'ASHBOUND · game world',deNote:'Sechs Orte, Figuren, Entscheidungen und eine wandelbare 3D-Insel',enNote:'Six places, characters, choices and a changing 3D island'},
   ];
 
   const normalized=(url)=>decodeURI(url.pathname).replace(/index\.html$/i,'').replace(/\/+$/,'/')||'/';
