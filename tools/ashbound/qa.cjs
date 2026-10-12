@@ -66,7 +66,8 @@ async function main(){
       await sleep(600);const b=await page.locator('#scene canvas').screenshot();assert.notEqual(crypto.createHash('sha256').update(a).digest('hex'),crypto.createHash('sha256').update(b).digest('hex'));
       await page.screenshot({path:path.join(output,prefix+'-world.png'),fullPage:true});
       await page.locator('[data-region="gate"]').click();assert.equal(await page.evaluate(()=>AshboundDiagnostics.region),'gate');
-      await page.locator('#enter-story').click();await page.waitForFunction(()=>AshboundDiagnostics.scene.loopActive===false);await page.locator('.choices button').first().click();
+      await page.locator('#enter-story').click();await page.waitForFunction(()=>AshboundDiagnostics.scene.loopActive===false);
+      await page.locator('[data-tab="story"]').click();await page.locator('.choices button').first().click();
       assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[0]);
       await page.locator('#language').click();assert.equal(await page.locator('html').getAttribute('lang'),'en');
       assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[0]);

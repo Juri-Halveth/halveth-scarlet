@@ -1,14 +1,9 @@
 import { createQuest, validateQuest } from './quest.mjs';
+import { createExpedition, validateExpedition } from './expedition.mjs';
+export { REGIONS } from './regions.mjs';
 
 export const VERSION = '1.0.0';
-export const REGIONS = [
-  { id: 'haven', de: 'Aschenhafen', en: 'Ash harbour', position: [-17, 2, 13], color: 0x51dec6 },
-  { id: 'archive', de: 'Archiv der Stimmen', en: 'Archive of voices', position: [15, 5, 11], color: 0xe6d89b },
-  { id: 'crater', de: 'Der Rote Berg', en: 'Red Mountain', position: [0, 8, -17], color: 0xff6b61 },
-  { id: 'stasis', de: 'Vivecs Versuch', en: "Vivec's trial", position: [-17, 5, -9], color: 0x81caff },
-  { id: 'garden', de: 'Garten der 69', en: 'Garden of 69', position: [0, 3, 8], color: 0x97e38a },
-  { id: 'gate', de: 'Dormammus Pforte', en: "Dormammu's gate", position: [19, 5, -9], color: 0xff9bc9 }
-];
+import { REGIONS } from './regions.mjs';
 export const MODES = ['pause', 'stop', 'restore'];
 export function finite(value, min, max, label) {
   if (typeof value !== 'number' || !Number.isFinite(value) || value < min || value > max) throw new RangeError(label);
@@ -48,7 +43,8 @@ export function validateSave(value, ids) {
   if (!Array.isArray(value.party) || value.party.length > 3 || new Set(value.party).size !== value.party.length || value.party.some(id => !ids.has(id))) throw new Error('save-party');
   if (!Array.isArray(value.books) || value.books.length > 6 || value.books.some(id => !Number.isInteger(id) || id < 0 || id > 5)) throw new Error('save-books');
   return { schema: value.schema, version: VERSION, choices: [...value.choices], region: value.region,
-    party: [...value.party], books: [...new Set(value.books)], quest: value.quest === undefined ? createQuest() : validateQuest(value.quest) };
+    party: [...value.party], books: [...new Set(value.books)], quest: value.quest === undefined ? createQuest() : validateQuest(value.quest),
+    expedition: value.expedition === undefined ? createExpedition() : validateExpedition(value.expedition) };
 }
 export function replay(Story, compiled, choices) {
   const story = new Story(compiled), history = [];

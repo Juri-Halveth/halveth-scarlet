@@ -83,3 +83,45 @@ test('the local encounter makes equality and difference into a bounded three-ste
   assert.equal(questProgress(quest),3);assert.equal(currentStep(quest),null);assert.equal(attemptStep(quest,'=').reason,'complete');
   assert.throws(()=>validateQuest({version:'1.0.0',steps:['relate']}));
 });
+
+test('all six original places form a connected, revisitable expedition with a final gate',async()=>{
+  const {REGIONS}=await load('core.mjs');
+  const {createExpedition,validateExpedition,visitRegion,chooseRegion,canChoose,expeditionProgress,expeditionOutcome,routeBetween}=await load('expedition.mjs');
+  let expedition=createExpedition();assert.equal(canChoose(expedition,'gate'),false);
+  for(const from of REGIONS)for(const to of REGIONS){const route=routeBetween(from.id,to.id);assert.equal(route[0],from.id);assert.equal(route.at(-1),to.id);}
+  const blocked=chooseRegion(expedition,'gate',0);assert.equal(blocked.accepted,false);assert.equal(blocked.reason,'locked');
+  for(const region of REGIONS.filter(region=>region.id!=='gate')){
+    expedition=visitRegion(expedition,region.id);
+    const result=chooseRegion(expedition,region.id,0);assert.equal(result.accepted,true);expedition=result.expedition;
+  }
+  assert.equal(canChoose(expedition,'gate'),true);
+  let result=chooseRegion(expedition,'gate',1);assert.equal(result.accepted,true);expedition=result.expedition;
+  assert.deepEqual(expeditionProgress(expedition),{resolved:6,total:6,open:5,shelter:1,complete:true});
+  assert.equal(expeditionOutcome(expedition),'open');
+  result=chooseRegion(expedition,'haven',1);assert.equal(result.accepted,true);
+  assert.equal(result.expedition.choices[0],1);assert.equal(expedition.choices[0],0);
+  let woven=result.expedition;
+  woven=chooseRegion(woven,'archive',1).expedition;
+  assert.equal(expeditionOutcome(woven),'woven');
+  assert.equal(expeditionOutcome(chooseRegion(woven,'crater',1).expedition),'shelter');
+  assert.equal(chooseRegion(result.expedition,'haven',1).reason,'unchanged');
+  assert.deepEqual(validateExpedition(JSON.parse(JSON.stringify(result.expedition))),result.expedition);
+  for(const invalid of [
+    {choices:[0,null,null,null,null,null],visits:[]},
+    {choices:[null,null,null,null,null,0],visits:['gate']},
+    {choices:[2,null,null,null,null,null],visits:['haven']},
+    {choices:[null,null,null,null,null,null],visits:['haven','haven']}
+  ])assert.throws(()=>validateExpedition({version:'1.0.0',...invalid}));
+});
+
+test('older saves gain an empty expedition and each resident has distinct bilingual choices',async()=>{
+  const {validateSave,REGIONS}=await load('core.mjs');
+  const {COPY}=await load('content.mjs');
+  const older={schema:'halveth.ashbound.save.v1',version:'1.0.0',choices:[],region:'haven',party:[],books:[]};
+  const migrated=validateSave(older,ids);assert.deepEqual(migrated.expedition.choices,[null,null,null,null,null,null]);
+  const roundTrip=validateSave(JSON.parse(JSON.stringify(migrated)),ids);assert.deepEqual(roundTrip.expedition,migrated.expedition);
+  for(const region of REGIONS){
+    const de=COPY.de.expeditionResidents[region.id],en=COPY.en.expeditionResidents[region.id];
+    for(const resident of [de,en]){assert.ok(resident.name.length>1);assert.equal(resident.options.length,2);assert.equal(resident.results.length,2);assert.notEqual(resident.options[0],resident.options[1]);}
+  }
+});

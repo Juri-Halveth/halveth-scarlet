@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#111415">
-  <meta name="description" content="ASHBOUND: eine interaktive HALVETH-Spielwelt mit 3D-Insel, Chronik, Zauberlabor und einem spielbaren 32-Bit-Gleichheitskern.">
+  <meta name="description" content="ASHBOUND: eine eigene 3D-Spielwelt mit sechs Orten, Figuren, Entscheidungen, sichtbaren Weltfolgen und einer verzweigten Chronik.">
   <meta property="og:title" content="ASHBOUND · HALVETH Spielwelt">
-  <meta property="og:description" content="Eine eigene 3D-Spielwelt mit Chronik, Lehrmodellen und einem spielbaren 32-Bit-Gleichheitskern.">
+  <meta property="og:description" content="Bereise sechs Orte, triff ihre Bewohner, verändere die Insel und entscheide an der Pforte über ihre Richtung.">
   <meta property="og:url" content="https://juri-halveth.github.io/halveth-scarlet/forschung/ashbound/">
   <meta property="og:image" content="https://juri-halveth.github.io/halveth-scarlet/assets/portal-cosmic-gate.webp">
   <meta property="og:image:alt" content="ASHBOUND, die HALVETH Spielwelt">
@@ -36,10 +36,14 @@
         <div id="scene" aria-label="Interaktive Insel / Interactive island"><div id="scene-status" role="status">Die Insel entsteht …</div></div>
         <div class="world-title"><p data-t="subtitle"></p><h1>ASHBOUND</h1><p class="tagline" data-t="tagline"></p></div>
         <nav id="places" class="places" aria-label="Orte / Places"></nav>
-        <div class="scene-tools"><button class="icon" id="zoom-in" data-title="zoomIn"><i data-lucide="plus"></i></button><button class="icon" id="zoom-out" data-title="zoomOut"><i data-lucide="minus"></i></button><button class="icon" id="fit" data-title="fit"><i data-lucide="rotate-ccw"></i></button></div>
+        <div class="scene-tools"><button class="icon" id="focus-place" data-title="expeditionFocus"><i data-lucide="eye"></i></button><button class="icon" id="zoom-in" data-title="zoomIn"><i data-lucide="plus"></i></button><button class="icon" id="zoom-out" data-title="zoomOut"><i data-lucide="minus"></i></button><button class="icon" id="fit" data-title="fit"><i data-lucide="rotate-ccw"></i></button></div>
         <div class="location-strip"><div><span class="eyebrow" id="location-number">01 / 06</span><h2 id="location-name"></h2><p id="location-note"></p></div><button id="enter-story" class="primary"><span data-t="explore"></span><i data-lucide="arrow-right"></i></button></div>
       </div>
-      <div class="world-bottom"><span>06 <span data-t="world"></span></span><span><span id="profile-count">66</span><span data-t="results"></span></span><span>03 <span data-t="learning"></span></span><span class="edition">ASHBOUND / VERTICAL SLICE</span></div>
+      <div class="expedition-stage" id="world-encounter">
+        <div class="expedition-intro"><p class="eyebrow" data-t="expeditionKicker"></p><h2 data-t="expeditionTitle"></h2><p data-t="expeditionNote"></p><div class="expedition-meter"><span data-t="expeditionProgressLabel"></span><strong id="expedition-progress">00 / 06</strong></div></div>
+        <article class="expedition-voice"><p class="eyebrow" id="resident-role"></p><h3 id="resident-name"></h3><p id="resident-intro"></p><p id="resident-memory" class="resident-memory"></p><p id="resident-response" class="resident-response" role="status"></p><div id="resident-choices" class="resident-choices"></div><p id="resident-party" class="quiet"></p><div id="world-ending" class="world-ending" hidden><span class="eyebrow" data-t="expeditionEndingKicker"></span><h4 id="world-ending-title"></h4><p id="world-ending-copy"></p></div></article>
+      </div>
+      <div class="world-bottom"><span><strong id="world-progress">00 / 06</strong> <span data-t="expeditionProgressLabel"></span></span><span><span id="profile-count">66</span><span data-t="results"></span></span><span>03 <span data-t="learning"></span></span><span class="edition">ASHBOUND / WELTREISE</span></div>
     </section>
     <section id="encounter" class="view wide encounter-view" hidden>
       <div class="section-heading encounter-heading"><div><p class="eyebrow" data-t="encounterKicker"></p><h1 data-t="encounterTitle"></h1><p data-t="encounterNote"></p></div><output id="encounter-progress" class="encounter-progress">00 / 03</output></div>

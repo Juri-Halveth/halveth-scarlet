@@ -4,6 +4,7 @@ import { COPY, BOOKS } from './content.mjs';
 import { createWorld } from './scene.mjs';
 import { bitGroups, createKernel, hexWord, toggleBit } from './kernel.mjs';
 import { attemptStep, createQuest, currentStep, questProgress } from './quest.mjs';
+import { canChoose, chooseRegion, createExpedition, expeditionOutcome, expeditionProgress, visitRegion } from './expedition.mjs';
 
 const $ = id => document.getElementById(id);
 const el = (tag, text, className) => { const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(className)n.className=className;return n; };
@@ -17,7 +18,7 @@ if(!COPY[lang])lang='de';
 const t=key=>COPY[lang][key];
 const entities=window.HalvethUniverse.entities;
 const ids=new Set(entities.map(e=>e.id));
-const initial=()=>({schema:'halveth.ashbound.save.v1',version:VERSION,choices:[],region:'haven',party:['scarlet','lucinet','rachel'],books:[],quest:createQuest()});
+const initial=()=>({schema:'halveth.ashbound.save.v1',version:VERSION,choices:[],region:'haven',party:['scarlet','lucinet','rachel'],books:[],quest:createQuest(),expedition:visitRegion(createExpedition(),'haven')});
 let state=initial(), compiled, current, world, activeTab='world', activeBook=null, mode='pause', audio=null, sound=false;
 let storyStatus='loading', recoveryRaw=null, saveProtected=false, sceneUnavailable=false;
 let motion=!matchMedia('(prefers-reduced-motion: reduce)').matches, fallTime=0,fallRunning=false,fallLast=null,fallFrame=null;
@@ -34,7 +35,7 @@ function preserveRejectedSave(raw){
   // An unsuccessful backup must never permit overwriting the rejected original.
   saveProtected=!safeStorage.set(key,raw)||safeStorage.get(key)!==raw;
 }
-function save(){if(saveProtected){toast(t('recoveryProtected'));return;}if(!compiled){toast(t('storyLoading'));return;}if(!safeStorage.set('ashbound-save-v1',JSON.stringify(state)))toast(t('storageError'));}
+function save(){if(saveProtected){toast(t('recoveryProtected'));return;}if(!safeStorage.set('ashbound-save-v1',JSON.stringify(state)))toast(t('storageError'));}
 function chime(){
   if(!sound||document.hidden)return;
   try{audio??=new AudioContext();audio.resume();const gain=audio.createGain();gain.connect(audio.destination);gain.gain.setValueAtTime(.025,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.0001,audio.currentTime+.55);
@@ -68,9 +69,37 @@ function show(tab){
 function renderPlace(){
   const index=REGIONS.findIndex(r=>r.id===state.region),r=REGIONS[index];
   $('location-number').textContent=`${String(index+1).padStart(2,'0')} / 06`;$('location-name').textContent=r[lang];$('location-note').textContent=t('placeNote')[index];
-  for(const b of $('places').children)b.setAttribute('aria-pressed',String(b.dataset.region===state.region));world?.select(state.region);
+  for(const b of $('places').children)b.setAttribute('aria-pressed',String(b.dataset.region===state.region));world?.select(state.region);world?.setState(state.expedition,state.quest);
+  renderWorldEncounter();
 }
-function selectPlace(id){if(!REGIONS.some(r=>r.id===id))return;state.region=id;renderPlace();save();chime();}
+function selectPlace(id){if(!REGIONS.some(r=>r.id===id))return;state.region=id;state.expedition=visitRegion(state.expedition,id);renderPlace();save();chime();}
+function renderWorldEncounter(){
+  const resident=t('expeditionResidents')[state.region],index=REGIONS.findIndex(r=>r.id===state.region);
+  const selected=state.expedition.choices[index],locked=!canChoose(state.expedition,state.region);
+  const progress=expeditionProgress(state.expedition),count=`${String(progress.resolved).padStart(2,'0')} / 06`;
+  $('expedition-progress').textContent=count;$('world-progress').textContent=count;
+  $('resident-role').textContent=resident.role;$('resident-name').textContent=resident.name;
+  $('resident-intro').textContent=resident.intro;
+  const remembered=[...state.expedition.visits].reverse().find(id=>id!==state.region&&state.expedition.choices[REGIONS.findIndex(region=>region.id===id)]!==null);
+  if(remembered){const rememberedRegion=REGIONS.find(region=>region.id===remembered),rememberedResident=t('expeditionResidents')[remembered];
+    $('resident-memory').textContent=t('expeditionMemory').replace('{place}',rememberedRegion[lang]).replace('{trace}',rememberedResident.results[state.expedition.choices[REGIONS.indexOf(rememberedRegion)]]);
+  }else $('resident-memory').textContent='';
+  $('resident-response').textContent=locked?t('expeditionLocked'):selected===null?'':`${resident.results[selected]} ${t('expeditionRevisit')}`;
+  $('resident-choices').replaceChildren(...resident.options.map((option,choice)=>{
+    const button=el('button',option);button.type='button';button.dataset.choice=String(choice);
+    button.setAttribute('aria-pressed',String(selected===choice));button.disabled=locked;
+    button.onclick=()=>{
+      const result=chooseRegion(state.expedition,state.region,choice);
+      if(!result.accepted)return;
+      state.expedition=result.expedition;save();renderPlace();renderJournal();chime();toast(t('expeditionChanged'));
+    };return button;
+  }));
+  const companions=state.party.map(id=>entities.find(entity=>entity.id===id)?.label).filter(Boolean);
+  $('resident-party').textContent=companions.length?`${t('expeditionParty')}: ${companions.join(' · ')}`:'';
+  const outcome=expeditionOutcome(state.expedition),ending=$('world-ending');ending.hidden=!outcome;
+  if(outcome){$('world-ending-title').textContent=t('expeditionEndings')[outcome].title;
+    $('world-ending-copy').textContent=t('expeditionEndings')[outcome].copy;}
+}
 function renderEncounter(){
   const step=currentStep(state.quest),relation=kernelState.comparison.relation,progress=questProgress(state.quest);
   $('encounter-progress').textContent=`${String(progress).padStart(2,'0')} / ${String(3).padStart(2,'0')}`;
@@ -89,7 +118,7 @@ function renderEncounter(){
 }
 function advanceEncounter(){
   const result=attemptStep(state.quest,kernelState.comparison.relation);if(!result.accepted){renderEncounter();return;}
-  state.quest=result.quest;state.region=result.step.region;save();renderPlace();renderEncounter();renderJournal();chime();toast(t('encounterAdvanced'));
+  state.quest=result.quest;state.region=result.step.region;state.expedition=visitRegion(state.expedition,state.region);save();renderPlace();renderEncounter();renderJournal();chime();toast(t('encounterAdvanced'));
 }
 function renderStory(){
   if(!compiled){
@@ -104,7 +133,7 @@ function renderStory(){
   const choices=el('div',undefined,'choices');
   frame.choices.forEach((text,index)=>{
     const b=el('button');b.append(el('span',String(index+1).padStart(2,'0')),el('span',text),icon('arrow-right'));
-    b.onclick=()=>{state.choices.push(index);renderStory();const region=current.frame.tags.find(s=>s.startsWith('region:'))?.split(':')[1].trim();if(REGIONS.some(r=>r.id===region))state.region=region;save();renderPlace();renderJournal();chime();host.scrollIntoView({block:'start',behavior:motion?'smooth':'instant'});};choices.append(b);
+    b.onclick=()=>{state.choices.push(index);renderStory();const region=current.frame.tags.find(s=>s.startsWith('region:'))?.split(':')[1].trim();if(REGIONS.some(r=>r.id===region)){state.region=region;state.expedition=visitRegion(state.expedition,region);}save();renderPlace();renderJournal();chime();host.scrollIntoView({block:'start',behavior:motion?'smooth':'instant'});};choices.append(b);
   });host.append(choices);
   const stats=el('div',undefined,'story-values');
   const labels=lang==='de'?['Wissen','Freiheit','Fuersorge']:['Knowledge','Freedom','Care'];
@@ -118,7 +147,7 @@ function renderStory(){
 function partyChange(id){
   if(state.party.includes(id))state.party=state.party.filter(v=>v!==id);
   else if(state.party.length<3)state.party.push(id);else{toast(t('partyFull'));return;}
-  save();renderCouncil();if(compiled)renderStory();
+  save();renderCouncil();renderWorldEncounter();if(compiled)renderStory();
 }
 function renderCouncil(){
   const query=$('entity-search').value.toLocaleLowerCase(lang).trim();
@@ -146,6 +175,10 @@ function renderJournal(){
   const host=$('journey-record');host.replaceChildren();
   if(!state.choices.length)host.append(el('li',t('noDecisions')));
   else if(compiled){const result=replay(runtime.Story,compiled[lang],state.choices);state.choices.forEach((choice,i)=>{const frame=result.history[i];host.append(el('li',`${i+1}. ${frame.lines[frame.headingIndex]}: ${frame.choices[choice]}`));});}
+  for(const [index,choice] of state.expedition.choices.entries())if(choice!==null){
+    const region=REGIONS[index],resident=t('expeditionResidents')[region.id];
+    host.append(el('li',`${region[lang]} · ${resident.name}: ${resident.results[choice]}`));
+  }
 }
 function renderModes(){
   $('mode-switch').replaceChildren(...MODES.map(m=>{const b=el('button',t(m));b.dataset.mode=m;b.setAttribute('aria-pressed',String(m===mode));b.onclick=()=>{mode=m;fallTime=0;stopFall();renderModes();drawFall();};return b;}));
@@ -248,11 +281,12 @@ $('motion').checked=motion;$('motion').onchange=()=>{motion=$('motion').checked;
 $('sound').onchange=()=>{sound=$('sound').checked;if(sound)chime();else audio?.suspend();};
 document.addEventListener('visibilitychange',()=>{if(document.hidden){audio?.suspend();stopFall();}});
 $('quality').onchange=()=>world?.quality($('quality').value);
+$('focus-place').onclick=()=>world?.focus(state.region);
 $('zoom-in').onclick=()=>world?.zoom(.88);$('zoom-out').onclick=()=>world?.zoom(1.12);$('fit').onclick=()=>world?.reset();
   translate();await resetKernel();show(location.hash.slice(1));
-function sceneFallback(){sceneUnavailable=true;$('scene-status').hidden=false;$('scene-status').textContent=t('fallback');for(const id of ['zoom-in','zoom-out','fit'])$(id).disabled=true;}
-function sceneRestored(){sceneUnavailable=false;$('scene-status').hidden=true;for(const id of ['zoom-in','zoom-out','fit'])$(id).disabled=false;}
-try{world=createWorld($('scene'),{onSelect:selectPlace,reducedMotion:!motion,onError:sceneFallback,onRestore:sceneRestored,sceneLabel:t('sceneControls')});world.select(state.region);world.visible(activeTab==='world');$('scene-status').hidden=true;}catch{sceneFallback();}
+function sceneFallback(){sceneUnavailable=true;$('scene-status').hidden=false;$('scene-status').textContent=t('fallback');for(const id of ['focus-place','zoom-in','zoom-out','fit'])$(id).disabled=true;}
+function sceneRestored(){sceneUnavailable=false;$('scene-status').hidden=true;for(const id of ['focus-place','zoom-in','zoom-out','fit'])$(id).disabled=false;}
+try{world=createWorld($('scene'),{onSelect:selectPlace,reducedMotion:!motion,onError:sceneFallback,onRestore:sceneRestored,sceneLabel:t('sceneControls')});world.select(state.region);world.setState(state.expedition,state.quest);world.visible(activeTab==='world');$('scene-status').hidden=true;}catch{sceneFallback();}
 async function loadStories(){
   storyStatus='loading';document.body.dataset.ready='loading';renderStory();
   try{
@@ -265,4 +299,4 @@ async function loadStories(){
   }catch{compiled=undefined;storyStatus='error';document.body.dataset.ready='error';renderStory();}
 }
 await loadStories();
-Object.defineProperty(window,'AshboundDiagnostics',{get:()=>({version:VERSION,entities:entities.length,region:state.region,choices:[...state.choices],party:[...state.party],books:[...state.books],quest:{steps:[...state.quest.steps],progress:questProgress(state.quest)},tab:activeTab,kernel:{word:kernelState.word,relation:kernelState.comparison.relation,revision:kernelState.revision,events:kernelLedger?.view().counts.events??0,ready:!!kernelLedger&&!kernelError},scene:world?.stats??null})});
+Object.defineProperty(window,'AshboundDiagnostics',{get:()=>({version:VERSION,entities:entities.length,region:state.region,choices:[...state.choices],party:[...state.party],books:[...state.books],quest:{steps:[...state.quest.steps],progress:questProgress(state.quest)},expedition:{choices:[...state.expedition.choices],visits:[...state.expedition.visits],progress:expeditionProgress(state.expedition),outcome:expeditionOutcome(state.expedition)},tab:activeTab,kernel:{word:kernelState.word,relation:kernelState.comparison.relation,revision:kernelState.revision,events:kernelLedger?.view().counts.events??0,ready:!!kernelLedger&&!kernelError},scene:world?.stats??null})});
