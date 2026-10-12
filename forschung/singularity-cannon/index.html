@@ -31,13 +31,21 @@ h1{font-size:clamp(20px,3.2vw,39px);margin:6px 0 3px;letter-spacing:-.045em;text
 .rangebar{display:flex;gap:10px;align-items:center;margin-top:12px;font-size:11px;color:#b0d9d2}.rangebar label{display:flex;align-items:center;gap:8px}input[type=range]{accent-color:#8cfac7;width:100px}#strengthValue{display:inline-block;width:28px;text-align:right;font-variant-numeric:tabular-nums;color:#b4ffe5}.footer{display:grid;grid-template-columns:1fr auto;gap:4px 10px;margin-top:9px;font-size:10px;color:#8098a7}.footer>span:first-child{grid-column:1/-1}.footer>span:last-child{justify-self:end}
 #message{position:absolute;top:44%;width:100%;text-align:center;pointer-events:none;font-size:13px;letter-spacing:.16em;color:#e5ffe9;text-shadow:0 0 25px #a2fff3;opacity:0;transition:opacity .25s}
 @media(max-width:680px){.legend,.ref{display:none}.top{top:16px}.lead{max-width:290px}.hud{left:10px;right:10px;width:auto;bottom:max(10px,env(safe-area-inset-bottom));padding:10px}.hud-bar{align-items:stretch;flex-wrap:wrap;gap:8px}.hudTitle{flex:1 1 100%;font-size:10px}.hud-actions{width:100%}.hud-actions .primary{flex:1}.hud-actions button{min-height:40px}.hud-details{max-height:min(64svh,430px);overflow-y:auto;overscroll-behavior:contain;padding-right:1px}.stats{grid-template-columns:repeat(2,1fr);gap:6px 0;margin-bottom:10px}.stat{padding:4px 8px}.stat:nth-child(2n){border-right:0}.stat:nth-child(2n+1){padding-left:0}.stat b{font-size:16px}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.controls button{width:100%;padding:8px 7px;font-size:10px;min-height:38px}.rangebar{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.rangebar label:first-child{grid-column:1/-1}.rangebar label{justify-content:space-between;gap:6px;font-size:10px}.footer{font-size:9px;grid-template-columns:1fr}.footer>span:last-child{justify-self:start}}
+@media(max-width:680px){
+  /* Phone view is the field itself: tap anywhere to fire; no HUD covers the simulation. */
+  body.singularity-cannon-scene.portal-ready{padding:0!important}
+  #stage{height:100dvh;min-height:100dvh}
+  .top,.legend,.hud{display:none!important}
+  body.singularity-cannon-scene .hub-navigation,.portal-shell,.portal-atmosphere,.portal-skip{display:none!important}
+  #message{top:50%;padding:0 18px;font-size:10px;letter-spacing:.11em}
+}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.field-reactive{transform:none!important}.field-reactive::after{opacity:0!important}}
 </style>
 </head>
-<body>
+<body class="singularity-cannon-scene">
 <main id="stage">
   <canvas id="space" aria-hidden="true"></canvas>
-  <canvas id="fx" tabindex="0" role="button" aria-label="Interaktive Weltraumsimulation. Klicken, tippen oder Leertaste drücken, um eine Singularität abzufeuern."></canvas>
+  <canvas id="fx" tabindex="0" role="button" aria-label="Interaktive Weltraumsimulation. Auf Mobilgeräten direkt auf das Feld tippen, um eine Singularität abzufeuern. Mit der Tastatur Leertaste drücken."></canvas>
   <div class="vignette"></div>
   <div class="top"><div class="field-reactive"><div class="eyebrow">VERACHEL STUDIOS // ZEITSPUR-LAB 001</div>
     <h1>SINGULARITY CANNON <span style="color:#98efc8">/ 2003</span></h1>
