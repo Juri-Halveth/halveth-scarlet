@@ -81,7 +81,8 @@ for (const [file, content] of expected) {
     if (!fs.existsSync(destination) || fs.readFileSync(destination, 'utf8').replace(/\r\n/g, '\n') !== content) throw new Error(`Generated profile is missing or stale: ${file}`);
   } else {
     fs.mkdirSync(path.dirname(destination), {recursive: true});
-    fs.writeFileSync(destination, content);
+    const current = fs.existsSync(destination) ? fs.readFileSync(destination, 'utf8').replace(/\r\n/g, '\n') : null;
+    if (current !== content) fs.writeFileSync(destination, content);
   }
 }
 console.log(`${check ? 'Verified' : 'Built'} ${data.entities.length} bilingual entity profiles and their directory.`);

@@ -14,7 +14,7 @@ const run = (engine, milliseconds) => { while (milliseconds > 0) { const part = 
 
 test('the automatic space starts immediately with real public profile IDs', () => {
   const snapshot = create().snapshot();
-  assert.equal(snapshot.counts.sourceProfiles, 66);
+  assert.equal(snapshot.counts.sourceProfiles, profiles.length);
   assert.equal(snapshot.counts.roots, 7);
   assert(snapshot.nodes.some(node => node.id === 'lucinet'));
   assert(snapshot.nodes.some(node => node.id === 'rachel'));
@@ -27,7 +27,7 @@ test('profile entrance preserves the validated caller order without a named prio
   assert.deepEqual(snapshot.nodes.map(node => node.profileId), ids);
   assert.deepEqual(snapshot.events.map(event => event.subject), ids);
 });
-test('all 66 profiles enter automatically and inner cells retain exact ancestry', () => {
+test('all current profiles enter automatically and inner cells retain exact ancestry', () => {
   const snapshot = run(create(), 180000);
   assert.equal(snapshot.counts.roots, profiles.length);
   assert(snapshot.counts.cells > profiles.length);
@@ -63,7 +63,7 @@ test('different seeds change the model while profile identity remains the same',
 test('one virtual hour stays bounded and continues transitioning after full population', () => {
   const engine = create(), before = run(engine, 180000), after = run(engine, 3420000);
   assert(after.counts.transitions > before.counts.transitions + 1000);
-  assert.equal(after.counts.roots, 66); assert(after.counts.cells <= 66 * 3);
+  assert.equal(after.counts.roots, profiles.length); assert(after.counts.cells <= profiles.length * 3);
   assert(after.nodes.some(node => node.depth === 2));
   assert(after.nodes.every(node => node.depth <= 2 && node.children.length <= 1 && node.inbox.length <= live.LIMITS.inbox));
   assert(after.signals.length <= live.LIMITS.signals); assert.equal(after.events.length, live.LIMITS.events);

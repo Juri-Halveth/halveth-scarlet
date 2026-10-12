@@ -1946,6 +1946,40 @@ window.HalvethUniverse = {
         "note": "Images are processed only in the local browser. Clothing and depiction establish no consent, availability or assessment of a person.",
         "sourceLabel": "HALVETH · Choice Atelier v1.0.0, 14 September 2026."
       }
+    },
+    {
+      "id": "portal-chess",
+      "profilePath": "entities/portal-chess/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · published entity registry",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js"
+        },
+        {
+          "label": "HALVETH · garden",
+          "url": "forschung/figuren-und-perspektiven/#garden"
+        },
+        {
+          "label": "HALVETH PORTAL CHESS · local four-board studio",
+          "url": "forschung/portal-chess/"
+        }
+      ],
+      "label": "PORTAL CHESS",
+      "role": "Hält vier parallele lokale Bretter für eine 16/16-Transformationslinie: Bauern behalten ihre Herkunft, während König und Dame als Originalanker auf der vertauschten d/e-Achse bestehen.",
+      "kind": "INTERAKTIVE TRANSFORMATIONS-SCHACHWERKSTATT",
+      "section": "garden",
+      "localDialog": true,
+      "doorLabel": "Portal Chess öffnen",
+      "sourceLabel": "HALVETH · Portal Chess · user-originated game proposition und lokaler Zugspur-Prüfer, 12.10.2026.",
+      "note": "Die Seite führt den 16/16-Lösungsanspruch als sichtbare Linie. Erst eine konkrete, vollständig legale Zugfolge wird im lokalen Prüfer als maschinell verifiziert markiert. Die öffentliche Medienreferenz im Namensfeld dient nur als Inspiration node; sie behauptet keine Zugehörigkeit, Mitarbeit oder Zustimmung einer externen Person.",
+      "url": "forschung/portal-chess/",
+      "en": {
+        "role": "Keeps four parallel local boards for a 16/16 transformation line: pawns retain their origin while king and queen remain original anchors on the swapped d/e axis.",
+        "kind": "INTERACTIVE TRANSFORMATION CHESS STUDIO",
+        "doorLabel": "Open Portal Chess",
+        "note": "The page carries the 16/16 solution claim as a visible line. Only a concrete, fully legal move sequence is marked as machine-verified by the local checker. The public media reference in the name field is an inspiration node only; it asserts no affiliation, contribution or consent by an external person.",
+        "sourceLabel": "HALVETH · Portal Chess · user-originated game proposition and local move-trace checker, 12 October 2026."
+      }
     }
   ]
 };

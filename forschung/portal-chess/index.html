@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#060a14">
+  <meta name="description" content="HALVETH Portal Chess: vier lokale Schachbretter, vertauschte König-Damen-Achse und eine überprüfbare 16/16-Transformationslinie.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>HALVETH PORTAL CHESS · Die Pforte der 16 Bauern</title>
+  <link rel="canonical" href="https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/">
+  <link rel="icon" href="../../assets/portal-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="portal-chess.css">
+  <script type="module" src="portal-chess-app.mjs"></script>
+</head>
+<body class="portal-chess-route">
+  <a class="skip" href="#board">Direkt zum Brett</a>
+  <main class="portal-chess">
+    <header class="pc-header">
+      <a class="pc-back" href="../../" aria-label="Zurück zu HALVETH">← <span>HALVETH</span></a>
+      <div class="pc-title">
+        <p>4-BRETT-STUDIO · LOKALE SPIELSPUR</p>
+        <h1>PORTAL <b>CHESS</b></h1>
+      </div>
+      <button class="pc-icon" id="details-toggle" type="button" aria-expanded="false" aria-controls="mission-details" title="Missionsdaten">i</button>
+    </header>
+
+    <section class="portal-field" aria-label="HALVETH Portal Chess Spielfeld">
+      <div class="portal-rings" aria-hidden="true"></div>
+      <div class="mission-line">
+        <span class="mission-dot" aria-hidden="true"></span>
+        <span>16 / 16 · LÖSUNGSLINIE</span>
+        <output id="mission-status" aria-live="polite">0 / 16</output>
+      </div>
+
+      <div class="board-frame">
+        <div class="board-coordinates board-coordinates-top" aria-hidden="true">a b c d e f g h</div>
+        <div id="board" class="chessboard" role="grid" aria-label="Portal Chess Brett, König und Dame stehen auf vertauschten Ausgangsfeldern"></div>
+        <div class="board-coordinates board-coordinates-bottom" aria-hidden="true">a b c d e f g h</div>
+      </div>
+
+      <p id="view-caption" class="view-caption" aria-live="polite">P · Position: Wähle eine Figur. Das Portal zeigt ihre legalen Kanten.</p>
+    </section>
+
+    <section class="control-rail" aria-label="Spielsteuerung">
+      <div class="rail-group board-group">
+        <span class="rail-label">BRETTER</span>
+        <div class="slot-row" role="tablist" aria-label="Vier parallele Bretter">
+          <button data-board="0" role="tab" aria-selected="true">I</button>
+          <button data-board="1" role="tab" aria-selected="false">II</button>
+          <button data-board="2" role="tab" aria-selected="false">III</button>
+          <button data-board="3" role="tab" aria-selected="false">IV</button>
+        </div>
+      </div>
+      <div class="rail-group view-group">
+        <span class="rail-label">4 FLÄCHEN</span>
+        <div class="slot-row" role="tablist" aria-label="Vier Perspektiven auf das Brett">
+          <button data-view="position" role="tab" aria-selected="true">P</button>
+          <button data-view="function" role="tab" aria-selected="false">F</button>
+          <button data-view="history" role="tab" aria-selected="false">H</button>
+          <button data-view="relation" role="tab" aria-selected="false">R</button>
+        </div>
+      </div>
+      <button class="reset-button" id="reset-board" type="button" title="Aktuelles Brett neu setzen">↺ NEU</button>
+    </section>
+
+    <section class="status-band" aria-label="Aktueller Spielzustand">
+      <div><span>AM ZUG</span><strong id="turn-status">WEISS</strong></div>
+      <div><span>ORIGINALANKER</span><strong id="anchor-status">4 / 4</strong></div>
+      <div><span>SPIELSPUR</span><strong id="move-status">0 ZÜGE</strong></div>
+    </section>
+
+    <section id="mission-details" class="mission-details" hidden>
+      <p><b>Die Pforte der 16 Bauern</b> spielt mit vertauschter König-Damen-Achse auf <code>d/e</code>. Jeder Bauer behält eine feste Ursprungs-ID, wenn er die letzte Reihe erreicht und zur Dame wird.</p>
+      <p>Die vier Bretter behalten getrennte lokale Spielspuren. P, F, H und R zeigen Position, Funktion, Historie und Relationen derselben Stellung.</p>
+      <p class="inspiration-note">Inspiration node: nutzerdefinierte Schachvariation und öffentliche Medienreferenz im bestehenden Namensfeld. Keine Zugehörigkeit, Mitarbeit oder Zustimmung einer externen Person wird behauptet.</p>
+    </section>
+
+    <details class="proof-dock">
+      <summary>16 / 16 · ZUGSPUR PRÜFEN</summary>
+      <p>Füge eine Zugfolge als <code>e2-e4 e7-e5</code> ein. Erst eine vollständig legale Folge kann die Lösungslinie auf diesem Brett verifizieren.</p>
+      <label for="move-list">Zugfolge</label>
+      <textarea id="move-list" rows="3" spellcheck="false" placeholder="e2-e4 e7-e5 …"></textarea>
+      <div class="proof-actions"><button id="replay-moves" type="button">PRÜFEN &amp; LADEN</button><output id="replay-status" aria-live="polite"></output></div>
+    </details>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
