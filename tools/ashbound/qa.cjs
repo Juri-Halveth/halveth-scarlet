@@ -31,7 +31,7 @@ async function main(){
   const base=process.env.ASHBOUND_LIVE_BASE||local;
   const launch={headless:true,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']};
   if(process.env.ASHBOUND_CHROME)launch.executablePath=process.env.ASHBOUND_CHROME;
-  const browser=await chromium.launch(launch),reports=[],homeEntries=[];
+  const browser=await chromium.launch(launch),reports=[];
   try{
     for(const viewport of [{width:1440,height:900},{width:1920,height:1080},{width:390,height:844},{width:768,height:1024}]){
       const context=await browser.newContext({viewport,locale:'de-DE'}),page=await context.newPage(),errors=[];
@@ -41,11 +41,28 @@ async function main(){
       await page.waitForFunction(()=>document.body.dataset.ready==='true'&&window.AshboundDiagnostics?.scene?.frames>6,null,{timeout:20000});
       const prefix=`${viewport.width}x${viewport.height}`;
       await noOverflow(page);
+      const header=await page.evaluate(()=>{
+        const language=document.getElementById('language'),hub=document.querySelector('body > .hub-navigation'),rect=language.getBoundingClientRect();
+        const style=hub&&getComputedStyle(hub);
+        return {languageVisible:rect.width>0&&rect.height>0,hubNavigationPresent:!!hub&&style.display!=='none'&&style.visibility!=='hidden'};
+      });
+      assert.deepEqual(header,{languageVisible:true,hubNavigationPresent:false});
+      assert.equal(await page.locator('#scene canvas').getAttribute('aria-label'),'ASHBOUND 3D / Pfeiltasten: Umlauf / +/-: Zoom / Pos1: Ansicht zuruecksetzen');
+      await page.locator('#language').click();assert.equal(await page.locator('html').getAttribute('lang'),'en');
+      assert.equal(await page.locator('#scene canvas').getAttribute('aria-label'),'ASHBOUND 3D / Arrow keys: orbit / +/-: zoom / Home: reset');
+      await page.locator('#language').click();assert.equal(await page.locator('html').getAttribute('lang'),'de');
+      const entityCount=await page.evaluate(()=>AshboundDiagnostics.entities);
+      assert.equal(await page.locator('#profile-count').textContent(),String(entityCount));
+      const scene=await page.evaluate(()=>AshboundDiagnostics.scene);
+      // The Garden of 69 is rendered as two instanced marker batches. Keep a
+      // renderer-independent ceiling here so an accidental return to one mesh
+      // per marker is caught by the ordinary multi-viewport journey.
+      assert.ok(scene.drawCalls<=500,JSON.stringify(scene));
       const a=await page.locator('#scene canvas').screenshot();const stats=await pixels(a);assert.ok(stats.colors>40&&stats.variance>35,JSON.stringify(stats));
       await sleep(600);const b=await page.locator('#scene canvas').screenshot();assert.notEqual(crypto.createHash('sha256').update(a).digest('hex'),crypto.createHash('sha256').update(b).digest('hex'));
       await page.screenshot({path:path.join(output,prefix+'-world.png'),fullPage:true});
       await page.locator('[data-region="gate"]').click();assert.equal(await page.evaluate(()=>AshboundDiagnostics.region),'gate');
-      await page.locator('#enter-story').click();await page.locator('.choices button').first().click();
+      await page.locator('#enter-story').click();await page.waitForFunction(()=>AshboundDiagnostics.scene.loopActive===false);await page.locator('.choices button').first().click();
       assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[0]);
       await page.locator('#language').click();assert.equal(await page.locator('html').getAttribute('lang'),'en');
       assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[0]);
@@ -54,7 +71,8 @@ async function main(){
       await page.locator('#undo').click();assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[]);
       for(let i=0;i<5;i++)await page.locator('.choices button').first().click();assert.equal(await page.locator('.choices button').count(),0);
       await noOverflow(page);await page.screenshot({path:path.join(output,prefix+'-story.png'),fullPage:true});
-      await page.locator('[data-tab="council"]').click();assert.equal(await page.locator('.entity').count(),66);
+      await page.locator('[data-tab="council"]').click();assert.equal(await page.locator('.entity').count(),entityCount);
+      assert.equal(await page.locator('.entity').last().locator('.entity-number').textContent(),`${String(entityCount).padStart(2,'0')} / ${entityCount}`);
       await page.locator('#entity-search').fill('Dormammu');assert.equal(await page.locator('.entity').count(),1);
       await page.locator('#party-strip button').first().click();await page.locator('.entity-actions button').click();
       assert.ok((await page.evaluate(()=>AshboundDiagnostics.party)).includes('dormammu'));
@@ -74,7 +92,7 @@ async function main(){
       const [download]=await Promise.all([page.waitForEvent('download'),page.locator('#export').click()]);
       await download.saveAs(path.join(output,prefix+'-save.json'));
       await page.locator('#import').setInputFiles(path.join(output,prefix+'-save.json'));await noOverflow(page);
-      await page.locator('[data-tab="world"]').click();await page.waitForFunction(()=>AshboundDiagnostics.scene.frames>3&&AshboundDiagnostics.scene.width>0);
+      await page.locator('[data-tab="world"]').click();await page.waitForFunction(()=>AshboundDiagnostics.scene.frames>3&&AshboundDiagnostics.scene.width>0&&AshboundDiagnostics.scene.loopActive===true);
       assert.ok((await pixels(await page.locator('#scene canvas').screenshot())).colors>40);
       assert.deepEqual(errors,[]);reports.push({viewport,canvas:stats,diagnostics:await page.evaluate(()=>AshboundDiagnostics),errors});await context.close();
     }
@@ -82,18 +100,10 @@ async function main(){
     await page.goto(base+'forschung/morrowind-lernwelt/?lang=en');await page.waitForFunction(()=>document.body.dataset.ready==='true');
     await sleep(700);const first=await page.evaluate(()=>AshboundDiagnostics.scene.frames);await sleep(700);assert.equal(await page.evaluate(()=>AshboundDiagnostics.scene.frames),first);
     await page.locator('#zoom-in').click();await sleep(100);assert.ok(await page.evaluate(()=>AshboundDiagnostics.scene.frames)>first);await context.close();
-    for(const viewport of [{width:1440,height:900},{width:390,height:844}]){
-      const context=await browser.newContext({viewport}),page=await context.newPage();
-      await page.goto(base,{waitUntil:'domcontentloaded'});
-      const entry=page.locator('#ashbound-entry');await entry.waitFor();
-      const hit=await entry.evaluate(n=>{const r=n.getBoundingClientRect();return {url:n.href,visible:document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)===n};});
-      assert.ok(hit.visible,JSON.stringify({viewport,hit}));assert.match(hit.url,/forschung\/morrowind-lernwelt\//);
-      await page.screenshot({path:path.join(output,`home-${viewport.width}.png`),fullPage:false});
-      await entry.click();await page.waitForURL(/forschung\/morrowind-lernwelt/);
-      await page.waitForFunction(()=>document.body.dataset.ready==='true');
-      homeEntries.push({viewport,status:'PASS'});await context.close();
-    }
-    fs.writeFileSync(path.join(output,'QA.json'),JSON.stringify({base,recordedAt:new Date().toISOString(),renderer:'Chromium ANGLE software',reports,homeEntries,reducedMotion:'PASS'},null,2));
+    // ASHBOUND is intentionally a local source route.  Public-route retirement is
+    // covered by the static contract test; this browser suite verifies the direct
+    // learning-world journey without inventing a portal entry that must not exist.
+    fs.writeFileSync(path.join(output,'QA.json'),JSON.stringify({base,recordedAt:new Date().toISOString(),renderer:'Chromium ANGLE software',reports,publicRoute:'RETIRED_BY_CONTRACT_TEST',reducedMotion:'PASS'},null,2));
     console.log(JSON.stringify({status:'PASS',base,viewports:reports.length,output},null,2));
   }finally{await browser.close();server.close();}
 }

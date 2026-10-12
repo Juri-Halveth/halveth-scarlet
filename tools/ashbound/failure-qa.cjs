@@ -99,9 +99,11 @@ async function main(){
         window.testGlLoss.loseContext();
       });
       await page.waitForFunction(()=>!document.getElementById('scene-status').hidden);
+      assert.equal(await page.evaluate(()=>AshboundDiagnostics.scene.loopActive),false);
       await page.locator('#language').click();assert.match(await page.locator('#scene-status').textContent(),/nicht verfuegbar/);
       await page.evaluate(()=>window.testGlLoss.restoreContext());
       await page.waitForFunction(()=>document.getElementById('scene-status').hidden);
+      assert.equal(await page.evaluate(()=>AshboundDiagnostics.scene.loopActive),true);
       assert.equal(await page.evaluate(()=>window.testPageMarker),'same-document');
       assert.deepEqual(await page.evaluate(()=>AshboundDiagnostics.choices),[0]);assert.equal(await page.locator('#zoom-in').isDisabled(),false);
     });

@@ -40,6 +40,8 @@ function chime(){
 }
 function translate(){
   document.documentElement.lang=lang;$('language').textContent=lang==='de'?'EN':'DE';
+  $('profile-count').textContent=String(entities.length);
+  world?.label(t('sceneControls'));
   document.querySelectorAll('[data-t]').forEach(n=>n.textContent=t(n.dataset.t));
   document.querySelectorAll('[data-title]').forEach(n=>{n.title=t(n.dataset.title);n.setAttribute('aria-label',t(n.dataset.title));});
   document.querySelectorAll('[data-placeholder]').forEach(n=>n.placeholder=t(n.dataset.placeholder));
@@ -103,7 +105,7 @@ function renderCouncil(){
   if(!state.party.length)$('party-strip').append(el('p',t('empty'),'quiet'));
   $('entity-grid').replaceChildren(...matches.map(e=>{
     const card=el('article',undefined,'entity');card.dataset.entity=e.id;card.dataset.active=state.party.includes(e.id);
-    card.append(el('span',String(entities.indexOf(e)+1).padStart(2,'0')+' / 69','entity-number'),el('h3',e.label),el('p',lang==='de'?e.role:e.en.role));
+    card.append(el('span',`${String(entities.indexOf(e)+1).padStart(2,'0')} / ${entities.length}`,'entity-number'),el('h3',e.label),el('p',lang==='de'?e.role:e.en.role));
     const actions=el('div',undefined,'entity-actions'),a=el('a',t('dossier'));a.href=`../../${e.profilePath}?lang=${lang}`;
     const b=el('button',state.party.includes(e.id)?t('remove'):t('choose'));b.onclick=()=>partyChange(e.id);b.setAttribute('aria-pressed',String(state.party.includes(e.id)));actions.append(a,b);card.append(actions);return card;
   }));icons();
@@ -186,7 +188,7 @@ $('zoom-in').onclick=()=>world?.zoom(.88);$('zoom-out').onclick=()=>world?.zoom(
 translate();show(location.hash.slice(1));
 function sceneFallback(){sceneUnavailable=true;$('scene-status').hidden=false;$('scene-status').textContent=t('fallback');for(const id of ['zoom-in','zoom-out','fit'])$(id).disabled=true;}
 function sceneRestored(){sceneUnavailable=false;$('scene-status').hidden=true;for(const id of ['zoom-in','zoom-out','fit'])$(id).disabled=false;}
-try{world=createWorld($('scene'),{onSelect:selectPlace,reducedMotion:!motion,onError:sceneFallback,onRestore:sceneRestored});world.select(state.region);world.visible(activeTab==='world');$('scene-status').hidden=true;}catch{sceneFallback();}
+try{world=createWorld($('scene'),{onSelect:selectPlace,reducedMotion:!motion,onError:sceneFallback,onRestore:sceneRestored,sceneLabel:t('sceneControls')});world.select(state.region);world.visible(activeTab==='world');$('scene-status').hidden=true;}catch{sceneFallback();}
 async function loadStories(){
   storyStatus='loading';document.body.dataset.ready='loading';renderStory();
   try{

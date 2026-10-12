@@ -9,7 +9,7 @@ saved games, external websites, casino probabilities or operating-system state.
 - Six original procedural Three.js locations, orbit/zoom and keyboard controls.
 - Six Ink chapters, 108 complete decision paths and three possible endings.
 - German and English UI, story and six original books.
-- All 69 existing public Scarlet profiles, search and up to three companions.
+- All currently listed Scarlet profiles from the source registry, search and up to three companions.
   Companions expose their documented perspectives; they are not live AI agents.
 - FREEZE teaching models for paused simulation time, braking and restoring speed.
   Newtonian constant gravity, no drag, downward initial velocity; not a full

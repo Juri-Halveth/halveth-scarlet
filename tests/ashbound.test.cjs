@@ -54,10 +54,12 @@ test('all 66 existing identities are reused, and all six bilingual books and UI 
   for(const b of BOOKS)for(const l of ['de','en'])assert.ok(b[l][2].length>160);
 });
 test('historical world uses local dependencies but is retired from the public portal',()=>{
-  const html=fs.readFileSync(path.join(dir,'index.html'),'utf8'),app=fs.readFileSync(path.join(dir,'app.mjs'),'utf8');
+  const html=fs.readFileSync(path.join(dir,'index.html'),'utf8'),app=fs.readFileSync(path.join(dir,'app.mjs'),'utf8'),qa=fs.readFileSync(path.join(root,'tools/ashbound/qa.cjs'),'utf8');
   assert.match(html,/universe-data\.js/);assert.match(html,/Content-Security-Policy/);assert.doesNotMatch(html,/<script[^>]+src="https:/);
+  assert.doesNotMatch(html,/hub-language\.js/);
   assert.doesNotMatch(fs.readFileSync(path.join(root,'assets/portal-shell.js'),'utf8'),/morrowind-lernwelt/);
   assert.doesNotMatch(fs.readFileSync(path.join(root,'index.html'),'utf8'),/ashbound-entry/);
+  assert.doesNotMatch(qa,/ashbound-entry/);
   assert.ok(!fs.existsSync(path.join(root,'.site-build','forschung','morrowind-lernwelt')));
   assert.doesNotMatch(app,/sendTransaction|eth_requestAccounts|fetch\(['"]https:/);
   for(const file of ['three.LICENSE.txt','inkjs.LICENSE.txt','lucide.LICENSE.txt'])assert.ok(fs.existsSync(path.join(dir,'vendor',file)),file);

@@ -1,7 +1,7 @@
 import { THREE as T, OrbitControls } from './vendor/runtime.mjs';
 import { REGIONS, rng } from './core.mjs';
 
-export function createWorld(host, { onSelect, onError, onRestore, reducedMotion = false }) {
+export function createWorld(host, { onSelect, onError, onRestore, reducedMotion = false, sceneLabel = 'ASHBOUND 3D' }) {
   const renderer = new T.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
   renderer.outputColorSpace = T.SRGBColorSpace;
@@ -11,7 +11,7 @@ export function createWorld(host, { onSelect, onError, onRestore, reducedMotion 
   renderer.shadowMap.type = T.PCFSoftShadowMap;
   const canvas = renderer.domElement;
   canvas.tabIndex = 0;
-  canvas.setAttribute('aria-label', 'ASHBOUND 3D / Arrow keys: orbit / +/-: zoom / Home: reset');
+  canvas.setAttribute('aria-label', sceneLabel);
   host.append(canvas);
   const scene = new T.Scene(); scene.background = new T.Color('#1a2429');
   scene.fog = new T.FogExp2('#1a2429', 0.006);
@@ -96,10 +96,17 @@ export function createWorld(host, { onSelect, onError, onRestore, reducedMotion 
       const line=make(new T.TorusGeometry(2.5,.05,5,48),glow,site,0,7.2,0);line.rotation.x=.6;
     } else if(region.id==='garden'){
       cylinder(3.6,3.6,.3,40,green,site,0,.2,0);
-      for(let i=0;i<69;i++){
+      const markerCount=69,goldMarkerCount=Math.ceil(markerCount/3),markerGeometry=new T.CylinderGeometry(.1,.14,1,5);
+      geometries.push(markerGeometry);
+      const goldMarkers=new T.InstancedMesh(markerGeometry,gold,goldMarkerCount),glowMarkers=new T.InstancedMesh(markerGeometry,glow,markerCount-goldMarkerCount),markerMatrix=new T.Matrix4();
+      goldMarkers.castShadow=goldMarkers.receiveShadow=true;glowMarkers.castShadow=glowMarkers.receiveShadow=true;
+      let goldIndex=0,glowIndex=0;
+      for(let i=0;i<markerCount;i++){
         const a=i*2.39996,r=.38*Math.sqrt(i),h=.18+(i%5)*.1;
-        cylinder(.1,.14,h,5,i%3===0?gold:glow,site,Math.cos(a)*r,.45+h/2,Math.sin(a)*r);
+        markerMatrix.makeScale(1,h,1);markerMatrix.setPosition(Math.cos(a)*r,.45+h/2,Math.sin(a)*r);
+        if(i%3===0)goldMarkers.setMatrixAt(goldIndex++,markerMatrix);else glowMarkers.setMatrixAt(glowIndex++,markerMatrix);
       }
+      for(const markers of [goldMarkers,glowMarkers]){markers.instanceMatrix.needsUpdate=true;markers.computeBoundingSphere();site.add(markers);}
       cylinder(.18,.5,4,6,pale,site,0,2,0);
       for(let i=0;i<7;i++){
         const a=i*.9;const branch=box(.15,2,.15,gold,site,Math.cos(a)*.5,3,Math.sin(a)*.5);branch.rotation.z=Math.sin(a)*.8;
@@ -130,7 +137,7 @@ export function createWorld(host, { onSelect, onError, onRestore, reducedMotion 
     ray.setFromCamera(pointer,camera);const hit=ray.intersectObjects(hits)[0];if(hit)onSelect(hit.object.userData.region);
   });
   const reset=()=>{camera.position.set(innerWidth<700?64:53,innerWidth<700?61:44,innerWidth<700?90:64);controls.target.set(innerWidth<700?0:-1,1,0);controls.update();}; reset();
-  let enabled=true,visible=true,lost=false,motion=!reducedMotion,frames=0,last=0,elapsed=0,invalid=true;
+  let enabled=true,visible=true,lost=false,motion=!reducedMotion,frames=0,last=0,elapsed=0,invalid=true,loopActive=false;
   const resize=()=>{const rect=host.getBoundingClientRect();if(!rect.width||!rect.height)return;renderer.setSize(rect.width,rect.height,false);camera.aspect=rect.width/rect.height;camera.updateProjectionMatrix();invalid=true;};
   const observer=new ResizeObserver(resize);observer.observe(host);
   controls.addEventListener('change',()=>{invalid=true;});
@@ -144,20 +151,27 @@ export function createWorld(host, { onSelect, onError, onRestore, reducedMotion 
       camera.position.copy(new T.Vector3().setFromSpherical(s).add(controls.target));controls.update();
     }else return;e.preventDefault();invalid=true;
   });
-  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();lost=true;enabled=false;onError();});
-  canvas.addEventListener('webglcontextrestored',()=>{lost=false;enabled=visible;invalid=true;onRestore?.();});
   const floats=[];scene.traverse(o=>{if(o.userData.float)floats.push({o,y:o.position.y});});
-  renderer.setAnimationLoop(now=>{
-    if(!enabled||document.hidden||now-last<33)return;
+  const render=now=>{
+    if(!enabled||now-last<33)return;
     const dt=Math.min((now-last)/1000,.1);last=now;
     if(motion){elapsed+=dt;for(const {o,y}of floats){o.position.y=y+Math.sin(elapsed*.7)*.22;o.rotation.y+=dt*.08;}invalid=true;}
     if(invalid){renderer.render(scene,camera);frames++;invalid=false;}
-  });
+  };
+  const syncLoop=()=>{
+    const shouldRun=enabled&&!document.hidden;
+    if(shouldRun&&!loopActive){last=0;renderer.setAnimationLoop(render);loopActive=true;}
+    else if(!shouldRun&&loopActive){renderer.setAnimationLoop(null);loopActive=false;}
+  };
+  const visibilityChange=()=>syncLoop();document.addEventListener('visibilitychange',visibilityChange);
+  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();lost=true;enabled=false;syncLoop();onError();});
+  canvas.addEventListener('webglcontextrestored',()=>{lost=false;enabled=visible;invalid=true;syncLoop();onRestore?.();});
+  syncLoop();
   return {
     select(id){const r=REGIONS.find(r=>r.id===id);if(r){selector.position.set(r.position[0],r.position[1]-.1,r.position[2]);invalid=true;}},
-    reset,zoom,visible(value){visible=value;enabled=value&&!lost;invalid=true;},motion(value){motion=value;invalid=true;},
+    reset,zoom,label(value){canvas.setAttribute('aria-label',value);},visible(value){visible=value;enabled=value&&!lost;invalid=true;syncLoop();},motion(value){motion=value;invalid=true;},
     quality(value){renderer.setPixelRatio(Math.min(devicePixelRatio,value==='high'?2:1.5));resize();},
-    get stats(){return {frames,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,width:canvas.width,height:canvas.height,motion};},
-    dispose(){renderer.setAnimationLoop(null);observer.disconnect();controls.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();renderer.dispose();}
+    get stats(){return {frames,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,width:canvas.width,height:canvas.height,motion,loopActive};},
+    dispose(){renderer.setAnimationLoop(null);loopActive=false;document.removeEventListener('visibilitychange',visibilityChange);observer.disconnect();controls.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();renderer.dispose();}
   };
 }
