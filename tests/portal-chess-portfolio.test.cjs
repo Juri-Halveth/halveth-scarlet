@@ -49,7 +49,8 @@ test('Portal Chess is the first public destination after Nexus and gets a direct
   assert.match(shell, /data-portal-quick="portal-chess">♟/);
   assert.match(shell, /const quickIds=\['home','portal-chess','room'\]/);
   const routeIndexes = [...shell.matchAll(/index:'(\d+)'/g)].map(match => match[1]);
-  assert.deepEqual(routeIndexes, Array.from({length: 20}, (_, index) => String(index).padStart(2, '0')));
+  assert.deepEqual(routeIndexes, Array.from({length: 21}, (_, index) => String(index).padStart(2, '0')));
+  assert.match(shell, /id:'ashbound',path:'forschung\/ashbound\/',index:'20'/);
 });
 
 test('public portfolio and sitemap point to the actual Portal Chess route', () => {
