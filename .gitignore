@@ -3,3 +3,5 @@ __pycache__/
 .site-build/
 .local-qa/
 tools/ashbound/node_modules/
+desktop/ashbound/node_modules/
+desktop/ashbound/site/
