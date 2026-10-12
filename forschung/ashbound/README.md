@@ -6,6 +6,15 @@ world state and three possible island outcomes. The Ink chronicle now follows
 the same six original residents; the equality quest remains separately playable.
 This build does not alter an installed game or its saves.
 
+The new [`play/`](play/) route is a first-person prologue and the entry point
+of the Windows build. It has a walkable 3D chamber, three aimed magic spells,
+three seals, a gate to cross and a local save. Three original books are placed
+in the world. Reading each book and answering its clue grants a persistent
+reward: sixfold mana capacity (+500%), faster movement, or the location of a
+relic that extends the Stille spell. This is an optional discovery path, not a
+quest marker list. The books have authored pages and local stateful reactions;
+live AI dialogue and a larger market/economy are future work.
+
 An offline Windows desktop candidate packages this same game. Build and launch
 instructions are in [`desktop/ashbound/README.md`](../../desktop/ashbound/README.md).
 

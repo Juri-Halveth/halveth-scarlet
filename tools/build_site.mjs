@@ -27,7 +27,7 @@ const assetDigests=Object.fromEntries([
 for (const file of pages) {
   const relative=path.relative(output,file).split(path.sep).join('/');
   const relativeRoot='../'.repeat(relative.split('/').length-1);
-  const standaloneGame=relative==='forschung/ashbound/index.html';
+  const standaloneGame=['forschung/ashbound/index.html','forschung/ashbound/play/index.html'].includes(relative);
   const prefix=relativeRoot+'languages/';
   const html=fs.readFileSync(file,'utf8').replace(/<!-- HUB_LANGUAGES_START -->[\s\S]*?<!-- HUB_LANGUAGES_END -->/g,'').replace(/<!-- MOBILE_LAYOUT_START -->[\s\S]*?<!-- MOBILE_LAYOUT_END -->/g,'');
   const tags=standaloneGame?'':'<!-- HUB_LANGUAGES_START --><link rel="stylesheet" href="'+prefix+'hub-language.css"><script src="'+prefix+'catalog.js" defer></script><script src="'+prefix+'hub-language.js" defer></script><!-- HUB_LANGUAGES_END -->';

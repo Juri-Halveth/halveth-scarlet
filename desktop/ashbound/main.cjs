@@ -6,7 +6,7 @@ const { app, BrowserWindow, net, protocol, session, shell } = require('electron'
 
 const SCHEME = 'ashbound';
 const HOST = 'game';
-const ENTRY = `${SCHEME}://${HOST}/forschung/ashbound/`;
+const ENTRY = `${SCHEME}://${HOST}/forschung/ashbound/play/`;
 const CONTENT_ROOT = path.resolve(__dirname, 'site');
 const SMOKE = process.argv.includes('--smoke');
 const EXTERNAL_HOSTS = new Set(['github.com', 'doi.org', 'home.cern', 'threejs.org', 'lucide.dev']);
@@ -48,17 +48,17 @@ async function smokeCheck(window) {
   try {
     const result = await window.webContents.executeJavaScript(`(async () => {
       await new Promise(resolve => setTimeout(resolve, 2500));
-      const response = await fetch('story.de.json');
+      const response = await fetch('game-core.mjs');
       const key = 'ashbound-desktop-smoke';
       localStorage.setItem(key, 'ok');
       const stored = localStorage.getItem(key) === 'ok';
       localStorage.removeItem(key);
-      const canvas = document.querySelector('#scene canvas');
-      return { title: document.title, storyStatus: response.status,
+      const canvas = document.querySelector('#stage canvas');
+      return { title: document.title, gameCoreStatus: response.status, frames: window.AshboundGameDiagnostics?.frames || 0,
         canvas: Boolean(canvas), webgl: Boolean(canvas?.getContext('webgl2')),
         localStorage: stored, location: location.origin };
     })()`);
-    result.ok = result.title.includes('ASHBOUND') && result.storyStatus === 200 &&
+    result.ok = result.title.includes('ASHBOUND') && result.gameCoreStatus === 200 && result.frames > 4 &&
       result.canvas && result.webgl && result.localStorage && result.location === `${SCHEME}://${HOST}`;
     const output = process.env.ASHBOUND_SMOKE_OUTPUT;
     if (output) fs.writeFileSync(output, JSON.stringify(result, null, 2) + '\n');
@@ -80,7 +80,9 @@ app.whenReady().then(() => {
     }
     return net.fetch(pathToFileURL(file).href);
   });
-  session.defaultSession.setPermissionRequestHandler((_webContents, _permission, callback) => callback(false));
+  session.defaultSession.setPermissionRequestHandler((webContents, permission, callback) => {
+    callback(permission === 'pointerLock' && webContents.getURL().startsWith(`${SCHEME}://${HOST}/forschung/ashbound/play/`));
+  });
 
   const window = new BrowserWindow({
     width: 1440,
