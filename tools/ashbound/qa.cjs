@@ -41,7 +41,7 @@ async function main(){
       const context=await browser.newContext({viewport,locale:'de-DE'}),page=await context.newPage(),errors=[];
       page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
       // Page readiness is app-bound; host browser integrations may keep requests open.
-      await page.goto(base+'forschung/morrowind-lernwelt/?lang=de',{waitUntil:'domcontentloaded'});
+      await page.goto(base+'forschung/ashbound/?lang=de',{waitUntil:'domcontentloaded'});
       await page.waitForFunction(()=>document.body.dataset.ready==='true'&&window.AshboundDiagnostics?.scene?.frames>6,null,{timeout:20000});
       const prefix=`${viewport.width}x${viewport.height}`;
       await noOverflow(page);
@@ -115,7 +115,7 @@ async function main(){
       assert.deepEqual(errors,[]);reports.push({viewport,canvas:stats,diagnostics:await page.evaluate(()=>AshboundDiagnostics),errors});await context.close();
     }
     const context=await browser.newContext({viewport:{width:1280,height:800},reducedMotion:'reduce'}),page=await context.newPage();
-    await page.goto(base+'forschung/morrowind-lernwelt/?lang=en');await page.waitForFunction(()=>document.body.dataset.ready==='true');
+    await page.goto(base+'forschung/ashbound/?lang=en');await page.waitForFunction(()=>document.body.dataset.ready==='true');
     await sleep(700);const first=await page.evaluate(()=>AshboundDiagnostics.scene.frames);await sleep(700);assert.equal(await page.evaluate(()=>AshboundDiagnostics.scene.frames),first);
     await page.locator('#zoom-in').click();await sleep(100);assert.ok(await page.evaluate(()=>AshboundDiagnostics.scene.frames)>first);await context.close();
     fs.writeFileSync(path.join(output,'QA.json'),JSON.stringify({base,recordedAt:new Date().toISOString(),renderer:'Chromium ANGLE software',reports,publicRoute:'PUBLIC_BUILD_CANDIDATE',reducedMotion:'PASS'},null,2));

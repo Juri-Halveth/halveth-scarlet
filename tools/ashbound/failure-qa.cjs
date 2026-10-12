@@ -17,7 +17,7 @@ const results=[];
 async function main(){
   fs.mkdirSync(output,{recursive:true});
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
-  const base=process.env.ASHBOUND_LIVE_BASE ? new URL('forschung/morrowind-lernwelt/',process.env.ASHBOUND_LIVE_BASE).href : `http://127.0.0.1:${server.address().port}/forschung/morrowind-lernwelt/`;
+  const base=process.env.ASHBOUND_LIVE_BASE ? new URL('forschung/ashbound/',process.env.ASHBOUND_LIVE_BASE).href : `http://127.0.0.1:${server.address().port}/forschung/ashbound/`;
   const browser=await chromium.launch({headless:true,executablePath:process.env.ASHBOUND_CHROME,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']});
   async function check(name,run,setup){
     const context=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'reduce'}),page=await context.newPage(),errors=[];

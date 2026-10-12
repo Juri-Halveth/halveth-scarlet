@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { Compiler } from 'inkjs/compiler/Compiler';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const output = path.resolve(here, '../../forschung/morrowind-lernwelt');
+const output = path.resolve(here, '../../forschung/ashbound');
 await build({ entryPoints: [path.join(here, 'vendor-entry.mjs')], outfile: path.join(output, 'vendor/runtime.mjs'),
   bundle: true, minify: true, format: 'esm', target: 'es2022', legalComments: 'eof' });
 for (const lang of ['de', 'en']) {

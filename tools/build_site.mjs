@@ -18,7 +18,7 @@ for (const name of [...directories, ...files]) {
   if (!fs.existsSync(source)) throw new Error(`Required public input missing: ${name}`);
   fs.cpSync(source, path.join(output, name), { recursive: true, filter: file => !['__pycache__', '.DS_Store'].includes(path.basename(file)) });
 }
-if (!fs.existsSync(path.join(output, 'forschung', 'morrowind-lernwelt', 'index.html'))) throw new Error('ASHBOUND public route missing');
+if (!fs.existsSync(path.join(output, 'forschung', 'ashbound', 'index.html'))) throw new Error('ASHBOUND public route missing');
 const pages = htmlFiles(output);
 // Version shared presentation by the exact copied bytes, not a release label.
 const assetDigests=Object.fromEntries([
@@ -27,7 +27,7 @@ const assetDigests=Object.fromEntries([
 for (const file of pages) {
   const relative=path.relative(output,file).split(path.sep).join('/');
   const relativeRoot='../'.repeat(relative.split('/').length-1);
-  const standaloneGame=relative==='forschung/morrowind-lernwelt/index.html';
+  const standaloneGame=relative==='forschung/ashbound/index.html';
   const prefix=relativeRoot+'languages/';
   const html=fs.readFileSync(file,'utf8').replace(/<!-- HUB_LANGUAGES_START -->[\s\S]*?<!-- HUB_LANGUAGES_END -->/g,'').replace(/<!-- MOBILE_LAYOUT_START -->[\s\S]*?<!-- MOBILE_LAYOUT_END -->/g,'');
   const tags=standaloneGame?'':'<!-- HUB_LANGUAGES_START --><link rel="stylesheet" href="'+prefix+'hub-language.css"><script src="'+prefix+'catalog.js" defer></script><script src="'+prefix+'hub-language.js" defer></script><!-- HUB_LANGUAGES_END -->';

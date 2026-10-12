@@ -4,7 +4,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const vm=require('node:vm');
 const {pathToFileURL}=require('node:url');
-const root=path.join(__dirname,'..'),dir=path.join(root,'forschung/morrowind-lernwelt');
+const root=path.join(__dirname,'..'),dir=path.join(root,'forschung/ashbound');
 const load=name=>import(pathToFileURL(path.join(dir,name)).href);
 const registry={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/universe-data.js'),'utf8'),registry);
 const ids=new Set(registry.window.HalvethUniverse.entities.map(e=>e.id));
@@ -56,10 +56,11 @@ test('all current identities are reused, and all six bilingual books and UI dict
 });
 test('ASHBOUND keeps its local dependencies and is a public game route',()=>{
   const html=fs.readFileSync(path.join(dir,'index.html'),'utf8'),app=fs.readFileSync(path.join(dir,'app.mjs'),'utf8'),qa=fs.readFileSync(path.join(root,'tools/ashbound/qa.cjs'),'utf8');
+  assert.equal(path.basename(dir),'ashbound');
   assert.match(html,/universe-data\.js/);assert.match(html,/Content-Security-Policy/);assert.doesNotMatch(html,/<script[^>]+src="https:/);
   assert.doesNotMatch(html,/hub-language\.js/);
   assert.match(html,/weltkeimwerk\/core\.js/);
-  assert.match(fs.readFileSync(path.join(root,'assets/portal-shell.js'),'utf8'),/morrowind-lernwelt/);
+  const portal=fs.readFileSync(path.join(root,'assets/portal-shell.js'),'utf8');assert.match(portal,/forschung\/ashbound/);assert.doesNotMatch(portal,/morrowind-lernwelt/);
   assert.doesNotMatch(qa,/ashbound-entry/);
   assert.doesNotMatch(app,/sendTransaction|eth_requestAccounts|fetch\(['"]https:/);
   for(const file of ['three.LICENSE.txt','inkjs.LICENSE.txt','lucide.LICENSE.txt'])assert.ok(fs.existsSync(path.join(dir,'vendor',file)),file);

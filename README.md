@@ -6,7 +6,7 @@
 
 ## Lernstudio
 
-Die eigenstaendige [ASHBOUND-Spielwelt](forschung/morrowind-lernwelt/) verbindet
+Die eigenstaendige [ASHBOUND-Spielwelt](forschung/ashbound/) verbindet
 eine originale 3D-Insel, Chronik, Lehrmodelle und einen lokalen 32-Bit-
 Gleichheitskern. Die frühere Morrowind-Fan-Chronik bleibt als klar abgegrenzte
 Erzählung innerhalb dieses eigenen Spiels erhalten; lokale Morrowind-Installationen
