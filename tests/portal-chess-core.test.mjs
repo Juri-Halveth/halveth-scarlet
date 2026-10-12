@@ -8,6 +8,9 @@ import {
   getLegalMoves,
   getMissionStatus,
   isSession,
+  locatePiece,
+  THREE_PAWN_TRACE,
+  THREE_PAWN_TRACE_TEXT,
   replayMoveList
 } from '../forschung/portal-chess/portal-chess-core.mjs';
 
@@ -65,6 +68,25 @@ test('replay accepts a legal trace and refuses an illegal one without inventing 
   const invalid = replayMoveList('e2-e5');
   assert.equal(invalid.ok, false);
   assert.match(invalid.error, /Zug 1/);
+});
+
+test('the replayable three-pawn portal milestone keeps four original anchors alive', () => {
+  const result = replayMoveList(THREE_PAWN_TRACE);
+  assert.equal(result.ok, true);
+  assert.equal(result.moves.length, 41);
+  assert.equal(result.mission.transformed, 3);
+  assert.equal(result.mission.lost, 2);
+  assert.equal(result.mission.anchorsAlive, 4);
+  assert.equal(result.mission.threePawns, true);
+  assert.equal(result.mission.complete, false);
+  assert.equal(result.status.over, false);
+  assert.equal(locatePiece(result.state, 'white-pawn-a')?.[0], 'a8');
+  assert.equal(locatePiece(result.state, 'black-pawn-h')?.[0], 'h1');
+  assert.equal(locatePiece(result.state, 'white-pawn-c')?.[0], 'c8');
+
+  const broken = replayMoveList(THREE_PAWN_TRACE_TEXT.replace('b2-b4', 'b2-b5'));
+  assert.equal(broken.ok, false);
+  assert.match(broken.error, /Zug 1/);
 });
 
 test('four board sessions remain explicit and serializable', () => {

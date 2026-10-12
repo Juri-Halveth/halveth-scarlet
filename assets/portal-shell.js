@@ -16,7 +16,7 @@
 
   const routes=[
     {id:'home',path:'./',index:'00',image:'gate',accent:'#ffc66e',de:'Nexus',en:'Nexus',deNote:'Erde, Herz und alle Wege',enNote:'Earth, heart and every route'},
-    {id:'portal-chess',path:'forschung/portal-chess/',index:'01',image:'gate',accent:'#ffd16f',de:'Portal Chess',en:'Portal Chess',deNote:'16 Bauern · 16 Damen · Zugspur-Challenge',enNote:'16 pawns · 16 queens · move-trace challenge'},
+    {id:'portal-chess',path:'forschung/portal-chess/',index:'01',image:'gate',accent:'#ffd16f',de:'Portal Chess',en:'Portal Chess',deNote:'3/16 geprüft · 16/16 offen',enNote:'3/16 verified · 16/16 open'},
     {id:'room',path:'room/',index:'02',image:'scarlet',accent:'#ff345f',de:'Raum der Spuren',en:'Room of traces',deNote:'Freiwillige Gedanken und Quellen',enNote:'Voluntary thoughts and sources'},
     {id:'snapshot',path:'snapshot/',index:'03',image:'machine',accent:'#8deeff',de:'Snapshot-Studio',en:'Snapshot studio',deNote:'Lokale Belege zum Mitnehmen',enNote:'Local receipts to take with you'},
     {id:'figures',path:'forschung/figuren-und-perspektiven/',index:'04',image:'scarlet',accent:'#ff7899',de:'Figuren & Perspektiven',en:'Characters & perspectives',deNote:'Motive, Verantwortung, Alternativen',enNote:'Motives, responsibility, alternatives'},

@@ -16,11 +16,27 @@ test('home leads to Portal Chess without placing the portfolio challenge over th
   assert.match(home, /assets\/portal-chess-feature\.css\?v=portfolio-challenge-20261012/);
   assert.match(home, /class="portal-chess-quicklink" href="forschung\/portal-chess\/"/);
   assert.match(home, /16 BAUERN\. 16 DAMEN\?/);
-  assert.match(home, /CHALLENGE ÖFFNEN/);
-  assert.match(home, /Zugspur-Prüfer/);
+  assert.match(home, /3 \/ 16 verifiziert/);
+  assert.match(home, /DREI PFORTE SPIELEN/);
+  assert.match(home, /41 Halbzüge · lokaler Zugspur-Prüfer/);
+  assert.match(home, /16 \/ 16 Challenge/);
   assert.match(css, /\.portal-chess-feature\{[\s\S]*?position:relative/);
   assert.match(css, /@media\(max-width:700px\)/);
   assert.doesNotMatch(css, /\.portal-chess-feature\{[\s\S]*?position:fixed/);
+});
+
+test('Portal Chess exposes a replayable three-pawn milestone without presenting the open 16/16 challenge as solved', () => {
+  const route = read('forschung/portal-chess/index.html');
+  const core = read('forschung/portal-chess/portal-chess-core.mjs');
+  const app = read('forschung/portal-chess/portal-chess-app.mjs');
+  assert.match(route, /16 \/ 16 · OFFENE CHALLENGE/);
+  assert.match(route, /id="load-three-pawns"/);
+  assert.match(route, /41-Halbzug-Spur/);
+  assert.match(core, /export const THREE_PAWN_TRACE/);
+  assert.match(core, /threePawns:/);
+  assert.match(app, /THREE_PAWN_TRACE_TEXT/);
+  assert.match(app, /DREI PFORTE VERIFIZIERT/);
+  assert.doesNotMatch(route, /LÖSUNGSLINIE/);
 });
 
 test('Portal Chess is the first public destination after Nexus and gets a direct shortcut', () => {

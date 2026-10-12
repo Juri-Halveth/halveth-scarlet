@@ -10,7 +10,8 @@ import {
   getLegalMoves,
   getMissionStatus,
   isSession,
-  replayMoveList
+  replayMoveList,
+  THREE_PAWN_TRACE_TEXT
 } from './portal-chess-core.mjs';
 
 const STORAGE_KEY = 'halveth-portal-chess-session-v1';
@@ -25,6 +26,7 @@ const detailsToggle = document.querySelector('#details-toggle');
 const resetButton = document.querySelector('#reset-board');
 const moveList = document.querySelector('#move-list');
 const replayButton = document.querySelector('#replay-moves');
+const threePawnsButton = document.querySelector('#load-three-pawns');
 const replayStatus = document.querySelector('#replay-status');
 const toast = document.querySelector('#toast');
 const boardButtons = [...document.querySelectorAll('[data-board]')];
@@ -148,6 +150,22 @@ function renderBoard(state, piece) {
   }
 }
 
+function missionLabel(mission) {
+  if (mission.complete) return '16 / 16 · VERIFIZIERT';
+  if (mission.threePawns) return String(mission.transformed) + ' / 16 · DREI PFORTE';
+  return String(mission.transformed) + ' / 16';
+}
+
+function replayLabel(mission) {
+  if (mission.complete) return '16 / 16 · VERIFIZIERT';
+  if (mission.threePawns) {
+    return String(mission.transformed) + ' / 16 · DREI PFORTE VERIFIZIERT · '
+      + String(mission.lost) + ' BAUERN VERLOREN · '
+      + String(mission.anchorsAlive) + ' / ' + String(mission.anchorsTotal) + ' ANKER';
+  }
+  return 'Zugspur legal geladen · ' + String(mission.transformed) + ' / 16 transformiert.';
+}
+
 function renderControls(mission) {
   boardButtons.forEach(button => {
     const index = Number(button.dataset.board);
@@ -158,9 +176,7 @@ function renderControls(mission) {
     button.setAttribute('aria-label', 'Brett ' + String(index + 1) + ', ' + String(otherMission.transformed) + ' von 16 transformiert');
   });
   viewButtons.forEach(button => button.setAttribute('aria-selected', String(button.dataset.view === view)));
-  missionOutput.textContent = mission.complete
-    ? '16 / 16 · VERIFIZIERT'
-    : String(mission.transformed) + ' / 16';
+  missionOutput.textContent = missionLabel(mission);
 }
 
 function render() {
@@ -233,24 +249,36 @@ detailsToggle.addEventListener('click', () => {
   detailsToggle.setAttribute('aria-expanded', String(open));
 });
 
-replayButton.addEventListener('click', () => {
-  const result = replayMoveList(moveList.value);
+function loadReplay(value) {
+  const result = replayMoveList(value);
   if (!result.moves.length) {
     replayStatus.textContent = 'Noch keine Zugadressen erkannt.';
-    return;
+    return false;
   }
   if (!result.ok) {
     replayStatus.textContent = result.error;
-    return;
+    return false;
   }
   session.boards[session.activeBoard] = result.state;
   selected = null;
   persist();
   render();
-  replayStatus.textContent = result.mission.complete
-    ? '16 / 16 · VERIFIZIERT'
-    : 'Zugspur legal geladen · ' + String(result.mission.transformed) + ' / 16 transformiert.';
-  showToast(result.mission.complete ? 'Die Lösungslinie ist maschinell bestätigt.' : 'Legale Zugspur auf Brett ' + String(session.activeBoard + 1) + ' geladen.');
+  replayStatus.textContent = replayLabel(result.mission);
+  showToast(result.mission.complete
+    ? 'Die 16 / 16-Challenge ist maschinell bestätigt.'
+    : result.mission.threePawns
+      ? 'Drei Pforten sind auf Brett ' + String(session.activeBoard + 1) + ' lokal geprüft.'
+      : 'Legale Zugspur auf Brett ' + String(session.activeBoard + 1) + ' geladen.');
+  return true;
+}
+
+replayButton.addEventListener('click', () => {
+  loadReplay(moveList.value);
+});
+
+threePawnsButton.addEventListener('click', () => {
+  moveList.value = THREE_PAWN_TRACE_TEXT;
+  loadReplay(THREE_PAWN_TRACE_TEXT);
 });
 
 render();

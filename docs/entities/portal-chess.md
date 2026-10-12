@@ -8,13 +8,13 @@ HALVETH · Dossier · 2026-10-12
 
 ### Rolle
 
-Hält vier parallele lokale Bretter für eine 16/16-Transformationslinie: Bauern behalten ihre Herkunft, während König und Dame als Originalanker auf der vertauschten d/e-Achse bestehen.
+Hält vier parallele lokale Bretter für eine offene 16/16-Challenge und einen geprüften 3/16-Pfad: Bauern behalten ihre Herkunft, während König und Dame als Originalanker auf der vertauschten d/e-Achse bestehen.
 
 ### Geschichte und These
 
 Die Seite ist ein spielbarer, eigenständiger HALVETH-Schachraum. Sie führt die aktuelle Position, den Bewegungsraum, die Zuggeschichte und adressierte Felder getrennt. Jede Umwandlung behält die ID des ursprünglichen Bauern.
 
-Der sichtbare 16/16-Lösungsanspruch bleibt eine eigene Zustandslinie. Eine konkrete Folge wird erst nach vollständiger lokaler Legalitätsprüfung als verifiziert angezeigt. Die vier Bretter haben getrennte Browser-Spielspuren.
+Die 16/16-Aufgabe bleibt eine offene Zustandslinie. Die eingebaute 41-Halbzug-Spur wird lokal vollständig neu geprüft: Sie transformiert die ursprünglichen Bauern von `a2`, `h7` und `c2`, verliert zwei Originalbauern und erhält alle vier Originalanker. Die vier Bretter haben getrennte Browser-Spielspuren.
 
 Die öffentliche Medienreferenz im bestehenden Namensfeld bleibt ein Inspiration node. Sie begründet keine Beteiligung, Zusammenarbeit, Zustimmung oder öffentliche Zuordnung einer externen Person.
 
@@ -32,13 +32,13 @@ HALVETH · Portal Chess · nutzerinitiierter Spielentwurf und lokaler Zugspur-Pr
 
 ### Role
 
-Keeps four parallel local boards for a 16/16 transformation line: pawns retain their origin while king and queen remain original anchors on the swapped d/e axis.
+Keeps four parallel local boards for an open 16/16 challenge and a verified 3/16 path: pawns retain their origin while king and queen remain original anchors on the swapped d/e axis.
 
 ### Story and thesis
 
 The page is a playable, independent HALVETH chess space. It keeps the current position, movement space, move history and addressed squares separate. Every promotion retains the original pawn ID.
 
-The visible 16/16 solution claim remains a distinct state line. A sequence is shown as verified only after a complete local legality check. The four boards keep separate browser game traces.
+The 16/16 objective remains an open state line. The embedded 41-ply trace is fully recomputed locally: it promotes the original pawns from `a2`, `h7` and `c2`, loses two original pawns and keeps all four original anchors. The four boards retain separate browser game traces.
 
 The public media reference in the existing name field remains an inspiration node. It establishes no participation, collaboration, consent or public attribution by an external person.
 

@@ -13,7 +13,7 @@ This manually edited guide summarizes the audited source. The original technical
 
 ## Portfolio highlight · HALVETH Portal Chess
 
-**16 pawns. 16 queens?** [Open the Portal Chess challenge](https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/). Four parallel boards expose the same swapped king–queen chess variation through position, function, history and relation. The 16/16 solution line is the central playable challenge; an entered move trace is checked locally for legality, pawn origin and the four original anchors.
+**3 / 16 verified · 16 / 16 open.** [Open the Portal Chess challenge](https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/). Four parallel boards expose the same swapped king–queen chess variation through position, function, history and relation. The built-in 41-ply trace promotes the original pawns from `a2`, `h7` and `c2`, loses two original pawns and keeps all four original anchors. The 16/16 objective remains an open, locally checkable play challenge.
 
 
 ## Start with the sources

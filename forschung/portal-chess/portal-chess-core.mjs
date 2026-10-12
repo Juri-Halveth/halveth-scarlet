@@ -5,6 +5,34 @@ export const PIECE_GLYPHS = Object.freeze({
   black: { pawn: '♟', knight: '♞', bishop: '♝', rook: '♜', queen: '♛', king: '♚' }
 });
 
+// A replayable local milestone. It promotes the original a2, h7 and c2 pawns,
+// leaves all four original king/queen anchors on the board, and remains an
+// active position after the final move. It deliberately is not a 16/16 claim.
+export const THREE_PAWN_TRACE = Object.freeze([
+  { from: 'b2', to: 'b4' }, { from: 'g7', to: 'g6' },
+  { from: 'b4', to: 'b5' }, { from: 'g6', to: 'g5' },
+  { from: 'b5', to: 'b6' }, { from: 'a7', to: 'b6' },
+  { from: 'a2', to: 'a4' }, { from: 'b8', to: 'c6' },
+  { from: 'a4', to: 'a5' }, { from: 'a8', to: 'b8' },
+  { from: 'a5', to: 'a6' }, { from: 'g8', to: 'f6' },
+  { from: 'a6', to: 'a7' }, { from: 'f6', to: 'g8' },
+  { from: 'a7', to: 'a8' }, { from: 'g5', to: 'g4' },
+  { from: 'g1', to: 'f3' }, { from: 'g4', to: 'g3' },
+  { from: 'h2', to: 'g3' }, { from: 'h7', to: 'h5' },
+  { from: 'h1', to: 'g1' }, { from: 'h5', to: 'h4' },
+  { from: 'b1', to: 'a3' }, { from: 'h4', to: 'h3' },
+  { from: 'a3', to: 'b1' }, { from: 'h3', to: 'h2' },
+  { from: 'b1', to: 'a3' }, { from: 'h2', to: 'h1' },
+  { from: 'a3', to: 'b5' }, { from: 'd7', to: 'd5' },
+  { from: 'b5', to: 'd6' }, { from: 'c7', to: 'd6' },
+  { from: 'c2', to: 'c4' }, { from: 'c8', to: 'd7' },
+  { from: 'c4', to: 'c5' }, { from: 'c6', to: 'e5' },
+  { from: 'c5', to: 'c6' }, { from: 'e7', to: 'e6' },
+  { from: 'c6', to: 'c7' }, { from: 'd8', to: 'e7' },
+  { from: 'c7', to: 'c8' }
+]);
+export const THREE_PAWN_TRACE_TEXT = THREE_PAWN_TRACE.map(move => move.from + '-' + move.to).join(' ');
+
 const BACK_RANK = ['rook', 'knight', 'bishop', 'king', 'queen', 'bishop', 'knight', 'rook'];
 const PIECE_NAMES = {
   pawn: 'Bauer',
@@ -423,8 +451,9 @@ export function getMissionStatus(state) {
     lost: lost.length,
     anchorsAlive: anchorsAlive.length,
     anchorsTotal: anchors.length,
+    threePawns: transformed.length >= 3 && anchorsAlive.length === anchors.length,
     complete: transformed.length === originalPawns.length && lost.length === 0 && anchorsAlive.length === anchors.length,
-    claim: '16/16 PORTAL CLAIM'
+    claim: '16/16 PORTAL CHALLENGE'
   };
 }
 

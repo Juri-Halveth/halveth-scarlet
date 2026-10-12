@@ -1965,19 +1965,19 @@ window.HalvethUniverse = {
         }
       ],
       "label": "PORTAL CHESS",
-      "role": "Hält vier parallele lokale Bretter für eine 16/16-Transformationslinie: Bauern behalten ihre Herkunft, während König und Dame als Originalanker auf der vertauschten d/e-Achse bestehen.",
+      "role": "Hält vier parallele lokale Bretter für eine offene 16/16-Challenge und einen geprüften 3/16-Pfad: Bauern behalten ihre Herkunft, während König und Dame als Originalanker auf der vertauschten d/e-Achse bestehen.",
       "kind": "INTERAKTIVE TRANSFORMATIONS-SCHACHWERKSTATT",
       "section": "garden",
       "localDialog": true,
       "doorLabel": "Portal Chess öffnen",
       "sourceLabel": "HALVETH · Portal Chess · user-originated game proposition und lokaler Zugspur-Prüfer, 12.10.2026.",
-      "note": "Die Seite führt den 16/16-Lösungsanspruch als sichtbare Linie. Erst eine konkrete, vollständig legale Zugfolge wird im lokalen Prüfer als maschinell verifiziert markiert. Die öffentliche Medienreferenz im Namensfeld dient nur als Inspiration node; sie behauptet keine Zugehörigkeit, Mitarbeit oder Zustimmung einer externen Person.",
+      "note": "Die Seite führt eine offene 16/16-Challenge und eine eingebaute 41-Halbzug-Spur. Der lokale Prüfer bestätigt darin drei transformierte Originalbauern, zwei verlorene Originalbauern und vier erhaltene Originalanker. Die öffentliche Medienreferenz im Namensfeld dient nur als Inspiration node; sie behauptet keine Zugehörigkeit, Mitarbeit oder Zustimmung einer externen Person.",
       "url": "forschung/portal-chess/",
       "en": {
-        "role": "Keeps four parallel local boards for a 16/16 transformation line: pawns retain their origin while king and queen remain original anchors on the swapped d/e axis.",
+        "role": "Keeps four parallel local boards for an open 16/16 challenge and a verified 3/16 path: pawns retain their origin while king and queen remain original anchors on the swapped d/e axis.",
         "kind": "INTERACTIVE TRANSFORMATION CHESS STUDIO",
         "doorLabel": "Open Portal Chess",
-        "note": "The page carries the 16/16 solution claim as a visible line. Only a concrete, fully legal move sequence is marked as machine-verified by the local checker. The public media reference in the name field is an inspiration node only; it asserts no affiliation, contribution or consent by an external person.",
+        "note": "The page carries an open 16/16 challenge and an embedded 41-ply trace. The local checker confirms three transformed original pawns, two lost original pawns and four preserved original anchors in that trace. The public media reference in the name field is an inspiration node only; it asserts no affiliation, contribution or consent by an external person.",
         "sourceLabel": "HALVETH · Portal Chess · user-originated game proposition and local move-trace checker, 12 October 2026."
       }
     }

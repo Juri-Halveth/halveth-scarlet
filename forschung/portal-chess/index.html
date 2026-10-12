@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#060a14">
-  <meta name="description" content="HALVETH Portal Chess: vier lokale Schachbretter, vertauschte König-Damen-Achse und eine überprüfbare 16/16-Transformationslinie.">
+  <meta name="description" content="HALVETH Portal Chess: vier lokale Schachbretter, vertauschte König-Damen-Achse, ein geprüfter 3/16-Meilenstein und eine offene 16/16-Challenge.">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
   <title>HALVETH PORTAL CHESS · Die Pforte der 16 Bauern</title>
   <link rel="canonical" href="https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/">
@@ -28,7 +28,7 @@
       <div class="portal-rings" aria-hidden="true"></div>
       <div class="mission-line">
         <span class="mission-dot" aria-hidden="true"></span>
-        <span>16 / 16 · LÖSUNGSLINIE</span>
+        <span>16 / 16 · OFFENE CHALLENGE</span>
         <output id="mission-status" aria-live="polite">0 / 16</output>
       </div>
 
@@ -72,15 +72,16 @@
     <section id="mission-details" class="mission-details" hidden>
       <p><b>Die Pforte der 16 Bauern</b> spielt mit vertauschter König-Damen-Achse auf <code>d/e</code>. Jeder Bauer behält eine feste Ursprungs-ID, wenn er die letzte Reihe erreicht und zur Dame wird.</p>
       <p>Die vier Bretter behalten getrennte lokale Spielspuren. P, F, H und R zeigen Position, Funktion, Historie und Relationen derselben Stellung.</p>
+      <p><b>Drei Pforten sind geprüft:</b> Die vorbereitete 41-Halbzug-Spur verwandelt <code>a2→a8</code>, <code>h7→h1</code> und <code>c2→c8</code>. Dabei gehen zwei Originalbauern verloren; die vier Originalanker bleiben auf dem Brett. Die 16/16-Challenge bleibt offen.</p>
       <p class="inspiration-note">Inspiration node: nutzerdefinierte Schachvariation und öffentliche Medienreferenz im bestehenden Namensfeld. Keine Zugehörigkeit, Mitarbeit oder Zustimmung einer externen Person wird behauptet.</p>
     </section>
 
     <details class="proof-dock">
-      <summary>16 / 16 · ZUGSPUR PRÜFEN</summary>
-      <p>Füge eine Zugfolge als <code>e2-e4 e7-e5</code> ein. Erst eine vollständig legale Folge kann die Lösungslinie auf diesem Brett verifizieren.</p>
+      <summary>ZUGSPUR · 16 / 16 OFFENE CHALLENGE</summary>
+      <p>Füge eine Zugfolge als <code>e2-e4 e7-e5</code> ein. Der Knopf lädt die lokal neu berechnete Drei-Pforten-Spur; eigene Folgen prüft das Brett genauso auf Legalität, Bauernherkunft und Originalanker.</p>
       <label for="move-list">Zugfolge</label>
-      <textarea id="move-list" rows="3" spellcheck="false" placeholder="e2-e4 e7-e5 …"></textarea>
-      <div class="proof-actions"><button id="replay-moves" type="button">PRÜFEN &amp; LADEN</button><output id="replay-status" aria-live="polite"></output></div>
+      <textarea id="move-list" rows="4" spellcheck="false" placeholder="e2-e4 e7-e5 …"></textarea>
+      <div class="proof-actions"><button id="load-three-pawns" class="three-pawns-button" type="button">3 / 16 LADEN</button><button id="replay-moves" type="button">PRÜFEN &amp; LADEN</button><output id="replay-status" aria-live="polite"></output></div>
     </details>
   </main>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
