@@ -1,0 +1,16 @@
+{
+  "name": "ashbound-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline Windows desktop candidate for the original ASHBOUND world",
+  "main": "main.cjs",
+  "scripts": {
+    "prepare-site": "node prepare-site.cjs",
+    "start": "npm run prepare-site && electron .",
+    "package:win": "npm run prepare-site && electron-packager . ASHBOUND --platform=win32 --arch=x64 --icon=../../favicon.ico --out=../../.local-qa/ashbound-desktop --overwrite --asar --prune"
+  },
+  "devDependencies": {
+    "@electron/packager": "20.3.0",
+    "electron": "44.7.0"
+  }
+}

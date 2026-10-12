@@ -6,6 +6,9 @@ world state and three possible island outcomes. The Ink chronicle now follows
 the same six original residents; the equality quest remains separately playable.
 This build does not alter an installed game or its saves.
 
+An offline Windows desktop candidate packages this same game. Build and launch
+instructions are in [`desktop/ashbound/README.md`](../../desktop/ashbound/README.md).
+
 ## Included
 
 - Six original procedural Three.js locations, orbit/zoom and keyboard controls.
