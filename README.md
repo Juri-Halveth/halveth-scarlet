@@ -34,6 +34,8 @@ Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer geme
 
 **Singularity Cannon · Forschungsdemo:** [Offline spielbare, eigenständige Attraktor-Simulation](forschung/singularity-cannon/) · [Modell, Quellen, Rechte und Patchstand](forschung/singularity-cannon/README.md). Von einem Spielmotiv aus *Unreal II* angeregt; keine Originalassets oder reale Schwarze-Loch-Physik.
 
+**JURI-THESIS · Chancenreise:** [Die interaktive deutsche Konzeptdemo öffnen](forschung/juri-thesis/) · [Zugang, Auswahl und Datenschutz](forschung/juri-thesis/ZUGANG-UND-AUSWAHL.md). Juri Janovskis Vorschlag verbindet zwei sechsmonatige Entwicklungsphasen als langfristige politische These mit einem begrenzten, rollierenden Pilotmodell von 30 Plätzen je Kommune und Runde. Die Website nimmt keine Bewerbungen an; Brühl und weitere Partner haben keinen Pilot zugesagt.
+
 **Direkt auf Englisch / Open in English:** https://juri-halveth.github.io/halveth-scarlet/?lang=en
 
 **Urheberschaft und Beteiligung / Authorship and participation:** © 2026 Juri Halveth (Juri Janovski). HALVETH beansprucht die Rechte an den eigenen Thesen, Texten, Modellen, Abbildungen und dem Code. Eine öffentliche GitHub-Fassung ist kein Rechteverzicht. Neue eigene Beiträge unter HALVETH PIRL 2.0 sind **Source Available**. Die kommerziellen Bedingungen gelten nur im Umfang der jeweiligen Rechte; frühere MIT-, ISC- und Creative-Commons-Freigaben sowie Drittanbieterrechte bleiben bestehen. Lizenzanfragen: **security@halveth.de**. Einzelheiten: [HALVETH-RIGHTS.md](HALVETH-RIGHTS.md), [HALVETH-RIGHTS.json](HALVETH-RIGHTS.json) und [LICENSES.md](LICENSES.md).

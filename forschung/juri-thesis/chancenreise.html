@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Chancenreise · JURI-THESIS</title>
+  <meta name="description" content="Interaktive, rein fiktive Vorschau auf Bewerbung, Auswahl, Rückmeldung und erneute Bewerbung für einen möglichen 2×6-Monate-Pilot.">
+  <link rel="stylesheet" href="chancenreise.css">
+  <script src="chancenreise.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#reise">Zum Inhalt springen</a>
+  <header class="masthead">
+    <a class="brand" href="index.html" aria-label="JURI-THESIS, zur Hauptseite">JURI<span>·</span>THESIS</a>
+    <nav aria-label="Seitennavigation"><a href="index.html">← Konzept</a><a href="#prinzipien">Spielregeln</a><a href="#quellen">Quellen</a></nav>
+    <span class="edition">CHANCENREISE / 01</span>
+  </header>
+
+  <main id="reise">
+    <section class="lead" aria-labelledby="title">
+      <div class="lead-inner">
+        <p class="kicker">Ein Weg durch einen möglichen Pilot</p>
+        <h1 id="title">Eine Chance hat <em>viele Anfänge.</em></h1>
+        <p>Wie könnte ein fairer Zugang zu sechs Monaten Entwicklungszeit aussehen? Geh die Runde als fiktive Person durch – von der Bewerbung bis zum nächsten Anlauf.</p>
+        <a class="jump" href="#simulator">Reise beginnen <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="orbit" aria-hidden="true"><div class="orbit-ring one"></div><div class="orbit-ring two"></div><div class="orbit-core">30<span>Plätze</span></div><span class="orbit-dot a"></span><span class="orbit-dot b"></span><span class="orbit-dot c"></span></div>
+      <p class="lead-foot">Konzept von Juri Janovski · Brühl als Vorschlag · keine laufende Ausschreibung</p>
+    </section>
+
+    <div class="demo-banner" role="note"><strong>Interaktive Simulation.</strong> Keine reale Bewerbung, keine Platzvergabe, keine Speicherung oder Übertragung persönlicher Angaben. Alle Personen und Entscheidungen in dieser Reise sind erfunden.</div>
+
+    <section class="simulator" id="simulator" aria-labelledby="sim-title">
+      <div class="sim-heading"><div><p class="kicker">Die klickbare Route</p><h2 id="sim-title">Entscheidungen sichtbar machen.</h2></div><p>Du wählst eine Richtung und probierst verschiedene Ausgänge. Die Demo entscheidet nicht über Menschen.</p></div>
+      <div class="sim-shell">
+        <aside class="rail" aria-label="Stationen der Chancenreise">
+          <div class="rail-top"><span class="rail-symbol" aria-hidden="true">✳</span><div><strong>Eine Runde</strong><small>sechs Monate Vorlauf</small></div></div>
+          <ol id="progress" class="progress"></ol>
+          <div class="rail-count"><strong>30</strong><span>vorgeschlagene Plätze<br>je Kommune &amp; Runde</span></div>
+        </aside>
+        <div class="stage-wrap">
+          <div class="stage-meta"><span id="round-label">Runde 1 / Konzeptmodell</span><span id="step-label">01 / 07</span></div>
+          <div id="stage" class="stage" aria-live="polite" aria-atomic="true"></div>
+          <div class="controls"><button id="back" class="button ghost" type="button">← Zurück</button><button id="next" class="button solid" type="button">Weiter →</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="principles" id="prinzipien" aria-labelledby="principles-title">
+      <p class="kicker">Der Vertrag hinter dem Spiel</p><h2 id="principles-title">Eine faire Runde braucht mehr als einen schönen Knopf.</h2>
+      <div class="principle-grid">
+        <article><span>01</span><h3>Früh wissen</h3><p>Plätze, Kriterien, Fristen, Zuständigkeit und Unterstützung werden vor der Bewerbungsphase veröffentlicht. Sechs Monate Vorlauf sind ein Gestaltungsvorschlag.</p></article>
+        <article><span>02</span><h3>Menschen entscheiden</h3><p>Ein bezahltes, geschultes Team prüft nur erforderliche Nachweise, dokumentiert Interessenkonflikte und begründet seine Auswahl. Die Demo vergibt keine Plätze.</p></article>
+        <article><span>03</span><h3>Wiederkommen dürfen</h3><p>Wer diesmal keinen Platz erhält, bekommt eine verständliche eigene Rückmeldung und kann sich in der nächsten Runde neu bewerben – ohne Abwertung der Person.</p></article>
+        <article><span>04</span><h3>Eigene Akte bleibt eigen</h3><p>Jede Person erhält ihre eigene Ausfertigung. Öffentlich werden nur aggregierte Zahlen und jeweils ausdrücklich freigegebene, knappe Selbstdarstellungen – auch bei Ausgewählten.</p></article>
+      </div>
+    </section>
+
+    <section class="scale" aria-labelledby="scale-title"><div><p class="kicker">Kapazität ≠ Lebensanspruch</p><h2 id="scale-title">30 Plätze sind ein Testmaßstab.</h2></div><div><p>Bei zwei sechsmonatigen Runden ergeben 30 besetzte Plätze pro Runde <strong>360 Personenmonate pro Jahr</strong>. Je nach Rückkehrern könnten 30 bis 60 verschiedene Personen teilnehmen. Ob und wie später alle Menschen zwei Phasen erhalten könnten, ist eine eigene Finanzierungs- und Rechtsfrage.</p><a href="WIRTSCHAFTSMODELL.md">Rechenweg ansehen ↗</a></div></section>
+
+    <section class="sources" id="quellen"><p class="kicker">Rechtliche Ausgangspunkte</p><h2>Woran der Vorschlag gemessen werden müsste.</h2><p>Für reale Stellen und Auswahlverfahren sind unter anderem Gleichbehandlung und Datenschutz zu prüfen. Bei öffentlichen Ämtern kommt der besondere Maßstab des Art. 33 Abs. 2 GG hinzu. Die konkrete Rechtsform des Piloten ist offen.</p><div class="source-links"><a href="https://www.gesetze-im-internet.de/agg/BJNR189710006.html">AGG: Bewerbung und Benachteiligungsverbot ↗</a><a href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32016R0679">DSGVO: Datenminimierung, Einwilligung, automatisierte Entscheidungen ↗</a><a href="https://www.gesetze-im-internet.de/gg/art_33.html">Art. 33 GG: Zugang zu öffentlichen Ämtern ↗</a></div></section>
+  </main>
+  <footer><span>JURI·THESIS · Öffentlicher Konzeptprototyp 2026</span><a href="index.html">Zurück zur These ↑</a></footer>
+</body>
+</html>

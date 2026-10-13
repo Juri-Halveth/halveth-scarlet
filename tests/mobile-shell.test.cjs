@@ -74,8 +74,13 @@ test('every built HTML receives one local mobile stylesheet after its page style
     const html=fs.readFileSync(file,'utf8'),head=html.slice(0,html.indexOf('</head>'));
     const links=[...head.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g)];
     const mobile=links.filter(m=>m[1].includes('assets/mobile.css?'));
-    const standaloneGame=['forschung/ashbound/index.html','forschung/ashbound/play/index.html'].includes(path.relative(build,file).split(path.sep).join('/'));
-    if(standaloneGame){
+    const standalonePage=[
+      'forschung/ashbound/index.html',
+      'forschung/ashbound/play/index.html',
+      'forschung/juri-thesis/index.html',
+      'forschung/juri-thesis/chancenreise.html',
+    ].includes(path.relative(build,file).split(path.sep).join('/'));
+    if(standalonePage){
       assert.equal(mobile.length,0,file);
       continue;
     }
