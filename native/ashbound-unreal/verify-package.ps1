@@ -53,13 +53,14 @@ $required = @(
     'ASHBOUND_SPELL_MATERIAL bound=/Game/ASHBOUND/Materials/M_LivingSpell',
     'ASHBOUND world effect: Resonance echo',
     'ASHBOUND world effect: Ember light',
+    'ASHBOUND_GROVE_MATERIAL bound=/Game/ASHBOUND/Materials/M_GroveFern',
     'ASHBOUND_GROVE spawned fronds=9',
     'ASHBOUND world effect: Reweave growth'
 )
 foreach ($pattern in $required) {
     if ($content -notmatch $pattern) { throw "Package QA missing '$pattern' in $log" }
 }
-if ($content -match 'ASHBOUND_COLLISION_QA FAIL|ASHBOUND_SPELL_MATERIAL MISSING') {
+if ($content -match 'ASHBOUND_COLLISION_QA FAIL|ASHBOUND_SPELL_MATERIAL MISSING|ASHBOUND_GROVE_MATERIAL MISSING|missing usage flag InstancedStaticMeshes|Failed to compile Material|Can.t compile M_GroveFern|invalid ShaderMap') {
     throw "Package QA reported a failure in $log"
 }
 Write-Output "ASHBOUND packaged runtime QA passed (collision, pawn sweeps, material and 3 effects): $log"

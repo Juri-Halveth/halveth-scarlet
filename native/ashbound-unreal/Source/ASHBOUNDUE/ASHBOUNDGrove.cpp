@@ -24,13 +24,17 @@ void AASHBOUNDGrove::Initialize(UStaticMesh* FernMesh)
 {
     if (!FernMesh) return;
     Fronds->SetStaticMesh(FernMesh);
-    if (UMaterialInterface* SourceMaterial = FernMesh->GetMaterial(0))
+    UMaterialInterface* SourceMaterial = LoadObject<UMaterialInterface>(nullptr,
+        TEXT("/Game/ASHBOUND/Materials/M_GroveFern.M_GroveFern"));
+    if (SourceMaterial)
     {
         VerdantMaterial = UMaterialInstanceDynamic::Create(SourceMaterial, this);
         VerdantMaterial->SetVectorParameterValue(
-            TEXT("BaseColorFactor"), FLinearColor(0.45f, 1.0f, 0.45f, 1.0f));
+            TEXT("LeafTint"), FLinearColor(0.10f, 1.80f, 0.16f, 1.0f));
         Fronds->SetMaterial(0, VerdantMaterial);
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND_GROVE_MATERIAL bound=/Game/ASHBOUND/Materials/M_GroveFern"));
     }
+    else UE_LOG(LogTemp, Error, TEXT("ASHBOUND_GROVE_MATERIAL MISSING"));
     MatureTransforms.Reset();
 
     const FVector Extent = FernMesh->GetBounds().BoxExtent;
