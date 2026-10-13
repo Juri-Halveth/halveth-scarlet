@@ -60,7 +60,7 @@ test('attentive reading grants persistent abilities and a discoverable item', as
   assert.equal(stillDuration(loadGame(JSON.parse(JSON.stringify(state)))), 12000);
 });
 
-test('the published prologue has local assets and an actual playable entry point', () => {
+test('the published prologue has local assets and an interactive prototype entry point', () => {
   const html = fs.readFileSync(path.join(dir, 'index.html'), 'utf8');
   const game = fs.readFileSync(path.join(dir, 'game.mjs'), 'utf8');
   const desktop = fs.readFileSync(path.join(__dirname, '../desktop/ashbound/main.cjs'), 'utf8');
