@@ -1,5 +1,9 @@
 # Zeit, in der ein neuer Weg möglich wird
 
+Stell dir einen Morgen in Brühl vor. Bei einem Menschen geht der Herd kaputt, während eine Ausbildung beginnt. Ein anderer braucht verlässliche Mobilität. Eine dritte Person hat eine Idee, die sie lieber mit einer großen Einmalzahlung selbst verwirklichen möchte. Was wäre möglich, wenn alle drei - und 27 weitere Menschen - sechs Monate Zeit und einen persönlich vereinbarten Möglichkeitsraum bekämen?
+
+Der Entwurf öffnet drei Wege: **laufende Entwicklungszeit und Alltagsanliegen**, **passende Mobilität oder Sachmittel** und **ein großer einmaliger Projektantrag**. Juri nennt bewusst auch 2.000.000 € als denkbares Einzelbeispiel: Wer diese Summe für sein Vorhaben beantragt, könnte nach einer eigenständigen Finanzierung und Genehmigung auf spätere frei abrufbare Zusatzwünsche derselben Programmlinie verzichten. Bereits bestehende gesetzliche Ansprüche sind davon zu unterscheiden. Eine Routineanfrage innerhalb eines genehmigten persönlichen Rahmens soll zügig laufen; Menschen prüfen Fehler, Ausnahmen und große Entscheidungen. Die einzelnen Beträge und Grenzen müssen vor einem realen Start transparent festgelegt und gedeckt werden.
+
 **[Gestaltete Webausgabe öffnen →](konzept.html)** · **[Pilotbrief als PDF öffnen](assets/JURI-THESIS-Pilotbrief.pdf)** · [Rechtslabor](rechtslabor.html) · [Chancenreise](chancenreise.html). Diese Markdown-Datei bleibt der editierbare Quelltext.
 
 ## JURI-THESIS · Zwei Mal sechs Monate Entwicklungszeit
@@ -13,7 +17,7 @@
 
 ## 1. Die These
 
-Juri Janovskis Vorschlag ist einfach und groß: **Jeder erwachsene Mensch soll im Lauf seines Lebens zweimal sechs Monate finanziell abgesicherte persönliche Entwicklungszeit erhalten können.** Die beiden Phasen wären freiwillig, voneinander getrennt nutzbar und nicht auf Krankheit, Arbeitslosigkeit oder einen Fehler als Zugangsvoraussetzung reduziert. Insgesamt geht es um zwölf Monate pro Person, nicht um zwei Mal sechs Jahre.
+Juris Vorschlag ist einfach und groß: **Jeder erwachsene Mensch soll im Lauf seines Lebens zweimal sechs Monate finanziell abgesicherte persönliche Entwicklungszeit erhalten können.** Die beiden Phasen wären freiwillig, voneinander getrennt nutzbar und nicht auf Krankheit, Arbeitslosigkeit oder einen Fehler als Zugangsvoraussetzung reduziert. Insgesamt geht es um zwölf Monate pro Person, nicht um zwei Mal sechs Jahre.
 
 Das Modell ist eine **politische Zielsetzung**, kein gegenwärtig festgestellter allgemeiner Rechtsanspruch. Der kommunale Pilot in Brühl wäre ein erster, begrenzter Lern- und Gestaltungsraum. Ein bundesweit geltender Anspruch bräuchte einen eigenen Gesetzgebungs-, Finanzierungs- und Abstimmungsweg.
 
@@ -104,4 +108,4 @@ Die Vision ist groß: Eine Person darf im Lauf ihres Lebens neue Wege finden, oh
 
 ---
 
-**Verfasseridee:** Juri Janovski / HALVETH. **Dokumentstatus:** öffentlicher Konzeptprototyp zur Eigenprüfung. Die begleitenden Bilder sind illustrative Entwürfe, keine Fotobelege oder Partnerzusagen. Dieses Dokument wurde nicht an eine Behörde versandt; seine Berechnungen sind Szenarien und seine rechtlichen Aussagen markieren nur den geprüften Ausgangspunkt. Die Quellen- und Prüfmatrix steht in [QUELLEN-UND-GRENZEN.md](QUELLEN-UND-GRENZEN.md).
+**Verfasseridee:** Juri / HALVETH. **Dokumentstatus:** öffentlicher Konzeptprototyp zur Eigenprüfung. Die begleitenden Bilder sind illustrative Entwürfe, keine Fotobelege oder Partnerzusagen. Dieses Dokument wurde nicht an eine Behörde versandt; seine Berechnungen sind Szenarien und seine rechtlichen Aussagen markieren nur den geprüften Ausgangspunkt. Die Quellen- und Prüfmatrix steht in [QUELLEN-UND-GRENZEN.md](QUELLEN-UND-GRENZEN.md).
