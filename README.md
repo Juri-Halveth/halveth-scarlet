@@ -275,15 +275,15 @@ Prüfung und öffentlicher Build (Node 24, Python 3.14, keine Paketinstallation)
 
 ```sh
 node tools/build_site.mjs
-node --test tests/*.test.cjs
+node --test tests/*.test.cjs tests/*.test.mjs
 python -m unittest discover -s tests -p 'test_*.py'
 ```
 
-Der Build prüft lokale HTML-Ziele und Abschnittsverweise und schreibt ausschließlich öffentliche Dateien nach `.site-build/`. `.github/workflows/pages.yml` testet und veröffentlicht dieses Artefakt. `build-info.json` auf der Website nennt den tatsächlich gebauten Commit. Der Newsworkflow ruft den Pagesworkflow nach seinem Datencommit ausdrücklich auf.
+Der Build prüft lokale HTML-Ziele und Abschnittsverweise und schreibt ausschließlich öffentliche Dateien nach `.site-build/`. `.github/workflows/pages.yml` testet und veröffentlicht dieses Artefakt. `build-info.json` nennt den Basis-Commit und den mit `git status` ermittelten Zustand des lokalen Arbeitsbaums (`GIT_STATUS_CLEAN` oder `GIT_STATUS_DIRTY`; ignorierte Dateien sind nicht erfasst). Ein schmutziger Arbeitsbaum kann Build-Bytes enthalten, die nicht im Commit stehen. Der Newsworkflow ruft den Pagesworkflow nach seinem Datencommit ausdrücklich auf.
 
 Rückrollreferenz vor diesem Ausbau: `c333d1bddbba1dc6d8a573d2e5c52e8e9596c88a`. Historische Releasepakete und ihre Receipts bleiben unverändert. Ein Rückrollen erfolgt als nachvollziehbare Wiederveröffentlichung eines gewählten Standes, ohne Git-Historie zu löschen.
 
-The release adds 69 individual profiles, a separate dated news feed and a **draft-only** daily Reddit digest. Historical grants and third-party rights remain applicable. The Pages workflow builds, tests and publishes an explicit public artifact; the live `build-info.json` records its source revision.
+The current site contains 67 active profiles, a separate dated news feed and a **draft-only** daily Reddit digest. Historical grants and third-party rights remain applicable. The Pages workflow builds, tests and publishes an explicit public artifact; the live `build-info.json` records its base commit and Git worktree status. Ignored files are outside this status check.
 
 ## Figurenraum / Character world - 02.10.2026
 
@@ -329,7 +329,7 @@ Pages build does not depend on a CDN or package installation.
 ```sh
 node tools/ashbound/build-entity-runtime.mjs
 node tools/build_site.mjs
-node --test tests/*.test.cjs
+node --test tests/*.test.cjs tests/*.test.mjs
 python -m unittest discover -s tests -p 'test_*.py'
 node tools/serve_site.mjs 8841
 ```
