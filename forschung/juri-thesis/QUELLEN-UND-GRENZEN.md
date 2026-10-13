@@ -1,10 +1,10 @@
 # Quellen, Bildprovenienz und Aussagegrenzen
 
-**Abruf und Einordnung: 13. Oktober 2026.** Diese Matrix bindet Tatsachen an ihre Quelle. Die eingefügte Gesprächsdatei und drei Bilder sind Ausgangsmaterial für Juris Idee, aber keine unabhängigen Nachweise für Recht, Kausalität, Standortwirkung oder Partnerzustimmung.
+**Abruf und Einordnung: 13. Oktober 2026.** Diese Matrix bindet Tatsachen an ihre Quelle. Die eingefügte Gesprächsdatei und drei Bilder sind Ausgangsmaterial für das Konzept, aber keine unabhängigen Nachweise für Recht, Kausalität, Standortwirkung oder Partnerzustimmung.
 
 | Aussage | Stand | Grundlage / Grenze |
 | --- | --- | --- |
-| „2 × 6 Monate je erwachsener Person“ ist Juris Kernidee. | `USER_REPORTED` | Nutzerseitige Projektvorgabe; die rohe Gesprächsquelle bleibt lokal und unveröffentlicht. Die öffentliche Fassung beweist weder einen früheren Erfindungszeitpunkt noch eine Rechtslage. |
+| „2 × 6 Monate je erwachsener Person“ ist die Kernidee des Entwurfs. | `USER_REPORTED` | Nutzerseitige Projektvorgabe; die rohe Gesprächsquelle bleibt lokal und unveröffentlicht. Die öffentliche Fassung beweist weder einen früheren Erfindungszeitpunkt noch eine Rechtslage. |
 | Brühl besitzt eine kommunale Wirtschaftsförderung und Bahn-/Stadtbahn-/Busanschlüsse. | `OBSERVED_SOURCE_BOUND` | [Stadt Brühl – Wirtschaftsförderung](https://www.bruehl.de/wmv/wirtschaftsfoerderung.php). Reale Erreichbarkeit einzelner Zielgruppen bleibt gesondert zu prüfen. |
 | Brühl liegt günstig auf der Köln–Bonn-Achse; Aachen/Euskirchen gehören zu einem weiteren regionalen Blick. | `STRONGLY_SUPPORTED` / Reichweite teils `INFERRED` | [Stadt Brühl – Standortinformationen](https://www.bruehl.de/bruehl-kompakt-2021.pdfx?forced=true). Die „Blume“ ist eine nicht maßstäbliche Metapher. |
 | Phantasialand ist ein Standort in Brühl; 2025 fand dort der städtische Wirtschaftstreff statt. | `OBSERVED_SOURCE_BOUND` | [Stadt Brühl – Wirtschaftstreff](https://www.bruehl.de/wmv/wirtschaftsfoerderung/wirtschaftstreff.php), [Tourismus Brühl – Phantasialand](https://tourismus.bruehl.de/bruehl-entdecken/highlights-in-bruehl/phantasialand.php). Keine Zustimmung oder Partnerschaft zum vorliegenden Projekt. |

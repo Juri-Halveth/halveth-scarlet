@@ -79,11 +79,11 @@ def page(label, title, lead, blocks, refs=(), diagram=None):
 
 PAGES = []
 PAGES.extend([
-    page("01 / Die erste Tür", "Stell dir einen Morgen in Brühl vor",
-         "Dreißig Menschen bekommen sechs Monate, in denen die Frage nicht lautet: Was fehlt dir? Sondern: Was willst du jetzt möglich machen?",
-         [("Ein Anfang im Alltag", "Bei einer Person geht der Herd kaputt, während sie endlich eine Ausbildung beginnen will. Eine andere braucht ein Auto, um Kinderbetreuung, Arbeit und Lernen verbinden zu können. Beide beschreiben, was sie vorhaben und was dafür wirklich nötig ist."),
-          ("Ein Anfang im Großen", "Eine dritte Person sagt: <b>Gebt mir einmalig zwei Millionen Euro für mein Vorhaben. Danach möchte ich keine laufenden Zusatzwünsche aus diesem Programm abrufen.</b> Das ist eine mögliche Anfrage in dieser Geschichte, keine pauschale Summe für alle."),
-          ("Der gemeinsame Kern", "Jeder der 30 Wege darf anders aussehen. Sechs Monate Zeit, ein selbst gewählter Plan und ein persönlich vereinbarter Möglichkeitsraum verbinden sie. Juri möchte diesen Raum zuerst mit einer regionalen Pilotrunde erproben.")],
+    page("01 / Ein Morgen", "Der Herd fällt aus. Die Idee bleibt.",
+         "Ein Morgen in Brühl, drei verschiedene Anfänge: In einer vorgeschlagenen Pilotrunde hätten 30 Menschen je sechs Monate für ihren nächsten Schritt.",
+         [("Der erste Weg", "Der Herd streikt, während eine Ausbildung beginnt. Ein persönlich vereinbarter Rahmen könnte den Ersatz als konkretes Alltagsanliegen aufnehmen."),
+          ("Der zweite Weg", "Kinderbetreuung, Arbeit und Lernen liegen weit auseinander. Eine andere Person braucht verlässliche Mobilität und beschreibt, was ihr den Weg wirklich öffnet."),
+          ("Der dritte Weg", "<b>Gebt mir einmalig zwei Millionen Euro für mein Vorhaben. Danach möchte ich keine frei abrufbaren Zusatzwünsche aus diesem Programm.</b> Auch dieser große Wunsch darf als Antrag auf den Tisch. Ob und in welcher Höhe er finanziert wird, ist eine eigene Entscheidung.")],
          (), "doors"),
     page("02 / Deine Wahl", "Nicht jeder braucht dasselbe",
          "Die Person selbst eröffnet die Quest: Welcher nächste Schritt wird mit Zeit, Geld, Dingen, Menschen oder einem großen Vorhaben möglich?",
@@ -98,7 +98,7 @@ PAGES.extend([
           ("Wenn es um Millionen geht", "Eine große Einmalzahlung wird vorab von verantwortlichen Menschen mit Finanzierungs- und Zweckprüfung entschieden. Erst danach kann der vereinbarte Abruf technisch einfach sein. Die Vision lautet: möglichst wenig Reibung innerhalb klarer, persönlicher Grenzen.")],
          (), "flow"),
     page("04 / Lebensmodell", "Erste Phase ab 18, zweite ab 50",
-         "Die Altersfenster sind Juris aktueller politischer Entwurf und keine bestehende Leistung.",
+         "Erste Phase ab 18, zweite ab 50: So sieht das vorgeschlagene Lebensmodell aus.",
          [("Phase A", "Ein erster sechsmonatiger Abschnitt soll ab 18 möglich sein. Die Gelegenheit soll nicht mit dem 30. Geburtstag verfallen: Wer ihn mit 32, 47 oder 68 noch nicht genutzt hat, bleibt im Vorschlag erreichbar."),
           ("Phase B", "Ein zweiter sechsmonatiger Abschnitt soll ab 50 möglich werden. Er kann ein früheres Vorhaben vertiefen oder eine ganz andere Richtung eröffnen. Eine echte Regel müsste festlegen, welchen Mindestabstand, welche Wiederbewerbung und welche Finanzierung sie verlangt."),
           ("Pilotgrenze", "Eine erste Brühler Runde prüft höchstens sechs Monate je belegtem Platz. Die universelle 2-mal-6-Monate-These und die konkrete 30-Personen-Runde sind verschiedene Maßstäbe; ein Erfolg des einen beweist das andere nicht.")],
@@ -110,33 +110,33 @@ PAGES.extend([
           ("Wer entscheidet?", "Ein Träger müsste Mandat, Haushalt, Ansprechstelle und Verantwortung für Zahlungen und Daten ausdrücklich übernehmen. Eine öffentliche Webseite oder ein privater Brief ersetzt keinen kommunalen Beschluss.")],
          ("GO NRW 2026", "GG Art. 28", "Konzept im Web"), "Brühl / Region"),
     page("06 / Platzledger", "30 = 4 + 2 + 5 + 2 + 2 + 15",
-         "Diese Rechnung bindet Plätze als ganze Einheiten. Sie beschreibt Juris gewünschte Orientierung, noch keine rechtswirksame Reservierung.",
-         [("Vier", "Juri möchte selbst und mit drei weiteren, von ihm vorgeschlagenen Menschen teilnehmen. Damit wären rechnerisch <b>26 Plätze für andere offen</b>. Die drei Personen werden nur nach eigener Zustimmung benannt; die Sonderrolle und mögliche Interessenkonflikte brauchen eine unabhängige Prüfung."),
-          ("Elf besondere Suchpunkte", "Zwei Plätze nennt Juri für erschwerte Übergänge im Alter 18, fünf für die Gruppe 32 bis 35, zwei für eine von jungen Alleinerziehenden selbst mitgestaltete Route und zwei für Menschen nach Haftentlassung. Für genau diese Zahlen gibt es noch keine örtliche Bedarfsanalyse."),
+         "Vier Plätze sind für die initiierende Gruppe vorgeschlagen, 26 für weitere Menschen. Die Rechnung ist ein Entwurf, keine Vergabe.",
+         [("Vier", "Der Initiator beantragt einen Platz für sich und drei weitere, von ihm vorgeschlagene Menschen. Damit wären rechnerisch <b>26 Plätze für andere offen</b>. Die drei Personen werden nur nach eigener Zustimmung benannt; die Sonderrolle und mögliche Interessenkonflikte brauchen eine unabhängige Prüfung."),
+          ("Elf besondere Suchpunkte", "Zwei Suchplätze betreffen erschwerte Übergänge im Alter 18, fünf die Gruppe 32 bis 35, zwei eine von jungen Alleinerziehenden selbst mitgestaltete Route und zwei Menschen nach Haftentlassung. Für genau diese Zahlen gibt es noch keine örtliche Bedarfsanalyse."),
           ("Fünfzehn", "Die verbleibenden Plätze bleiben für andere Alters- und Lebenslagen offen. Eine Person darf mehrere Merkmale haben, wird im Platzledger jedoch genau einmal verbucht. Sonst würde die Summe von 30 nur auf dem Papier stimmen.")],
          ("GG Art. 3", "Zugang und Auswahl", "Rechtslabor"), "seats"),
-    page("07 / Gründergruppe", "Juris Wunsch offen verhandeln",
+    page("07 / Gründergruppe", "Vier Plätze, eine offene Frage",
          "Ein Ideengeber darf seinen Beitrag und seine eigene Entwicklungszeit zur Sprache bringen. Daraus folgt noch kein Vorrecht auf knappe öffentliche Plätze.",
-         [("Wunsch", "Juri beantragt, dass er und drei weitere Menschen Teil der 30 Personen sein können. Er möchte das System auch selbst unter echten Bedingungen erproben. Die Auswahl der anderen drei darf weder ihre eigene Zustimmung ersetzen noch sie ungefragt öffentlich identifizieren."),
+         [("Der Antrag", "Der Initiator will selbst teilnehmen und drei weitere Menschen vorschlagen. Die Auswahl der anderen drei darf weder ihre eigene Zustimmung ersetzen noch sie ungefragt öffentlich identifizieren."),
           ("Erste zulässige Route", "Eine gesonderte Co-Design- oder Forschungsrolle kann durch eine freiwillige Vereinbarung mit einem zuständigen Träger geprüft werden. Leistung, Vergütung, Rechte, Abnahme, Auswahl und mögliche Vergabevorschriften wären dann getrennt von allgemeinen Teilnehmerplätzen zu regeln."),
           ("Zweite Route", "Eine begründete Pilotkategorie innerhalb der 30 Plätze wäre nur mit veröffentlichtem Zweck, Zugangskriterien, Budget, Befangenheitskontrolle und Überprüfungsweg denkbar. Ein solcher Vorschlag ist Gegenstand des Gesprächs; er wird nicht als bereits gebilligte Sonderquote ausgegeben.")],
          ("GG Art. 3", "GO NRW 2026", "Rechtslabor"), "law"),
     page("08 / Achtzehn", "Zwei frühe Übergänge sichtbar machen",
-         "Juri möchte ausdrücklich zwei 18-jährige Menschen mit erschwertem Start berücksichtigen.",
+         "Zwei Suchplätze sind für 18-jährige Menschen mit erschwertem Start vorgeschlagen.",
          [("Warum prüfen?", "Der Beginn des Erwachsenenlebens kann gleichzeitig Ausbildung, Erwerb, Wohnen und eigenständige Behördenkontakte betreffen. Die Informationen des BMAS zu jungen Menschen beschreiben Unterstützungswege und Hindernisse; daraus folgt keine automatische Eignung einer bestimmten Person."),
           ("Wie fragen?", "Ein 18-jähriger Mensch mit Straftatgeschichte kann einen Entwicklungsweg benötigen; Förderung und Strafverfahren bleiben getrennt. Eine reale Ausschreibung darf keine öffentliche Leidensgeschichte verlangen. Freiwillige Angaben zu konkreten Barrieren und einem gewünschten Entwicklungsschritt sind enger als unbestimmte Zuschreibungen wie 'hat es schwer gehabt'. Beratung und barrierefreie Zugänge müssen mitgedacht werden."),
           ("Gegenprobe", "Eine feste Alterszahl von zwei Plätzen braucht einen sachlichen Zweck und eine Prüfung, ob ein altersneutraler Zugang dieselbe Gruppe fairer erreicht. Ohne diese Prüfung ist die Markierung ein Forschungs- und Designvorschlag.")],
          ("BMAS junge Menschen", "GG Art. 3", "AGG § 10")),
     page("09 / Zweiunddreißig bis fünfunddreißig", "Fünf Suchplätze als Hypothese",
-         "Die Zahl fünf für die Altersgruppe 32 bis 35 stammt aus Juris aktueller Projektidee, nicht aus einer gemessenen Brühler Bedarfslage.",
+         "Fünf Suchplätze für 32- bis 35-Jährige sind ein Vorschlag, noch kein gemessener Brühler Bedarf.",
          [("Mögliche Übergänge", "Menschen können in diesen Jahren zwischen Familie, Beruf, Sorgearbeit, Ausbildung und Gründung neu sortieren. Diese plausible Beschreibung rechtfertigt für sich allein weder einen Vorrang noch genau fünf Plätze."),
           ("Unterscheidende Prüfung", "Vor einer wirklichen Quote müssten Bewerbungsnachfrage, selbst beschriebene Entwicklungsziele, bestehende Angebote und ein altersneutraler Vergleich erhoben werden. Gerade Menschen mit 31, 36 oder 51 dürfen nicht allein aufgrund einer runden Altersklasse unsichtbar werden."),
           ("Vorläufige Form", "Im PDF bleibt die Fünf als sichtbare Suchhypothese. Ein zuständiger Träger kann sie nach belegter Nachfrage verändern oder verwerfen. Solange das nicht geschehen ist, erhält niemand daraus einen Anspruch oder eine Ablehnung.")],
          ("GG Art. 3", "Altersmodell Code", "Rechtslabor")),
     page("10 / Sorgeverantwortung", "Zwei selbstbestimmte Plätze",
-         "Juri möchte jungen alleinerziehenden Müttern eine eigene Stimme in der Gestaltung und Betreuung geben.",
+         "Junge alleinerziehende Mütter sollen eine eigene Stimme in Gestaltung und Begleitung bekommen.",
          [("Warum dieses Feld?", "Destatis weist für Menschen in Alleinerziehenden-Haushalten 2025 eine deutlich höhere Armutsgefährdung aus als für die Bevölkerung insgesamt. Das ist ein Gruppenindikator, keine Diagnose einer konkreten Bewerberin und kein Nachweis, dass zwei Plätze die richtige Zahl sind."),
-          ("Eigenständige Gestaltung", "Ein unabhängiger, von Betroffenen mitgestalteter Träger könnte Zugang, Begleitung und eine freiwillige jährliche Würdigung von Ideen entwickeln. Weder Juri noch die Webseite verfügt über dessen Entscheidung. Eine künftige Vergabe öffentlicher Plätze kann nicht bloß per 'Ticket' ohne Mandat und Regeln übertragen werden."),
+          ("Eigenständige Gestaltung", "Ein unabhängiger, von Betroffenen mitgestalteter Träger könnte Zugang, Begleitung und eine freiwillige jährliche Würdigung von Ideen entwickeln. Die Entscheidung läge bei diesem Träger, nicht beim Initiator oder der Webseite. Eine künftige Vergabe öffentlicher Plätze kann nicht bloß per 'Ticket' ohne Mandat und Regeln übertragen werden."),
           ("Rechtlicher Zuschnitt", "Wenn ein Programm nach Geschlecht oder Familienform differenziert, müssen Zweck, Sachgrund, Verhältnismäßigkeit und Alternativen gesondert geprüft werden. Eine rechtlich robustere Teilhabespur kann Sorgeverantwortung und konkrete Barrieren offen erfassen, ohne Mütter aus dem Blick zu verlieren.")],
          ("Destatis Alleinerziehende", "GG Art. 3", "DSGVO")),
     page("11 / Offenheit", "Fünfzehn Plätze für weitere Wege",
@@ -170,7 +170,7 @@ PAGES.extend([
           ("Kommunale Prüfung", "Brühl müsste kommunalen Aufgabenbezug, Zuständigkeit, Wirtschaftlichkeit, Haushalt und mögliche Partnerbeiträge selbst prüfen. Kein Unternehmens- oder Landesbeitrag ist für diesen Vorschlag zugesagt.")],
          ("Budgetquelle", "GO NRW 2026"), "money"),
     page("16 / Zusätzlichkeit", "Nichtanrechnung ist ein Gesetzgebungsziel",
-         "Juri will eine Entwicklungsleistung, die bestehende Ansprüche nicht verdrängt. Das ist eine präzise politische Forderung.",
+         "Die zusätzliche Entwicklungsleistung soll bestehende Ansprüche nicht verdrängen. Das ist eine politische Forderung.",
          [("Geltender Ausgangspunkt", "Im Bürgergeld sind Geldzuflüsse grundsätzlich nach SGB II § 11 zu betrachten. § 11a enthält Ausnahmen, unter anderem für bestimmte ausdrücklich zweckgebundene öffentlich-rechtliche Leistungen. Eine neue Bezeichnung 'Extra-Programm' macht eine Zahlung nicht automatisch anrechnungsfrei."),
           ("Weitere Systeme", "Sozialhilfe, Wohngeld, Kinderzuschlag, Steuer und Sozialversicherung haben eigene Regeln. Eine universelle Aussage über 'nichts wird angerechnet' benötigt eine Leistungsmatrix und gegebenenfalls ausdrückliche gesetzliche Änderungen."),
           ("Pilotroute", "Ein örtlicher Pilot kann getrennte Sach- und Bildungszwecke sowie individuelle Folgen prüfen, ohne schon eine bundesweite Nichtanrechnung zu behaupten. Vor jeder Zahlung muss die zuständige Stelle die tatsächliche Behandlung klären.")],
@@ -221,22 +221,22 @@ PAGES.extend([
          "Der Brief bittet um ein Arbeitsgespräch über Machbarkeit. Er verlangt keinen Sofortbescheid über Geld und meldet keine echte Bewerbung an.",
          [("1. Wer könnte zuständig sein?", "Gibt es innerhalb der Stadt eine Stelle, die einen freiwilligen Pilotvorschlag mit Wirtschafts-, Sozial- und Teilhabeperspektive entgegennimmt und mögliche Partner zu einer Vorprüfung einlädt?"),
           ("2. Welche Vorprüfung wäre nötig?", "Bitte benennen Sie die rechtlichen, finanziellen, datenschutzrechtlichen und organisatorischen Mindestbedingungen, bevor die Gruppe von 30 Menschen und eine Bewerbung überhaupt angekündigt werden können."),
-          ("3. Wie bleibt der Ursprung sichtbar?", "Juri bittet darum, seine Urheberrolle und den Wunsch nach Teilnahme mit drei weiteren Menschen als gesonderten, transparent zu prüfenden Punkt aufzunehmen. Eine Lösung soll Gleichbehandlung und unabhängige Kontrolle wahren.")],
+          ("3. Wie bleibt der Ursprung sichtbar?", "Urheberrolle und der beantragte Platz für den Initiator und drei weitere Menschen bleiben als gesonderter, transparent zu prüfender Punkt sichtbar. Eine Lösung soll Gleichbehandlung und unabhängige Kontrolle wahren.")],
          ("Konzept im Web", "Rechtslabor", "GO NRW 2026"), "law"),
     page("25 / Hilfe am Rand", "Der freiwillige Anschnallmodus",
          "Bis hierhin gelesen? Es gibt noch eine Sicherheitsidee: Wenn jemand in einer schweren oder auch strafrechtlich riskanten Lage herauswill, darf die sechsmonatige Frist kein Ende erreichbarer Hilfe sein.",
-         [("Der mögliche Ausweg", "Juri nennt den Freiraum zugespitzt 'sechs Monate Narrenfreiheit': ehrlich sprechen und nach Fehlern neu anfangen, nicht straffrei handeln. Eine unabhängige Stelle klärt psychosoziale, Sucht-, Schuldner- oder Schutzangebote und bei strafrechtlichem Risiko den Zugang zu selbst gewählter anwaltlicher Beratung. Vertraulichkeit und ihre gesetzlichen Grenzen werden vorab erläutert."),
-          ("Juris provokanter Originalton", "'Gib dem kriminell Verdächtigen irgendeine Möglichkeit, mal seinen Rausch auszuleben, wird er reden.' Das Zitat ist Diskussionsmaterial, <b>keine Befragungstechnik</b>. Juris Szene meint zivil gekleidete Polizeikräfte auf einer Technoparty, die eine laut erzählte, für Umstehende hörbare Äußerung wahrnehmen. Sie ist eine Erzählidee, keine Behauptung über wirkliche Einsätze oder einen Partner des Piloten."),
+         [("Der mögliche Ausweg", "Der zugespitzte Ausdruck 'sechs Monate Narrenfreiheit' meint: ehrlich sprechen und nach Fehlern neu anfangen, nicht straffrei handeln. Eine unabhängige Stelle klärt psychosoziale, Sucht-, Schuldner- oder Schutzangebote und bei strafrechtlichem Risiko den Zugang zu selbst gewählter anwaltlicher Beratung. Vertraulichkeit und ihre gesetzlichen Grenzen werden vorab erläutert."),
+          ("Provokanter Originalton von Juri", "'Gib dem kriminell Verdächtigen irgendeine Möglichkeit, mal seinen Rausch auszuleben, wird er reden.' Das Zitat ist Diskussionsmaterial, <b>keine Befragungstechnik</b>. Die Szene meint zivil gekleidete Polizeikräfte auf einer Technoparty, die eine laut erzählte, für Umstehende hörbare Äußerung wahrnehmen. Sie ist eine Erzählidee, keine Behauptung über wirkliche Einsätze oder einen Partner des Piloten."),
           ("Die Rechtsgrenze", "Ein Projektteam erhält keine Ermittlungsbefugnis. Eine laut hörbare Äußerung ist zunächst eine Wahrnehmung im öffentlichen Raum; eine gezielte behördliche Vernehmung ist ein anderer Vorgang. Freiwilliges Feiern ist keine staatliche Beeinflussung. Bei einer Beschuldigtenvernehmung schützt § 136 StPO Schweigen und Verteidigerzugang; § 136a StPO verbietet Eingriffe in freie Willensentscheidung und Einsicht. Akute Gefahr und gesetzliche Pflichten folgen den zuständigen Verfahren.")],
          ("StGB § 201", "StPO § 136", "StPO § 136a", "DSGVO", "Rechtslabor"), "support"),
     page("26 / Teilhabe nach Haft", "Zwei Plätze für einen neuen Anfang",
-         "Juri ergänzt zwei Suchplätze nach Haftentlassung. Sie gehen von den bisher 17 offenen Plätzen ab; 15 bleiben offen. Die Summe der ersten Runde bleibt 30.",
+         "Zwei Suchplätze nach Haftentlassung gehen von den zuvor 17 offenen Plätzen ab; 15 bleiben offen. Die Summe der ersten Runde bleibt 30.",
          [("Eine fachliche Anknüpfung", "Das strukturierte Übergangsmanagement der Justiz NRW beschreibt, warum Hilfen vor und nach der Entlassung zusammenpassen müssen. Das ist eine zitierte Quelle, keine Projektpartnerschaft. Der Pilot müsste mit geeigneten Stellen und den Betroffenen erst einen freiwilligen Weg entwerfen."),
           ("Ehrlichkeit ohne falsches Versprechen", "Ein Mensch darf eigene Fehler benennen und um Hilfe bitten. Das Team muss vorher sagen, was vertraulich bleiben kann und was nicht. Es kann weder Straflosigkeit noch eine Bewährungsentscheidung zusagen. Bei möglicher eigener Straftat muss selbst gewählte rechtliche Beratung erreichbar sein."),
           ("Schutz der Person", "Eine frühere Verurteilung ist keine öffentliche Bewerbungsmarke. Daten über Straftaten und Verurteilungen verlangen nach Art. 10 DSGVO eine eigene Zulässigkeitsprüfung. Bei Schaden oder Abbruch wird nach übersehenen Hilfen und Barrieren gefragt, ohne die Person auf ein moralisches Etikett zu reduzieren.")],
          ("Justiz NRW Übergang", "StGB § 46a", "StGB § 56", "DSGVO"), "support"),
     page("27 / Rechengedanke", "13 von 26: die Gegenprobe",
-         "Juri vermutet, dass 13 der 26 offen aufgenommenen Menschen einen messbaren Rückfluss erzeugen könnten, und befürchtet bei anderen auch Probleme. Beides sind frei gesetzte Hypothesen.",
+         "Gedankenversuch: 13 von 26 offen aufgenommenen Menschen erzeugen einen messbaren Rückfluss; bei den anderen wird auch ein ungünstiger Verlauf geprüft. Beides sind frei gesetzte Hypothesen.",
          [("Variablen binden", "C sind die vollständigen Kosten pro sechsmonatigem Platz; R ist der zusätzlich belegte Nutzen je einem der 13 Plätze; F ist die getrennt belegte Zusatzwirkung der vier gewünschten Gründerplätze. H sind zusätzlich belegte, in derselben Rechnung bewertbare Schäden oder Folgekosten. Für denselben Zeitraum gilt: S = 13 x R + F - 30 x C - H."),
           ("Zwei und fünf", "Bei R = 2C und F = 0 folgt S = -4C - H; für Ausgleich müsste F mindestens 4C + H betragen. Bei R = 5C und F = 0 folgt S = 35C - H. Nutzen und Schäden sind nicht gemessen; Verletzungen von Menschen lassen sich damit nicht aufrechnen."),
           ("80-Prozent-Stressprobe", "80 Prozent von 30 sind 24. Mehr als 80 Prozent ohne gemessenen Rückfluss wären mindestens 25; höchstens fünf Plätze blieben in diesem Maßstab mit Rückfluss. Bei F = 0 bräuchten sie im Mittel mindestens (30C + H) / 5. Fehlender Rückfluss sagt nichts über Menschenwert oder Kriminalität.")],
@@ -264,7 +264,7 @@ def draw_header(c, index):
     c.setFillColor(GREEN)
     c.drawString(48, H - 53, "JURI-THESIS  /  PILOTBRIEF")
     c.setFillColor(MUTED)
-    c.drawRightString(W - 48, H - 53, "13. OKTOBER 2026  /  ENTWURF")
+    c.drawRightString(W - 48, H - 53, "14. OKTOBER 2026  /  ENTWURF")
     c.setStrokeColor(colors.HexColor("#c9d9d4"))
     c.line(48, 67, W - 48, 67)
     c.setFont("Arial", 8)
@@ -391,7 +391,7 @@ def draw_diagram(c, kind, top):
 def draw_cover(c):
     c.setFillColor(INK); c.rect(0, 0, W, H, fill=1, stroke=0)
     c.setFillColor(GOLD); c.setFont("Arial-Bold", 11)
-    c.drawString(50, H - 70, "JURI-THESIS / EINE IDEE VON JURI")
+    c.drawString(50, H - 70, "JURI-THESIS / PILOTVORSCHLAG FÜR BRÜHL")
     c.setFillColor(WHITE); c.setFont("Georgia-Bold", 48)
     c.drawString(50, H - 160, "30 Menschen.")
     c.drawString(50, H - 220, "6 Monate.")
@@ -399,10 +399,10 @@ def draw_cover(c):
     c.setFillColor(colors.HexColor("#cde4dc"))
     c.setFont("Arial", 14)
     lines = [
-        "Was passiert, wenn dreißig Menschen endlich Zeit",
-        "und Mittel bekommen, ihren eigenen Weg zu wählen?",
-        "Ein Herd. Ein Auto. Vielleicht ein Vorhaben für Millionen.",
-        "Die erste Tür öffnet sich in Brühl und Umgebung."
+        "Ein Herd geht kaputt, als die Ausbildung beginnt.",
+        "Ein zweiter Weg braucht verlässliche Mobilität.",
+        "Ein dritter Mensch bringt einen großen Projektplan mit.",
+        "30 Plätze, je sechs Monate: ein Vorschlag für Brühl."
     ]
     for i, line in enumerate(lines):
         c.drawString(52, H - 339 - i*21, line)
@@ -411,7 +411,7 @@ def draw_cover(c):
         c.setFillColor([GOLD, colors.HexColor("#75b19f"), colors.HexColor("#76a5c0")][row])
         c.circle(62 + col * 51, 254 - row * 47, 14, fill=1, stroke=0)
     c.setFillColor(WHITE); c.setFont("Arial", 10)
-    c.drawString(50, 73, "Eine erzählerische Gesprächsvorlage für Stadt Brühl  |  13. Oktober 2026")
+    c.drawString(50, 73, "Konzept: Juri  |  Gesprächsvorlage für Stadt Brühl  |  14. Oktober 2026")
     c.drawString(50, 55, "Die Geschichte beginnt hier. Das Modell und seine Prüfung folgen.")
     c.linkURL(SITE, (50, 48, W - 50, 82), relative=0)
 
