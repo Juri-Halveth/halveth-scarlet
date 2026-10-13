@@ -264,8 +264,13 @@ for index, (width, height) in enumerate(((3.5, 20), (2.5, 24), (1.65, 60))):
     z = (10, 32, 74)[index]
     spawn_mesh(cube, 'ASHBOUND / Archive altar tier %02d' % index,
                vault_x, 0, z, width, width, height / 100, mat=stone_mat)
-spawn_mesh(cube, 'ASHBOUND / Altar bronze rim',
-           vault_x, 0, 107, 1.72, 1.72, .06, mat=bronze_mat)
+spawn_mesh(cube, 'ASHBOUND / Altar stone tabletop',
+           vault_x, 0, 107, 1.72, 1.72, .06, mat=stone_mat)
+for side in (-1, 1):
+    spawn_mesh(cube, 'ASHBOUND / Altar bronze east-west inlay %s' % side,
+               vault_x, side * 84, 112, 1.68, .025, .025, mat=bronze_mat)
+    spawn_mesh(cube, 'ASHBOUND / Altar bronze north-south inlay %s' % side,
+               vault_x + side * 84, 0, 112, .025, 1.68, .025, mat=bronze_mat)
 
 book_class = unreal.load_class(None, '/Script/ASHBOUNDUE.ASHBOUNDGrimoire')
 if book_class is None:

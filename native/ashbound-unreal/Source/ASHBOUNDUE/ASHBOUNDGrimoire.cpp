@@ -6,6 +6,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "Engine/Engine.h"
+#include "Engine/Font.h"
 #include "Engine/StaticMesh.h"
 #include "GameFramework/PlayerController.h"
 #include "Kismet/GameplayStatics.h"
@@ -48,8 +49,10 @@ AASHBOUNDGrimoire::AASHBOUNDGrimoire()
     RightText = CreateDefaultSubobject<UTextRenderComponent>(TEXT("RightText"));
     LeftText->SetupAttachment(BookRoot);
     RightText->SetupAttachment(BookRoot);
+    static ConstructorHelpers::FObjectFinder<UFont> ReadingFont(TEXT("/Engine/EngineFonts/RobotoDistanceField.RobotoDistanceField"));
     for (UTextRenderComponent* Text : {LeftText.Get(), RightText.Get()})
     {
+        if (ReadingFont.Succeeded()) Text->SetFont(ReadingFont.Object);
         Text->SetWorldSize(3.5f);
         Text->SetTextRenderColor(FColor(22, 18, 13));
         Text->SetHorizontalAlignment(EHTA_Left);

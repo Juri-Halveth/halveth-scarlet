@@ -2,7 +2,7 @@
 
 ASHBOUND is an independent first-person Unreal Engine 5.8 game in development. This local Windows build has a walkable ash valley, a ruined archive, three living spell schools, a readable 3D book and a three-seal passage into the fort. It runs as a native EXE with DX12/SM6, Lumen and virtual shadow maps. The browser research pages are separate from this game.
 The local reference profile starts at Epic scalability and 100% internal render resolution. Its display resolution follows the monitor; game-user settings can still be changed after first launch.
-On the reference PC (Ryzen 7 9700X, RTX 4070 SUPER, 61.6 GiB RAM), a packaged Development build rendered the archive scene offscreen at 2560 × 1440, Epic quality and 100% internal resolution: 540 sampled frames after warm-up had a 12.67 ms median and 13.69 ms 95th-percentile frame time. This measures one stationary scene, not a moving foreground play session or a guaranteed frame rate throughout a larger game.
+On the reference PC (Ryzen 7 9700X, RTX 4070 SUPER, 61.6 GiB RAM), a packaged Development build rendered the archive gate view offscreen at 2560 × 1440, Epic quality and 100% internal resolution: 540 sampled frames after warm-up had a 10.90 ms median and 12.36 ms 95th-percentile frame time. This measures one stationary scene, not a moving foreground play session or a guaranteed frame rate throughout a larger game.
 
 ![The in-world ASHBOUND grimoire in the native EXE](art/grimoire-preview.png)
 
