@@ -42,6 +42,7 @@ REF = ParagraphStyle("ref", parent=BODY, fontSize=8.2, leading=11.5, textColor=M
 SITE = "https://juri-halveth.github.io/halveth-scarlet/forschung/juri-thesis/"
 CODE = "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/"
 SOURCES = {
+    "GG Art. 1": "https://www.gesetze-im-internet.de/gg/art_1.html",
     "GG Art. 2": "https://www.gesetze-im-internet.de/gg/art_2.html",
     "GG Art. 3": "https://www.gesetze-im-internet.de/gg/art_3.html",
     "GG Art. 20": "https://www.gesetze-im-internet.de/gg/art_20.html",
@@ -110,17 +111,17 @@ PAGES.extend([
           ("Wer entscheidet?", "Ein Träger müsste Mandat, Haushalt, Ansprechstelle und Verantwortung für Zahlungen und Daten ausdrücklich übernehmen. Eine öffentliche Webseite oder ein privater Brief ersetzt keinen kommunalen Beschluss.")],
          ("GO NRW 2026", "GG Art. 28", "Konzept im Web"), "Brühl / Region"),
     page("06 / Platzledger", "30 = 4 + 2 + 5 + 2 + 2 + 15",
-         "Vier Plätze sind für die initiierende Gruppe vorgeschlagen, 26 für weitere Menschen. Die Rechnung ist ein Entwurf, keine Vergabe.",
-         [("Vier", "Der Initiator beantragt einen Platz für sich und drei weitere, von ihm vorgeschlagene Menschen. Damit wären rechnerisch <b>26 Plätze für andere offen</b>. Die drei Personen werden nur nach eigener Zustimmung benannt; die Sonderrolle und mögliche Interessenkonflikte brauchen eine unabhängige Prüfung."),
+         "Vier Plätze bilden den gesonderten 1+3-Kontinuitätswunsch; 26 bleiben für weitere Menschen. Die Rechnung ist ein Entwurf, keine Vergabe.",
+         [("1 + 3", "Ein Ankerplatz für den Ideengeber, zwei noch unbesetzte Plätze für seine spätere Wahl und ein mögliches Vorschlagsrecht für eine öffentlich ungenannte Mitgestalterin. Sie wurde noch nicht gefragt. Jede Person entscheidet selbst über Teilnahme. Die vier sind Teil der 30 und benötigen unabhängige Prüfung."),
           ("Elf besondere Suchpunkte", "Zwei Suchplätze betreffen erschwerte Übergänge im Alter 18, fünf die Gruppe 32 bis 35, zwei eine von jungen Alleinerziehenden selbst mitgestaltete Route und zwei Menschen nach Haftentlassung. Für genau diese Zahlen gibt es noch keine örtliche Bedarfsanalyse."),
           ("Fünfzehn", "Die verbleibenden Plätze bleiben für andere Alters- und Lebenslagen offen. Eine Person darf mehrere Merkmale haben, wird im Platzledger jedoch genau einmal verbucht. Sonst würde die Summe von 30 nur auf dem Papier stimmen.")],
          ("GG Art. 3", "Zugang und Auswahl", "Rechtslabor"), "seats"),
-    page("07 / Gründergruppe", "Vier Plätze, eine offene Frage",
-         "Ein Ideengeber darf seinen Beitrag und seine eigene Entwicklungszeit zur Sprache bringen. Daraus folgt noch kein Vorrecht auf knappe öffentliche Plätze.",
-         [("Der Antrag", "Der Initiator will selbst teilnehmen und drei weitere Menschen vorschlagen. Die Auswahl der anderen drei darf weder ihre eigene Zustimmung ersetzen noch sie ungefragt öffentlich identifizieren."),
-          ("Erste zulässige Route", "Eine gesonderte Co-Design- oder Forschungsrolle kann durch eine freiwillige Vereinbarung mit einem zuständigen Träger geprüft werden. Leistung, Vergütung, Rechte, Abnahme, Auswahl und mögliche Vergabevorschriften wären dann getrennt von allgemeinen Teilnehmerplätzen zu regeln."),
-          ("Zweite Route", "Eine begründete Pilotkategorie innerhalb der 30 Plätze wäre nur mit veröffentlichtem Zweck, Zugangskriterien, Budget, Befangenheitskontrolle und Überprüfungsweg denkbar. Ein solcher Vorschlag ist Gegenstand des Gesprächs; er wird nicht als bereits gebilligte Sonderquote ausgegeben.")],
-         ("GG Art. 3", "GO NRW 2026", "Rechtslabor"), "law"),
+    page("07 / Der Anker und die offenen Sitze", "Ein Name. Drei freie Entscheidungen.",
+         "Juri bittet hier um einen fortlaufenden Ankerplatz, solange er die Idee entwickelt und diese Zeit braucht. Zwei Wahlplätze und eine Einladung an eine weitere Mitnominierende bleiben offen.",
+         [("Zwei Schattenplätze", "Zwei Menschen könnten jährlich neu oder erneut vorgeschlagen werden; die erste Einladung soll nach dem Wunsch des Initiators einer Frau eine gleichberechtigte Stimme eröffnen. Heute sind weder Personen noch Beträge bestimmt. Zustimmung und eine rechtmäßige Auswahl erfolgen vor einer Belegung."),
+          ("Das dritte Vorschlagsrecht", "Eine weitere, öffentlich ungenannte Person könnte selbst eine Nominierung übernehmen. Sie wurde noch nicht gefragt und hat keine Rolle angenommen. Auch die von ihr später vorgeschlagene Person würde frei über eine Teilnahme entscheiden."),
+          ("Noch eine Runde?", "Der Wunsch nach Fortsetzung ist ein Antrag auf Kontinuität, keine automatisch gültige Dauerkarte. Er ginge über die allgemeinen zwei Sechsmonatsphasen hinaus. Eine neue Runde braucht eine eigene Regel, verantwortliche Entscheidung und Finanzierung. Wiederwahl ersetzt eine frühere Belegung; die Summe bleibt 30. Co-Design-Rolle außerhalb der Plätze und begründete Pilotkategorie innerhalb der 30 sind getrennt zu prüfen.")],
+         ("GG Art. 3", "GO NRW 2026", "Rechtslabor"), "seats_open"),
     page("08 / Achtzehn", "Zwei frühe Übergänge sichtbar machen",
          "Zwei Suchplätze sind für 18-jährige Menschen mit erschwertem Start vorgeschlagen.",
          [("Warum prüfen?", "Der Beginn des Erwachsenenlebens kann gleichzeitig Ausbildung, Erwerb, Wohnen und eigenständige Behördenkontakte betreffen. Die Informationen des BMAS zu jungen Menschen beschreiben Unterstützungswege und Hindernisse; daraus folgt keine automatische Eignung einer bestimmten Person."),
@@ -221,12 +222,12 @@ PAGES.extend([
          "Der Brief bittet um ein Arbeitsgespräch über Machbarkeit. Er verlangt keinen Sofortbescheid über Geld und meldet keine echte Bewerbung an.",
          [("1. Wer könnte zuständig sein?", "Gibt es innerhalb der Stadt eine Stelle, die einen freiwilligen Pilotvorschlag mit Wirtschafts-, Sozial- und Teilhabeperspektive entgegennimmt und mögliche Partner zu einer Vorprüfung einlädt?"),
           ("2. Welche Vorprüfung wäre nötig?", "Bitte benennen Sie die rechtlichen, finanziellen, datenschutzrechtlichen und organisatorischen Mindestbedingungen, bevor die Gruppe von 30 Menschen und eine Bewerbung überhaupt angekündigt werden können."),
-          ("3. Wie bleibt der Ursprung sichtbar?", "Urheberrolle und der beantragte Platz für den Initiator und drei weitere Menschen bleiben als gesonderter, transparent zu prüfender Punkt sichtbar. Eine Lösung soll Gleichbehandlung und unabhängige Kontrolle wahren.")],
+          ("3. Wie bleibt der Ursprung sichtbar?", "Der 1+3-Kontinuitätswunsch und die 26 anderen Wege bleiben getrennt sichtbar. Eine Lösung soll jährliche Neubewertung, Gleichbehandlung, Zustimmung jeder Person und unabhängige Kontrolle verbinden.")],
          ("Konzept im Web", "Rechtslabor", "GO NRW 2026"), "law"),
     page("25 / Hilfe am Rand", "Der freiwillige Anschnallmodus",
          "Bis hierhin gelesen? Es gibt noch eine Sicherheitsidee: Wenn jemand in einer schweren oder auch strafrechtlich riskanten Lage herauswill, darf die sechsmonatige Frist kein Ende erreichbarer Hilfe sein.",
          [("Der mögliche Ausweg", "Der zugespitzte Ausdruck 'sechs Monate Narrenfreiheit' meint: ehrlich sprechen und nach Fehlern neu anfangen, nicht straffrei handeln. Eine unabhängige Stelle klärt psychosoziale, Sucht-, Schuldner- oder Schutzangebote und bei strafrechtlichem Risiko den Zugang zu selbst gewählter anwaltlicher Beratung. Vertraulichkeit und ihre gesetzlichen Grenzen werden vorab erläutert."),
-          ("Korrigierte Beobachtung", "Juri beschreibt sinngemäß eine Situation im Nachtleben: Eine Person besorgt sich Kokain selbst und könnte sich im Gespräch auf ihre Weise öffnen. Das ist keine sichere Vorhersage, keine Befragungsmethode und kein Bestandteil des Piloten. Eine frühere direkte Zuschreibung wurde auf seine Korrektur hin entfernt."),
+          ("Korrigierte Beobachtung", "Die zugrunde liegende Schilderung beschreibt sinngemäß eine Situation im Nachtleben: Eine Person besorgt sich Kokain selbst und könnte sich im Gespräch auf ihre Weise öffnen. Das ist keine sichere Vorhersage, keine Befragungsmethode und kein Bestandteil des Piloten. Eine frühere direkte Zuschreibung wurde auf Korrektur hin entfernt."),
           ("Die Rechtsgrenze", "Ein Projektteam erhält keine Ermittlungsbefugnis. Eine laut hörbare Äußerung ist zunächst eine Wahrnehmung im öffentlichen Raum; eine gezielte behördliche Vernehmung ist ein anderer Vorgang. Freiwilliges Feiern ist keine staatliche Beeinflussung. Bei einer Beschuldigtenvernehmung schützt § 136 StPO Schweigen und Verteidigerzugang; § 136a StPO verbietet Eingriffe in freie Willensentscheidung und Einsicht. Akute Gefahr und gesetzliche Pflichten folgen den zuständigen Verfahren.")],
          ("StGB § 201", "StPO § 136", "StPO § 136a", "DSGVO", "Rechtslabor"), "support"),
     page("26 / Teilhabe nach Haft", "Zwei Plätze für einen neuen Anfang",
@@ -247,6 +248,14 @@ PAGES.extend([
           ("Rechenquelle", f'<link href="{CODE}tools/juri_age_model.mjs">Altersmodell als Quellcode</link>, <link href="{CODE}tests/juri-age-model.test.mjs">Modelltest</link> und <link href="{CODE}forschung/juri-thesis/WIRTSCHAFTSMODELL.md">offene Budgetannahmen</link>. Die 16-Punkte-Grafik folgt exakt dieser Quelle.'),
           ("Rechtsquellen", f'<link href="{SOURCES["GG Art. 3"]}">GG Art. 3</link>, <link href="{SOURCES["SGB II § 11"]}">SGB II § 11</link>, <link href="{SOURCES["SGB II § 11a"]}">§ 11a</link>, <link href="{SOURCES["GO NRW 2026"]}">GO NRW</link> und <link href="{SOURCES["DSGVO"]}">DSGVO</link>. Die Normen müssen vor einer realen Entscheidung in aktueller Fassung und für den konkreten Träger geprüft werden.')],
          ("Konzept im Web", "Altersmodell Code", "Budgetquelle")),
+    page("29 / Fünf Gegenkarten", "Wer wagt die nächste Frage?",
+         "Fünf kurze Fragen für ein ernstes Gespräch. Jede Karte lässt dem Gegenüber einen echten Einwand und einen konstruktiven Gegenzug.",
+         [("1 / Was ist ein Geburtstag wert?", "Ein Mensch erhält durch seine Geburt keinen berechenbaren Euro- oder Leistungswert. Art. 1 GG schützt seine Würde. Die Kostenfrage betrifft den vorgeschlagenen Weg und seine Finanzierung, nicht den Wert eines Lebens."),
+          ("2 / Wer darf sitzen bleiben?", "Der Ankerplatz ist als fortlaufender Wunsch formuliert. Ein Gegenüber kann fragen, warum gerade dieser Platz weiterlaufen soll. Die Antwort braucht einen öffentlichen Zweck, einen verantwortlichen Träger und eine überprüfbare Jahresentscheidung."),
+          ("3 / Wem gehören die Schattenplätze?", "Zwei freie Plätze können erst nach freiwilliger Wahl, eigener Zustimmung der Vorgeschlagenen und einer unabhängigen Entscheidung Namen tragen. Die dritte Mitnominierende hat noch nichts angenommen. Kein Platz wächst dadurch über 30 hinaus."),
+          ("4 / Was kostet ein unbekannter Mensch?", "Der Mensch hat keinen Preis. Für seinen gewünschten Sechsmonatsweg ist x zunächst offen: laufende Mittel, Anschaffungen, Projektmittel und Begleitung werden getrennt geplant. Ein Beispielbetrag für eine Person wird nicht zum Anspruch aller."),
+          ("5 / Wer hält die Gegenseite offen?", "Die 26 anderen Wege brauchen vorab veröffentlichte Kriterien, einen Beschwerdeweg und faire Finanzierung. Wer 1 + 3 vorschlägt, muss diese Prüfung zulassen; ein guter Einwand verbessert das Modell, statt einen Gegner zum Verstummen zu bringen.")],
+         ("GG Art. 1", "GG Art. 3", "GO NRW 2026", "Rechtslabor")),
 ])
 
 def paragraph(c, text, style, x, y, width):
@@ -268,7 +277,7 @@ def draw_header(c, index):
     c.setStrokeColor(colors.HexColor("#c9d9d4"))
     c.line(48, 67, W - 48, 67)
     c.setFont("Arial", 8)
-    c.drawString(48, 47, "Konzept Juri  |  Gesprächsvorlage für die Stadt Brühl")
+    c.drawString(48, 47, "JURI-THESIS  |  Gesprächsvorlage für die Stadt Brühl")
     c.drawRightString(W - 48, 47, f"{index + 1:02d} / {len(PAGES) + 1:02d}")
 
 def draw_refs(c, refs):
@@ -334,7 +343,7 @@ def draw_diagram(c, kind, top):
             c.setFillColor(color)
             c.circle(cx, cy, 10, fill=1, stroke=0)
         c.setFillColor(INK); c.setFont("Arial-Bold", 9)
-        c.drawString(x + 18, top - 111, "4 Gründer + 2 Start + 5 Übergang + 2 Sorge + 2 nach Haft + 15 offen = 30")
+        c.drawString(x + 18, top - 111, "1+3 Anker/Wahl + 2 Start + 5 Übergang + 2 Sorge + 2 nach Haft + 15 offen = 30")
     elif kind == "age":
         pts = AGE_DATA["points"]
         xx = lambda a: x + 36 + (a - 18) * (width - 70) / 47
@@ -364,6 +373,17 @@ def draw_diagram(c, kind, top):
             c.roundRect(left, top - 93, 107, 60, 9, fill=1, stroke=0)
             c.setFillColor(INK); c.setFont("Georgia-Bold", 19); c.drawCentredString(left + 53, top - 59, head)
             c.setFont("Arial-Bold", 8); c.drawCentredString(left + 53, top - 78, tail)
+    elif kind == "seats_open":
+        seats = [("1", "Anker", "beantragt"), ("2", "Wahl A", "Person offen"),
+                 ("3", "Wahl B", "Person offen"), ("4", "Mitwahl", "Einladung offen")]
+        for i, (number, label, status) in enumerate(seats):
+            left = x + 19 + i * 119
+            c.setFillColor(colors.HexColor(["#c5dacc", "#dcebcf", "#dcebcf", "#e8dcb9"][i]))
+            c.roundRect(left, top - 97, 107, 69, 9, fill=1, stroke=0)
+            c.setFillColor(INK); c.setFont("Georgia-Bold", 17)
+            c.drawCentredString(left + 53, top - 55, number)
+            c.setFont("Arial-Bold", 8); c.drawCentredString(left + 53, top - 72, label)
+            c.setFont("Arial", 6.6); c.drawCentredString(left + 53, top - 85, status)
     elif kind == "support":
         labels = ["Freiwillig melden", "Unabhängige Hilfe", "Eigene Entscheidung"]
         shades = ["#d8e8dd", "#bedacb", "#99c7b4"]
@@ -411,7 +431,7 @@ def draw_cover(c):
         c.setFillColor([GOLD, colors.HexColor("#75b19f"), colors.HexColor("#76a5c0")][row])
         c.circle(62 + col * 51, 254 - row * 47, 14, fill=1, stroke=0)
     c.setFillColor(WHITE); c.setFont("Arial", 10)
-    c.drawString(50, 73, "Konzept: Juri  |  Gesprächsvorlage für Stadt Brühl  |  14. Oktober 2026")
+    c.drawString(50, 73, "JURI-THESIS  |  Gesprächsvorlage für Stadt Brühl  |  14. Oktober 2026")
     c.drawString(50, 55, "Die Geschichte beginnt hier. Das Modell und seine Prüfung folgen.")
     c.linkURL(SITE, (50, 48, W - 50, 82), relative=0)
 
@@ -435,7 +455,7 @@ def draw_content(c, item, index):
 def build():
     c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1, invariant=1)
     c.setTitle("JURI-THESIS - 30 Menschen, sechs Monate, eine Region")
-    c.setAuthor("Juri")
+    c.setAuthor("JURI-THESIS / HALVETH")
     c.setSubject("Oeffentlicher Vorschlag fuer einen freiwilligen Entwicklungszeit-Pilot in Bruehl")
     draw_cover(c); c.showPage()
     for index, item in enumerate(PAGES, 1):

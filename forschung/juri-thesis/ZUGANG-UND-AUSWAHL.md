@@ -1,6 +1,6 @@
 # Chancenreise: Zugang, Auswahl und neue Bewerbungsrunden
 
-**Konzept von Juri · öffentlicher Prototyp vom 14. Oktober 2026 · kein geöffnetes Bewerbungsverfahren**
+**Öffentlicher Prototyp vom 14. Oktober 2026 · kein geöffnetes Bewerbungsverfahren**
 
 Die [klickbare Chancenreise](chancenreise.html) zeigt den Weg durch einen möglichen lokalen Pilot. Sie nimmt keine Bewerbungen an, speichert keine persönlichen Angaben und entscheidet über niemanden. Brühl ist ein vorgeschlagener Ort; eine Zusage der Stadt oder anderer Träger liegt nicht vor.
 
@@ -10,7 +10,7 @@ Für **eine** Pilotrunde zeigt der Entwurf **30 = 4 + 2 + 5 + 2 + 2 + 15** ganze
 
 | Vorschlagslinie | Plätze | Aussagegrenze |
 | --- | ---: | --- |
-| Der Initiator und drei weitere von ihm vorgeschlagene Personen | 4 | Nur mit eigener Zustimmung aller Personen; eine Sonderrolle ist vorab unabhängig auf Gleichbehandlung, Zuständigkeit, Vergabe und Befangenheit zu prüfen. Kein Platz ist zugesagt. |
+| 1 + 3: Ankerplatz, zwei offene Wahlplätze, mögliches drittes Nominierungsrecht einer noch ungenannten Person | 4 | Nur Juri als Antragsteller ist benannt. Zwei Personen könnte er jährlich neu oder erneut vorschlagen, darunter nach seinem Wunsch eine Frau. Die andere Mitnominierende wurde noch nicht gefragt und darf erst nach eigener Zustimmung eine Person vorschlagen. Alle Teilnehmenden stimmen selbst zu; Sonderrolle, Wiederwahl, Gleichbehandlung, Finanzierung und Befangenheit brauchen eine unabhängige Entscheidung. Der wiederkehrende Anker wäre eine Ausnahme vom allgemeinen Zwei-Phasen-Modell und braucht eine eigene Regel. |
 | Menschen im Alter 18 mit erschwertem Übergang | 2 | Individuelle Hürden dürfen nicht aus dem Geburtsjahr abgeleitet oder öffentlich eingefordert werden. |
 | Alter 32 bis 35 | 5 | Eine Suchhypothese; ein aktueller örtlicher Bedarf für genau fünf Plätze ist nicht gemessen. |
 | Junge Alleinerziehende | 2 | Vorgeschlagen ist ein selbstbestimmter, möglichst eigenständig getragener Zugang für junge Mütter. Träger, Mandat, Geschlechts-/Familienkriterium und Gleichbehandlung bleiben offen. |
@@ -18,6 +18,8 @@ Für **eine** Pilotrunde zeigt der Entwurf **30 = 4 + 2 + 5 + 2 + 2 + 15** ganze
 | Weitere Lebensalter und Wege | 15 | Offener Zugang für andere Erwachsene, auch 50+ und 65+. |
 
 Diese Spuren zählen **exklusiv im Platzledger**: Ein Mensch kann mehrere Eigenschaften besitzen, belegt aber höchstens einen Platz. Die 26 Plätze außerhalb der gewünschten Gründergruppe sind somit **2 + 5 + 2 + 2 + 15**. Sollte eine Sonderlinie rechtlich, finanziell oder praktisch nicht tragen, muss die Gesamtverteilung neu beschlossen werden; ihre Plätze werden nicht still vergeben. Für Daten über strafrechtliche Verurteilungen und Straftaten gelten besonders enge Voraussetzungen nach [Art. 10 DSGVO](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32016R0679); ein öffentlicher Steckbrief oder informelles Register wäre dafür kein tragfähiger Weg.
+
+Die beiden freien Wahlplätze sind als **Schattenplätze** sichtbar, bis die jeweils vorgeschlagene Person ihre eigene Entscheidung getroffen hat. Ein leeres Feld enthält weder Identität noch Geldbetrag. Die erste Einladung soll nach dem Wunsch des Initiators an eine Frau mit gleichberechtigter Stimme gehen; daraus entsteht keine Einwilligung, und ein Geschlechtskriterium für eine öffentlich finanzierte Vergabe wäre gesondert zu begründen. Pro Jahresrunde ersetzt eine neue oder wiederholte Nominierung die frühere Belegung desselben Platzes. Das gewünschte Sitzenbleiben des Initiators ist ein Kontinuitätsantrag, keine bereits erteilte unbefristete Bewilligung.
 
 Die getrennte [16-Punkte-Alterskurve](assets/alterskurve-16.svg) hat von 18 bis 65 die relative Gewichtung **w(a)=1+((65-min(a,65))/47)²** und ab 65 das positive Gewicht 1. Zwischen 18 und 65 fällt sie anfangs stärker und wird später flacher; die gewählte Form ist eine diskutierbare Annahme, keine gemessene Bedarfsverteilung. Sie ist ein **Diskussionsmodell** und vergibt keine Plätze. Sechzehn Stützpunkte sind keine 16 Altersklassen und keine 16 Stellen. Eine tatsächliche Alterspräferenz müsste nach [Art. 3 GG](https://www.gesetze-im-internet.de/gg/art_3.html) und gegebenenfalls [§ 10 AGG](https://www.gesetze-im-internet.de/agg/__10.html) durch Ziel, Geeignetheit, Erforderlichkeit und mildere Alternativen begründet werden. Das [Rechtslabor](rechtslabor.html#alter) zeigt den Gegenstandpunkt. Auch ein NEEDED-Label benötigt eine unabhängig definierte Bedarfsquelle; Alter allein reicht nicht.
 
