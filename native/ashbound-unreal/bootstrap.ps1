@@ -42,7 +42,7 @@ if ($LASTEXITCODE -ne 0 -or -not (Test-Path -LiteralPath (Join-Path $WorkRoot 'A
 & $buildTool ASHBOUNDUEEditor Win64 Development "-Project=$uproject" -WaitMutex -NoHotReload
 if ($LASTEXITCODE -ne 0) { throw 'ASHBOUNDUE editor build failed' }
 
-foreach ($scriptName in @('import_world.py', 'make_magic_material.py', 'build_world.py', 'fix_meshes.py')) {
+foreach ($scriptName in @('import_world.py', 'import_vault_textures.py', 'make_magic_material.py', 'build_world.py', 'fix_meshes.py')) {
     $scriptFile = Join-Path $nativeRoot "tools\$scriptName"
     & $editor $uproject -run=pythonscript "-script=$scriptFile" -unattended -nullrhi -nosplash -nop4 -log
     if ($LASTEXITCODE -ne 0) { throw "Unreal authoring step failed: $scriptName" }

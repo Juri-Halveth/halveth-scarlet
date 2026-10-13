@@ -1,4 +1,6 @@
 #include "ASHBOUNDSpell.h"
+#include "ASHBOUNDGrimoire.h"
+#include "ASHBOUNDSeal.h"
 
 #include "Components/PointLightComponent.h"
 #include "Components/SceneComponent.h"
@@ -7,6 +9,7 @@
 #include "Engine/StaticMesh.h"
 #include "Engine/StaticMeshActor.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Materials/MaterialInterface.h"
 #include "UObject/ConstructorHelpers.h"
@@ -103,6 +106,19 @@ void AASHBOUNDSpell::ApplyWorldEffect()
 {
     UWorld* World = GetWorld();
     if (!World) return;
+    for (TActorIterator<AASHBOUNDSeal> It(World); It; ++It)
+    {
+        if (It->GetRequiredSchool() == School &&
+            FVector::Dist(It->GetActorLocation(), Target) < 175.0f)
+        {
+            It->Activate(School);
+        }
+    }
+    bool bBookStudied = false;
+    for (TActorIterator<AASHBOUNDGrimoire> It(World); It; ++It)
+    {
+        if (It->IsStudied()) { bBookStudied = true; break; }
+    }
 
     if (School == 0)
     {
@@ -111,7 +127,7 @@ void AASHBOUNDSpell::ApplyWorldEffect()
         if (Echo)
         {
             Echo->Initialize(0, Target, true);
-            Echo->SetLifeSpan(18.0f);
+            Echo->SetLifeSpan(bBookStudied ? 45.0f : 18.0f);
             UE_LOG(LogTemp, Display, TEXT("ASHBOUND world effect: Resonance echo at %s"), *Target.ToString());
         }
         return;
@@ -164,7 +180,7 @@ void AASHBOUNDSpell::ApplyWorldEffect()
                                             Fern->GetBounds().BoxExtent.Z) * 2.0f;
         Growth->SetActorScale3D(FVector(FMath::Clamp(140.0f / FMath::Max(Diameter, 1.0f),
                                                     0.02f, 100.0f)));
-        Growth->SetLifeSpan(120.0f);
+        if (!bBookStudied) Growth->SetLifeSpan(120.0f);
         UE_LOG(LogTemp, Display, TEXT("ASHBOUND world effect: Reweave growth at %s"), *Landing.ToString());
     }
 }

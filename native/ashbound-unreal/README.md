@@ -1,31 +1,21 @@
-# ASHBOUND native 3D technical demo
+# ASHBOUND — native Windows game candidate
 
-ASHBOUND is an independent first-person fantasy-world prototype built with Unreal Engine 5.8. The Windows technical demo opens inside a walkable, sculpted ash valley with a stone fort, animated ambient wisps, dynamic lighting and three castable visual spell schools. It is a native executable, separate from the browser-based ASHBOUND research page. The intended full game is still in development.
+ASHBOUND is an independent first-person Unreal Engine 5.8 game in development. This local Windows build has a walkable ash valley, a ruined archive, three living spell schools, a readable 3D book and a three-seal passage into the fort. It runs as a native EXE with DX12/SM6, Lumen and virtual shadow maps. The browser research pages are separate from this game.
 
-![ASHBOUND native valley](art/prologue-preview.png)
+![The in-world ASHBOUND grimoire in the native EXE](art/grimoire-preview.png)
 
-**Controls:** WASD to move, mouse to look, Space to jump, Q for Resonance, E for Ember, R for Reweave, Esc to leave the game. Spell orbs travel toward the player's aim point and change their light, colour and orbit by school. Resonance leaves a temporary echo beacon, Ember lights the destination, and Reweave grows a fern there. These are small, time-limited world effects, not a complete magic system. This preview does not yet contain NPC AI, quests, books, combat progression, a market, saves or a full open world. It is not an Elder Scrolls or Morrowind modification, and contains none of those games' assets.
+Move with WASD and mouse; Space jumps. Cast Resonance with **Q**, Ember with **E**, and Reweave with **R**. Face the book and press **F** to read or turn a page; **Escape** leaves the reading view. Studying it extends Resonance's echo from 18 to 45 seconds and lets Reweave growth persist for the current play session. Match the three coloured archive seals to the three spells to raise the east gate. The spells travel through the 3D world and produce light, echoes and growth at their destinations.
 
-## Build from source
+## Build locally
 
-Requirements: Windows x64, Unreal Engine 5.8 installed with its first-person Blueprint template and high-content template resources, Visual Studio C++ toolchain, Python 3, and network access to Poly Haven for the listed CC0 assets. The build needs substantial temporary disk space. The source tree intentionally excludes downloaded art, generated Unreal `.uasset` files, cooked content and binaries.
-
-From the repository root in PowerShell:
+Windows x64 needs Unreal Engine 5.8 with its first-person Blueprint template and high-content template resources, a Visual Studio C++ toolchain, Python 3 and space for the generated project. From the repository root in PowerShell:
 
 ```powershell
 & .\native\ashbound-unreal\bootstrap.ps1 -EngineRoot 'C:\Program Files\Epic Games\UE_5.8'
 & .\native\ashbound-unreal\package.ps1 -EngineRoot 'C:\Program Files\Epic Games\UE_5.8'
 ```
 
-`bootstrap.ps1` verifies the public asset manifest, checks and downloads 39 additional Poly Haven files against `asset-manifest.json`, copies Epic's installed first-person template content, compiles the native module and authors the 3D map in Unreal. It writes generated files below `.local-qa/ashbound-unreal` and refuses to overwrite an existing project. `package.ps1` cooks a Development Windows build to a fresh output folder and requires `-skipzenstore` on this tested UE 5.8 configuration. Both scripts accept an alternate `-WorkRoot`; `package.ps1` also accepts `-OutputRoot`.
+`bootstrap.ps1` creates a fresh, isolated Unreal project; `package.ps1` cooks a Windows Development build into a fresh output directory. They accept `-WorkRoot`, and the packaging script accepts `-OutputRoot`. Existing project or output paths are refused. The build verifies 47 downloaded Poly Haven source files against SHA-256, size and URL entries in `asset-manifest.json`; the sources are [CC0](https://polyhaven.com/license). The book's paper and leather images in `art/materials/` were generated specifically for this project. Epic template assets come from the local engine installation. Generated `.uasset` files and executable packages stay outside Git.
+Pass `-Configuration Shipping` to `package.ps1` for a player-facing package without the Development QA switches.
 
-The scripted map, terrain and three living spell actors are in `tools/` and `Source/`. The 39 downloaded art files are bound by SHA-256, size and URL in `asset-manifest.json`; six other visual sources already in this repository are checked against the public web asset manifest. The additional art is [Poly Haven CC0](https://polyhaven.com/license). Epic's first-person template content is supplied by the local engine installation, not committed here.
-
-## Verified preview scope
-
-- Unreal editor C++ build succeeded on Windows with UE 5.8.
-- The map authoring receipt recorded 567 world actors. A packaged Windows Development build completed successfully and launched locally.
-- A timed native capture showed the first-person 3D fort scene and a grown plant. The packaged runtime log showed a possessed first-person pawn, all three spell casts and each school's world effect. The screenshot above is from the native runtime, not a mock-up.
-- Keyboard Q/E/R input is bound in code. Manual end-to-end interaction for every school, performance across other GPUs, longer play sessions, installer behaviour and accessibility have not yet been established.
-
-The next game-development pass should deepen the consequences of each spell, add meaningful exploration and readable in-world lore. This preview establishes the native 3D renderer, controllable first-person traversal and an authored world that can be iterated without falling back to a flat arena.
+The native source lives in `Source/`, world authoring and asset import in `tools/`, and renderer settings in `Config/`. The current play area is a vertical slice: it has no NPC AI, save system, full open world or final character animation. Frame measurements for one scene and this PC do not establish a stable frame rate for a completed game; the current run record is kept with the local build, not presented as a universal hardware requirement.
