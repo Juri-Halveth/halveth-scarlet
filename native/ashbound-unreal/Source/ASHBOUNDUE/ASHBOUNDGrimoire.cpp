@@ -105,13 +105,13 @@ void AASHBOUNDGrimoire::BeginPlay()
 void AASHBOUNDGrimoire::ShowPage()
 {
     static const TCHAR* Left[] = {
-        TEXT("DAS ECHO\n\nStein behaelt nicht\nunsere Worte.\nEr behaelt die Wege,\ndie wir oeffnen."),
+        TEXT("DAS ECHO\n\nStein behält nicht\nunsere Worte.\nEr behält die Wege,\ndie wir öffnen."),
         TEXT("DIE GLUT\n\nLicht zeigt eine Spur,\ndoch es bestimmt\nnicht den Weg."),
         TEXT("DIE NEUFASSUNG\n\nWo Asche ruht,\nkann ein neuer\nAnfang wachsen.")
     };
     static const TCHAR* Right[] = {
-        TEXT("Suche die drei\nhellen Zeichen\nim alten Gewoelbe.\n\nResonanz bleibt\nnun laenger."),
-        TEXT("Folge nicht nur\ndem Schein.\nBeachte, was er\nveraendert."),
+        TEXT("Suche die drei\nhellen Zeichen\nim alten Gewölbe.\n\nResonanz bleibt\nnun länger."),
+        TEXT("Prüfe nicht nur\nden Schein.\nBeachte, was er\nverändert."),
         TEXT("Eine Spur bleibt\nin dieser Welt,\nsolange du hier\nweitergehst.")
     };
     LeftText->SetText(FText::FromString(Left[Page]));
@@ -133,7 +133,7 @@ void AASHBOUNDGrimoire::Study()
         }
         UE_LOG(LogTemp, Display, TEXT("ASHBOUND grimoire opened; resonance and reweave changed"));
         if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor(156, 230, 255),
-            TEXT("Das Buch antwortet. Resonanz haelt laenger; Neufassung bleibt."));
+            TEXT("Das Buch antwortet. Resonanz hält länger; Neufassung bleibt."));
     }
     else
     {

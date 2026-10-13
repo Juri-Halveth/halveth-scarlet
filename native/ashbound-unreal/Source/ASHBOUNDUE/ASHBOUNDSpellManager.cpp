@@ -59,12 +59,14 @@ void AASHBOUNDSpellManager::BeginPlay()
 #if !UE_BUILD_SHIPPING
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqavault")) ||
         FParse::Param(FCommandLine::Get(), TEXT("ashboundqareadbook")) ||
+        FParse::Param(FCommandLine::Get(), TEXT("ashboundqapage2")) ||
         FParse::Param(FCommandLine::Get(), TEXT("ashboundqagateview")))
     {
-        const bool bRead = FParse::Param(FCommandLine::Get(), TEXT("ashboundqareadbook"));
+        const bool bPage2 = FParse::Param(FCommandLine::Get(), TEXT("ashboundqapage2"));
+        const bool bRead = bPage2 || FParse::Param(FCommandLine::Get(), TEXT("ashboundqareadbook"));
         const bool bGate = FParse::Param(FCommandLine::Get(), TEXT("ashboundqagateview"));
         FTimerHandle VaultTimer;
-        GetWorld()->GetTimerManager().SetTimer(VaultTimer, FTimerDelegate::CreateWeakLambda(this, [this, bRead, bGate]()
+        GetWorld()->GetTimerManager().SetTimer(VaultTimer, FTimerDelegate::CreateWeakLambda(this, [this, bRead, bGate, bPage2]()
         {
             APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
             if (!Controller || !Controller->GetPawn()) return;
@@ -76,6 +78,12 @@ void AASHBOUNDSpellManager::BeginPlay()
                 FTimerHandle ReadTimer;
                 GetWorld()->GetTimerManager().SetTimer(ReadTimer,
                     FTimerDelegate::CreateUObject(this, &AASHBOUNDSpellManager::StudyNearestBook), 1.2f, false);
+                if (bPage2)
+                {
+                    FTimerHandle TurnTimer;
+                    GetWorld()->GetTimerManager().SetTimer(TurnTimer,
+                        FTimerDelegate::CreateUObject(this, &AASHBOUNDSpellManager::StudyNearestBook), 2.0f, false);
+                }
             }
         }), 1.0f, false);
     }
@@ -148,7 +156,7 @@ void AASHBOUNDSpellManager::StudyNearestBook()
     }
     if (Nearest) Nearest->Study();
     else if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::White,
-        TEXT("Naehere dich dem Buch und sieh es an."));
+        TEXT("Nähere dich dem Buch und sieh es an."));
 }
 
 void AASHBOUNDSpellManager::StopReading()
