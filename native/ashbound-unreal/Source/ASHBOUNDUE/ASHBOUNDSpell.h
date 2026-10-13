@@ -25,6 +25,7 @@ protected:
 
 private:
     void UpdateAppearance();
+    void ApplyWorldEffect();
 
     UPROPERTY()
     TObjectPtr<USceneComponent> SpellRoot;
@@ -49,4 +50,5 @@ private:
     float Age = 0.0f;
     int32 School = 0;
     bool bAmbient = false;
+    bool bApplied = false;
 };

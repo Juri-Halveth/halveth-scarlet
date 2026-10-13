@@ -4,7 +4,7 @@ ASHBOUND is an independent first-person fantasy-world prototype built with Unrea
 
 ![ASHBOUND native valley](art/prologue-preview.png)
 
-**Controls:** WASD to move, mouse to look, Space to jump, Q for Resonance, E for Ember, R for Reweave, Esc to leave the game. The spell orbs travel toward the player's aim point and change their light, colour and orbit by school. This preview currently demonstrates traversal and magic presentation; it does not yet contain NPC AI, quests, books, combat progression, a market, saves or a full open world. It is not an Elder Scrolls or Morrowind modification, and contains none of those games' assets.
+**Controls:** WASD to move, mouse to look, Space to jump, Q for Resonance, E for Ember, R for Reweave, Esc to leave the game. Spell orbs travel toward the player's aim point and change their light, colour and orbit by school. Resonance leaves a temporary echo beacon, Ember lights the destination, and Reweave grows a fern there. These are small, time-limited world effects, not a complete magic system. This preview does not yet contain NPC AI, quests, books, combat progression, a market, saves or a full open world. It is not an Elder Scrolls or Morrowind modification, and contains none of those games' assets.
 
 ## Build from source
 
@@ -25,7 +25,7 @@ The scripted map, terrain and three living spell actors are in `tools/` and `Sou
 
 - Unreal editor C++ build succeeded on Windows with UE 5.8.
 - The map authoring receipt recorded 567 world actors. A packaged Windows Development build completed successfully and launched locally.
-- A timed native capture showed the first-person 3D fort scene and a cast Reweave spell; the packaged runtime log showed a possessed first-person pawn and spell cast. The screenshot above is from the native runtime, not a mock-up.
+- A timed native capture showed the first-person 3D fort scene and a grown plant. The packaged runtime log showed a possessed first-person pawn, all three spell casts and each school's world effect. The screenshot above is from the native runtime, not a mock-up.
 - Keyboard Q/E/R input is bound in code. Manual end-to-end interaction for every school, performance across other GPUs, longer play sessions, installer behaviour and accessibility have not yet been established.
 
-The next game-development pass should add world consequences to each spell, meaningful exploration and readable in-world lore. This preview establishes the native 3D renderer, controllable first-person traversal and an authored world that can be iterated without falling back to a flat arena.
+The next game-development pass should deepen the consequences of each spell, add meaningful exploration and readable in-world lore. This preview establishes the native 3D renderer, controllable first-person traversal and an authored world that can be iterated without falling back to a flat arena.

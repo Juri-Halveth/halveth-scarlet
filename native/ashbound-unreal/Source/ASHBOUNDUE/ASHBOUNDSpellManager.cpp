@@ -52,7 +52,17 @@ void AASHBOUNDSpellManager::BeginPlay()
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND living magic ready; three ambient wisps, Q/E/R input"));
 
 #if !UE_BUILD_SHIPPING
-    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqacast")))
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqacastall")))
+    {
+        FTimerHandle ResonanceTimer, EmberTimer, ReweaveTimer;
+        GetWorld()->GetTimerManager().SetTimer(ResonanceTimer,
+            FTimerDelegate::CreateUObject(this, &AASHBOUNDSpellManager::CastResonance), 1.0f, false);
+        GetWorld()->GetTimerManager().SetTimer(EmberTimer,
+            FTimerDelegate::CreateUObject(this, &AASHBOUNDSpellManager::CastEmber), 1.6f, false);
+        GetWorld()->GetTimerManager().SetTimer(ReweaveTimer,
+            FTimerDelegate::CreateUObject(this, &AASHBOUNDSpellManager::CastReweave), 2.2f, false);
+    }
+    else if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqacast")))
     {
         FTimerHandle SpellTimer;
         GetWorld()->GetTimerManager().SetTimer(SpellTimer,
@@ -65,7 +75,7 @@ void AASHBOUNDSpellManager::BeginPlay()
         {
             FScreenshotRequest::RequestScreenshot(
                 FPaths::ProjectSavedDir() / TEXT("Screenshots/ASHBOUND-QA.png"), false, false);
-        }), 3.0f, false);
+        }), 6.5f, false);
     }
 #endif
 }

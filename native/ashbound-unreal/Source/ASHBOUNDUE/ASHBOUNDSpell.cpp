@@ -3,6 +3,10 @@
 #include "Components/PointLightComponent.h"
 #include "Components/SceneComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Engine/PointLight.h"
+#include "Engine/StaticMesh.h"
+#include "Engine/StaticMeshActor.h"
+#include "Engine/World.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Materials/MaterialInterface.h"
 #include "UObject/ConstructorHelpers.h"
@@ -95,10 +99,85 @@ void AASHBOUNDSpell::UpdateAppearance()
     }
 }
 
+void AASHBOUNDSpell::ApplyWorldEffect()
+{
+    UWorld* World = GetWorld();
+    if (!World) return;
+
+    if (School == 0)
+    {
+        AASHBOUNDSpell* Echo = World->SpawnActor<AASHBOUNDSpell>(
+            AASHBOUNDSpell::StaticClass(), Target, FRotator::ZeroRotator);
+        if (Echo)
+        {
+            Echo->Initialize(0, Target, true);
+            Echo->SetLifeSpan(18.0f);
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND world effect: Resonance echo at %s"), *Target.ToString());
+        }
+        return;
+    }
+    if (School == 1)
+    {
+        APointLight* Ember = World->SpawnActor<APointLight>(
+            APointLight::StaticClass(), Target + FVector(0, 0, 90), FRotator::ZeroRotator);
+        if (Ember)
+        {
+            Ember->SetMobility(EComponentMobility::Movable);
+            if (UPointLightComponent* Light = Cast<UPointLightComponent>(Ember->GetLightComponent()))
+            {
+                Light->SetLightColor(FLinearColor(1.0f, 0.31f, 0.075f));
+                Light->SetIntensity(8000.0f);
+                Light->SetAttenuationRadius(1200.0f);
+            }
+            Ember->SetLifeSpan(24.0f);
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND world effect: Ember light at %s"), *Target.ToString());
+        }
+        return;
+    }
+
+    UStaticMesh* Fern = LoadObject<UStaticMesh>(nullptr,
+        TEXT("/Game/ASHBOUND/Models/fern_02/fern_02_1k/StaticMeshes/fern_02_a.fern_02_a"));
+    if (!Fern)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("ASHBOUND Reweave fern asset missing"));
+        return;
+    }
+    FVector Landing = Target;
+    FHitResult Hit;
+    FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDReweave), false);
+    Query.AddIgnoredActor(this);
+    if (World->LineTraceSingleByChannel(Hit, Target + FVector(0, 0, 250),
+                                        Target - FVector(0, 0, 1300), ECC_Visibility, Query))
+    {
+        Landing = Hit.ImpactPoint + FVector(0, 0, 3);
+    }
+    AStaticMeshActor* Growth = World->SpawnActor<AStaticMeshActor>(
+        AStaticMeshActor::StaticClass(), Landing, FRotator(0, FMath::FRandRange(0.0f, 360.0f), 0));
+    if (Growth)
+    {
+        UStaticMeshComponent* Mesh = Growth->GetStaticMeshComponent();
+        Mesh->SetMobility(EComponentMobility::Movable);
+        Mesh->SetStaticMesh(Fern);
+        Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        const float Diameter = FMath::Max3(Fern->GetBounds().BoxExtent.X,
+                                            Fern->GetBounds().BoxExtent.Y,
+                                            Fern->GetBounds().BoxExtent.Z) * 2.0f;
+        Growth->SetActorScale3D(FVector(FMath::Clamp(140.0f / FMath::Max(Diameter, 1.0f),
+                                                    0.02f, 100.0f)));
+        Growth->SetLifeSpan(120.0f);
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND world effect: Reweave growth at %s"), *Landing.ToString());
+    }
+}
+
 void AASHBOUNDSpell::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
     Age += DeltaSeconds;
+    if (!bAmbient && !bApplied && Age >= 2.6f)
+    {
+        bApplied = true;
+        ApplyWorldEffect();
+    }
     if (!bAmbient && Age >= 3.7f)
     {
         Destroy();
