@@ -6,7 +6,7 @@ On the reference PC (Ryzen 7 9700X, RTX 4070 SUPER, 61.6 GiB RAM), a packaged De
 
 ![The in-world ASHBOUND grimoire in the native EXE](art/grimoire-preview.png)
 
-Move with WASD and mouse; Space jumps. Cast Resonance with **Q**, Ember with **E**, and Reweave with **R**. Face an archive book and press **F** to read or turn its page; **Escape** leaves the reading view. The three volumes use the existing ASHBOUND texts from `forschung/ashbound/play/books.mjs`. Studying a book extends Resonance's echo from 18 to 45 seconds and lets Reweave growth persist for the current play session. Match the three coloured archive seals to the three spells to raise the east gate. The spells travel through the 3D world and produce light, echoes and growth at their destinations.
+Move with WASD and mouse; Space jumps. Cast Resonance with **Q**, Ember with **E**, and Reweave with **R**. Face an archive book and press **F** to read or turn its page; **Escape** leaves the reading view. The three volumes use the existing ASHBOUND texts from `forschung/ashbound/play/books.mjs`. Studying a book extends Resonance's echo from 18 to 45 seconds and lets Reweave growth persist for the current play session. Match the three coloured archive seals to the three spells to raise the east gate. Flying spells resolve at their first blocking impact and produce light, echoes or growth in the 3D world.
 
 ## Build locally
 

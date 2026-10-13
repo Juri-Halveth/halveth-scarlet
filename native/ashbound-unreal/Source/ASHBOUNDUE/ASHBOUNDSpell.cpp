@@ -10,6 +10,8 @@
 #include "Engine/StaticMeshActor.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
+#include "GameFramework/Pawn.h"
+#include "Kismet/GameplayStatics.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Materials/MaterialInterface.h"
 #include "UObject/ConstructorHelpers.h"
@@ -102,16 +104,38 @@ void AASHBOUNDSpell::UpdateAppearance()
     }
 }
 
-void AASHBOUNDSpell::ApplyWorldEffect()
+void AASHBOUNDSpell::ApplyWorldEffect(const FHitResult* FlightImpact)
 {
     UWorld* World = GetWorld();
     if (!World) return;
-    for (TActorIterator<AASHBOUNDSeal> It(World); It; ++It)
+
+    if (FlightImpact)
     {
-        if (It->GetRequiredSchool() == School &&
-            FVector::Dist(It->GetActorLocation(), Target) < 175.0f)
+        // A blocking wall must not charge a nearby seal behind it.
+        if (AASHBOUNDSeal* Seal = Cast<AASHBOUNDSeal>(FlightImpact->GetActor()))
         {
-            It->Activate(School);
+            Seal->Activate(School);
+        }
+    }
+    else
+    {
+        // Aimed casts stop short of the seal core; keep their direct activation.
+        for (TActorIterator<AASHBOUNDSeal> It(World); It; ++It)
+        {
+            if (It->GetRequiredSchool() != School ||
+                FVector::Dist(It->GetActorLocation(), Target) >= 175.0f)
+            {
+                continue;
+            }
+            FHitResult SealHit;
+            FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDSealReach), false);
+            Query.AddIgnoredActor(this);
+            if (World->LineTraceSingleByChannel(SealHit, Target, It->GetActorLocation(),
+                                                ECC_Visibility, Query) &&
+                SealHit.GetActor() == *It)
+            {
+                It->Activate(School);
+            }
         }
     }
     bool bBookStudied = false;
@@ -159,13 +183,16 @@ void AASHBOUNDSpell::ApplyWorldEffect()
         return;
     }
     FVector Landing = Target;
-    FHitResult Hit;
-    FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDReweave), false);
-    Query.AddIgnoredActor(this);
-    if (World->LineTraceSingleByChannel(Hit, Target + FVector(0, 0, 250),
-                                        Target - FVector(0, 0, 1300), ECC_Visibility, Query))
+    if (!FlightImpact)
     {
-        Landing = Hit.ImpactPoint + FVector(0, 0, 3);
+        FHitResult Hit;
+        FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDReweave), false);
+        Query.AddIgnoredActor(this);
+        if (World->LineTraceSingleByChannel(Hit, Target + FVector(0, 0, 250),
+                                            Target - FVector(0, 0, 1300), ECC_Visibility, Query))
+        {
+            Landing = Hit.ImpactPoint + FVector(0, 0, 3);
+        }
     }
     AStaticMeshActor* Growth = World->SpawnActor<AStaticMeshActor>(
         AStaticMeshActor::StaticClass(), Landing, FRotator(0, FMath::FRandRange(0.0f, 360.0f), 0));
@@ -189,33 +216,56 @@ void AASHBOUNDSpell::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
     Age += DeltaSeconds;
-    if (!bAmbient && !bApplied && Age >= 2.6f)
-    {
-        bApplied = true;
-        ApplyWorldEffect();
-    }
-    if (!bAmbient && Age >= 3.7f)
-    {
-        Destroy();
-        return;
-    }
-
     const float Phase = Age * (bAmbient ? 1.5f : 3.2f);
-    FVector Center;
+    FVector Center = GetActorLocation();
+    FHitResult FlightHit;
+    bool bBlockingImpact = false;
     if (bAmbient)
     {
         Center = Target + FVector(30.0f * FMath::Sin(Phase * 0.7f),
                                   30.0f * FMath::Cos(Phase * 0.7f),
                                   35.0f * FMath::Sin(Phase));
     }
-    else
+    else if (!bApplied)
     {
         const float Progress = FMath::Clamp(Age / 2.6f, 0.0f, 1.0f);
         const float Ease = Progress * Progress * (3.0f - 2.0f * Progress);
-        Center = FMath::Lerp(Origin, Target, Ease);
-        Center.Z += 80.0f * FMath::Sin(PI * Progress);
+        FVector NextCenter = FMath::Lerp(Origin, Target, Ease);
+        NextCenter.Z += 80.0f * FMath::Sin(PI * Progress);
+
+        if (UWorld* World = GetWorld())
+        {
+            FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDSpellFlight), false);
+            Query.AddIgnoredActor(this);
+            if (AActor* OwnerActor = GetOwner()) Query.AddIgnoredActor(OwnerActor);
+            if (APawn* InstigatorPawn = GetInstigator()) Query.AddIgnoredActor(InstigatorPawn);
+            // CastSchool currently spawns without an owner or instigator.
+            if (APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0))
+            {
+                Query.AddIgnoredActor(PlayerPawn);
+            }
+            bBlockingImpact = World->LineTraceSingleByChannel(
+                FlightHit, Center, NextCenter, ECC_Visibility, Query);
+        }
+        Center = bBlockingImpact ? FlightHit.ImpactPoint : NextCenter;
+        if (bBlockingImpact)
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND spell impact actor=%s point=%s"),
+                   FlightHit.GetActor() ? *FlightHit.GetActor()->GetName() : TEXT("NONE"),
+                   *Center.ToString());
     }
     SetActorLocation(Center, false);
+
+    if (!bAmbient && !bApplied && (bBlockingImpact || Age >= 2.6f))
+    {
+        bApplied = true;
+        Target = Center;
+        ApplyWorldEffect(bBlockingImpact ? &FlightHit : nullptr);
+    }
+    if (!bAmbient && Age >= 3.7f)
+    {
+        Destroy();
+        return;
+    }
 
     const float Breath = 1.0f + 0.15f * FMath::Sin(Phase * 2.0f);
     CoreMesh->SetRelativeScale3D(FVector(0.40f * Breath));

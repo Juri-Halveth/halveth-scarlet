@@ -160,6 +160,19 @@ void AASHBOUNDSpellManager::BeginPlay()
             }
         }), 1.0f, false);
     }
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqaimpact")))
+    {
+        FTimerHandle ImpactTimer;
+        GetWorld()->GetTimerManager().SetTimer(ImpactTimer,
+            FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            const FVector Origin(3750, 0, 220);
+            const FVector BehindGate(4200, 0, 220);
+            AASHBOUNDSpell* Spell = GetWorld()->SpawnActor<AASHBOUNDSpell>(
+                AASHBOUNDSpell::StaticClass(), Origin, FRotator::ZeroRotator);
+            if (Spell) Spell->Initialize(0, BehindGate, false);
+        }), 1.0f, false);
+    }
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqa")))
     {
         FTimerHandle CaptureTimer;
