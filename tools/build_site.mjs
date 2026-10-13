@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { checkLinks, htmlFiles, siteURL } from './check_links.mjs';
 import { sourceTreeState } from './source_state.mjs';
+import { trackedSourceFiles, isTrackedPublicInput } from './public_inputs.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = path.join(root, '.site-build');
@@ -14,6 +15,7 @@ const worldManifestPath = path.join(worldAssets, 'manifest.json');
 const worldManifest = JSON.parse(fs.readFileSync(worldManifestPath, 'utf8').replace(/^\uFEFF/, ''));
 if (worldManifest.schema !== 'ashbound.world-assets.v1' || !Array.isArray(worldManifest.files)) throw new Error('Invalid world asset manifest');
 const approvedWorldFiles = new Set([worldManifestPath]);
+const trackedFiles = trackedSourceFiles(root);
 for (const record of worldManifest.files) {
   if (typeof record.path !== 'string' || !/^[a-f0-9]{64}$/.test(record.sha256)) throw new Error('Invalid world asset receipt');
   const file = path.resolve(worldAssets, record.path.split('/').join(path.sep));
@@ -26,6 +28,7 @@ for (const record of worldManifest.files) {
 const includeSiteInput = file => {
   if (['__pycache__', '.DS_Store'].includes(path.basename(file))) return false;
   const absolute = path.resolve(file);
+  if (!isTrackedPublicInput(absolute, trackedFiles)) return false;
   if (absolute === worldAssets) return true;
   if (absolute.startsWith(worldAssets + path.sep)) {
     if (fs.statSync(absolute).isDirectory()) return [...approvedWorldFiles].some(approved => approved.startsWith(absolute + path.sep));
