@@ -1,19 +1,19 @@
 # Chancenreise: Zugang, Auswahl und neue Bewerbungsrunden
 
-**Konzept von Juri · öffentlicher Prototyp vom 13. Oktober 2026 · kein geöffnetes Bewerbungsverfahren**
+**Konzept von Juri · öffentlicher Prototyp vom 14. Oktober 2026 · kein geöffnetes Bewerbungsverfahren**
 
 Die [klickbare Chancenreise](chancenreise.html) zeigt den Weg durch einen möglichen lokalen Pilot. Sie nimmt keine Bewerbungen an, speichert keine persönlichen Angaben und entscheidet über niemanden. Brühl ist ein vorgeschlagener Ort; eine Zusage der Stadt oder anderer Träger liegt nicht vor.
 
 ## Aktuelles 30-Plätze-Orientierungsregelwerk
 
-Juri präzisiert den Wunsch für **eine** Pilotrunde als **30 = 4 + 2 + 5 + 2 + 2 + 15** ganze Plätze:
+Für **eine** Pilotrunde zeigt der Entwurf **30 = 4 + 2 + 5 + 2 + 2 + 15** ganze Plätze:
 
 | Vorschlagslinie | Plätze | Aussagegrenze |
 | --- | ---: | --- |
-| Juri und drei weitere von ihm vorgeschlagene Personen | 4 | Nur mit eigener Zustimmung aller Personen; eine Sonderrolle ist vorab unabhängig auf Gleichbehandlung, Zuständigkeit, Vergabe und Befangenheit zu prüfen. Kein Platz ist zugesagt. |
+| Der Initiator und drei weitere von ihm vorgeschlagene Personen | 4 | Nur mit eigener Zustimmung aller Personen; eine Sonderrolle ist vorab unabhängig auf Gleichbehandlung, Zuständigkeit, Vergabe und Befangenheit zu prüfen. Kein Platz ist zugesagt. |
 | Menschen im Alter 18 mit erschwertem Übergang | 2 | Individuelle Hürden dürfen nicht aus dem Geburtsjahr abgeleitet oder öffentlich eingefordert werden. |
-| Alter 32 bis 35 | 5 | Juris Suchhypothese; ein aktueller örtlicher Bedarf für genau fünf Plätze ist nicht gemessen. |
-| Junge Alleinerziehende | 2 | Juri wünscht einen selbstbestimmten, möglichst eigenständig getragenen Zugang für junge Mütter. Träger, Mandat, Geschlechts-/Familienkriterium und Gleichbehandlung bleiben offen. |
+| Alter 32 bis 35 | 5 | Eine Suchhypothese; ein aktueller örtlicher Bedarf für genau fünf Plätze ist nicht gemessen. |
+| Junge Alleinerziehende | 2 | Vorgeschlagen ist ein selbstbestimmter, möglichst eigenständig getragener Zugang für junge Mütter. Träger, Mandat, Geschlechts-/Familienkriterium und Gleichbehandlung bleiben offen. |
 | Übergang nach Haftentlassung | 2 | Freiwilliger neuer Weg mit geeigneter Straffälligenhilfe; keine öffentliche Kennzeichnung, keine pauschale Straffreiheit. Der örtliche Bedarf für genau zwei Plätze ist noch nicht gemessen. |
 | Weitere Lebensalter und Wege | 15 | Offener Zugang für andere Erwachsene, auch 50+ und 65+. |
 
@@ -43,7 +43,7 @@ Die Zeitpunkte sind **Gestaltungsparameter**. Es existieren für diesen Vorschla
 
 ## „Genie-Team“ als bezahlte Arbeitsfunktion
 
-Juris Bild eines talentorientierten Teams wird als offen sichtbare Arbeitsfunktion modelliert, **nicht** als Polizei- oder Geheimdienstbefugnis. Mögliche neue Stellen: Verfahrenskoordination, barrierefreie Beratung, fachliche Begleitung, Datenschutz/Informationssicherheit und unabhängige Evaluation. Zahl, Vergütung, Träger, Qualifikation und Interessenkonfliktregeln sind noch offen und gehören in den realen Haushalt. Das Team soll Stärken und Unterstützungsbedarf verstehen, ohne Menschen auf Scores oder Diagnosen zu reduzieren. Es verfügt über keine Ermittlungsrechte, die ein Pilotvertrag nicht wirksam einräumen kann.
+Das Bild eines talentorientierten Teams wird als offen sichtbare Arbeitsfunktion modelliert, **nicht** als Polizei- oder Geheimdienstbefugnis. Mögliche neue Stellen: Verfahrenskoordination, barrierefreie Beratung, fachliche Begleitung, Datenschutz/Informationssicherheit und unabhängige Evaluation. Zahl, Vergütung, Träger, Qualifikation und Interessenkonfliktregeln sind noch offen und gehören in den realen Haushalt. Das Team soll Stärken und Unterstützungsbedarf verstehen, ohne Menschen auf Scores oder Diagnosen zu reduzieren. Es verfügt über keine Ermittlungsrechte, die ein Pilotvertrag nicht wirksam einräumen kann.
 
 Vor einer realen Runde braucht es veröffentlichte, sachlich begründete Kriterien, einen barrierefreien Zugang, Prüfung möglicher Benachteiligungen, menschliche Verantwortung und eine nachvollziehbare Entscheidung. Ein Los unter tatsächlich gleich geeigneten Bewerbungen kann je nach konkretem Recht und Programm erwogen werden; es ist **hier weder festgelegt noch automatisch rechtmäßig**. Für echte öffentliche Ämter gelten zusätzliche, strengere Auswahlmaßstäbe. Die Demo vergibt keine Plätze und rechnet keine persönlichen Eignungspunkte.
 
