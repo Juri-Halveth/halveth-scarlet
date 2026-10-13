@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-13T07:45:28Z",
+  "generatedAt": "2026-10-13T16:02:40Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-13T07:45:28Z",
-      "lastSuccessAt": "2026-10-13T07:45:28Z",
+      "lastAttemptAt": "2026-10-13T16:02:40Z",
+      "lastSuccessAt": "2026-10-13T16:02:40Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,79 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-13T07:45:28Z",
-      "lastSuccessAt": "2026-10-13T07:45:28Z",
+      "lastAttemptAt": "2026-10-13T16:02:40Z",
+      "lastSuccessAt": "2026-10-13T16:02:40Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "dd53e3f058a1b779153955ca",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "TB 26-08 Complex Modes in Lightly Damped Structural Systems: A Two-Mode Interaction Perspective",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-08-complex-modes-in-lightly-damped-structural-systemsa-two-mode-interaction-perspective/",
+      "sourcePublishedAt": "2026-10-13T15:02:21Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
+      "firstFetchedAt": "2026-10-13T16:02:40Z"
+    },
+    {
+      "id": "1b3d7c4e863349bcc378e59d",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Improved detection for withdrawn Dependabot alerts",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-13-improved-detection-for-withdrawn-dependabot-alerts",
+      "sourcePublishedAt": "2026-10-13T14:03:57Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
+      "firstFetchedAt": "2026-10-13T16:02:40Z"
+    },
+    {
+      "id": "9bbfc0f84ff7a182abdfd172",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA JPL Testing Readies Voyager Technologies Lander for Moon Mission",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/missions/moon-base/nasa-jpl-testing-readies-voyager-technologies-lander-for-moon-mission/",
+      "sourcePublishedAt": "2026-10-13T13:00:00Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
+      "firstFetchedAt": "2026-10-13T16:02:40Z"
+    },
+    {
+      "id": "c9257f2062dd3f50c05b81e2",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Search and filter for budgets now available",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-13-search-and-filter-for-budgets-now-available",
+      "sourcePublishedAt": "2026-10-13T12:06:09Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
+      "firstFetchedAt": "2026-10-13T16:02:40Z"
+    },
+    {
+      "id": "69cdff7c2fcce1b3737dc278",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Code scanning AI Scan metrics in security overview",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-13-code-scanning-ai-scan-metrics-in-security-overview",
+      "sourcePublishedAt": "2026-10-13T12:03:17Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
+      "firstFetchedAt": "2026-10-13T16:02:40Z"
+    },
+    {
+      "id": "e2b470dba130b961666e8c9c",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Science, Cargo Launch on 35th SpaceX Resupply Mission to Station",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-science-cargo-launch-on-35th-spacex-resupply-mission-to-station/",
+      "sourcePublishedAt": "2026-10-13T11:12:18Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
+      "firstFetchedAt": "2026-10-13T16:02:40Z"
+    },
     {
       "id": "ec4ed696f89364767180885b",
       "sourceId": "nasa",
@@ -32,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-13-desert-stairway-to-heaven/",
       "sourcePublishedAt": "2026-10-13T04:05:00Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-13T07:45:28Z"
     },
     {
@@ -43,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/",
       "sourcePublishedAt": "2026-10-13T04:01:00Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-13T07:45:28Z"
     },
     {
@@ -54,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture",
       "sourcePublishedAt": "2026-10-12T22:38:00Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-13T07:45:28Z"
     },
     {
@@ -65,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/",
       "sourcePublishedAt": "2026-10-12T17:45:27Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-13T00:44:29Z"
     },
     {
@@ -76,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-12-push-attribution-public-preview",
       "sourcePublishedAt": "2026-10-12T16:30:11Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-12T17:58:30Z"
     },
     {
@@ -87,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-12-anonymous-organization-level-registries-for-dependabot",
       "sourcePublishedAt": "2026-10-12T14:04:16Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-13T00:44:29Z"
     },
     {
@@ -98,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-12-jupiter-and-the-moons/",
       "sourcePublishedAt": "2026-10-12T04:05:00Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-12T07:24:25Z"
     },
     {
@@ -109,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/",
       "sourcePublishedAt": "2026-10-12T04:00:00Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-12T07:24:25Z"
     },
     {
@@ -120,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-11-ice-fishing-for-cosmic-neutrinos/",
       "sourcePublishedAt": "2026-10-11T04:05:00Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-11T08:56:45Z"
     },
     {
@@ -131,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains",
       "sourcePublishedAt": "2026-10-10T18:53:39Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-10T22:35:59Z"
     },
     {
@@ -142,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-to-conduct-flyover-engage-nfl-fans-at-metlife-stadium/",
       "sourcePublishedAt": "2026-10-10T14:18:59Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-10T18:39:03Z"
     },
     {
@@ -164,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5",
       "sourcePublishedAt": "2026-10-09T22:58:23Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-10T00:54:42Z"
     },
     {
@@ -175,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-09-codeql-2-27-2-improves-c-go-rust-and-javascript-analysis",
       "sourcePublishedAt": "2026-10-09T21:32:54Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-10T00:54:42Z"
     },
     {
@@ -252,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-copilot-code-review-new-organization-billing-options-and-controls",
       "sourcePublishedAt": "2026-10-08T19:43:05Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
+      "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-09T21:00:06Z"
     },
     {
@@ -443,28 +509,6 @@
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
-      "id": "4795a6ae30bd611b4cb996c6",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s Curiosity Looks Back After Reaching Elevation Milestone",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/photojournal/nasas-curiosity-looks-back-after-reaching-elevation-milestone/",
-      "sourcePublishedAt": "2026-10-07T17:00:47Z",
-      "fetchedAt": "2026-10-08T09:01:55Z",
-      "firstFetchedAt": "2026-10-07T22:00:58Z"
-    },
-    {
-      "id": "82fdbf16285f461005d2b566",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s Curiosity Captures Dawn Breaking on Wind-Carved Cliffs",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/photojournal/nasas-curiosity-captures-dawn-breaking-on-wind-carved-cliffs/",
-      "sourcePublishedAt": "2026-10-07T16:49:50Z",
-      "fetchedAt": "2026-10-08T09:01:55Z",
-      "firstFetchedAt": "2026-10-07T22:00:58Z"
-    },
-    {
       "id": "d6b735286b3739eabb6bfc47",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -496,17 +540,6 @@
       "sourcePublishedAt": "2026-10-07T15:46:13Z",
       "fetchedAt": "2026-10-10T18:39:03Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
-    },
-    {
-      "id": "2902c3cddd7c1019fd284f36",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Artemis II Crew Moon Photo Annotations",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/artemis-ii-crew-moon-photo-annotations/",
-      "sourcePublishedAt": "2026-10-07T15:44:59Z",
-      "fetchedAt": "2026-10-08T09:01:55Z",
-      "firstFetchedAt": "2026-10-07T16:33:03Z"
     },
     {
       "id": "f833eccb65deeb7db0bf568a",
@@ -650,39 +683,6 @@
       "sourcePublishedAt": "2026-10-02T13:15:25Z",
       "fetchedAt": "2026-10-06T17:13:35Z",
       "firstFetchedAt": "2026-10-02T18:27:14Z"
-    },
-    {
-      "id": "b3abbf9a49122235f36a1b34",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Rate limits for private vulnerability reports",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-01-rate-limits-for-private-vulnerability-reports",
-      "sourcePublishedAt": "2026-10-01T19:57:39Z",
-      "fetchedAt": "2026-10-06T10:23:15Z",
-      "firstFetchedAt": "2026-10-01T23:54:28Z"
-    },
-    {
-      "id": "771239a6e9a1d874244729a5",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Structured forms for private vulnerability reports",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-01-structured-forms-for-private-vulnerability-reports",
-      "sourcePublishedAt": "2026-10-01T19:57:28Z",
-      "fetchedAt": "2026-10-05T22:40:38Z",
-      "firstFetchedAt": "2026-10-01T23:54:28Z"
-    },
-    {
-      "id": "e11a5d7f0be16c7ae710cb40",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "GitHub Copilot can now interact with desktop apps with computer use",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps",
-      "sourcePublishedAt": "2026-10-01T19:11:26Z",
-      "fetchedAt": "2026-10-05T16:04:27Z",
-      "firstFetchedAt": "2026-10-01T19:34:03Z"
     }
   ]
 }
