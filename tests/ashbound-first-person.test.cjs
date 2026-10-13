@@ -134,6 +134,27 @@ test('invalid prologue saves retain their exact raw text before a fresh game sta
   assert.equal(fresh.saveProtected, false);
 });
 
+test('older raw recovery copies remain discoverable after a valid save reload', async () => {
+  const { GAME_SAVE_KEY, freshGame } = await core();
+  const { restoreGame } = await import(pathToFileURL(path.join(dir, 'save-recovery.mjs')).href);
+  const values = new Map([
+    [GAME_SAVE_KEY, JSON.stringify(freshGame())],
+    [`${GAME_SAVE_KEY}-recovery-123`, '{first'],
+    [`${GAME_SAVE_KEY}-recovery-124`, '{second'],
+    ['unrelated-recovery-125', '{other'],
+  ]);
+  const storage = { get length() { return values.size; }, key(index) { return [...values.keys()][index] ?? null; },
+    getItem(key) { return values.get(key) ?? null; }, setItem(key, value) { values.set(key, value); } };
+  const restored = restoreGame(storage);
+  assert.equal(restored.recovery, null);
+  assert.equal(restored.saveProtected, false);
+  assert.deepEqual(restored.archives, [
+    { backupKey: `${GAME_SAVE_KEY}-recovery-124`, raw: '{second' },
+    { backupKey: `${GAME_SAVE_KEY}-recovery-123`, raw: '{first' },
+  ]);
+  assert.equal(values.get(GAME_SAVE_KEY), JSON.stringify(freshGame()));
+});
+
 test('a failed backup leaves the original save key protected from replacement', async () => {
   const { GAME_SAVE_KEY, freshGame } = await core();
   const { restoreGame } = await import(pathToFileURL(path.join(dir, 'save-recovery.mjs')).href);

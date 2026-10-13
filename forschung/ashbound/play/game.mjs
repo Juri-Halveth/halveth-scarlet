@@ -13,7 +13,8 @@ const hud = [...document.querySelectorAll('.hud')];
 const touchDevice = matchMedia('(pointer: coarse)').matches;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clock = new T.Clock();
-const storage = { getItem(key) { return localStorage.getItem(key); }, setItem(key, value) { localStorage.setItem(key, value); } };
+const storage = { get length() { return localStorage.length; }, key(index) { return localStorage.key(index); },
+  getItem(key) { return localStorage.getItem(key); }, setItem(key, value) { localStorage.setItem(key, value); } };
 const saveLoad = restoreGame(storage);
 let game = saveLoad.game, active = false, started = false, endingShown = false;
 let saveWriteUnverified = false;
@@ -29,18 +30,31 @@ function updateSaveWarning() {
   }
 }
 updateSaveWarning();
-if (saveLoad.recovery || saveLoad.storageUnreadable) {
+const recoveryChoices = [...saveLoad.archives];
+if (saveLoad.recovery && !recoveryChoices.some(item => item.backupKey === saveLoad.recovery.backupKey)) {
+  recoveryChoices.unshift(saveLoad.recovery);
+}
+if (saveLoad.recovery || saveLoad.storageUnreadable || recoveryChoices.length) {
   $('save-recovery').hidden = false;
   $('save-recovery-status').textContent = saveLoad.storageUnreadable
     ? 'Der lokale Speicher konnte nicht gelesen werden. Neue Fortschritte werden zur Sicherheit nicht gespeichert.'
+    : !saveLoad.recovery
+      ? 'Frühere beschädigte Spielstände liegen als lokale Kopien vor. Ihre Originaltexte können weiterhin heruntergeladen werden.'
     : saveLoad.recovery.backupKey
       ? 'Der bisherige Spielstand war ungültig. Sein Originaltext wurde als lokale Wiederherstellungskopie gesichert; eine neue Sitzung ist bereit.'
       : 'Der bisherige Spielstand war ungültig. Er bleibt am bisherigen Speicherplatz; neue Fortschritte werden zur Sicherheit nicht gespeichert.';
-  $('save-recovery-export').hidden = !saveLoad.recovery;
+  const choice = $('save-recovery-choice');
+  choice.replaceChildren(...recoveryChoices.map((item, index) => {
+    const option = document.createElement('option'); option.value = String(index);
+    option.textContent = item.backupKey || 'Ungesichertes Original dieser Sitzung'; return option;
+  }));
+  choice.hidden = recoveryChoices.length < 2;
+  $('save-recovery-export').hidden = !recoveryChoices.length;
 }
 $('save-recovery-export').addEventListener('click', () => {
-  if (!saveLoad.recovery) return;
-  const url = URL.createObjectURL(new Blob([saveLoad.recovery.raw], { type: 'application/json;charset=utf-8' }));
+  const selected = recoveryChoices[Number($('save-recovery-choice').value) || 0];
+  if (!selected) return;
+  const url = URL.createObjectURL(new Blob([selected.raw], { type: 'application/json;charset=utf-8' }));
   const link = document.createElement('a');
   link.href = url; link.download = 'ASHBOUND-original-save.json';
   document.body.append(link); link.click(); link.remove();

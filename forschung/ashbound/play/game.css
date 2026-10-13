@@ -12,6 +12,7 @@
 .native-route{margin:7px auto 0;font-size:.77rem;letter-spacing:.04em}.native-route a{color:#f5d1a0;text-decoration:underline;text-underline-offset:4px}.native-route a:hover,.native-route a:focus-visible{color:#fff0d4}
 .build-status{max-width:450px;margin:0 auto 16px;color:#f2d39e;font-size:.75rem;line-height:1.45;letter-spacing:.04em}
 .save-recovery{max-width:510px;margin:0 auto 16px;padding:12px 14px;border:1px solid #f1ba7899;background:#171d23e8;color:#f4dfbe;font-size:.78rem;line-height:1.5}.save-recovery .secondary{margin:10px auto 0;min-height:40px;font-size:.7rem;letter-spacing:.04em}
+.save-recovery select{display:block;max-width:100%;width:100%;margin:10px auto 0;padding:7px;border:1px solid #f1ba7899;background:#101a20;color:#f4dfbe}
 .save-warning{top:calc(86px + env(safe-area-inset-top));right:24px;max-width:min(310px,calc(100vw - 48px));padding:8px 10px;border:1px solid #efb979aa;border-radius:4px;background:#1b2025e8;color:#ffdeb0;font-size:.68rem;line-height:1.4;text-align:left}.save-warning-detail{margin:16px auto 0;padding:10px 12px;border:1px solid #efb979aa;border-radius:4px;background:#1b2025e8;color:#ffdeb0;font-size:.78rem;line-height:1.5}
 @media(max-width:650px){.save-warning{top:calc(72px + env(safe-area-inset-top));right:12px;max-width:min(270px,calc(100vw - 24px))}}
 .top-actions{display:flex;gap:8px;pointer-events:auto}.top-actions button{pointer-events:auto;border:1px solid #d0b28788;background:#101d26a8;color:#f5e9d6;border-radius:50%;width:40px;height:40px;font-size:1rem}

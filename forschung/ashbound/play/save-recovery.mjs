@@ -1,16 +1,34 @@
 import { GAME_SAVE_KEY, freshGame, loadGame } from './game-core.mjs';
 
+const recoveryPrefix = `${GAME_SAVE_KEY}-recovery-`;
+
+function recoveryArchives(storage) {
+  try {
+    const archives = [];
+    for (let index = 0; index < storage.length; index++) {
+      const key = storage.key(index);
+      if (typeof key !== 'string' || !key.startsWith(recoveryPrefix)) continue;
+      const raw = storage.getItem(key);
+      if (raw !== null) archives.push({ backupKey: key, raw });
+    }
+    return archives.sort((left, right) => right.backupKey.localeCompare(left.backupKey));
+  } catch {
+    // Enumeration is an optional UI route; primary-save protection is separate.
+    return [];
+  }
+}
+
 export function restoreGame(storage, now = Date.now) {
   let raw;
   try {
     raw = storage.getItem(GAME_SAVE_KEY);
   } catch {
     // A failed read cannot establish that the old key is empty. Never replace it.
-    return { game: freshGame(), recovery: null, saveProtected: true, storageUnreadable: true };
+    return { game: freshGame(), recovery: null, archives: [], saveProtected: true, storageUnreadable: true };
   }
-  if (raw === null) return { game: freshGame(), recovery: null, saveProtected: false, storageUnreadable: false };
+  if (raw === null) return { game: freshGame(), recovery: null, archives: recoveryArchives(storage), saveProtected: false, storageUnreadable: false };
   try {
-    return { game: loadGame(JSON.parse(raw)), recovery: null, saveProtected: false, storageUnreadable: false };
+    return { game: loadGame(JSON.parse(raw)), recovery: null, archives: recoveryArchives(storage), saveProtected: false, storageUnreadable: false };
   } catch {
     const base = `${GAME_SAVE_KEY}-recovery-${now()}`;
     let backupKey = null;
@@ -22,7 +40,7 @@ export function restoreGame(storage, now = Date.now) {
         if (storage.getItem(candidate) === raw) { backupKey = candidate; break; }
       }
     } catch { /* Keep the original save key untouched when backup fails. */ }
-    return { game: freshGame(), recovery: { raw, backupKey },
+    return { game: freshGame(), recovery: { raw, backupKey }, archives: recoveryArchives(storage),
       saveProtected: backupKey === null, storageUnreadable: false };
   }
 }
