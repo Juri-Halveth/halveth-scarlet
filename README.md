@@ -275,6 +275,7 @@ Prüfung und öffentlicher Build (Node 24, Python 3.14, keine Paketinstallation)
 
 ```sh
 node tools/build_site.mjs
+node tools/verify_build_info.mjs # verlangt einen sauberen Git-Arbeitsbaum
 node --test tests/*.test.cjs tests/*.test.mjs
 python -m unittest discover -s tests -p 'test_*.py'
 ```

@@ -22,5 +22,5 @@ export function verifyCommitBoundBuild(root) {
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const root = fileURLToPath(new URL('..', import.meta.url));
   const info = verifyCommitBoundBuild(root);
-  console.log(`Commit-bound public build verified: ${info.sourceCommit}`);
+  console.log(`Commit-bound public build verified: ${info.sourceCommit}; ${info.artifactFileCount} files; ${info.artifactTreeDigest}`);
 }
