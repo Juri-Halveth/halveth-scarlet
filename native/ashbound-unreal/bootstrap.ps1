@@ -54,7 +54,7 @@ if ($LASTEXITCODE -ne 0 -or -not (Test-Path -LiteralPath (Join-Path $WorkRoot 'A
 if ($LASTEXITCODE -ne 0) { throw 'ASHBOUNDUE editor build failed' }
 
 foreach ($scriptName in @('import_world.py', 'import_vault_textures.py', 'import_book_pages.py',
-                           'make_magic_material.py', 'build_world.py', 'fix_meshes.py',
+                           'make_magic_material.py', 'make_grove_material.py', 'build_world.py', 'fix_meshes.py',
                            'verify_world_assets.py')) {
     $scriptFile = Join-Path $nativeRoot "tools\$scriptName"
     & $editor $uproject -run=pythonscript "-script=$scriptFile" -unattended -nullrhi -nosplash -nop4 -log
