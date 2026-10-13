@@ -11,7 +11,7 @@ if (-not $WorkRoot) { $WorkRoot = Join-Path $repoRoot '.local-qa\ashbound-unreal
 $WorkRoot = [IO.Path]::GetFullPath($WorkRoot)
 $project = Join-Path $WorkRoot 'ASHBOUNDUE'
 $uproject = Join-Path $project 'ASHBOUNDUE.uproject'
-$template = Join-Path $EngineRoot 'Templates\TP_FirstPerson'
+$template = Join-Path $EngineRoot 'Templates\TP_FirstPersonBP'
 $buildTool = Join-Path $EngineRoot 'Engine\Build\BatchFiles\Build.bat'
 $editor = Join-Path $EngineRoot 'Engine\Binaries\Win64\UnrealEditor-Cmd.exe'
 foreach ($required in @($template, $buildTool, $editor)) {

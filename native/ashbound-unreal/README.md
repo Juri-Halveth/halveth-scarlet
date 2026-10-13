@@ -8,7 +8,7 @@ ASHBOUND is an independent first-person fantasy-world prototype built with Unrea
 
 ## Build from source
 
-Requirements: Windows x64, Unreal Engine 5.8 installed with its first-person template and high-content template resources, Visual Studio C++ toolchain, Python 3, and network access to Poly Haven for the listed CC0 assets. The build needs substantial temporary disk space. The source tree intentionally excludes downloaded art, generated Unreal `.uasset` files, cooked content and binaries.
+Requirements: Windows x64, Unreal Engine 5.8 installed with its first-person Blueprint template and high-content template resources, Visual Studio C++ toolchain, Python 3, and network access to Poly Haven for the listed CC0 assets. The build needs substantial temporary disk space. The source tree intentionally excludes downloaded art, generated Unreal `.uasset` files, cooked content and binaries.
 
 From the repository root in PowerShell:
 
