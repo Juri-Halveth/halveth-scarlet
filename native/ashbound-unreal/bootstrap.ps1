@@ -17,6 +17,7 @@ $editor = Join-Path $EngineRoot 'Engine\Binaries\Win64\UnrealEditor-Cmd.exe'
 foreach ($required in @($template, $buildTool, $editor)) {
     if (-not (Test-Path -LiteralPath $required)) { throw "Missing Unreal Engine 5.8 component: $required" }
 }
+if (-not (Get-Command node -ErrorAction SilentlyContinue)) { throw 'Node.js is needed to export the existing ASHBOUND book texts' }
 if (Test-Path -LiteralPath $project) { throw "Project already exists; choose an empty WorkRoot: $project" }
 
 & (Join-Path $nativeRoot 'verify-web-assets.ps1')
@@ -33,8 +34,14 @@ Copy-Item -LiteralPath (Join-Path $nativeRoot 'Source') -Destination $project -R
 Copy-Item -LiteralPath (Join-Path $nativeRoot 'ASHBOUNDUE.uproject') -Destination $uproject
 Copy-Item -LiteralPath (Join-Path $nativeRoot 'Config\DefaultEngine.ini') -Destination (Join-Path $project 'Config\DefaultEngine.ini') -Force
 Copy-Item -LiteralPath (Join-Path $nativeRoot 'Config\DefaultGame.ini') -Destination (Join-Path $project 'Config\DefaultGame.ini') -Force
+Copy-Item -LiteralPath (Join-Path $nativeRoot 'Config\DefaultGameUserSettings.ini') -Destination (Join-Path $project 'Config\DefaultGameUserSettings.ini') -Force
 
 $env:ASHBOUND_NATIVE_WORK = $WorkRoot
+& node (Join-Path $nativeRoot 'tools\export_books.mjs') (Join-Path $WorkRoot 'book-catalog.json')
+if ($LASTEXITCODE -ne 0) { throw 'ASHBOUND book source export failed' }
+& $PythonCommand (Join-Path $nativeRoot 'tools\render_book_pages.py') `
+    (Join-Path $WorkRoot 'book-catalog.json') (Join-Path $WorkRoot 'book-pages')
+if ($LASTEXITCODE -ne 0) { throw 'ASHBOUND book page rendering failed' }
 & $PythonCommand (Join-Path $nativeRoot 'tools\generate_terrain.py')
 if ($LASTEXITCODE -ne 0 -or -not (Test-Path -LiteralPath (Join-Path $WorkRoot 'ASHBOUND_Valley.obj'))) {
     throw 'Terrain generation failed'
@@ -42,8 +49,9 @@ if ($LASTEXITCODE -ne 0 -or -not (Test-Path -LiteralPath (Join-Path $WorkRoot 'A
 & $buildTool ASHBOUNDUEEditor Win64 Development "-Project=$uproject" -WaitMutex -NoHotReload
 if ($LASTEXITCODE -ne 0) { throw 'ASHBOUNDUE editor build failed' }
 
-foreach ($scriptName in @('import_world.py', 'make_magic_material.py', 'build_world.py',
-                           'fix_meshes.py', 'verify_world_assets.py')) {
+foreach ($scriptName in @('import_world.py', 'import_vault_textures.py', 'import_book_pages.py',
+                           'make_magic_material.py', 'build_world.py', 'fix_meshes.py',
+                           'verify_world_assets.py')) {
     $scriptFile = Join-Path $nativeRoot "tools\$scriptName"
     & $editor $uproject -run=pythonscript "-script=$scriptFile" -unattended -nullrhi -nosplash -nop4 -log
     if ($LASTEXITCODE -ne 0) { throw "Unreal authoring step failed: $scriptName" }

@@ -1,16 +1,16 @@
-# ASHBOUND native 3D technical demo
+# ASHBOUND — native Windows game candidate
 
-ASHBOUND is an independent first-person fantasy-world prototype built with Unreal Engine 5.8. The Windows technical demo opens inside a walkable, sculpted ash valley with a stone fort, animated ambient wisps, dynamic lighting and three castable visual spell schools. It is a native executable, separate from the browser-based ASHBOUND research page. The intended full game is still in development.
+ASHBOUND is an independent first-person Unreal Engine 5.8 game in development. This local Windows build has a walkable ash valley, a ruined archive, three spell schools, three readable 3D books and a three-seal passage into the fort. It runs as a native EXE with DX12/SM6, Lumen and virtual shadow maps. The browser research pages are separate from this game.
+The local reference profile starts at Epic scalability and 100% internal render resolution. Its display resolution follows the monitor; game-user settings can still be changed after first launch.
+On the reference PC (Ryzen 7 9700X, RTX 4070 SUPER, 61.6 GiB RAM), a packaged Development build rendered the archive gate view offscreen at 2560 × 1440, Epic quality and 100% internal resolution: 540 sampled frames after warm-up had a 10.90 ms median and 12.36 ms 95th-percentile frame time. This measures one stationary scene, not a moving foreground play session or a guaranteed frame rate throughout a larger game.
 
-![ASHBOUND native valley](art/prologue-preview.png)
+![The in-world ASHBOUND grimoire in the native EXE](art/grimoire-preview.png)
 
-**Controls:** WASD to move, mouse to look, Space to jump, Q for Resonance, E for Ember, R for Reweave, Esc to leave the game. Spell orbs travel toward the player's aim point and change their light, colour and orbit by school. Resonance leaves a temporary echo beacon, Ember lights the destination, and Reweave grows a fern there. These are small, time-limited world effects, not a complete magic system. This preview does not yet contain NPC AI, quests, books, combat progression, a market, saves or a full open world. It is not an Elder Scrolls or Morrowind modification, and contains none of those games' assets.
+Move with WASD and mouse; Space jumps. Cast Resonance with **Q**, Ember with **E**, and Reweave with **R**. Face an archive book and press **F** to read or turn its page; **Escape** leaves the reading view. The three volumes use the existing ASHBOUND texts from `forschung/ashbound/play/books.mjs`. Studying a book extends Resonance's echo from 18 to 45 seconds and lets Reweave growth persist for the current play session. Match the three coloured archive seals to the three spells to raise the east gate. Flying spells resolve at their first blocking impact and produce light, echoes or growth in the 3D world.
 
-## Build from source
+## Build locally
 
-Requirements: Windows x64, Unreal Engine 5.8 installed with its first-person Blueprint template and high-content template resources, Visual Studio C++ toolchain, Python 3, and network access to Poly Haven for the listed CC0 assets. The build needs substantial temporary disk space. The source tree intentionally excludes downloaded art, generated Unreal `.uasset` files, cooked content and binaries.
-
-From the repository root in PowerShell:
+Windows x64 needs Unreal Engine 5.8 with its first-person Blueprint template and high-content template resources, a Visual Studio C++ toolchain, Node.js, Python 3 with Pillow, and space for the generated project. From the repository root in PowerShell:
 
 ```powershell
 & .\native\ashbound-unreal\bootstrap.ps1 -EngineRoot 'C:\Program Files\Epic Games\UE_5.8'
@@ -18,20 +18,9 @@ From the repository root in PowerShell:
 & .\native\ashbound-unreal\verify-package.ps1
 ```
 
-`bootstrap.ps1` verifies the public asset manifest, checks and downloads 39 additional Poly Haven files against `asset-manifest.json`, copies Epic's installed first-person template content, compiles the native module and authors the 3D map in Unreal. It writes generated files below `.local-qa/ashbound-unreal` and refuses to overwrite an existing project. `package.ps1` cooks a Development Windows build to a fresh output folder and requires `-skipzenstore` on this tested UE 5.8 configuration. Both scripts accept an alternate `-WorkRoot`; `package.ps1` also accepts `-OutputRoot`.
+`bootstrap.ps1` creates a fresh, isolated Unreal project; `package.ps1` cooks a Windows Development build into a fresh output directory. They accept `-WorkRoot`, and the packaging script accepts `-OutputRoot`. Existing project or output paths are refused. The build verifies 47 downloaded Poly Haven source files against SHA-256, size and URL entries in `asset-manifest.json`; the sources are [CC0](https://polyhaven.com/license). The book's paper and leather images in `art/materials/` were generated specifically for this project. Page art is typeset from the project's existing stories using Libre Baskerville (`art/fonts/OFL.txt`). Epic template assets come from the local engine installation. Generated `.uasset` files and executable packages stay outside Git.
+Pass `-Configuration Shipping` to `package.ps1` for a player-facing package without the Development QA switches.
 
-The bootstrap now reopens the saved level and checks the terrain collision and surface-texture settings, writing `world_assets_verified.json` beside the other local receipts. The imported valley uses its triangles for simple collision because its default coarse box blocks empty canyon air. The two OpenGL normal maps flip their green channel for Unreal, and roughness maps are imported as linear masks. These settings are checked on the saved assets; their visual result and collision behavior still require a packaged runtime check.
+The native source lives in `Source/`, world authoring and asset import in `tools/`, and renderer settings in `Config/`. The current play area is a vertical slice: it has no NPC AI, save system, full open world or final character animation. Frame measurements for one scene and this PC do not establish a stable frame rate for a completed game; the current run record is kept with the local build, not presented as a universal hardware requirement.
 
-`verify-package.ps1` launches the packaged Development game with a null renderer, waits for its collision and spell probes, then stops only that test process. It fails if the terrain visibility traces, Pawn capsule sweeps, spell material or three world-effect receipts are missing. The uniquely named runtime log stays in the local work folder. This probe does not render an image or measure FPS.
-
-The scripted map, terrain and three living spell actors are in `tools/` and `Source/`. The 39 downloaded art files are bound by SHA-256, size and URL in `asset-manifest.json`; six other visual sources already in this repository are checked against the public web asset manifest. The additional art is [Poly Haven CC0](https://polyhaven.com/license). Epic's first-person template content is supplied by the local engine installation, not committed here.
-
-## Verified preview scope
-
-- Unreal editor C++ build succeeded on Windows with UE 5.8.
-- The map authoring receipt recorded 567 world actors. A packaged Windows Development build completed successfully and launched locally.
-- Saved-asset verification counted 41,472 triangles in terrain LOD0 and checked its complex-as-simple collision, enabled `BlockAll` terrain actor, and six terrain/stone textures. A packaged Development run with `-ashboundqacollision` passed four visibility traces and player-sized `ECC_Pawn` capsule sweeps against both outer slopes. The flag is compiled out of Shipping builds.
-- A timed native capture showed the first-person 3D fort scene and a grown plant. The packaged runtime log showed a possessed first-person pawn, all three spell casts and each school's world effect. The screenshot above is from the native runtime, not a mock-up.
-- The current packaged run also loaded `M_LivingSpell` and produced a fresh GPU screenshot after the texture-setting change. Keyboard Q/E/R input is bound in code. Manual end-to-end interaction for every school, continuous traversal across the full valley, frame-rate performance, longer play sessions, installer behaviour and accessibility have not yet been established.
-
-The next game-development pass should deepen the consequences of each spell, add meaningful exploration and readable in-world lore. This preview establishes the native 3D renderer, controllable first-person traversal and an authored world that can be iterated without falling back to a flat arena.
+The bootstrap reopens the saved level and checks terrain collision and surface-texture settings in `world_assets_verified.json`. OpenGL normal maps flip their green channel for Unreal; roughness maps use linear mask compression. `verify-package.ps1` runs a packaged Development build with a null renderer and checks terrain visibility traces, player-sized Pawn sweeps, spell material and three world-effect receipts. That probe does not measure FPS or replace a visual play test.

@@ -1,7 +1,9 @@
 param(
     [string]$EngineRoot = 'C:\Program Files\Epic Games\UE_5.8',
     [string]$WorkRoot,
-    [string]$OutputRoot
+    [string]$OutputRoot,
+    [ValidateSet('Development', 'Shipping')]
+    [string]$Configuration = 'Development'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -16,7 +18,7 @@ if (-not (Test-Path -LiteralPath $uproject)) { throw "Missing source project: $u
 if (-not (Test-Path -LiteralPath $uat)) { throw "Missing Unreal Automation Tool: $uat" }
 if (Test-Path -LiteralPath $OutputRoot) { throw "Output exists; choose a fresh OutputRoot: $OutputRoot" }
 
-& $uat BuildCookRun "-project=$uproject" -noP4 -platform=Win64 -clientconfig=Development `
+& $uat BuildCookRun "-project=$uproject" -noP4 -platform=Win64 "-clientconfig=$Configuration" `
     -build -cook -stage -pak -iostore -archive "-archivedirectory=$OutputRoot" `
     -skipzenstore -unattended -utf8output
 if ($LASTEXITCODE -ne 0) { throw "Unreal package failed with exit code $LASTEXITCODE" }

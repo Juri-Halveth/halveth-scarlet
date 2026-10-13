@@ -23,4 +23,6 @@ private:
 #if !UE_BUILD_SHIPPING
     void VerifyTerrainCollision();
 #endif
+    void StudyNearestBook();
+    void StopReading();
 };
