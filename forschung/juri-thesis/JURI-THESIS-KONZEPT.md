@@ -1,5 +1,7 @@
 # Zeit, in der ein neuer Weg möglich wird
 
+**[Gestaltete, vollständig verlinkte Webausgabe öffnen →](konzept.html)** · [Rechtslabor](rechtslabor.html) · [Chancenreise](chancenreise.html). Diese Markdown-Datei bleibt der editierbare Quelltext.
+
 ## JURI-THESIS · Zwei Mal sechs Monate Entwicklungszeit
 
 **Pilotvorschlag für Brühl 50321 · öffentlicher Konzeptprototyp zur Eigenprüfung · 13. Oktober 2026**
@@ -12,6 +14,8 @@
 Juri Janovskis Vorschlag ist einfach und groß: **Jeder erwachsene Mensch soll im Lauf seines Lebens zweimal sechs Monate finanziell abgesicherte persönliche Entwicklungszeit erhalten können.** Die beiden Phasen wären freiwillig, voneinander getrennt nutzbar und nicht auf Krankheit, Arbeitslosigkeit oder einen Fehler als Zugangsvoraussetzung reduziert. Insgesamt geht es um zwölf Monate pro Person, nicht um zwei Mal sechs Jahre.
 
 Das Modell ist eine **politische Zielsetzung**, kein gegenwärtig festgestellter allgemeiner Rechtsanspruch. Der kommunale Pilot in Brühl wäre ein erster, begrenzter Lern- und Gestaltungsraum. Ein bundesweit geltender Anspruch bräuchte einen eigenen Gesetzgebungs-, Finanzierungs- und Abstimmungsweg.
+
+**Ergänzende Gestaltungsforderung:** Die Entwicklungsleistung soll neben bisherigen Ansprüchen stehen. Eine Bezeichnung als „Extra-Programm“ macht eine Geldzahlung jedoch nicht von selbst anrechnungsfrei. Für eine verlässliche Nichtanrechnung müssen die betroffenen Gesetze und Leistungsarten ausdrücklich geprüft und gegebenenfalls geändert werden, unter anderem [§§ 11, 11a SGB II](https://www.gesetze-im-internet.de/sgb_2/__11a.html) und [§ 83 SGB XII](https://www.gesetze-im-internet.de/sgb_12/__83.html). Steuer, Wohngeld, Kinderzuschlag und Sozialversicherung sind eigenständige Prüfungen. Der Betrag ist individuell zu begründen; **€3.000 sind keine vorgeschlagene allgemeine Obergrenze**. Das [Rechtslabor](rechtslabor.html#anrechnung) führt Einwand, Gegenentwurf und offene Normarbeit getrennt.
 
 ## 2. Identität und Veränderung
 
@@ -81,6 +85,8 @@ Wenn Plätze knapp sind, kann eine faire, dokumentierte Vergabe einschließlich 
 Brühl muss heute keinen nationalen Anspruch beschließen. Die Stadt könnte zuerst prüfen, ob sie einen **freiwilligen, überschaubaren und messbaren Pilotraum** für menschliche Entwicklungszeit mit regionalen Partnern entwickeln möchte. Dafür wird ein unverbindliches Fachgespräch mit Wirtschaftsförderung, Stadtentwicklung, Arbeits- und Sozialpraxis, Bildung, Teilnehmendenvertretung und Evaluation vorgeschlagen.
 
 Die Vision ist groß: Eine Person darf im Lauf ihres Lebens neue Wege finden, ohne erst den alten vollständig verlieren zu müssen. Der erste verantwortliche Schritt ist klein genug, um seine Kosten, Grenzen und Wirkung ehrlich zu sehen.
+
+**Zehn-Jahre-Gedankenexperiment:** Wenn ein solches System später funktionierte, könnte auch eine vermögende Person nur einen symbolischen Euro wählen und mit bereits vorhandenem Kapital ein großes Projekt beginnen. Der spätere Erfolg wäre nicht ohne Vergleich dem Programm zuzuschreiben. Ebenso darf ein Mensch mit hohem realem Bedarf nicht an einer Beispielzahl scheitern. Öffentliche Mittel legalisieren keine unklaren Vermögensherkünfte; Mittelherkunft, Steuern, Interessenkonflikte und Strafrecht bleiben eigenständig prüfbar. Die ausführliche, klickbare Fassung steht in der [Webausgabe](konzept.html#zukunft).
 
 ---
 

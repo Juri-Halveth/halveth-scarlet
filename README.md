@@ -34,7 +34,7 @@ Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer geme
 
 **Singularity Cannon · Forschungsdemo:** [Offline spielbare, eigenständige Attraktor-Simulation](forschung/singularity-cannon/) · [Modell, Quellen, Rechte und Patchstand](forschung/singularity-cannon/README.md). Von einem Spielmotiv aus *Unreal II* angeregt; keine Originalassets oder reale Schwarze-Loch-Physik.
 
-**JURI-THESIS · Chancenreise:** [Die interaktive deutsche Konzeptdemo öffnen](forschung/juri-thesis/) · [Zugang, Auswahl und Datenschutz](forschung/juri-thesis/ZUGANG-UND-AUSWAHL.md). Juri Janovskis Vorschlag verbindet zwei sechsmonatige Entwicklungsphasen als langfristige politische These mit einem begrenzten, rollierenden Pilotmodell von 30 Plätzen je Kommune und Runde. Die Website nimmt keine Bewerbungen an; Brühl und weitere Partner haben keinen Pilot zugesagt.
+**JURI-THESIS · Entwicklungszeit:** [Startseite](forschung/juri-thesis/) · [gestaltetes Konzept](forschung/juri-thesis/konzept.html) · [Chancenreise](forschung/juri-thesis/chancenreise.html) · [Rechtslabor](forschung/juri-thesis/rechtslabor.html). Juri Janovskis Vorschlag verbindet zwei sechsmonatige Entwicklungsphasen als langfristige politische These mit einem begrenzten, rollierenden Pilotmodell von 30 Plätzen je Kommune und Runde. Die Website nimmt keine Bewerbungen an; Brühl und weitere Partner haben keinen Pilot zugesagt.
 
 **Direkt auf Englisch / Open in English:** https://juri-halveth.github.io/halveth-scarlet/?lang=en
 

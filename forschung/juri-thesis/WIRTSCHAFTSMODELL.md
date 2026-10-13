@@ -2,6 +2,8 @@
 
 **Stand 13. Oktober 2026. Alle Euro-Beträge und Quoten in diesem Dokument sind frei gesetzte Rechenannahmen, keine Angebote, amtlichen Kennzahlen oder Prognosen.** Der erste Rechenweg bildet 30 Personen mit je beiden sechsmonatigen Phasen über einen längeren Zeitraum ab. Der zweite bildet 30 Plätze je Runde bei zwei Runden im Jahr ab. Gleiche Personenmonate machen die Szenarien zeitlich und organisatorisch nicht identisch.
 
+**Offene Betragsregel statt Obergrenze:** Die früheren 1.500 € in dieser Tabelle sind ein einzelner Szenariowert. Es gibt in der JURI-THESIS keine festgelegte €3.000-Obergrenze. Für individuell begründete Monatsbeträge lautet die direkte Budgetspur `C_Z = Σ_i Σ_m Z(i,m)`; `Z(i,m)` ist die mögliche Entwicklungszahlung für Person `i` im Monat `m`. Erst vorab veröffentlichte Anspruchs-/Vergaberegeln und ein gedeckter Haushalt können daraus eine umsetzbare Summe machen. Die gewünschte Zusätzlichkeit zu bestehenden Ansprüchen ist eine eigene rechtliche Zielregel; sie wird nicht durch Addition im Modell wahr. Siehe die [Webausgabe](konzept.html#geld) und das [Rechtslabor](rechtslabor.html#anrechnung).
+
 ## Rechenvertrag
 
 | Variable | Beispielannahme | Bedeutung |
