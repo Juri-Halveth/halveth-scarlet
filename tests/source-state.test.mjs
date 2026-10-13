@@ -6,6 +6,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { sourceTreeState } from '../tools/source_state.mjs';
 import { verifyCommitBoundBuild } from '../tools/verify_build_info.mjs';
+import { siteTreeReceipt } from '../tools/artifact_tree.mjs';
 
 test('build provenance distinguishes a clean commit from local changes', t => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'scarlet-source-state-'));
@@ -24,9 +25,21 @@ test('build provenance distinguishes a clean commit from local changes', t => {
   const commit = git('rev-parse', 'HEAD').toString().trim();
   const build = path.join(root, '.site-build');
   fs.mkdirSync(build);
+  const publicFile = path.join(build, 'index.html');
+  fs.writeFileSync(publicFile, '<title>Published</title>\n');
   const infoPath = path.join(build, 'build-info.json');
-  const info = { schema: 'halveth.scarlet-build.v1', sourceCommit: commit, sourceTreeState: 'GIT_STATUS_CLEAN' };
+  const info = { schema: 'halveth.scarlet-build.v2', sourceCommit: commit,
+    sourceTreeState: 'GIT_STATUS_CLEAN', ...siteTreeReceipt(build) };
   fs.writeFileSync(infoPath, JSON.stringify(info));
+  assert.deepEqual(verifyCommitBoundBuild(root), info);
+
+  fs.writeFileSync(publicFile, '<title>Tampered</title>\n');
+  assert.throws(() => verifyCommitBoundBuild(root), /artifact bytes differ/);
+  fs.writeFileSync(publicFile, '<title>Published</title>\n');
+  const extraArtifact = path.join(build, 'extra.html');
+  fs.writeFileSync(extraArtifact, 'unexpected public byte');
+  assert.throws(() => verifyCommitBoundBuild(root), /artifact bytes differ/);
+  fs.rmSync(extraArtifact);
   assert.deepEqual(verifyCommitBoundBuild(root), info);
 
   fs.writeFileSync(path.join(root, 'index.html'), '<title>Changed</title>\n');

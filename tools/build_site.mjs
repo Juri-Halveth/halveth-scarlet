@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { checkLinks, htmlFiles, siteURL } from './check_links.mjs';
 import { sourceTreeState } from './source_state.mjs';
 import { trackedSourceFiles, isTrackedPublicInput } from './public_inputs.mjs';
+import { siteTreeReceipt } from './artifact_tree.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = path.join(root, '.site-build');
@@ -73,5 +74,5 @@ fs.writeFileSync(path.join(output, 'sitemap.xml'), sitemap);
 const result = checkLinks(output);
 if (result.failures.length) throw new Error(JSON.stringify(result, null, 2));
 const sourceCommit = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
-fs.writeFileSync(path.join(output, 'build-info.json'), JSON.stringify({ schema: 'halveth.scarlet-build.v1', sourceCommit, sourceTreeState: sourceTreeState(root), builtAt: new Date().toISOString(), htmlPages: pages.length, checkedReferences: result.checkedReferences }, null, 2) + '\n');
+fs.writeFileSync(path.join(output, 'build-info.json'), JSON.stringify({ schema: 'halveth.scarlet-build.v2', sourceCommit, sourceTreeState: sourceTreeState(root), builtAt: new Date().toISOString(), htmlPages: pages.length, checkedReferences: result.checkedReferences, ...siteTreeReceipt(output) }, null, 2) + '\n');
 console.log(`Build complete: ${pages.length} HTML pages, ${result.checkedReferences} local references; ${output}`);
