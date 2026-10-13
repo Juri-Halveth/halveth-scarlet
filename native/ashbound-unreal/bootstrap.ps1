@@ -33,6 +33,7 @@ Copy-Item -LiteralPath (Join-Path $nativeRoot 'Source') -Destination $project -R
 Copy-Item -LiteralPath (Join-Path $nativeRoot 'ASHBOUNDUE.uproject') -Destination $uproject
 Copy-Item -LiteralPath (Join-Path $nativeRoot 'Config\DefaultEngine.ini') -Destination (Join-Path $project 'Config\DefaultEngine.ini') -Force
 Copy-Item -LiteralPath (Join-Path $nativeRoot 'Config\DefaultGame.ini') -Destination (Join-Path $project 'Config\DefaultGame.ini') -Force
+Copy-Item -LiteralPath (Join-Path $nativeRoot 'Config\DefaultGameUserSettings.ini') -Destination (Join-Path $project 'Config\DefaultGameUserSettings.ini') -Force
 
 $env:ASHBOUND_NATIVE_WORK = $WorkRoot
 & $PythonCommand (Join-Path $nativeRoot 'tools\generate_terrain.py')
