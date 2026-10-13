@@ -8,6 +8,30 @@ import { checkLinks, htmlFiles, siteURL } from './check_links.mjs';
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = path.join(root, '.site-build');
 if (path.dirname(output) !== path.resolve(root) || path.basename(output) !== '.site-build') throw new Error('Invalid build destination');
+const worldAssets = path.join(root, 'forschung', 'ashbound', 'play', 'assets');
+const worldManifestPath = path.join(worldAssets, 'manifest.json');
+const worldManifest = JSON.parse(fs.readFileSync(worldManifestPath, 'utf8').replace(/^\uFEFF/, ''));
+if (worldManifest.schema !== 'ashbound.world-assets.v1' || !Array.isArray(worldManifest.files)) throw new Error('Invalid world asset manifest');
+const approvedWorldFiles = new Set([worldManifestPath]);
+for (const record of worldManifest.files) {
+  if (typeof record.path !== 'string' || !/^[a-f0-9]{64}$/.test(record.sha256)) throw new Error('Invalid world asset receipt');
+  const file = path.resolve(worldAssets, record.path.split('/').join(path.sep));
+  const relative = path.relative(worldAssets, file);
+  if (!relative || relative.startsWith('..') || path.isAbsolute(relative) || approvedWorldFiles.has(file)) throw new Error('Unsafe or duplicate world asset path');
+  const stat = fs.lstatSync(file);
+  if (!stat.isFile() || stat.size !== record.bytes || createHash('sha256').update(fs.readFileSync(file)).digest('hex') !== record.sha256) throw new Error(`World asset differs from receipt: ${record.path}`);
+  approvedWorldFiles.add(file);
+}
+const includeSiteInput = file => {
+  if (['__pycache__', '.DS_Store'].includes(path.basename(file))) return false;
+  const absolute = path.resolve(file);
+  if (absolute === worldAssets) return true;
+  if (absolute.startsWith(worldAssets + path.sep)) {
+    if (fs.statSync(absolute).isDirectory()) return [...approvedWorldFiles].some(approved => approved.startsWith(absolute + path.sep));
+    return approvedWorldFiles.has(absolute);
+  }
+  return true;
+};
 execFileSync(process.execPath, [path.join(root, 'tools/build_profiles.mjs')], { cwd: root, stdio: 'inherit' });
 fs.rmSync(output, { recursive: true, force: true });
 fs.mkdirSync(output);
@@ -16,7 +40,7 @@ const files = ['index.html', 'favicon.ico', '.nojekyll', 'robots.txt', 'README.m
 for (const name of [...directories, ...files]) {
   const source = path.join(root, name);
   if (!fs.existsSync(source)) throw new Error(`Required public input missing: ${name}`);
-  fs.cpSync(source, path.join(output, name), { recursive: true, filter: file => !['__pycache__', '.DS_Store'].includes(path.basename(file)) });
+  fs.cpSync(source, path.join(output, name), { recursive: true, filter: includeSiteInput });
 }
 if (!fs.existsSync(path.join(output, 'forschung', 'ashbound', 'index.html'))) throw new Error('ASHBOUND public route missing');
 const pages = htmlFiles(output);

@@ -1,5 +1,6 @@
 export * as THREE from 'three';
 export { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+export { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 export { Story } from 'inkjs';
 export { createIcons, ArrowLeft, ArrowRight, BookOpen, Compass, Download, Eye,
   FlaskConical, Globe, History, House, Minus, Pause, Play, Plus, RotateCcw,

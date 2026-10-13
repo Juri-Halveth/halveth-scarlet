@@ -15,6 +15,16 @@ relic that extends the Stille spell. This is an optional discovery path, not a
 quest marker list. The books have authored pages and local stateful reactions;
 live AI dialogue and a larger market/economy are future work.
 
+The current art pass opens that chamber into a rocky ruin landscape. Terrain,
+weathered stone, trees, gothic statues and a first-person spellblade replace
+the repeated box walls and cone mountains. Impuls now travels and impacts in
+world space; Resonanz expands across the ground and Stille forms a temporary
+field around the player. The four glTF models and two PBR surfaces are Poly
+Haven CC0 assets, with source URLs and byte hashes in
+[`play/assets/manifest.json`](play/assets/manifest.json). The original game
+logic, world construction and spell effects remain in this repository. This is
+a visual prototype, not an Unreal Engine or Elder Scrolls asset build.
+
 An offline Windows desktop candidate packages this same game. Build and launch
 instructions are in [`desktop/ashbound/README.md`](../../desktop/ashbound/README.md).
 
