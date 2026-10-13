@@ -53,6 +53,7 @@ $required = @(
     'ASHBOUND_SPELL_MATERIAL bound=/Game/ASHBOUND/Materials/M_LivingSpell',
     'ASHBOUND world effect: Resonance echo',
     'ASHBOUND world effect: Ember light',
+    'ASHBOUND_GROVE spawned fronds=9',
     'ASHBOUND world effect: Reweave growth'
 )
 foreach ($pattern in $required) {

@@ -1,12 +1,12 @@
 # ASHBOUND — native Windows game candidate
 
 ASHBOUND is an independent first-person Unreal Engine 5.8 game in development. This local Windows build has a walkable ash valley, a ruined archive, three spell schools, three readable 3D books and a three-seal passage into the fort. It runs as a native EXE with DX12/SM6, Lumen and virtual shadow maps. The browser research pages are separate from this game.
-The local reference profile starts at Epic scalability and 100% internal render resolution. Its display resolution follows the monitor; game-user settings can still be changed after first launch.
+The local reference profile starts at Epic scalability and 100% internal render resolution. **2560 × 1440 is the current visual performance target, not a resolution cap.** Display resolution follows the monitor; 4K and 8K remain selectable through the engine and game-user settings. Their frame rates and image quality need separate measurements on the target hardware.
 On the reference PC (Ryzen 7 9700X, RTX 4070 SUPER, 61.6 GiB RAM), a packaged Development build rendered the archive gate view offscreen at 2560 × 1440, Epic quality and 100% internal resolution: 540 sampled frames after warm-up had a 10.90 ms median and 12.36 ms 95th-percentile frame time. This measures one stationary scene, not a moving foreground play session or a guaranteed frame rate throughout a larger game.
 
 ![The in-world ASHBOUND grimoire in the native EXE](art/grimoire-preview.png)
 
-Move with WASD and mouse; Space jumps. Cast Resonance with **Q**, Ember with **E**, and Reweave with **R**. Face an archive book and press **F** to read or turn its page; **Escape** leaves the reading view. The three volumes use the existing ASHBOUND texts from `forschung/ashbound/play/books.mjs`. Studying a book extends Resonance's echo from 18 to 45 seconds and lets Reweave growth persist for the current play session. Match the three coloured archive seals to the three spells to raise the east gate. Flying spells resolve at their first blocking impact and produce light, echoes or growth in the 3D world.
+Move with WASD and mouse; Space jumps. Cast Resonance with **Q**, Ember with **E**, and Reweave with **R**. Face an archive book and press **F** to read or turn its page; **Escape** leaves the reading view. The three volumes use the existing ASHBOUND texts from `forschung/ashbound/play/books.mjs`. Studying a book extends Resonance's echo from 18 to 45 seconds and lets Reweave growth persist for the current play session. Reweave grows a nine-frond grove over 2.2 seconds; the oldest grove is recycled after 24 casts so growth stays responsive. Match the three coloured archive seals to the three spells to raise the east gate. Flying spells resolve at their first blocking impact and produce light, echoes or growth in the 3D world.
 
 ## Build locally
 
