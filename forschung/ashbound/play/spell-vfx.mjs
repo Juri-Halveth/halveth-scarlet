@@ -1,6 +1,6 @@
 // Spell geometry is world-space, tied to the actual mechanics in game-core.
 // No overlay image is substituted for a spell or an impact in the 3D scene.
-export function createSpellVfx({ T, scene, camera, reducedMotion }) {
+export function createSpellVfx({ T, scene, camera, reducedMotion, playerPosition }) {
   const canvas = document.createElement('canvas'); canvas.width = canvas.height = 64;
   const ctx = canvas.getContext('2d');
   const glow = ctx.createRadialGradient(32, 32, 2, 32, 32, 31);
@@ -111,6 +111,10 @@ export function createSpellVfx({ T, scene, camera, reducedMotion }) {
           mesh.material.opacity = (1 - wave) * .62;
         });
       } else {
+        const position = playerPosition();
+        effect.dome.position.set(position.x, 1.7, position.z);
+        for (const mesh of effect.orbit) mesh.position.copy(effect.dome.position);
+        effect.light.position.copy(effect.dome.position);
         const radius = 9 * Math.min(1, t * 8);
         effect.dome.scale.setScalar(radius);
         effect.dome.material.opacity = (1 - t * .6) * .055;

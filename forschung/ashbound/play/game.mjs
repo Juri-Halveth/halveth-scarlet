@@ -1,17 +1,51 @@
 import { THREE as T, GLTFLoader } from '../vendor/runtime.mjs';
-import { GAME_SAVE_KEY, SEALS, freshGame, loadGame, cast, progress, canCross, cross,
+import { SEALS, freshGame, cast, progress, canCross, cross,
   maxMana, moveFactor, studyBook, findRelic } from './game-core.mjs';
 import { BOOKS } from './books.mjs';
 import { createEnvironment } from './environment.mjs';
 import { createSpellVfx } from './spell-vfx.mjs';
+import { restoreGame, writeGameSave } from './save-recovery.mjs';
 
 const $ = id => document.getElementById(id);
 const stage = $('stage'), overlay = $('start'), pause = $('pause'), ending = $('ending');
+const modals = [overlay, pause, $('book'), $('inventory'), ending];
+const hud = [...document.querySelectorAll('.hud')];
 const touchDevice = matchMedia('(pointer: coarse)').matches;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clock = new T.Clock();
-let game = freshGame(), active = false, started = false, endingShown = false;
-try { const raw = localStorage.getItem(GAME_SAVE_KEY); if (raw) game = loadGame(JSON.parse(raw)); } catch { /* A bad save leaves a fresh game playable. */ }
+const storage = { getItem(key) { return localStorage.getItem(key); }, setItem(key, value) { localStorage.setItem(key, value); } };
+const saveLoad = restoreGame(storage);
+let game = saveLoad.game, active = false, started = false, endingShown = false;
+let saveWriteUnverified = false;
+function updateSaveWarning() {
+  const warning = saveLoad.saveProtected
+    ? 'Speichern ist ausgesetzt. Fortschritt dieser Sitzung wird nicht gespeichert.'
+    : saveWriteUnverified
+      ? 'Der aktuelle Spielstand konnte zuletzt nicht als gespeichert bestätigt werden. Nach Neuladen kann Fortschritt fehlen.'
+      : '';
+  for (const id of ['save-warning', 'pause-save-warning']) {
+    $(id).textContent = warning;
+    $(id).hidden = !warning;
+  }
+}
+updateSaveWarning();
+if (saveLoad.recovery || saveLoad.storageUnreadable) {
+  $('save-recovery').hidden = false;
+  $('save-recovery-status').textContent = saveLoad.storageUnreadable
+    ? 'Der lokale Speicher konnte nicht gelesen werden. Neue Fortschritte werden zur Sicherheit nicht gespeichert.'
+    : saveLoad.recovery.backupKey
+      ? 'Der bisherige Spielstand war ungültig. Sein Originaltext wurde als lokale Wiederherstellungskopie gesichert; eine neue Sitzung ist bereit.'
+      : 'Der bisherige Spielstand war ungültig. Er bleibt am bisherigen Speicherplatz; neue Fortschritte werden zur Sicherheit nicht gespeichert.';
+  $('save-recovery-export').hidden = !saveLoad.recovery;
+}
+$('save-recovery-export').addEventListener('click', () => {
+  if (!saveLoad.recovery) return;
+  const url = URL.createObjectURL(new Blob([saveLoad.recovery.raw], { type: 'application/json;charset=utf-8' }));
+  const link = document.createElement('a');
+  link.href = url; link.download = 'ASHBOUND-original-save.json';
+  document.body.append(link); link.click(); link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
 
 let renderer;
 try {
@@ -22,8 +56,26 @@ try {
   renderer.toneMappingExposure = 1.62;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = T.PCFSoftShadowMap;
+  renderer.domElement.tabIndex = 0;
+  renderer.domElement.setAttribute('aria-label', 'ASHBOUND 3D-Spielwelt: WASD bewegen, J/L/I/K blicken, B Ausrüstung, Esc pausieren');
   stage.append(renderer.domElement);
-} catch { $('fatal').hidden = false; throw new Error('ASHBOUND needs WebGL'); }
+} catch {
+  overlay.hidden = true;
+  for (const element of hud) element.inert = true;
+  $('fatal').hidden = false;
+  $('fatal').querySelector('a')?.focus();
+  throw new Error('ASHBOUND needs WebGL');
+}
+function visibleModal() { return modals.find(modal => !modal.hidden); }
+function modalFocusables(modal) {
+  return [...modal.querySelectorAll('button:not([disabled]),a[href]')].filter(element => !element.closest('[hidden]'));
+}
+function syncModalFocus() {
+  const modal = visibleModal();
+  for (const element of hud) element.inert = Boolean(modal);
+  (modal ? modalFocusables(modal)[0] : renderer.domElement)?.focus();
+}
+syncModalFocus();
 
 const scene = new T.Scene();
 const camera = new T.PerspectiveCamera(73, 1, 0.08, 600);
@@ -85,7 +137,7 @@ const random = seeded();
 
 const world = createEnvironment({ T, scene, renderer, touchDevice, random, put, material, geo, mats, torches });
 const floorMat = world.groundMat;
-const spellVfx = createSpellVfx({ T, scene, camera, reducedMotion });
+const spellVfx = createSpellVfx({ T, scene, camera, reducedMotion, playerPosition: () => player });
 const doorMat = new T.MeshBasicMaterial({ color: 0x83d7dd, transparent: true, opacity: .62, depthWrite: false, side: T.DoubleSide });
 mats.push(doorMat);
 const gate = put(new T.PlaneGeometry(5.4, 7), doorMat, 0, 3.5, -27.95);
@@ -150,7 +202,9 @@ function notice(message, keep = 4500) {
 }
 function persist() {
   game.x = +player.x.toFixed(2); game.z = +player.z.toFixed(2);
-  try { localStorage.setItem(GAME_SAVE_KEY, JSON.stringify(game)); } catch { /* Gameplay continues without storage. */ }
+  if (saveLoad.saveProtected) return;
+  saveWriteUnverified = !writeGameSave(storage, game);
+  updateSaveWarning();
 }
 function updateHUD() {
   const count = progress(game); $('counter').textContent = `${count} / 3`;
@@ -234,15 +288,17 @@ function showBookPage() {
 }
 function openBook(index) {
   if (!active) return;
-  openBookIndex = index; bookPage = 0; active = false;
+  openBookIndex = index; bookPage = 0; active = false; keys.clear();
   $('book').hidden = false;
   if (document.pointerLockElement) document.exitPointerLock();
   showBookPage();
+  syncModalFocus();
 }
 function resumeFromPanel() {
   $('book').hidden = true; $('inventory').hidden = true; openBookIndex = -1;
   if (!started || endingShown) return;
   active = true;
+  syncModalFocus();
   if (!touchDevice) renderer.domElement.requestPointerLock?.().catch(() => {});
 }
 $('book-prev').addEventListener('click', () => { if (bookPage > 0) { bookPage--; showBookPage(); sound(320, .1); } });
@@ -250,7 +306,7 @@ $('book-next').addEventListener('click', () => { if (bookPage < 2) { bookPage++;
 $('book-close').addEventListener('click', resumeFromPanel);
 function showInventory() {
   if (!started || endingShown) return;
-  active = false; $('inventory').hidden = false;
+  active = false; keys.clear(); $('inventory').hidden = false;
   if (document.pointerLockElement) document.exitPointerLock();
   const lines = [
     ['Manareserve', `${maxMana(game)} · ${game.booksSolved[0] ? 'Ilyras Feuer +500 %' : 'ursprüngliche Kraft'}`],
@@ -262,6 +318,7 @@ function showInventory() {
     const row = document.createElement('article'), label = document.createElement('strong'), detail = document.createElement('span');
     label.textContent = name; detail.textContent = value; row.append(label, detail); return row;
   }));
+  syncModalFocus();
 }
 $('inventory-button').addEventListener('click', showInventory);
 $('inventory-close').addEventListener('click', resumeFromPanel);
@@ -285,14 +342,16 @@ function interact() {
 $('interact').addEventListener('click', interact);
 function enterWorld() {
   started = true; active = true; overlay.hidden = true; pause.hidden = true; ending.hidden = true;
+  keys.clear(); syncModalFocus();
   if (!touchDevice) renderer.domElement.requestPointerLock?.().catch(() => {});
   sound(240, .5);
 }
 function pauseWorld() {
   if (!started || endingShown) return;
-  active = false; pause.hidden = false;
+  active = false; keys.clear(); pause.hidden = false;
   if (document.pointerLockElement) document.exitPointerLock();
   persist();
+  syncModalFocus();
 }
 $('start-button').addEventListener('click', enterWorld);
 $('resume-button').addEventListener('click', enterWorld);
@@ -301,7 +360,7 @@ $('reset-button').addEventListener('click', () => {
   game = freshGame(); Object.assign(player, { x: 0, z: 17, height: 0, velocityY: 0, yaw: 0, pitch: 0 });
   endingShown = false; updateHUD(); persist(); enterWorld(); notice('Ilyra: Die Asche erinnert sich. Folge dem Licht.');
 });
-$('continue-button').addEventListener('click', () => { ending.hidden = true; endingShown = false; active = true; if (!touchDevice) renderer.domElement.requestPointerLock?.().catch(() => {}); });
+$('continue-button').addEventListener('click', () => { ending.hidden = true; endingShown = false; active = true; syncModalFocus(); if (!touchDevice) renderer.domElement.requestPointerLock?.().catch(() => {}); });
 document.querySelectorAll('[data-spell]').forEach(button => button.addEventListener('click', () => spell(button.dataset.spell)));
 document.addEventListener('pointerlockchange', () => { if (!touchDevice && !document.pointerLockElement && active) pauseWorld(); });
 document.addEventListener('mousemove', event => {
@@ -310,18 +369,32 @@ document.addEventListener('mousemove', event => {
   player.pitch = T.MathUtils.clamp(player.pitch - event.movementY * .0022, -1.3, 1.3);
 });
 document.addEventListener('keydown', event => {
-  if (['Space','Tab','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(event.code)) event.preventDefault();
+  if (event.code === 'Tab') {
+    const modal = visibleModal();
+    if (modal) {
+      const focusable = modalFocusables(modal);
+      const first = focusable[0], last = focusable.at(-1);
+      if (first && ((event.shiftKey && (document.activeElement === first || !modal.contains(document.activeElement))) ||
+          (!event.shiftKey && (document.activeElement === last || !modal.contains(document.activeElement))))) {
+        event.preventDefault(); (event.shiftKey ? last : first).focus();
+      }
+    }
+    return;
+  }
+  if (event.code === 'Escape') {
+    if (!$('book').hidden || !$('inventory').hidden) { event.preventDefault(); resumeFromPanel(); }
+    else if (active) { event.preventDefault(); pauseWorld(); }
+    else if (started && !endingShown) { event.preventDefault(); enterWorld(); }
+    return;
+  }
+  if (!active || (event.target instanceof Element && event.target.closest('button,a,input,select,textarea'))) return;
+  if (['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(event.code)) event.preventDefault();
   keys.add(event.code);
   if (event.repeat) return;
-  if (event.code === 'Escape') {
-    if (!$('book').hidden || !$('inventory').hidden) resumeFromPanel();
-    else if (active) pauseWorld();
-    else if (started && !endingShown) enterWorld();
-  }
   if (event.code === 'Digit1') spell('pulse');
   if (event.code === 'Digit2') spell('echo');
   if (event.code === 'Digit3') spell('still');
-  if (event.code === 'Tab') { if (active) showInventory(); else if (!$('inventory').hidden) resumeFromPanel(); }
+  if (event.code === 'KeyB') showInventory();
   if (event.code === 'KeyJ') player.yaw += .16;
   if (event.code === 'KeyL') player.yaw -= .16;
   if (event.code === 'KeyI') player.pitch = T.MathUtils.clamp(player.pitch + .12, -1.3, 1.3);
@@ -397,7 +470,6 @@ function tick(time) {
   gateRing.rotation.z = Math.sin(worldTime * .27) * .06;
   beaconCore.rotation.y += reducedMotion ? 0 : dt * .2;
   moteField.position.y = reducedMotion || game.wardUntil > time ? 0 : Math.sin(worldTime * .3) * .5;
-  spellVfx.tick(time);
   if (active) {
     let forward = (keys.has('KeyW') || keys.has('ArrowUp') ? 1 : 0) - (keys.has('KeyS') || keys.has('ArrowDown') ? 1 : 0) - stickY;
     let strafe = (keys.has('KeyD') || keys.has('ArrowRight') ? 1 : 0) - (keys.has('KeyA') || keys.has('ArrowLeft') ? 1 : 0) + stickX;
@@ -414,6 +486,7 @@ function tick(time) {
       game = cross(game).state; persist(); updateHUD();
       endingShown = true; active = false; ending.hidden = false;
       if (document.pointerLockElement) document.exitPointerLock();
+      syncModalFocus();
       sound(540, .8);
     }
     game.mana = Math.min(maxMana(game), game.mana + dt * 18);
@@ -424,6 +497,7 @@ function tick(time) {
   camera.position.set(player.x, eyeHeight + player.height + (walking && !reducedMotion ? Math.sin(player.bob) * .035 : 0), player.z);
   camera.rotation.y = player.yaw; camera.rotation.x = player.pitch;
   camera.updateMatrixWorld(true);
+  spellVfx.tick(time);
   const current = aim();
   if (current !== aimed) {
     aimed = current; $('crosshair').classList.toggle('active', Boolean(current));

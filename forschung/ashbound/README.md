@@ -39,7 +39,8 @@ instructions are in [`desktop/ashbound/README.md`](../../desktop/ashbound/README
 - Six Ink chapters, 108 complete decision paths and three possible endings.
 - German and English UI, story and six original books.
 - All currently listed Scarlet profiles from the source registry, search and up to three companions.
-  Those optional archive guests are separate from the original ASHBOUND cast.
+  Their optional archive dossiers are separate from the six ASHBOUND residents;
+  some HALVETH figures also appear as authored characters in the chronicle.
   Companions expose their documented perspectives; they are not live AI agents.
 - FREEZE teaching models for paused simulation time, braking and restoring speed.
   Newtonian constant gravity, no drag, downward initial velocity; not a full
@@ -54,9 +55,10 @@ instructions are in [`desktop/ashbound/README.md`](../../desktop/ashbound/README
   to local game state; it makes no external research or autonomous-brain claim.
 - Reduced motion, capped rendering, no autoplay sound, no keys or analytics.
 
-The original chronicle and books use ASHBOUND residents, places and events.
-Legacy franchise names have been removed from that narrative; archive guest
-profiles remain separately labelled. Assets from other games are not
+The original chronicle and books use ASHBOUND residents, places and events,
+alongside authored appearances by HALVETH figures. Legacy franchise names have
+been removed from that narrative; archive dossiers remain separately labelled.
+Assets from other games are not
 redistributed. Real-world research and private attachments are excluded.
 
 ## Rebuild from PowerShell
