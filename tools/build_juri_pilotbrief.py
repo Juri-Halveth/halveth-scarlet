@@ -17,7 +17,7 @@ from reportlab.platypus import Paragraph
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "forschung" / "juri-thesis" / "assets" / "JURI-THESIS-Pilotbrief.pdf"
 AGE_DATA = json.loads((OUT.parent / "alterskurve-16.json").read_text(encoding="utf-8"))
-assert AGE_DATA["schema"] == "juri-thesis.age-discussion.v1"
+assert AGE_DATA["schema"] == "juri-thesis.age-discussion.v2"
 W, H = A4
 INK = colors.HexColor("#132d43")
 GREEN = colors.HexColor("#20624f")
@@ -145,9 +145,9 @@ PAGES.extend([
           ("Was nicht zählt", "Ein fehlendes Studium darf nicht automatisch gegen eine Idee sprechen. Sichtbare 'Karrierepunkte', Karmabegriffe oder Medaillen sind kein tragfähiger Ersatz für nachvollziehbare Ziele, Ressourcenbedarf und öffentlich bekannte Kriterien."),
           ("Wiederbewerbung", "Bei jeder neuen Runde soll eine Person bewusst neu entscheiden können. Eine Absage ist kein dauerhafter Persönlichkeitsstatus. Frühere Unterlagen werden nur im rechtlich zulässigen und transparent erklärten Umfang weiterverwendet.")],
          ("Zugang und Auswahl", "Chancenreise")),
-    page("12 / Der Spiegel", "16 Punkte auf der Alterskurve",
-         "Der frühere Denkweg gab dem höheren Alter relativ mehr Gewicht. Der neue Entwurf spiegelt die Kurve: 18 erhält 2, 65 erhält 1.",
-         [("Berechenbare Definition", "Für ganzzahlige Alter ab 18 gilt <b>w(a) = 2 - (min(a,65) - 18) / 47</b>. Ab 65 bleibt das Gewicht 1. Die 16 gezeichneten Stützpunkte liegen von 18 bis 65; auch jedes Alter dazwischen hat einen definierten Wert."),
+    page("12 / Neue Kurve", "16 Punkte auf der Alterskurve",
+         "Der neue Diskussionsentwurf gewichtet jüngere Erwachsene stärker: Die Kurve fällt zuerst deutlicher und läuft zum höheren Alter hin flacher aus. 18 erhält 2, 65 erhält 1.",
+         [("Berechenbare Definition", "Für ganzzahlige Alter ab 18 gilt <b>w(a) = 1 + ((65 - min(a,65)) / 47)²</b>. Ab 65 bleibt das Gewicht 1. Die 16 gezeichneten Stützpunkte liegen von 18 bis 65; auch jedes Alter dazwischen hat einen definierten Wert."),
           ("Was das Gewicht nicht beweist", "Zwei zu eins an den Endpunkten ist ein Verhältnis von Modellgewichten. Bei 30 Ziehungen ohne Zurücklegen ist die tatsächliche individuelle Inklusionswahrscheinlichkeit nicht einfach doppelt. Alle Altersklassen bleiben berechenbar, aber 30 Menschen können nicht zugleich jedes der 48 einzelnen Alter von 18 bis 65 repräsentieren."),
           ("Status", "Die Kurve ist eine Rechen- und Diskussionsebene. Ob ihr Einsatz eine gerechte Vergabe unterstützen würde, ist offen; Alter ist kein automatischer Ersatz für Bedarf.")],
          ("Altersmodell Code", "Altersmodell Test", "GG Art. 3"), "age"),
@@ -226,7 +226,7 @@ PAGES.extend([
     page("25 / Hilfe am Rand", "Der freiwillige Anschnallmodus",
          "Bis hierhin gelesen? Es gibt noch eine Sicherheitsidee: Wenn jemand in einer schweren oder auch strafrechtlich riskanten Lage herauswill, darf die sechsmonatige Frist kein Ende erreichbarer Hilfe sein.",
          [("Der mögliche Ausweg", "Der zugespitzte Ausdruck 'sechs Monate Narrenfreiheit' meint: ehrlich sprechen und nach Fehlern neu anfangen, nicht straffrei handeln. Eine unabhängige Stelle klärt psychosoziale, Sucht-, Schuldner- oder Schutzangebote und bei strafrechtlichem Risiko den Zugang zu selbst gewählter anwaltlicher Beratung. Vertraulichkeit und ihre gesetzlichen Grenzen werden vorab erläutert."),
-          ("Provokanter Originalton von Juri", "'Gib dem kriminell Verdächtigen irgendeine Möglichkeit, mal seinen Rausch auszuleben, wird er reden.' Das Zitat ist Diskussionsmaterial, <b>keine Befragungstechnik</b>. Die Szene meint zivil gekleidete Polizeikräfte auf einer Technoparty, die eine laut erzählte, für Umstehende hörbare Äußerung wahrnehmen. Sie ist eine Erzählidee, keine Behauptung über wirkliche Einsätze oder einen Partner des Piloten."),
+          ("Korrigierte Beobachtung", "Juri beschreibt sinngemäß eine Situation im Nachtleben: Eine Person besorgt sich Kokain selbst und könnte sich im Gespräch auf ihre Weise öffnen. Das ist keine sichere Vorhersage, keine Befragungsmethode und kein Bestandteil des Piloten. Eine frühere direkte Zuschreibung wurde auf seine Korrektur hin entfernt."),
           ("Die Rechtsgrenze", "Ein Projektteam erhält keine Ermittlungsbefugnis. Eine laut hörbare Äußerung ist zunächst eine Wahrnehmung im öffentlichen Raum; eine gezielte behördliche Vernehmung ist ein anderer Vorgang. Freiwilliges Feiern ist keine staatliche Beeinflussung. Bei einer Beschuldigtenvernehmung schützt § 136 StPO Schweigen und Verteidigerzugang; § 136a StPO verbietet Eingriffe in freie Willensentscheidung und Einsicht. Akute Gefahr und gesetzliche Pflichten folgen den zuständigen Verfahren.")],
          ("StGB § 201", "StPO § 136", "StPO § 136a", "DSGVO", "Rechtslabor"), "support"),
     page("26 / Teilhabe nach Haft", "Zwei Plätze für einen neuen Anfang",

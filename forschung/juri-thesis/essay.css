@@ -15,3 +15,15 @@ body{background:var(--essay-paper)}
 @media(max-width:900px){.safety-grid{grid-template-columns:1fr}}
 @media(max-width:700px){.essay-hero,.law-hero{padding:65px 20px}.essay-hero h1,.law-hero h1{font-size:clamp(3.2rem,11vw,5rem)}.essay-section,.law-intro,.moves,.verdict,.law-sources{padding:70px 20px}.chapter-nav{padding:12px 15px}.story-grid,.future-split,.move-body{grid-template-columns:1fr}.move summary{padding:20px 18px;gap:13px}.move-count{width:50px;height:50px;font-size:1.5rem}.move summary strong{font-size:1.25rem}.move-body{padding:0 18px 24px}.open-edge{grid-column:1}.equation{justify-content:flex-start}.chess-symbol{display:none}}
 @media(prefers-reduced-motion:reduce){.essay-topbar,.move summary{scroll-behavior:auto}}
+
+/* Focus the public concept on one readable column and a restrained first screen. */
+.essay-hero{min-height:0;padding:64px 24px;grid-template-columns:minmax(0,650px) 280px;justify-content:center;gap:48px}
+.essay-hero h1{font-size:clamp(3.1rem,5.3vw,5.4rem);max-width:12ch;margin-bottom:16px}
+.essay-hero .essay-lede{font-size:clamp(1.05rem,1.45vw,1.22rem);line-height:1.58}
+.essay-hero-mark{width:280px;border-width:12px;font-size:5.6rem}
+.chapter-nav{justify-content:center;padding:12px 20px}
+.essay-section{grid-template-columns:170px minmax(0,780px);justify-content:center;gap:40px;padding:72px 24px}
+.essay-body h2{font-size:clamp(2.3rem,3.7vw,3.65rem)}
+.essay-body>p{font-size:1.02rem}
+@media(max-width:900px){.essay-hero{grid-template-columns:minmax(0,650px);gap:20px}.essay-hero-mark{width:210px;font-size:4.3rem}.essay-section{grid-template-columns:minmax(0,780px);gap:14px}}
+@media(max-width:700px){.essay-hero{padding:42px 20px}.essay-hero h1{font-size:clamp(2.8rem,10vw,4rem)}.essay-section{padding:58px 20px}.essay-body h2{font-size:clamp(2.2rem,9vw,3rem)}}
