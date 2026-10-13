@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-12T17:58:30Z",
+  "generatedAt": "2026-10-13T00:44:29Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-12T17:58:30Z",
-      "lastSuccessAt": "2026-10-12T17:58:30Z",
+      "lastAttemptAt": "2026-10-13T00:44:29Z",
+      "lastSuccessAt": "2026-10-13T00:44:29Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,24 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-12T17:58:30Z",
-      "lastSuccessAt": "2026-10-12T17:58:30Z",
+      "lastAttemptAt": "2026-10-13T00:44:29Z",
+      "lastSuccessAt": "2026-10-13T00:44:29Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "5142995a1ac90d87163682f0",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s SpaceX CRS-35 Mission to Launch Health Research",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/",
+      "sourcePublishedAt": "2026-10-12T17:45:27Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
+      "firstFetchedAt": "2026-10-13T00:44:29Z"
+    },
     {
       "id": "519145787ddbc1de0b42337f",
       "sourceId": "github",
@@ -32,8 +43,19 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-12-push-attribution-public-preview",
       "sourcePublishedAt": "2026-10-12T16:30:11Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-12T17:58:30Z"
+    },
+    {
+      "id": "938ee56ecdcfa428e21dbee9",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Anonymous organization-level registries for Dependabot",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-12-anonymous-organization-level-registries-for-dependabot",
+      "sourcePublishedAt": "2026-10-12T14:04:16Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
+      "firstFetchedAt": "2026-10-13T00:44:29Z"
     },
     {
       "id": "446843354b9a1b0d7527f2a8",
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-12-jupiter-and-the-moons/",
       "sourcePublishedAt": "2026-10-12T04:05:00Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-12T07:24:25Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/",
       "sourcePublishedAt": "2026-10-12T04:00:00Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-12T07:24:25Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-11-ice-fishing-for-cosmic-neutrinos/",
       "sourcePublishedAt": "2026-10-11T04:05:00Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-11T08:56:45Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains",
       "sourcePublishedAt": "2026-10-10T18:53:39Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-10T22:35:59Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-to-conduct-flyover-engage-nfl-fans-at-metlife-stadium/",
       "sourcePublishedAt": "2026-10-10T14:18:59Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-10T18:39:03Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-10-lunar-farside/",
       "sourcePublishedAt": "2026-10-10T04:05:00Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-10T07:11:44Z"
     },
     {
@@ -109,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5",
       "sourcePublishedAt": "2026-10-09T22:58:23Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-10T00:54:42Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-09-codeql-2-27-2-improves-c-go-rust-and-javascript-analysis",
       "sourcePublishedAt": "2026-10-09T21:32:54Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-10T00:54:42Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-seeks-us-industry-plans-for-commercial-space-stations/",
       "sourcePublishedAt": "2026-10-09T18:11:44Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-09T21:00:06Z"
     },
     {
@@ -142,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/",
       "sourcePublishedAt": "2026-10-09T16:59:24Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-09T21:00:06Z"
     },
     {
@@ -153,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/cosmic-house-of-mirrors/",
       "sourcePublishedAt": "2026-10-09T13:57:24Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-09T16:15:55Z"
     },
     {
@@ -164,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-9-stickney-crater/",
       "sourcePublishedAt": "2026-10-09T04:05:00Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-09T09:09:49Z"
     },
     {
@@ -197,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-copilot-code-review-new-organization-billing-options-and-controls",
       "sourcePublishedAt": "2026-10-08T19:43:05Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-09T21:00:06Z"
     },
     {
@@ -219,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-triage-role-users-or-higher-can-now-archive-pull-requests",
       "sourcePublishedAt": "2026-10-08T19:01:42Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
@@ -285,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-screen-readers-can-navigate-timelines-as-lists",
       "sourcePublishedAt": "2026-10-08T16:00:56Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-08T16:31:38Z"
     },
     {
@@ -318,7 +340,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-08-draft-pull-requests-count-toward-pull-request-limits",
       "sourcePublishedAt": "2026-10-08T14:25:53Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-08T16:31:38Z"
     },
     {
@@ -384,7 +406,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot",
       "sourcePublishedAt": "2026-10-07T20:12:18Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
+      "fetchedAt": "2026-10-13T00:44:29Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
@@ -495,17 +517,6 @@
       "url": "https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available",
       "sourcePublishedAt": "2026-10-06T20:16:41Z",
       "fetchedAt": "2026-10-09T21:00:06Z",
-      "firstFetchedAt": "2026-10-06T21:40:26Z"
-    },
-    {
-      "id": "76236321861c084633d9f878",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA to Cover Northrop Grumman CRS-24 Spacecraft Departure",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-to-cover-northrop-grumman-crs-24-spacecraft-departure/",
-      "sourcePublishedAt": "2026-10-06T18:31:40Z",
-      "fetchedAt": "2026-10-08T01:58:28Z",
       "firstFetchedAt": "2026-10-06T21:40:26Z"
     },
     {
@@ -672,17 +683,6 @@
       "sourcePublishedAt": "2026-10-01T19:11:23Z",
       "fetchedAt": "2026-10-05T16:04:27Z",
       "firstFetchedAt": "2026-10-01T23:54:28Z"
-    },
-    {
-      "id": "d8efb6ae3f1c14fd22be9554",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "GitHub Copilot in VS Code, September 2026 releases",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-01-github-copilot-in-vs-code-september-2026-releases",
-      "sourcePublishedAt": "2026-10-01T19:09:10Z",
-      "fetchedAt": "2026-10-02T18:27:14Z",
-      "firstFetchedAt": "2026-10-01T19:34:03Z"
     }
   ]
 }
