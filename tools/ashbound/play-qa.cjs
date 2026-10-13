@@ -57,10 +57,32 @@ const server = http.createServer((request, response) => {
       assert.equal(await page.evaluate(() => AshboundGameDiagnostics.state.revealed), true);
       await page.keyboard.press('Digit3');
       assert.ok(await page.evaluate(() => AshboundGameDiagnostics.state.wardUntil > performance.now()));
+      if (viewport.width < 500) {
+        const hud = await page.evaluate(() => {
+          const message = document.getElementById('message').getBoundingClientRect();
+          const mana = document.getElementById('mana').getBoundingClientRect();
+          return { messageBottom: message.bottom, manaTop: mana.top };
+        });
+        assert.ok(hud.messageBottom + 8 < hud.manaTop, JSON.stringify(hud));
+      }
       await page.screenshot({ path: path.join(output, `${viewport.width}-playing.png`) });
       if (viewport.width > 500) { await page.keyboard.press('KeyL'); await page.keyboard.press('KeyL'); }
       await page.keyboard.down('KeyD');
-      await page.waitForFunction(() => AshboundGameDiagnostics.position.x > 3.5, null, { timeout: 15000 });
+      try {
+        await page.waitForFunction(() => AshboundGameDiagnostics.position.x > 3.5, null, { timeout: 15000 });
+      } catch (error) {
+        console.error('Movement diagnostics:', await page.evaluate(() => ({
+          position: AshboundGameDiagnostics.position,
+          orientation: AshboundGameDiagnostics.orientation,
+          active: AshboundGameDiagnostics.active,
+          frames: AshboundGameDiagnostics.frames,
+          visibility: document.visibilityState,
+          pointerLock: Boolean(document.pointerLockElement),
+          focused: document.activeElement?.id || document.activeElement?.tagName,
+          pauseVisible: !document.getElementById('pause').hidden,
+        })));
+        throw error;
+      }
       await page.keyboard.up('KeyD');
       await page.keyboard.down('KeyW');
       await page.waitForFunction(() => AshboundGameDiagnostics.position.z < 14.5, null, { timeout: 15000 });
@@ -77,7 +99,7 @@ const server = http.createServer((request, response) => {
       assert.equal(await page.evaluate(() => AshboundGameDiagnostics.state.booksSolved[0]), true);
       await page.locator('#book-close').click();
       if (viewport.width < 500) await page.locator('#inventory-button').click();
-      else await page.keyboard.press('Tab');
+      else await page.keyboard.press('KeyB');
       assert.match(await page.locator('#inventory-list').textContent(), /600/);
       await page.locator('#inventory-close').click();
       await page.reload({ waitUntil: 'domcontentloaded' });

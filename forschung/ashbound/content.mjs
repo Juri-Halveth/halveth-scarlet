@@ -1,7 +1,7 @@
 export const COPY = {
   de: {
     subtitle: 'HALVETH / eine eigene Spielwelt', world: 'Welt', encounter: 'Begegnung', story: 'Chronik', lab: 'Zauber', kernel: 'Gleichheitskern', books: 'Bibliothek', council: 'Konstellation', journal: 'Reisebuch',
-    tagline: 'Die Geschichte muss nicht so enden.', explore: 'Begegnung beginnen', chapter: 'Kapitel', next: 'Entscheiden', back: 'Einen Schritt zurueck', restart: 'Neue Reise',
+    tagline: 'Die Geschichte muss nicht so enden.', buildStatus: 'Spielbarer Entwicklungsprototyp · das vollständige Spiel ist in Entwicklung.', explore: 'Begegnung beginnen', chapter: 'Kapitel', next: 'Entscheiden', back: 'Einen Schritt zurueck', restart: 'Neue Reise',
     fresh: 'Ein anderer Morgen', location: 'Ort', all: 'Alle Perspektiven', choose: 'Begleiten', remove: 'Entfernen', dossier: 'Dossier',
     search: 'Name oder Rolle', party: 'Deine Begleitung', empty: 'Noch keine Begleitung gewaehlt.', partyFull: 'Drei Plaetze sind besetzt. Entferne zuerst eine Perspektive.',
     perspectiveNote: 'Projektperspektiven und optionale Gastprofile aus dem HALVETH-Archiv. Keine live antwortenden Agenten.',
@@ -46,7 +46,7 @@ export const COPY = {
     fit: 'Ansicht zentrieren', zoomIn: 'Vergroessern', zoomOut: 'Verkleinern', sceneControls: 'ASHBOUND 3D / Pfeiltasten: Umlauf / +/-: Zoom / Pos1: Ansicht zuruecksetzen', resetConfirm: 'Neue Reise beginnen? Dein bisheriger Spielstand wird vorher heruntergeladen.',
     fallback: '3D ist auf diesem Geraet nicht verfuegbar. Orte und Chronik bleiben spielbar.', loading: 'Die Insel entsteht …', error: 'Die Chronik konnte nicht geladen werden.', storyLoading: 'Die Chronik wird geladen.', retry: 'Erneut laden',
     recovered: 'Der lokale Spielstand war ungueltig. Das Original ist gesichert; eine neue Reise ist bereit.', recoveryProtected: 'Der lokale Spielstand war ungueltig. Das Original bleibt erhalten; neue Fortschritte werden derzeit nicht gespeichert.', recoveryExport: 'Urspruenglichen Spielstand herunterladen',
-    ending: 'Reise abgeschlossen', source: 'Quellcode', home: 'Scarlet', rights: 'ASHBOUND ist eine eigenstaendige HALVETH-Spielwelt. Gastprofile aus dem Archiv gehoeren nicht zu ihrer Originalchronik. Keine Assets fremder Spiele.',
+    ending: 'Reise abgeschlossen', source: 'Quellcode', home: 'Scarlet', rights: 'ASHBOUND ist eine eigenstaendige HALVETH-Spielwelt. Die Chronik erzaehlt mit HALVETH-Figuren; optionale Archivprofile sind getrennte Dossiers. Keine Assets fremder Spiele.',
     science: 'Physikquellen', placeNote: ['Ein neuer Anfang zwischen Asche und Wasser.', 'Drei Aussagen. Kein Zeuge besitzt die ganze Nacht.', 'Eine Stimme im Chor. Darf sie wieder gehen?', 'Pause ist nicht Abbremsen. Erinnerung ist keine Energie.', 'Neunundsechzig Perspektiven teilen sich keinen Wahrheitsstempel.', 'Jede Entscheidung darf einen Rueckweg behalten.'],
     councilTitle: 'Niemand muss im gleichen Kaestchen bleiben.', results: 'Perspektiven', collection: 'Sammlung', active: 'Aktiv', footer: 'ASHBOUND 1.0 / HALVETH',
     reality: 'Spielwelt', learning: 'Lehrmodell', physical: 'Messbefund', archiveSources: 'Quellen und Einordnung',
@@ -54,7 +54,7 @@ export const COPY = {
   },
   en: {
     subtitle: 'HALVETH / an original game world', world: 'World', encounter: 'Encounter', story: 'Chronicle', lab: 'Spells', kernel: 'Equality core', books: 'Library', council: 'Constellation', journal: 'Journal',
-    tagline: 'The story does not have to end this way.', explore: 'Begin encounter', chapter: 'Chapter', next: 'Choose', back: 'One step back', restart: 'New journey',
+    tagline: 'The story does not have to end this way.', buildStatus: 'Playable development prototype · the full game is still in development.', explore: 'Begin encounter', chapter: 'Chapter', next: 'Choose', back: 'One step back', restart: 'New journey',
     fresh: 'A different morning', location: 'Place', all: 'All perspectives', choose: 'Invite', remove: 'Remove', dossier: 'Dossier',
     search: 'Name or role', party: 'Your companions', empty: 'No companions chosen yet.', partyFull: 'Three places are occupied. Remove one perspective first.',
     perspectiveNote: 'Project perspectives and optional guest profiles from the HALVETH archive. Not live responding agents.',
@@ -99,7 +99,7 @@ export const COPY = {
     fit: 'Centre view', zoomIn: 'Zoom in', zoomOut: 'Zoom out', sceneControls: 'ASHBOUND 3D / Arrow keys: orbit / +/-: zoom / Home: reset', resetConfirm: 'Begin a new journey? Your previous save will be downloaded first.',
     fallback: '3D is unavailable on this device. Places and the chronicle remain playable.', loading: 'The island is taking shape …', error: 'The chronicle could not be loaded.', storyLoading: 'Loading the chronicle.', retry: 'Try again',
     recovered: 'The local save was invalid. The original is backed up; a new journey is ready.', recoveryProtected: 'The local save was invalid. The original is preserved; new progress is not being saved.', recoveryExport: 'Download original save',
-    ending: 'Journey complete', source: 'Source code', home: 'Scarlet', rights: 'ASHBOUND is an original HALVETH game world. Archive guest profiles are separate from its original chronicle. No assets from other games.',
+    ending: 'Journey complete', source: 'Source code', home: 'Scarlet', rights: 'ASHBOUND is an original HALVETH game world. The chronicle includes HALVETH characters; optional archive profiles are separate dossiers. No assets from other games.',
     science: 'Physics sources', placeNote: ['A new beginning between ash and water.', 'Three accounts. No witness owns the entire night.', 'One voice in a choir. Is it allowed to leave?', 'Pausing is not braking. Memory is not energy.', 'Sixty-nine perspectives do not share a stamp of truth.', 'Every decision may retain a way back.'],
     councilTitle: 'Nobody has to stay in the same box.', results: 'perspectives', collection: 'Collection', active: 'Active', footer: 'ASHBOUND 1.0 / HALVETH',
     reality: 'Game world', learning: 'Teaching model', physical: 'Measurement', archiveSources: 'Sources and context',

@@ -17,7 +17,7 @@ npm run package:win
 Extract or keep the complete `.local-qa/ashbound-desktop/ASHBOUND-win32-x64`
 directory and start `ASHBOUND.exe`. The EXE depends on its sibling files. F11
 toggles fullscreen. Use WASD to move, mouse or J/L/I/K to look, Shift to run,
-Space to jump, E to read or collect, 1/2/3 to cast, Tab for the inventory and
+Space to jump, E to read or collect, 1/2/3 to cast, B for the inventory and
 Escape to pause. The prologue saves locally under `ashbound-first-person-v1`;
 it does not import the older expedition save or the browser's local save.
 

@@ -15,9 +15,12 @@ Windows x64 needs Unreal Engine 5.8 with its first-person Blueprint template and
 ```powershell
 & .\native\ashbound-unreal\bootstrap.ps1 -EngineRoot 'C:\Program Files\Epic Games\UE_5.8'
 & .\native\ashbound-unreal\package.ps1 -EngineRoot 'C:\Program Files\Epic Games\UE_5.8'
+& .\native\ashbound-unreal\verify-package.ps1
 ```
 
 `bootstrap.ps1` creates a fresh, isolated Unreal project; `package.ps1` cooks a Windows Development build into a fresh output directory. They accept `-WorkRoot`, and the packaging script accepts `-OutputRoot`. Existing project or output paths are refused. The build verifies 47 downloaded Poly Haven source files against SHA-256, size and URL entries in `asset-manifest.json`; the sources are [CC0](https://polyhaven.com/license). The book's paper and leather images in `art/materials/` were generated specifically for this project. Page art is typeset from the project's existing stories using Libre Baskerville (`art/fonts/OFL.txt`). Epic template assets come from the local engine installation. Generated `.uasset` files and executable packages stay outside Git.
 Pass `-Configuration Shipping` to `package.ps1` for a player-facing package without the Development QA switches.
 
 The native source lives in `Source/`, world authoring and asset import in `tools/`, and renderer settings in `Config/`. The current play area is a vertical slice: it has no NPC AI, save system, full open world or final character animation. Frame measurements for one scene and this PC do not establish a stable frame rate for a completed game; the current run record is kept with the local build, not presented as a universal hardware requirement.
+
+The bootstrap reopens the saved level and checks terrain collision and surface-texture settings in `world_assets_verified.json`. OpenGL normal maps flip their green channel for Unreal; roughness maps use linear mask compression. `verify-package.ps1` runs a packaged Development build with a null renderer and checks terrain visibility traces, player-sized Pawn sweeps, spell material and three world-effect receipts. That probe does not measure FPS or replace a visual play test.

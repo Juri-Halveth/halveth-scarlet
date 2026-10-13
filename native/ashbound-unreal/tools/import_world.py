@@ -16,6 +16,8 @@ for model_id in ids:
     source_root = web if model_id in ['boulder_01', 'dead_tree_trunk', 'gothic_statue',
                                       'ornate_medieval_dagger'] else extra
     source = source_root / model_id / (model_id + '_1k.gltf')
+    if not source.is_file():
+        raise RuntimeError('Missing model source: ' + str(source))
     task = unreal.AssetImportTask()
     task.set_editor_property('filename', str(source))
     task.set_editor_property('destination_path', '/Game/ASHBOUND/Models/' + model_id)
@@ -30,6 +32,8 @@ for model_id in ids:
             box = asset.get_bounding_box()
             meshes.append({'path': asset_path, 'bounds': str(box),
                            'triangles': asset.get_num_triangles(0)})
+    if not meshes:
+        raise RuntimeError('No static meshes imported from: ' + str(source))
     result[model_id] = {'source': str(source), 'meshCount': len(meshes), 'meshes': meshes}
     with open(out, 'w', encoding='utf-8') as file:
         json.dump(result, file, indent=2)
@@ -40,6 +44,8 @@ for name in ['rocky_terrain_03_diffuse.jpg', 'rocky_terrain_03_nor_gl.jpg',
              'rocky_terrain_03_rough.jpg', 'old_stone_wall_02_diffuse.jpg',
              'old_stone_wall_02_nor_gl.jpg', 'old_stone_wall_02_rough.jpg']:
     source = root / 'forschung' / 'ashbound' / 'play' / 'assets' / 'surfaces' / name
+    if not source.is_file():
+        raise RuntimeError('Missing surface source: ' + str(source))
     task = unreal.AssetImportTask()
     task.set_editor_property('filename', str(source))
     task.set_editor_property('destination_path', '/Game/ASHBOUND/Surfaces')
@@ -47,5 +53,7 @@ for name in ['rocky_terrain_03_diffuse.jpg', 'rocky_terrain_03_nor_gl.jpg',
     task.set_editor_property('save', True)
     unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks([task])
     result[name] = list(task.get_editor_property('imported_object_paths'))
+    if not result[name]:
+        raise RuntimeError('No texture imported from: ' + str(source))
 with open(out, 'w', encoding='utf-8') as file:
     json.dump(result, file, indent=2)

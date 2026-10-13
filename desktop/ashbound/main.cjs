@@ -116,7 +116,8 @@ app.whenReady().then(() => {
   });
   window.webContents.on('before-input-event', (event, input) => {
     if (input.key === 'F11') { event.preventDefault(); window.setFullScreen(!window.isFullScreen()); }
-    if (input.key === 'Escape' && window.isFullScreen()) { event.preventDefault(); window.setFullScreen(false); }
+    // Escape leaves fullscreen and still reaches the game so it can pause.
+    if (input.key === 'Escape' && window.isFullScreen()) window.setFullScreen(false);
   });
   window.webContents.once('did-finish-load', () => { if (SMOKE) void smokeCheck(window); });
   void window.loadURL(ENTRY);

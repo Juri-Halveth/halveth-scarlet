@@ -4,6 +4,9 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { checkLinks, htmlFiles, siteURL } from './check_links.mjs';
+import { sourceTreeState } from './source_state.mjs';
+import { trackedSourceFiles, isTrackedPublicInput } from './public_inputs.mjs';
+import { siteTreeReceipt } from './artifact_tree.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = path.join(root, '.site-build');
@@ -13,6 +16,7 @@ const worldManifestPath = path.join(worldAssets, 'manifest.json');
 const worldManifest = JSON.parse(fs.readFileSync(worldManifestPath, 'utf8').replace(/^\uFEFF/, ''));
 if (worldManifest.schema !== 'ashbound.world-assets.v1' || !Array.isArray(worldManifest.files)) throw new Error('Invalid world asset manifest');
 const approvedWorldFiles = new Set([worldManifestPath]);
+const trackedFiles = trackedSourceFiles(root);
 for (const record of worldManifest.files) {
   if (typeof record.path !== 'string' || !/^[a-f0-9]{64}$/.test(record.sha256)) throw new Error('Invalid world asset receipt');
   const file = path.resolve(worldAssets, record.path.split('/').join(path.sep));
@@ -25,6 +29,7 @@ for (const record of worldManifest.files) {
 const includeSiteInput = file => {
   if (['__pycache__', '.DS_Store'].includes(path.basename(file))) return false;
   const absolute = path.resolve(file);
+  if (!isTrackedPublicInput(absolute, trackedFiles)) return false;
   if (absolute === worldAssets) return true;
   if (absolute.startsWith(worldAssets + path.sep)) {
     if (fs.statSync(absolute).isDirectory()) return [...approvedWorldFiles].some(approved => approved.startsWith(absolute + path.sep));
@@ -69,5 +74,5 @@ fs.writeFileSync(path.join(output, 'sitemap.xml'), sitemap);
 const result = checkLinks(output);
 if (result.failures.length) throw new Error(JSON.stringify(result, null, 2));
 const sourceCommit = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
-fs.writeFileSync(path.join(output, 'build-info.json'), JSON.stringify({ schema: 'halveth.scarlet-build.v1', sourceCommit, builtAt: new Date().toISOString(), htmlPages: pages.length, checkedReferences: result.checkedReferences }, null, 2) + '\n');
+fs.writeFileSync(path.join(output, 'build-info.json'), JSON.stringify({ schema: 'halveth.scarlet-build.v2', sourceCommit, sourceTreeState: sourceTreeState(root), builtAt: new Date().toISOString(), htmlPages: pages.length, checkedReferences: result.checkedReferences, ...siteTreeReceipt(output) }, null, 2) + '\n');
 console.log(`Build complete: ${pages.length} HTML pages, ${result.checkedReferences} local references; ${output}`);

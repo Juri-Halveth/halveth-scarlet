@@ -25,11 +25,11 @@ svg{width:18px;height:18px;flex-shrink:0}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;white-space:nowrap}
 .brand svg{color:#b5ecd9;width:25px;height:25px}
 .brand small{color:#97a7a2;font-weight:400;font-size:12px}
-#tabs{display:flex;align-items:center;gap:4px;margin:auto;height:100%}
-#tabs button{border:0;background:transparent;border-radius:0;height:100%;padding:0 13px;display:flex;align-items:center;gap:8px;color:#abb9b4;position:relative}
+#tabs{display:flex;align-items:center;gap:4px;flex:1;min-width:0;height:100%;overflow-x:auto;scrollbar-width:thin}
+#tabs button{border:0;background:transparent;border-radius:0;height:100%;padding:0 13px;display:flex;flex:0 0 auto;align-items:center;gap:8px;color:#abb9b4;position:relative;white-space:nowrap}
 #tabs button[aria-current=page]{color:#d8ffee}
 #tabs button[aria-current=page]:after{content:'';position:absolute;bottom:0;left:12px;right:12px;height:2px;background:#b5ecd9}
-.header-tools{display:flex;align-items:center;gap:8px}
+.header-tools{display:flex;flex:0 0 auto;align-items:center;gap:8px}
 .language{padding:5px 9px;font-size:12px;background:transparent;border-color:#48524f;height:32px}
 .world-stage{position:relative;height:min(760px,calc(100svh - 122px));min-height:540px;overflow:hidden;background:#171e21}
 #scene{position:absolute;inset:0}
@@ -39,6 +39,7 @@ svg{width:18px;height:18px;flex-shrink:0}
 .world-title p{margin:0;color:#b4c8c1;font-size:13px}
 .world-title h1{font-family:Georgia,serif;font-size:54px;line-height:1.1;font-weight:400;margin:8px 0 12px;color:#f3eee4;text-shadow:0 2px 20px #000}
 .world-title .tagline{font-size:16px;color:#d5ded6}
+.world-title .build-status{margin-top:10px;max-width:320px;color:#e8d1a8;font-size:12px;line-height:1.4}
 .places{position:absolute;left:38px;top:210px;display:grid;gap:4px;max-width:240px}
 .places button{display:flex;align-items:center;gap:12px;text-align:left;border:1px solid transparent;background:#11191dbb;padding:8px 14px;color:#c0d1cb;min-height:40px;font-size:13px}
 .places button span:first-child{font-family:monospace;color:#859a91}
@@ -288,5 +289,5 @@ dialog{padding:22px}
 *{transition:none!important}
 }
 /* The direct playable prologue stays visible above the world archive. */
-.play-now{display:inline-flex;align-items:center;justify-content:center;margin-top:1rem;padding:.75rem 1rem;border:1px solid #b6e9d2;background:#0b292bcc;color:#dbfff0;text-decoration:none;font-size:.72rem;font-weight:700;letter-spacing:.12em;box-shadow:0 0 20px #56b7a94d}
+.play-now{display:inline-flex;align-items:center;justify-content:center;pointer-events:auto;margin-top:1rem;padding:.75rem 1rem;border:1px solid #b6e9d2;background:#0b292bcc;color:#dbfff0;text-decoration:none;font-size:.72rem;font-weight:700;letter-spacing:.12em;box-shadow:0 0 20px #56b7a94d}
 .play-now:hover,.play-now:focus-visible{background:#165548}

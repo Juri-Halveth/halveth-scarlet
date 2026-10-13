@@ -4,7 +4,9 @@
 #include "ASHBOUNDGrimoire.h"
 #include "ASHBOUNDSeal.h"
 #include "Components/InputComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "Engine/Engine.h"
+#include "Engine/StaticMesh.h"
 #include "Engine/StaticMeshActor.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
@@ -58,6 +60,13 @@ void AASHBOUNDSpellManager::BeginPlay()
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND living magic ready; three ambient wisps, Q/E/R/F input"));
 
 #if !UE_BUILD_SHIPPING
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqacollision")))
+    {
+        FTimerHandle CollisionTimer;
+        GetWorld()->GetTimerManager().SetTimer(CollisionTimer,
+            FTimerDelegate::CreateUObject(this, &AASHBOUNDSpellManager::VerifyTerrainCollision),
+            1.0f, false);
+    }
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqaterrain")))
     {
         FTimerHandle TerrainTimer;
@@ -184,6 +193,78 @@ void AASHBOUNDSpellManager::BeginPlay()
     }
 #endif
 }
+
+#if !UE_BUILD_SHIPPING
+void AASHBOUNDSpellManager::VerifyTerrainCollision()
+{
+    UWorld* World = GetWorld();
+    if (!World) return;
+
+    struct FProbe
+    {
+        const TCHAR* Name;
+        float Y;
+        bool bExpectedHit;
+        bool bExpectedTerrain;
+    };
+    const FProbe Probes[] = {
+        { TEXT("central_road"), 0.0f, true, false },
+        { TEXT("north_slope"), 7600.0f, true, true },
+        { TEXT("south_slope"), -7600.0f, true, true },
+        { TEXT("outside_valley"), 8500.0f, false, false }
+    };
+    bool bAllPassed = true;
+    for (const FProbe& Probe : Probes)
+    {
+        FHitResult Hit;
+        FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDQATerrain), false);
+        Query.AddIgnoredActor(this);
+        const bool bHit = World->LineTraceSingleByChannel(
+            Hit, FVector(-3400.0f, Probe.Y, 6000.0f),
+            FVector(-3400.0f, Probe.Y, -2000.0f), ECC_Visibility, Query);
+        const UStaticMeshComponent* MeshComponent =
+            bHit ? Cast<UStaticMeshComponent>(Hit.GetComponent()) : nullptr;
+        const UStaticMesh* Mesh = MeshComponent ? MeshComponent->GetStaticMesh() : nullptr;
+        const bool bTerrain = Mesh && Mesh->GetName() == TEXT("ASHBOUND_Valley");
+        const bool bPassed = bHit == Probe.bExpectedHit &&
+            (!Probe.bExpectedTerrain || bTerrain);
+        bAllPassed &= bPassed;
+        UE_LOG(LogTemp, Display,
+            TEXT("ASHBOUND_COLLISION_SAMPLE name=%s hit=%d mesh=%s z=%.1f pass=%d"),
+            Probe.Name, bHit ? 1 : 0, Mesh ? *Mesh->GetName() : TEXT("NONE"),
+            bHit ? Hit.ImpactPoint.Z : 0.0f, bPassed ? 1 : 0);
+    }
+    // A visual trace alone does not establish that the pawn can contact the
+    // imported slope. Sweep a player-sized capsule on the Pawn channel too.
+    for (const float Y : { 7600.0f, -7600.0f })
+    {
+        FHitResult Hit;
+        FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDQAPawn), false);
+        Query.AddIgnoredActor(this);
+        const bool bHit = World->SweepSingleByChannel(
+            Hit, FVector(-3400.0f, Y, 6000.0f),
+            FVector(-3400.0f, Y, -2000.0f), FQuat::Identity,
+            ECC_Pawn, FCollisionShape::MakeCapsule(34.0f, 88.0f), Query);
+        const UStaticMeshComponent* MeshComponent =
+            bHit ? Cast<UStaticMeshComponent>(Hit.GetComponent()) : nullptr;
+        const UStaticMesh* Mesh = MeshComponent ? MeshComponent->GetStaticMesh() : nullptr;
+        const bool bPassed = Mesh && Mesh->GetName() == TEXT("ASHBOUND_Valley");
+        bAllPassed &= bPassed;
+        UE_LOG(LogTemp, Display,
+            TEXT("ASHBOUND_PAWN_COLLISION_SAMPLE y=%.1f hit=%d mesh=%s z=%.1f pass=%d"),
+            Y, bHit ? 1 : 0, Mesh ? *Mesh->GetName() : TEXT("NONE"),
+            bHit ? Hit.ImpactPoint.Z : 0.0f, bPassed ? 1 : 0);
+    }
+    if (bAllPassed)
+    {
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND_COLLISION_QA PASS"));
+    }
+    else
+    {
+        UE_LOG(LogTemp, Error, TEXT("ASHBOUND_COLLISION_QA FAIL"));
+    }
+}
+#endif
 
 void AASHBOUNDSpellManager::CastResonance() { CastSchool(0); }
 void AASHBOUNDSpellManager::CastEmber() { CastSchool(1); }

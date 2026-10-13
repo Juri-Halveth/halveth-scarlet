@@ -24,6 +24,7 @@
     </div>
     <div id="target" class="hud" aria-live="polite"></div>
     <div id="message" class="hud" role="status" aria-live="polite">Ilyra: Die Asche erinnert sich. Folge dem Licht.</div>
+    <div id="save-warning" class="hud save-warning" role="status" hidden></div>
     <button id="interact" class="hud" type="button" hidden>LESEN <kbd>E</kbd></button>
     <div id="mana" class="hud"><span>MANA <strong id="mana-number">100 / 100</strong></span><div class="mana-track"><i id="mana-fill"></i></div></div>
     <div id="spells" class="hud" aria-label="Fähigkeiten">
@@ -32,42 +33,45 @@
       <button type="button" data-spell="still"><kbd>3</kbd><b>◇</b><span>STILLE</span><small>Zeit kurz anhalten</small></button>
     </div>
     <div id="touch" class="hud" hidden><div id="stick" aria-label="Bewegen"><span></span></div><div id="touch-hint">Rechts ziehen: Blick · Fähigkeiten unten</div></div>
-    <section id="start" class="modal" aria-labelledby="start-title">
+    <section id="start" class="modal" role="dialog" aria-modal="true" aria-labelledby="start-title">
       <div class="modal-content">
         <p class="eyebrow">HALVETH · EIN EIGENES SPIELUNIVERSUM</p>
         <h1 id="start-title">ASH<span>BOUND</span></h1>
         <p class="lead">Die Asche erwacht.</p>
         <p class="story">Drei Siegel halten das Tor zur Außenwelt geschlossen. Ilyra hat ihre Stimme im Stein gelassen. Du bist die erste Person, die sie hört.</p>
+        <p class="build-status">Spielbarer Browser-Prototyp · das vollständige Spiel ist in Entwicklung.</p>
+        <div id="save-recovery" class="save-recovery" role="alert" hidden><p id="save-recovery-status"></p><select id="save-recovery-choice" aria-label="Lokale Spielstandkopie auswählen" hidden></select><button id="save-recovery-export" class="secondary" type="button">Ursprünglichen Spielstand herunterladen</button></div>
         <button id="start-button" class="action" type="button">WELT BETRETEN <span>→</span></button>
         <p class="native-route"><a href="https://github.com/Juri-Halveth/halveth-scarlet/releases/tag/ashbound-native-v0.1.0-preview" target="_blank" rel="noopener noreferrer">Windows-3D-Technikdemo herunterladen ↗</a></p>
-        <p class="controls">WASD bewegen · Maus oder J/L/I/K blicken · Shift rennen · Leertaste springen<br>1 Impuls · 2 Resonanz · 3 Stille · E interagieren · Esc pausieren</p>
+        <p class="controls">WASD bewegen · Maus oder J/L/I/K blicken · Shift rennen · Leertaste springen<br>1 Impuls · 2 Resonanz · 3 Stille · E interagieren · B Ausrüstung · Esc pausieren</p>
       </div>
     </section>
-    <section id="pause" class="modal" aria-labelledby="pause-title" hidden>
+    <section id="pause" class="modal" role="dialog" aria-modal="true" aria-labelledby="pause-title" hidden>
       <div class="modal-content compact"><p class="eyebrow">ASHBOUND</p><h2 id="pause-title">Welt angehalten</h2>
         <button id="resume-button" class="action" type="button">WEITERSPIELEN <span>→</span></button>
         <button id="reset-button" class="secondary" type="button">PROLOG NEU BEGINNEN</button>
         <a class="secondary" href="../">CHRONIK & WELTARCHIV</a>
+        <p id="pause-save-warning" class="save-warning-detail" role="status" hidden></p>
         <p class="controls">F11 Vollbild · Esc pausieren</p>
       </div>
     </section>
-    <section id="book" class="modal" aria-labelledby="book-title" hidden>
+    <section id="book" class="modal" role="dialog" aria-modal="true" aria-labelledby="book-title" hidden>
       <div class="book-shell">
         <div class="book-leaf book-cover"><p class="eyebrow">ASHBOUND · GEFUNDENE SCHRIFT</p><div class="book-emblem" aria-hidden="true">✦</div><h2 id="book-title"></h2><p id="book-author"></p><p class="book-inscription">Lies mit offenen Augen. Die Spur steckt im Text.</p></div>
         <div class="book-leaf book-page"><p class="book-number" id="book-number">SEITE 01 / 03</p><p id="book-text"></p><div id="book-question" hidden><p id="book-prompt"></p><div id="book-answers"></div></div><div class="book-controls"><button id="book-prev" type="button">← ZURÜCK</button><button id="book-next" type="button">WEITER →</button><button id="book-close" type="button">SCHLIESSEN ✕</button></div></div>
       </div>
     </section>
-    <section id="inventory" class="modal" aria-labelledby="inventory-title" hidden>
+    <section id="inventory" class="modal" role="dialog" aria-modal="true" aria-labelledby="inventory-title" hidden>
       <div class="modal-content compact inventory-content"><p class="eyebrow">DEIN WEG</p><h2 id="inventory-title">Ausrüstung & Wissen</h2><div id="inventory-list"></div><button id="inventory-close" class="action" type="button">ZURÜCK IN DIE WELT <span>→</span></button></div>
     </section>
-    <section id="ending" class="modal" aria-labelledby="ending-title" hidden>
+    <section id="ending" class="modal" role="dialog" aria-modal="true" aria-labelledby="ending-title" hidden>
       <div class="modal-content compact"><p class="eyebrow">KAPITEL I · DURCHBRUCH</p><h2 id="ending-title">Der Aschenpfad ist offen.</h2>
         <p class="story">Die drei Kräfte sind keine Schlüssel mehr, sondern Werkzeuge in deiner Hand. Hinter dem Tor beginnt die Welt.</p>
         <button id="continue-button" class="action" type="button">WEITER ERKUNDEN <span>→</span></button>
         <a class="secondary" href="../">DIE CHRONIK ENTDECKEN</a>
       </div>
     </section>
-    <div id="fatal" role="alert" hidden>Die 3D-Welt konnte nicht geladen werden. Prüfe, ob WebGL verfügbar ist. <a href="../">Zum Weltarchiv</a></div>
+    <div id="fatal" role="alert" hidden>Die 3D-Welt konnte nicht geladen werden. Prüfe, ob WebGL verfügbar ist. <a href="../">Zum Weltarchiv</a> · <a href="https://github.com/Juri-Halveth/halveth-scarlet/releases/tag/ashbound-native-v0.1.0-preview" target="_blank" rel="noopener noreferrer">Windows-3D-Technikdemo</a></div>
   </main>
   <noscript><p>JavaScript ist für das Spiel erforderlich. <a href="../">Das Weltarchiv ist hier lesbar.</a></p></noscript>
 </body>

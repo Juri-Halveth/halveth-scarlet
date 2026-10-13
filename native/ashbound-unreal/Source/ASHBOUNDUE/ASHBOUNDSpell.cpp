@@ -38,9 +38,12 @@ AASHBOUNDSpell::AASHBOUNDSpell()
     RootComponent = SpellRoot;
 
     static ConstructorHelpers::FObjectFinder<UStaticMesh> Sphere(TEXT("/Engine/BasicShapes/Sphere.Sphere"));
-    static ConstructorHelpers::FObjectFinder<UMaterialInterface> Material(
-        TEXT("/Game/ASHBOUND/Materials/M_LivingSpell.M_LivingSpell"));
-    SpellMaterial = Material.Object;
+    // Asset authoring runs after the first editor module load. Avoid a false
+    // missing-asset error in that first commandlet; later loads still bind the
+    // material as a hard UPROPERTY reference for cooking.
+    static ConstructorHelpers::FObjectFinderOptional<UMaterialInterface> Material(
+        TEXT("/Game/ASHBOUND/Materials/M_LivingSpell.M_LivingSpell"), LOAD_NoWarn);
+    SpellMaterial = Material.Get();
 
     CoreMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CoreMesh"));
     CoreMesh->SetupAttachment(SpellRoot);
@@ -74,12 +77,18 @@ void AASHBOUNDSpell::BeginPlay()
     Origin = GetActorLocation();
     if (SpellMaterial)
     {
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND_SPELL_MATERIAL bound=%s"),
+            *SpellMaterial->GetPathName());
         DynamicMaterial = UMaterialInstanceDynamic::Create(SpellMaterial, this);
         CoreMesh->SetMaterial(0, DynamicMaterial);
         for (UStaticMeshComponent* Satellite : Satellites)
         {
             Satellite->SetMaterial(0, DynamicMaterial);
         }
+    }
+    else
+    {
+        UE_LOG(LogTemp, Error, TEXT("ASHBOUND_SPELL_MATERIAL MISSING"));
     }
     UpdateAppearance();
 }
