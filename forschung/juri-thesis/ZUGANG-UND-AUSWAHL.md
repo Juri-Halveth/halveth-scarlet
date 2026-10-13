@@ -6,7 +6,7 @@ Die [klickbare Chancenreise](chancenreise.html) zeigt den Weg durch einen mögli
 
 ## Aktuelles 30-Plätze-Orientierungsregelwerk
 
-Juri präzisiert den Wunsch für **eine** Pilotrunde als **30 = 4 + 2 + 5 + 2 + 17** ganze Plätze:
+Juri präzisiert den Wunsch für **eine** Pilotrunde als **30 = 4 + 2 + 5 + 2 + 2 + 15** ganze Plätze:
 
 | Vorschlagslinie | Plätze | Aussagegrenze |
 | --- | ---: | --- |
@@ -14,9 +14,10 @@ Juri präzisiert den Wunsch für **eine** Pilotrunde als **30 = 4 + 2 + 5 + 2 + 
 | Menschen im Alter 18 mit erschwertem Übergang | 2 | Individuelle Hürden dürfen nicht aus dem Geburtsjahr abgeleitet oder öffentlich eingefordert werden. |
 | Alter 32 bis 35 | 5 | Juris Suchhypothese; ein aktueller örtlicher Bedarf für genau fünf Plätze ist nicht gemessen. |
 | Junge Alleinerziehende | 2 | Juri wünscht einen selbstbestimmten, möglichst eigenständig getragenen Zugang für junge Mütter. Träger, Mandat, Geschlechts-/Familienkriterium und Gleichbehandlung bleiben offen. |
-| Weitere Lebensalter und Wege | 17 | Offener Zugang für andere Erwachsene, auch 50+ und 65+. |
+| Übergang nach Haftentlassung | 2 | Freiwilliger neuer Weg mit geeigneter Straffälligenhilfe; keine öffentliche Kennzeichnung, keine pauschale Straffreiheit. Der örtliche Bedarf für genau zwei Plätze ist noch nicht gemessen. |
+| Weitere Lebensalter und Wege | 15 | Offener Zugang für andere Erwachsene, auch 50+ und 65+. |
 
-Diese Spuren zählen **exklusiv im Platzledger**: Ein Mensch kann mehrere Eigenschaften besitzen, belegt aber höchstens einen Platz. Die 26 Plätze außerhalb der gewünschten Gründergruppe sind somit **2 + 5 + 2 + 17**. Sollte eine Sonderlinie rechtlich, finanziell oder praktisch nicht tragen, muss die Gesamtverteilung neu beschlossen werden; ihre Plätze werden nicht still vergeben.
+Diese Spuren zählen **exklusiv im Platzledger**: Ein Mensch kann mehrere Eigenschaften besitzen, belegt aber höchstens einen Platz. Die 26 Plätze außerhalb der gewünschten Gründergruppe sind somit **2 + 5 + 2 + 2 + 15**. Sollte eine Sonderlinie rechtlich, finanziell oder praktisch nicht tragen, muss die Gesamtverteilung neu beschlossen werden; ihre Plätze werden nicht still vergeben. Für Daten über strafrechtliche Verurteilungen und Straftaten gelten besonders enge Voraussetzungen nach [Art. 10 DSGVO](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32016R0679); ein öffentlicher Steckbrief oder informelles Register wäre dafür kein tragfähiger Weg.
 
 Die getrennte [16-Punkte-Alterskurve](assets/alterskurve-16.svg) hat von 18 bis 65 die relative Gewichtung **w(a)=2-(min(a,65)-18)/47** und ab 65 das positive Gewicht 1. Sie ist ein **Diskussionsmodell** und vergibt keine Plätze. Sechzehn Stützpunkte sind keine 16 Altersklassen und keine 16 Stellen. Eine tatsächliche Alterspräferenz müsste nach [Art. 3 GG](https://www.gesetze-im-internet.de/gg/art_3.html) und gegebenenfalls [§ 10 AGG](https://www.gesetze-im-internet.de/agg/__10.html) durch Ziel, Geeignetheit, Erforderlichkeit und mildere Alternativen begründet werden. Das [Rechtslabor](rechtslabor.html#alter) zeigt den Gegenstandpunkt. Auch ein NEEDED-Label benötigt eine unabhängig definierte Bedarfsquelle; Alter allein reicht nicht.
 

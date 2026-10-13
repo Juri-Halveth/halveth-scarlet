@@ -60,8 +60,11 @@ SOURCES = {
     "BMAS junge Menschen": "https://www.bmas.de/DE/Arbeit/Grundsicherung-fuer-Arbeitsuchende/Leistungen-und-Bedarfe-in-der-Grundsicherung-fuer-Arbeitsuchende/Informationen-nach-Zielgruppen/zielgruppe-sgb-2-junge-menschen.html",
     "StGB § 261": "https://www.gesetze-im-internet.de/stgb/__261.html",
     "StGB § 201": "https://www.gesetze-im-internet.de/stgb/__201.html",
+    "StGB § 46a": "https://www.gesetze-im-internet.de/stgb/__46a.html",
+    "StGB § 56": "https://www.gesetze-im-internet.de/stgb/__56.html",
     "StPO § 136": "https://www.gesetze-im-internet.de/stpo/__136.html",
     "StPO § 136a": "https://www.gesetze-im-internet.de/stpo/__136a.html",
+    "Justiz NRW Übergang": "https://www.justiz.nrw.de/sites/default/files/imported/files/2024-03/Flyer-zum-strukturierten-Uebergangsmanagement-in-NRW.pdf",
     "Konzept im Web": SITE + "konzept.html",
     "Rechtslabor": SITE + "rechtslabor.html",
     "Chancenreise": SITE + "chancenreise.html",
@@ -106,11 +109,11 @@ PAGES.extend([
           ("Region ohne Scheinkarte", "Köln, Bonn, Aachen und Euskirchen stehen im Konzept für mögliche Verbindungen, nicht für einen vermessenen gleichabständigen Radius. Ein reales Einzugsgebiet braucht Pendelwege, Zugangsgerechtigkeit und eine zuständige Finanzierung."),
           ("Wer entscheidet?", "Ein Träger müsste Mandat, Haushalt, Ansprechstelle und Verantwortung für Zahlungen und Daten ausdrücklich übernehmen. Eine öffentliche Webseite oder ein privater Brief ersetzt keinen kommunalen Beschluss.")],
          ("GO NRW 2026", "GG Art. 28", "Konzept im Web"), "Brühl / Region"),
-    page("06 / Platzledger", "30 = 4 + 2 + 5 + 2 + 17",
+    page("06 / Platzledger", "30 = 4 + 2 + 5 + 2 + 2 + 15",
          "Diese Rechnung bindet Plätze als ganze Einheiten. Sie beschreibt Juris gewünschte Orientierung, noch keine rechtswirksame Reservierung.",
          [("Vier", "Juri möchte selbst und mit drei weiteren, von ihm vorgeschlagenen Menschen teilnehmen. Damit wären rechnerisch <b>26 Plätze für andere offen</b>. Die drei Personen werden nur nach eigener Zustimmung benannt; die Sonderrolle und mögliche Interessenkonflikte brauchen eine unabhängige Prüfung."),
-          ("Neun besondere Suchpunkte", "Zwei Plätze nennt Juri für erschwerte Übergänge im Alter 18, fünf für die von ihm derzeit hervorgehobene Gruppe 32 bis 35 und zwei für eine von jungen Alleinerziehenden selbst mitgestaltete Route. Für genau diese Zahlen gibt es noch keine örtliche Bedarfsanalyse."),
-          ("Siebzehn", "Die verbleibenden Plätze bleiben für andere Alters- und Lebenslagen offen. Eine Person darf mehrere Merkmale haben, wird im Platzledger jedoch genau einmal verbucht. Sonst würde die Summe von 30 nur auf dem Papier stimmen.")],
+          ("Elf besondere Suchpunkte", "Zwei Plätze nennt Juri für erschwerte Übergänge im Alter 18, fünf für die Gruppe 32 bis 35, zwei für eine von jungen Alleinerziehenden selbst mitgestaltete Route und zwei für Menschen nach Haftentlassung. Für genau diese Zahlen gibt es noch keine örtliche Bedarfsanalyse."),
+          ("Fünfzehn", "Die verbleibenden Plätze bleiben für andere Alters- und Lebenslagen offen. Eine Person darf mehrere Merkmale haben, wird im Platzledger jedoch genau einmal verbucht. Sonst würde die Summe von 30 nur auf dem Papier stimmen.")],
          ("GG Art. 3", "Zugang und Auswahl", "Rechtslabor"), "seats"),
     page("07 / Gründergruppe", "Juris Wunsch offen verhandeln",
          "Ein Ideengeber darf seinen Beitrag und seine eigene Entwicklungszeit zur Sprache bringen. Daraus folgt noch kein Vorrecht auf knappe öffentliche Plätze.",
@@ -136,8 +139,8 @@ PAGES.extend([
           ("Eigenständige Gestaltung", "Ein unabhängiger, von Betroffenen mitgestalteter Träger könnte Zugang, Begleitung und eine freiwillige jährliche Würdigung von Ideen entwickeln. Weder Juri noch die Webseite verfügt über dessen Entscheidung. Eine künftige Vergabe öffentlicher Plätze kann nicht bloß per 'Ticket' ohne Mandat und Regeln übertragen werden."),
           ("Rechtlicher Zuschnitt", "Wenn ein Programm nach Geschlecht oder Familienform differenziert, müssen Zweck, Sachgrund, Verhältnismäßigkeit und Alternativen gesondert geprüft werden. Eine rechtlich robustere Teilhabespur kann Sorgeverantwortung und konkrete Barrieren offen erfassen, ohne Mütter aus dem Blick zu verlieren.")],
          ("Destatis Alleinerziehende", "GG Art. 3", "DSGVO")),
-    page("11 / Offenheit", "Siebzehn Plätze für weitere Wege",
-         "Die übrigen 17 Plätze verhindern, dass ein Pilot nur zwei Lebensalter und eine gesellschaftliche Nische sieht.",
+    page("11 / Offenheit", "Fünfzehn Plätze für weitere Wege",
+         "Die übrigen 15 Plätze verhindern, dass ein Pilot nur zwei Lebensalter und einzelne gesellschaftliche Nischen sieht.",
          [("Wer mitgemeint ist", "Menschen über 35, über 50 und über 65 bleiben in der Gesamtkonzeption. Erwerbstätige, Erwerbslose, Menschen ohne Hochschulabschluss, Personen mit Behinderung, pflegende Angehörige und Menschen mit verborgenen Ideen benötigen zugängliche Einladungen."),
           ("Was nicht zählt", "Ein fehlendes Studium darf nicht automatisch gegen eine Idee sprechen. Sichtbare 'Karrierepunkte', Karmabegriffe oder Medaillen sind kein tragfähiger Ersatz für nachvollziehbare Ziele, Ressourcenbedarf und öffentlich bekannte Kriterien."),
           ("Wiederbewerbung", "Bei jeder neuen Runde soll eine Person bewusst neu entscheiden können. Eine Absage ist kein dauerhafter Persönlichkeitsstatus. Frühere Unterlagen werden nur im rechtlich zulässigen und transparent erklärten Umfang weiterverwendet.")],
@@ -222,11 +225,23 @@ PAGES.extend([
          ("Konzept im Web", "Rechtslabor", "GO NRW 2026"), "law"),
     page("25 / Hilfe am Rand", "Der freiwillige Anschnallmodus",
          "Bis hierhin gelesen? Es gibt noch eine Sicherheitsidee: Wenn jemand in einer schweren oder auch strafrechtlich riskanten Lage herauswill, darf die sechsmonatige Frist kein Ende erreichbarer Hilfe sein.",
-         [("Der mögliche Ausweg", "Die Person kann freiwillig eine unabhängige Stelle ansprechen. Diese klärt mit ihr passende psychosoziale, Sucht-, Schuldner- oder Schutzangebote und bei strafrechtlichem Risiko den Zugang zu selbst gewählter anwaltlicher Beratung. Vertraulichkeit und ihre gesetzlichen Grenzen werden vorab erläutert."),
+         [("Der mögliche Ausweg", "Juri nennt den Freiraum zugespitzt 'sechs Monate Narrenfreiheit': ehrlich sprechen und nach Fehlern neu anfangen, nicht straffrei handeln. Eine unabhängige Stelle klärt psychosoziale, Sucht-, Schuldner- oder Schutzangebote und bei strafrechtlichem Risiko den Zugang zu selbst gewählter anwaltlicher Beratung. Vertraulichkeit und ihre gesetzlichen Grenzen werden vorab erläutert."),
           ("Juris provokanter Originalton", "'Gib dem kriminell Verdächtigen irgendeine Möglichkeit, mal seinen Rausch auszuleben, wird er reden.' Das Zitat ist Diskussionsmaterial, <b>keine Befragungstechnik</b>. Juris Szene meint zivil gekleidete Polizeikräfte auf einer Technoparty, die eine laut erzählte, für Umstehende hörbare Äußerung wahrnehmen. Sie ist eine Erzählidee, keine Behauptung über wirkliche Einsätze oder einen Partner des Piloten."),
           ("Die Rechtsgrenze", "Ein Projektteam erhält keine Ermittlungsbefugnis. Eine laut hörbare Äußerung ist zunächst eine Wahrnehmung im öffentlichen Raum; eine gezielte behördliche Vernehmung ist ein anderer Vorgang. Freiwilliges Feiern ist keine staatliche Beeinflussung. Bei einer Beschuldigtenvernehmung schützt § 136 StPO Schweigen und Verteidigerzugang; § 136a StPO verbietet Eingriffe in freie Willensentscheidung und Einsicht. Akute Gefahr und gesetzliche Pflichten folgen den zuständigen Verfahren.")],
          ("StGB § 201", "StPO § 136", "StPO § 136a", "DSGVO", "Rechtslabor"), "support"),
-    page("26 / Reproduzierbarkeit", "Quellen und offener Quellcode",
+    page("26 / Teilhabe nach Haft", "Zwei Plätze für einen neuen Anfang",
+         "Juri ergänzt zwei Suchplätze nach Haftentlassung. Sie gehen von den bisher 17 offenen Plätzen ab; 15 bleiben offen. Die Summe der ersten Runde bleibt 30.",
+         [("Eine fachliche Anknüpfung", "Das strukturierte Übergangsmanagement der Justiz NRW beschreibt, warum Hilfen vor und nach der Entlassung zusammenpassen müssen. Das ist eine zitierte Quelle, keine Projektpartnerschaft. Der Pilot müsste mit geeigneten Stellen und den Betroffenen erst einen freiwilligen Weg entwerfen."),
+          ("Ehrlichkeit ohne falsches Versprechen", "Ein Mensch darf eigene Fehler benennen und um Hilfe bitten. Das Team muss vorher sagen, was vertraulich bleiben kann und was nicht. Es kann weder Straflosigkeit noch eine Bewährungsentscheidung zusagen. Bei möglicher eigener Straftat muss selbst gewählte rechtliche Beratung erreichbar sein."),
+          ("Schutz der Person", "Eine frühere Verurteilung ist keine öffentliche Bewerbungsmarke. Daten über Straftaten und Verurteilungen verlangen nach Art. 10 DSGVO eine eigene Zulässigkeitsprüfung. Bei Schaden oder Abbruch wird nach übersehenen Hilfen und Barrieren gefragt, ohne die Person auf ein moralisches Etikett zu reduzieren.")],
+         ("Justiz NRW Übergang", "StGB § 46a", "StGB § 56", "DSGVO"), "support"),
+    page("27 / Rechengedanke", "13 von 26: die Gegenprobe",
+         "Juri vermutet, dass 13 der 26 offen aufgenommenen Menschen einen messbaren Rückfluss erzeugen könnten, und befürchtet bei anderen auch Probleme. Beides sind frei gesetzte Hypothesen.",
+         [("Variablen binden", "C sind die vollständigen Kosten pro sechsmonatigem Platz; R ist der zusätzlich belegte Nutzen je einem der 13 Plätze; F ist die getrennt belegte Zusatzwirkung der vier gewünschten Gründerplätze. H sind zusätzlich belegte, in derselben Rechnung bewertbare Schäden oder Folgekosten. Für denselben Zeitraum gilt: S = 13 x R + F - 30 x C - H."),
+          ("Zwei und fünf", "Bei R = 2C und F = 0 folgt S = -4C - H; für Ausgleich müsste F mindestens 4C + H betragen. Bei R = 5C und F = 0 folgt S = 35C - H. Nutzen und Schäden sind nicht gemessen; Verletzungen von Menschen lassen sich damit nicht aufrechnen."),
+          ("80-Prozent-Stressprobe", "80 Prozent von 30 sind 24. Mehr als 80 Prozent ohne gemessenen Rückfluss wären mindestens 25; höchstens fünf Plätze blieben in diesem Maßstab mit Rückfluss. Bei F = 0 bräuchten sie im Mittel mindestens (30C + H) / 5. Fehlender Rückfluss sagt nichts über Menschenwert oder Kriminalität.")],
+         ("Budgetquelle", "Konzept im Web", "Rechtslabor")),
+    page("28 / Reproduzierbarkeit", "Quellen und offener Quellcode",
          "Jeder wichtige Rechen- und Rechtsanker ist anklickbar. Der Code zeigt ein Modell; seine Existenz beweist weder soziale Wirkung noch eine amtliche Auswahl.",
          [("Öffentliche Webfassung", f'<link href="{SITE}">Projektstart</link>, <link href="{SITE}konzept.html">Konzept</link>, <link href="{SITE}rechtslabor.html">Rechtslabor</link> und <link href="{SITE}chancenreise.html">fiktive Chancenreise</link>. Die Seiten können ohne Antrag und ohne Dateneingabe betrachtet werden.'),
           ("Rechenquelle", f'<link href="{CODE}tools/juri_age_model.mjs">Altersmodell als Quellcode</link>, <link href="{CODE}tests/juri-age-model.test.mjs">Modelltest</link> und <link href="{CODE}forschung/juri-thesis/WIRTSCHAFTSMODELL.md">offene Budgetannahmen</link>. Die 16-Punkte-Grafik folgt exakt dieser Quelle.'),
@@ -283,7 +298,7 @@ def draw_diagram(c, kind, top):
     c.setFillColor(PALE)
     c.roundRect(x, top - height, width, height, 16, fill=1, stroke=0)
     if kind == "seats":
-        groups = [(4, "#d9ad58"), (2, "#77b7a5"), (5, "#70a3c4"), (2, "#b69bc4"), (17, "#326b61")]
+        groups = [(4, "#d9ad58"), (2, "#77b7a5"), (5, "#70a3c4"), (2, "#b69bc4"), (2, "#c79377"), (15, "#326b61")]
         items = [(count, colors.HexColor(color)) for count, color in groups]
         flat = [color for count, color in items for _ in range(count)]
         for i, color in enumerate(flat):
@@ -292,7 +307,7 @@ def draw_diagram(c, kind, top):
             c.setFillColor(color)
             c.circle(cx, cy, 10, fill=1, stroke=0)
         c.setFillColor(INK); c.setFont("Arial-Bold", 9)
-        c.drawString(x + 24, top - 111, "4 Gründer  +  2 Start  +  5 Übergang  +  2 Sorge  +  17 offen  =  30")
+        c.drawString(x + 18, top - 111, "4 Gründer + 2 Start + 5 Übergang + 2 Sorge + 2 nach Haft + 15 offen = 30")
     elif kind == "age":
         pts = AGE_DATA["points"]
         xx = lambda a: x + 36 + (a - 18) * (width - 70) / 47

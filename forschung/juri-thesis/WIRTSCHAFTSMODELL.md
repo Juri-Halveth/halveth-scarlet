@@ -6,7 +6,7 @@
 
 ## Aktueller Vorschlag: eine erste Runde
 
-Der aktuelle [30-Plätze-Entwurf](konzept.html#verteilung) meint zunächst **eine** sechsmonatige Runde: `30 × 6 = 180 Personenmonate`. Juri möchte vier Plätze für sich und drei Menschen seiner Wahl beantragen; 26 Plätze sollen anderen offenstehen. Innerhalb dieser 26 sind zwei Suchplätze für erschwerte Übergänge mit 18 Jahren, fünf für die Altersgruppe 32–35, zwei für eine von jungen Alleinerziehenden selbst mitgestaltete Route und 17 weitere offene Plätze vorgeschlagen. Eine Person wird nur einmal gezählt. Diese Einteilung ist ein prüfbarer Vorschlag, keine bewilligte Quote oder beobachtete Verteilung des Bedarfs.
+Der aktuelle [30-Plätze-Entwurf](konzept.html#verteilung) meint zunächst **eine** sechsmonatige Runde: `30 × 6 = 180 Personenmonate`. Juri möchte vier Plätze für sich und drei Menschen seiner Wahl beantragen; 26 Plätze sollen anderen offenstehen. Innerhalb dieser 26 sind zwei Suchplätze für erschwerte Übergänge mit 18 Jahren, fünf für die Altersgruppe 32–35, zwei für eine von jungen Alleinerziehenden selbst mitgestaltete Route, zwei für Menschen nach Haftentlassung und 15 weitere offene Plätze vorgeschlagen. Eine Person wird nur einmal gezählt. Diese Einteilung ist ein prüfbarer Vorschlag, keine bewilligte Quote oder beobachtete Verteilung des Bedarfs.
 
 Bei **rein illustrativen** 1.500 € pro Personenmonat wären die direkten Zahlungen für diese eine Runde `180 × 1.500 € = 270.000 €`. Bei individuellen Beträgen gilt stattdessen `Σ` über alle 180 tatsächlich bewilligten Monatsbeträge. Begleitung, Barrierefreiheit, Personal, Evaluation, Sozialversicherung und Reserve kommen hinzu und sind hier für diese eine Runde noch nicht kalkuliert. Der Betrag ist weder Finanzierungszusage noch Gesamtbudget. Die nachfolgenden 360-Personenmonate-Szenarien beschreiben andere Zeiträume und dürfen nicht als Preis genau dieser ersten Runde ausgegeben werden.
 
@@ -41,6 +41,20 @@ Der ursprüngliche `935.000 €`-Rechner beschreibt dagegen **dieselben 30 Mensc
 ## Sensitivität ohne falsche Präzision
 
 Bei sonst gleichen Annahmen ändert jeder zusätzliche Euro Monatszahlung das Budget vor Reserve um `360 €`. Eine Erhöhung von 1.500 auf 2.000 € pro Monat fügt `180.000 €` direkte Zahlungen und bei gleicher Reserve-Regel insgesamt `198.000 €` hinzu. Ein Pilot mit nur einer statt zwei Phasen senkt die direkten Zahlungen um `270.000 €`, testet aber die zentrale 2×6-These gerade nicht vollständig.
+
+### Juris 13-von-26-Gedankenversuch
+
+Dies ist **eine gesonderte Sechsmonatsrunde**, weder eine aus Brühl gemessene Quote noch die oben kalkulierte zweiphasige Kohorte. Juri nimmt an, dass 13 der 26 offenen Plätze im gewählten Beobachtungszeitraum einen messbaren **zusätzlichen** wirtschaftlichen Nutzen hervorbringen, und befürchtet für die anderen 13 mögliche Probleme oder Schäden. Das ist keine erhobene Prognose: Ein ausbleibender Geldrückfluss belegt weder Kriminalität noch Charakter oder Menschenwert. Tatsächliche Schäden werden als eigene Beobachtungen und Kosten erfasst; Verletzungen von Personen lassen sich nicht durch Erträge anderer Menschen „kompensieren“. Die vier gewünschten Gründerplätze werden getrennt betrachtet, weil ihre Teilnahme und ihr Nutzen nicht bestätigt sind.
+
+Definiere `C` als sämtliche zurechenbaren Kosten eines sechsmonatigen Platzes, einschließlich proportional verteilter Begleitung und Verwaltung. Definiere `R` als nach Abzug von Mitnahme, Verdrängung und Vergleichsentwicklung zusätzlich belegten Nutzen eines der 13 Plätze. `F` ist der zusammen zusätzlich belegte Nutzen der vier Gründerplätze. `H` ist ein zusätzlich belegter, in derselben Rechnung bewertbarer Schaden oder Folgekostenblock; ein befürchteter Schaden wird nicht als Tatsache eingesetzt. Nur für den engen, gleichartig bewerteten Wirtschaftssaldo gilt `S = 13R + F − 30C − H`. `F` und `H` sind zunächst unbekannt. Alle Variablen müssen denselben Zeitraum und Bewertungsmaßstab haben. Nichtmonetäre Wirkungen und nicht kompensierbare Schutzgüter benötigen eigene Spuren.
+
+| Reines Szenario | Rechnung bei `F=0` | Break-even in diesem engen Maßstab |
+| --- | ---: | --- |
+| 13 von 26 liefern je `R=2C` | `26C − 30C − H = −4C − H` | `F ≥ 4C + H` oder höherer belegter Nutzen anderer Plätze |
+| 13 von 26 liefern je `R=5C` | `65C − 30C − H = +35C − H` | Nur unter frei gesetzten Nutzannahmen und gemessenem `H` beurteilbar |
+| Mehr als 80 % der 30 liefern im Fenster keinen messbaren Rückfluss | Mindestens 25 ohne, höchstens 5 mit Rückfluss | Bei `F=0` benötigen die 5 durchschnittlich `R≥(30C+H)/5`; Häufigkeit und Kausalität unbekannt |
+
+80 % von 30 sind genau 24, 80 % von 26 sind 20,8; deshalb ist der Nenner offen auszuweisen. „Mehr als 80 % werden böse“ ist keine erhobene Wahrscheinlichkeit und kein zulässiger Personenendpunkt. Ein realer Pilot müsste freiwillig und datensparsam getrennt prüfen: Zugang und Vertrauen, neue Kontakte, subjektive Ziele, Bildung/Arbeit, mögliche Schäden, Schutz der Betroffenen, Kosten und zuordenbare öffentliche Rückflüsse. Ohne Vergleichsgruppe darf selbst ein positiver Umsatz nicht als Programmauswirkung verkauft werden. Die [aufklappbaren Webszenarien](konzept.html#szenario) zeigen genau diese Arithmetik ohne einen Eurobetrag oder Regler als heimliche Norm zu setzen.
 
 ## Wo ein wirtschaftlicher Effekt entstehen *kann*
 

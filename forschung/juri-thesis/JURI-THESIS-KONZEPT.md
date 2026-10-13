@@ -1,13 +1,13 @@
 # Zeit, in der ein neuer Weg möglich wird
 
-**[Gestaltete Webausgabe öffnen →](konzept.html)** · **[27-seitigen Pilotbrief als PDF öffnen](assets/JURI-THESIS-Pilotbrief.pdf)** · [Rechtslabor](rechtslabor.html) · [Chancenreise](chancenreise.html). Diese Markdown-Datei bleibt der editierbare Quelltext.
+**[Gestaltete Webausgabe öffnen →](konzept.html)** · **[Pilotbrief als PDF öffnen](assets/JURI-THESIS-Pilotbrief.pdf)** · [Rechtslabor](rechtslabor.html) · [Chancenreise](chancenreise.html). Diese Markdown-Datei bleibt der editierbare Quelltext.
 
 ## JURI-THESIS · Zwei Mal sechs Monate Entwicklungszeit
 
 **Pilotvorschlag für Brühl 50321 · öffentlicher Konzeptprototyp zur Eigenprüfung · 13. Oktober 2026**
 **Adressat für eine mögliche spätere Einladung:** Stadt Brühl, Bürgermeisteramt und Wirtschaftsförderung/Stadtentwicklung. Noch nicht eingereicht.
 
-**Konkretisierung für eine Runde:** 30 sechsmonatige Plätze. Juri wünscht vier davon für sich und drei weitere zustimmende Personen; 26 bleiben für andere offen. Die vorläufige Suchverteilung **4 + 2 + 5 + 2 + 17 = 30** sowie die 16-Punkte-Alterskurve stehen in [Zugang und Auswahl](ZUGANG-UND-AUSWAHL.md). Keiner dieser Plätze ist bewilligt. Die Sonder- und Alterskriterien benötigen eine unabhängige Gleichbehandlungsprüfung; das [Rechtslabor](rechtslabor.html#nominierung) zeigt den Einwand.
+**Konkretisierung für eine Runde:** 30 sechsmonatige Plätze. Juri wünscht vier davon für sich und drei weitere zustimmende Personen; 26 bleiben für andere offen. Die vorläufige Suchverteilung **4 + 2 + 5 + 2 + 2 + 15 = 30** enthält nun auch zwei Wege nach Haftentlassung; die 16-Punkte-Alterskurve steht getrennt davon in [Zugang und Auswahl](ZUGANG-UND-AUSWAHL.md). Keiner dieser Plätze ist bewilligt. Die Sonder- und Alterskriterien benötigen eine unabhängige Gleichbehandlungsprüfung; das [Rechtslabor](rechtslabor.html#nominierung) zeigt den Einwand.
 
 > Menschen müssen nicht erst an einer Krise scheitern, um einen neuen Weg einschlagen zu dürfen. Sie brauchen Zeit, in der sie lernen, sich stabilisieren, etwas aufbauen und ihre Richtung selbst wählen können.
 
@@ -61,6 +61,8 @@ Eine Auswahl bei mehr Bewerbungen als Plätzen braucht vorab veröffentlichte, �
 
 Eine gesicherte Phase könnte manchen Teilnehmenden Zeit für Lernen, eine tragfähigere Alltagsstruktur, Berufswechsel, Selbstständigkeit oder eine Rückkehr in Bildung geben. Andere könnten trotz Teilnahme keinen messbaren Fortschritt erleben. Gerade deshalb darf das Projekt die Würde der Menschen nicht an ein einzelnes Ergebnis knüpfen.
 
+Juri möchte ausdrücklich auch Menschen nach Haftentlassung einbeziehen. Zwei der 26 offenen Plätze werden dafür als Suchlinie markiert, während 15 weitere Plätze offen bleiben. Ein tatsächlicher Zugang müsste mit einer geeigneten Fachstelle, den Betroffenen und dem geltenden Datenschutz gestaltet werden. Das [strukturierte Übergangsmanagement der Justiz NRW](https://www.justiz.nrw.de/sites/default/files/imported/files/2024-03/Flyer-zum-strukturierten-Uebergangsmanagement-in-NRW.pdf) ist eine mögliche fachliche Anknüpfung, keine Partnerschaft mit diesem Pilot.
+
 Der Pilot beobachtet mehrere gleichberechtigte Endpunkte: selbst gesetzte Ziele, Bildungs- und Erwerbswege, gesundheitliche Selbstauskünfte nur mit gesonderter Einwilligung, Sorgebelastung, lokale Vernetzung und unerwartete negative Folgen. „Weniger Burnout“, „Heilung“ oder „weniger Folgekosten“ stehen derzeit als **zu prüfende Wirkungsannahmen**, nicht als Ergebnis.
 
 ## 7. Wirtschaftlicher Impact – Mechanismen statt Wunderzahlen
@@ -68,6 +70,8 @@ Der Pilot beobachtet mehrere gleichberechtigte Endpunkte: selbst gesetzte Ziele,
 Ein solches Programm kann über mehrere Kanäle wirken: Teilnehmende fragen Bildung, Betreuung, Beratung, Mobilität, Kultur oder lokale Dienstleistungen nach; einige entwickeln neue Fähigkeiten, wechseln in passendere Arbeit oder gründen; Betriebe könnten Fachkräfte halten oder neue Wege der Rückkehr erproben. Ebenso entstehen Kosten für Finanzierung, Verwaltung, Vertretung und mögliche Fehlanreize. Ausgaben, die lediglich von anderer Stelle verlagert werden, sind **kein zusätzlicher gesamtwirtschaftlicher Gewinn**.
 
 Der [offene Beispielhaushalt](WIRTSCHAFTSMODELL.md) für eine feste Kohorte von 30 Menschen mit je zwei sechsmonatigen Phasen beträgt unter ausdrücklich frei gewählten Annahmen **935.000 €**. Das ist ein Budget-Szenario, kein Kostenvoranschlag und keine Forderung an Brühl. Die rollierende Variante mit 30 Plätzen je Runde braucht einen **eigenen** Jahreshaushalt und bezahlte Teamstellen. Eine rein rechnerische regionale Umlaufspanne aus den vorgesehenen Zahlungen lässt sich darstellen; ob *zusätzliche* Wertschöpfung, Jobs oder öffentliche Rückflüsse entstehen, entscheidet erst ein sauberer Vergleich mit der Entwicklung ohne Pilot.
+
+**13-von-26-Gegenprobe:** Wenn von 26 offen vergebenen Plätzen genau 13 in einem definierten Zeitraum einen nachweislich zusätzlichen wirtschaftlichen Rückfluss hätten, ist das eine gesetzte Simulation, keine Brühler Quote. Juri befürchtet für die anderen 13 auch mögliche Probleme; ein tatsächlicher zusätzlicher Schaden oder Folgekostenblock wird als eigene Variable `H` erfasst und nicht vorausgesetzt. Bei vollständigen Kosten `C` je Platz, gemessenem Zusatznutzen `R` pro einem dieser 13 Plätze und getrennt belegtem Zusatznutzen `F` für die vier gewünschten Gründerplätze wäre der enge Saldo `13 × R + F − 30 × C − H`. Bei `R=2C` fehlen ohne `F` noch `4C + H`; bei `R=5C` ergibt die Annahme `35C − H`. Ein fehlender wirtschaftlicher Rückfluss macht die anderen Menschen weder kriminell noch wertlos, und Schäden an Menschen werden nicht durch Geld ausgeglichen. [Klickbare Szenarien und Grenzen](konzept.html#szenario).
 
 ## 8. Pilotierung in vier Schritten
 
@@ -85,6 +89,8 @@ Wenn Plätze knapp sind, kann eine faire, dokumentierte Vergabe einschließlich 
 ## 10. Anschnallmodus – freiwillige Hilfe am schwierigen Übergang
 
 Wenn jemand während der Entwicklungszeit in eine gefährliche, ausbeuterische oder strafrechtlich riskante Lage gerät und herauswill, soll ein freiwilliger Zugang zu unabhängiger Beratung offenstehen. Das Programmende nach sechs Monaten darf erreichbare Hilfe nicht einfach abschneiden. Eine reale Stelle müsste Zuständigkeit, Finanzierung, Vertraulichkeit und deren gesetzliche Grenzen vorab klären; bei strafrechtlicher Betroffenheit gehört der Zugang zu selbst gewählter anwaltlicher Beratung dazu.
+
+Juri nennt den erhofften Freiraum zugespitzt „sechs Monate Narrenfreiheit“: ehrlich über Fehler sprechen können, ohne auf Fehler reduziert zu werden. Gemeint ist ein sozialer Neuanfang und Hilfe beim Ausstieg, **keine Straffreiheit**. Ein Team müsste vorab erklären, welche Informationen vertraulich bleiben können und welche nicht. Strafverfahren, Opferschutz und mögliche Bewährung bleiben in den zuständigen Verfahren. Eine Pilotstelle verspricht auch nach einem Geständnis keine rechtliche Immunität. Bei ausbleibendem Erfolg oder Schaden fragt die Evaluation nach übersehenen Belastungen, Hilfen und Regeln statt Menschen vorschnell als „böse“ zu klassifizieren.
 
 Juris zugespitztes Nachtleben-Beispiel meint eine **laut erzählte, für Umstehende hörbare Äußerung**, die auch zivil gekleidete Polizeikräfte wahrnehmen könnten. Es beschreibt weder einen tatsächlichen Einsatz noch eine verdeckte technische Überwachung. Eine öffentliche Äußerung, behördliche Reaktion und gezielte Beschuldigtenvernehmung sind getrennte Vorgänge. Das provokante Zitat und die juristischen Gegenzüge stehen in der [gestalteten Webfassung](konzept.html#anschnallmodus) und im [Rechtslabor](rechtslabor.html#anschnallmodus). Der Hilfsweg schafft keine eigenen Ermittlungsbefugnisse oder Straffreiheit.
 
