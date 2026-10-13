@@ -1,6 +1,6 @@
-# ASHBOUND native 3D preview
+# ASHBOUND native 3D technical demo
 
-ASHBOUND is an independent first-person fantasy-world prototype built with Unreal Engine 5.8. The Windows preview opens inside a walkable, sculpted ash valley with a stone fort, animated ambient wisps, dynamic lighting and three castable visual spell schools. It is a native game executable, separate from the browser-based ASHBOUND research page.
+ASHBOUND is an independent first-person fantasy-world prototype built with Unreal Engine 5.8. The Windows technical demo opens inside a walkable, sculpted ash valley with a stone fort, animated ambient wisps, dynamic lighting and three castable visual spell schools. It is a native executable, separate from the browser-based ASHBOUND research page. The intended full game is still in development.
 
 ![ASHBOUND native valley](art/prologue-preview.png)
 
