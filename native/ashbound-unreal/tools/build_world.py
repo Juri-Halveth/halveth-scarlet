@@ -275,17 +275,26 @@ for side in (-1, 1):
 book_class = unreal.load_class(None, '/Script/ASHBOUNDUE.ASHBOUNDGrimoire')
 if book_class is None:
     raise RuntimeError('Native ASHBOUND grimoire module is not compiled')
-book = actors.spawn_actor_from_class(book_class,
-                                     unreal.Vector(vault_x, 0, 135),
-                                     unreal.Rotator(pitch=35, yaw=0, roll=0))
-if book is None:
-    raise RuntimeError('Native grimoire spawn failed')
-book.set_actor_label('ASHBOUND / Book of the three traces - F')
-closed_book = book.get_editor_property('closed_book')
-closed_book.set_static_mesh(model('book_encyclopedia_set_01', 0))
-closed_book.set_relative_rotation(unreal.Rotator(pitch=90, yaw=0, roll=0), sweep=False, teleport=False)
-closed_book.set_relative_scale3d(unreal.Vector(2.5, 2.5, 2.5))
-closed_book.set_relative_location(unreal.Vector(-30, -5, 0), sweep=False, teleport=False)
+for volume_index, (side, title) in enumerate(((0, 'Ilyras Buch vom ersten Feuer'),
+                                               (-270, 'Nerals Atlas ohne Pfeile'),
+                                               (270, 'Kaels Uhrschrift'))):
+    if side:
+        spawn_mesh(cube, 'ASHBOUND / Reading lectern %d' % volume_index,
+                   vault_x, side, 55, 1.65, 1.25, 1.1, mat=stone_mat)
+        spawn_mesh(cube, 'ASHBOUND / Reading lectern top %d' % volume_index,
+                   vault_x, side, 111, 1.80, 1.42, .06, mat=stone_mat)
+    book = actors.spawn_actor_from_class(book_class,
+                                         unreal.Vector(vault_x, side, 135),
+                                         unreal.Rotator(pitch=35, yaw=0, roll=0))
+    if book is None:
+        raise RuntimeError('Native grimoire spawn failed: ' + title)
+    book.set_editor_property('volume_index', volume_index)
+    book.set_actor_label('ASHBOUND / ' + title + ' - F')
+    closed_book = book.get_editor_property('closed_book')
+    closed_book.set_static_mesh(model('book_encyclopedia_set_01', volume_index))
+    closed_book.set_relative_rotation(unreal.Rotator(pitch=90, yaw=0, roll=0), sweep=False, teleport=False)
+    closed_book.set_relative_scale3d(unreal.Vector(2.5, 2.5, 2.5))
+    closed_book.set_relative_location(unreal.Vector(-30, -5, 0), sweep=False, teleport=False)
 
 # The scanned CC0 volumes provide surface detail around the authored book.
 archive_books = paths('book_encyclopedia_set_01') if 'book_encyclopedia_set_01' in imports else []
