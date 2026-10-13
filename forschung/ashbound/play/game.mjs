@@ -1,7 +1,9 @@
-import { THREE as T } from '../vendor/runtime.mjs';
+import { THREE as T, GLTFLoader } from '../vendor/runtime.mjs';
 import { GAME_SAVE_KEY, SEALS, freshGame, loadGame, cast, progress, canCross, cross,
   maxMana, moveFactor, studyBook, findRelic } from './game-core.mjs';
 import { BOOKS } from './books.mjs';
+import { createEnvironment } from './environment.mjs';
+import { createSpellVfx } from './spell-vfx.mjs';
 
 const $ = id => document.getElementById(id);
 const stage = $('stage'), overlay = $('start'), pause = $('pause'), ending = $('ending');
@@ -24,22 +26,20 @@ try {
 } catch { $('fatal').hidden = false; throw new Error('ASHBOUND needs WebGL'); }
 
 const scene = new T.Scene();
-scene.background = new T.Color(0x091522);
-scene.fog = new T.FogExp2(0x102334, 0.013);
-const camera = new T.PerspectiveCamera(73, 1, 0.08, 180);
+const camera = new T.PerspectiveCamera(73, 1, 0.08, 600);
 camera.rotation.order = 'YXZ';
 scene.add(camera);
 const eyeHeight = 1.73;
 const player = { x: game.x, z: game.z, height: 0, velocityY: 0, bob: 0, yaw: 0, pitch: 0 };
-const keys = new Set(), effects = [], torches = [], seals = [];
+const keys = new Set(), torches = [], seals = [];
 const geo = [], mats = [];
 const material = (color, extra = {}) => { const m = new T.MeshStandardMaterial({ color, roughness: .85, metalness: .05, ...extra }); mats.push(m); return m; };
 const basalt = material(0x252f39), slate = material(0x39434c), edgeStone = material(0x5b6264);
 const metal = material(0x796955, { metalness: .7, roughness: .3 });
 const gold = material(0xe6b878, { metalness: .6, roughness: .25, emissive: 0x765016, emissiveIntensity: .25 });
-const ember = material(0xf88658, { emissive: 0xc74620, emissiveIntensity: 1.7, roughness: .25 });
-const cyan = material(0x9ce8dd, { emissive: 0x2db29e, emissiveIntensity: 1.8, roughness: .25 });
-const blue = material(0xadc2ff, { emissive: 0x5872dd, emissiveIntensity: 1.6, roughness: .25 });
+const ember = material(0xd56f51, { emissive: 0x8f3824, emissiveIntensity: .85, roughness: .3 });
+const cyan = material(0x72b9ad, { emissive: 0x247d70, emissiveIntensity: .9, roughness: .3 });
+const blue = material(0x829bcf, { emissive: 0x3d5293, emissiveIntensity: .85, roughness: .3 });
 const darkCore = material(0x34434d, { emissive: 0x10313a, emissiveIntensity: .35, metalness: .55, roughness: .22 });
 const leather = material(0x765139, { roughness: .91 });
 const parchment = material(0xd7c39a, { roughness: 1 });
@@ -55,61 +55,37 @@ function cylinder(r1, r2, h, n, m, x, y, z, parent) { return put(new T.CylinderG
 function orb(r, m, x, y, z, parent) { return put(new T.IcosahedronGeometry(r, 1), m, x, y, z, parent); }
 // A small first-person spell focus gives each cast a visible origin in the world.
 const focusRig = new T.Group(); focusRig.position.set(.73, -.66, -1.18); focusRig.scale.setScalar(.56); camera.add(focusRig);
-const forearm = cylinder(.14, .19, .58, 9, glove, .16, -.24, .22, focusRig); forearm.rotation.x = Math.PI * .32;
-const cuff = cylinder(.2, .22, .13, 10, metal, .16, -.05, .03, focusRig); cuff.rotation.x = Math.PI * .32;
-orb(.21, glove, .07, .06, -.13, focusRig);
+const placeholderFocus = new T.Group(); focusRig.add(placeholderFocus);
+const forearm = cylinder(.14, .19, .58, 9, glove, .16, -.24, .22, placeholderFocus); forearm.rotation.x = Math.PI * .32;
+const cuff = cylinder(.2, .22, .13, 10, metal, .16, -.05, .03, placeholderFocus); cuff.rotation.x = Math.PI * .32;
+orb(.21, glove, .07, .06, -.13, placeholderFocus);
 for (let i = 0; i < 4; i++) {
-  const finger = cylinder(.034, .052, .3, 6, glove, -.1 + i * .085, .035, -.32, focusRig);
+  const finger = cylinder(.034, .052, .3, 6, glove, -.1 + i * .085, .035, -.32, placeholderFocus);
   finger.rotation.x = Math.PI * .39;
 }
 const focusCore = orb(.14, focusMat, .04, .12, -.42, focusRig);
 const focusRing = put(new T.TorusGeometry(.24, .024, 7, 36), gold, .04, .12, -.42, focusRig);
 focusRing.rotation.y = .35;
 const handGlow = new T.PointLight(0x91e3d3, .6, 2.5, 2); handGlow.position.set(.04, .12, -.4); focusRig.add(handGlow);
+new GLTFLoader().load(new URL('./assets/models/ornate_medieval_dagger/ornate_medieval_dagger_1k.gltf', import.meta.url).href,
+  ({ scene: blade }) => {
+    const bounds = new T.Box3().setFromObject(blade), size = bounds.getSize(new T.Vector3());
+    if (size.y <= 0) return;
+    const mount = new T.Group();
+    blade.position.set(-(bounds.min.x + size.x / 2), -bounds.min.y, -(bounds.min.z + size.z / 2));
+    blade.traverse(node => { if (node.isMesh) { node.castShadow = false; node.receiveShadow = true; } });
+    mount.add(blade); mount.scale.setScalar(1.65 / size.y);
+    mount.position.set(.05, -.62, -.2); mount.rotation.set(-.28, -.18, -.31);
+    focusRig.add(mount); placeholderFocus.visible = false;
+    document.body.dataset.focusAsset = 'ready';
+  }, undefined, error => { console.warn('ASHBOUND spellblade unavailable', error); });
 let handKick = 0;
 function seeded() { let v = 0x41f1287; return () => ((v = Math.imul(v ^ v >>> 15, 2246822519) >>> 0) / 4294967296); }
 const random = seeded();
 
-function floorTexture() {
-  const canvas = document.createElement('canvas'); canvas.width = canvas.height = 256;
-  const c = canvas.getContext('2d'); c.fillStyle = '#333d43'; c.fillRect(0, 0, 256, 256);
-  for (let i = 0; i < 3000; i++) {
-    const value = Math.floor(70 + random() * 55); c.fillStyle = `rgba(${value},${value + 5},${value + 3},${random() * .12})`;
-    const x = random() * 256, y = random() * 256, s = 1 + random() * 7; c.fillRect(x, y, s, s * .5);
-  }
-  c.strokeStyle = '#151e26'; c.lineWidth = 4; c.strokeRect(1, 1, 254, 254);
-  const texture = new T.CanvasTexture(canvas); texture.wrapS = texture.wrapT = T.RepeatWrapping;
-  texture.repeat.set(9, 15); texture.colorSpace = T.SRGBColorSpace; return texture;
-}
-const floorMat = material(0x879097, { map: floorTexture(), roughness: 1 });
-const floor = put(new T.PlaneGeometry(36, 61), floorMat, 0, -.06, 2.5); floor.rotation.x = -Math.PI / 2; floor.castShadow = false;
-const road = put(new T.PlaneGeometry(22, 72), floorMat, 0, -.05, -64); road.rotation.x = -Math.PI / 2; road.castShadow = false;
-const edgeMat = material(0x1b2933, { roughness: 1 });
-for (const x of [-17, 17]) {
-  box(2.5, 7, 60, basalt, x, 3.4, 2);
-  for (let z = -25; z < 29; z += 5) {
-    box(1.1, 10 + random() * 2, 2, slate, x - Math.sign(x) * .7, 5, z);
-    box(2.4, .4, 4.6, edgeStone, x, 6.9, z + 1);
-  }
-}
-for (let z = -25; z < 31; z += 8) {
-  const arch = new T.Group(); scene.add(arch);
-  for (const x of [-13.8, 13.8]) {
-    cylinder(.8, 1.2, 9, 7, slate, x, 4.5, z, arch);
-    box(2.8, .65, 2.7, metal, x, 8.6, z, arch);
-  }
-  box(29, 1.5, 2.4, basalt, 0, 9.1, z, arch);
-  box(28, .18, 2.5, gold, 0, 8.28, z, arch);
-}
-// The chamber is a roofless ruin; the vaulted ribs silhouette against the ash sky.
-box(36, 9, 2, basalt, 0, 4.5, 32);
-for (const x of [-11, -7, 7, 11]) box(2.3, 9, 3, basalt, x, 4.5, -28);
-for (const x of [-15.2, 15.2]) box(3.5, 9, 3, basalt, x, 4.5, -28);
-box(9, 2, 3.5, basalt, 0, 8.2, -28);
-for (const x of [-4.1, 4.1]) {
-  box(2.6, 9, 3.4, slate, x, 4.5, -28);
-  box(3, .32, 3.8, gold, x, 7.4, -28);
-}
+const world = createEnvironment({ T, scene, renderer, touchDevice, random, put, material, geo, mats, torches });
+const floorMat = world.groundMat;
+const spellVfx = createSpellVfx({ T, scene, camera, reducedMotion });
 const doorMat = new T.MeshBasicMaterial({ color: 0x83d7dd, transparent: true, opacity: .62, depthWrite: false, side: T.DoubleSide });
 mats.push(doorMat);
 const gate = put(new T.PlaneGeometry(5.4, 7), doorMat, 0, 3.5, -27.95);
@@ -119,11 +95,10 @@ const gateLight = new T.PointLight(0x9de7e5, 12, 20, 2); gateLight.position.set(
 
 function makeSeal(def, index) {
   const root = new T.Group(); root.position.set(def.x, 0, def.z); scene.add(root);
-  cylinder(1.6, 1.9, 1, 9, edgeStone, 0, .48, 0, root);
-  cylinder(.86, 1.18, 3.3, 8, basalt, 0, 2.43, 0, root);
-  cylinder(1.06, 1.06, .22, 12, gold, 0, 4.15, 0, root);
-  const crystal = orb(.83, darkCore, 0, 5.24, 0, root); crystal.rotation.z = .4;
-  const halo = put(new T.TorusGeometry(1.2, .06, 7, 48), crystalMats[index], 0, 5.24, 0, root);
+  cylinder(1.42, 1.66, .42, 16, world.masonry, 0, .2, 0, root);
+  const crystal = put(new T.IcosahedronGeometry(.52, 2), darkCore, 0, 5.24, 0, root);
+  crystal.rotation.z = .4;
+  const halo = put(new T.TorusGeometry(.82, .035, 8, 64), crystalMats[index], 0, 5.24, 0, root);
   const glyph = put(new T.RingGeometry(1.45, 1.55, 48), crystalMats[index], 0, .08, 0, root);
   glyph.rotation.x = -Math.PI / 2; glyph.castShadow = false;
   const light = new T.PointLight(def.color, 2.8, 10, 2); light.position.set(0, 5.5, 0); root.add(light);
@@ -150,50 +125,8 @@ const relicLight = new T.PointLight(0x9bfae3, 3, 6, 2); relicLight.position.set(
 relicGroup.visible = game.booksSolved[2] && !game.relicFound;
 
 // A visible destination exists beyond the gate, so winning is a spatial crossing.
-for (const x of [-13.5, 13.5]) {
-  box(5, 9, 72, edgeMat, x, 4, -64);
-  for (let z = -32; z > -93; z -= 7) {
-    cylinder(.5, 2.8 + random() * 2, 5 + random() * 9, 5, slate,
-      x + (random() - .5) * 5, 3, z + random() * 2);
-  }
-}
-const mountainMat = material(0x233b4c, { flatShading: true, roughness: 1 });
-for (let i = 0; i < 28; i++) {
-  const x = (random() - .5) * 140, z = -100 - random() * 75, h = 18 + random() * 50;
-  const m = put(new T.ConeGeometry(8 + random() * 11, h, 5), mountainMat, x, h / 2 - 1, z);
-  m.rotation.y = random() * 6;
-}
-const beacon = cylinder(.8, 1.8, 12, 8, slate, 0, 6, -73);
-cylinder(1.7, 1, 1.2, 8, gold, 0, 12.4, -73);
-const beaconCore = orb(1.2, ember, 0, 14.1, -73);
-const beaconLight = new T.PointLight(0xff9e65, 16, 35, 2); beaconLight.position.set(0, 14, -73); scene.add(beaconLight);
-
-scene.add(new T.HemisphereLight(0xb3d1e8, 0x2d2525, 2.5));
-const moon = new T.DirectionalLight(0xc4ddff, 3); moon.position.set(-12, 24, -31);
-moon.castShadow = true; moon.shadow.mapSize.set(touchDevice ? 512 : 1024, touchDevice ? 512 : 1024);
-Object.assign(moon.shadow.camera, { left: -35, right: 35, top: 35, bottom: -35, near: 1, far: 100 });
-moon.shadow.normalBias = .035; scene.add(moon);
-for (let i = 0; i < 8; i++) {
-  const x = i % 2 ? 14 : -14, z = 23 - Math.floor(i / 2) * 14;
-  box(.25, 1.4, .25, metal, x, 3.3, z);
-  orb(.35, ember, x, 4.1, z);
-  const light = new T.PointLight(0xff9861, 5, 14, 2); light.position.set(x, 4.1, z); scene.add(light); torches.push(light);
-}
-// Instanced debris and drifting embers keep the scene alive without a mesh per mote.
-const rubbleGeom = new T.DodecahedronGeometry(.34, 0); geo.push(rubbleGeom);
-const rubble = new T.InstancedMesh(rubbleGeom, slate, 110); rubble.castShadow = true; rubble.receiveShadow = true;
-const dummy = new T.Object3D();
-for (let i = 0; i < 110; i++) {
-  const side = i % 2 ? 1 : -1;
-  dummy.position.set(side * (11.8 + random() * 4), .13, -22 + random() * 50);
-  dummy.rotation.set(random() * 3, random() * 6, random() * 3); dummy.scale.setScalar(.3 + random() * 1.8);
-  dummy.updateMatrix(); rubble.setMatrixAt(i, dummy.matrix);
-} scene.add(rubble);
-const motes = new Float32Array(150 * 3);
-for (let i = 0; i < 150; i++) { motes[i * 3] = (random() - .5) * 32; motes[i * 3 + 1] = random() * 9; motes[i * 3 + 2] = 30 - random() * 125; }
-const moteGeom = new T.BufferGeometry(); moteGeom.setAttribute('position', new T.BufferAttribute(motes, 3)); geo.push(moteGeom);
-const moteMat = new T.PointsMaterial({ color: 0xecc894, size: .08, transparent: true, opacity: .55, depthWrite: false }); mats.push(moteMat);
-const moteField = new T.Points(moteGeom, moteMat); scene.add(moteField);
+const beaconCore = world.beaconCore;
+const moteField = world.moteField;
 
 let aimed = null, lastMessage = 0, lastSave = 0, frames = 0, lastFrame = 0;
 function aim() {
@@ -253,13 +186,10 @@ function sound(frequency, length = .22) {
     oscillator.connect(gain).connect(context.destination); oscillator.start(); oscillator.stop(context.currentTime + length + .01);
   } catch { /* Sound is optional. */ }
 }
-function burst(target, color, size = .15) {
+function burst(target, color) {
   const point = target ? SEALS.find(seal => seal.id === target) : null;
   const to = point ? new T.Vector3(point.x, 5.2, point.z) : camera.position.clone().add(camera.getWorldDirection(new T.Vector3()).multiplyScalar(10));
-  const from = camera.position.clone().add(camera.getWorldDirection(new T.Vector3()).multiplyScalar(.7));
-  const m = new T.MeshBasicMaterial({ color, transparent: true, opacity: .9, depthWrite: false });
-  const g = new T.SphereGeometry(size, 9, 9); const visual = new T.Mesh(g, m); scene.add(visual);
-  effects.push({ visual, g, m, from, to, at: performance.now(), duration: 360 });
+  spellVfx.pulse(to, color, performance.now());
 }
 function spell(kind) {
   if (!active) return;
@@ -267,10 +197,12 @@ function spell(kind) {
   const target = aim(); const outcome = cast(game, kind, target, performance.now());
   game = outcome.state; notice(outcome.message); updateHUD(); persist();
   sound(kind === 'pulse' ? outcome.ok ? 440 : 140 : kind === 'echo' ? 620 : 280, .3);
-  if (kind === 'pulse') burst(target, outcome.ok ? 0xffd9a1 : 0xc0d2d8, outcome.ok ? .32 : .15);
+  if (kind === 'pulse') burst(target, outcome.ok ? 0xffa86a : 0xb5c9d2);
   if (kind === 'echo') {
+    if (outcome.ok) spellVfx.echo(camera.position, performance.now());
     for (const info of seals) info.halo.scale.setScalar(1.5);
   }
+  if (kind === 'still' && outcome.ok) spellVfx.still(camera.position, performance.now(), game.wardUntil);
   if (outcome.ok && canCross(game)) notice('Ilyra: Das Tor antwortet. Geh hindurch.', 7000);
 }
 let openBookIndex = -1, bookPage = 0;
@@ -464,13 +396,8 @@ function tick(time) {
   gate.material.opacity = canCross(game) ? 0 : .52 + Math.sin(worldTime * 2) * .1;
   gateRing.rotation.z = Math.sin(worldTime * .27) * .06;
   beaconCore.rotation.y += reducedMotion ? 0 : dt * .2;
-  moteField.position.y = reducedMotion ? 0 : Math.sin(worldTime * .3) * .5;
-  for (let i = effects.length - 1; i >= 0; i--) {
-    const effect = effects[i], fraction = (time - effect.at) / effect.duration;
-    if (fraction >= 1) { scene.remove(effect.visual); effect.g.dispose(); effect.m.dispose(); effects.splice(i, 1); continue; }
-    effect.visual.position.lerpVectors(effect.from, effect.to, fraction);
-    effect.visual.scale.setScalar(.5 + fraction * 1.7); effect.m.opacity = 1 - fraction;
-  }
+  moteField.position.y = reducedMotion || game.wardUntil > time ? 0 : Math.sin(worldTime * .3) * .5;
+  spellVfx.tick(time);
   if (active) {
     let forward = (keys.has('KeyW') || keys.has('ArrowUp') ? 1 : 0) - (keys.has('KeyS') || keys.has('ArrowDown') ? 1 : 0) - stickY;
     let strafe = (keys.has('KeyD') || keys.has('ArrowRight') ? 1 : 0) - (keys.has('KeyA') || keys.has('ArrowLeft') ? 1 : 0) + stickX;
@@ -515,4 +442,9 @@ function tick(time) {
 document.body.dataset.ready = 'true';
 window.AshboundGameDiagnostics = Object.freeze({ get frames() { return frames; }, get state() { return { ...game, seals: [...game.seals] }; }, get position() { return { x: player.x, z: player.z }; }, get orientation() { return { yaw: player.yaw, pitch: player.pitch }; }, get target() { return aimed; }, get active() { return active; } });
 requestAnimationFrame(tick);
-window.addEventListener('beforeunload', () => { persist(); floorMat.map.dispose(); for (const g of geo) g.dispose(); for (const m of mats) m.dispose(); renderer.dispose(); });
+window.addEventListener('beforeunload', () => {
+  persist(); spellVfx.dispose();
+  for (const texture of [floorMat.map, floorMat.normalMap, floorMat.roughnessMap,
+    world.masonry.map, world.masonry.normalMap, world.masonry.roughnessMap]) texture.dispose();
+  for (const g of geo) g.dispose(); for (const m of mats) m.dispose(); renderer.dispose();
+});

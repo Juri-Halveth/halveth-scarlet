@@ -47,7 +47,10 @@ function openExternal(url) {
 async function smokeCheck(window) {
   try {
     const result = await window.webContents.executeJavaScript(`(async () => {
-      await new Promise(resolve => setTimeout(resolve, 2500));
+      const deadline = performance.now() + 30000;
+      while ((document.body.dataset.worldAssets !== '3/3' || document.body.dataset.focusAsset !== 'ready') && performance.now() < deadline) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+      }
       const response = await fetch('game-core.mjs');
       const key = 'ashbound-desktop-smoke';
       localStorage.setItem(key, 'ok');
@@ -56,10 +59,12 @@ async function smokeCheck(window) {
       const canvas = document.querySelector('#stage canvas');
       return { title: document.title, gameCoreStatus: response.status, frames: window.AshboundGameDiagnostics?.frames || 0,
         canvas: Boolean(canvas), webgl: Boolean(canvas?.getContext('webgl2')),
-        localStorage: stored, location: location.origin };
+        localStorage: stored, location: location.origin,
+        worldAssets: document.body.dataset.worldAssets, focusAsset: document.body.dataset.focusAsset };
     })()`);
     result.ok = result.title.includes('ASHBOUND') && result.gameCoreStatus === 200 && result.frames > 4 &&
-      result.canvas && result.webgl && result.localStorage && result.location === `${SCHEME}://${HOST}`;
+      result.canvas && result.webgl && result.localStorage && result.location === `${SCHEME}://${HOST}` &&
+      result.worldAssets === '3/3' && result.focusAsset === 'ready';
     const output = process.env.ASHBOUND_SMOKE_OUTPUT;
     if (output) fs.writeFileSync(output, JSON.stringify(result, null, 2) + '\n');
     const screenshot = process.env.ASHBOUND_SCREENSHOT_OUTPUT;

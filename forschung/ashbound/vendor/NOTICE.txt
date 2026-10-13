@@ -13,3 +13,5 @@ archive guest profiles remain separately identified; any third-party names and
 characters retain their respective owners' rights. This project is not an
 official game, endorsement, engine replacement or redistribution of game assets.
 No textures, music, models, book text or dialogue from other games are included.
+The first-person landscape additionally uses Poly Haven CC0 models and PBR
+surfaces. Exact upstream URLs, license and hashes are in play/assets/manifest.json.

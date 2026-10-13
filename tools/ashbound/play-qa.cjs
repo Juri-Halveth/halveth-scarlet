@@ -9,7 +9,7 @@ const root = path.resolve(__dirname, '../..');
 const site = path.join(root, '.site-build');
 const output = path.join(root, '.local-qa', 'ashbound-first-person');
 fs.mkdirSync(output, { recursive: true });
-const mime = { '.html': 'text/html', '.css': 'text/css', '.mjs': 'text/javascript', '.js': 'text/javascript', '.ico': 'image/x-icon', '.png': 'image/png' };
+const mime = { '.html': 'text/html', '.css': 'text/css', '.mjs': 'text/javascript', '.js': 'text/javascript', '.ico': 'image/x-icon', '.png': 'image/png', '.jpg': 'image/jpeg', '.gltf': 'model/gltf+json', '.bin': 'application/octet-stream' };
 const server = http.createServer((request, response) => {
   try {
     let file = path.resolve(site, decodeURIComponent(new URL(request.url, 'http://local').pathname).replace(/^\/+/, ''));
@@ -23,7 +23,7 @@ const server = http.createServer((request, response) => {
 (async () => {
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const browser = await chromium.launch({ headless: true, executablePath: process.env.ASHBOUND_CHROME,
-    args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+    args: process.env.ASHBOUND_QA_GPU ? [] : ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
   try {
     const url = `http://127.0.0.1:${server.address().port}/forschung/ashbound/play/`;
     for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844 }]) {
@@ -32,6 +32,8 @@ const server = http.createServer((request, response) => {
       page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
       await page.goto(url, { waitUntil: 'domcontentloaded' });
       await page.waitForFunction(() => document.body.dataset.ready === 'true' && window.AshboundGameDiagnostics?.frames > 5, null, { timeout: 20000 });
+      await page.waitForFunction(() => document.body.dataset.worldAssets === '3/3', null, { timeout: 90000 });
+      await page.waitForFunction(() => document.body.dataset.focusAsset === 'ready', null, { timeout: 90000 });
       assert.equal(await page.locator('#stage canvas').count(), 1);
       assert.equal(await page.locator('#start').isVisible(), true);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), true);
@@ -40,7 +42,9 @@ const server = http.createServer((request, response) => {
       assert.equal(await page.locator('#start').isVisible(), false);
       assert.equal(await page.evaluate(() => AshboundGameDiagnostics.active), true);
       const before = await page.evaluate(() => AshboundGameDiagnostics.position.z);
-      await page.keyboard.down('KeyW'); await page.waitForTimeout(500); await page.keyboard.up('KeyW');
+      await page.keyboard.down('KeyW');
+      await page.waitForFunction(start => AshboundGameDiagnostics.position.z < start - .4, before, { timeout: 15000 });
+      await page.keyboard.up('KeyW');
       const after = await page.evaluate(() => AshboundGameDiagnostics.position.z);
       assert.ok(after < before - .4, JSON.stringify({ before, after }));
       if (viewport.width > 500) {
