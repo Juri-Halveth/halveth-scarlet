@@ -1,6 +1,6 @@
 # Chancenreise: Zugang, Auswahl und neue Bewerbungsrunden
 
-**Konzept von Juri Janovski · öffentlicher Prototyp vom 13. Oktober 2026 · kein geöffnetes Bewerbungsverfahren**
+**Konzept von Juri · öffentlicher Prototyp vom 13. Oktober 2026 · kein geöffnetes Bewerbungsverfahren**
 
 Die [klickbare Chancenreise](chancenreise.html) zeigt den Weg durch einen möglichen lokalen Pilot. Sie nimmt keine Bewerbungen an, speichert keine persönlichen Angaben und entscheidet über niemanden. Brühl ist ein vorgeschlagener Ort; eine Zusage der Stadt oder anderer Träger liegt nicht vor.
 

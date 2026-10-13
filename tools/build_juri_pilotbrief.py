@@ -79,24 +79,24 @@ def page(label, title, lead, blocks, refs=(), diagram=None):
 
 PAGES = []
 PAGES.extend([
-    page("01 / Entscheidung in einer Minute", "Die Bitte an Brühl",
-         "Bitte prüfen Sie mit Juri Janovski, ob Brühl einen freiwilligen Pilot für sechs Monate persönliche Entwicklungszeit fachlich vorbereiten kann.",
-         [("Das konkrete Bild", "Eine erste Runde umfasst <b>30 ganze Plätze</b> für Erwachsene aus Brühl und einem vorab definierten regionalen Einzugsgebiet. Ein Platz gibt einer Person sechs Monate für einen selbst gewählten Entwicklungsweg. Finanzielle Absicherung und gegebenenfalls Projektmittel müssen nach transparenten Kriterien individuell begründet werden."),
-          ("Der erste Entscheidungspunkt", "Erbeten wird ein <b>unverbindliches Fachgespräch</b> über Rechtsform, Haushalt, Sozialleistungsfolgen, barrierefreien Zugang, unabhängige Auswahl und Evaluation. Eine Einladung ist weder Förderzusage noch Beginn eines Bewerbungsverfahrens."),
-          ("Die größere These", "Langfristig soll jeder erwachsene Mensch im Leben zwei freiwillige Phasen von je sechs Monaten nutzen können. Der örtliche Pilot kann nur eine begrenzte Versuchsanordnung sein; er schafft keinen allgemeinen Anspruch.")],
-         ("Konzept im Web", "GO NRW 2026"), "seats"),
-    page("02 / Problem und öffentlicher Zweck", "Entwicklungszeit vor der Krise",
-         "Menschen brauchen manchmal Zeit, bevor ein Lebenslauf zusammenbricht. Die These ist eine neue freiwillige Möglichkeit, kein Urteil über Defizite.",
-         [("Welchen Unterschied soll die Leistung machen?", "Lernen, berufliche Neuorientierung, Sorgearbeit, Wohn- und Alltagsorganisation, Gründung, künstlerische Arbeit oder ein Wechsel der Lebensrichtung sollen als legitime Zwecke prüfbar werden. Niemand muss eine Krise, Diagnose oder außergewöhnliche Leistung vorführen, um Menschenwert zu beweisen."),
-          ("Was wird nicht behauptet?", "Der Brief belegt noch keine gemessene Entlastung, keine neuen Arbeitsplätze und keine Kosteneinsparung. Solche Wirkungen sind Hypothesen. Ein Pilot muss unerwünschte Folgen ebenso ernsthaft suchen wie positive."),
-          ("Warum eine Kommune?", "Eine Stadt kann Menschen, Einrichtungen und lokale Wirtschaft an einen Tisch bringen. Sie kann dabei keine bundesrechtliche Nichtanrechnung oder einen bundesweiten Freistellungsanspruch allein schaffen.")],
-         ("GG Art. 2", "GG Art. 28", "Konzept im Web")),
-    page("03 / Leistungseinheit", "Was ein Platz tatsächlich bedeuten würde",
-         "Ein Platz ist eine sechsmonatige, freiwillige und begleitete Phase. Er ist weder eine neue Arbeitsstelle noch eine bloße Medaille.",
-         [("Zeit", "Eine Person wählt einen Entwicklungsweg und vereinbart mit dem künftigen Träger ein erreichbares Vorhaben, passende Begleitung und eine Rückkehr- oder Übergangsperspektive. Ein Erfolgszwang wäre mit dem menschlichen Kern des Programms unvereinbar."),
-          ("Geld", "Eine eigene monatliche Entwicklungszahlung soll das Vorhaben ermöglichen. Ihre Höhe folgt einem vorab veröffentlichten Verfahren, das Lebenslage, Wohnkosten, Sorgeverantwortung und andere relevante Bedingungen berücksichtigen kann. <b>Es gibt in diesem Konzept weder eine 3.000-Euro-Obergrenze noch einen bewilligten Betrag.</b>"),
-          ("Zusätzliche Hilfen", "Barrierefreiheit, Kinderbetreuung, Lernmittel oder Vorhabenskosten können eigene Budgetlinien erfordern. Direkte Zahlung, Sachleistung, Vergütung für Teamarbeit und Projektmittel dürfen nicht still zusammengerechnet werden.")],
-         ("Budgetquelle", "Konzept im Web"), "money"),
+    page("01 / Die erste Tür", "Stell dir einen Morgen in Brühl vor",
+         "Dreißig Menschen bekommen sechs Monate, in denen die Frage nicht lautet: Was fehlt dir? Sondern: Was willst du jetzt möglich machen?",
+         [("Ein Anfang im Alltag", "Bei einer Person geht der Herd kaputt, während sie endlich eine Ausbildung beginnen will. Eine andere braucht ein Auto, um Kinderbetreuung, Arbeit und Lernen verbinden zu können. Beide beschreiben, was sie vorhaben und was dafür wirklich nötig ist."),
+          ("Ein Anfang im Großen", "Eine dritte Person sagt: <b>Gebt mir einmalig zwei Millionen Euro für mein Vorhaben. Danach möchte ich keine laufenden Zusatzwünsche aus diesem Programm abrufen.</b> Das ist eine mögliche Anfrage in dieser Geschichte, keine pauschale Summe für alle."),
+          ("Der gemeinsame Kern", "Jeder der 30 Wege darf anders aussehen. Sechs Monate Zeit, ein selbst gewählter Plan und ein persönlich vereinbarter Möglichkeitsraum verbinden sie. Juri möchte diesen Raum zuerst mit einer regionalen Pilotrunde erproben.")],
+         (), "doors"),
+    page("02 / Deine Wahl", "Nicht jeder braucht dasselbe",
+         "Die Person selbst eröffnet die Quest: Welcher nächste Schritt wird mit Zeit, Geld, Dingen, Menschen oder einem großen Vorhaben möglich?",
+         [("Weg A: Begleitung und Alltag", "Eine regelmäßige Entwicklungszahlung kann Zeit freimachen. Ein Herd, Lernmittel, Kinderbetreuung oder passende Mobilität kommen als eigene, begründete Anliegen hinzu. Ein vorab vereinbarter Rahmen macht einfache Fälle schnell bearbeitbar."),
+          ("Weg B: ein eigener großer Wurf", "Jemand kann stattdessen eine einmalige Summe für einen selbst gesteuerten Plan beantragen - auch zwei Millionen Euro als bewusst großes Beispiel. Wird ein solcher Plan finanziert und genehmigt, ersetzt seine vereinbarte Projektsumme spätere frei abrufbare Zusatzwünsche aus derselben Programmlinie."),
+          ("Die Person bleibt am Steuer", "Ein Team hilft beim Klären und prüft nachvollziehbar, ob der gewählte Weg zum persönlichen Plan passt. Die Geschichte verlangt kein Studium und keinen vorher bewiesenen wirtschaftlichen Erfolg. Eine Person darf ihren Weg auch ändern und Gründe dafür nennen.")],
+         (), "choices"),
+    page("03 / Das System hinter der Geschichte", "Schnell helfen, Menschen beteiligt lassen",
+         "Eine gute Idee darf nicht an jedem einzelnen Formular hängen bleiben. Die Regeln sollen alltägliche Anliegen tragen und große Entscheidungen sichtbar machen.",
+         [("Der persönliche Rahmen", "Vor Beginn werden Zeit, regelmäßige Zahlung, Sachleistungen, Projektmittel und eine mögliche Einmalzahlung getrennt vereinbart. Der Rahmen nennt Zweck, Betrag, zuständige Stelle und Änderungsweg. Er wird nicht aus einer einzigen allgemeinen Eurogrenze abgeleitet."),
+          ("Wenn der Herd ausfällt", "Eine Anfrage innerhalb eines bereits finanzierten und bewilligten Rahmens kann nach veröffentlichten Regeln zügig durchlaufen. Menschen prüfen Stichproben, Fehler und Ausnahmen; die Person sieht den Stand und kann eine Entscheidung überprüfen lassen."),
+          ("Wenn es um Millionen geht", "Eine große Einmalzahlung wird vorab von verantwortlichen Menschen mit Finanzierungs- und Zweckprüfung entschieden. Erst danach kann der vereinbarte Abruf technisch einfach sein. Die Vision lautet: möglichst wenig Reibung innerhalb klarer, persönlicher Grenzen.")],
+         (), "flow"),
     page("04 / Lebensmodell", "Erste Phase ab 18, zweite ab 50",
          "Die Altersfenster sind Juris aktueller politischer Entwurf und keine bestehende Leistung.",
          [("Phase A", "Ein erster sechsmonatiger Abschnitt soll ab 18 möglich sein. Die Gelegenheit soll nicht mit dem 30. Geburtstag verfallen: Wer ihn mit 32, 47 oder 68 noch nicht genutzt hat, bleibt im Vorschlag erreichbar."),
@@ -157,15 +157,15 @@ PAGES.extend([
           ("Nicht aus Alter folgern", "Ein 18-jähriger Mensch kann wenig Unterstützung brauchen; eine 54-jährige Person kann einen massiven Übergang erleben. Die Alterskurve und der individuelle Unterstützungsbedarf sind typverschiedene Merkmale."),
           ("Vor einer echten Auswahl", "Kriterien, Datengrundlage, Prüfperson, Korrekturweg und Auswirkung jeder Markierung müssen vor Bewerbung feststehen. Das System darf keine rein automatische Zusage oder Absage mit erheblicher Wirkung erzeugen, ohne die einschlägigen Schutzregeln zu erfüllen.")],
          ("DSGVO", "GG Art. 3", "Zugang und Auswahl")),
-    page("14 / Geld", "Wie viel bekommt eine Person?",
-         "Der ehrlich konkrete Stand lautet: Die Berechnungsregel ist vorgeschlagen, ein bewilligter Monatsbetrag existiert noch nicht.",
-         [("Individuelle Formel", "Die direkte Zahlung im Pilot ist <b>C_Z = Summe aller Z(i,m)</b>: für jede Person i und jeden belegten Monat m wird ein begründeter Betrag Z ermittelt. Hinzu kommen getrennte Kosten für Begleitung, Zugänglichkeit, Sachmittel und Evaluation."),
-          ("Beispiele statt Grenzen", "Ein freiwilliger Euro einer vermögenden Person kann als Gedankenexperiment dienen. 1.500 Euro aus einer älteren Beispielrechnung sind ein frei gesetzter Szenariowert. 3.000 Euro sind keine allgemeine Obergrenze. Keine dieser Zahlen begründet einen Anspruch oder passt notwendig zu einem konkreten Haushalt."),
-          ("Entscheidungsreife", "Vor einer realen Vergabe braucht es eine transparente Bedarfsmethode, einen Mindestschutz, einen finanzierten Höchstrahmen für das Gesamtprogramm und eine Begründung im Einzelfall. Wünsche, tatsächliche Kosten und gesetzliche Wechselwirkungen bleiben getrennt.")],
+    page("14 / Geld", "Wie wird aus einem Wunsch ein Plan?",
+         "Die Person benennt ihren Weg. Die künftige Stelle vereinbart mit ihr einen finanzierten, überprüfbaren persönlichen Rahmen.",
+         [("Zwei Wege im selben Pilot", "Laufende Entwicklungszahlungen Z(i,m) und gesonderte Anliegen können einen Weg tragen. Alternativ kann eine Person eine große Einmalzahlung E(i) für ein eigenes Vorhaben beantragen; zwei Millionen Euro sind ein bewusst extremes Beispiel, keine allgemeine Obergrenze. Wird E(i) genehmigt, ersetzt sie nur die vereinbarten künftigen Zusatzabrufe derselben Programmlinie."),
+          ("So wird schnell entschieden", "Innerhalb eines bereits genehmigten Rahmens können einfache Anliegen anhand veröffentlichter Kriterien zügig bearbeitet werden. Beteiligte Menschen überwachen, korrigieren und entscheiden Ausnahmen. Aufnahme, Ablehnung, Rahmenänderung und Millionenbeträge verlangen eine eigenständige menschliche Entscheidung und einen verständlichen Überprüfungsweg."),
+          ("Erst finanzieren, dann auszahlen", "Der Gesamtbedarf umfasst Z, E, Sach- und Projektmittel sowie Personal. 30 Einmalzahlungen zu je zwei Millionen Euro wären allein 60 Millionen Euro. Ein solcher Pfad braucht vorab gesicherte Mittel, Zuständigkeit und rechtliche Prüfung. Heute ist kein individueller Betrag bewilligt.")],
          ("Budgetquelle", "SGB II § 11", "SGB II § 11a"), "money"),
     page("15 / Haushalt", "Zahlung ist noch kein Rückfluss",
          "Ein vollständiger Haushalt umfasst mehr als 30 mal sechs Monatsbeträge.",
-         [("Kleines Rechenbeispiel", "Bei einem rein illustrativen Betrag von 1.500 Euro je Personenmonat wären 30 mal 6 mal 1.500 Euro = 270.000 Euro direkte Zahlungen für eine Runde. Begleitung, Personal, Räume, Versicherungen, Ersatzzeiten, Verwaltung und Reserve kommen hinzu. Zwei volle Runden im Jahr haben andere Jahreskosten als eine Kohorte über mehrere Jahre."),
+         [("Kleines Rechenbeispiel", "Bei einem rein illustrativen Betrag von 1.500 Euro je Personenmonat wären 30 mal 6 mal 1.500 Euro = 270.000 Euro direkte Monatszahlungen für eine Runde. Große Einmalzahlungen und zusätzliche Anschaffungen sind darin nicht enthalten. Begleitung, Personal, Räume, Versicherungen, Verwaltung und Reserve kommen hinzu."),
           ("Drei Spuren", "Transfer an Menschen, tatsächlich zusätzlich entstandene Wertschöpfung und spätere Steuern oder vermiedene Kosten sind nicht derselbe Geldbetrag. Doppelzählungen würden eine positive Bilanz nur vortäuschen."),
           ("Kommunale Prüfung", "Brühl müsste kommunalen Aufgabenbezug, Zuständigkeit, Wirtschaftlichkeit, Haushalt und mögliche Partnerbeiträge selbst prüfen. Kein Unternehmens- oder Landesbeitrag ist für diesen Vorschlag zugesagt.")],
          ("Budgetquelle", "GO NRW 2026"), "money"),
@@ -268,7 +268,7 @@ def draw_header(c, index):
     c.setStrokeColor(colors.HexColor("#c9d9d4"))
     c.line(48, 67, W - 48, 67)
     c.setFont("Arial", 8)
-    c.drawString(48, 47, "Konzept Juri Janovski  |  Gesprächsvorlage für die Stadt Brühl")
+    c.drawString(48, 47, "Konzept Juri  |  Gesprächsvorlage für die Stadt Brühl")
     c.drawRightString(W - 48, 47, f"{index + 1:02d} / {len(PAGES) + 1:02d}")
 
 def draw_refs(c, refs):
@@ -276,7 +276,7 @@ def draw_refs(c, refs):
         return
     c.setFont("Arial-Bold", 7.8)
     c.setFillColor(MUTED)
-    c.drawString(48, 104, "DIREKTQUELLEN / WEITERLESEN")
+    c.drawString(48, 104, "QUELLEN ZU DIESEM KAPITEL")
     x, y = 48, 88
     for label in refs:
         url = SOURCES[label]
@@ -297,7 +297,34 @@ def draw_diagram(c, kind, top):
     x, width, height = 48, W - 96, 122
     c.setFillColor(PALE)
     c.roundRect(x, top - height, width, height, 16, fill=1, stroke=0)
-    if kind == "seats":
+    if kind == "doors":
+        for i in range(30):
+            cx = x + 31 + (i % 15) * 30
+            cy = top - 35 - (i // 15) * 40
+            c.setFillColor([GOLD, colors.HexColor("#75b19f"), colors.HexColor("#76a5c0")][i % 3])
+            c.circle(cx, cy, 10, fill=1, stroke=0)
+        c.setFillColor(INK); c.setFont("Arial-Bold", 9)
+        c.drawString(x + 18, top - 111, "Dreißig Menschen. Dreißig verschiedene Anfänge.")
+    elif kind == "choices":
+        for i, (head, color) in enumerate([("Alltag", "#d9ad58"), ("Mobilität", "#77b7a5"), ("Großes Vorhaben", "#70a3c4")]):
+            left = x + 18 + i * 158
+            c.setFillColor(colors.HexColor(color))
+            c.roundRect(left, top - 82, 148, 49, 9, fill=1, stroke=0)
+            c.setFillColor(INK); c.setFont("Arial-Bold", 9)
+            c.drawCentredString(left + 74, top - 62, head)
+        c.setFillColor(MUTED); c.setFont("Arial", 8)
+        c.drawString(x + 21, top - 107, "Die Person beschreibt ihren Weg und den dafür nötigen Rahmen.")
+    elif kind == "flow":
+        labels = ["Anliegen", "Persönlicher Rahmen", "Prüfung", "Freigabe"]
+        for i, head in enumerate(labels):
+            left = x + 17 + i * 120
+            c.setFillColor(colors.HexColor(["#e7d8ad", "#c6dfd1", "#a9d0cc", "#85bab4"][i]))
+            c.roundRect(left, top - 82, 108, 48, 9, fill=1, stroke=0)
+            c.setFillColor(INK); c.setFont("Arial-Bold", 8)
+            c.drawCentredString(left + 54, top - 62, head)
+        c.setFillColor(MUTED); c.setFont("Arial", 8)
+        c.drawString(x + 21, top - 107, "Einfaches zügig erledigen, große Entscheidungen gemeinsam prüfen.")
+    elif kind == "seats":
         groups = [(4, "#d9ad58"), (2, "#77b7a5"), (5, "#70a3c4"), (2, "#b69bc4"), (2, "#c79377"), (15, "#326b61")]
         items = [(count, colors.HexColor(color)) for count, color in groups]
         flat = [color for count, color in items for _ in range(count)]
@@ -364,18 +391,18 @@ def draw_diagram(c, kind, top):
 def draw_cover(c):
     c.setFillColor(INK); c.rect(0, 0, W, H, fill=1, stroke=0)
     c.setFillColor(GOLD); c.setFont("Arial-Bold", 11)
-    c.drawString(50, H - 70, "JURI-THESIS / KONZEPT VON JURI JANOVSKI")
+    c.drawString(50, H - 70, "JURI-THESIS / EINE IDEE VON JURI")
     c.setFillColor(WHITE); c.setFont("Georgia-Bold", 48)
     c.drawString(50, H - 160, "30 Menschen.")
     c.drawString(50, H - 220, "6 Monate.")
-    c.setFillColor(GOLD); c.drawString(50, H - 280, "Eine Region.")
+    c.setFillColor(GOLD); c.drawString(50, H - 280, "30 neue Wege.")
     c.setFillColor(colors.HexColor("#cde4dc"))
     c.setFont("Arial", 14)
     lines = [
-        "Vorschlag für einen freiwilligen Entwicklungszeit-Pilot",
-        "in Brühl und Umgebung. Vier Gründerplätze als offen",
-        "geprüfter Wunsch; 26 weitere Plätze. Individuelle",
-        "Zusatzleistung. Zwei Lebensphasen als größere These."
+        "Was passiert, wenn dreißig Menschen endlich Zeit",
+        "und Mittel bekommen, ihren eigenen Weg zu wählen?",
+        "Ein Herd. Ein Auto. Vielleicht ein Vorhaben für Millionen.",
+        "Die erste Tür öffnet sich in Brühl und Umgebung."
     ]
     for i, line in enumerate(lines):
         c.drawString(52, H - 339 - i*21, line)
@@ -384,8 +411,8 @@ def draw_cover(c):
         c.setFillColor([GOLD, colors.HexColor("#75b19f"), colors.HexColor("#76a5c0")][row])
         c.circle(62 + col * 51, 254 - row * 47, 14, fill=1, stroke=0)
     c.setFillColor(WHITE); c.setFont("Arial", 10)
-    c.drawString(50, 73, "Gesprächsvorlage für Stadt Brühl  |  13. Oktober 2026")
-    c.drawString(50, 55, "Öffentlicher Entwurf. Kein bewilligtes Programm, keine laufende Bewerbung.")
+    c.drawString(50, 73, "Eine erzählerische Gesprächsvorlage für Stadt Brühl  |  13. Oktober 2026")
+    c.drawString(50, 55, "Die Geschichte beginnt hier. Das Modell und seine Prüfung folgen.")
     c.linkURL(SITE, (50, 48, W - 50, 82), relative=0)
 
 def draw_content(c, item, index):
@@ -408,7 +435,7 @@ def draw_content(c, item, index):
 def build():
     c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1, invariant=1)
     c.setTitle("JURI-THESIS - 30 Menschen, sechs Monate, eine Region")
-    c.setAuthor("Juri Janovski")
+    c.setAuthor("Juri")
     c.setSubject("Oeffentlicher Vorschlag fuer einen freiwilligen Entwicklungszeit-Pilot in Bruehl")
     draw_cover(c); c.showPage()
     for index, item in enumerate(PAGES, 1):
