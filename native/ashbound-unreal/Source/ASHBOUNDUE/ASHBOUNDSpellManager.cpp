@@ -5,6 +5,7 @@
 #include "ASHBOUNDSeal.h"
 #include "Components/InputComponent.h"
 #include "Engine/Engine.h"
+#include "Engine/StaticMeshActor.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
@@ -57,6 +58,47 @@ void AASHBOUNDSpellManager::BeginPlay()
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND living magic ready; three ambient wisps, Q/E/R/F input"));
 
 #if !UE_BUILD_SHIPPING
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqaterrain")))
+    {
+        FTimerHandle TerrainTimer;
+        GetWorld()->GetTimerManager().SetTimer(TerrainTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            AActor* Terrain = nullptr;
+            for (TActorIterator<AStaticMeshActor> It(GetWorld()); It; ++It)
+            {
+                const UStaticMeshComponent* Mesh = It->GetStaticMeshComponent();
+                if (Mesh && Mesh->GetStaticMesh() &&
+                    Mesh->GetStaticMesh()->GetPathName().Contains(TEXT("ASHBOUND_Valley")))
+                {
+                    Terrain = *It;
+                    break;
+                }
+            }
+            const FVector Points[] = {FVector(0, 5000, 4000), FVector(0, -5000, 4000),
+                                      FVector(6000, 4000, 4000), FVector(6000, -4000, 4000)};
+            for (const FVector& Start : Points)
+            {
+                FHitResult Hit;
+                FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDTerrainQA), false);
+                // Isolate the ground surface from decorative rocks and props.
+                for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+                    if (*It != Terrain) Query.AddIgnoredActor(*It);
+                const bool bHit = GetWorld()->LineTraceSingleByChannel(
+                    Hit, Start, FVector(Start.X, Start.Y, -1000), ECC_Visibility, Query);
+                if (!bHit || Hit.GetActor() != Terrain || Hit.ImpactPoint.Z < 200.0f)
+                {
+                    UE_LOG(LogTemp, Error, TEXT("ASHBOUND terrain QA failed x=%.0f y=%.0f actor=%s z=%.1f"),
+                           Start.X, Start.Y, Hit.GetActor() ? *Hit.GetActor()->GetName() : TEXT("NONE"),
+                           Hit.ImpactPoint.Z);
+                }
+                else
+                {
+                    UE_LOG(LogTemp, Display, TEXT("ASHBOUND terrain QA pass x=%.0f y=%.0f z=%.1f"),
+                           Start.X, Start.Y, Hit.ImpactPoint.Z);
+                }
+            }
+        }), 1.0f, false);
+    }
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqavault")) ||
         FParse::Param(FCommandLine::Get(), TEXT("ashboundqareadbook")) ||
         FParse::Param(FCommandLine::Get(), TEXT("ashboundqapage2")) ||

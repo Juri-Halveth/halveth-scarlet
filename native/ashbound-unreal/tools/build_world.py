@@ -42,6 +42,16 @@ if not unreal.EditorAssetLibrary.does_asset_exist(terrain_path):
 terrain_mesh = unreal.load_asset(terrain_path)
 if not isinstance(terrain_mesh, unreal.StaticMesh):
     raise RuntimeError('Terrain static mesh import failed: ' + terrain_path)
+# The imported OBJ's automatic box collision spans empty canyon air. Use the
+# authored triangle surface for this static ground so the visible slopes are
+# also the walkable and spell-queryable slopes.
+terrain_body = terrain_mesh.get_editor_property('body_setup')
+if terrain_body is None:
+    raise RuntimeError('Terrain mesh has no collision body setup')
+terrain_body.set_editor_property('collision_trace_flag',
+                                 unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE)
+if not unreal.EditorAssetLibrary.save_loaded_asset(terrain_mesh):
+    raise RuntimeError('Unable to save terrain collision mode')
 
 def make_surface(name, prefix):
     path = '/Game/ASHBOUND/Surfaces/' + name
@@ -154,11 +164,10 @@ def spawn_mesh(mesh, label, x, y, z, sx=1, sy=None, sz=None, yaw=0, pitch=0, mat
 
 terrain_actor = spawn_mesh(terrain_mesh, 'ASHBOUND / Sculpted ash valley', 0, 0, 0,
                            mat=ground_mat)
-# The OBJ import initially creates a single coarse box collision that covers
-# the whole canyon, including the empty air above its walkable center.
-terrain_actor.set_actor_enable_collision(False)
-terrain_actor.get_editor_property('static_mesh_component').set_collision_enabled(
-    unreal.CollisionEnabled.NO_COLLISION)
+terrain_actor.set_actor_enable_collision(True)
+terrain_component = terrain_actor.get_editor_property('static_mesh_component')
+terrain_component.set_collision_profile_name('BlockAll')
+terrain_component.set_collision_enabled(unreal.CollisionEnabled.QUERY_AND_PHYSICS)
 cube = unreal.load_asset('/Engine/BasicShapes/Cube')
 if cube is None:
     raise RuntimeError('Engine cube missing')
