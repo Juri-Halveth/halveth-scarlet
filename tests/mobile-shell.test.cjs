@@ -79,6 +79,8 @@ test('every built HTML receives one local mobile stylesheet after its page style
       'forschung/ashbound/play/index.html',
       'forschung/juri-thesis/index.html',
       'forschung/juri-thesis/chancenreise.html',
+      'forschung/juri-thesis/konzept.html',
+      'forschung/juri-thesis/rechtslabor.html',
     ].includes(path.relative(build,file).split(path.sep).join('/'));
     if(standalonePage){
       assert.equal(mobile.length,0,file);
