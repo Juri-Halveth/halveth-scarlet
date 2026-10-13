@@ -42,10 +42,23 @@ if not unreal.EditorAssetLibrary.does_asset_exist(terrain_path):
 terrain_mesh = unreal.load_asset(terrain_path)
 if not isinstance(terrain_mesh, unreal.StaticMesh):
     raise RuntimeError('Terrain static mesh import failed: ' + terrain_path)
+terrain_body = terrain_mesh.get_editor_property('body_setup')
+if terrain_body is None:
+    raise RuntimeError('Terrain has no body setup: ' + terrain_path)
+# The imported OBJ's default simple collision is a canyon-sized box. The
+# terrain never simulates physics, so its triangles can instead provide the
+# walkable shape for pawn collision and aim/ground traces.
+terrain_body.set_editor_property(
+    'collision_trace_flag', unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE)
+if terrain_body.get_editor_property(
+        'collision_trace_flag') != unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE:
+    raise RuntimeError('Terrain collision complexity was not applied')
+if not unreal.EditorAssetLibrary.save_loaded_asset(terrain_mesh):
+    raise RuntimeError('Terrain collision setup could not be saved')
 
 def make_surface(name, prefix):
     path = '/Game/ASHBOUND/Surfaces/' + name
-    material = unreal.load_asset(path)
+    material = unreal.load_asset(path) if unreal.EditorAssetLibrary.does_asset_exist(path) else None
     if not material:
         material = asset_tools.create_asset(name, '/Game/ASHBOUND/Surfaces',
                                             unreal.Material, unreal.MaterialFactoryNew())
@@ -67,10 +80,19 @@ def make_surface(name, prefix):
         texture = unreal.load_asset('/Game/ASHBOUND/Surfaces/' + prefix + '_' + kind)
         if texture is None:
             raise RuntimeError('Missing ' + prefix + '_' + kind)
-        if kind == 'nor_gl':
+        if kind == 'diffuse':
+            texture.set_editor_property('srgb', True)
+        elif kind == 'nor_gl':
             texture.set_editor_property('srgb', False)
             texture.set_editor_property('compression_settings', unreal.TextureCompressionSettings.TC_NORMALMAP)
-            unreal.EditorAssetLibrary.save_loaded_asset(texture)
+            # Poly Haven's nor_gl maps use the OpenGL (+Y) tangent convention.
+            # Unreal expects -Y; invert green without altering source bytes.
+            texture.set_editor_property('flip_green_channel', True)
+        elif kind == 'rough':
+            texture.set_editor_property('srgb', False)
+            texture.set_editor_property('compression_settings', unreal.TextureCompressionSettings.TC_MASKS)
+        if not unreal.EditorAssetLibrary.save_loaded_asset(texture):
+            raise RuntimeError('Texture settings could not be saved: ' + kind)
         sample = unreal.MaterialEditingLibrary.create_material_expression(
             material, unreal.MaterialExpressionTextureSample, -450, i * 240)
         sample.set_editor_property('texture', texture)
@@ -79,7 +101,8 @@ def make_surface(name, prefix):
         if not unreal.MaterialEditingLibrary.connect_material_property(sample, '', target):
             raise RuntimeError('Material connection failed: ' + kind)
     unreal.MaterialEditingLibrary.recompile_material(material)
-    unreal.EditorAssetLibrary.save_loaded_asset(material)
+    if not unreal.EditorAssetLibrary.save_loaded_asset(material):
+        raise RuntimeError('Surface material could not be saved: ' + name)
     return material
 
 ground_mat = make_surface('M_AshGround', 'rocky_terrain_03')
@@ -102,11 +125,12 @@ def spawn_mesh(mesh, label, x, y, z, sx=1, sy=None, sz=None, yaw=0, pitch=0, mat
 
 terrain_actor = spawn_mesh(terrain_mesh, 'ASHBOUND / Sculpted ash valley', 0, 0, 0,
                            mat=ground_mat)
-# The OBJ import initially creates a single coarse box collision that covers
-# the whole canyon, including the empty air above its walkable center.
-terrain_actor.set_actor_enable_collision(False)
-terrain_actor.get_editor_property('static_mesh_component').set_collision_enabled(
-    unreal.CollisionEnabled.NO_COLLISION)
+# The authored surface extends to Y +/-8000. The central road below covers
+# only Y +/-1450, so disabling this actor used to leave both slopes non-solid.
+terrain_actor.set_actor_enable_collision(True)
+terrain_component = terrain_actor.get_editor_property('static_mesh_component')
+terrain_component.set_collision_profile_name('BlockAll')
+terrain_component.set_collision_enabled(unreal.CollisionEnabled.QUERY_AND_PHYSICS)
 cube = unreal.load_asset('/Engine/BasicShapes/Cube')
 if cube is None:
     raise RuntimeError('Engine cube missing')
@@ -254,6 +278,7 @@ if not level.save_current_level():
 unreal.EditorAssetLibrary.save_directory('/Game/ASHBOUND', True, True)
 receipt = {'map': MAP, 'terrain': terrain_path, 'fortPieces': len(fort_meshes),
            'actorCount': len(actors.get_all_level_actors()), 'entry': [1000, 0, 160],
+           'terrainCollision': 'CTF_USE_COMPLEX_AS_SIMPLE',
            'source': 'Poly Haven CC0 + authored heightfield + UE5 first-person template'}
 with open(OUT, 'w', encoding='utf-8') as file:
     json.dump(receipt, file, indent=2)

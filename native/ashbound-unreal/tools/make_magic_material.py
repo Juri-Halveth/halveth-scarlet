@@ -4,7 +4,7 @@ import unreal
 
 TOOLS = unreal.AssetToolsHelpers.get_asset_tools()
 PATH = '/Game/ASHBOUND/Materials/M_LivingSpell'
-material = unreal.load_asset(PATH)
+material = unreal.load_asset(PATH) if unreal.EditorAssetLibrary.does_asset_exist(PATH) else None
 if material is None:
     material = TOOLS.create_asset('M_LivingSpell', '/Game/ASHBOUND/Materials',
                                   unreal.Material, unreal.MaterialFactoryNew())

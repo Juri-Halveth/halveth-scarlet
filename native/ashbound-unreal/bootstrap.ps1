@@ -42,13 +42,16 @@ if ($LASTEXITCODE -ne 0 -or -not (Test-Path -LiteralPath (Join-Path $WorkRoot 'A
 & $buildTool ASHBOUNDUEEditor Win64 Development "-Project=$uproject" -WaitMutex -NoHotReload
 if ($LASTEXITCODE -ne 0) { throw 'ASHBOUNDUE editor build failed' }
 
-foreach ($scriptName in @('import_world.py', 'make_magic_material.py', 'build_world.py', 'fix_meshes.py')) {
+foreach ($scriptName in @('import_world.py', 'make_magic_material.py', 'build_world.py',
+                           'fix_meshes.py', 'verify_world_assets.py')) {
     $scriptFile = Join-Path $nativeRoot "tools\$scriptName"
     & $editor $uproject -run=pythonscript "-script=$scriptFile" -unattended -nullrhi -nosplash -nop4 -log
     if ($LASTEXITCODE -ne 0) { throw "Unreal authoring step failed: $scriptName" }
 }
 $worldReceipt = Join-Path $WorkRoot 'build_world.json'
 if (-not (Test-Path -LiteralPath $worldReceipt)) { throw 'World receipt missing' }
+$assetReceipt = Join-Path $WorkRoot 'world_assets_verified.json'
+if (-not (Test-Path -LiteralPath $assetReceipt)) { throw 'Saved world asset check missing' }
 $world = Get-Content -LiteralPath $worldReceipt -Raw | ConvertFrom-Json
 if ($world.actorCount -lt 100 -or $world.map -ne '/Game/ASHBOUND/Maps/Prologue') {
     throw 'World receipt does not describe the expected 3D prologue'

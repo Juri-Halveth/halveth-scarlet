@@ -20,4 +20,7 @@ private:
     void CastEmber();
     void CastReweave();
     void CastSchool(int32 School);
+#if !UE_BUILD_SHIPPING
+    void VerifyTerrainCollision();
+#endif
 };
