@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-13T16:02:40Z",
+  "generatedAt": "2026-10-13T21:17:53Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-13T16:02:40Z",
-      "lastSuccessAt": "2026-10-13T16:02:40Z",
+      "lastAttemptAt": "2026-10-13T21:17:53Z",
+      "lastSuccessAt": "2026-10-13T21:17:53Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,134 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-13T16:02:40Z",
-      "lastSuccessAt": "2026-10-13T16:02:40Z",
+      "lastAttemptAt": "2026-10-13T21:17:53Z",
+      "lastSuccessAt": "2026-10-13T21:17:53Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "17666ac8cb2e44ce3aa5c86a",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Names Astronaut Christina Koch Acting Deputy Chief Engineer",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-names-astronaut-christina-koch-acting-deputy-chief-engineer/",
+      "sourcePublishedAt": "2026-10-13T20:41:11Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
+      "firstFetchedAt": "2026-10-13T21:17:53Z"
+    },
+    {
+      "id": "23347420601cd4d27d10ce3a",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Gemini 4 Argon in GitHub Copilot",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot",
+      "sourcePublishedAt": "2026-10-13T18:39:56Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
+      "firstFetchedAt": "2026-10-13T21:17:53Z"
+    },
+    {
+      "id": "dee213e55b0d0c7e6565f748",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Audit GitHub Code Quality finding dismissals and reopenings",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-13-audit-github-code-quality-finding-dismissals-and-reopenings",
+      "sourcePublishedAt": "2026-10-13T17:58:36Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
+      "firstFetchedAt": "2026-10-13T21:17:53Z"
+    },
+    {
+      "id": "b017df62841bd87608cbda2f",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Comparing Off-World Rover Driving Distances",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/photojournal/comparing-off-world-rover-driving-distances/",
+      "sourcePublishedAt": "2026-10-13T17:56:08Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
+      "firstFetchedAt": "2026-10-13T21:17:53Z"
+    },
+    {
+      "id": "44dbcee82122f9c0d18b3538",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Record-Setting Perseverance Rover Team",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/photojournal/nasas-record-setting-perseverance-rover-team/",
+      "sourcePublishedAt": "2026-10-13T17:48:46Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
+      "firstFetchedAt": "2026-10-13T21:17:53Z"
+    },
+    {
+      "id": "c0d9b7ae26fda919c7d869a8",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Perseverance Navcam Image Marks Record Drive",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/photojournal/perseverance-navcam-image-marks-record-drive/",
+      "sourcePublishedAt": "2026-10-13T17:42:51Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
+      "firstFetchedAt": "2026-10-13T21:17:53Z"
+    },
+    {
+      "id": "df1c1b3cdf8fc6f2e3c959af",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Transporter-18 SmallSats Encapsulation",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/transporter-18-smallsats-encapsulation/",
+      "sourcePublishedAt": "2026-10-13T17:38:37Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
+      "firstFetchedAt": "2026-10-13T21:17:53Z"
+    },
+    {
+      "id": "5c49da1eb7e5efefc3dc98db",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "JOB OPPORTUNITIES: NASA OFFICE OF THE GENERAL COUNSEL",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/organizations/ogc/job-opportunities-nasa-office-of-the-general-counsel/",
+      "sourcePublishedAt": "2026-10-13T17:16:00Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
+      "firstFetchedAt": "2026-10-13T21:17:53Z"
+    },
+    {
+      "id": "4c493ed319e7f16a9de2c18b",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Voyager Technologies’ Griffin-1 Completes Environmental Testing at NASA JPL",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/photojournal/voyager-technologies-griffin-1-completes-environmental-testing-at-nasa-jpl/",
+      "sourcePublishedAt": "2026-10-13T17:11:11Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
+      "firstFetchedAt": "2026-10-13T21:17:53Z"
+    },
+    {
+      "id": "ad0dc492d32241f22ffa49a6",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Secret scanning blocks Anthropic keys by default, adds Salesforce",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-13-secret-scanning-blocks-anthropic-keys-by-default-adds-salesforce",
+      "sourcePublishedAt": "2026-10-13T16:12:36Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
+      "firstFetchedAt": "2026-10-13T21:17:53Z"
+    },
+    {
+      "id": "bca5e0416551d9129bc21c4c",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Enterprise managed settings enforcement updates",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-13-enterprise-managed-settings-enforcement-updates",
+      "sourcePublishedAt": "2026-10-13T15:20:10Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
+      "firstFetchedAt": "2026-10-13T21:17:53Z"
+    },
     {
       "id": "dd53e3f058a1b779153955ca",
       "sourceId": "nasa",
@@ -32,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-08-complex-modes-in-lightly-damped-structural-systemsa-two-mode-interaction-perspective/",
       "sourcePublishedAt": "2026-10-13T15:02:21Z",
-      "fetchedAt": "2026-10-13T16:02:40Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -43,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-improved-detection-for-withdrawn-dependabot-alerts",
       "sourcePublishedAt": "2026-10-13T14:03:57Z",
-      "fetchedAt": "2026-10-13T16:02:40Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -54,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/missions/moon-base/nasa-jpl-testing-readies-voyager-technologies-lander-for-moon-mission/",
       "sourcePublishedAt": "2026-10-13T13:00:00Z",
-      "fetchedAt": "2026-10-13T16:02:40Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -65,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-search-and-filter-for-budgets-now-available",
       "sourcePublishedAt": "2026-10-13T12:06:09Z",
-      "fetchedAt": "2026-10-13T16:02:40Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -76,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-code-scanning-ai-scan-metrics-in-security-overview",
       "sourcePublishedAt": "2026-10-13T12:03:17Z",
-      "fetchedAt": "2026-10-13T16:02:40Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -87,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-science-cargo-launch-on-35th-spacex-resupply-mission-to-station/",
       "sourcePublishedAt": "2026-10-13T11:12:18Z",
-      "fetchedAt": "2026-10-13T16:02:40Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -120,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture",
       "sourcePublishedAt": "2026-10-12T22:38:00Z",
-      "fetchedAt": "2026-10-13T16:02:40Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
       "firstFetchedAt": "2026-10-13T07:45:28Z"
     },
     {
@@ -142,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-12-push-attribution-public-preview",
       "sourcePublishedAt": "2026-10-12T16:30:11Z",
-      "fetchedAt": "2026-10-13T16:02:40Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
       "firstFetchedAt": "2026-10-12T17:58:30Z"
     },
     {
@@ -153,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-12-anonymous-organization-level-registries-for-dependabot",
       "sourcePublishedAt": "2026-10-12T14:04:16Z",
-      "fetchedAt": "2026-10-13T16:02:40Z",
+      "fetchedAt": "2026-10-13T21:17:53Z",
       "firstFetchedAt": "2026-10-13T00:44:29Z"
     },
     {
@@ -410,28 +531,6 @@
       "firstFetchedAt": "2026-10-08T16:31:38Z"
     },
     {
-      "id": "06991627699fd4a6d844a9da",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA, Energy Department Advance New Era of Nuclear-Powered Exploration",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-energy-department-advance-new-era-of-nuclear-powered-exploration/",
-      "sourcePublishedAt": "2026-10-08T15:46:25Z",
-      "fetchedAt": "2026-10-09T09:09:49Z",
-      "firstFetchedAt": "2026-10-08T22:06:51Z"
-    },
-    {
-      "id": "4df0bb8433803ae433e96b44",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Advances LISA Mission Contributions With New Test Telescope",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/missions/lisa/nasa-advances-lisa-mission-contributions-with-new-test-telescope/",
-      "sourcePublishedAt": "2026-10-08T15:31:24Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
-      "firstFetchedAt": "2026-10-08T22:06:51Z"
-    },
-    {
       "id": "3683122ea1883bb615a0c011",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -441,61 +540,6 @@
       "sourcePublishedAt": "2026-10-08T14:25:53Z",
       "fetchedAt": "2026-10-13T07:45:28Z",
       "firstFetchedAt": "2026-10-08T16:31:38Z"
-    },
-    {
-      "id": "bddab1e7a6b211714fc1fa9c",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "APOD: 2026 October 8 – The Saturn System Smörgåsbord",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/image-article/apod-2026-october-8-the-saturn-system-smorgasbord/",
-      "sourcePublishedAt": "2026-10-08T04:05:00Z",
-      "fetchedAt": "2026-10-09T02:12:44Z",
-      "firstFetchedAt": "2026-10-08T09:01:55Z"
-    },
-    {
-      "id": "743f4c63b64476e2bc2f0fa1",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Fighting Drought in Texas Cotton Country",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/earth/earth-observatory/fighting-drought-in-texas-cotton-country/",
-      "sourcePublishedAt": "2026-10-08T04:01:00Z",
-      "fetchedAt": "2026-10-08T09:01:55Z",
-      "firstFetchedAt": "2026-10-08T09:01:55Z"
-    },
-    {
-      "id": "fbb1e012c43d81af4b32ee98",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Sets Coverage for SpaceX 35th Station Resupply Launch, Arrival",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-sets-coverage-for-spacex-35th-station-resupply-launch-arrival/",
-      "sourcePublishedAt": "2026-10-07T21:16:42Z",
-      "fetchedAt": "2026-10-08T09:01:55Z",
-      "firstFetchedAt": "2026-10-07T22:00:58Z"
-    },
-    {
-      "id": "1992c310d7b6f26d2e563f8b",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s SpaceX 35th Commercial Resupply Mission Overview",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/general/nasas-spacex-35th-commercial-resupply-mission-overview/",
-      "sourcePublishedAt": "2026-10-07T20:17:16Z",
-      "fetchedAt": "2026-10-08T09:01:55Z",
-      "firstFetchedAt": "2026-10-07T22:00:58Z"
-    },
-    {
-      "id": "dbbec36cc7dd966c30fcfecd",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s PRIMA Spacecraft (Artist’s Concept)",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/photojournal/nasas-prima-spacecraft-artists-concept/",
-      "sourcePublishedAt": "2026-10-07T20:15:49Z",
-      "fetchedAt": "2026-10-08T09:01:55Z",
-      "firstFetchedAt": "2026-10-07T22:00:58Z"
     },
     {
       "id": "d309be13e53a281a3c73dd58",
@@ -639,50 +683,6 @@
       "sourcePublishedAt": "2026-10-02T18:24:19Z",
       "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
-    },
-    {
-      "id": "582da02053b0c8e2d1f60d52",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "GitHub Copilot weekly releases — September 28",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-02-github-copilot-weekly-releases-september-28",
-      "sourcePublishedAt": "2026-10-02T14:00:30Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
-      "firstFetchedAt": "2026-10-07T16:33:03Z"
-    },
-    {
-      "id": "532f5738d0696fe383323bc0",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "New fields for SecurityAdvisory GraphQL API",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-02-new-fields-for-securityadvisory-graphql-api",
-      "sourcePublishedAt": "2026-10-02T13:18:00Z",
-      "fetchedAt": "2026-10-07T08:43:41Z",
-      "firstFetchedAt": "2026-10-02T18:27:14Z"
-    },
-    {
-      "id": "59fc4a70abc335f98eb4944f",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Confidential comments on repository security advisories",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-02-confidential-comments-on-repository-security-advisories",
-      "sourcePublishedAt": "2026-10-02T13:15:40Z",
-      "fetchedAt": "2026-10-06T21:40:26Z",
-      "firstFetchedAt": "2026-10-02T18:27:14Z"
-    },
-    {
-      "id": "8430be4786d88a5d85b2a4e2",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Repository security advisory comments API in public preview",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-02-repository-security-advisory-comments-api-in-public-preview",
-      "sourcePublishedAt": "2026-10-02T13:15:25Z",
-      "fetchedAt": "2026-10-06T17:13:35Z",
-      "firstFetchedAt": "2026-10-02T18:27:14Z"
     }
   ]
 }
