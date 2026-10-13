@@ -20,4 +20,6 @@ private:
     void CastEmber();
     void CastReweave();
     void CastSchool(int32 School);
+    void StudyNearestBook();
+    void StopReading();
 };

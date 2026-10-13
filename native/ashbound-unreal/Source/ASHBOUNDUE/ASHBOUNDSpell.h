@@ -9,6 +9,7 @@ class UMaterialInterface;
 class UPointLightComponent;
 class USceneComponent;
 class UStaticMeshComponent;
+struct FHitResult;
 
 UCLASS()
 class ASHBOUNDUE_API AASHBOUNDSpell : public AActor
@@ -25,7 +26,7 @@ protected:
 
 private:
     void UpdateAppearance();
-    void ApplyWorldEffect();
+    void ApplyWorldEffect(const FHitResult* FlightImpact);
 
     UPROPERTY()
     TObjectPtr<USceneComponent> SpellRoot;
