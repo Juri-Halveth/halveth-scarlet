@@ -4,6 +4,12 @@
 
 **Offene Betragsregel statt Obergrenze:** Die früheren 1.500 € in dieser Tabelle sind ein einzelner Szenariowert. Es gibt in der JURI-THESIS keine festgelegte €3.000-Obergrenze. Für individuell begründete Monatsbeträge lautet die direkte Budgetspur `C_Z = Σ_i Σ_m Z(i,m)`; `Z(i,m)` ist die mögliche Entwicklungszahlung für Person `i` im Monat `m`. Erst vorab veröffentlichte Anspruchs-/Vergaberegeln und ein gedeckter Haushalt können daraus eine umsetzbare Summe machen. Die gewünschte Zusätzlichkeit zu bestehenden Ansprüchen ist eine eigene rechtliche Zielregel; sie wird nicht durch Addition im Modell wahr. Siehe die [Webausgabe](konzept.html#geld) und das [Rechtslabor](rechtslabor.html#anrechnung).
 
+## Aktueller Vorschlag: eine erste Runde
+
+Der aktuelle [30-Plätze-Entwurf](konzept.html#verteilung) meint zunächst **eine** sechsmonatige Runde: `30 × 6 = 180 Personenmonate`. Juri möchte vier Plätze für sich und drei Menschen seiner Wahl beantragen; 26 Plätze sollen anderen offenstehen. Innerhalb dieser 26 sind zwei Suchplätze für erschwerte Übergänge mit 18 Jahren, fünf für die Altersgruppe 32–35, zwei für eine von jungen Alleinerziehenden selbst mitgestaltete Route und 17 weitere offene Plätze vorgeschlagen. Eine Person wird nur einmal gezählt. Diese Einteilung ist ein prüfbarer Vorschlag, keine bewilligte Quote oder beobachtete Verteilung des Bedarfs.
+
+Bei **rein illustrativen** 1.500 € pro Personenmonat wären die direkten Zahlungen für diese eine Runde `180 × 1.500 € = 270.000 €`. Bei individuellen Beträgen gilt stattdessen `Σ` über alle 180 tatsächlich bewilligten Monatsbeträge. Begleitung, Barrierefreiheit, Personal, Evaluation, Sozialversicherung und Reserve kommen hinzu und sind hier für diese eine Runde noch nicht kalkuliert. Der Betrag ist weder Finanzierungszusage noch Gesamtbudget. Die nachfolgenden 360-Personenmonate-Szenarien beschreiben andere Zeiträume und dürfen nicht als Preis genau dieser ersten Runde ausgegeben werden.
+
 ## Rechenvertrag
 
 | Variable | Beispielannahme | Bedeutung |

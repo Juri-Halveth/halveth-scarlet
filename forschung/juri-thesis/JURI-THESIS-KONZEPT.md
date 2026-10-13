@@ -1,11 +1,13 @@
 # Zeit, in der ein neuer Weg möglich wird
 
-**[Gestaltete, vollständig verlinkte Webausgabe öffnen →](konzept.html)** · [Rechtslabor](rechtslabor.html) · [Chancenreise](chancenreise.html). Diese Markdown-Datei bleibt der editierbare Quelltext.
+**[Gestaltete Webausgabe öffnen →](konzept.html)** · **[27-seitigen Pilotbrief als PDF öffnen](assets/JURI-THESIS-Pilotbrief.pdf)** · [Rechtslabor](rechtslabor.html) · [Chancenreise](chancenreise.html). Diese Markdown-Datei bleibt der editierbare Quelltext.
 
 ## JURI-THESIS · Zwei Mal sechs Monate Entwicklungszeit
 
 **Pilotvorschlag für Brühl 50321 · öffentlicher Konzeptprototyp zur Eigenprüfung · 13. Oktober 2026**
 **Adressat für eine mögliche spätere Einladung:** Stadt Brühl, Bürgermeisteramt und Wirtschaftsförderung/Stadtentwicklung. Noch nicht eingereicht.
+
+**Konkretisierung für eine Runde:** 30 sechsmonatige Plätze. Juri wünscht vier davon für sich und drei weitere zustimmende Personen; 26 bleiben für andere offen. Die vorläufige Suchverteilung **4 + 2 + 5 + 2 + 17 = 30** sowie die 16-Punkte-Alterskurve stehen in [Zugang und Auswahl](ZUGANG-UND-AUSWAHL.md). Keiner dieser Plätze ist bewilligt. Die Sonder- und Alterskriterien benötigen eine unabhängige Gleichbehandlungsprüfung; das [Rechtslabor](rechtslabor.html#nominierung) zeigt den Einwand.
 
 > Menschen müssen nicht erst an einer Krise scheitern, um einen neuen Weg einschlagen zu dürfen. Sie brauchen Zeit, in der sie lernen, sich stabilisieren, etwas aufbauen und ihre Richtung selbst wählen können.
 
@@ -80,7 +82,13 @@ Erfasse **Teilnahme** (Anfragen, Zusagen, Ausschlüsse mit Gründen, Abbrüche),
 
 Wenn Plätze knapp sind, kann eine faire, dokumentierte Vergabe einschließlich einer Wartelisten-Vergleichsgruppe erwogen werden. Teilnahme, Nichtteilnahme und Datenfreigabe bleiben getrennte Entscheidungen. Der methodische Entwurf gehört vorab in ein öffentlich nachvollziehbares Evaluationsprotokoll.
 
-## 10. Einladung
+## 10. Anschnallmodus – freiwillige Hilfe am schwierigen Übergang
+
+Wenn jemand während der Entwicklungszeit in eine gefährliche, ausbeuterische oder strafrechtlich riskante Lage gerät und herauswill, soll ein freiwilliger Zugang zu unabhängiger Beratung offenstehen. Das Programmende nach sechs Monaten darf erreichbare Hilfe nicht einfach abschneiden. Eine reale Stelle müsste Zuständigkeit, Finanzierung, Vertraulichkeit und deren gesetzliche Grenzen vorab klären; bei strafrechtlicher Betroffenheit gehört der Zugang zu selbst gewählter anwaltlicher Beratung dazu.
+
+Juris zugespitztes Nachtleben-Beispiel meint eine **laut erzählte, für Umstehende hörbare Äußerung**, die auch zivil gekleidete Polizeikräfte wahrnehmen könnten. Es beschreibt weder einen tatsächlichen Einsatz noch eine verdeckte technische Überwachung. Eine öffentliche Äußerung, behördliche Reaktion und gezielte Beschuldigtenvernehmung sind getrennte Vorgänge. Das provokante Zitat und die juristischen Gegenzüge stehen in der [gestalteten Webfassung](konzept.html#anschnallmodus) und im [Rechtslabor](rechtslabor.html#anschnallmodus). Der Hilfsweg schafft keine eigenen Ermittlungsbefugnisse oder Straffreiheit.
+
+## 11. Einladung
 
 Brühl muss heute keinen nationalen Anspruch beschließen. Die Stadt könnte zuerst prüfen, ob sie einen **freiwilligen, überschaubaren und messbaren Pilotraum** für menschliche Entwicklungszeit mit regionalen Partnern entwickeln möchte. Dafür wird ein unverbindliches Fachgespräch mit Wirtschaftsförderung, Stadtentwicklung, Arbeits- und Sozialpraxis, Bildung, Teilnehmendenvertretung und Evaluation vorgeschlagen.
 

@@ -14,3 +14,6 @@ forschung/ashbound/play/assets/models/*/*.gltf -text
 
 # Preserve the byte-bound public DE anchor artifact on every checkout.
 forschung/de-anker-hela/public-monologue.md -text
+
+# Keep the public JURI-THESIS brief byte-identical and review it as an artifact.
+forschung/juri-thesis/assets/*.pdf binary
