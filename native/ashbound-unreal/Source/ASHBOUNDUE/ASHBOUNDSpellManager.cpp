@@ -1,6 +1,7 @@
 #include "ASHBOUNDSpellManager.h"
 
 #include "ASHBOUNDSpell.h"
+#include "ASHBOUNDGrove.h"
 #include "ASHBOUNDGrimoire.h"
 #include "ASHBOUNDSeal.h"
 #include "Components/InputComponent.h"
@@ -60,6 +61,22 @@ void AASHBOUNDSpellManager::BeginPlay()
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND living magic ready; three ambient wisps, Q/E/R/F input"));
 
 #if !UE_BUILD_SHIPPING
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqagrove")))
+    {
+        FTimerHandle GroveViewTimer;
+        GetWorld()->GetTimerManager().SetTimer(GroveViewTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
+            if (!Controller || !Controller->GetPawn()) return;
+            Controller->GetPawn()->SetActorLocation(FVector(3040, -400, 170));
+            Controller->SetControlRotation(FRotator(-16, 52, 0));
+            UStaticMesh* Fern = LoadObject<UStaticMesh>(nullptr,
+                TEXT("/Game/ASHBOUND/Models/fern_02/fern_02_1k/StaticMeshes/fern_02_b.fern_02_b"));
+            AASHBOUNDGrove* Grove = GetWorld()->SpawnActor<AASHBOUNDGrove>(
+                AASHBOUNDGrove::StaticClass(), FVector(3348, 0, 47), FRotator::ZeroRotator);
+            if (Grove) Grove->Initialize(Fern);
+        }), 1.0f, false);
+    }
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqacollision")))
     {
         FTimerHandle CollisionTimer;

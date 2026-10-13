@@ -1,4 +1,5 @@
 #include "ASHBOUNDSpell.h"
+#include "ASHBOUNDGrove.h"
 #include "ASHBOUNDGrimoire.h"
 #include "ASHBOUNDSeal.h"
 
@@ -7,7 +8,6 @@
 #include "Components/StaticMeshComponent.h"
 #include "Engine/PointLight.h"
 #include "Engine/StaticMesh.h"
-#include "Engine/StaticMeshActor.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
 #include "GameFramework/Pawn.h"
@@ -185,37 +185,44 @@ void AASHBOUNDSpell::ApplyWorldEffect(const FHitResult* FlightImpact)
     }
 
     UStaticMesh* Fern = LoadObject<UStaticMesh>(nullptr,
-        TEXT("/Game/ASHBOUND/Models/fern_02/fern_02_1k/StaticMeshes/fern_02_a.fern_02_a"));
+        TEXT("/Game/ASHBOUND/Models/fern_02/fern_02_1k/StaticMeshes/fern_02_b.fern_02_b"));
     if (!Fern)
     {
         UE_LOG(LogTemp, Warning, TEXT("ASHBOUND Reweave fern asset missing"));
         return;
     }
     FVector Landing = Target;
-    if (!FlightImpact)
+    FVector GroundProbe = Target;
+    if (FlightImpact && FlightImpact->ImpactNormal.Z < 0.45f)
     {
-        FHitResult Hit;
-        FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDReweave), false);
-        Query.AddIgnoredActor(this);
-        if (World->LineTraceSingleByChannel(Hit, Target + FVector(0, 0, 250),
-                                            Target - FVector(0, 0, 1300), ECC_Visibility, Query))
-        {
-            Landing = Hit.ImpactPoint + FVector(0, 0, 3);
-        }
+        // A spell striking a wall grows on the near side, at ground level.
+        GroundProbe += FlightImpact->ImpactNormal * 120.0f;
     }
-    AStaticMeshActor* Growth = World->SpawnActor<AStaticMeshActor>(
-        AStaticMeshActor::StaticClass(), Landing, FRotator(0, FMath::FRandRange(0.0f, 360.0f), 0));
+    FHitResult Hit;
+    FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDReweave), false);
+    Query.AddIgnoredActor(this);
+    if (World->LineTraceSingleByChannel(Hit, GroundProbe + FVector(0, 0, 250),
+                                        GroundProbe - FVector(0, 0, 1300), ECC_Visibility, Query))
+    {
+        Landing = Hit.ImpactPoint + FVector(0, 0, 3);
+    }
+    // Studied books keep growth for the session. Recycle the oldest grove so
+    // unlimited casting cannot accumulate unlimited draw calls or memory.
+    AASHBOUNDGrove* Oldest = nullptr;
+    int32 GroveCount = 0;
+    for (TActorIterator<AASHBOUNDGrove> It(World); It; ++It)
+    {
+        ++GroveCount;
+        if (!Oldest || It->GetGameTimeSinceCreation() > Oldest->GetGameTimeSinceCreation())
+            Oldest = *It;
+    }
+    if (GroveCount >= 24 && Oldest) Oldest->Destroy();
+
+    AASHBOUNDGrove* Growth = World->SpawnActor<AASHBOUNDGrove>(
+        AASHBOUNDGrove::StaticClass(), Landing, FRotator::ZeroRotator);
     if (Growth)
     {
-        UStaticMeshComponent* Mesh = Growth->GetStaticMeshComponent();
-        Mesh->SetMobility(EComponentMobility::Movable);
-        Mesh->SetStaticMesh(Fern);
-        Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-        const float Diameter = FMath::Max3(Fern->GetBounds().BoxExtent.X,
-                                            Fern->GetBounds().BoxExtent.Y,
-                                            Fern->GetBounds().BoxExtent.Z) * 2.0f;
-        Growth->SetActorScale3D(FVector(FMath::Clamp(140.0f / FMath::Max(Diameter, 1.0f),
-                                                    0.02f, 100.0f)));
+        Growth->Initialize(Fern);
         if (!bBookStudied) Growth->SetLifeSpan(120.0f);
         UE_LOG(LogTemp, Display, TEXT("ASHBOUND world effect: Reweave growth at %s"), *Landing.ToString());
     }

@@ -28,7 +28,11 @@ Copy-Item -LiteralPath (Join-Path $template 'Config') -Destination $project -Rec
 foreach ($pack in @('Characters', 'LevelPrototyping', 'Input')) {
     $content = Join-Path $EngineRoot "Templates\TemplateResources\High\$pack\Content"
     if (-not (Test-Path -LiteralPath $content)) { throw "Missing first-person content pack: $content" }
-    Copy-Item -Path (Join-Path $content '*') -Destination (Join-Path $project 'Content') -Recurse -Force
+    # The template Blueprints reference /Game/Input/... and /Game/Characters/...
+    # Keep the pack directory instead of flattening it into /Game.
+    $packDestination = Join-Path $project "Content\$pack"
+    New-Item -ItemType Directory -Path $packDestination -Force | Out-Null
+    Copy-Item -Path (Join-Path $content '*') -Destination $packDestination -Recurse -Force
 }
 Copy-Item -LiteralPath (Join-Path $nativeRoot 'Source') -Destination $project -Recurse
 Copy-Item -LiteralPath (Join-Path $nativeRoot 'ASHBOUNDUE.uproject') -Destination $uproject
