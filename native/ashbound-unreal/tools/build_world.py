@@ -313,21 +313,39 @@ for side in (-1, 1):
 book_class = unreal.load_class(None, '/Script/ASHBOUNDUE.ASHBOUNDGrimoire')
 if book_class is None:
     raise RuntimeError('Native ASHBOUND grimoire module is not compiled')
-for volume_index, (side, title) in enumerate(((0, 'Ilyras Buch vom ersten Feuer'),
-                                               (-270, 'Nerals Atlas ohne Pfeile'),
-                                               (270, 'Kaels Uhrschrift'))):
+book_placements = (
+    # desk Y, title, position on the desk, facing, surface height, surface radius
+    (0, 'Ilyras Buch vom ersten Feuer', -9, 4, -18, 119.75, 76),
+    (-270, 'Nerals Atlas ohne Pfeile', 11, -6, 37, 106, 75),
+    (270, 'Kaels Uhrschrift', -4, 10, -53, 106, 75),
+)
+for volume_index, (side, title, dx, dy, yaw, surface_z, radius) in enumerate(book_placements):
+    volume = model('book_encyclopedia_set_01', volume_index)
+    bounds = volume.get_bounding_box()
+    book_scale = 2.5
+    # The source scans have different baked X offsets. With a 90-degree pitch,
+    # source X becomes height and source Z becomes the length of the closed book.
+    half_length = (bounds.max.z - bounds.min.z) * book_scale / 2
+    half_width = (bounds.max.y - bounds.min.y) * book_scale / 2
+    if math.hypot(dx, dy) + math.hypot(half_length, half_width) >= radius:
+        raise RuntimeError('Grimoire footprint exceeds its reading desk: ' + title)
+    root_z = surface_z + 3
     book = actors.spawn_actor_from_class(book_class,
-                                         unreal.Vector(vault_x, side, 124 if not side else 111),
-                                         unreal.Rotator())
+                                         unreal.Vector(vault_x + dx, side + dy, root_z),
+                                         unreal.Rotator(pitch=0, yaw=yaw, roll=0))
     if book is None:
         raise RuntimeError('Native grimoire spawn failed: ' + title)
     book.set_editor_property('volume_index', volume_index)
     book.set_actor_label('ASHBOUND / ' + title + ' - F')
     closed_book = book.get_editor_property('closed_book')
-    closed_book.set_static_mesh(model('book_encyclopedia_set_01', volume_index))
+    closed_book.set_static_mesh(volume)
     closed_book.set_relative_rotation(unreal.Rotator(pitch=90, yaw=0, roll=0), sweep=False, teleport=False)
-    closed_book.set_relative_scale3d(unreal.Vector(2.5, 2.5, 2.5))
-    closed_book.set_relative_location(unreal.Vector(-28, -5, 0), sweep=False, teleport=False)
+    closed_book.set_relative_scale3d(unreal.Vector(book_scale, book_scale, book_scale))
+    closed_book.set_relative_location(
+        unreal.Vector((bounds.min.z + bounds.max.z) * book_scale / 2,
+                      -(bounds.min.y + bounds.max.y) * book_scale / 2,
+                      surface_z - root_z - bounds.min.x * book_scale),
+        sweep=False, teleport=False)
 
 for index, (x, y, hue) in enumerate(((2530, -520, (.28, .55, .7)),
                                      (2530, 520, (1.0, .66, .35)),
