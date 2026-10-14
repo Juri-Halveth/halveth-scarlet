@@ -5,6 +5,8 @@
 #include "ASHBOUNDGrimoire.h"
 #include "ASHBOUNDGenesis.h"
 #include "ASHBOUNDSeal.h"
+#include "ASHBOUNDStoryMemory.h"
+#include "ASHBOUNDWitness.h"
 #include "Components/InputComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/Engine.h"
@@ -21,6 +23,30 @@
 #include "UnrealClient.h"
 #include "TimerManager.h"
 
+namespace
+{
+FString StorySlot()
+{
+#if !UE_BUILD_SHIPPING
+    FString RunId;
+    if (FParse::Value(FCommandLine::Get(), TEXT("ashboundqastoryid="), RunId))
+    {
+        if (RunId.Len() == 32)
+        {
+            bool bHex = true;
+            for (TCHAR Digit : RunId) bHex &= FChar::IsHexDigit(Digit);
+            if (bHex) return TEXT("ASHBOUND_Story_QA_") + RunId;
+        }
+        UE_LOG(LogTemp, Error, TEXT("ASHBOUND_STORY invalid QA save ID"));
+        return TEXT("ASHBOUND_Story_QA_Invalid");
+    }
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqastory")))
+        return TEXT("ASHBOUND_Story_QA");
+#endif
+    return TEXT("ASHBOUND_Story");
+}
+}
+
 AASHBOUNDSpellManager::AASHBOUNDSpellManager()
 {
     PrimaryActorTick.bCanEverTick = true;
@@ -29,7 +55,6 @@ AASHBOUNDSpellManager::AASHBOUNDSpellManager()
 void AASHBOUNDSpellManager::BeginPlay()
 {
     Super::BeginPlay();
-    SetActorTickEnabled(false);
     APlayerController* Player = UGameplayStatics::GetPlayerController(this, 0);
     if (Player)
     {
@@ -42,14 +67,11 @@ void AASHBOUNDSpellManager::BeginPlay()
             InputComponent->BindKey(EKeys::F, IE_Pressed, this, &AASHBOUNDSpellManager::StudyNearestBook);
             InputComponent->BindKey(EKeys::M, IE_Pressed, this, &AASHBOUNDSpellManager::ToggleMagnetism);
             InputComponent->BindKey(EKeys::B, IE_Pressed, this, &AASHBOUNDSpellManager::TriggerGenesis);
+            InputComponent->BindKey(EKeys::J, IE_Pressed, this, &AASHBOUNDSpellManager::ToggleJournal);
             InputComponent->BindKey(EKeys::Escape, IE_Pressed, this, &AASHBOUNDSpellManager::StopReading);
         }
     }
-    if (GEngine)
-    {
-        GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor(152, 231, 218),
-            TEXT("ASHBOUND | Q/E/R Zauber   F Buch   M Metall   B Ursprungspuls"));
-    }
+    SetStoryStage(0);
 
     for (TActorIterator<AStaticMeshActor> It(GetWorld()); It; ++It)
     {
@@ -76,9 +98,73 @@ void AASHBOUNDSpellManager::BeginPlay()
     }
     Genesis = GetWorld()->SpawnActor<AASHBOUNDGenesis>(AASHBOUNDGenesis::StaticClass(),
         FVector(1550.0f, 0.0f, 390.0f), FRotator::ZeroRotator);
+    Witness = GetWorld()->SpawnActor<AASHBOUNDWitness>(AASHBOUNDWitness::StaticClass(),
+        FVector(1710.0f, -360.0f, 5.0f), FRotator(0, 90, 0));
+    RestoreStory();
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND living magic ready; three ambient wisps, Q/E/R/F/M input"));
 
 #if !UE_BUILD_SHIPPING
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqastory")))
+    {
+        FTimerHandle WitnessTimer, BookTimer, SealsTimer, PassageTimer, FortTimer;
+        GetWorld()->GetTimerManager().SetTimer(WitnessTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
+            if (!Controller || !Controller->GetPawn() || !Witness.IsValid()) return;
+            Controller->GetPawn()->SetActorLocation(FVector(1420, -360, 160));
+            Controller->SetControlRotation((Witness->GetActorLocation() + FVector(0, 0, 145) -
+                                            FVector(1420, -360, 225)).Rotation());
+            FTimerHandle InteractTimer;
+            GetWorld()->GetTimerManager().SetTimer(InteractTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
+            {
+                StudyNearestBook();
+                UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_QA witness=%d stage=%d"),
+                    bSpokenToWitness ? 1 : 0, StoryStage);
+            }), 0.3f, false);
+        }), 1.0f, false);
+        GetWorld()->GetTimerManager().SetTimer(BookTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
+            if (!Controller || !Controller->GetPawn()) return;
+            Controller->GetPawn()->SetActorLocation(FVector(2720, 0, 160));
+            Controller->SetControlRotation(FRotator(-8, 0, 0));
+            FTimerHandle InteractTimer;
+            GetWorld()->GetTimerManager().SetTimer(InteractTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
+            {
+                StudyNearestBook();
+                UpdateStory(0.2f);
+                UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_QA book_stage=%d"), StoryStage);
+            }), 0.3f, false);
+        }), 2.0f, false);
+        GetWorld()->GetTimerManager().SetTimer(SealsTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            for (TActorIterator<AASHBOUNDSeal> It(GetWorld()); It; ++It)
+            {
+                const FVector Target = It->GetActorLocation() + FVector(-90, 0, 0);
+                AASHBOUNDSpell* Spell = GetWorld()->SpawnActor<AASHBOUNDSpell>(
+                    AASHBOUNDSpell::StaticClass(), Target + FVector(-180, 0, 0), FRotator::ZeroRotator);
+                if (Spell) Spell->Initialize(It->GetRequiredSchool(), Target, false);
+            }
+        }), 3.0f, false);
+        GetWorld()->GetTimerManager().SetTimer(PassageTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
+            if (!Controller || !Controller->GetPawn()) return;
+            Controller->GetPawn()->SetActorLocation(FVector(4340, 0, 160));
+            UpdateStory(0.2f);
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_QA passage_stage=%d"), StoryStage);
+        }), 6.0f, false);
+        GetWorld()->GetTimerManager().SetTimer(FortTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
+            if (!Controller || !Controller->GetPawn()) return;
+            Controller->GetPawn()->SetActorLocation(FVector(5840, 0, 160));
+            UpdateStory(0.2f);
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_QA final_stage=%d pass=%d"),
+                StoryStage, StoryStage == 5 ? 1 : 0);
+            if (StoryStage != 5) UE_LOG(LogTemp, Error, TEXT("ASHBOUND_STORY_QA FAIL"));
+        }), 7.0f, false);
+    }
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqagenesis")))
     {
         FTimerHandle GenesisTimer;
@@ -408,21 +494,200 @@ void AASHBOUNDSpellManager::TriggerGenesis()
     if (AASHBOUNDGenesis* Core = Genesis.Get()) Core->Birth();
 }
 
+void AASHBOUNDSpellManager::ToggleJournal()
+{
+    bJournalOpen = !bJournalOpen;
+}
+
+void AASHBOUNDSpellManager::RestoreStory()
+{
+    const FString Slot = StorySlot();
+    if (UGameplayStatics::DoesSaveGameExist(Slot, 0))
+    {
+        StoryMemory = Cast<UASHBOUNDStoryMemory>(UGameplayStatics::LoadGameFromSlot(Slot, 0));
+        if (!StoryMemory)
+        {
+            UE_LOG(LogTemp, Error, TEXT("ASHBOUND_STORY_SAVE unreadable; original save preserved"));
+            return;
+        }
+    }
+    else
+    {
+        StoryMemory = Cast<UASHBOUNDStoryMemory>(
+            UGameplayStatics::CreateSaveGameObject(UASHBOUNDStoryMemory::StaticClass()));
+    }
+    if (!StoryMemory) return;
+    bSpokenToWitness = StoryMemory->bMetWitness;
+    bReachedFort = StoryMemory->bReachedFort;
+    if (bSpokenToWitness)
+    {
+        if (AASHBOUNDWitness* Keeper = Witness.Get()) Keeper->Awaken();
+        SetStoryStage(bReachedFort ? 5 : 1);
+    }
+    if (!StoryMemory->ChargedSchools.IsEmpty())
+    {
+        FTimerHandle RestoreTimer;
+        GetWorld()->GetTimerManager().SetTimer(RestoreTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            if (!StoryMemory) return;
+            bRestoringStory = true;
+            for (TActorIterator<AASHBOUNDSeal> It(GetWorld()); It; ++It)
+            {
+                if (StoryMemory->ChargedSchools.Contains(It->GetRequiredSchool()))
+                    It->Activate(It->GetRequiredSchool());
+            }
+            bRestoringStory = false;
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_SAVE restored seals=%d fort=%d"),
+                StoryMemory->ChargedSchools.Num(), bReachedFort ? 1 : 0);
+        }), 0.6f, false);
+    }
+    else
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_SAVE restored seals=0 fort=%d"),
+            bReachedFort ? 1 : 0);
+}
+
+void AASHBOUNDSpellManager::SaveStory()
+{
+    if (!StoryMemory) return;
+    if (!UGameplayStatics::SaveGameToSlot(StoryMemory, StorySlot(), 0))
+        UE_LOG(LogTemp, Error, TEXT("ASHBOUND_STORY_SAVE write failed"));
+}
+
+void AASHBOUNDSpellManager::OnSealActivated(int32 School)
+{
+    if (!StoryMemory || bRestoringStory) return;
+    StoryMemory->ChargedSchools.AddUnique(School);
+    SaveStory();
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_SAVE seal=%d count=%d"),
+        School, StoryMemory->ChargedSchools.Num());
+}
+
+void AASHBOUNDSpellManager::SetStoryStage(int32 NewStage)
+{
+    if (NewStage == StoryStage) return;
+    StoryStage = NewStage;
+    StoryLineRemaining = 9.0f;
+    switch (StoryStage)
+    {
+    case 0:
+        Objective = TEXT("Finde die Zeugin am Weg zum Archiv");
+        JournalLine = TEXT("Eine steinerne Gestalt wacht links neben dem Aschepfad.");
+        StoryLine = TEXT("Ein Licht regt sich zwischen den Ruinen.  J öffnet dein Journal.");
+        break;
+    case 1:
+        Objective = TEXT("Lies Ilyras Buch im Rundarchiv");
+        JournalLine = TEXT("Die Zeugin nennt Ilyras Buch am mittleren Lesepult.");
+        StoryLine = TEXT("ZEUGIN: Drei Zeichen halten den Ostweg. Lerne zuerst, was sie bewahren.");
+        break;
+    case 2:
+        Objective = TEXT("Erwecke die drei Archivzeichen mit Q, E und R");
+        JournalLine = TEXT("Resonanz, Glut und Neufassung antworten auf je ein eigenes Zeichen.");
+        StoryLine = TEXT("Die Schrift bleibt in dir. Jetzt antworten die Zeichen auf deine Zauber.");
+        break;
+    case 3:
+        Objective = TEXT("Durchquere das geöffnete Osttor");
+        JournalLine = TEXT("Alle drei Zeichen glühen. Der Weg zur Festung öffnet sich.");
+        StoryLine = TEXT("Das Tor hebt sich. Hinter dem Archiv beginnt eine andere Geschichte.");
+        break;
+    case 4:
+        Objective = TEXT("Folge dem Weg bis zur alten Festung");
+        JournalLine = TEXT("Jenseits des Archivs liegt die verlassene Festung im Aschetal.");
+        StoryLine = TEXT("Du hast die Schwelle überschritten. Folge dem Tal nach Osten.");
+        break;
+    default:
+        Objective = TEXT("Kapitel I abgeschlossen: Die Festung erreicht");
+        JournalLine = TEXT("Du hast die Zeugin gehört, gelesen, die Zeichen erweckt und die Festung erreicht.");
+        StoryLine = TEXT("ZEUGIN: Ein Weg ist offen. Was hier erwacht, bleibt deine Entscheidung.");
+        if (UWorld* World = GetWorld())
+        {
+            const FVector Beacon(5840.0f, 0.0f, 265.0f);
+            AASHBOUNDSpell* Welcome = World->SpawnActor<AASHBOUNDSpell>(
+                AASHBOUNDSpell::StaticClass(), Beacon, FRotator::ZeroRotator);
+            if (Welcome) Welcome->Initialize(0, Beacon, true);
+        }
+        break;
+    }
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY stage=%d objective=%s"), StoryStage, *Objective);
+}
+
+void AASHBOUNDSpellManager::UpdateStory(float DeltaSeconds)
+{
+    StoryLineRemaining = FMath::Max(0.0f, StoryLineRemaining - DeltaSeconds);
+    if (StoryLineRemaining <= 0.0f) StoryLine.Empty();
+    StoryCheckRemaining -= DeltaSeconds;
+    if (StoryCheckRemaining > 0.0f) return;
+    StoryCheckRemaining = 0.16f;
+
+    APlayerController* Player = UGameplayStatics::GetPlayerController(this, 0);
+    if (!Player || !Player->GetPawn()) return;
+    FVector Eye;
+    FRotator Look;
+    Player->GetPlayerViewPoint(Eye, Look);
+    InteractionPrompt.Empty();
+    if (AASHBOUNDWitness* Keeper = Witness.Get())
+    {
+        if (Keeper->CanSpeak(Eye, Look.Vector()))
+            InteractionPrompt = TEXT("F  Mit der Zeugin sprechen");
+    }
+    if (InteractionPrompt.IsEmpty())
+    {
+        for (TActorIterator<AASHBOUNDGrimoire> It(GetWorld()); It; ++It)
+        {
+            const FVector Direction = It->GetActorLocation() - Eye;
+            if (Direction.SizeSquared() < FMath::Square(300.0f) &&
+                FVector::DotProduct(Direction.GetSafeNormal(), Look.Vector()) > 0.50f)
+            {
+                InteractionPrompt = TEXT("F  Buch lesen / Seite wenden   Esc  Zurück");
+                break;
+            }
+        }
+    }
+
+    if (!bSpokenToWitness) return;
+    if (bReachedFort) { SetStoryStage(5); return; }
+    bool bFirstBookStudied = false;
+    for (TActorIterator<AASHBOUNDGrimoire> It(GetWorld()); It; ++It)
+    {
+        if (It->VolumeIndex == 0) bFirstBookStudied |= It->IsStudied();
+    }
+    if (!bFirstBookStudied) { SetStoryStage(1); return; }
+
+    int32 Charged = 0;
+    for (TActorIterator<AASHBOUNDSeal> It(GetWorld()); It; ++It)
+        if (It->IsActive()) ++Charged;
+    if (Charged < 3)
+    {
+        SetStoryStage(2);
+        Objective = FString::Printf(TEXT("Archivzeichen erwecken  %d / 3"), Charged);
+        return;
+    }
+    if (Player->GetPawn()->GetActorLocation().X < 4200.0f)
+    {
+        SetStoryStage(3);
+        return;
+    }
+    if (Player->GetPawn()->GetActorLocation().X < 5750.0f)
+    {
+        SetStoryStage(4);
+        return;
+    }
+    bReachedFort = true;
+    if (StoryMemory) StoryMemory->bReachedFort = true;
+    SaveStory();
+    SetStoryStage(5);
+}
+
 void AASHBOUNDSpellManager::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
+    UpdateStory(DeltaSeconds);
     AStaticMeshActor* Relic = MagneticRelic.Get();
     APlayerController* Player = UGameplayStatics::GetPlayerController(this, 0);
-    if (!Relic || !Player)
-    {
-        SetActorTickEnabled(false);
-        return;
-    }
+    if (!Relic || !Player) return;
     UStaticMeshComponent* Mesh = Relic->GetStaticMeshComponent();
     if (!Mesh || !Mesh->IsSimulatingPhysics())
     {
         MagneticRelic.Reset();
-        SetActorTickEnabled(false);
         return;
     }
     FVector Eye;
@@ -445,7 +710,6 @@ void AASHBOUNDSpellManager::ToggleMagnetism()
             Mesh->SetLinearDamping(0.6f);
         }
         MagneticRelic.Reset();
-        SetActorTickEnabled(false);
         UE_LOG(LogTemp, Display, TEXT("ASHBOUND_MAGNET released"));
         return;
     }
@@ -481,7 +745,6 @@ void AASHBOUNDSpellManager::ToggleMagnetism()
     Mesh->SetEnableGravity(false);
     Mesh->SetLinearDamping(2.0f);
     MagneticRelic = Selected;
-    SetActorTickEnabled(true);
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND_MAGNET attracted %s"), *Selected->GetName());
 }
 
@@ -492,6 +755,19 @@ void AASHBOUNDSpellManager::StudyNearestBook()
     FVector Eye;
     FRotator Look;
     Player->GetPlayerViewPoint(Eye, Look);
+    if (AASHBOUNDWitness* Keeper = Witness.Get())
+    {
+        if (Keeper->CanSpeak(Eye, Look.Vector()))
+        {
+            bSpokenToWitness = true;
+            if (StoryMemory) StoryMemory->bMetWitness = true;
+            SaveStory();
+            Keeper->Awaken();
+            SetStoryStage(1);
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY dialogue witness=1"));
+            return;
+        }
+    }
     AASHBOUNDGrimoire* Nearest = nullptr;
     float NearestDistance = 300.0f;
     for (TActorIterator<AASHBOUNDGrimoire> It(GetWorld()); It; ++It)

@@ -6,6 +6,8 @@
 
 class AStaticMeshActor;
 class AASHBOUNDGenesis;
+class AASHBOUNDWitness;
+class UASHBOUNDStoryMemory;
 
 UCLASS()
 class ASHBOUNDUE_API AASHBOUNDSpellManager : public AActor
@@ -15,6 +17,13 @@ class ASHBOUNDUE_API AASHBOUNDSpellManager : public AActor
 public:
     AASHBOUNDSpellManager();
     virtual void Tick(float DeltaSeconds) override;
+    const FString& GetObjective() const { return Objective; }
+    const FString& GetJournalLine() const { return JournalLine; }
+    const FString& GetInteractionPrompt() const { return InteractionPrompt; }
+    const FString& GetStoryLine() const { return StoryLine; }
+    bool IsJournalOpen() const { return bJournalOpen; }
+    int32 GetStoryStage() const { return StoryStage; }
+    void OnSealActivated(int32 School);
 
 protected:
     virtual void BeginPlay() override;
@@ -31,6 +40,25 @@ private:
     void StopReading();
     void ToggleMagnetism();
     void TriggerGenesis();
+    void ToggleJournal();
+    void UpdateStory(float DeltaSeconds);
+    void SetStoryStage(int32 NewStage);
+    void RestoreStory();
+    void SaveStory();
     TWeakObjectPtr<AStaticMeshActor> MagneticRelic;
     TWeakObjectPtr<AASHBOUNDGenesis> Genesis;
+    TWeakObjectPtr<AASHBOUNDWitness> Witness;
+    UPROPERTY()
+    TObjectPtr<UASHBOUNDStoryMemory> StoryMemory;
+    FString Objective;
+    FString JournalLine;
+    FString InteractionPrompt;
+    FString StoryLine;
+    float StoryLineRemaining = 0.0f;
+    float StoryCheckRemaining = 0.0f;
+    int32 StoryStage = -1;
+    bool bSpokenToWitness = false;
+    bool bJournalOpen = false;
+    bool bRestoringStory = false;
+    bool bReachedFort = false;
 };

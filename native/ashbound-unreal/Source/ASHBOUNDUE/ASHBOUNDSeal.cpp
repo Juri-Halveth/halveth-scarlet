@@ -1,5 +1,6 @@
 #include "ASHBOUNDSeal.h"
 #include "ASHBOUNDArchiveGate.h"
+#include "ASHBOUNDSpellManager.h"
 
 #include "Components/PointLightComponent.h"
 #include "Components/SceneComponent.h"
@@ -71,6 +72,8 @@ bool AASHBOUNDSeal::Activate(int32 SpellSchool)
     if (DynamicMaterial) DynamicMaterial->SetScalarParameterValue(TEXT("Radiance"), 5.0f);
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND seal charged school=%d at %s"),
            RequiredSchool, *GetActorLocation().ToString());
+    for (TActorIterator<AASHBOUNDSpellManager> It(GetWorld()); It; ++It)
+        It->OnSealActivated(RequiredSchool);
     int32 Count = 0;
     int32 Charged = 0;
     for (TActorIterator<AASHBOUNDSeal> It(GetWorld()); It; ++It)
