@@ -66,6 +66,16 @@ Die B18-Werte sind eine **datierte Ausgangslage**, keine Hochrechnung für Oktob
 
 Die [Kommunalfinanzübersicht des BMF](https://www.bundesfinanzministerium.de/Web/DE/Themen/Oeffentliche_Finanzen/Foederale_Finanzbeziehungen/Kommunalfinanzen/kommunalfinanzen.html) beschreibt Gewerbesteuer sowie kommunale Anteile an Einkommen- und Umsatzsteuer mit eigenen Verteilungsregeln. Die [DRV-Werte 2026](https://www.deutsche-rentenversicherung.de/DRV/DE/Experten/Zahlen-und-Fakten/Werte-der-Rentenversicherung/werte-der-rentenversicherung?nn=6a097d95ca84ce5471c16794) nennen 18,6 % Rentenbeitragssatz. Der Arbeitgeber- und Arbeitnehmeranteil beträgt bei regulärer paritätischer Verteilung je 9,3 %. Der [Destatis-Begriff der Wertschöpfung](https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/Methoden/bip.html) verhindert, Brühler Kaufpreise und Produktionsbeiträge gleichzusetzen.
 
+### Drei Steuerwege, die in der Wirkungsschätzung getrennt bleiben
+
+| Weg | Primärquelle | Zurechnung für einen möglichen Brühler Effekt | Benötigter Zusatzbeleg |
+| --- | --- | --- | --- |
+| Gemeindeanteil an der Einkommensteuer | [§ 3 Gemeindefinanzreformgesetz](https://www.gesetze-im-internet.de/gemfinrefg/__3.html) | Der Verteilungsschlüssel ordnet Steuerbeträge nach dem in der Bundesstatistik zugrunde gelegten **Wohnsitz** zu. Eine Person mit Wohnsitz Brühl und Arbeit außerhalb ist deshalb anders zu modellieren als eine einpendelnde Person mit Arbeitsort Brühl. | Wohnsitz, zusätzliche steuerpflichtige Arbeit, geltender Schlüssel, tatsächliche kommunale Zuweisung und zeitliche Verzögerung. |
+| Gewerbesteuer | [§ 4](https://www.gesetze-im-internet.de/gewstg/__4.html) und [§ 6 GewStG](https://www.gesetze-im-internet.de/gewstg/__6.html) | Maßgeblich sind **Betriebsstätte** und **Gewerbeertrag**, bei mehreren Betriebsstättengemeinden die Aufteilung. Ladenumsatz und Steuerertrag sind verschiedene Größen. | Gewerbebetrieb, Ort(e) der Betriebsstätte, steuerlicher Ertrag, Hebesatz, Umlage und Zahlung. |
+| Gemeindeanteil an der Umsatzsteuer | [§ 5a Gemeindefinanzreformgesetz](https://www.gesetze-im-internet.de/gemfinrefg/__5a.html) | Ein örtlicher Kauf erzeugt keinen direkt zurechenbaren gleichen Umsatzsteuerbetrag für Brühl. Die Verteilung verwendet einen Schlüssel unter anderem aus Gewerbesteueraufkommen, Beschäftigten und Entgelten am Arbeitsort. | Gesetzlicher Schlüssel im Beobachtungsjahr, tatsächliche Zuweisung und ein kausaler, zeitlich möglicher Weg des Piloteffekts zum Schlüssel. |
+
+Ein zusätzlicher Rentenbeitrag aus einem sozialversicherungspflichtigen Job geht in die Sozialversicherung, nicht in Brühls Stadtkasse. Die Kausalkette zwischen einem 2026er Pilotschritt und einem erst später geänderten Verteilungsschlüssel bleibt als eigene Langfristfrage offen; sie darf nicht in T+6 als direkter Rückfluss gebucht werden.
+
 ## 4. T+6 / T+12: Messplan für jeden der sechzehn Wege
 
 | Weg | T+6 | T+12 | zwingende Gegenfrage |
