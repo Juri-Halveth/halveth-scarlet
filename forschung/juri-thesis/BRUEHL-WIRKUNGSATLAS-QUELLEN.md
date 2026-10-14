@@ -56,6 +56,9 @@ Ein Kaufbeleg belegt Zahlung und Empfänger, nicht zusätzliche Wertschöpfung. 
 | B34 | [Stadt Brühl: „Mein Lieblingsplatz“, 22.06.2026](https://www.bruehl.de/rp/news/ergaenzung-beratungsangebot-mein-lieblingsplatz.php) | angekündigtes kostenfreies Angebot ab 07.07.2026 für Eltern mit Kindern bis drei Jahren: Hilfe bei Anträgen und Beratung zur Kindertagesbetreuung | bestehende Beratungsbasis für jungen Elternweg; individuelle Nutzung und verfügbare Plätze sind gesondert zu prüfen |
 | B35 | [NRW: Gemeindefinanzierungsgesetz 2026, §§ 7–9, 23–24, 27](https://recht.nrw.de/gvnrw/2025-s1182/) | Schlüsselzuweisung vergleicht Ausgangs- und Steuerkraftmesszahl; Beschäftigte am Arbeitsort fließen in den Zentralitätsansatz ein; Steuerkraft umfasst definierte Kommunalsteuern und Gemeindeanteile; Kreisumlage hat eigene Umlagegrundlage; 2026er Datenstichtage liegen vor dem Pilot | gesetzlicher 2026er Rechenweg, kein konkreter Brühler Marginaleffekt und keine Prognose für spätere Gesetzesjahre |
 | B36 | [NRW: Richtlinie Gründungsstipendium vom 01.10.2026](https://recht.nrw.de/lrmb/verwaltungsvorschrift/01102026-richtlinie-ueber-die-gewaehrung-von-stipendien-zur-foerderung/) | 1.200 € pro Monat und Person, regulär bis zu zwölf Monate für nach Regelwerk geeignete innovative Gründungen; Nr. 4.7 schließt zeitgleiche andere Stipendien oder Lebensunterhaltsprogramme aus | vorhandener Förderweg und rechtliche Schnittstelle, weder JURI-THESIS-Finanzierung noch allgemeiner Anspruch |
+| B37 | [Stadt Brühl: Praktikum, FSJ und Bufdi](https://www.bruehl.de/rp/karriere/karriere-praktikum-fsj-und-bufdi.php) | Stadt beschreibt Praxis- und Freiwilligendienstwege in Verwaltung, Kita, Jugendzentren und weiteren Bereichen mit fachlicher Anleitung | bestehender Einstiegsweg, kein zugesagter Platz und kein automatischer Arbeitsvertrag |
+| B38 | [Stadt Brühl: Charta Beruf und Pflege, 31.03.2026](https://www.bruehl.de/rp/news/charta-zur-vereinbarkeit-von-beruf-und-pflege-stadtverwaltung.php) | Stadtverwaltung nahm am Landesprogramm teil und schulte Pflege-Guides zur Unterstützung von Mitarbeitenden mit Pflegeverantwortung | bestehende Arbeitgebermaßnahme, kein gemessener Effekt des vorgeschlagenen Pilots |
+| B39 | [Stadt Brühl: Max Ernst-Stipendium 2026](https://www.bruehl.de/rp/news/fynn-ribbeck-zum-max-ernst-stipendiaten-2026-gewaehlt.php) | 30-jähriger Künstler erhielt Stipendium; 10.000 € Preisgeld zu gleichen Teilen von Stadt und Max Ernst-Gesellschaft, dazu Ausstellungsmöglichkeit | beobachtetes Kofinanzierungsbeispiel im Kulturfeld, kein JURI-THESIS-Partner oder Budget |
 
 Weitere echte Zugänge:
 
@@ -118,7 +121,7 @@ Das [NRW-Gemeindefinanzierungsgesetz 2026](https://recht.nrw.de/gvnrw/2025-s1182
 | 25, Digitalhandel | Leistung für freiwilligen Laden und Test | bezahlte Wiederaufträge | kostenlose bestehende Beratung und geplante Digitalisierung getrennt? |
 | 29, Energiehandwerk | Qualifikation, Praxis und fachliche Zuständigkeit | Vertrag oder fachgerechter Auftrag | Maßnahme und Förderung ohnehin geplant? |
 
-Die sechs zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen diese Tabelle, ohne sechs weitere Pilotplätze zu reservieren:
+Die acht zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen diese Tabelle, ohne acht weitere Pilotplätze zu reservieren:
 
 | Variante | T+6 | T+12 | Gegenprobe |
 | --- | --- | --- | --- |
@@ -128,6 +131,8 @@ Die sechs zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen d
 | 22, Wohnen und Ausbildung | tragfähiger Wohn- und Wegeplan, möglicher Ausbildungsstart | tatsächlicher Verbleib, Arbeit/Lernen und Wohnstabilität | Wäre die Person ohnehin geblieben; wurde ein anderer Haushalt bei knappem Wohnraum verdrängt? |
 | 20, Sprache und Beruf | selbst gewählte Qualifizierung, belegte Fähigkeiten und Bewerbungen | Vertrag oder dokumentierter Lernfortschritt | Welche Sprach- und Beratungsleistungen bestanden schon; wäre eine Stelle ohnehin besetzt? |
 | 24, Kind und Beruf | tatsächlich nutzbarer Betreuungs- und Lernplan | gehaltene Arbeits-/Lernstunden und Betreuungsstabilität | Welche Stunden wären mit bestehenden Ansprüchen und Angeboten ohnehin möglich gewesen? |
+| 19, Praktikum oder Freiwilligendienst | belegte Praxis, Anleitung und Berufswahl | Bewerbung, Ausbildung oder anderer selbst gewählter Anschluss | Welche Teilnahme und Leistungen waren bereits ohne Pilot möglich? |
+| 26, Arbeit und Pflege | nutzbarer Plan für Arbeit und Sorgeverantwortung, freiwillig erfasste Stunden | gehaltene Beschäftigung und selbst berichtete Entlastung | Welche kommunalen Arbeitgeberangebote, Pflegeleistungen und Arbeitszeitregelungen bestanden schon? |
 
 Der [IAB-Forschungsbericht zu Kosten und Nutzen von Arbeitsmarktmaßnahmen](https://doku.iab.de/forschungsbericht/2024/fb2124.pdf) begründet, Mitnahme, Verdrängung und öffentliche Kosten getrennt zu betrachten. Diese Forschung evaluiert andere Instrumente und Populationen. Ihre Wirkungsquoten sind **nicht** in die sechzehn JURI-THESIS-Wege übertragen worden.
 
