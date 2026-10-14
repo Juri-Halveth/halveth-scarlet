@@ -147,10 +147,16 @@ void AASHBOUNDSpell::ApplyWorldEffect(const FHitResult* FlightImpact)
             }
         }
     }
-    bool bBookStudied = false;
+    bool bSchoolBookStudied = false;
+    // Ilyra -> Ember, Neral -> Resonance, Kael -> Reweave.
+    const int32 RequiredVolume = School == 0 ? 1 : (School == 1 ? 0 : 2);
     for (TActorIterator<AASHBOUNDGrimoire> It(World); It; ++It)
     {
-        if (It->IsStudied()) { bBookStudied = true; break; }
+        if (It->VolumeIndex == RequiredVolume && It->IsStudied())
+        {
+            bSchoolBookStudied = true;
+            break;
+        }
     }
 
     if (School == 0)
@@ -160,7 +166,9 @@ void AASHBOUNDSpell::ApplyWorldEffect(const FHitResult* FlightImpact)
         if (Echo)
         {
             Echo->Initialize(0, Target, true);
-            Echo->SetLifeSpan(bBookStudied ? 45.0f : 18.0f);
+            const float Duration = bSchoolBookStudied ? 45.0f : 18.0f;
+            Echo->SetLifeSpan(Duration);
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_BOOK_POWER school=0 volume=1 duration=%.0f"), Duration);
             UE_LOG(LogTemp, Display, TEXT("ASHBOUND world effect: Resonance echo at %s"), *Target.ToString());
         }
         return;
@@ -178,7 +186,9 @@ void AASHBOUNDSpell::ApplyWorldEffect(const FHitResult* FlightImpact)
                 Light->SetIntensity(8000.0f);
                 Light->SetAttenuationRadius(1200.0f);
             }
-            Ember->SetLifeSpan(24.0f);
+            const float Duration = bSchoolBookStudied ? 60.0f : 24.0f;
+            Ember->SetLifeSpan(Duration);
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_BOOK_POWER school=1 volume=0 duration=%.0f"), Duration);
             UE_LOG(LogTemp, Display, TEXT("ASHBOUND world effect: Ember light at %s"), *Target.ToString());
         }
         return;
@@ -206,7 +216,7 @@ void AASHBOUNDSpell::ApplyWorldEffect(const FHitResult* FlightImpact)
     {
         Landing = Hit.ImpactPoint + FVector(0, 0, 3);
     }
-    // Studied books keep growth for the session. Recycle the oldest grove so
+    // Kael's studied volume keeps growth for the session. Recycle the oldest grove so
     // unlimited casting cannot accumulate unlimited draw calls or memory.
     AASHBOUNDGrove* Oldest = nullptr;
     int32 GroveCount = 0;
@@ -223,7 +233,9 @@ void AASHBOUNDSpell::ApplyWorldEffect(const FHitResult* FlightImpact)
     if (Growth)
     {
         Growth->Initialize(Fern);
-        if (!bBookStudied) Growth->SetLifeSpan(120.0f);
+        if (!bSchoolBookStudied) Growth->SetLifeSpan(120.0f);
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND_BOOK_POWER school=2 volume=2 persistent=%d"),
+            bSchoolBookStudied ? 1 : 0);
         UE_LOG(LogTemp, Display, TEXT("ASHBOUND world effect: Reweave growth at %s"), *Landing.ToString());
     }
 }

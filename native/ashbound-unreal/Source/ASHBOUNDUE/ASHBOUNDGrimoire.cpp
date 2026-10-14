@@ -228,9 +228,12 @@ void AASHBOUNDGrimoire::Study()
         {
             Player->SetViewTargetWithBlend(this, 0.45f);
         }
-        UE_LOG(LogTemp, Display, TEXT("ASHBOUND grimoire opened; resonance and reweave changed"));
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND grimoire opened; volume=%d learned=%d"),
+            VolumeIndex, bStudied ? 1 : 0);
         if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor(156, 230, 255),
-            TEXT("Das Buch antwortet. Resonanz hält länger; Neufassung bleibt."));
+            VolumeIndex == 0 ? TEXT("Ilyras Feuer: Deine Glut leuchtet länger.") :
+            (VolumeIndex == 1 ? TEXT("Nerals Atlas: Deine Resonanz hält länger.") :
+            TEXT("Kaels Uhrschrift: Deine Neufassung bleibt bestehen.")));
     }
     else
     {

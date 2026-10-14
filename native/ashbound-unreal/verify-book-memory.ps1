@@ -48,4 +48,14 @@ $read = Invoke-MemoryRun 'read' @() "ASHBOUND_BOOK_MEMORY volume=$volume restore
 if ($read -notmatch "ASHBOUND_BOOK_MEMORY volume=$volume restored=1") {
     throw 'The studied volume was not restored in the second process'
 }
-Write-Output "ASHBOUND book memory passed across two EXE processes (volume $volume); QA save: $qaSave"
+if ($volume -eq '0') {
+    $powers = Invoke-MemoryRun 'powers' @('-ashboundqacastall') 'ASHBOUND_BOOK_POWER school=2 volume=2 persistent=0'
+    foreach ($pattern in @(
+        'ASHBOUND_BOOK_POWER school=0 volume=1 duration=18',
+        'ASHBOUND_BOOK_POWER school=1 volume=0 duration=60',
+        'ASHBOUND_BOOK_POWER school=2 volume=2 persistent=0'
+    )) {
+        if ($powers -notmatch $pattern) { throw "Wrong book power: $pattern" }
+    }
+}
+Write-Output "ASHBOUND book memory and volume-specific powers passed across EXE processes (volume $volume); QA save: $qaSave"
