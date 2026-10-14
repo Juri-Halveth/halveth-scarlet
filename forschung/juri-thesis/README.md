@@ -2,7 +2,7 @@
 
 **Öffentliche deutschsprachige Konzeptdemo · 14. Oktober 2026**
 
-[Startseite](index.html) · [Gestaltetes Konzept](konzept.html) · [Pilotbrief (PDF)](assets/JURI-THESIS-Pilotbrief.pdf) · [Chancenreise durchspielen](chancenreise.html) · [Rechtslabor](rechtslabor.html) · [editierbare Quellenfassung](JURI-THESIS-KONZEPT.md)
+[Startseite](index.html) · [Gestaltetes Konzept](konzept.html) · [Pilotbrief (PDF)](assets/JURI-THESIS-Pilotbrief.pdf) · [Chancenreise durchspielen](chancenreise.html) · [Rechtslabor](rechtslabor.html) · [öffentlicher Versandstand](versand.html) · [Versandledger](VERSAND-LEDGER.md) · [editierbare Quellenfassung](JURI-THESIS-KONZEPT.md)
 
 Die langfristige These sieht für erwachsene Menschen zwei freiwillige Entwicklungsphasen von je sechs Monaten vor. Die Demo zeigt eine davon als **fiktive** Bewerbung in einer möglichen rollierenden Pilotvariante mit 30 Plätzen pro Kommune und Halbjahresrunde. Das ist kein bestehender Leistungsanspruch, keine öffentliche Stellenausschreibung und keine Zusage der Stadt Brühl. Die Seite enthält keine Formulare für reale personenbezogene Daten und keine Übertragung oder Speicherung von Bewerbungen. Ergebnisse im Spiel werden von Besuchenden als Szenario gewählt, nicht automatisch ermittelt.
 
