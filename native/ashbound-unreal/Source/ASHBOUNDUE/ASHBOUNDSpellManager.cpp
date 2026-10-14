@@ -61,6 +61,38 @@ void AASHBOUNDSpellManager::BeginPlay()
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND living magic ready; three ambient wisps, Q/E/R/F input"));
 
 #if !UE_BUILD_SHIPPING
+    float OrbitAngle = 0.0f;
+    if (FParse::Value(FCommandLine::Get(), TEXT("ashboundqaorbitangle="), OrbitAngle))
+    {
+        float OrbitHeight = 175.0f;
+        FParse::Value(FCommandLine::Get(), TEXT("ashboundqaorbitheight="), OrbitHeight);
+        if (!FMath::IsFinite(OrbitAngle) || OrbitAngle < 0.0f || OrbitAngle >= 360.0f ||
+            !FMath::IsFinite(OrbitHeight) || OrbitHeight < 150.0f || OrbitHeight > 650.0f)
+        {
+            UE_LOG(LogTemp, Error, TEXT("ASHBOUND orbit QA invalid angle=%.1f height=%.1f"),
+                   OrbitAngle, OrbitHeight);
+        }
+        else
+        {
+            FTimerHandle OrbitTimer;
+            GetWorld()->GetTimerManager().SetTimer(OrbitTimer,
+                FTimerDelegate::CreateWeakLambda(this, [this, OrbitAngle, OrbitHeight]()
+            {
+                APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
+                if (!Controller || !Controller->GetPawn()) return;
+                const FVector Focus(3000.0f, 0.0f, 165.0f);
+                const float Radians = FMath::DegreesToRadians(OrbitAngle);
+                const FVector Position = Focus + FVector(680.0f * FMath::Cos(Radians),
+                                                         680.0f * FMath::Sin(Radians),
+                                                         OrbitHeight - Focus.Z);
+                Controller->GetPawn()->SetActorLocation(Position);
+                // The first-person camera is above the pawn origin.
+                Controller->SetControlRotation((Focus - Position - FVector(0, 0, 65)).Rotation());
+                UE_LOG(LogTemp, Display, TEXT("ASHBOUND_ORBIT_QA angle=%.1f height=%.1f position=%s"),
+                       OrbitAngle, OrbitHeight, *Position.ToString());
+            }), 1.0f, false);
+        }
+    }
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqagrove")))
     {
         FTimerHandle GroveViewTimer;
