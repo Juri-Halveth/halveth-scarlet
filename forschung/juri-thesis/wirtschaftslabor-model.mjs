@@ -36,5 +36,5 @@ export function calculate(scenario, options = {}) {
     workDuring: scenario.workDuring, workAfter: scenario.workAfter,
     pensionT6: grossWagesT6 * pension2026.rate, pensionT12: grossWagesT12 * pension2026.rate,
     earningPointsT12: grossWagesT12 / pension2026.averageEarnings,
-    billionPilotCount: Math.ceil(1e9 / (t6Gva + postGva)) });
+    billionPilotCount: t6Gva + postGva > 0 ? Math.ceil(1e9 / (t6Gva + postGva)) : null });
 }
