@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T11:59:20Z",
+  "generatedAt": "2026-10-14T17:14:45Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-14T11:59:20Z",
-      "lastSuccessAt": "2026-10-14T11:59:20Z",
+      "lastAttemptAt": "2026-10-14T17:14:45Z",
+      "lastSuccessAt": "2026-10-14T17:14:45Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,57 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-14T11:59:20Z",
-      "lastSuccessAt": "2026-10-14T11:59:20Z",
+      "lastAttemptAt": "2026-10-14T17:14:45Z",
+      "lastSuccessAt": "2026-10-14T17:14:45Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "07e53cea639f25f304557811",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Space X CRS-35 Launch Jellyfish",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/nasas-space-x-crs-35-launch-jellyfish/",
+      "sourcePublishedAt": "2026-10-14T15:18:38Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
+      "firstFetchedAt": "2026-10-14T17:14:45Z"
+    },
+    {
+      "id": "47fad2329e7a41ac4a5a6669",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Develops Batteries to Power Humanity’s Return to Moon",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/centers-and-facilities/langley/nasa-develops-batteries-to-power-humanitys-return-to-moon/",
+      "sourcePublishedAt": "2026-10-14T14:41:21Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
+      "firstFetchedAt": "2026-10-14T17:14:45Z"
+    },
+    {
+      "id": "f5fa4d6131d7db33f0c914ee",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Actions workflow lockfiles in public preview",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview",
+      "sourcePublishedAt": "2026-10-14T13:49:15Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
+      "firstFetchedAt": "2026-10-14T17:14:45Z"
+    },
+    {
+      "id": "3b2f7a3b6ccfa131981adfba",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA to Discuss Artemis Acceleration, Status of Upcoming Moon Missions",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-to-discuss-artemis-acceleration-status-of-upcoming-moon-missions/",
+      "sourcePublishedAt": "2026-10-14T13:32:25Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
+      "firstFetchedAt": "2026-10-14T17:14:45Z"
+    },
     {
       "id": "6e334e66e0eb46b0f93e01d4",
       "sourceId": "nasa",
@@ -32,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-14-mars-and-the-beehive-under-an-aurora/",
       "sourcePublishedAt": "2026-10-14T04:05:00Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-14T11:59:20Z"
     },
     {
@@ -43,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/hurricane-simon-lurks-off-the-mexican-coast/",
       "sourcePublishedAt": "2026-10-14T04:01:00Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-14T11:59:20Z"
     },
     {
@@ -54,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-github-app-improvements-for-least-privilege-and-management",
       "sourcePublishedAt": "2026-10-13T23:17:55Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-14T01:15:01Z"
     },
     {
@@ -65,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-names-astronaut-christina-koch-acting-deputy-chief-engineer/",
       "sourcePublishedAt": "2026-10-13T20:41:11Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -76,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot",
       "sourcePublishedAt": "2026-10-13T18:39:56Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -87,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-audit-github-code-quality-finding-dismissals-and-reopenings",
       "sourcePublishedAt": "2026-10-13T17:58:36Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -98,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/photojournal/comparing-off-world-rover-driving-distances/",
       "sourcePublishedAt": "2026-10-13T17:56:08Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -109,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/photojournal/nasas-record-setting-perseverance-rover-team/",
       "sourcePublishedAt": "2026-10-13T17:48:46Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -120,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/photojournal/perseverance-navcam-image-marks-record-drive/",
       "sourcePublishedAt": "2026-10-13T17:42:51Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -131,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/transporter-18-smallsats-encapsulation/",
       "sourcePublishedAt": "2026-10-13T17:38:37Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -164,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-secret-scanning-blocks-anthropic-keys-by-default-adds-salesforce",
       "sourcePublishedAt": "2026-10-13T16:12:36Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -175,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-enterprise-managed-settings-enforcement-updates",
       "sourcePublishedAt": "2026-10-13T15:20:10Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -197,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-improved-detection-for-withdrawn-dependabot-alerts",
       "sourcePublishedAt": "2026-10-13T14:03:57Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -219,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-search-and-filter-for-budgets-now-available",
       "sourcePublishedAt": "2026-10-13T12:06:09Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -230,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-code-scanning-ai-scan-metrics-in-security-overview",
       "sourcePublishedAt": "2026-10-13T12:03:17Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -274,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture",
       "sourcePublishedAt": "2026-10-12T22:38:00Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
+      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T07:45:28Z"
     },
     {
@@ -498,39 +542,6 @@
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
-      "id": "c8f73fc3067539cf0e4ce87d",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s SSPICY Mission to Demonstrate In-Space Inspection Technologies",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/centers-and-facilities/ames/nasas-sspicy-mission-to-demonstrate-in-space-inspection-technologies/",
-      "sourcePublishedAt": "2026-10-08T18:56:25Z",
-      "fetchedAt": "2026-10-11T01:56:44Z",
-      "firstFetchedAt": "2026-10-08T22:06:51Z"
-    },
-    {
-      "id": "9f4d01aca69009eaee8e2ad8",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Crew-12 Returns to Earth",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/image-article/crew-12-returns-to-earth/",
-      "sourcePublishedAt": "2026-10-08T18:52:27Z",
-      "fetchedAt": "2026-10-10T13:45:57Z",
-      "firstFetchedAt": "2026-10-08T22:06:51Z"
-    },
-    {
-      "id": "5a9a117643219a5e7ee4ba66",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s SPHEREx Telescope Sees Menagerie of Brown Dwarfs",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/",
-      "sourcePublishedAt": "2026-10-08T18:22:48Z",
-      "fetchedAt": "2026-10-10T00:54:42Z",
-      "firstFetchedAt": "2026-10-08T22:06:51Z"
-    },
-    {
       "id": "18d441cbd3f99a19e751ebcc",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -670,17 +681,6 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-02-unvalidated-npm-trusted-publishing-configurations-now-expire",
       "sourcePublishedAt": "2026-10-02T19:07:04Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
-      "firstFetchedAt": "2026-10-05T22:40:38Z"
-    },
-    {
-      "id": "ed5596d5eeaa86a57cbe892a",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "npm staged publishing now supports creating new packages",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-02-npm-staged-publishing-now-supports-creating-new-packages",
-      "sourcePublishedAt": "2026-10-02T19:05:17Z",
       "fetchedAt": "2026-10-07T16:33:03Z",
       "firstFetchedAt": "2026-10-05T22:40:38Z"
     }
