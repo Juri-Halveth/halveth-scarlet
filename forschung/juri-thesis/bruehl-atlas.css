@@ -13,3 +13,5 @@
 .atlas-hero{min-height:530px;padding:clamp(55px,6vw,85px) clamp(22px,7vw,115px)}
 .atlas-hero h1{font-size:clamp(3rem,5vw,5.25rem)}
 .atlas-grid{align-items:start}
+.atlas-baseline{max-width:none;background:#f7efe2}.atlas-baseline-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;max-width:1500px;margin-top:26px}.atlas-baseline-grid article{background:#fff;border:1px solid #e3d7c5;border-radius:20px;padding:25px}.atlas-baseline-grid strong{display:block;color:#a36d24;font:700 clamp(2.6rem,5vw,4rem)/1 Georgia,serif}.atlas-baseline-grid h3{margin:12px 0;font:650 1.45rem Georgia,serif}.atlas-baseline-grid p{color:#42555a;font-size:.9rem}.atlas-baseline-source{max-width:100ch;color:#42555a;font-size:.86rem}.atlas-baseline-source a{color:#145a45;font-weight:800}
+@media(max-width:760px){.atlas-baseline-grid{grid-template-columns:1fr}}

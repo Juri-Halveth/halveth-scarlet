@@ -37,6 +37,7 @@ Ein Kaufbeleg belegt Zahlung und Empfänger, nicht zusätzliche Wertschöpfung. 
 | B15 | [Stadt Brühl: CULTRA und Stadtpark Ost, 06.08.2026](https://www.bruehl.de/rp/news/cultra-x-stadtpark-ost_workshop-reihe-bis-november.php) | kostenloses Kulturangebot für 12- bis 19-Jährige bis November 2026 | kreativer Weg eines volljährigen jungen Menschen, vorbehaltlich Angebot und Teilnahme |
 | B16 | [Stadt Brühl: Projekte der Wirtschaftsförderung](https://www.bruehl.de/wmv/wirtschaftsfoerderung/projekte-wifoe.php) | städtischer Bericht über kostenlose Digitalchecks für Innenstadtgeschäfte im Herbst 2026 | möglicher ergänzender Dienst, nicht als bestehender Pilotauftrag |
 | B17 | [Stadt Brühl: Energieberatung](https://www.bruehl.de/pbku/bauen-und-sanieren/energieberatung.php) | EkoBeratung seit September 2026 in Brühl | Qualifizierungs- und Handwerkskontext; keine Arbeitsmarktstatistik |
+| B18 | [Stadt Brühl: Brühl im Überblick](https://www.bruehl.de/fgbs/demografie/bruehl-im-ueberblick.php) | 1.156 Ein-Eltern-Familien unter 4.785 Familien (Dezember 2024); 18.429 sozialversicherungspflichtig Beschäftigte (Dezember 2024); 1.571 Arbeitslose im Jahresdurchschnitt 2024 | datierte städtische Ausgangslage, nicht Teilnehmer- oder Effektzählung |
 
 Weitere echte Zugänge:
 
@@ -49,6 +50,8 @@ Weitere echte Zugänge:
 | R05 | [Gemeinsamer Arbeitgeber-Service](https://www.jobcenter-rhein-erft.de/arbeit/arbeitgeber.html) | BA und Jobcenter unterstützen bei Stellen- und Ausbildungsbesetzung, Förderfragen |
 | R06 | [Freie Straffälligenhilfe NRW](https://zentrale-beratungsstellen-nrw.de/) | freiwillige, vertrauliche Beratung für Haftentlassene und Angehörige in NRW; konkrete regionale Zuständigkeit ist im Einzelfall zu klären |
 | R07 | [IHK Köln: Ausbildungszahlen 2025](https://www.ihk.de/koeln/hauptnavigation/presse/pressemeldungen2025/pm-zahlen-ausbildung-6783688) | 1.232 neue IHK-Ausbildungsverträge im **Rhein-Erft-Kreis** bis September 2025, 47 weniger als im Vorjahr; **keine Brühl-Stadt-Zahl** und keine 2026er Pilotwirkung |
+
+Die B18-Werte sind eine **datierte Ausgangslage**, keine Hochrechnung für Oktober 2026. Beschäftigte Brühlerinnen und Brühler als Personen, örtliche Arbeitsplätze als Betriebsstandorte und die größere Agenturregion sind getrennte Zähleinheiten. Aus 30 möglichen Pilotplätzen folgt weder eine Änderung der Arbeitslosenquote um 30 Personen noch ein kommunaler Haushaltsüberschuss. Erst die individuellen Startzustände und die T+6/T+12-Gegenfakten erlauben eine solche Rechnung.
 
 ## 3. Mögliche Gewinne nach Empfänger
 
