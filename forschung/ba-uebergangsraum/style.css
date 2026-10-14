@@ -1,0 +1,89 @@
+:root{color-scheme:dark;--bg:#080e1c;--ink:#eff7fb;--muted:#a7bac8;--line:#33485b;--cyan:#72e9d3;--gold:#f3c978;--card:#122338;--rose:#f4a6bb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 75% 0,#183c50 0,transparent 37%),var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:var(--cyan);text-underline-offset:.2em}
+a:hover,a:focus-visible{color:#fff}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+.skip{position:absolute;top:-100px;left:16px;background:var(--gold);color:#07111c;padding:8px 14px;z-index:10}
+.skip:focus{top:12px}
+.sitebar{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding:12px max(20px,calc((100vw - 1120px)/2));background:#081322e8}
+.brand{font-weight:850;letter-spacing:.14em;color:var(--ink);text-decoration:none}
+.brand span{font-weight:400;letter-spacing:0;color:var(--muted)}
+nav{display:flex;gap:16px;flex-wrap:wrap}
+nav a{font-size:.83rem;color:var(--muted);text-decoration:none}
+.hero{padding-block:100px 70px;min-height:660px;display:flex;flex-direction:column;justify-content:center}
+.eyebrow,.section-no{font-size:.77rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--cyan)}
+.pulse{display:inline-block;width:9px;height:9px;background:var(--cyan);border-radius:50%;box-shadow:0 0 20px var(--cyan);margin-right:8px}
+h1,h2,h3,p{margin-top:0}
+h1,h2{letter-spacing:-.045em;line-height:1.08}
+h1{max-width:1000px;font-size:clamp(3.1rem,8vw,6.6rem);margin:22px 0 28px}
+h1 em{font-style:normal;color:var(--cyan)}
+h2{font-size:clamp(2.1rem,5vw,4.2rem);max-width:800px;margin:16px 0 18px}
+h3{font-size:1.32rem;line-height:1.2;margin:8px 0 14px}
+.lead{font-size:clamp(1.1rem,2vw,1.45rem);max-width:780px;color:#d1e1e9}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:25px 0 55px}
+.button{padding:12px 18px;border-radius:6px;text-decoration:none;font-weight:750}
+.primary{background:var(--cyan);color:#061624}
+.ghost{border:1px solid var(--line);color:var(--ink)}
+.signal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.signal-grid>div{border-top:2px solid var(--cyan);padding:14px 6px}
+.signal-grid strong{display:block;font-size:1.3rem}
+.signal-grid span{color:var(--muted);font-size:.88rem}
+section:not(.hero){scroll-margin-top:32px}
+.context,.day,.pilot,.history,.sources{padding-block:90px}
+.section-intro{max-width:850px;margin-bottom:32px}
+.section-intro>p{color:var(--muted);font-size:1.1rem}
+.facts,.example-grid,.day-grid,.source-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.facts article,.example-grid article,.time-block,.source-grid>div{border:1px solid var(--line);background:linear-gradient(145deg,#14283b,#0e1c2e);padding:25px;border-radius:12px}
+.facts article>span,.example-grid article>span,.time-block>span,.measurement span{font-size:.75rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.facts p,.example-grid p,.time-block p,.source-grid p{color:#c2d2de}
+.role-band,.chess{padding-block:90px;background:#0d1b2e;border-block:1px solid var(--line)}
+.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.role-grid article{padding:27px;border:1px solid #3b5965;border-radius:12px;background:#13273a}
+.role-grid b{font-size:2rem;color:var(--cyan)}
+.role-grid p{color:#c6d8e1}
+.role-note{max-width:850px;margin-top:25px;color:var(--muted);border-left:3px solid var(--gold);padding-left:18px}
+.day-grid{margin-bottom:18px}
+.chess-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.chess-grid details{border:1px solid var(--line);border-radius:10px;background:#14273a;overflow:hidden}
+.chess-grid summary{display:flex;align-items:center;gap:14px;cursor:pointer;padding:20px;list-style:none}
+.chess-grid summary::-webkit-details-marker{display:none}
+.chess-grid summary span{color:var(--gold);font-size:.72rem;font-weight:800;white-space:nowrap}
+.chess-grid summary strong{line-height:1.35}
+.chess-grid summary i{font-size:1.5rem;font-style:normal;margin-left:auto;color:var(--cyan)}
+.chess-grid details[open] summary i{transform:rotate(45deg)}
+.chess-grid details>div{padding:0 20px 20px;color:#c5d5dd}
+.pilot-steps{list-style:none;counter-reset:step;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pilot-steps li{border-top:3px solid var(--cyan);padding:18px 8px}
+.pilot-steps li>span{font-size:.76rem;font-weight:850;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+.pilot-steps p{color:var(--muted)}
+.measurement{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.measurement>div{border:1px solid #43677a;background:#17364b;padding:28px;border-radius:12px}
+.measurement strong{display:block;font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.2;margin:12px 0}
+.measurement em{font-style:normal;color:var(--gold)}
+.measurement p{color:#d3e2e8}
+.history-line{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.history-line a{text-decoration:none;padding:18px;border-top:2px solid var(--gold);background:#17283a}
+.history-line b{display:block;font-size:2rem;color:var(--gold)}
+.history-line span{color:var(--ink);font-size:.9rem}
+.source-grid{align-items:start}
+.sources-foot{margin-top:28px;font-weight:800}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:.82rem}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:800px){.sitebar{align-items:flex-start;flex-direction:column}
+.signal-grid,.role-grid,.pilot-steps,.history-line{grid-template-columns:repeat(2,1fr)}
+.facts,.example-grid,.day-grid,.source-grid{grid-template-columns:1fr}
+.hero{min-height:auto;padding-block:70px}
+.chess-grid,.measurement{grid-template-columns:1fr}
+}
+@media(max-width:520px){body{font-size:16px}
+.wrap{width:min(100% - 28px,1120px)}
+nav{gap:9px}
+.signal-grid,.role-grid,.pilot-steps,.history-line{grid-template-columns:1fr}
+.context,.day,.pilot,.history,.sources,.role-band,.chess{padding-block:62px}
+h1{font-size:clamp(2.7rem,11vw,4rem)}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+}

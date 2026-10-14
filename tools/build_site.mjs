@@ -85,6 +85,7 @@ for (const file of pages) {
     'forschung/juri-thesis/konzept.html',
     'forschung/juri-thesis/rechtslabor.html',
     'forschung/juri-thesis/versand.html',
+    'forschung/ba-uebergangsraum/index.html',
   ].includes(relative);
   const prefix=relativeRoot+'languages/';
   const html=fs.readFileSync(file,'utf8').replace(/<!-- HUB_LANGUAGES_START -->[\s\S]*?<!-- HUB_LANGUAGES_END -->/g,'').replace(/<!-- MOBILE_LAYOUT_START -->[\s\S]*?<!-- MOBILE_LAYOUT_END -->/g,'');
