@@ -1,4 +1,5 @@
 #include "ASHBOUNDGrimoire.h"
+#include "ASHBOUNDBookMemory.h"
 
 #include "Camera/CameraComponent.h"
 #include "Components/PointLightComponent.h"
@@ -12,6 +13,38 @@
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Materials/MaterialInterface.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
+
+namespace
+{
+const TCHAR* BookMemorySlot()
+{
+#if !UE_BUILD_SHIPPING
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqabookmemory")))
+    {
+        static FString QaSlot;
+        FString RunId;
+        if (FParse::Value(FCommandLine::Get(), TEXT("ashboundqabookmemoryid="), RunId) &&
+            RunId.Len() == 32)
+        {
+            bool bHex = true;
+            for (TCHAR Digit : RunId)
+            {
+                if (!FChar::IsHexDigit(Digit)) { bHex = false; break; }
+            }
+            if (bHex)
+            {
+                QaSlot = TEXT("ASHBOUND_BookMemory_QA_") + RunId;
+                return *QaSlot;
+            }
+        }
+        return TEXT("ASHBOUND_BookMemory_QA");
+    }
+#endif
+    return TEXT("ASHBOUND_BookMemory");
+}
+}
 
 AASHBOUNDGrimoire::AASHBOUNDGrimoire()
 {
@@ -77,6 +110,21 @@ AASHBOUNDGrimoire::AASHBOUNDGrimoire()
 void AASHBOUNDGrimoire::BeginPlay()
 {
     Super::BeginPlay();
+    if (UGameplayStatics::DoesSaveGameExist(BookMemorySlot(), 0))
+    {
+        const UASHBOUNDBookMemory* Memory = Cast<UASHBOUNDBookMemory>(
+            UGameplayStatics::LoadGameFromSlot(BookMemorySlot(), 0));
+        if (Memory)
+        {
+            bStudied = Memory->StudiedVolumes.Contains(VolumeIndex);
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_BOOK_MEMORY volume=%d restored=%d"),
+                VolumeIndex, bStudied ? 1 : 0);
+        }
+        else
+        {
+            UE_LOG(LogTemp, Error, TEXT("ASHBOUND_BOOK_MEMORY unreadable; save preserved"));
+        }
+    }
     UMaterialInterface* Leather = LoadObject<UMaterialInterface>(nullptr,
         TEXT("/Game/ASHBOUND/Materials/M_VaultLeather.M_VaultLeather"));
     UMaterialInterface* Paper = LoadObject<UMaterialInterface>(nullptr,
@@ -142,7 +190,37 @@ void AASHBOUNDGrimoire::Study()
     if (!bOpen)
     {
         bOpen = true;
-        bStudied = true;
+        if (!bStudied)
+        {
+            UASHBOUNDBookMemory* Memory = nullptr;
+            if (UGameplayStatics::DoesSaveGameExist(BookMemorySlot(), 0))
+            {
+                Memory = Cast<UASHBOUNDBookMemory>(
+                    UGameplayStatics::LoadGameFromSlot(BookMemorySlot(), 0));
+            }
+            else
+            {
+                Memory = Cast<UASHBOUNDBookMemory>(
+                    UGameplayStatics::CreateSaveGameObject(UASHBOUNDBookMemory::StaticClass()));
+            }
+            if (Memory)
+            {
+                Memory->StudiedVolumes.AddUnique(VolumeIndex);
+                if (UGameplayStatics::SaveGameToSlot(Memory, BookMemorySlot(), 0))
+                {
+                    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_BOOK_MEMORY volume=%d saved=1"), VolumeIndex);
+                }
+                else
+                {
+                    UE_LOG(LogTemp, Error, TEXT("ASHBOUND_BOOK_MEMORY volume=%d save failed"), VolumeIndex);
+                }
+            }
+            else
+            {
+                UE_LOG(LogTemp, Error, TEXT("ASHBOUND_BOOK_MEMORY volume=%d unreadable; save preserved"), VolumeIndex);
+            }
+            bStudied = true;
+        }
         Spread = 0;
         ShowPage();
         SetActorTickEnabled(true);
