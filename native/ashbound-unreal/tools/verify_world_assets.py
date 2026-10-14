@@ -1,9 +1,12 @@
 """Reopen the saved UE level and verify collision/material authoring persisted."""
 import json
 import os
+import sys
 from pathlib import Path
 
 import unreal
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from surface_reference import road_surface, terrain_surface, support_span, walk_surface
 
 ROOT = Path(__file__).resolve().parents[3]
 WORK = Path(os.environ.get('ASHBOUND_NATIVE_WORK', ROOT / '.local-qa' / 'ashbound-unreal'))
@@ -59,6 +62,33 @@ if not road_actor.get_actor_enable_collision() or (
 if any(a.get_actor_label() == 'ASHBOUND / Walkable central path' for a in all_actors):
     raise RuntimeError('Flat cube road still exists')
 
+# Check saved actor transforms against the same ground frame that exported the
+# meshes. A clean build is insufficient if the portal still hovers above them.
+def world_bottom(label):
+    matches = [a for a in all_actors if a.get_actor_label() == label]
+    if len(matches) != 1:
+        raise RuntimeError('Expected one anchored actor: ' + label)
+    target = matches[0]
+    mesh = target.get_editor_property('static_mesh_component').get_editor_property('static_mesh')
+    return (target.get_actor_location().z + mesh.get_bounding_box().min.z *
+            target.get_actor_scale3d().z)
+
+west_expected = support_span(2290, 0, 140, 280)[0] - 12
+east_expected = support_span(3920, 0, 140, 280)[0] - 12
+for label, expected in (
+        ('ASHBOUND / Archive west portal', west_expected),
+        ('ASHBOUND / Archive east gate arch', east_expected),
+        ('ASHBOUND / Seal foot 0', walk_surface(2680, -490)),
+        ('ASHBOUND / Seal foot 1', walk_surface(3430, 0))):
+    bottom = world_bottom(label)
+    if abs(bottom - expected) > .6:
+        raise RuntimeError('%s bottom %.2f misses ground reference %.2f' %
+                           (label, bottom, expected))
+for x in (-2500, 0, 2290, 6450, 9000):
+    for y in (-950, -215, 0, 215, 950):
+        if road_surface(x, y) - terrain_surface(x, y) < 10:
+            raise RuntimeError('Valley hides worn road at %.1f, %.1f' % (x, y))
+
 textures = []
 for prefix in ('rocky_terrain_03', 'old_stone_wall_02'):
     for kind in ('diffuse', 'nor_gl', 'rough'):
@@ -86,6 +116,8 @@ receipt = {
     'terrainActorCollision': 'QUERY_AND_PHYSICS / BlockAll',
     'terrainTrianglesLOD0': terrain.get_num_triangles(0),
     'roadTrianglesLOD0': road.get_num_triangles(0),
+    'groundContact': 'PORTALS_AND_SEALS_BOUND_TO_SHARED_SURFACE',
+    'roadClearance': 'PLAYABLE_LANE_AT_LEAST_10_CM_ABOVE_VALLEY',
     'texturesChecked': textures,
 }
 with open(WORK / 'world_assets_verified.json', 'w', encoding='utf-8') as file:
