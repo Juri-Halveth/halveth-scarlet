@@ -67,6 +67,7 @@ Ein Kaufbeleg belegt Zahlung und Empfänger, nicht zusätzliche Wertschöpfung. 
 | B45 | [Landesportal: Gärtnerstelle der Stadt Brühl](https://karriere.nrw/stellenausschreibung/96ca20f3-aaab-42e1-b48c-3e0f0705db75) | unbefristete Gärtnerstelle, Bewerbungsfrist 18.10.2026, Teilung in zwei Teilzeitstellen möglich; abgeschlossene Gärtnerausbildung und Führerscheinklasse B verlangt | aktuelle Konkretisierung von B42; keine Aussage über spätere Verfügbarkeit |
 | B46 | [Landesportal: Kita-Ergänzungskraft der Stadt Brühl](https://karriere.nrw/stellenausschreibung/5f23472b-07bf-409f-8ccf-e57b13a2981b) | Stellenausschreibung für Ergänzungskräfte in Kita, Teilzeit oder Vollzeit, Bewerbungsfrist 31.12.2026; passende abgeschlossene Ausbildung oder vergleichbare Qualifikation erforderlich | qualifizierter junger Berufsweg; tatsächliche Betreuungskapazität und Elternarbeit sind gesonderte Wirkungsfragen |
 | B47 | [Stadt Brühl: Kita-Navigator](https://bruehl.kita-navigator.org/) | Online-Vormerkung mit priorisierten Wunscheinrichtungen; ab Aufnahmedatum 01.08.2027 fünf wählbare Umfänge von 25 bis 45 Wochenstunden in Fünf-Stunden-Schritten; Vormerkung ist noch keine Platzzusage | konkreter Ablauf für Eltern; Verfügbarkeit je Altersgruppe und Einrichtung, tatsächliche Betreuung und Erwerbswirkung getrennt |
+| B48 | [Phantasialand: Kochausbildung ab 01.02.2027](https://www.unsere-welt-ist-phantastisch.de/jobs/11657/ausbildung-koch-%28mwdk.a.%29) | Betreiber-eigene Ausschreibung am Standort Brühl: Koch-Ausbildung ab Februar 2027; mittlere Reife, erste Gastronomie-Praxis und selbstständig bewältigbare Anfahrt als Anforderungen | konkreter privater Ausbildungsweg; Betrieb entscheidet über Auswahl, Zahl der offenen Plätze und Vergütung sind nicht aus der Seite belegt |
 
 Weitere echte Zugänge:
 
@@ -132,7 +133,7 @@ Das [NRW-Gemeindefinanzierungsgesetz 2026](https://recht.nrw.de/gvnrw/2025-s1182
 | 25, Digitalhandel | Leistung für freiwilligen Laden und Test | bezahlte Wiederaufträge | kostenlose bestehende Beratung und geplante Digitalisierung getrennt? |
 | 29, Energiehandwerk | Qualifikation, Praxis und fachliche Zuständigkeit | Vertrag oder fachgerechter Auftrag | Maßnahme und Förderung ohnehin geplant? |
 
-Die elf zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen diese Tabelle, ohne elf weitere Pilotplätze zu reservieren:
+Die zwölf zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen diese Tabelle, ohne zwölf weitere Pilotplätze zu reservieren:
 
 | Variante | T+6 | T+12 | Gegenprobe |
 | --- | --- | --- | --- |
@@ -147,6 +148,7 @@ Die elf zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen die
 | 21, Teilzeit-Ausbildung Verwaltung 2027 | fristgerechte Bewerbung und gegebenenfalls Auswahlentscheidung | bei Oktober-2026-Start: erste Ausbildungsmonate ab August 2027 | Hätte die Stadt denselben Platz ohnehin besetzt; welche Betreuungs- und Mobilitätskosten waren schon gedeckt? |
 | 23, qualifizierte Stadtgrün-Fachkraft | Eignung, Bewerbung bis zur derzeit genannten Frist 18.10.2026 und möglicher Arbeitsbeginn | gehaltener Vertrag und belegte städtische Leistung | Ist die Stelle noch offen; wären Dienst und Kosten auch ohne Pilot gleich? Eine sechsmonatige Förderung ersetzt keine mehrjährige Ausbildung. |
 | 25, qualifizierte Kita-Ergänzungskraft | Bewerbung, Anerkennung der Qualifikation und gegebenenfalls Vertrag | geleistete Betreuungsstunden, Verbleib und Qualität; Elternarbeitszeit nur nach zusätzlicher tatsächlicher Platznutzung | Wäre die Stelle ohnehin besetzt worden und hätten Familien dieselbe Betreuung erhalten? |
+| 19, Kochausbildung bei privatem Arbeitgeber | Bewerbung und bei Oktober-2026-Pilotstart gegebenenfalls Ausbildungsbeginn im Februar 2027 | gehaltener Vertrag, Ausbildungsfortschritt, tatsächliche Arbeits- und Lernstunden | Hätte der Betrieb denselben Ausbildungsplatz ohnehin mit einer anderen Person besetzt; war die Anfahrt bereits ohne Pilot möglich? |
 
 Der [IAB-Forschungsbericht zu Kosten und Nutzen von Arbeitsmarktmaßnahmen](https://doku.iab.de/forschungsbericht/2024/fb2124.pdf) begründet, Mitnahme, Verdrängung und öffentliche Kosten getrennt zu betrachten. Diese Forschung evaluiert andere Instrumente und Populationen. Ihre Wirkungsquoten sind **nicht** in die sechzehn JURI-THESIS-Wege übertragen worden.
 
