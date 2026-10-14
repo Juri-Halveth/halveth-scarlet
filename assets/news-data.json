@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T06:13:02Z",
+  "generatedAt": "2026-10-14T11:59:20Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,22 +8,44 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-14T06:13:02Z",
-      "lastSuccessAt": "2026-10-14T01:15:01Z",
-      "status": "failed",
-      "error": "FETCH_OR_VALIDATION_FAILED"
+      "lastAttemptAt": "2026-10-14T11:59:20Z",
+      "lastSuccessAt": "2026-10-14T11:59:20Z",
+      "status": "fresh",
+      "error": null
     },
     {
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-14T06:13:02Z",
-      "lastSuccessAt": "2026-10-14T06:13:02Z",
+      "lastAttemptAt": "2026-10-14T11:59:20Z",
+      "lastSuccessAt": "2026-10-14T11:59:20Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "6e334e66e0eb46b0f93e01d4",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 October 14 – Mars and the Beehive Under an Aurora",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-14-mars-and-the-beehive-under-an-aurora/",
+      "sourcePublishedAt": "2026-10-14T04:05:00Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
+      "firstFetchedAt": "2026-10-14T11:59:20Z"
+    },
+    {
+      "id": "9759b7394ace506100307ba8",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Hurricane Simon Lurks Off the Mexican Coast",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/hurricane-simon-lurks-off-the-mexican-coast/",
+      "sourcePublishedAt": "2026-10-14T04:01:00Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
+      "firstFetchedAt": "2026-10-14T11:59:20Z"
+    },
     {
       "id": "6b8c3209e70c0fe78ffd3eea",
       "sourceId": "github",
@@ -32,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-github-app-improvements-for-least-privilege-and-management",
       "sourcePublishedAt": "2026-10-13T23:17:55Z",
-      "fetchedAt": "2026-10-14T06:13:02Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-14T01:15:01Z"
     },
     {
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-names-astronaut-christina-koch-acting-deputy-chief-engineer/",
       "sourcePublishedAt": "2026-10-13T20:41:11Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot",
       "sourcePublishedAt": "2026-10-13T18:39:56Z",
-      "fetchedAt": "2026-10-14T06:13:02Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-audit-github-code-quality-finding-dismissals-and-reopenings",
       "sourcePublishedAt": "2026-10-13T17:58:36Z",
-      "fetchedAt": "2026-10-14T06:13:02Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/photojournal/comparing-off-world-rover-driving-distances/",
       "sourcePublishedAt": "2026-10-13T17:56:08Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/photojournal/nasas-record-setting-perseverance-rover-team/",
       "sourcePublishedAt": "2026-10-13T17:48:46Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/photojournal/perseverance-navcam-image-marks-record-drive/",
       "sourcePublishedAt": "2026-10-13T17:42:51Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -109,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/transporter-18-smallsats-encapsulation/",
       "sourcePublishedAt": "2026-10-13T17:38:37Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/organizations/ogc/job-opportunities-nasa-office-of-the-general-counsel/",
       "sourcePublishedAt": "2026-10-13T17:16:00Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/photojournal/voyager-technologies-griffin-1-completes-environmental-testing-at-nasa-jpl/",
       "sourcePublishedAt": "2026-10-13T17:11:11Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -142,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-secret-scanning-blocks-anthropic-keys-by-default-adds-salesforce",
       "sourcePublishedAt": "2026-10-13T16:12:36Z",
-      "fetchedAt": "2026-10-14T06:13:02Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -153,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-enterprise-managed-settings-enforcement-updates",
       "sourcePublishedAt": "2026-10-13T15:20:10Z",
-      "fetchedAt": "2026-10-14T06:13:02Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -164,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-08-complex-modes-in-lightly-damped-structural-systemsa-two-mode-interaction-perspective/",
       "sourcePublishedAt": "2026-10-13T15:02:21Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -175,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-improved-detection-for-withdrawn-dependabot-alerts",
       "sourcePublishedAt": "2026-10-13T14:03:57Z",
-      "fetchedAt": "2026-10-14T06:13:02Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -197,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-search-and-filter-for-budgets-now-available",
       "sourcePublishedAt": "2026-10-13T12:06:09Z",
-      "fetchedAt": "2026-10-14T06:13:02Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -208,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-code-scanning-ai-scan-metrics-in-security-overview",
       "sourcePublishedAt": "2026-10-13T12:03:17Z",
-      "fetchedAt": "2026-10-14T06:13:02Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -252,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture",
       "sourcePublishedAt": "2026-10-12T22:38:00Z",
-      "fetchedAt": "2026-10-14T06:13:02Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T07:45:28Z"
     },
     {
@@ -274,7 +296,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-12-push-attribution-public-preview",
       "sourcePublishedAt": "2026-10-12T16:30:11Z",
-      "fetchedAt": "2026-10-14T06:13:02Z",
+      "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-12T17:58:30Z"
     },
     {
@@ -506,28 +528,6 @@
       "url": "https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/",
       "sourcePublishedAt": "2026-10-08T18:22:48Z",
       "fetchedAt": "2026-10-10T00:54:42Z",
-      "firstFetchedAt": "2026-10-08T22:06:51Z"
-    },
-    {
-      "id": "e650abdb0bba3a074ee2fb22",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Webb Measures Distance to Farthest Fast Radio Burst, Suggesting Origin",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/",
-      "sourcePublishedAt": "2026-10-08T18:00:00Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
-      "firstFetchedAt": "2026-10-08T22:06:51Z"
-    },
-    {
-      "id": "508dbedb31c35a4cfe4c1134",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s SpaceX Crew‑12 Splashes Down, Sets Briefing to Discuss Mission",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasas-spacex-crew-12-splashes-down-sets-briefing-to-discuss-mission/",
-      "sourcePublishedAt": "2026-10-08T17:02:28Z",
-      "fetchedAt": "2026-10-09T16:15:55Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
