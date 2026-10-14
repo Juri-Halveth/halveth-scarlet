@@ -65,12 +65,15 @@ def make_surface(name, prefix):
     if name == 'M_AshGround':
         material.set_editor_property('two_sided', True)
     unreal.MaterialEditingLibrary.delete_all_material_expressions(material)
-    road_uv = None
-    if name == 'M_AshRoad':
-        road_uv = unreal.MaterialEditingLibrary.create_material_expression(
+    surface_uv = None
+    if name in ('M_AshGround', 'M_AshRoad'):
+        surface_uv = unreal.MaterialEditingLibrary.create_material_expression(
             material, unreal.MaterialExpressionTextureCoordinate, -750, 0)
-        road_uv.set_editor_property('u_tiling', 18.0)
-        road_uv.set_editor_property('v_tiling', 4.0)
+        # Terrain OBJ spans 140 x 160 m with ~20 UV repeats. The central road
+        # spans 140 x 29 m with a single UV repeat. Keep both near 2 m/texture
+        # so that the same rock pattern does not appear as giant square sheets.
+        surface_uv.set_editor_property('u_tiling', 3.5 if name == 'M_AshGround' else 70.0)
+        surface_uv.set_editor_property('v_tiling', 4.0 if name == 'M_AshGround' else 14.0)
     textures = {
         'diffuse': unreal.MaterialProperty.MP_BASE_COLOR,
         'nor_gl': unreal.MaterialProperty.MP_NORMAL,
@@ -96,8 +99,8 @@ def make_surface(name, prefix):
         sample = unreal.MaterialEditingLibrary.create_material_expression(
             material, unreal.MaterialExpressionTextureSample, -450, i * 240)
         sample.set_editor_property('texture', texture)
-        if road_uv is not None:
-            unreal.MaterialEditingLibrary.connect_material_expressions(road_uv, '', sample, 'UVs')
+        if surface_uv is not None:
+            unreal.MaterialEditingLibrary.connect_material_expressions(surface_uv, '', sample, 'UVs')
         if not unreal.MaterialEditingLibrary.connect_material_property(sample, '', target):
             raise RuntimeError('Material connection failed: ' + kind)
     unreal.MaterialEditingLibrary.recompile_material(material)
