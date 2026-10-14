@@ -6,7 +6,7 @@ Unten steht ein Mensch mit einem Brief. Oben liegt eine Entscheidung. Dazwischen
 
 Ich möchte in diesem Zwischenraum arbeiten. Frei zwischen Eingangszone, BiZ und Fachteams. Vormittags unter Menschen. Danach an den Fragen, die aus dem Alltag entstehen: recherchieren, schreiben, verbinden, ausprobieren und zurückkommen.
 
-**Mein Vorschlag:** eine neue mobile Vollzeitstelle, die schwierige Übergänge begleitet und Verbesserungen mit den zuständigen Menschen im Haus aufbaut.
+**Mein Vorschlag:** Brühl erprobt ein Jahr lang eine eigene mobile Vollzeitfunktion. Sie nimmt sich Zeit für Menschen in schwierigen Momenten, bereitet fachliche Schritte vor und baut Verbesserungen mit den zuständigen Teams auf.
 
 ---page---
 # 01 / WORUM ES MIR GEHT
@@ -15,16 +15,16 @@ Ich möchte in Brühl bleiben und hier eine Arbeit aufbauen, für die ich brenne
 
 Mein Arbeitsplatz wäre das ganze Haus. Ein Büro kann Anlaufpunkt sein; die Arbeit endet nicht an seiner Tür. Ich möchte in der Eingangszone, im BiZ, bei Fachteams und bei digitalen Fragen unterwegs sein. Ich will selbst Fragen verfolgen, Ideen entwickeln und mit den zuständigen Personen praktisch prüfen.
 
-Das ist mehr als eine zusätzliche Person am Empfang. Der Gewinn entsteht, wenn jemand die Verbindung zwischen dem akuten Moment und einer dauerhaften Verbesserung hält.
+Die Fachkraft Eingangszone hat einen eigenen Dienstposten in Tätigkeitsebene IV [Q14]. Sie bearbeitet Anliegen und trifft Entscheidungen in ihrem Auftrag. Meine vorgeschlagene Funktion ist etwas anderes: Ich nehme mir Zeit für einen aufgelösten Menschen, sortiere einen verzwickten Sachverhalt und bereite den Weg bis zur zuständigen Fachentscheidung vor. Danach suche ich die Ursache eines wiederkehrenden Bruchs. Die beiden Rollen ergänzen sich.
 
 **Meine Bitte an die Leitung:** Lassen Sie uns die Aufgabe als eigenständige mobile Vollzeitstelle gestalten.
 
 ---page---
 # 02 / EIN MÖGLICHER VORMITTAG
 
-08:30 Uhr. Ein Besucher hält einen Brief in der Hand. Er hat Angst um sein Geld und versteht nicht, was als Nächstes zu tun ist. Die Kollegin am Eingang sieht die Dringlichkeit, muss aber auch die nächsten Menschen annehmen. Das Fachteam kennt die genaue Antwort. Im BiZ kennt vielleicht jemand eine Erklärung, die der Besucher besser versteht.
+08:30 Uhr. Ein Besucher hält einen Brief in der Hand. Er hat Angst um sein Geld und versteht nicht, was als Nächstes zu tun ist. Die Fachkraft am Eingang sieht die Dringlichkeit, muss aber auch die nächsten Menschen und ihre eigenen Fachfälle bearbeiten. Ich habe Zeit für das Gespräch, ordne den Sachverhalt und bereite den Vorgang für Eingangszone oder Operativen Service vor. Dort fällt die fachliche Entscheidung.
 
-Ich möchte in diesem Moment Zeit haben, hinzuhören, die Frage zu sortieren und den zuständigen Menschen zu finden. Später sagt die Kollegin zwischen Tür und Angel: „Dieser Brief bringt die Leute jede Woche durcheinander.“ Ich frage nach, hole das Fachteam hinzu und helfe dabei, die Erklärung zu verbessern. Danach komme ich zurück und schaue, ob sie am Eingang funktioniert.
+Später sagt die Kollegin zwischen Tür und Angel: „Dieser Brief bringt die Leute jede Woche durcheinander.“ Ich frage nach, hole das Fachteam hinzu und helfe dabei, die Erklärung zu verbessern. Danach komme ich zurück und schaue, ob sie am Eingang funktioniert.
 
 Die Szene ist ein Modell für die Rolle. Sie beschreibt keinen behaupteten Einzelfall in Brühl.
 
@@ -33,7 +33,7 @@ Die Szene ist ein Modell für die Rolle. Sie beschreibt keinen behaupteten Einze
 ---page---
 # 03 / FREIHEIT MIT RÜCKWEG
 
-Meine Vorstellung ist ungefähr 8 bis 13 Uhr im Haus, dort, wo Menschen sich begegnen. Danach brauche ich Zeit, um Beobachtungen zu verarbeiten: Quellen prüfen, mit Teams sprechen, eine neue Formulierung entwerfen, einen digitalen Umweg prototypisch vereinfachen oder ein Projekt vorbereiten. Diese Zeit gehört zur Vollzeitstelle und muss gemeinsam mit der BA gestaltet werden.
+Meine Vorstellung ist ungefähr 8 bis 13 Uhr im Haus, dort, wo Menschen sich begegnen. Danach brauche ich Zeit, um Beobachtungen zu verarbeiten: Quellen prüfen, mit Teams sprechen, eine neue Formulierung entwerfen, einen digitalen Umweg prototypisch vereinfachen oder ein Projekt vorbereiten. Beides gehört in eine reguläre 39-Stunden-Vollzeitwoche [Q15].
 
 Ich will nicht jeden Tag denselben Ablauf abspulen. Manchmal braucht mich ein Mensch am Eingang, manchmal eine Kollegin im BiZ, manchmal eine Fachperson, die für eine gute Idee gerade keinen zweiten Kopf frei hat. In einer anderen Woche kann eine Recherche oder ein Prototyp der wichtigste Beitrag sein.
 
@@ -99,7 +99,7 @@ Ich verspreche keine erfundene Einsparsumme. Ich schlage einen Versuch vor, bei 
 ---page---
 # 09 / DIE STARKEN GEGENFRAGEN
 
-**„Dafür gibt es die Eingangszone.“** Ja - und gerade ihr Wissen über den ersten Kontakt braucht einen Rückweg in die übrigen Teams. Meine Rolle soll diese Verbindung mobil aufnehmen.
+**„Dafür gibt es die Fachkraft Eingangszone.“** Ja: für ihren eigenen TE-IV-Fachauftrag [Q14]. Die neue Pilotfunktion gibt einem belastenden Gespräch Zeit, sortiert den schwierigen Fall und bereitet ihn für die zuständige Entscheidung auf. Sie verbessert anschließend den Weg, an dem das Problem entstand. Das kann die Fachkraft im laufenden Schalterbetrieb nicht gleichzeitig als zusätzliche Daueraufgabe tragen.
 
 **„Das KRM nimmt doch Beschwerden auf.“** Das KRM ist der offizielle Weg für Reaktionen [Q4]. Ein Flurhinweis über einen wiederkehrenden Ablauf kann früher zu einer gemeinsamen Verbesserung führen. Formelle Beschwerden behalten ihren vorgesehenen Kanal.
 
@@ -112,7 +112,7 @@ Ich verspreche keine erfundene Einsparsumme. Ich schlage einen Versuch vor, bei 
 
 Ich möchte weiter für die BA in Brühl arbeiten. Bitte sprechen Sie mit mir über eine neue mobile Vollzeitstelle, die am Vormittag zwischen Menschen und Bereichen unterwegs ist und anschließend aus den Beobachtungen konkrete Verbesserungen entwickelt.
 
-Mein erster Vorschlag ist überschaubar: ein Arbeitstag durch das Haus, ein Gespräch mit den beteiligten Teams und ein gemeinsam ausgewählter Bruch, den wir praktisch untersuchen. Daraus können Leitung, Beschäftigte und zuständige Stellen eine dauerhafte Aufgabe formen. Auswahl, Arbeitszeit, Fachzugriffe und Beteiligung gehören in diese Gestaltung [Q5, Q7, Q11].
+Mein erster Vorschlag ist überschaubar: ein Arbeitstag durch das Haus, ein Gespräch mit den beteiligten Teams und ein gemeinsam ausgewählter Bruch, den wir praktisch untersuchen. Daraus kann ein einjähriger Brühler Organisationspilot entstehen. Nach sechs und zwölf Monaten prüfen die Beteiligten den Nutzen und die nötigen Anpassungen. Die neue Stelle, ihre Bewertung, Fachzugriffe und Beteiligung sind eigene Entscheidungen [Q5, Q7, Q11, Q15].
 
 Ich möchte meine Erfahrung und meine Freude am Problemlösen dort einsetzen, wo sie spürbar werden. Ich bringe Fragen, Ideen und die Bereitschaft mit, nach einem Versuch auch noch einmal zurückzugehen.
 
@@ -149,5 +149,9 @@ Ich möchte meine Erfahrung und meine Freude am Problemlösen dort einsetzen, wo
 [Q12] BAuA, Arbeitsorganisation: https://www.baua.de/DE/Themen/Arbeitsgestaltung/Gefaehrdungsbeurteilung/Handbuch-Gefaehrdungsbeurteilung/Expertenwissen/Psychische-Faktoren/Arbeitsorganisation/Arbeitsorganisation_dossier
 
 [Q13] BAuA, Soziale Beziehungen: https://www.baua.de/DE/Themen/Arbeitsgestaltung/Gefaehrdungsbeurteilung/Handbuch-Gefaehrdungsbeurteilung/Expertenwissen/Psychische-Faktoren/Soziale-Beziehungen/Soziale-Beziehungen_dossier
+
+[Q14] TV-BA, Anlage 1, veröffentlichte Zuordnungs- und Funktionsstufentabelle, Stand 07.04.2025: https://media.frag-den-staat.de/files/foi/1064983/anlage1zumtv-ba-zuordnungs-undfunktionsstufentabelle.pdf
+
+[Q15] BA, TV-BA, Fassung 2026, Arbeitszeit und Eingruppierung: https://www.arbeitsagentur.de/bakarriere/api/download/bakarriere/datei/tarifvertrag_ba020650.pdf
 
 **Zum Durchklicken:** https://juri-halveth.github.io/halveth-scarlet/forschung/ba-uebergangsraum/
