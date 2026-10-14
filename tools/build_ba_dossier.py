@@ -128,7 +128,7 @@ def draw_page(canvas, doc):
     canvas.drawString(55, height - 38, "HALVETH  /  JURI  /  BRÜHL")
     canvas.setFont("Segoe", 8)
     canvas.setFillColor(MUTED)
-    canvas.drawRightString(width - 55, height - 38, "FORSCHUNGSDOSSIER · 14.10.2026")
+    canvas.drawRightString(width - 55, height - 38, "PERSÖNLICHER VORSCHLAG · 14.10.2026")
     canvas.drawString(55, 31, "Ein neuer Arbeitsweg für Brühl")
     canvas.drawRightString(width - 55, 31, f"{doc.page:02d}")
     if doc.page == 1:
@@ -150,11 +150,11 @@ def build() -> None:
             story.append(PageBreak())
         if index == 0:
             story.append(Spacer(1, 122))
-            story.append(Paragraph("ICH-PERSPEKTIVE  /  ORGANISATION  /  RECHT  /  GEGENPROBE", STYLES["kicker"]))
+            story.append(Paragraph("JURI  /  MENSCHEN  /  ARBEIT  /  BRÜHL", STYLES["kicker"]))
         story.extend(parse_page(page, cover=index == 0))
     doc = SimpleDocTemplate(
         str(OUTPUT), pagesize=A4, leftMargin=55, rightMargin=55,
-        topMargin=72, bottomMargin=65, title="Juri - Der Uebergangsraum fuer Bruehl",
+        topMargin=72, bottomMargin=65, title="Juri - Hier bleiben und etwas bewegen",
         author="Juri", subject="Oeffentliches BA-Bruehl-Forschungsdossier",
         pageCompression=1,
     )
