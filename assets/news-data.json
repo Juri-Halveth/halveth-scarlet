@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T01:15:01Z",
+  "generatedAt": "2026-10-14T06:13:02Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,17 +8,17 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-14T01:15:01Z",
+      "lastAttemptAt": "2026-10-14T06:13:02Z",
       "lastSuccessAt": "2026-10-14T01:15:01Z",
-      "status": "fresh",
-      "error": null
+      "status": "failed",
+      "error": "FETCH_OR_VALIDATION_FAILED"
     },
     {
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-14T01:15:01Z",
-      "lastSuccessAt": "2026-10-14T01:15:01Z",
+      "lastAttemptAt": "2026-10-14T06:13:02Z",
+      "lastSuccessAt": "2026-10-14T06:13:02Z",
       "status": "fresh",
       "error": null
     }
@@ -32,7 +32,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-github-app-improvements-for-least-privilege-and-management",
       "sourcePublishedAt": "2026-10-13T23:17:55Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T06:13:02Z",
       "firstFetchedAt": "2026-10-14T01:15:01Z"
     },
     {
@@ -54,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot",
       "sourcePublishedAt": "2026-10-13T18:39:56Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T06:13:02Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -65,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-audit-github-code-quality-finding-dismissals-and-reopenings",
       "sourcePublishedAt": "2026-10-13T17:58:36Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T06:13:02Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -142,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-secret-scanning-blocks-anthropic-keys-by-default-adds-salesforce",
       "sourcePublishedAt": "2026-10-13T16:12:36Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T06:13:02Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -153,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-enterprise-managed-settings-enforcement-updates",
       "sourcePublishedAt": "2026-10-13T15:20:10Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T06:13:02Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -175,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-improved-detection-for-withdrawn-dependabot-alerts",
       "sourcePublishedAt": "2026-10-13T14:03:57Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T06:13:02Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -197,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-search-and-filter-for-budgets-now-available",
       "sourcePublishedAt": "2026-10-13T12:06:09Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T06:13:02Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -208,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-code-scanning-ai-scan-metrics-in-security-overview",
       "sourcePublishedAt": "2026-10-13T12:03:17Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T06:13:02Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -252,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture",
       "sourcePublishedAt": "2026-10-12T22:38:00Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T06:13:02Z",
       "firstFetchedAt": "2026-10-13T07:45:28Z"
     },
     {
@@ -274,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-12-push-attribution-public-preview",
       "sourcePublishedAt": "2026-10-12T16:30:11Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
+      "fetchedAt": "2026-10-14T06:13:02Z",
       "firstFetchedAt": "2026-10-12T17:58:30Z"
     },
     {
