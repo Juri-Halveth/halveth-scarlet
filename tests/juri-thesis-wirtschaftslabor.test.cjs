@@ -39,3 +39,10 @@ test('model rejects invalid fractions and impossible work months', async () => {
   assert.throws(() => calculate({ ...scenarios.prueffall, additionalDemand: 1.2 }), RangeError);
   assert.throws(() => calculate({ ...scenarios.prueffall, workAfter: 181 }), RangeError);
 });
+
+test('zero additional value does not produce an infinite pilot count', async () => {
+  const { calculate, scenarios } = await import('../forschung/juri-thesis/wirtschaftslabor-model.mjs');
+  const result = calculate({ ...scenarios.prueffall, additionalDemand: 0, workAfter: 0 });
+  assert.equal(result.t12Gva, 0);
+  assert.equal(result.billionPilotCount, null);
+});
