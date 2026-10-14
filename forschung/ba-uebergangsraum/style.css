@@ -26,3 +26,56 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;padd
 @media(max-width:520px){body{font-size:16px}.wrap{width:min(100% - 30px,1160px)}nav{gap:9px}.hero{padding-top:48px}.hero-layout{gap:20px}.signal-grid,.pilot-steps{grid-template-columns:1fr}.scene,.peace,.talent,.timeline,.research,.role-band,.chess,.closing{padding-block:61px}.offer-card,.quote-panel,.terms-panel{padding:24px}h1{font-size:clamp(2.6rem,11vw,4rem)}.chess-grid summary{align-items:flex-start;flex-wrap:wrap}.chess-grid summary i{margin-left:auto}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .small-boundary{margin:20px 0 0;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem;line-height:1.5}
+
+/* Unterseiten und EZ-Gedankenexperiment */
+body{overflow-wrap:break-word}
+nav a[aria-current="page"]{color:var(--cyan);font-weight:800;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.4em}
+.scenario-teaser{padding-block:85px;border-block:1px solid var(--line)}
+.scenario-kicker{color:var(--gold);font-size:.76rem;font-weight:850;letter-spacing:.18em;text-transform:uppercase}
+.scenario-teaser-grid,.work-layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.7fr);gap:40px;align-items:center}
+.scenario-teaser-grid h2{margin-top:14px}
+.scenario-teaser-grid>div:first-child>p{color:#d4e3e9;max-width:790px;font-size:1.15rem}
+.scenario-prompt{position:relative;min-height:260px;padding:33px;border:1px solid #80ab9b;border-radius:20px;background:radial-gradient(circle at 85% 20%,#33635f,transparent 50%),#18384a;box-shadow:0 22px 52px #020b14aa}
+.scenario-prompt>span:first-child{color:var(--gold);font-size:.78rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}
+.scenario-prompt strong{display:block;font-size:clamp(1.7rem,2.6vw,2.7rem);line-height:1.13;margin:25px 0 12px}
+.scenario-prompt p{color:#d1e5e8;max-width:30ch;margin:0}
+.scenario-arrow{position:absolute;right:27px;bottom:14px;color:var(--cyan);font-size:2.6rem}
+.subhero{padding-block:82px 70px}
+.subhero h1{max-width:1000px;font-size:clamp(3rem,6vw,6rem)}
+.subhero .lead{max-width:870px}
+.scenario-stage,.source-section-band{background:linear-gradient(180deg,#0d1d2d,#102739);border-block:1px solid var(--line)}
+.scenario-stage,.pathway,.source-callout,.source-section{padding-block:84px}
+.scenario-cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.scenario-cases details{background:#18364a;border:1px solid #557886;border-radius:16px;min-width:0}
+.scenario-cases summary{display:grid;grid-template-columns:1fr auto;gap:15px;padding:25px;list-style:none;cursor:pointer;min-height:160px}
+.scenario-cases summary::-webkit-details-marker{display:none}
+.scenario-cases summary span{grid-column:1/-1;color:var(--gold);font-size:.8rem;font-weight:850;letter-spacing:.16em}
+.scenario-cases summary strong{font-size:1.45rem;line-height:1.18}
+.scenario-cases summary i{color:var(--cyan);font-size:1.7rem;font-style:normal;line-height:1}
+.scenario-cases details[open] summary i{transform:rotate(45deg)}
+.scenario-cases details>div{padding:0 25px 26px;color:#d9e6ea}
+.scenario-cases .case-question{margin:17px 0 0;padding-top:16px;border-top:1px solid var(--line);font-weight:800;color:var(--cyan)}
+.pathway-grid,.source-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.pathway-grid article,.source-detail-grid article{padding:25px;border:1px solid var(--line);border-radius:15px;background:#152c3f;min-width:0}
+.pathway-grid article>span{color:var(--gold);font-weight:850;font-size:.83rem;letter-spacing:.15em}
+.pathway-grid article.featured{background:#1e4448;border-color:#77a596}
+.pathway-grid p,.source-detail-grid p{color:#d0dfe6}
+.work-layout p{color:#d4e3e9;font-size:1.08rem}
+.work-layout .scenario-prompt{max-width:430px}
+.source-callout{max-width:1160px}
+.source-callout>p{font-size:1.1rem;color:#d2e0e6;max-width:850px}
+.source-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
+.source-links a,.source-detail-grid a{display:inline-block;border:1px solid #648b8d;border-radius:6px;padding:9px 12px;text-decoration:none;background:#16313f;font-size:.88rem;font-weight:800}
+.source-links a:hover,.source-detail-grid a:hover{background:#224858}
+.source-note{margin-top:28px;color:var(--muted);font-size:.92rem!important}
+.source-detail-grid article a+a{margin:8px 0 0}
+.source-detail-grid article h3{color:var(--ink)}
+.source-detail-grid article p{min-height:9.5em}
+.source-linkline{margin:23px 0 0;font-weight:800}
+.question-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.question-list>div{display:grid;grid-template-columns:34px 1fr;gap:12px;background:#173348;border:1px solid var(--line);border-radius:10px;padding:18px}
+.question-list span{color:var(--gold);font-weight:850;font-size:.82rem}
+.question-list p{margin:0;color:#dce9ed}
+@media(max-width:900px){.scenario-teaser-grid,.work-layout{grid-template-columns:1fr}.scenario-prompt{max-width:640px}.scenario-cases,.pathway-grid,.source-detail-grid{grid-template-columns:1fr 1fr}.source-detail-grid article p{min-height:0}}
+@media(max-width:650px){.sitebar{padding:12px 15px}.brand{font-size:.88rem;white-space:normal}.sitebar nav{display:flex;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-inline:contain;width:100%;gap:16px;padding:4px 3px 12px;scrollbar-color:var(--cyan) #173348}.sitebar nav a{white-space:nowrap;font-size:.84rem}.scenario-teaser,.scenario-stage,.pathway,.source-callout,.source-section{padding-block:58px}.subhero{padding-block:53px 55px}.subhero h1{font-size:clamp(2.45rem,10vw,4rem)}.scenario-cases,.pathway-grid,.source-detail-grid,.question-list{grid-template-columns:1fr}.scenario-cases summary{min-height:0}.source-detail-grid article p{min-height:0}.hero-actions .button{width:100%}.question-list>div{padding:15px}.scenario-prompt{min-height:220px}}
+@media(max-width:360px){.wrap{width:calc(100% - 24px)}.brand span{display:block}.scenario-prompt{padding:22px}.scene-track article,.role-grid article,.value-grid article,.source-grid>div{padding:19px}}
