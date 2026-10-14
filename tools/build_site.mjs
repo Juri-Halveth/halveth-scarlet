@@ -60,6 +60,7 @@ for (const file of pages) {
     'forschung/ashbound/index.html',
     'forschung/ashbound/play/index.html',
     'forschung/juri-thesis/index.html',
+    'forschung/juri-thesis/wirkungswege.html',
     'forschung/juri-thesis/chancenreise.html',
     'forschung/juri-thesis/konzept.html',
     'forschung/juri-thesis/rechtslabor.html',

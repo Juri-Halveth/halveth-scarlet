@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Vier Leben, vier Wirkungswege · JURI-THESIS</title>
+  <meta name="description" content="Vier anklickbare, offen gerechnete Zukunftsszenarien für den vorgeschlagenen Brühler Entwicklungspiloten: Geldfluss, Alltag, Familie und überprüfbare Wirkung.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="wirkungswege.css">
+  <script type="module" src="wirkungswege.js"></script>
+</head>
+<body>
+  <a class="skip" href="#inhalt">Zum Inhalt springen</a>
+  <header class="topbar">
+    <a class="wordmark" href="index.html" aria-label="JURI-THESIS, zur Startseite">JURI<span>·</span>THESIS</a>
+    <nav aria-label="Hauptnavigation"><a href="index.html">Start</a><a href="konzept.html">Konzept</a><a href="wirkungswege.html" aria-current="page">Vier Leben</a><a href="chancenreise.html">Chancenreise</a><a href="rechtslabor.html">Rechtslabor</a><a href="versand.html">Versandstand</a></nav>
+    <span class="status">Gedankenversuch · 14.10.2026</span>
+  </header>
+  <main id="inhalt">
+    <section class="impact-hero">
+      <p class="eyebrow">Vier Menschen · ein möglicher Anfang</p>
+      <h1>Was ändert sich, wenn eine Chance <em>wirklich ankommt?</em></h1>
+      <p>Ein Mensch kann in Brühl bleiben, studieren und ein Team aufbauen. Eine Mutter kann morgens aufbrechen, ohne dass der ganze Tag an der Betreuung zerbricht. Ein junger Erwachsener kann einen anderen Kreis finden. Ein Mensch über 50 kann wieder einen Morgen planen. Hier werden aus diesen Sätzen vier prüfbare Wege.</p>
+      <a class="jump-link" href="#simulator">Die vier Wege durchspielen <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="impact-sim" id="simulator" aria-labelledby="sim-title">
+      <div class="impact-intro"><p class="eyebrow">Szenario-Labor / keine echte Teilnehmerakte</p><h2 id="sim-title">Wähle einen Menschen. Folge der Veränderung.</h2><p>Die Figuren sind Modellpersonen. Der erste Geldbetrag stammt aus dem Vorschlag des Initiators; die Aufteilung und alle anderen Beträge sind offen gelegte Rechenannahmen. Jeder Schritt zeigt eine Möglichkeit, kein vorhergesagtes Schicksal.</p></div>
+      <div class="person-tabs" role="group" aria-label="Lebensweg auswählen">
+        <button type="button" data-person="initiator" aria-pressed="true"><span>01</span><strong>Ein großer Plan</strong><small>2 Mio. € als beantragtes Szenario</small></button>
+        <button type="button" data-person="mother" aria-pressed="false"><span>02</span><strong>Eine Mutter</strong><small>Zeit für Kind und Beruf</small></button>
+        <button type="button" data-person="young" aria-pressed="false"><span>03</span><strong>Ein junger Mensch</strong><small>Ein anderer nächster Tag</small></button>
+        <button type="button" data-person="older" aria-pressed="false"><span>04</span><strong>Ein Mensch ab 50</strong><small>Wieder Boden gewinnen</small></button>
+      </div>
+      <article class="story" aria-live="polite" aria-atomic="true">
+        <div class="story-head"><span id="story-number">01 / Vier Lebenswege</span><h3 id="story-title">Ein großer Plan</h3><p id="story-hook"></p></div>
+        <div class="story-grid">
+          <div class="story-main">
+            <div class="story-scene"><span>Heute</span><p id="story-before"></p></div>
+            <div class="story-scene action"><span>Was die Chance ermöglicht</span><p id="story-action"></p></div>
+            <div class="outcome-switch" role="group" aria-label="Möglichen Verlauf auswählen"><button type="button" data-outcome="open" aria-pressed="true">Wenn Wege aufgehen</button><button type="button" data-outcome="friction" aria-pressed="false">Wenn es hakt</button></div>
+            <div class="story-scene outcome"><span>Nach sechs Monaten · <b id="outcome-label">möglicher Verlauf</b></span><p id="story-outcome"></p></div>
+          </div>
+          <aside class="story-side"><div class="big-number"><span>Angenommener Programmrahmen</span><strong id="story-budget"></strong><small id="story-budget-note"></small></div><h4>Wohin könnte das Geld gehen?</h4><ul id="story-ledger"></ul><p class="ledger-total" id="story-ledger-total"></p><p class="ledger-note" id="story-ledger-note"></p></aside>
+        </div>
+        <div class="evidence-grid"><div><h4>Was könnte sich im Leben ändern?</h4><p id="story-human"></p></div><div><h4>Was würde man wirklich prüfen?</h4><p id="story-measure"></p></div></div>
+      </article>
+    </section>
+
+    <section class="impact-account" aria-labelledby="account-title">
+      <p class="eyebrow">Brühler Wirtschaftsfrage</p><h2 id="account-title">Eine Million in Brühler Rechnungen. Was bleibt hier?</h2>
+      <p>Im ersten Weg werden beispielhaft <strong>1.000.000 €</strong> an Verkäufer, Betriebe und Personen in Brühl gezahlt. Das kann Wohnen, Arbeit und Nachfrage verändern. Ein Kaufpreis für ein bestehendes Haus ist aber keine neue Produktion; beim Auto können Herstellung und Teile anderswo liegen. Für Brühls zusätzliche Wertschöpfung müsste man die vor Ort geleistete Arbeit und ihre Vorleistungen einzeln ermitteln.</p>
+      <div class="account-grid"><div><strong>1.000.000 €</strong><span>Brühler Zahlungen im Beispiel</span></div><div><strong>offen</strong><span>davon zusätzliche lokale Wertschöpfung</span></div><div><strong>offen</strong><span>Nettoeffekt gegenüber Finanzierung und Vergleich</span></div></div>
+      <p class="account-question">Die eigentliche Frage an einen Pilot lautet: Welche Ausgaben erreichen Menschen und Betriebe vor Ort, was entsteht dadurch neu, und was wäre ohne den Pilot geschehen?</p>
+      <p class="source-line">Rechenbegriff: <a href="https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/Methoden/bip.html">Statistisches Bundesamt: BIP und Bruttowertschöpfung</a>. Das kommunale BIP wird hier weder geschätzt noch mit Ausgaben gleichgesetzt.</p>
+    </section>
+
+    <section class="impact-end"><p class="eyebrow">Die Einladung</p><h2>Die vier Geschichten sind erst der Anfang einer echten Prüfung.</h2><p>Man kann Geldflüsse belegen, Lebenswege mit Einverständnis begleiten und nach sechs Monaten offen ansehen, was getragen hat. Gerade dann werden die Menschen sichtbar, die in einer reinen Geldbilanz verloren gehen.</p><div class="hero-actions"><a class="button primary" href="konzept.html">Das gesamte Konzept lesen</a><a class="button secondary" href="rechtslabor.html">Die schwierigen Fragen prüfen</a><a class="button secondary" href="versand.html">Stand der Anfrage an Brühl</a></div></section>
+  </main>
+  <footer><span>JURI·THESIS / HALVETH · Vier modellierte Lebenswege</span><span>Modellbeträge und Verläufe · Stand 14.10.2026</span></footer>
+</body>
+</html>
