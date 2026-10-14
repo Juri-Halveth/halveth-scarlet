@@ -5,6 +5,7 @@
 #include "ASHBOUNDSpellManager.generated.h"
 
 class AStaticMeshActor;
+class AASHBOUNDGenesis;
 
 UCLASS()
 class ASHBOUNDUE_API AASHBOUNDSpellManager : public AActor
@@ -29,5 +30,7 @@ private:
     void StudyNearestBook();
     void StopReading();
     void ToggleMagnetism();
+    void TriggerGenesis();
     TWeakObjectPtr<AStaticMeshActor> MagneticRelic;
+    TWeakObjectPtr<AASHBOUNDGenesis> Genesis;
 };

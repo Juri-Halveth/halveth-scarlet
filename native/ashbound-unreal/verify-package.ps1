@@ -23,14 +23,14 @@ $game = $null
 try {
     $game = Start-Process -FilePath $exe -WorkingDirectory $windowsRoot -PassThru `
         -WindowStyle Hidden -ArgumentList @('-nullrhi', '-unattended', '-nosplash',
-            '-ashboundqacollision', '-ashboundqacastall', "-abslog=`"$log`"")
+            '-ashboundqacollision', '-ashboundqacastall', '-ashboundqagenesis', "-abslog=`"$log`"")
     $clock = [Diagnostics.Stopwatch]::StartNew()
     while ($clock.Elapsed.TotalSeconds -lt $TimeoutSeconds) {
         if (Test-Path -LiteralPath $log) {
             $current = Get-Content -LiteralPath $log -Raw
-            if ($current.Contains('ASHBOUND_COLLISION_QA FAIL') -or
+            if ($current -and ($current.Contains('ASHBOUND_COLLISION_QA FAIL') -or
                 $current.Contains('ASHBOUND_SPELL_MATERIAL MISSING') -or
-                $current.Contains('ASHBOUND world effect: Reweave growth')) { break }
+                $current.Contains('ASHBOUND world effect: Reweave growth'))) { break }
         }
         if ($game.HasExited) { break }
         Start-Sleep -Milliseconds 250
@@ -42,6 +42,7 @@ finally {
 
 if (-not (Test-Path -LiteralPath $log)) { throw "Packaged game wrote no log: $log" }
 $content = Get-Content -LiteralPath $log -Raw
+if (-not $content) { throw "Packaged game wrote an empty log: $log" }
 $required = @(
     'ASHBOUND_COLLISION_SAMPLE name=central_road hit=1 .* pass=1',
     'ASHBOUND_COLLISION_SAMPLE name=north_slope hit=1 mesh=ASHBOUND_Valley .* pass=1',
@@ -50,7 +51,9 @@ $required = @(
     'ASHBOUND_PAWN_COLLISION_SAMPLE y=7600\.0 hit=1 mesh=ASHBOUND_Valley .* pass=1',
     'ASHBOUND_PAWN_COLLISION_SAMPLE y=-7600\.0 hit=1 mesh=ASHBOUND_Valley .* pass=1',
     'ASHBOUND_COLLISION_QA PASS',
-    'ASHBOUND_SPELL_MATERIAL bound=/Game/ASHBOUND/Materials/M_LivingSpell',
+    'ASHBOUND_SPELL_MATERIAL bound=/Game/ASHBOUND/Materials/M_LivingSpellSoft',
+    'ASHBOUND_GENESIS ready at ',
+    'ASHBOUND_GENESIS_BIRTH generation=1 born=3 living=3',
     'ASHBOUND world effect: Resonance echo',
     'ASHBOUND world effect: Ember light',
     'ASHBOUND_GROVE_MATERIAL bound=/Game/ASHBOUND/Materials/M_GroveFern',

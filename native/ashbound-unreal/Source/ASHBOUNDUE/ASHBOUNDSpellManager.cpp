@@ -3,6 +3,7 @@
 #include "ASHBOUNDSpell.h"
 #include "ASHBOUNDGrove.h"
 #include "ASHBOUNDGrimoire.h"
+#include "ASHBOUNDGenesis.h"
 #include "ASHBOUNDSeal.h"
 #include "Components/InputComponent.h"
 #include "Components/StaticMeshComponent.h"
@@ -40,13 +41,14 @@ void AASHBOUNDSpellManager::BeginPlay()
             InputComponent->BindKey(EKeys::R, IE_Pressed, this, &AASHBOUNDSpellManager::CastReweave);
             InputComponent->BindKey(EKeys::F, IE_Pressed, this, &AASHBOUNDSpellManager::StudyNearestBook);
             InputComponent->BindKey(EKeys::M, IE_Pressed, this, &AASHBOUNDSpellManager::ToggleMagnetism);
+            InputComponent->BindKey(EKeys::B, IE_Pressed, this, &AASHBOUNDSpellManager::TriggerGenesis);
             InputComponent->BindKey(EKeys::Escape, IE_Pressed, this, &AASHBOUNDSpellManager::StopReading);
         }
     }
     if (GEngine)
     {
         GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor(152, 231, 218),
-            TEXT("ASHBOUND | Q/E/R Zauber   F Buch lesen   M Metall anziehen/loslassen"));
+            TEXT("ASHBOUND | Q/E/R Zauber   F Buch   M Metall   B Ursprungspuls"));
     }
 
     for (TActorIterator<AStaticMeshActor> It(GetWorld()); It; ++It)
@@ -72,9 +74,17 @@ void AASHBOUNDSpellManager::BeginPlay()
             AASHBOUNDSpell::StaticClass(), Anchors[Index], FRotator::ZeroRotator);
         if (Wisp) Wisp->Initialize(Index, Anchors[Index], true);
     }
+    Genesis = GetWorld()->SpawnActor<AASHBOUNDGenesis>(AASHBOUNDGenesis::StaticClass(),
+        FVector(1550.0f, 0.0f, 390.0f), FRotator::ZeroRotator);
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND living magic ready; three ambient wisps, Q/E/R/F/M input"));
 
 #if !UE_BUILD_SHIPPING
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqagenesis")))
+    {
+        FTimerHandle GenesisTimer;
+        GetWorld()->GetTimerManager().SetTimer(GenesisTimer,
+            FTimerDelegate::CreateUObject(this, &AASHBOUNDSpellManager::TriggerGenesis), 1.5f, false);
+    }
     float OrbitAngle = 0.0f;
     if (FParse::Value(FCommandLine::Get(), TEXT("ashboundqaorbitangle="), OrbitAngle))
     {
@@ -392,6 +402,11 @@ void AASHBOUNDSpellManager::VerifyTerrainCollision()
 void AASHBOUNDSpellManager::CastResonance() { CastSchool(0); }
 void AASHBOUNDSpellManager::CastEmber() { CastSchool(1); }
 void AASHBOUNDSpellManager::CastReweave() { CastSchool(2); }
+
+void AASHBOUNDSpellManager::TriggerGenesis()
+{
+    if (AASHBOUNDGenesis* Core = Genesis.Get()) Core->Birth();
+}
 
 void AASHBOUNDSpellManager::Tick(float DeltaSeconds)
 {

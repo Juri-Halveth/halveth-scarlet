@@ -42,7 +42,7 @@ AASHBOUNDSpell::AASHBOUNDSpell()
     // missing-asset error in that first commandlet; later loads still bind the
     // material as a hard UPROPERTY reference for cooking.
     static ConstructorHelpers::FObjectFinderOptional<UMaterialInterface> Material(
-        TEXT("/Game/ASHBOUND/Materials/M_LivingSpell.M_LivingSpell"), LOAD_NoWarn);
+        TEXT("/Game/ASHBOUND/Materials/M_LivingSpellSoft.M_LivingSpellSoft"), LOAD_NoWarn);
     SpellMaterial = Material.Get();
 
     CoreMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CoreMesh"));
@@ -109,7 +109,7 @@ void AASHBOUNDSpell::UpdateAppearance()
     if (DynamicMaterial)
     {
         DynamicMaterial->SetVectorParameterValue(TEXT("SpellColor"), Color);
-        DynamicMaterial->SetScalarParameterValue(TEXT("Radiance"), 6.0f);
+        DynamicMaterial->SetScalarParameterValue(TEXT("Radiance"), 1.5f);
     }
 }
 

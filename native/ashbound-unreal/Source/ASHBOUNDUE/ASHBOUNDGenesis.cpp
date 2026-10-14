@@ -1,0 +1,120 @@
+#include "ASHBOUNDGenesis.h"
+#include "ASHBOUNDSpell.h"
+
+#include "Components/PointLightComponent.h"
+#include "Components/SceneComponent.h"
+#include "Components/StaticMeshComponent.h"
+#include "Engine/Engine.h"
+#include "Engine/StaticMesh.h"
+#include "Engine/World.h"
+#include "Materials/MaterialInstanceDynamic.h"
+#include "Materials/MaterialInterface.h"
+#include "UObject/ConstructorHelpers.h"
+
+AASHBOUNDGenesis::AASHBOUNDGenesis()
+{
+    PrimaryActorTick.bCanEverTick = true;
+    SetActorEnableCollision(false);
+    OriginRoot = CreateDefaultSubobject<USceneComponent>(TEXT("OriginRoot"));
+    RootComponent = OriginRoot;
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> Sphere(TEXT("/Engine/BasicShapes/Sphere.Sphere"));
+
+    Core = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("GenesisCore"));
+    Core->SetupAttachment(OriginRoot);
+    Core->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    Core->SetCastShadow(false);
+    Core->SetRelativeScale3D(FVector(0.42f));
+    if (Sphere.Succeeded()) Core->SetStaticMesh(Sphere.Object);
+
+    for (int32 Index = 0; Index < 12; ++Index)
+    {
+        const FName Name(*FString::Printf(TEXT("GenesisFragment_%02d"), Index));
+        UStaticMeshComponent* Fragment = CreateDefaultSubobject<UStaticMeshComponent>(Name);
+        Fragment->SetupAttachment(OriginRoot);
+        Fragment->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        Fragment->SetCastShadow(false);
+        Fragment->SetRelativeScale3D(FVector(0.06f));
+        if (Sphere.Succeeded()) Fragment->SetStaticMesh(Sphere.Object);
+        Fragments.Add(Fragment);
+    }
+
+    Glow = CreateDefaultSubobject<UPointLightComponent>(TEXT("GenesisGlow"));
+    Glow->SetupAttachment(OriginRoot);
+    Glow->SetIntensity(3400.0f);
+    Glow->SetAttenuationRadius(850.0f);
+    Glow->SetCastShadows(false);
+    Glow->SetLightColor(FLinearColor(0.54f, 0.74f, 1.0f));
+}
+
+void AASHBOUNDGenesis::BeginPlay()
+{
+    Super::BeginPlay();
+    UMaterialInterface* Source = LoadObject<UMaterialInterface>(nullptr,
+        TEXT("/Game/ASHBOUND/Materials/M_LivingSpellSoft.M_LivingSpellSoft"));
+    if (!Source)
+    {
+        UE_LOG(LogTemp, Error, TEXT("ASHBOUND_GENESIS material missing"));
+        return;
+    }
+    CoreMaterial = UMaterialInstanceDynamic::Create(Source, this);
+    CoreMaterial->SetVectorParameterValue(TEXT("SpellColor"), FLinearColor(0.46f, 0.68f, 1.0f));
+    CoreMaterial->SetScalarParameterValue(TEXT("Radiance"), 1.35f);
+    Core->SetMaterial(0, CoreMaterial);
+    for (UStaticMeshComponent* Fragment : Fragments) Fragment->SetMaterial(0, CoreMaterial);
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_GENESIS ready at %s"), *GetActorLocation().ToString());
+}
+
+void AASHBOUNDGenesis::Birth()
+{
+    UWorld* World = GetWorld();
+    if (!World) return;
+    // The world gains new inhabitants; only the oldest generated triad is
+    // retired when its bounded visual population reaches nine.
+    while (BornWisps.Num() >= 9)
+    {
+        if (BornWisps[0]) BornWisps[0]->Destroy();
+        BornWisps.RemoveAt(0);
+    }
+    ++Generation;
+    PulseAge = 0.0f;
+    const FVector Center = GetActorLocation();
+    int32 Born = 0;
+    for (int32 School = 0; School < 3; ++School)
+    {
+        const float Angle = (Generation * 0.37f + School / 3.0f) * 2.0f * PI;
+        const FVector Anchor = Center + FVector(370.0f * FMath::Cos(Angle),
+                                                 370.0f * FMath::Sin(Angle),
+                                                 55.0f * FMath::Sin(Angle * 2.0f));
+        AASHBOUNDSpell* Wisp = World->SpawnActor<AASHBOUNDSpell>(
+            AASHBOUNDSpell::StaticClass(), Anchor, FRotator::ZeroRotator);
+        if (Wisp)
+        {
+            Wisp->Initialize(School, Anchor, true);
+            BornWisps.Add(Wisp);
+            ++Born;
+        }
+    }
+    if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 3.5f, FColor(172, 220, 255),
+        FString::Printf(TEXT("Ursprungspuls %d · %d neue Lichter"), Generation, Born));
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_GENESIS_BIRTH generation=%d born=%d living=%d"),
+        Generation, Born, BornWisps.Num());
+}
+
+void AASHBOUNDGenesis::Tick(float DeltaSeconds)
+{
+    Super::Tick(DeltaSeconds);
+    Time += DeltaSeconds;
+    PulseAge += DeltaSeconds;
+    const float Progress = FMath::Clamp(PulseAge / 2.8f, 0.0f, 1.0f);
+    const float Expansion = Progress < 1.0f ? 530.0f * FMath::Sin(PI * Progress) : 0.0f;
+    const float Radius = 120.0f + Expansion;
+    const float Breath = 1.0f + 0.08f * FMath::Sin(Time * 2.2f);
+    Core->SetRelativeScale3D(FVector((0.42f + 0.12f * Expansion / 530.0f) * Breath));
+    for (int32 Index = 0; Index < Fragments.Num(); ++Index)
+    {
+        const float Angle = Time * 0.65f + Index * 2.0f * PI / Fragments.Num();
+        Fragments[Index]->SetRelativeLocation(FVector(Radius * FMath::Cos(Angle),
+            Radius * FMath::Sin(Angle), 44.0f * FMath::Sin(Angle * 2.0f)));
+    }
+    Glow->SetIntensity(3400.0f + 11500.0f * Expansion / 530.0f);
+}
