@@ -142,8 +142,8 @@ def draw_page(canvas, doc):
 
 def build() -> None:
     pages = SOURCE.read_text(encoding="utf-8").split("---page---")
-    if len(pages) != 19:
-        raise ValueError(f"Expected 19 source pages, got {len(pages)}")
+    if len(pages) != 13:
+        raise ValueError(f"Expected 13 source pages, got {len(pages)}")
     story = []
     for index, page in enumerate(pages):
         if index:

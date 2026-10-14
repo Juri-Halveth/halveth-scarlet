@@ -21,7 +21,7 @@ section{scroll-margin-top:20px}.scene,.peace,.talent,.timeline,.research{padding
 .pilot-steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.pilot-steps li{border-top:3px solid var(--cyan);padding:18px 9px}.pilot-steps li>span{color:var(--gold);font-size:.74rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.pilot-steps p{color:var(--muted)}.evidence-strip{border:1px solid #648f85;background:#173d47;border-radius:13px;padding:25px;margin-top:20px;max-width:940px}.evidence-strip strong{color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-size:.78rem}.evidence-strip p{font-size:1.2rem;margin:8px 0 0}.source-grid{align-items:start}.source-grid a{display:inline-block;margin-bottom:7px}.sources-foot{margin-top:24px;font-weight:850}
 .closing{background:radial-gradient(circle at 85% 20%,#356464,transparent 35%),#13283a;border-top:1px solid var(--line);padding-block:95px}.closing-grid{display:grid;grid-template-columns:1.6fr .8fr;gap:35px;align-items:center}.closing h2{font-size:clamp(2.45rem,5vw,4.8rem)}.closing p{font-size:1.13rem;color:#d4e5e8}.closing aside{border:1px solid #7d9990;border-radius:22px;padding:35px;background:#193e49}.closing aside>span{font-size:3rem;color:var(--gold)}.closing aside p{font-size:clamp(1.6rem,2.5vw,2.3rem);font-weight:850;line-height:1.25;color:#fff}.closing aside strong{font-size:1rem;color:var(--cyan)}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;padding:26px 0}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-@media(max-width:1000px){.hero-layout,.peace-grid,.closing-grid{grid-template-columns:1fr}.offer-card{max-width:640px}.hero{padding-top:64px}}
+@media(max-width:1000px){.hero-layout,.peace-grid,.closing-grid{grid-template-columns:minmax(0,1fr)}.offer-card{max-width:640px}.hero{padding-top:64px}}
 @media(max-width:800px){.sitebar{align-items:flex-start;flex-direction:column}.scene-track,.role-grid,.value-grid,.source-grid,.colleague-channel{grid-template-columns:1fr}.colleague-channel>div+div{border-left:0;border-top:2px solid var(--gold);padding:20px 0 0}.signal-grid,.pilot-steps{grid-template-columns:repeat(2,1fr)}.chess-grid,.two-voices{grid-template-columns:1fr}}
 @media(max-width:520px){body{font-size:16px}.wrap{width:min(100% - 30px,1160px)}nav{gap:9px}.hero{padding-top:48px}.hero-layout{gap:20px}.signal-grid,.pilot-steps{grid-template-columns:1fr}.scene,.peace,.talent,.timeline,.research,.role-band,.chess,.closing{padding-block:61px}.offer-card,.quote-panel,.terms-panel{padding:24px}h1{font-size:clamp(2.6rem,11vw,4rem)}.chess-grid summary{align-items:flex-start;flex-wrap:wrap}.chess-grid summary i{margin-left:auto}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -79,3 +79,19 @@ nav a[aria-current="page"]{color:var(--cyan);font-weight:800;text-decoration:und
 @media(max-width:900px){.scenario-teaser-grid,.work-layout{grid-template-columns:1fr}.scenario-prompt{max-width:640px}.scenario-cases,.pathway-grid,.source-detail-grid{grid-template-columns:1fr 1fr}.source-detail-grid article p{min-height:0}}
 @media(max-width:650px){.sitebar{padding:12px 15px}.brand{font-size:.88rem;white-space:normal}.sitebar nav{display:flex;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-inline:contain;width:100%;gap:16px;padding:4px 3px 12px;scrollbar-color:var(--cyan) #173348}.sitebar nav a{white-space:nowrap;font-size:.84rem}.scenario-teaser,.scenario-stage,.pathway,.source-callout,.source-section{padding-block:58px}.subhero{padding-block:53px 55px}.subhero h1{font-size:clamp(2.45rem,10vw,4rem)}.scenario-cases,.pathway-grid,.source-detail-grid,.question-list{grid-template-columns:1fr}.scenario-cases summary{min-height:0}.source-detail-grid article p{min-height:0}.hero-actions .button{width:100%}.question-list>div{padding:15px}.scenario-prompt{min-height:220px}}
 @media(max-width:360px){.wrap{width:calc(100% - 24px)}.brand span{display:block}.scenario-prompt{padding:22px}.scene-track article,.role-grid article,.value-grid article,.source-grid>div{padding:19px}}
+
+/* Public proposal: spacious reading rhythm without wide-screen text walls. */
+.hero h1{font-size:clamp(2.8rem,5.4vw,5.6rem);max-width:16ch}
+.hero-layout>div,.hero-layout>aside{min-width:0}
+.scene>.lead,.role-band .lead,.research>.lead{max-width:76ch}
+.scene-note{margin:24px 0 0;color:var(--muted);font-size:.9rem;max-width:76ch;border-left:2px solid var(--line);padding-left:16px}
+.offer-card>p:last-child{color:#deeff0;font-size:1rem;line-height:1.6;margin:24px 0 0}
+@media(max-width:650px){
+  .hero h1{font-size:clamp(2.25rem,9vw,3.4rem);max-width:none;overflow-wrap:break-word}
+  .hero{padding-block:44px 24px}
+  .hero-layout{margin-top:14px}
+  .hero-actions{margin-block:22px}
+  .role-band .lead,.scene>.lead,.research>.lead{font-size:1.05rem;line-height:1.55}
+  .scene-track article,.role-grid article{padding:20px}
+  .closing aside{padding:24px}
+}

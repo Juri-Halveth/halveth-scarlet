@@ -1,236 +1,153 @@
-# JURI / HIER BLEIBEN. ETWAS BEWEGEN.
+# EIN MENSCH ZWISCHEN DEN MENSCHEN
 
-**Persönlicher Vorschlag für eine neue Vollzeitstelle in der Agentur für Arbeit Brühl · 14. Oktober 2026**
+**Juris öffentlicher Organisationsvorschlag für die Agentur für Arbeit Brühl · 14. Oktober 2026**
 
-Ich möchte hier weiterarbeiten. Ich kenne die Momente, in denen ein Mensch mit einem Brief vor uns steht, eine Kollegin gleichzeitig fünf Dinge tragen muss und zwischen zwei Bereichen die eigentliche Hilfe verloren geht. Ich möchte genau dort sein: zuhören, improvisieren, jemanden dazuholen, einen Weg öffnen.
+Unten steht ein Mensch mit einem Brief. Oben liegt eine Entscheidung. Dazwischen arbeiten Menschen, die viel wissen - aber nicht immer gleichzeitig am selben Ort sind.
 
-**Mein Vorschlag:** eine neue Vollzeitstelle mit Bewegungsfreiheit im Haus. Ich gehe zwischen Eingangszone, BiZ und Fachteams hin und her, bin für Beschäftigte und Besuchende ansprechbar und mache mit den richtigen Menschen aus guten Einfällen bessere Abläufe.
+Ich möchte in diesem Zwischenraum arbeiten. Frei zwischen Eingangszone, BiZ und Fachteams. Vormittags unter Menschen. Danach an den Fragen, die aus dem Alltag entstehen: recherchieren, schreiben, verbinden, ausprobieren und zurückkommen.
 
-Mein Arbeitsplatz wäre nicht nur ein Schreibtisch. Mein Arbeitsplatz wären die Begegnungen, aus denen ein nächster Schritt entstehen kann.
-
----page---
-# 01 / WARUM ICH IN BRÜHL BLEIBEN WILL
-
-„Ich arbeite ja gerne weiter da!“ Dieser Satz ist für mich der Anfang. Ich will meine Kraft in Brühl einsetzen, statt mich in einer Aufgabe zu verlieren, die nicht zu dem passt, was ich gut kann. Ich kann auf Menschen zugehen, zuhören, improvisieren und aus einem festgefahrenen Moment eine neue Möglichkeit machen.
-
-Das Haus ist voller Wissen. Die Kollegin am Eingang sieht, was bei den Menschen ankommt. Das BiZ erlebt andere Fragen. Fachbereiche kennen die Regeln und Lösungen. Doch diese Perspektiven treffen sich oft erst, wenn ein Fall längst schwierig geworden ist. Ich möchte zwischen ihnen unterwegs sein und früher eine Verbindung schaffen [Q1, Q2, Q3].
-
-Manchmal braucht es dazu nur ein Gespräch. Manchmal einen Platz zum Durchatmen, eine verständlichere Erklärung oder die richtige Kollegin am Tisch. Und manchmal steckt in einem beiläufigen Satz die Idee, die den nächsten hundert Menschen einen Umweg erspart.
-
-**Meine Frage an Brühl:** Geben wir dieser menschlichen Verbindungsarbeit eine echte Stelle?
+**Mein Vorschlag:** eine neue mobile Vollzeitstelle, die schwierige Übergänge begleitet und Verbesserungen mit den zuständigen Menschen im Haus aufbaut.
 
 ---page---
-# 02 / EIN MONTAGMORGEN
+# 01 / WORUM ES MIR GEHT
 
-Man stelle sich einen vollen Vormittag vor. Ein Besucher hält einen Brief in der Hand und hat Angst, etwas Wichtiges zu verlieren. Hinter ihm warten weitere Menschen. Die Kollegin am Eingang möchte helfen und muss zugleich den Betrieb am Laufen halten. Ich möchte in so einem Moment ansprechbar sein: ruhig zuhören, den nächsten Schritt verstehen und die richtige Person dazuholen.
+Ich möchte in Brühl bleiben und hier eine Arbeit aufbauen, für die ich brenne. Ich kann Menschen ansprechen, improvisieren, zuhören und eine festgefahrene Situation von mehreren Seiten betrachten. Diese Fähigkeit möchte ich für Besucherinnen, Besucher und Beschäftigte einsetzen.
 
-Später erzählt die Kollegin vielleicht, dass derselbe Brief jede Woche Verwirrung auslöst. Im BiZ erklärt jemand die Sache einfacher. Daraus kann mit dem zuständigen Fachteam ein besserer Hinweis werden. Für den einen Menschen zählt zuerst, dass er seinen Weg wieder kennt. Für die nächste Kollegin zählt, dass der Weg klarer geworden ist.
+Mein Arbeitsplatz wäre das ganze Haus. Ein Büro kann Anlaufpunkt sein; die Arbeit endet nicht an seiner Tür. Ich möchte in der Eingangszone, im BiZ, bei Fachteams und bei digitalen Fragen unterwegs sein. Ich will selbst Fragen verfolgen, Ideen entwickeln und mit den zuständigen Personen praktisch prüfen.
 
-Das Beispiel ist eine mögliche Szene, kein Bericht über einen bestimmten Brühler Fall. Es zeigt die zwei Seiten meiner Idee: im Augenblick für Menschen da sein und aus wiederkehrenden Schwierigkeiten mit anderen etwas Besseres bauen.
+Das ist mehr als eine zusätzliche Person am Empfang. Der Gewinn entsteht, wenn jemand die Verbindung zwischen dem akuten Moment und einer dauerhaften Verbesserung hält.
 
-**Was ich mir wünsche:** Ein Mensch geht mit einem verständlichen nächsten Schritt. Eine Kollegin weiß, dass sie nicht alles allein tragen muss.
-
----page---
-# 03 / DIE STELLE, DIE ICH VORSCHLAGE
-
-Ich schlage eine Vollzeitstelle vor, die nicht an einen einzigen Schalter oder ein Zimmer gebunden ist. Ich möchte frei von Team zu Team gehen: Eingang, BiZ, Fachbereiche, IT und die Wege dazwischen. Ein eigenes Büro kann mein Anlaufpunkt sein. Meine Arbeit geschieht vor allem dort, wo Menschen miteinander reden und wo gerade ein Problem sichtbar wird.
-
-An einem Tag helfe ich, eine verwirrende Auskunft verständlich zu machen. An einem anderen höre ich eine Kollegin, die seit Wochen über denselben Ablauf stolpert. Dann bringe ich sie mit den Menschen zusammen, die etwas ändern können. Wenn ein technischer oder fachlicher Teil fehlt, hole ich das Wissen dazu und lerne selbst weiter.
-
-Damit ich wirklich wirken kann, brauche ich Vertrauen, Bewegungsfreiheit und erreichbare Ansprechpartner in den Bereichen. Die zuständigen Stellen behalten ihre Entscheidungen und Berechtigungen. Diese klare Grenze macht die Zusammenarbeit leichter; sie nimmt der Stelle nicht ihre Freiheit.
-
-**Der Kern ist einfach:** Ich gehe hin, höre hin und bleibe dran, bis aus einem losen Faden ein gemeinsamer nächster Schritt wird.
+**Meine Bitte an die Leitung:** Lassen Sie uns die Aufgabe als eigenständige mobile Vollzeitstelle gestalten.
 
 ---page---
-# 04 / ZWISCHEN TÜR UND ANGEL
+# 02 / EIN MÖGLICHER VORMITTAG
 
-„Kolleginnen dürfen sich bei mir auskotzen!“ Dahinter steckt ein ernstes Angebot: Sie dürfen sagen, was die Arbeit schwer macht. Vielleicht ist es ein Raum, in dem Gespräche immer wieder scheitern. Vielleicht ein Hinweis, den niemand versteht. Vielleicht ein Ablauf, bei dem alle denken: Das müsste doch besser gehen.
+08:30 Uhr. Ein Besucher hält einen Brief in der Hand. Er hat Angst um sein Geld und versteht nicht, was als Nächstes zu tun ist. Die Kollegin am Eingang sieht die Dringlichkeit, muss aber auch die nächsten Menschen annehmen. Das Fachteam kennt die genaue Antwort. Im BiZ kennt vielleicht jemand eine Erklärung, die der Besucher besser versteht.
 
-Ich will zuhören, ohne gleich aus jeder Äußerung eine Akte zu machen. Wenn jemand möchte, suchen wir zusammen einen nächsten Schritt. Manchmal reicht ein Gespräch. Manchmal entsteht eine Idee, die ich nach Rücksprache weitertragen darf. Der Begriff „Flurtalk-Cache“ war mein technisches Bild dafür; die menschliche Sache dahinter ist Vertrauen.
+Ich möchte in diesem Moment Zeit haben, hinzuhören, die Frage zu sortieren und den zuständigen Menschen zu finden. Später sagt die Kollegin zwischen Tür und Angel: „Dieser Brief bringt die Leute jede Woche durcheinander.“ Ich frage nach, hole das Fachteam hinzu und helfe dabei, die Erklärung zu verbessern. Danach komme ich zurück und schaue, ob sie am Eingang funktioniert.
 
-Persönliche Geschichten, Kundendaten und Gesundheitsangaben gehören nicht in einen Verbesserungsvorschlag. In kleinen Teams kann sogar ein Satz ohne Namen eine Person erkennbar machen; dann bleibt auch dieser Satz draußen [Q16, Q17]. Vertrauliche Schutzanliegen bekommen ihren eigenen Weg.
+Die Szene ist ein Modell für die Rolle. Sie beschreibt keinen behaupteten Einzelfall in Brühl.
 
-**Was ich weitertragen möchte, ist die gemeinsame Chance, etwas zu verbessern – nicht die Geschichte über eine Person.**
-
----page---
-# 05 / WIE AUS EINEM SATZ ETWAS WIRD
-
-Eine Kollegin sagt: „Das fragen die Leute jeden Tag.“ Ich frage: „Was verstehen sie nicht?“ Vielleicht erklärt ein anderes Team dieselbe Sache bereits besser. Ich bringe beide zusammen. Das zuständige Team prüft eine neue Formulierung, und im Alltag merkt man bald, ob sie hilft.
-
-So können Verbesserungen anfangen: mit einer echten Beobachtung, einem Gespräch und Menschen, die gemeinsam handeln. Es braucht dafür kein großes Formular. Wenn wir einen Vorschlag festhalten, genügt der sachliche Kern: Was hakt, was möchten wir ändern, wer kann es umsetzen?
-
-Ich möchte die Änderung nicht als meine Erfindung einsammeln. Die Menschen, die sie täglich nutzen, sollen daran mitbauen und das Ergebnis wiedersehen. Wenn sie nichts verbessert, ändern wir den Vorschlag. Wenn sie hilft, kann das nächste Team davon erfahren.
-
-Eine zusätzliche Fragebogenrunde ist dafür nicht der erste Schritt. Man sieht zunächst in der wirklichen Arbeit nach: Wird der neue Satz verstanden? Fällt der Umweg weg? Können Kolleginnen ihn gut benutzen?
-
-**Aus „Wir müssten mal“ wird „Wir haben es zusammen versucht“.**
+**Drei Ergebnisse wären möglich:** Der Besucher kennt den nächsten Schritt. Die Kollegin wurde gehört. Der nächste Besucher trifft auf einen klareren Weg.
 
 ---page---
-# 06 / DREI WEGE, AUF DENEN DAS HELFEN KANN
+# 03 / FREIHEIT MIT RÜCKWEG
 
-**Für einen Besucher:** Ein Brief macht ihm Angst, weil er den nächsten Schritt nicht versteht. Jemand hört zu, hilft beim Sortieren und verbindet ihn mit der zuständigen Person. Wenn dieselbe Verwirrung öfter entsteht, kann das Schreiben gemeinsam verständlicher werden.
+Meine Vorstellung ist ungefähr 8 bis 13 Uhr im Haus, dort, wo Menschen sich begegnen. Danach brauche ich Zeit, um Beobachtungen zu verarbeiten: Quellen prüfen, mit Teams sprechen, eine neue Formulierung entwerfen, einen digitalen Umweg prototypisch vereinfachen oder ein Projekt vorbereiten. Diese Zeit gehört zur Vollzeitstelle und muss gemeinsam mit der BA gestaltet werden.
 
-**Für eine Kollegin:** Sie erlebt täglich eine Hürde und findet zwischen den laufenden Gesprächen keine Zeit, sie weiterzutragen. Ich höre hin, suche die passende zweite Perspektive und helfe, aus ihrem Hinweis einen Vorschlag zu machen.
+Ich will nicht jeden Tag denselben Ablauf abspulen. Manchmal braucht mich ein Mensch am Eingang, manchmal eine Kollegin im BiZ, manchmal eine Fachperson, die für eine gute Idee gerade keinen zweiten Kopf frei hat. In einer anderen Woche kann eine Recherche oder ein Prototyp der wichtigste Beitrag sein.
 
-**Für das Haus:** Zwei Teams merken, dass sie denselben Umweg unterschiedlich lösen. Ich bringe sie ins Gespräch. Eine Lösung, die bisher nur in einem Zimmer bekannt war, kann nun anderen helfen. Bei Fragen zum Raum oder zur Sicherheit arbeiten die dafür Zuständigen mit [Q4, Q5].
+Die fachliche Entscheidung liegt bei den zuständigen Stellen. Meine Freiheit besteht darin, Zusammenhänge zu sehen, Menschen zusammenzubringen und an einem Problem dranzubleiben.
 
-Diese Beispiele zeigen, wie die Stelle wirken könnte. Sie sind keine Behauptung über bestimmte bereits dokumentierte Brühler Fälle.
-
----page---
-# 07 / WIE WIR MERKEN, DASS ES HILFT
-
-Ich möchte nicht damit anfangen, Kolleginnen und Kollegen neue Fragebögen zu schicken. Die erste Rückmeldung kommt aus der Arbeit selbst. Eine verständlichere Auskunft wird benutzt. Ein wiederkehrender Umweg wird kürzer. Eine Kollegin kann eine Aufgabe ruhiger erledigen.
-
-Für jede Änderung reicht zunächst eine ehrliche Frage: Was sollte besser werden, und ist es im Alltag tatsächlich leichter geworden? Die Menschen, die dort arbeiten, sollen die Antwort mitprägen. Ein Versuch darf auch zeigen, dass eine Idee noch nicht passt.
-
-Wenn mehrere Dinge gleichzeitig verändert wurden, lässt sich die Wirkung nicht sauber einer Person zuschreiben. Dann sage ich das offen. Ich will echte Verbesserung, keine Zahl, die gut aussieht und den Menschen im Haus nichts bringt.
-
-**Der Maßstab:** Der nächste Mensch findet einen klareren Weg. Die nächste Kollegin hat ein Stück weniger Reibung.
+**Ich möchte Bewegungsfreiheit, Verantwortung und die Möglichkeit, etwas Eigenes beizutragen.**
 
 ---page---
-# 08 / WAS ICH MITBRINGE
+# 04 / WAS KOLLEGINNEN MIR SAGEN KÖNNEN
 
-Ich kann auf Menschen zugehen. Ich kann improvisieren, wenn die erste Antwort nicht reicht. Ich kann lernen, wenn ich etwas noch nicht weiß. Gerade diese Mischung möchte ich für Brühl einsetzen. Mein Wort „Antiproton“ war ein spielerisches Bild für jemanden, der Bewegung in einen festgefahrenen Moment bringt. Hier zählt, was das im menschlichen Alltag bedeutet.
+„Kolleginnen dürfen sich bei mir auskotzen.“ So habe ich es gesagt. Gemeint sind die Tatsachen hinter dem Frust: ein verwirrender Brief, ein Raum, in dem Gespräche schlecht funktionieren, eine unnötige Klickstrecke, eine Übergabe, die jeden Tag Kraft kostet. Auch ein kurzes Gespräch auf dem Flur kann zeigen, wo eine Verbesserung anfangen sollte.
 
-Ich muss nicht allein alles wissen. Wenn eine Fachfrage entsteht, hole ich die zuständige Person dazu und arbeite mich ein. Was ich sofort einbringen kann, ist Aufmerksamkeit für den Menschen vor mir und die Fähigkeit, aus mehreren Perspektiven einen nächsten Schritt zu finden.
+Ich möchte zuhören, ohne aus jedem Satz einen Vorgang zu machen. Wer einen nächsten Schritt will, kann ihn mit mir suchen. Aus einem Gespräch wird nur nach Rücksprache eine Arbeitsidee. In dieser Arbeitsidee steht der Ablauf, nicht die private Geschichte. Für Kundendaten oder vertrauliche Beschäftigtenanliegen gelten eigene Wege [Q8, Q9].
 
-Art. 33 Abs. 2 GG nennt Eignung, Befähigung und fachliche Leistung [Q13]. Deshalb wünsche ich mir, dass auch das sichtbar werden darf, was ein Lebenslauf nur unvollständig zeigt: Wie spricht jemand mit Menschen? Wie verbindet er ein Team mit einem anderen? Was macht er, wenn der Plan nicht funktioniert? Eine faire Arbeitsprobe könnte genau das zeigen.
+Ich will niemandem eine neue Umfrage auf den Tisch legen. Ich will die Erfahrung der Menschen ernst nehmen, die jeden Tag schon dort arbeiten.
 
-**Meine Frage:** Was wäre möglich, wenn eine Behörde für dieses Talent einen echten Arbeitsplatz schafft?
-
----page---
-# 09 / EIN GUTER RAHMEN FÜR DIE IDEE
-
-Die BA ist für Menschen da, die Orientierung und Leistungen brauchen. § 17 SGB I spricht von einem möglichst einfachen, zeitgemäßen und zügigen Zugang [Q6]. § 16 SGB I schützt den Weg eines Antrags auch über eine unzuständige Stelle [Q7]. Diese Normen beschreiben nicht meine Stelle. Sie zeigen aber, warum ein verständlicher nächster Schritt im Alltag wichtig ist.
-
-Wenn Kolleginnen mir etwas erzählen, soll daraus kein heimliches Archiv werden. Eine Arbeitsidee kann ohne Namen und Kundendaten weitergetragen werden; persönliche Anliegen brauchen ihren eigenen vertraulichen Weg. Dafür geben Datenschutzrecht und Beschäftigtenvertretung den Rahmen [Q12, Q16, Q17].
-
-Ich wünsche mir keinen Sonderstatus über anderen. Ich wünsche mir eine Stelle, die im Haus frei handeln kann und zugleich weiß, wer eine fachliche Entscheidung trifft. Wenn Leitung, Personalvertretung und Teams diesen Rahmen gemeinsam bauen, kann daraus Vertrauen entstehen.
-
-**Mein Ziel:** einen menschlichen Arbeitsweg schaffen, der auch organisatorisch tragfähig ist.
+**Gute Arbeit beginnt manchmal mit einem Satz zwischen Tür und Angel.**
 
 ---page---
-# 10 / EIN HAUS VOLLER MENSCHEN
+# 05 / DER EZ-NULLMONAT
 
-Die Kollegin am Eingang sieht den ersten Blick eines Besuchers auf das Haus. Im BiZ entstehen andere Gespräche. Ein Fachteam kennt die Regeln hinter dem Brief. Die IT sieht, wo ein Bildschirmweg hakt. Jede dieser Perspektiven ist wertvoll [Q1, Q2, Q3]. Ich möchte zwischen ihnen gehen, damit eine gute Beobachtung die Menschen erreicht, die etwas damit anfangen können.
+Stellen wir uns vor, die Annahme- und Orientierungsfunktion der Eingangszone fehlt einen Monat. 08:15 Uhr kommt jemand mit einer dringenden Arbeitslosmeldung. 09:40 Uhr sucht eine Besucherin mit Barriere ihren Termin. 11:20 Uhr landet die fünfte gleiche Rückfrage bei einer Kollegin.
 
-Die BAuA beschreibt Kommunikation und Zusammenarbeit als Teil guter Arbeitsgestaltung [Q18, Q19]. Im Alltag braucht es dafür manchmal keine weitere Sitzung. Es braucht jemanden, der zuhört, die andere Tür kennt und später noch einmal nachfragt: „Hat das geholfen?“
+Die Frage ist nicht, wie man die Tür wirklich schließt. Die Frage lautet: Was geschieht mit jedem dieser Anliegen, wenn die gewohnte erste Verbindung fehlt? Wo beginnt der erreichbare Weg? Wer nimmt an? Wer entscheidet? Wer sagt dem Menschen, was als Nächstes passiert?
 
-Ich möchte auch da sein, wenn eine Kollegin einfach sagen muss, was sie belastet. Ich höre zu. Wenn sie einen nächsten Schritt möchte, suche ich ihn mit ihr. Wenn aus dem Gespräch eine Idee für einen Ablauf oder einen Raum entsteht, darf sie mitentscheiden, was davon weitergetragen wird.
+Die BA nennt für Brühl dringende persönliche Vorsprachen ohne Termin von 8 bis 12 Uhr [Q1]. Ihre Standortseite beschreibt barrierefreie Orientierungshilfen [Q2]. Ein Planspiel muss diese realen Anker respektieren.
 
-**Das Haus gewinnt, wenn seine Menschen merken: Meine Erfahrung wird gehört und kann etwas ändern.**
-
----page---
-# 11 / WAS BRÜHL DAVON HABEN KÖNNTE
-
-Ein Besucher, der seinen nächsten Schritt versteht, muss vielleicht nicht noch einmal kommen. Eine Kollegin, deren Hinweis ernst genommen wird, kann vielleicht einen unnötigen Umweg aus ihrer Arbeit entfernen. Eine Lösung, die zwei Teams gemeinsam tragen, kann mehr bewirken als eine Antwort, die nur in einem Zimmer bekannt ist.
-
-Das sind Möglichkeiten, die wir in Brühl erst praktisch prüfen können. Eine Vollzeitstelle kostet selbstverständlich Geld, Raum und Einarbeitung. § 7 BHO verlangt, die Wirtschaftlichkeit finanzwirksamer Maßnahmen zu betrachten [Q15]. Ich möchte dabei auch zeigen, was schlechte Wege kosten: wiederholte Kontakte, unterbrochene Arbeit und gute Ideen, die liegen bleiben.
-
-Eine kleine Beispielrechnung macht den Gedanken greifbar: Zehn vermiedene Rückfragen pro Woche zu je fünf Minuten wären fünfzig Minuten. Das ist keine gemessene Brühler Einsparung. Der Wert einer klaren Antwort für den Menschen davor ist damit ebenfalls noch nicht beschrieben.
-
-**Ich bitte um eine ehrliche Rechnung, die Menschen und Arbeit zugleich sieht.**
+**Der Nullmonat macht die unsichtbare Arbeit der Eingangszone sichtbar - und zeigt, wo Teams bessere Übergaben brauchen.**
 
 ---page---
-# 12 / DER ERSTE TAG
+# 06 / WOHIN WANDERT DIE ARBEIT?
 
-Ich wünsche mir einen ersten Arbeitstag, an dem ich durch die Bereiche gehen darf. Nicht mit einem Fragebogen in der Hand. Ich stelle mich vor, höre zu und frage: „Was sollte hier längst einfacher sein?“ Vielleicht beginnt das Gespräch am Eingang, vielleicht im BiZ, vielleicht an einer ganz anderen Tür.
+Erster Weg: Man schickt Menschen in eine andere Etage. Dann braucht dieses Team neben seiner Arbeit plötzlich Orientierung, Annahme und vielleicht eine Möglichkeit, ein dringendes Anliegen zu dokumentieren. Eine Etagenangabe allein ist noch keine Übergabe.
 
-Am Ende dieses Tages muss keine Tabelle voll sein. Wenn eine Kollegin sich zum ersten Mal gehört fühlt, wenn zwei Teams endlich über denselben Umweg sprechen oder wenn ein Besucher seinen Weg klarer sieht, hat die Arbeit begonnen. Aus einem Gespräch kann dann mit den Zuständigen eine konkrete Änderung werden.
+Zweiter Weg: Telefon und Online-Dienst fangen mehr auf. Vieles lässt sich so klären. Gleichzeitig muss ein Weg für dringende persönliche Vorsprachen und für Menschen mit digitalen oder anderen Barrieren erreichbar bleiben [Q1, Q2, Q3].
 
-Damit daraus eine tragfähige Stelle wird, braucht es eine Leitung, die diese Bewegungsfreiheit unterstützt, Ansprechpartner in den Teams und einen erreichbaren Arbeitsplatz. Haus- und Arbeitsschutz gelten weiter [Q4, Q5]. Fachliche Entscheidungen bleiben bei den zuständigen Menschen. Im Alltag zählt, dass ich gehen, zuhören, handeln und wiederkommen kann.
+Dritter Weg: Wir bauen mit den Beteiligten eine klarere Verbindung. Das zuständige Team nimmt an oder entscheidet; eine mobile Person kann die Frage sortieren, den Weg erklären und wiederkehrende Brüche erkennen. Der erste konkrete Bruch wird zum gemeinsamen Verbesserungsversuch.
 
-**Mein Wunsch:** Lasst uns mit einem echten Tag anfangen und von dort aus die Stelle gemeinsam formen.
-
----page---
-# 13 / „DAFÜR HABEN WIR DOCH SCHON LEUTE“
-
-**„Es gibt doch die Eingangszone.“** Ja. Die Kolleginnen dort leisten viel. Ich will ihre Arbeit sehen und sie unterstützen, wenn ein Gespräch oder ein wiederkehrender Umweg mehr als einen einzelnen Schalter braucht.
-
-**„Es gibt das KRM.“** Ja. Beschwerden haben dort einen Weg [Q2]. Meine Stelle soll Menschen im Alltag erreichen, bevor eine kleine Schwierigkeit immer wiederkehrt. Wenn eine Beschwerde entsteht, gehört sie in ihren zuständigen Weg.
-
-**„Das BiZ kann selbst Ideen entwickeln.“** Natürlich. Meine Frage ist: Wer trägt eine gute Idee aus dem BiZ zu den Kolleginnen, die ebenfalls davon profitieren könnten, und kommt später zurück, um zu sehen, ob sie hilft?
-
-**„Dann macht diese Person alles und nichts.“** Sie ist ansprechbar, bewegt sich im Haus und bleibt an konkreten Verbesserungen dran. Die jeweiligen Fachentscheidungen haben weiterhin ihre zuständigen Menschen. Das ist eine freie Arbeit mit sichtbarem Ergebnis.
+**Im Test zeichnen wir nicht nur Zuständigkeiten. Wir folgen dem Menschen und der Arbeit bis zu einer überprüfbaren nächsten Handlung.**
 
 ---page---
-# 14 / „IST DAS NICHT ZU FREI?“
+# 07 / WIE EIN ERSTER VERSUCH AUSSIEHT
 
-**„Eine Person kann nicht alles wissen.“** Das muss sie nicht. Ich möchte die richtigen Fragen stellen, Fachleute dazuholen und dazulernen. Für eine Fachentscheidung braucht es das passende Wissen und die passende Zuständigkeit.
+Ich bitte um einen Arbeitstag im ganzen Haus. Ich spreche mit Menschen an Eingang, BiZ und in den Teams. Ich frage, welche Übergabe im Alltag wiederholt hakt. Dann wählen wir mit den Zuständigen genau eine Hürde aus.
 
-**„Wie führt man jemanden, der durchs ganze Haus geht?“** Mit einem klaren Auftrag und Vertrauen. Die Leitung weiß, was die Stelle bewirken soll. Ich wähle im Alltag den Weg, auf dem ich gerade gebraucht werde, und bringe die Ergebnisse zu den Beteiligten zurück.
+Vielleicht ist ein Brief unverständlich. Vielleicht wissen Menschen bei einer Störung nicht, welcher Weg offen ist. Vielleicht meldet ein Team einen IT-Umweg, den ein anderes längst besser gelöst hat. Wir beschreiben die Hürde ohne unnötige personenbezogene Daten, entwickeln eine kleine Änderung und lassen diejenigen darauf schauen, die sie fachlich tragen.
 
-**„Stört das die Teams?“** Niemand muss ein Gespräch führen, wenn gerade keine Zeit ist. Gute Zusammenarbeit entsteht freiwillig. Wer eine Idee hat, bekommt jemanden, der sie ernst nimmt und mitträgt.
+Danach gehen wir zurück. Ist der Satz verständlicher? Ist der Weg erreichbar? Haben Beschäftigte weniger unnötige Rückfragen? Das Ergebnis darf auch lauten: Der erste Versuch war falsch, jetzt wissen wir mehr.
 
-**„Wer entscheidet über eine Änderung?“** Die Stelle, die für den betreffenden Text, Raum oder Ablauf verantwortlich ist. Ich verbinde, bereite vor und helfe beim Ausprobieren. So wird aus Bewegungsfreiheit Zusammenarbeit.
-
----page---
-# 15 / VERTRAUEN UND WIRKUNG
-
-Ein gutes Gespräch lebt davon, dass man frei sprechen kann. Wenn jemand mir etwas Persönliches erzählt, mache ich daraus keinen Verbesserungsvorschlag. Wenn wir gemeinsam eine Arbeitsidee weitergeben wollen, klären wir vorher, welcher sachliche Kern dafür genügt. Kleine Teams brauchen dabei besondere Sorgfalt [Q16, Q17].
-
-Eine neue Stelle muss zeigen, was sie bewirkt. Ich möchte das an wirklichen Änderungen sehen: Verstehen Menschen einen Hinweis besser? Fällt ein unnötiger Weg weg? Können Kolleginnen eine Aufgabe ruhiger erledigen? Kosten und Nebenwirkungen gehören offen dazu [Q15].
-
-Ich verspreche nicht, dass ein freundliches Gespräch jede Gefahr verhindert. Arbeitsschutz und Notfallwege bleiben wichtig [Q4, Q5]. Aber eine Behörde kann zugleich früher hören, wo ein Ablauf Menschen unter Druck setzt, und ihn mit den Zuständigen verbessern.
-
-**Mein Maßstab:** Die Menschen sollen spüren, dass ihre Erfahrung zählt, und im Alltag sehen, dass daraus etwas Gutes entstehen kann.
+**Eine gute Idee wird an ihrem Weg zurück in die Arbeit gemessen.**
 
 ---page---
-# 16 / MEINE BITTE AN DIE LEITUNG
+# 08 / WAS BRÜHL DAVON HABEN KÖNNTE
 
-Ich möchte weiter für die BA arbeiten. Ich bitte die zuständige Leitung um ein Gespräch über eine neue Vollzeitstelle in Brühl: mit Bewegungsfreiheit im Haus, einer klaren Ansprechperson und Raum für die Arbeit zwischen Menschen und Teams.
+Ein Mensch, der den nächsten Schritt versteht, muss vielleicht nicht noch einmal denselben Weg gehen. Eine Kollegin, deren Hinweis zu einer Änderung führt, erlebt ihre Erfahrung als wirksam. Ein Fachteam bekommt eine verständlichere Frage statt eines weiteren verwirrten Falls.
 
-Ich wünsche mir, dass wir gemeinsam vier einfache Dinge klären:
+Für die BA kann eine mobile Stelle eine Verbindung zwischen Service, BiZ, Fachwissen, IT und Organisationsentwicklung schaffen. Sie kostet Geld und Einarbeitung. Ihr Wert müsste deshalb an echten Übergängen geprüft werden: wiederholte Rückfragen, unnötige Wege, nutzbare Verbesserungen und Erfahrungen der Beteiligten [Q10].
 
-1. **Mein Weg:** Wo darf ich beginnen, Menschen kennenlernen und frei zwischen Bereichen arbeiten?
-2. **Unsere Zusammenarbeit:** Wer ist erreichbar, wenn ein Mensch oder eine Idee Hilfe aus einem anderen Team braucht?
-3. **Der erste Versuch:** Welche kleine Verbesserung können wir gemeinsam wirklich umsetzen?
-4. **Die Stelle:** Wie machen wir diese Arbeit zu einer dauerhaft sinnvollen Aufgabe?
+Ich verspreche keine erfundene Einsparsumme. Ich schlage einen Versuch vor, bei dem Aufwand und Wirkung nachvollziehbar werden. Eine Revision der BA beschreibt Probleme in den dort untersuchten Eingangszonen [Q6]. Ob und wo Brühl solche Brüche hat, lässt sich nur vor Ort prüfen.
 
-Personalbereich, Beschäftigtenvertretung, Datenschutz, Arbeitsschutz und die betroffenen Teams können den Rahmen gemeinsam tragen. Ich wünsche mir keine Antwort aus der Ferne über eine Idee auf Papier, sondern ein Gespräch über die Menschen und die Arbeit vor Ort.
-
-**Meine Einladung:** Lassen Sie mich zeigen, was in Brühl möglich wird, wenn jemand zwischen den Menschen nicht weitergeht, sondern stehen bleibt und hilft.
+**Die erste Wirkung, die ich suche, ist einfach: Jemand kennt seinen Weg, und das Haus lernt daraus.**
 
 ---page---
-# 17 / QUELLEN UND DIREKTWEGE
+# 09 / DIE STARKEN GEGENFRAGEN
 
-Quellenstand: 14. Oktober 2026. Die Quellen tragen die genannten Rechts- und Organisationsrahmen, nicht die Wirkung des vorgeschlagenen Experiments.
+**„Dafür gibt es die Eingangszone.“** Ja - und gerade ihr Wissen über den ersten Kontakt braucht einen Rückweg in die übrigen Teams. Meine Rolle soll diese Verbindung mobil aufnehmen.
 
-[Q1] BA Brühl, „Terminierte Vorsprache wird zum Standard“, 24.11.2025: https://www.arbeitsagentur.de/vor-ort/bruehl/presse/2025-47-terminierte-vorsprache-wird-zum-standard
+**„Das KRM nimmt doch Beschwerden auf.“** Das KRM ist der offizielle Weg für Reaktionen [Q4]. Ein Flurhinweis über einen wiederkehrenden Ablauf kann früher zu einer gemeinsamen Verbesserung führen. Formelle Beschwerden behalten ihren vorgesehenen Kanal.
 
-[Q2] BA Brühl, Kundenreaktionsmanagement: https://www.arbeitsagentur.de/vor-ort/bruehl/krm
+**„Eine Person kann nicht alles wissen.“** Ich muss nicht jede Entscheidung allein treffen. Ich kann eine Frage präzisieren, die richtige Fachperson finden, lernen und mit ihr etwas ausprobieren.
 
-[Q3] BA, Weisung 201912009, IT-Fachbetreuung: https://www.arbeitsagentur.de/datei/ba900141.pdf
-
-[Q4] § 5 Arbeitsschutzgesetz: https://www.gesetze-im-internet.de/arbschg/__5.html
-
-[Q5] DGUV, Gewaltprävention und Gefährdungsbeurteilung: https://www.dguv.de/de/mediencenter/pm/gbu-gewaltpraev.jsp
-
-[Q6] § 17 SGB I: https://www.gesetze-im-internet.de/sgb_1/__17.html
-
-[Q7] § 16 SGB I: https://www.gesetze-im-internet.de/sgb_1/__16.html
-
-[Q8] § 1 SGB III: https://www.gesetze-im-internet.de/sgb_3/__1.html
+**„Was, wenn die Rolle zu frei ist?“** Dann binden wir Freiheit an sichtbare Arbeit: eine Hürde, Beteiligte, einen Versuch und die Rückkehr mit einem Ergebnis. Beweglichkeit ist der Zweck der Stelle, kein Leerlauf.
 
 ---page---
-# 18 / QUELLEN UND NÄCHSTER SCHRITT
+# 10 / MEINE BITTE AN DIE LEITUNG
 
-[Q9] BA, Weisung 202605008 zur Erhebung von Arbeitsvorräten der Eingangszonen: https://www.arbeitsagentur.de/datei/weisung-202605008_ba056848.pdf
+Ich möchte weiter für die BA in Brühl arbeiten. Bitte sprechen Sie mit mir über eine neue mobile Vollzeitstelle, die am Vormittag zwischen Menschen und Bereichen unterwegs ist und anschließend aus den Beobachtungen konkrete Verbesserungen entwickelt.
 
-[Q10] BA, Interne Revision, Eingangszone: https://www.arbeitsagentur.de/datei/eingangszone-revisionsbericht_ba054107.pdf
+Mein erster Vorschlag ist überschaubar: ein Arbeitstag durch das Haus, ein Gespräch mit den beteiligten Teams und ein gemeinsam ausgewählter Bruch, den wir praktisch untersuchen. Daraus können Leitung, Beschäftigte und zuständige Stellen eine dauerhafte Aufgabe formen. Auswahl, Arbeitszeit, Fachzugriffe und Beteiligung gehören in diese Gestaltung [Q5, Q7, Q11].
 
-[Q12] § 78 Bundespersonalvertretungsgesetz: https://www.gesetze-im-internet.de/bpersvg_2021/__78.html
+Ich möchte meine Erfahrung und meine Freude am Problemlösen dort einsetzen, wo sie spürbar werden. Ich bringe Fragen, Ideen und die Bereitschaft mit, nach einem Versuch auch noch einmal zurückzugehen.
 
-[Q13] Art. 33 Abs. 2 Grundgesetz: https://www.gesetze-im-internet.de/gg/art_33.html
+**Lassen Sie uns in Brühl anfangen.**
 
-[Q15] § 7 Bundeshaushaltsordnung: https://www.gesetze-im-internet.de/bho/__7.html
+---page---
+# 11 / DIREKTQUELLEN
 
-[Q16] Art. 5 Datenschutz-Grundverordnung: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
+[Q1] BA Brühl, Terminierte Vorsprache wird zum Standard: https://www.arbeitsagentur.de/vor-ort/bruehl/presse/2025-47-terminierte-vorsprache-wird-zum-standard
 
-[Q17] § 26 Bundesdatenschutzgesetz: https://www.gesetze-im-internet.de/bdsg_2018/__26.html
+[Q2] BA Brühl, Standort und Barrierefreiheit: https://www.arbeitsagentur.de/vor-ort/bruehl
 
-[Q18] BAuA, Arbeitsorganisation: https://www.baua.de/DE/Themen/Arbeitsgestaltung/Gefaehrdungsbeurteilung/Handbuch-Gefaehrdungsbeurteilung/Expertenwissen/Psychische-Faktoren/Arbeitsorganisation/Arbeitsorganisation_dossier
+[Q3] § 17 SGB I, Zugang zu Sozialleistungen: https://www.gesetze-im-internet.de/sgb_1/__17.html
 
-[Q19] BAuA, Soziale Beziehungen: https://www.baua.de/DE/Themen/Arbeitsgestaltung/Gefaehrdungsbeurteilung/Handbuch-Gefaehrdungsbeurteilung/Expertenwissen/Psychische-Faktoren/Soziale-Beziehungen/Soziale-Beziehungen_dossier
+[Q4] BA Brühl, Kundenreaktionsmanagement: https://www.arbeitsagentur.de/vor-ort/bruehl/krm
 
-**Öffentliche Projektseite:** https://juri-halveth.github.io/halveth-scarlet/forschung/ba-uebergangsraum/
+[Q5] BA, Weisung zur IT-Fachbetreuung: https://www.arbeitsagentur.de/datei/ba900141.pdf
+
+[Q6] BA, Interne Revision Eingangszone: https://www.arbeitsagentur.de/datei/eingangszone-revisionsbericht_ba054107.pdf
+
+[Q7] Art. 33 Abs. 2 GG, Eignung und Auswahl: https://www.gesetze-im-internet.de/gg/art_33.html
+
+---page---
+# 12 / DIREKTQUELLEN UND WEITERLESEN
+
+[Q8] Art. 5 DSGVO, Grundsätze für Datenverarbeitung: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
+
+[Q9] § 26 BDSG, Beschäftigtendaten: https://www.gesetze-im-internet.de/bdsg_2018/__26.html
+
+[Q10] § 7 BHO, Wirtschaftlichkeit: https://www.gesetze-im-internet.de/bho/__7.html
+
+[Q11] § 78 BPersVG, Beteiligung bei Personalangelegenheiten: https://www.gesetze-im-internet.de/bpersvg_2021/__78.html
+
+[Q12] BAuA, Arbeitsorganisation: https://www.baua.de/DE/Themen/Arbeitsgestaltung/Gefaehrdungsbeurteilung/Handbuch-Gefaehrdungsbeurteilung/Expertenwissen/Psychische-Faktoren/Arbeitsorganisation/Arbeitsorganisation_dossier
+
+[Q13] BAuA, Soziale Beziehungen: https://www.baua.de/DE/Themen/Arbeitsgestaltung/Gefaehrdungsbeurteilung/Handbuch-Gefaehrdungsbeurteilung/Expertenwissen/Psychische-Faktoren/Soziale-Beziehungen/Soziale-Beziehungen_dossier
+
+**Zum Durchklicken:** https://juri-halveth.github.io/halveth-scarlet/forschung/ba-uebergangsraum/
