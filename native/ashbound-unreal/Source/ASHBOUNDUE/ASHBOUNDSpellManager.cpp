@@ -90,6 +90,24 @@ void AASHBOUNDSpellManager::BeginPlay()
     Witness = GetWorld()->SpawnActor<AASHBOUNDWitness>(AASHBOUNDWitness::StaticClass(),
         FVector(1710.0f, -360.0f, 5.0f), FRotator(0, 90, 0));
     RestoreStory();
+    // The first-person template may apply a stale mouse delta while its window
+    // gains focus. Establish one authored entry view after possession settles.
+    FTimerHandle EntryViewTimer;
+    GetWorld()->GetTimerManager().SetTimer(EntryViewTimer,
+        FTimerDelegate::CreateWeakLambda(this, [this]()
+    {
+        APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
+        if (!Controller || !Controller->GetPawn()) return;
+        FVector Eye;
+        FRotator CurrentView;
+        Controller->GetPlayerViewPoint(Eye, CurrentView);
+        const FVector Target = !bSpokenToWitness && Witness.IsValid()
+            ? Witness->GetActorLocation() + FVector(0, 0, 180)
+            : Eye + FVector(1000, 0, 0);
+        Controller->SetControlRotation((Target - Eye).Rotation());
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND_ENTRY_VIEW yaw=%.1f pitch=%.1f"),
+            Controller->GetControlRotation().Yaw, Controller->GetControlRotation().Pitch);
+    }), 0.75f, false);
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND living magic ready; lights require a source or player action, Q/E/R/F/M input"));
 
 #if !UE_BUILD_SHIPPING
@@ -478,6 +496,28 @@ void AASHBOUNDSpellManager::VerifyTerrainCollision()
             Y, bHit ? 1 : 0, Mesh ? *Mesh->GetName() : TEXT("NONE"),
             bHit ? Hit.ImpactPoint.Z : 0.0f, bPassed ? 1 : 0);
     }
+    // Sample the west arch at camera height. The old map disabled collision on
+    // its visible stone and substituted two narrow invisible blocks.
+    for (const float Y : { -340.0f, -280.0f, -220.0f, 0.0f, 220.0f, 280.0f, 340.0f })
+    {
+        FHitResult Hit;
+        FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDQAPortal), false);
+        Query.AddIgnoredActor(this);
+        const bool bHit = World->SweepSingleByChannel(
+            Hit, FVector(2090.0f, Y, 225.0f), FVector(2490.0f, Y, 225.0f),
+            FQuat::Identity, ECC_Pawn,
+            FCollisionShape::MakeCapsule(34.0f, 88.0f), Query);
+        const UStaticMeshComponent* Component =
+            bHit ? Cast<UStaticMeshComponent>(Hit.GetComponent()) : nullptr;
+        const UStaticMesh* Mesh = Component ? Component->GetStaticMesh() : nullptr;
+        const bool bStone = Mesh && Mesh->GetName() == TEXT("modular_fort_01_wall_thin_gate_01");
+        const bool bPassed = Y == 0.0f ? !bHit : bHit && bStone;
+        bAllPassed &= bPassed;
+        UE_LOG(LogTemp, Display,
+            TEXT("ASHBOUND_PORTAL_PAWN_SAMPLE y=%.0f hit=%d mesh=%s x=%.1f pass=%d"),
+            Y, bHit ? 1 : 0, Mesh ? *Mesh->GetName() : TEXT("NONE"),
+            bHit ? Hit.ImpactPoint.X : 0.0f, bPassed ? 1 : 0);
+    }
     if (bAllPassed)
     {
         UE_LOG(LogTemp, Display, TEXT("ASHBOUND_COLLISION_QA PASS"));
@@ -620,6 +660,19 @@ void AASHBOUNDSpellManager::UpdateStory(float DeltaSeconds)
     FVector Eye;
     FRotator Look;
     Player->GetPlayerViewPoint(Eye, Look);
+    if (!bSpokenToWitness && Witness.IsValid())
+    {
+        const FVector Delta = Witness->GetActorLocation() - Eye;
+        const FVector Toward = FVector(Delta.X, Delta.Y, 0.0f).GetSafeNormal();
+        const FVector Ahead = FRotator(0.0f, Look.Yaw, 0.0f).Vector();
+        const float Facing = FVector::DotProduct(Ahead, Toward);
+        const float Side = FVector::CrossProduct(Ahead, Toward).Z;
+        const TCHAR* Direction = Facing > 0.90f ? TEXT("vor dir") :
+            Facing < -0.90f ? TEXT("hinter dir") :
+            Side > 0.0f ? TEXT("links") : TEXT("rechts");
+        Objective = FString::Printf(TEXT("Zeugin %s  %d m"),
+            Direction, FMath::RoundToInt(Delta.Size2D() / 100.0f));
+    }
     InteractionPrompt.Empty();
     if (AASHBOUNDWitness* Keeper = Witness.Get())
     {

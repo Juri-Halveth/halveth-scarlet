@@ -252,10 +252,27 @@ def terrain_height(x, y):
     # visible road where it is above the carved valley collision surface.
     return walk_surface(x, y)
 
-# A walkable, broken circular archive interrupts the old road. The historic
-# scanned arches carry the silhouette; simple collision pieces stay separate.
+# A walkable, broken circular archive interrupts the old road. Its visible
+# stonework must also be the collision boundary: a bounding box seals the
+# doorway, while a pair of invisible end stops lets the camera enter stone.
 vault_x = 3000
 archive_arch = model('modular_fort_01', 12)
+archive_body = archive_arch.get_editor_property('body_setup')
+if archive_body is None:
+    raise RuntimeError('Archive arch has no body setup')
+archive_body.set_editor_property('collision_trace_flag',
+                                 unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE)
+if not unreal.EditorAssetLibrary.save_loaded_asset(archive_arch):
+    raise RuntimeError('Archive arch collision setup could not be saved')
+
+def place_solid_arch(label, x, y, z, height, yaw=0):
+    arch = place_normalized(archive_arch, label, x, y, z, height, yaw=yaw)
+    arch.set_actor_enable_collision(True)
+    component = arch.get_editor_property('static_mesh_component')
+    component.set_collision_profile_name('BlockAll')
+    component.set_collision_enabled(unreal.CollisionEnabled.QUERY_AND_PHYSICS)
+    return arch
+
 for index in range(12):
     if index in (0, 5, 6, 7):
         continue
@@ -263,29 +280,15 @@ for index in range(12):
     x = vault_x + 820 * math.cos(angle)
     y = 820 * math.sin(angle)
     arch_ground = support_span(x, y, 185, 185)[0]
-    arch = place_normalized(archive_arch, 'ASHBOUND / Archive arch %02d' % index,
-                            x, y, arch_ground - 14, 480 + (index % 3) * 28,
-                            yaw=math.degrees(angle))
-    arch.set_actor_enable_collision(False)
-    for side in (-1, 1):
-        # The imported arch uses box collision. Narrow invisible end stops
-        # retain a walkable opening without blocking its visible aperture.
-        theta = angle + math.pi / 2
-        end_x = x + side * 190 * math.cos(theta)
-        end_y = y + side * 190 * math.sin(theta)
-        stop = spawn_mesh(cube, 'ASHBOUND / Archive end stop %02d %s' % (index, side),
-                          end_x, end_y, arch_ground + 190, .7, .7, 3.8)
-        stop.get_editor_property('static_mesh_component').set_visibility(False)
+    place_solid_arch('ASHBOUND / Archive arch %02d' % index,
+                     x, y, arch_ground - 14, 480 + (index % 3) * 28,
+                     yaw=math.degrees(angle))
 
 # A taller architectural gate frames the book on the original approach.
 west_ground = support_span(2290, 0, 140, 280)[0]
-gate = place_normalized(archive_arch, 'ASHBOUND / Archive west portal',
+gate = place_solid_arch('ASHBOUND / Archive west portal',
                         2290, 0, west_ground - 12, 720)
-gate.set_actor_enable_collision(False)
 for side in (-1, 1):
-    stop = spawn_mesh(cube, 'ASHBOUND / Portal end stop %s' % side,
-                      2290, side * 290, west_ground + 265, .85, .85, 5.3)
-    stop.get_editor_property('static_mesh_component').set_visibility(False)
     spawn_mesh(cube, 'ASHBOUND / Portal light seam %s' % side,
                2185, side * 300, west_ground + 350, .035, .025, .2, mat=rune_mat)
     # Thick, partly buried footings attach the gate to the road surface.
@@ -295,13 +298,8 @@ for side in (-1, 1):
 # The book's clue has a playable consequence: three school-matched seals
 # raise the east archive gate. These actors are native game code, not widgets.
 east_ground = support_span(3920, 0, 140, 280)[0]
-east_arch = place_normalized(archive_arch, 'ASHBOUND / Archive east gate arch',
+east_arch = place_solid_arch('ASHBOUND / Archive east gate arch',
                              3920, 0, east_ground - 12, 690, yaw=180)
-east_arch.set_actor_enable_collision(False)
-for side in (-1, 1):
-    stop = spawn_mesh(cube, 'ASHBOUND / East gate end stop %s' % side,
-                      3920, side * 285, east_ground + 250, .8, .8, 5.0)
-    stop.get_editor_property('static_mesh_component').set_visibility(False)
 gate_class = unreal.load_class(None, '/Script/ASHBOUNDUE.ASHBOUNDArchiveGate')
 seal_class = unreal.load_class(None, '/Script/ASHBOUNDUE.ASHBOUNDSeal')
 if gate_class is None or seal_class is None:
@@ -550,7 +548,7 @@ if manager is None:
 manager.set_actor_label('ASHBOUND / Living magic Q E R')
 
 start = actors.spawn_actor_from_class(unreal.PlayerStart,
-                                      unreal.Vector(1000, 0, 160), unreal.Rotator(0, 0, 0))
+                                      unreal.Vector(1000, 0, 160), unreal.Rotator(0, -27, 0))
 start.set_actor_label('ASHBOUND / Player entry')
 
 sun = actors.spawn_actor_from_class(unreal.DirectionalLight,

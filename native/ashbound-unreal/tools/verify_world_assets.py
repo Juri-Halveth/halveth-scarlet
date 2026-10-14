@@ -62,6 +62,25 @@ if not road_actor.get_actor_enable_collision() or (
 if any(a.get_actor_label() == 'ASHBOUND / Walkable central path' for a in all_actors):
     raise RuntimeError('Flat cube road still exists')
 
+archive_actors = [a for a in all_actors if a.get_actor_label().startswith(
+    'ASHBOUND / Archive arch ') or a.get_actor_label() in (
+        'ASHBOUND / Archive west portal', 'ASHBOUND / Archive east gate arch')]
+if len(archive_actors) != 10:
+    raise RuntimeError('Expected ten solid archive arches: ' + str(len(archive_actors)))
+for arch in archive_actors:
+    arch_component = arch.get_editor_property('static_mesh_component')
+    arch_mesh = arch_component.get_editor_property('static_mesh')
+    arch_body = arch_mesh.get_editor_property('body_setup')
+    if (not arch.get_actor_enable_collision() or
+            arch_component.get_collision_enabled() != unreal.CollisionEnabled.QUERY_AND_PHYSICS or
+            arch_component.get_collision_profile_name() != 'BlockAll' or
+            arch_body is None or arch_body.get_editor_property(
+                'collision_trace_flag') != unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE):
+        raise RuntimeError('Archive arch does not block on visible stone: ' +
+                           arch.get_actor_label())
+if any('end stop' in a.get_actor_label().lower() for a in all_actors):
+    raise RuntimeError('Obsolete invisible archive end stop remains')
+
 # Check saved actor transforms against the same ground frame that exported the
 # meshes. A clean build is insufficient if the portal still hovers above them.
 def world_bottom(label):
@@ -117,6 +136,7 @@ receipt = {
     'terrainTrianglesLOD0': terrain.get_num_triangles(0),
     'roadTrianglesLOD0': road.get_num_triangles(0),
     'groundContact': 'PORTALS_AND_SEALS_BOUND_TO_SHARED_SURFACE',
+    'archiveCollision': '10_VISIBLE_ARCHES_COMPLEX_AS_SIMPLE_BLOCK_ALL',
     'roadClearance': 'PLAYABLE_LANE_AT_LEAST_10_CM_ABOVE_VALLEY',
     'texturesChecked': textures,
 }
