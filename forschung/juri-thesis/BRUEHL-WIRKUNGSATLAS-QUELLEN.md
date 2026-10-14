@@ -1,6 +1,6 @@
 # Brühl konkret: Quellen, Wirkungswege und Prüffragen
 
-**Arbeitsstand 14.10.2026.** Dieses Register gehört zum [öffentlichen Wirkungsatlas](bruehl-atlas.html) und zur [T+6/T+12-Rechnung](WIRKUNGSPRUEFUNG-T6-T12.md). Die sechzehn Wege sind illustrative Falltypen, keine sechzehn verschiedenen Personen. Die benannten Einrichtungen und Angebote existieren laut ihren eigenen Webseiten; ihre Beteiligung an JURI-THESIS, Aufnahme, Finanzierung und künftige Wirkung sind nicht belegt. Die Links wurden am 14.10.2026 als Recherchequellen geprüft. Dynamische Angebote sind beim tatsächlichen Pilotstart erneut zu prüfen.
+**Arbeitsstand 14.10.2026.** Dieses Register gehört zum [öffentlichen Wirkungsatlas](bruehl-atlas.html) und zur [T+6/T+12-Rechnung](WIRKUNGSPRUEFUNG-T6-T12.md). Die sechzehn Hauptwege und vierzehn Anschlussvarianten sind illustrative Falltypen, keine dreißig verschiedenen Personen. Die benannten Einrichtungen und Angebote existieren laut ihren eigenen Webseiten; ihre Beteiligung an JURI-THESIS, Aufnahme, Finanzierung und künftige Wirkung sind nicht belegt. Die Links wurden am 14.10.2026 als Recherchequellen geprüft. Dynamische Angebote sind beim tatsächlichen Pilotstart erneut zu prüfen.
 
 ## 1. Entscheidungsfrage
 
@@ -102,7 +102,7 @@ Die [Kommunalfinanzübersicht des BMF](https://www.bundesfinanzministerium.de/We
 
 Für eine Stadtstelle gilt eine weitere Trennung: Die [Destatis-Methode für den Sektor Staat](https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/Methoden/erlaeuterung-sektor-staat.html) bewertet Nichtmarktproduktion über Kosten. Die Bruttowertschöpfung enthält nicht die Vorleistungen; diese sind erst Teil des Produktionswerts. Eine städtische Lohnzahlung ist daher weder der private Betriebsgewinn aus dem Beispiel noch ein freier kommunaler Rückfluss. Nutzen durch kürzere Wartezeiten, besser gepflegtes Stadtgrün oder die Besetzung einer Vakanz ist ein eigener Qualitäts- und Kostenfall mit vorher gebundenem Gegenfaktum.
 
-### Drei Steuerwege, die in der Wirkungsschätzung getrennt bleiben
+### Vier Steuerwege, die in der Wirkungsschätzung getrennt bleiben
 
 | Weg | Primärquelle | Zurechnung für einen möglichen Brühler Effekt | Benötigter Zusatzbeleg |
 | --- | --- | --- | --- |
