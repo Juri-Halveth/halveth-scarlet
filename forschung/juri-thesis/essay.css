@@ -29,3 +29,6 @@ body{background:var(--essay-paper)}
 .essay-body>p{font-size:1.02rem}
 @media(max-width:900px){.essay-hero{grid-template-columns:minmax(0,650px);gap:20px}.essay-hero-mark{width:210px;font-size:4.3rem}.essay-section{grid-template-columns:minmax(0,780px);gap:14px}}
 @media(max-width:700px){.essay-hero{padding:42px 20px}.essay-hero h1{font-size:clamp(2.8rem,10vw,4rem)}.essay-section{display:block;width:100%;max-width:100%;padding:58px 20px}.essay-body{min-width:0;max-width:100%}.essay-body h2{font-size:clamp(2.2rem,9vw,3rem)}.seat-portal{grid-template-columns:minmax(0,1fr);width:100%;max-width:100%}.seat-portal article{min-width:0}.seat-math{overflow-wrap:anywhere}}
+.law-hero{min-height:540px;padding-block:64px}
+.law-hero h1{font-size:clamp(3.1rem,5.6vw,5.8rem)}
+@media(max-width:700px){.law-hero{min-height:0;padding-block:50px}.law-hero h1{font-size:clamp(2.8rem,10vw,4.4rem)}}
