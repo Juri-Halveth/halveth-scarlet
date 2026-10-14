@@ -162,6 +162,7 @@ def make_vault_material(name, color, roughness, glow=0):
 leather_mat = make_vault_material('M_VaultLeather', (.055, .095, .13), .54)
 paper_mat = make_vault_material('M_VaultPaper', (.72, .64, .49), .84)
 bronze_mat = make_vault_material('M_VaultBronze', (.25, .15, .07), .26)
+iron_mat = make_vault_material('M_VaultIron', (.44, .50, .55), .23)
 rune_mat = make_vault_material('M_VaultRune', (.012, .22, .29), .38, 2.0)
 
 def spawn_mesh(mesh, label, x, y, z, sx=1, sy=None, sz=None, yaw=0, pitch=0, mat=None):
@@ -346,6 +347,18 @@ for volume_index, (side, title, dx, dy, yaw, surface_z, radius) in enumerate(boo
                       -(bounds.min.y + bounds.max.y) * book_scale / 2,
                       surface_z - root_z - bounds.min.x * book_scale),
         sweep=False, teleport=False)
+
+# Only the loose metal dagger is magnetizable. The books and desks keep their
+# ordinary support relationship and never inherit the metal ability.
+dagger = model('ornate_medieval_dagger')
+dagger_bounds = dagger.get_bounding_box()
+dagger_scale = 1.2
+dagger_mid_z = (dagger_bounds.min.z + dagger_bounds.max.z) / 2
+relic = spawn_mesh(dagger, 'ASHBOUND / Loose metal dagger - M',
+                   vault_x + dagger_mid_z * dagger_scale, 327,
+                   106 - dagger_bounds.min.x * dagger_scale,
+                   dagger_scale, yaw=25, pitch=90, mat=iron_mat)
+relic.set_editor_property('tags', [unreal.Name('ASHBOUND_Magnetic')])
 
 for index, (x, y, hue) in enumerate(((2530, -520, (.28, .55, .7)),
                                      (2530, 520, (1.0, .66, .35)),

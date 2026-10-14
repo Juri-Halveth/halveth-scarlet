@@ -22,12 +22,13 @@
 
 AASHBOUNDSpellManager::AASHBOUNDSpellManager()
 {
-    PrimaryActorTick.bCanEverTick = false;
+    PrimaryActorTick.bCanEverTick = true;
 }
 
 void AASHBOUNDSpellManager::BeginPlay()
 {
     Super::BeginPlay();
+    SetActorTickEnabled(false);
     APlayerController* Player = UGameplayStatics::GetPlayerController(this, 0);
     if (Player)
     {
@@ -38,13 +39,26 @@ void AASHBOUNDSpellManager::BeginPlay()
             InputComponent->BindKey(EKeys::E, IE_Pressed, this, &AASHBOUNDSpellManager::CastEmber);
             InputComponent->BindKey(EKeys::R, IE_Pressed, this, &AASHBOUNDSpellManager::CastReweave);
             InputComponent->BindKey(EKeys::F, IE_Pressed, this, &AASHBOUNDSpellManager::StudyNearestBook);
+            InputComponent->BindKey(EKeys::M, IE_Pressed, this, &AASHBOUNDSpellManager::ToggleMagnetism);
             InputComponent->BindKey(EKeys::Escape, IE_Pressed, this, &AASHBOUNDSpellManager::StopReading);
         }
     }
     if (GEngine)
     {
         GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor(152, 231, 218),
-            TEXT("ASHBOUND | Q Resonanz   E Glut   R Neufassung   F Buch lesen"));
+            TEXT("ASHBOUND | Q/E/R Zauber   F Buch lesen   M Metall anziehen/loslassen"));
+    }
+
+    for (TActorIterator<AStaticMeshActor> It(GetWorld()); It; ++It)
+    {
+        if (!It->ActorHasTag(TEXT("ASHBOUND_Magnetic"))) continue;
+        UStaticMeshComponent* Mesh = It->GetStaticMeshComponent();
+        if (!Mesh) continue;
+        Mesh->SetMobility(EComponentMobility::Movable);
+        Mesh->SetCollisionProfileName(TEXT("PhysicsActor"));
+        Mesh->SetSimulatePhysics(true);
+        Mesh->SetEnableGravity(true);
+        Mesh->SetLinearDamping(0.6f);
     }
 
     const FVector Anchors[] = {
@@ -58,7 +72,7 @@ void AASHBOUNDSpellManager::BeginPlay()
             AASHBOUNDSpell::StaticClass(), Anchors[Index], FRotator::ZeroRotator);
         if (Wisp) Wisp->Initialize(Index, Anchors[Index], true);
     }
-    UE_LOG(LogTemp, Display, TEXT("ASHBOUND living magic ready; three ambient wisps, Q/E/R/F input"));
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND living magic ready; three ambient wisps, Q/E/R/F/M input"));
 
 #if !UE_BUILD_SHIPPING
     float OrbitAngle = 0.0f;
@@ -203,6 +217,63 @@ void AASHBOUNDSpellManager::BeginPlay()
         GetWorld()->GetTimerManager().SetTimer(SpellTimer,
             FTimerDelegate::CreateUObject(this, &AASHBOUNDSpellManager::CastReweave), 1.6f, false);
     }
+    const bool bMagnetVisual = FParse::Param(FCommandLine::Get(), TEXT("ashboundqamagnetvisual"));
+    if (bMagnetVisual || FParse::Param(FCommandLine::Get(), TEXT("ashboundqamagnet")))
+    {
+        FTimerHandle MagnetTimer;
+        GetWorld()->GetTimerManager().SetTimer(MagnetTimer,
+            FTimerDelegate::CreateWeakLambda(this, [this, bMagnetVisual]()
+        {
+            APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
+            if (!Controller || !Controller->GetPawn()) return;
+            Controller->GetPawn()->SetActorLocation(FVector(2740, 327, 160));
+            Controller->SetControlRotation(FRotator::ZeroRotator);
+            AStaticMeshActor* Relic = nullptr;
+            for (TActorIterator<AStaticMeshActor> It(GetWorld()); It; ++It)
+                if (It->ActorHasTag(TEXT("ASHBOUND_Magnetic"))) { Relic = *It; break; }
+            if (!Relic)
+            {
+                UE_LOG(LogTemp, Error, TEXT("ASHBOUND_MAGNET_QA missing relic"));
+                return;
+            }
+            FTimerHandle PullTimer;
+            GetWorld()->GetTimerManager().SetTimer(PullTimer,
+                FTimerDelegate::CreateWeakLambda(this, [this, Relic, bMagnetVisual]()
+            {
+                const FVector Start = Relic->GetStaticMeshComponent()->GetComponentLocation();
+                ToggleMagnetism();
+                if (bMagnetVisual) return;
+                FTimerHandle CheckTimer;
+                GetWorld()->GetTimerManager().SetTimer(CheckTimer,
+                    FTimerDelegate::CreateWeakLambda(this, [this, Relic, Start]()
+                {
+                    const FVector End = Relic->GetStaticMeshComponent()->GetComponentLocation();
+                    const bool bAttracted = MagneticRelic.Get() == Relic &&
+                        FVector::Dist(Start, End) > 35.0f && End.Z > Start.Z + 20.0f;
+                    ToggleMagnetism();
+                    const bool bReleased = !MagneticRelic.IsValid() &&
+                        Relic->GetStaticMeshComponent()->IsGravityEnabled();
+                    UE_LOG(LogTemp, Display,
+                        TEXT("ASHBOUND_MAGNET_QA attracted=%d released=%d moved=%.1f lifted=%.1f pass=%d"),
+                        bAttracted ? 1 : 0, bReleased ? 1 : 0,
+                        FVector::Dist(Start, End), End.Z - Start.Z,
+                        bAttracted && bReleased ? 1 : 0);
+                    if (!bAttracted || !bReleased)
+                        UE_LOG(LogTemp, Error, TEXT("ASHBOUND_MAGNET_QA FAIL"));
+                    FTimerHandle DropTimer;
+                    GetWorld()->GetTimerManager().SetTimer(DropTimer,
+                        FTimerDelegate::CreateWeakLambda(this, [Relic, End]()
+                    {
+                        const float Drop = End.Z - Relic->GetStaticMeshComponent()->GetComponentLocation().Z;
+                        UE_LOG(LogTemp, Display, TEXT("ASHBOUND_MAGNET_DROP descended=%.1f pass=%d"),
+                            Drop, Drop > 20.0f ? 1 : 0);
+                        if (Drop <= 20.0f)
+                            UE_LOG(LogTemp, Error, TEXT("ASHBOUND_MAGNET_DROP FAIL"));
+                    }), 1.2f, false);
+                }), 2.0f, false);
+            }), 0.3f, false);
+        }), 1.0f, false);
+    }
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqapuzzle")))
     {
         FTimerHandle PuzzleTimer;
@@ -321,6 +392,83 @@ void AASHBOUNDSpellManager::VerifyTerrainCollision()
 void AASHBOUNDSpellManager::CastResonance() { CastSchool(0); }
 void AASHBOUNDSpellManager::CastEmber() { CastSchool(1); }
 void AASHBOUNDSpellManager::CastReweave() { CastSchool(2); }
+
+void AASHBOUNDSpellManager::Tick(float DeltaSeconds)
+{
+    Super::Tick(DeltaSeconds);
+    AStaticMeshActor* Relic = MagneticRelic.Get();
+    APlayerController* Player = UGameplayStatics::GetPlayerController(this, 0);
+    if (!Relic || !Player)
+    {
+        SetActorTickEnabled(false);
+        return;
+    }
+    UStaticMeshComponent* Mesh = Relic->GetStaticMeshComponent();
+    if (!Mesh || !Mesh->IsSimulatingPhysics())
+    {
+        MagneticRelic.Reset();
+        SetActorTickEnabled(false);
+        return;
+    }
+    FVector Eye;
+    FRotator Look;
+    Player->GetPlayerViewPoint(Eye, Look);
+    const FVector Target = Eye + Look.Vector() * 190.0f;
+    const FVector Displacement = Target - Mesh->GetComponentLocation();
+    const FVector Force = (Displacement * 850.0f - Mesh->GetPhysicsLinearVelocity() * 130.0f)
+        .GetClampedToMaxSize(250000.0f);
+    Mesh->AddForce(Force);
+}
+
+void AASHBOUNDSpellManager::ToggleMagnetism()
+{
+    if (AStaticMeshActor* Held = MagneticRelic.Get())
+    {
+        if (UStaticMeshComponent* Mesh = Held->GetStaticMeshComponent())
+        {
+            Mesh->SetEnableGravity(true);
+            Mesh->SetLinearDamping(0.6f);
+        }
+        MagneticRelic.Reset();
+        SetActorTickEnabled(false);
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND_MAGNET released"));
+        return;
+    }
+    APlayerController* Player = UGameplayStatics::GetPlayerController(this, 0);
+    if (!Player || !GetWorld()) return;
+    FVector Eye;
+    FRotator Look;
+    Player->GetPlayerViewPoint(Eye, Look);
+    AStaticMeshActor* Selected = nullptr;
+    float NearestDistance = 450.0f;
+    for (TActorIterator<AStaticMeshActor> It(GetWorld()); It; ++It)
+    {
+        if (!It->ActorHasTag(TEXT("ASHBOUND_Magnetic"))) continue;
+        UStaticMeshComponent* Mesh = It->GetStaticMeshComponent();
+        if (!Mesh || !Mesh->IsSimulatingPhysics()) continue;
+        const FVector Direction = Mesh->GetComponentLocation() - Eye;
+        const float Distance = Direction.Size();
+        if (Distance < NearestDistance &&
+            FVector::DotProduct(Direction.GetSafeNormal(), Look.Vector()) > 0.50f)
+        {
+            Selected = *It;
+            NearestDistance = Distance;
+        }
+    }
+    if (!Selected)
+    {
+        if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::White,
+            TEXT("Kein magnetisierbares Metall im Blickfeld."));
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND_MAGNET no eligible metal"));
+        return;
+    }
+    UStaticMeshComponent* Mesh = Selected->GetStaticMeshComponent();
+    Mesh->SetEnableGravity(false);
+    Mesh->SetLinearDamping(2.0f);
+    MagneticRelic = Selected;
+    SetActorTickEnabled(true);
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_MAGNET attracted %s"), *Selected->GetName());
+}
 
 void AASHBOUNDSpellManager::StudyNearestBook()
 {

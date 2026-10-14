@@ -4,6 +4,8 @@
 #include "GameFramework/Actor.h"
 #include "ASHBOUNDSpellManager.generated.h"
 
+class AStaticMeshActor;
+
 UCLASS()
 class ASHBOUNDUE_API AASHBOUNDSpellManager : public AActor
 {
@@ -11,6 +13,7 @@ class ASHBOUNDUE_API AASHBOUNDSpellManager : public AActor
 
 public:
     AASHBOUNDSpellManager();
+    virtual void Tick(float DeltaSeconds) override;
 
 protected:
     virtual void BeginPlay() override;
@@ -25,4 +28,6 @@ private:
 #endif
     void StudyNearestBook();
     void StopReading();
+    void ToggleMagnetism();
+    TWeakObjectPtr<AStaticMeshActor> MagneticRelic;
 };
