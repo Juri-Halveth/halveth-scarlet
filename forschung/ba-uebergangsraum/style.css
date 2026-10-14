@@ -32,7 +32,7 @@ h3{font-size:1.32rem;line-height:1.2;margin:8px 0 14px}
 .signal-grid strong{display:block;font-size:1.3rem}
 .signal-grid span{color:var(--muted);font-size:.88rem}
 section:not(.hero){scroll-margin-top:32px}
-.context,.day,.pilot,.history,.sources{padding-block:90px}
+.context,.day,.pilot,.commitment,.history,.sources{padding-block:90px}
 .section-intro{max-width:850px;margin-bottom:32px}
 .section-intro>p{color:var(--muted);font-size:1.1rem}
 .facts,.example-grid,.day-grid,.source-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -82,7 +82,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .wrap{width:min(100% - 28px,1120px)}
 nav{gap:9px}
 .signal-grid,.role-grid,.pilot-steps,.history-line{grid-template-columns:1fr}
-.context,.day,.pilot,.history,.sources,.role-band,.chess{padding-block:62px}
+.context,.day,.pilot,.commitment,.history,.sources,.role-band,.chess{padding-block:62px}
 h1{font-size:clamp(2.7rem,11vw,4rem)}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
