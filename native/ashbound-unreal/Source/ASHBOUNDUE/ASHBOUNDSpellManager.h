@@ -7,6 +7,7 @@
 class AStaticMeshActor;
 class AASHBOUNDGenesis;
 class AASHBOUNDWitness;
+class AASHBOUNDDreamer;
 class UASHBOUNDStoryMemory;
 
 UCLASS()
@@ -24,6 +25,7 @@ public:
     bool IsJournalOpen() const { return bJournalOpen; }
     int32 GetStoryStage() const { return StoryStage; }
     void OnSealActivated(int32 School);
+    void TryOpenArchive();
 
 protected:
     virtual void BeginPlay() override;
@@ -37,6 +39,8 @@ private:
     void VerifyTerrainCollision();
 #endif
     void StudyNearestBook();
+    void RefuseWrit();
+    void DecideWrit(int32 Decision);
     void StopReading();
     void ToggleMagnetism();
     void TriggerGenesis();
@@ -48,6 +52,7 @@ private:
     TWeakObjectPtr<AStaticMeshActor> MagneticRelic;
     TWeakObjectPtr<AASHBOUNDGenesis> Genesis;
     TWeakObjectPtr<AASHBOUNDWitness> Witness;
+    TWeakObjectPtr<AASHBOUNDDreamer> Dreamer;
     UPROPERTY()
     TObjectPtr<UASHBOUNDStoryMemory> StoryMemory;
     FString Objective;

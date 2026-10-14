@@ -1,5 +1,4 @@
 #include "ASHBOUNDSeal.h"
-#include "ASHBOUNDArchiveGate.h"
 #include "ASHBOUNDSpellManager.h"
 
 #include "Components/PointLightComponent.h"
@@ -83,12 +82,6 @@ bool AASHBOUNDSeal::Activate(int32 SpellSchool)
     }
     if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor(180, 238, 255),
         FString::Printf(TEXT("Archivzeichen %d / %d"), Charged, Count));
-    if (Count == 3 && Charged == Count)
-    {
-        for (TActorIterator<AASHBOUNDArchiveGate> It(GetWorld()); It; ++It)
-        {
-            It->OpenGate();
-        }
-    }
+    // The manager evaluates the saved choice and knowledge after every seal.
     return true;
 }

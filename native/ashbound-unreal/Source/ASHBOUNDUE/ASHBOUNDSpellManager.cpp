@@ -7,6 +7,8 @@
 #include "ASHBOUNDSeal.h"
 #include "ASHBOUNDStoryMemory.h"
 #include "ASHBOUNDWitness.h"
+#include "ASHBOUNDDreamer.h"
+#include "ASHBOUNDArchiveGate.h"
 #include "Components/InputComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/Engine.h"
@@ -65,6 +67,7 @@ void AASHBOUNDSpellManager::BeginPlay()
             InputComponent->BindKey(EKeys::E, IE_Pressed, this, &AASHBOUNDSpellManager::CastEmber);
             InputComponent->BindKey(EKeys::R, IE_Pressed, this, &AASHBOUNDSpellManager::CastReweave);
             InputComponent->BindKey(EKeys::F, IE_Pressed, this, &AASHBOUNDSpellManager::StudyNearestBook);
+            InputComponent->BindKey(EKeys::V, IE_Pressed, this, &AASHBOUNDSpellManager::RefuseWrit);
             InputComponent->BindKey(EKeys::M, IE_Pressed, this, &AASHBOUNDSpellManager::ToggleMagnetism);
             InputComponent->BindKey(EKeys::B, IE_Pressed, this, &AASHBOUNDSpellManager::TriggerGenesis);
             InputComponent->BindKey(EKeys::J, IE_Pressed, this, &AASHBOUNDSpellManager::ToggleJournal);
@@ -89,6 +92,9 @@ void AASHBOUNDSpellManager::BeginPlay()
         FVector(1450.0f, 625.0f, 108.0f), FRotator::ZeroRotator);
     Witness = GetWorld()->SpawnActor<AASHBOUNDWitness>(AASHBOUNDWitness::StaticClass(),
         FVector(1710.0f, -360.0f, 5.0f), FRotator(0, 90, 0));
+    // Ground height from the authored valley surface at (3200, 850).
+    Dreamer = GetWorld()->SpawnActor<AASHBOUNDDreamer>(AASHBOUNDDreamer::StaticClass(),
+        FVector(3200.0f, 850.0f, -11.7f), FRotator(0, -90, 0));
     RestoreStory();
     // The first-person template may apply a stale mouse delta while its window
     // gains focus. Establish one authored entry view after possession settles.
@@ -113,7 +119,7 @@ void AASHBOUNDSpellManager::BeginPlay()
 #if !UE_BUILD_SHIPPING
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqastory")))
     {
-        FTimerHandle WitnessTimer, BookTimer, SealsTimer, PassageTimer, FortTimer;
+        FTimerHandle WitnessTimer, BookTimer, DecisionTimer, SealsTimer, PassageTimer, FortTimer;
         GetWorld()->GetTimerManager().SetTimer(WitnessTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
         {
             APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
@@ -143,6 +149,43 @@ void AASHBOUNDSpellManager::BeginPlay()
                 UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_QA book_stage=%d"), StoryStage);
             }), 0.3f, false);
         }), 2.0f, false);
+        GetWorld()->GetTimerManager().SetTimer(DecisionTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            StopReading();
+            APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
+            if (!Controller || !Controller->GetPawn() || !Dreamer.IsValid()) return;
+            const FVector Position(3200, 580, 160);
+            Controller->GetPawn()->SetActorLocation(Position);
+            Controller->SetControlRotation((Dreamer->GetActorLocation() + FVector(0, 0, 90)
+                                            - Position - FVector(0, 0, 65)).Rotation());
+            // StopReading blends from the book camera back to the pawn. Wait
+            // for that blend before testing the real gaze-gated input path.
+            FTimerHandle ReturnViewTimer;
+            GetWorld()->GetTimerManager().SetTimer(ReturnViewTimer,
+                FTimerDelegate::CreateWeakLambda(this, [this]()
+            {
+                APlayerController* View = UGameplayStatics::GetPlayerController(this, 0);
+                if (View && Dreamer.IsValid())
+                {
+                    FVector Eye;
+                    FRotator Look;
+                    View->GetPlayerViewPoint(Eye, Look);
+                    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_QA dreamer_gaze=%d eye=%s"),
+                        Dreamer->CanDecide(Eye, Look.Vector()) ? 1 : 0, *Eye.ToString());
+                }
+                RefuseWrit();
+                int32 Studied = 0;
+                for (TActorIterator<AASHBOUNDGrimoire> It(GetWorld()); It; ++It)
+                {
+                    if (!It->IsStudied()) It->Study();
+                    if (It->IsStudied()) ++Studied;
+                }
+                StopReading();
+                UpdateStory(0.2f);
+                UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_QA antiquest=%d books=%d"),
+                    StoryMemory && StoryMemory->WritDecision == 2 ? 1 : 0, Studied);
+            }), 0.65f, false);
+        }), 2.6f, false);
         GetWorld()->GetTimerManager().SetTimer(SealsTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
         {
             for (TActorIterator<AASHBOUNDSeal> It(GetWorld()); It; ++It)
@@ -167,10 +210,42 @@ void AASHBOUNDSpellManager::BeginPlay()
             if (!Controller || !Controller->GetPawn()) return;
             Controller->GetPawn()->SetActorLocation(FVector(5840, 0, 160));
             UpdateStory(0.2f);
-            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_QA final_stage=%d pass=%d"),
-                StoryStage, StoryStage == 5 ? 1 : 0);
-            if (StoryStage != 5) UE_LOG(LogTemp, Error, TEXT("ASHBOUND_STORY_QA FAIL"));
+            bool bGateOpen = false;
+            for (TActorIterator<AASHBOUNDArchiveGate> It(GetWorld()); It; ++It)
+                bGateOpen |= It->IsOpen();
+            const bool bPass = StoryStage == 5 && StoryMemory &&
+                StoryMemory->WritDecision == 2 && Dreamer.IsValid() &&
+                Dreamer->GetRememberedVolumes() == 3 && bGateOpen;
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_QA final_stage=%d memory=%d gate=%d pass=%d"),
+                StoryStage, Dreamer.IsValid() ? Dreamer->GetRememberedVolumes() : -1,
+                bGateOpen ? 1 : 0, bPass ? 1 : 0);
+            if (!bPass)
+                UE_LOG(LogTemp, Error, TEXT("ASHBOUND_STORY_QA FAIL"));
         }), 7.0f, false);
+    }
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqawritdark")))
+    {
+        FTimerHandle ChoiceTimer, CheckTimer;
+        GetWorld()->GetTimerManager().SetTimer(ChoiceTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            bSpokenToWitness = true;
+            if (StoryMemory) StoryMemory->bMetWitness = true;
+            if (AASHBOUNDWitness* Keeper = Witness.Get()) Keeper->Awaken();
+            for (TActorIterator<AASHBOUNDGrimoire> It(GetWorld()); It; ++It)
+                if (It->VolumeIndex == 0 && !It->IsStudied()) It->Study();
+            StopReading();
+            DecideWrit(1);
+        }), 1.0f, false);
+        GetWorld()->GetTimerManager().SetTimer(CheckTimer, FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            bool bGateOpen = false;
+            for (TActorIterator<AASHBOUNDArchiveGate> It(GetWorld()); It; ++It)
+                bGateOpen |= It->IsOpen();
+            const bool bPass = StoryMemory && StoryMemory->WritDecision == 1 && bGateOpen;
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_WRIT_DARK_QA decision=%d gate=%d pass=%d"),
+                StoryMemory ? StoryMemory->WritDecision : -1, bGateOpen ? 1 : 0, bPass ? 1 : 0);
+            if (!bPass) UE_LOG(LogTemp, Error, TEXT("ASHBOUND_WRIT_DARK_QA FAIL"));
+        }), 4.0f, false);
     }
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqagenesis")))
     {
@@ -561,6 +636,17 @@ void AASHBOUNDSpellManager::RestoreStory()
             UGameplayStatics::CreateSaveGameObject(UASHBOUNDStoryMemory::StaticClass()));
     }
     if (!StoryMemory) return;
+    if (StoryMemory->WritDecision == 0 &&
+        (!StoryMemory->ChargedSchools.IsEmpty() || StoryMemory->bReachedFort))
+    {
+        // The pre-choice chapter used the three seals. Keep that completed
+        // route intact instead of re-locking an existing save.
+        StoryMemory->WritDecision = 3;
+        SaveStory();
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND_WRIT legacy seal route preserved"));
+    }
+    if (AASHBOUNDDreamer* Sleeper = Dreamer.Get())
+        Sleeper->SetDecision(StoryMemory->WritDecision);
     bSpokenToWitness = StoryMemory->bMetWitness;
     bReachedFort = StoryMemory->bReachedFort;
     if (bSpokenToWitness)
@@ -581,13 +667,17 @@ void AASHBOUNDSpellManager::RestoreStory()
                     It->Activate(It->GetRequiredSchool());
             }
             bRestoringStory = false;
+            TryOpenArchive();
             UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_SAVE restored seals=%d fort=%d"),
                 StoryMemory->ChargedSchools.Num(), bReachedFort ? 1 : 0);
         }), 0.6f, false);
     }
     else
+    {
+        TryOpenArchive();
         UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_SAVE restored seals=0 fort=%d"),
             bReachedFort ? 1 : 0);
+    }
 }
 
 void AASHBOUNDSpellManager::SaveStory()
@@ -602,8 +692,36 @@ void AASHBOUNDSpellManager::OnSealActivated(int32 School)
     if (!StoryMemory || bRestoringStory) return;
     StoryMemory->ChargedSchools.AddUnique(School);
     SaveStory();
+    TryOpenArchive();
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY_SAVE seal=%d count=%d"),
         School, StoryMemory->ChargedSchools.Num());
+}
+
+void AASHBOUNDSpellManager::TryOpenArchive()
+{
+    if (!StoryMemory || !GetWorld()) return;
+    bool bMayOpen = StoryMemory->WritDecision == 1;
+    if (StoryMemory->WritDecision == 2)
+    {
+        int32 Studied = 0;
+        for (TActorIterator<AASHBOUNDGrimoire> It(GetWorld()); It; ++It)
+            if (It->IsStudied()) ++Studied;
+        int32 Charged = 0;
+        for (TActorIterator<AASHBOUNDSeal> It(GetWorld()); It; ++It)
+            if (It->IsActive()) ++Charged;
+        bMayOpen = Studied >= 3 && Charged >= 3 && Dreamer.IsValid() &&
+            Dreamer->GetRememberedVolumes() == 3;
+    }
+    if (StoryMemory->WritDecision == 3)
+    {
+        int32 Charged = 0;
+        for (TActorIterator<AASHBOUNDSeal> It(GetWorld()); It; ++It)
+            if (It->IsActive()) ++Charged;
+        bMayOpen = Charged >= 3 || StoryMemory->bReachedFort;
+    }
+    if (!bMayOpen) return;
+    for (TActorIterator<AASHBOUNDArchiveGate> It(GetWorld()); It; ++It)
+        It->OpenGate();
 }
 
 void AASHBOUNDSpellManager::SetStoryStage(int32 NewStage)
@@ -625,12 +743,30 @@ void AASHBOUNDSpellManager::SetStoryStage(int32 NewStage)
         break;
     case 2:
         Objective = TEXT("Erwecke die drei Archivzeichen mit Q, E und R");
-        JournalLine = TEXT("Resonanz, Glut und Neufassung antworten auf je ein eigenes Zeichen.");
-        StoryLine = TEXT("Die Schrift bleibt in dir. Jetzt antworten die Zeichen auf deine Zauber.");
+        JournalLine = StoryMemory && StoryMemory->WritDecision == 2
+            ? TEXT("Die Hüterin erinnert sich: Das Archiv selbst schrieb den Opferbefehl für sein altes Tor.")
+            : TEXT("Resonanz, Glut und Neufassung antworten auf je ein eigenes Zeichen.");
+        StoryLine = StoryMemory && StoryMemory->WritDecision == 2
+            ? TEXT("HÜTERIN: Ihre Regel ist nicht die einzige. Drei Zeichen genügen.")
+            : TEXT("Die Schrift bleibt in dir. Jetzt antworten die Zeichen auf deine Zauber.");
+        break;
+    case 6:
+        Objective = TEXT("Finde die Schlafende nördlich des Archivs");
+        JournalLine = TEXT("Der Archivbefehl verlangt ihr Leben. An ihrem Lager: F vollstrecken, V verweigern.");
+        StoryLine = TEXT("ARCHIV: Eine Schlafende für ein offenes Tor. Die Zeugin schweigt.");
+        break;
+    case 7:
+        Objective = TEXT("Gegenweg: Lies alle drei Bücher");
+        JournalLine = TEXT("Du hast verweigert. Die Hüterin erinnert sich durch Ilyra, Neral und Kael.");
+        StoryLine = TEXT("SCHLAFENDE: Was sie als Preis bezeichneten, war ein Mensch.");
         break;
     case 3:
         Objective = TEXT("Durchquere das geöffnete Osttor");
-        JournalLine = TEXT("Alle drei Zeichen glühen. Der Weg zur Festung öffnet sich.");
+        JournalLine = StoryMemory && StoryMemory->WritDecision == 1
+            ? TEXT("Das Archiv nahm den dunklen Preis. Ihr Licht bleibt aus.")
+            : StoryMemory && StoryMemory->WritDecision == 2
+                ? TEXT("Die Hüterin lebt. Schrift und drei Zeichen öffneten den Ostweg.")
+                : TEXT("Die drei Archivzeichen öffneten den Ostweg.");
         StoryLine = TEXT("Das Tor hebt sich. Hinter dem Archiv beginnt eine andere Geschichte.");
         break;
     case 4:
@@ -640,7 +776,11 @@ void AASHBOUNDSpellManager::SetStoryStage(int32 NewStage)
         break;
     default:
         Objective = TEXT("Kapitel I abgeschlossen: Die Festung erreicht");
-        JournalLine = TEXT("Du hast die Zeugin gehört, gelesen, die Zeichen erweckt und die Festung erreicht.");
+        JournalLine = StoryMemory && StoryMemory->WritDecision == 1
+            ? TEXT("Die Festung ist erreicht. Das Archiv öffnete sich auf Kosten der Schlafenden.")
+            : StoryMemory && StoryMemory->WritDecision == 2
+                ? TEXT("Die Festung ist erreicht. Die Schlafende lebt; der Gegenweg bleibt Teil deiner Geschichte.")
+                : TEXT("Du hast die Zeugin gehört, gelesen und die Festung erreicht.");
         StoryLine = TEXT("ZEUGIN: Ein Weg ist offen. Was hier erwacht, bleibt deine Entscheidung.");
         break;
     }
@@ -679,6 +819,17 @@ void AASHBOUNDSpellManager::UpdateStory(float DeltaSeconds)
         if (Keeper->CanSpeak(Eye, Look.Vector()))
             InteractionPrompt = TEXT("F  Mit der Zeugin sprechen");
     }
+    if (StoryMemory && StoryMemory->WritDecision == 0 && bSpokenToWitness)
+    {
+        bool bReadIlyra = false;
+        for (TActorIterator<AASHBOUNDGrimoire> It(GetWorld()); It; ++It)
+            if (It->VolumeIndex == 0) bReadIlyra |= It->IsStudied();
+        if (bReadIlyra && Dreamer.IsValid() && Dreamer->CanDecide(Eye, Look.Vector()))
+            InteractionPrompt = TEXT("F  Befehl vollstrecken    V  Verweigern");
+    }
+    if (StoryMemory && StoryMemory->WritDecision == 2 && Dreamer.IsValid() &&
+        Dreamer->CanDecide(Eye, Look.Vector()))
+        InteractionPrompt = TEXT("F  Mit der Hüterin sprechen");
     if (InteractionPrompt.IsEmpty())
     {
         for (TActorIterator<AASHBOUNDGrimoire> It(GetWorld()); It; ++It)
@@ -702,15 +853,37 @@ void AASHBOUNDSpellManager::UpdateStory(float DeltaSeconds)
     }
     if (!bFirstBookStudied) { SetStoryStage(1); return; }
 
+    if (StoryMemory && StoryMemory->WritDecision == 0)
+    {
+        SetStoryStage(6);
+        return;
+    }
+
+    if (StoryMemory && StoryMemory->WritDecision == 2)
+    {
+        int32 Studied = 0;
+        for (TActorIterator<AASHBOUNDGrimoire> It(GetWorld()); It; ++It)
+            if (It->IsStudied()) ++Studied;
+        if (AASHBOUNDDreamer* Sleeper = Dreamer.Get())
+            Sleeper->LearnFromBooks(Studied);
+        if (Studied < 3)
+        {
+            SetStoryStage(7);
+            Objective = FString::Printf(TEXT("Gegenweg: Bücher lesen  %d / 3"), Studied);
+            return;
+        }
+    }
+
     int32 Charged = 0;
     for (TActorIterator<AASHBOUNDSeal> It(GetWorld()); It; ++It)
         if (It->IsActive()) ++Charged;
-    if (Charged < 3)
+    if (StoryMemory && StoryMemory->WritDecision != 1 && Charged < 3)
     {
         SetStoryStage(2);
         Objective = FString::Printf(TEXT("Archivzeichen erwecken  %d / 3"), Charged);
         return;
     }
+    TryOpenArchive();
     if (Player->GetPawn()->GetActorLocation().X < 4200.0f)
     {
         SetStoryStage(3);
@@ -805,6 +978,26 @@ void AASHBOUNDSpellManager::StudyNearestBook()
     FVector Eye;
     FRotator Look;
     Player->GetPlayerViewPoint(Eye, Look);
+    if (StoryMemory && StoryMemory->WritDecision == 0 && bSpokenToWitness && Dreamer.IsValid())
+    {
+        bool bReadIlyra = false;
+        for (TActorIterator<AASHBOUNDGrimoire> It(GetWorld()); It; ++It)
+            if (It->VolumeIndex == 0) bReadIlyra |= It->IsStudied();
+        if (bReadIlyra && Dreamer->CanDecide(Eye, Look.Vector()))
+        {
+            DecideWrit(1);
+            return;
+        }
+    }
+    if (StoryMemory && StoryMemory->WritDecision == 2 && Dreamer.IsValid() &&
+        Dreamer->CanDecide(Eye, Look.Vector()))
+    {
+        StoryLine = Dreamer->GetRememberedVolumes() == 3
+            ? TEXT("HÜTERIN: Das Archiv schrieb den Befehl. Ich kann jetzt seine andere Regel lesen.")
+            : TEXT("HÜTERIN: Die drei Bücher tragen Teile meiner Erinnerung.");
+        StoryLineRemaining = 9.0f;
+        return;
+    }
     if (AASHBOUNDWitness* Keeper = Witness.Get())
     {
         if (Keeper->CanSpeak(Eye, Look.Vector()))
@@ -834,6 +1027,31 @@ void AASHBOUNDSpellManager::StudyNearestBook()
     if (Nearest) Nearest->Study();
     else if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::White,
         TEXT("Nähere dich dem Buch und sieh es an."));
+}
+
+void AASHBOUNDSpellManager::RefuseWrit()
+{
+    if (!StoryMemory || StoryMemory->WritDecision != 0 || !bSpokenToWitness || !Dreamer.IsValid()) return;
+    APlayerController* Player = UGameplayStatics::GetPlayerController(this, 0);
+    if (!Player) return;
+    FVector Eye;
+    FRotator Look;
+    Player->GetPlayerViewPoint(Eye, Look);
+    bool bReadIlyra = false;
+    for (TActorIterator<AASHBOUNDGrimoire> It(GetWorld()); It; ++It)
+        if (It->VolumeIndex == 0) bReadIlyra |= It->IsStudied();
+    if (bReadIlyra && Dreamer->CanDecide(Eye, Look.Vector())) DecideWrit(2);
+}
+
+void AASHBOUNDSpellManager::DecideWrit(int32 Decision)
+{
+    if (!StoryMemory || StoryMemory->WritDecision != 0 || (Decision != 1 && Decision != 2)) return;
+    StoryMemory->WritDecision = Decision;
+    SaveStory();
+    if (AASHBOUNDDreamer* Sleeper = Dreamer.Get()) Sleeper->SetDecision(Decision);
+    SetStoryStage(Decision == 1 ? 3 : 7);
+    TryOpenArchive();
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_WRIT decision=%d save=1"), Decision);
 }
 
 void AASHBOUNDSpellManager::StopReading()

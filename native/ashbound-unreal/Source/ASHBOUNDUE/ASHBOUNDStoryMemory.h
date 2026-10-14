@@ -19,4 +19,8 @@ public:
 
     UPROPERTY()
     bool bReachedFort = false;
+
+    // 0 undecided, 1 the archive's lethal writ, 2 refusal, 3 legacy chapter.
+    UPROPERTY()
+    int32 WritDecision = 0;
 };
