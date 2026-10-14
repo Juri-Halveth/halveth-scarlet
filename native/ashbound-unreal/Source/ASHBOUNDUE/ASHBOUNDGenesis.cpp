@@ -1,5 +1,6 @@
 #include "ASHBOUNDGenesis.h"
 #include "ASHBOUNDSpell.h"
+#include "ASHBOUNDGrove.h"
 
 #include "Components/PointLightComponent.h"
 #include "Components/SceneComponent.h"
@@ -94,8 +95,39 @@ void AASHBOUNDGenesis::Birth()
             ++Born;
         }
     }
+    UStaticMesh* Fern = LoadObject<UStaticMesh>(nullptr,
+        TEXT("/Game/ASHBOUND/Models/fern_02/fern_02_1k/StaticMeshes/fern_02_b.fern_02_b"));
+    int32 Grown = 0;
+    if (Fern)
+    {
+        while (BornGroves.Num() >= 6)
+        {
+            if (BornGroves[0]) BornGroves[0]->Destroy();
+            BornGroves.RemoveAt(0);
+        }
+        for (int32 Side : { -1, 1 })
+        {
+            const FVector Probe(Center.X + 200.0f + 90.0f * FMath::Sin(Generation * 0.8f),
+                                Side * (350.0f + 45.0f * FMath::Cos(Generation * 0.9f)), 1800.0f);
+            FHitResult Ground;
+            FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDGenesisGround), false);
+            Query.AddIgnoredActor(this);
+            if (!World->LineTraceSingleByChannel(Ground, Probe, Probe - FVector(0, 0, 2600),
+                                                 ECC_Visibility, Query)) continue;
+            AASHBOUNDGrove* Grove = World->SpawnActor<AASHBOUNDGrove>(
+                AASHBOUNDGrove::StaticClass(), Ground.ImpactPoint + FVector(0, 0, 3), FRotator::ZeroRotator);
+            if (Grove)
+            {
+                Grove->Initialize(Fern);
+                BornGroves.Add(Grove);
+                ++Grown;
+            }
+        }
+    }
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_GENESIS_GROWTH grown=%d living=%d"),
+        Grown, BornGroves.Num());
     if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 3.5f, FColor(172, 220, 255),
-        FString::Printf(TEXT("Ursprungspuls %d · %d neue Lichter"), Generation, Born));
+        FString::Printf(TEXT("Ursprungspuls %d · %d Lichter · %d Grueninseln"), Generation, Born, Grown));
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND_GENESIS_BIRTH generation=%d born=%d living=%d"),
         Generation, Born, BornWisps.Num());
 }

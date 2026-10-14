@@ -5,6 +5,7 @@
 #include "ASHBOUNDGenesis.generated.h"
 
 class AASHBOUNDSpell;
+class AASHBOUNDGrove;
 class UMaterialInstanceDynamic;
 class UPointLightComponent;
 class USceneComponent;
@@ -38,6 +39,8 @@ private:
     TObjectPtr<UMaterialInstanceDynamic> CoreMaterial;
     UPROPERTY()
     TArray<TObjectPtr<AASHBOUNDSpell>> BornWisps;
+    UPROPERTY()
+    TArray<TObjectPtr<AASHBOUNDGrove>> BornGroves;
 
     float Time = 0.0f;
     float PulseAge = 100.0f;

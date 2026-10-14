@@ -6,6 +6,8 @@ On the reference PC (Ryzen 7 9700X, RTX 4070 SUPER, 61.6 GiB RAM), a packaged De
 
 ![The in-world ASHBOUND grimoire in the native EXE](art/grimoire-preview.png)
 
+The genesis pulse also grows two fern islands beside the archive approach. Generated lights and growth are bounded within the current play session; a persistent world-state save remains future work.
+
 Move with WASD and mouse; Space jumps. Cast Resonance with **Q**, Ember with **E**, and Reweave with **R**. Press **B** near the entrance to pulse the genesis core: three coloured wisps enter the world with each pulse, and the oldest generated triad is recycled after nine. Face an archive book and press **F** to read or turn its page; **Escape** leaves the reading view. Aim at the loose metal dagger beside *Kaels Uhrschrift* and press **M** to draw it toward your view; press **M** again to release it to gravity. Books and desks are not magnetizable. The three volumes use the existing ASHBOUND texts from `forschung/ashbound/play/books.mjs`. Each has a distinct learned effect: Ilyra extends Ember light from 24 to 60 seconds, Neral extends the Resonance echo from 18 to 45 seconds, and Kael lets Reweave growth persist for the current session. Learned volumes are saved locally and restored when the game starts again. Reweave grows a nine-frond grove over 2.2 seconds; the oldest grove is recycled after 24 casts so growth stays responsive. Match the three coloured archive seals to the three spells to raise the east gate. Flying spells resolve at their first blocking impact and produce light, echoes or growth in the 3D world.
 
 ## Build locally

@@ -54,6 +54,7 @@ $required = @(
     'ASHBOUND_SPELL_MATERIAL bound=/Game/ASHBOUND/Materials/M_LivingSpellSoft',
     'ASHBOUND_GENESIS ready at ',
     'ASHBOUND_GENESIS_BIRTH generation=1 born=3 living=3',
+    'ASHBOUND_GENESIS_GROWTH grown=2 living=2',
     'ASHBOUND world effect: Resonance echo',
     'ASHBOUND world effect: Ember light',
     'ASHBOUND_GROVE_MATERIAL bound=/Game/ASHBOUND/Materials/M_GroveFern',
