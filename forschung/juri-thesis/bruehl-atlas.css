@@ -41,3 +41,4 @@
 .atlas-opportunity-grid summary .atlas-open{display:none}
 .atlas-opportunity-grid details[open] summary .atlas-open{display:block}
 .atlas-opportunity-grid details[open] summary .atlas-closed{display:none}
+.atlas-opportunity-grid{align-items:start}

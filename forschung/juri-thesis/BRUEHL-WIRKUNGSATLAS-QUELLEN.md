@@ -60,6 +60,8 @@ Ein Kaufbeleg belegt Zahlung und Empfänger, nicht zusätzliche Wertschöpfung. 
 | B38 | [Stadt Brühl: Charta Beruf und Pflege, 31.03.2026](https://www.bruehl.de/rp/news/charta-zur-vereinbarkeit-von-beruf-und-pflege-stadtverwaltung.php) | Stadtverwaltung nahm am Landesprogramm teil und schulte Pflege-Guides zur Unterstützung von Mitarbeitenden mit Pflegeverantwortung | bestehende Arbeitgebermaßnahme, kein gemessener Effekt des vorgeschlagenen Pilots |
 | B39 | [Stadt Brühl: Max Ernst-Stipendium 2026](https://www.bruehl.de/rp/news/fynn-ribbeck-zum-max-ernst-stipendiaten-2026-gewaehlt.php) | 30-jähriger Künstler erhielt Stipendium; 10.000 € Preisgeld zu gleichen Teilen von Stadt und Max Ernst-Gesellschaft, dazu Ausstellungsmöglichkeit | beobachtetes Kofinanzierungsbeispiel im Kulturfeld, kein JURI-THESIS-Partner oder Budget |
 | B40 | [Stadt Brühl: Ratsvorlage 351/2026 vom 28.09.2026](https://ratsinfo.bruehl.de/sdnetrim/UGhVM0hpd2NXNFdFcExjZXpeBtJW87gNzriwyKZl9oKW7xR_FogICr4qhB31Szzb/Vorlage_351-2026.pdf) und [Tagesordnung Rat 12.10.2026, TOP 4](https://ratsinfo.bruehl.de/tops/?__=UGhVM0hpd2NXNFdFcExjZdFeTAK8UN-SXWMk-jedS0s) | Der ergänzte Haushaltsentwurf 2026/27 mit pflichtigem HSK war zur erneuten Einbringung vorgesehen; die Vorlage enthält einen Beschlussentwurf zur Verweisung an den Haupt- und Finanzausschuss. Die Tagesordnung dokumentiert weder Abstimmungsausgang noch Genehmigung des Haushalts. | aktuellerer Beratungsstand und konkrete Finanzierungsprüfung; kein verfügbarer Pilotetat |
+| B41 | [Stadt Brühl: Ausbildung Verwaltungsfachangestellte 2027](https://karriere.bruehl.de/jobposting/28d5ec745a7204afd2b0275caa8e3a8516bc035a) | Ausschreibung für Beginn 01.08.2027, Bewerbung bis 30.11.2026; Teilzeit auf Antrag ab 30 Wochenstunden einschließlich Berufsschule, Ausbildungsvergütung im ersten Jahr 1.368,26 € monatlich | zeitgebundener Bewerbungsweg auch für junge Menschen mit Familienpflichten; Auswahl und Ausbildungsplatz sind eigene Entscheidungen |
+| B42 | [Stadt Brühl: Ratsvorlage 371/2026 vom 08.10.2026](https://ratsinfo.bruehl.de/sdnetrim/UGhVM0hpd2NXNFdFcExjZXfOeOec66haLnR8IU3ySvwPJK73RH1YixocehwTmdnc/Vorlage_371-2026.pdf) | Stadtgrün nennt sechs Gärtnerstellen, eine seit Mai 2025 vakante und Ende September 2026 ausgeschriebene Stelle; gegenwärtig keine geplante Gärtnerausbildung im Fachbereich, unter anderem wegen fehlender Ausbildungsbreite und erforderlicher Anerkennung | konkreter Fachkräftefall; Eignung, heutige Verfügbarkeit, Personalkosten und Dienstleistungsqualität getrennt prüfen |
 
 Weitere echte Zugänge:
 
@@ -122,7 +124,7 @@ Das [NRW-Gemeindefinanzierungsgesetz 2026](https://recht.nrw.de/gvnrw/2025-s1182
 | 25, Digitalhandel | Leistung für freiwilligen Laden und Test | bezahlte Wiederaufträge | kostenlose bestehende Beratung und geplante Digitalisierung getrennt? |
 | 29, Energiehandwerk | Qualifikation, Praxis und fachliche Zuständigkeit | Vertrag oder fachgerechter Auftrag | Maßnahme und Förderung ohnehin geplant? |
 
-Die acht zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen diese Tabelle, ohne acht weitere Pilotplätze zu reservieren:
+Die zehn zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen diese Tabelle, ohne zehn weitere Pilotplätze zu reservieren:
 
 | Variante | T+6 | T+12 | Gegenprobe |
 | --- | --- | --- | --- |
@@ -134,6 +136,8 @@ Die acht zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen di
 | 24, Kind und Beruf | tatsächlich nutzbarer Betreuungs- und Lernplan | gehaltene Arbeits-/Lernstunden und Betreuungsstabilität | Welche Stunden wären mit bestehenden Ansprüchen und Angeboten ohnehin möglich gewesen? |
 | 19, Praktikum oder Freiwilligendienst | belegte Praxis, Anleitung und Berufswahl | Bewerbung, Ausbildung oder anderer selbst gewählter Anschluss | Welche Teilnahme und Leistungen waren bereits ohne Pilot möglich? |
 | 26, Arbeit und Pflege | nutzbarer Plan für Arbeit und Sorgeverantwortung, freiwillig erfasste Stunden | gehaltene Beschäftigung und selbst berichtete Entlastung | Welche kommunalen Arbeitgeberangebote, Pflegeleistungen und Arbeitszeitregelungen bestanden schon? |
+| 21, Teilzeit-Ausbildung Verwaltung 2027 | fristgerechte Bewerbung und gegebenenfalls Auswahlentscheidung | bei Oktober-2026-Start: erste Ausbildungsmonate ab August 2027 | Hätte die Stadt denselben Platz ohnehin besetzt; welche Betreuungs- und Mobilitätskosten waren schon gedeckt? |
+| 23, qualifizierte Stadtgrün-Fachkraft | Eignung, Bewerbung und möglicher Arbeitsbeginn | gehaltener Vertrag und belegte städtische Leistung | Ist die Stelle noch offen; wären Dienst und Kosten auch ohne Pilot gleich? Eine sechsmonatige Förderung ersetzt keine mehrjährige Ausbildung. |
 
 Der [IAB-Forschungsbericht zu Kosten und Nutzen von Arbeitsmarktmaßnahmen](https://doku.iab.de/forschungsbericht/2024/fb2124.pdf) begründet, Mitnahme, Verdrängung und öffentliche Kosten getrennt zu betrachten. Diese Forschung evaluiert andere Instrumente und Populationen. Ihre Wirkungsquoten sind **nicht** in die sechzehn JURI-THESIS-Wege übertragen worden.
 
