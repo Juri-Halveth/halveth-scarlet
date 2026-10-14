@@ -50,6 +50,8 @@ Ein Kaufbeleg belegt Zahlung und Empfänger, nicht zusätzliche Wertschöpfung. 
 | B28 | [Stadt Brühl: BrAIn, Oktober 2025](https://www.bruehl.de/rp/news/erste-feierliche-vertragsunterzeichnung-der-bruehler-ausbildungsinitiative-brain.php) | 21 Schülerinnen und Schüler der neunten Klasse schlossen bedingte Vereinbarungen über spätere Handwerks-Ausbildungsplätze | bestehender Schul-Berufs-Übergang; damalige Minderjährige sind keine Erwachsenenpilot-Teilnehmenden |
 | B29 | [IT.NRW: Kommunalprofil Brühl 2026, S. 17](https://statistik.nrw/sites/default/files/municipalprofiles/l05362012.pdf) | Für 2024: 409 Gewerbeanmeldungen, darunter 318 Neugründungen; 349 Gewerbeabmeldungen, darunter 257 vollständige Aufgaben | zeigt Verwaltungsereignisse und Gründungsdynamik, keine Zahl dauerhaft erfolgreicher Unternehmen; An- und Abmeldungen dürfen nicht als individuelle Erfolgskohorte verrechnet werden |
 | B30 | [IT.NRW: Kommunalprofil Brühl 2026, S. 12](https://statistik.nrw/sites/default/files/municipalprofiles/l05362012.pdf) | Am 31.12.2024: 1.684 sozialversicherungspflichtig Beschäftigte unter 25 Jahren am Arbeitsort Brühl | enthält Einpendelnde und möglicherweise Minderjährige; nicht identisch mit Brühler Einwohnern im Alter 18 bis unter 25 |
+| B31 | [Stadt Brühl: Brühl im Überblick, Wanderungen 2024](https://www.bruehl.de/fgbs/demografie/bruehl-im-ueberblick.php) | 2024: 2.776 Zuzüge, 2.428 Wegzüge; 20- bis 29-Jährige stellten bei beiden Bewegungen die größte Altersgruppe (knapp 36 % bzw. 35 %) | zeigt Mobilität, weder individuelle Umzugsgründe noch eine durch den Pilot vermeidbare Wegzugszahl |
+| B32 | [Stadt Brühl: Wohnraumschutzsatzung, 26.02.2026](https://www.bruehl.de/rp/news/wohnraumschutzsatzung-verpflichtende-registrierung.php) | Stadt beschreibt Brühl als Gebiet mit angespanntem Wohnungsmarkt und erläutert ihre Satzung gegen Zweckentfremdung | Engpass und Verdrängungsprüfung im Wohnfall; keine Zusage von Wohnraum durch Stadt oder Pilot |
 
 Weitere echte Zugänge:
 
@@ -110,13 +112,14 @@ Ein zusätzlicher Rentenbeitrag aus einem sozialversicherungspflichtigen Job geh
 | 25, Digitalhandel | Leistung für freiwilligen Laden und Test | bezahlte Wiederaufträge | kostenlose bestehende Beratung und geplante Digitalisierung getrennt? |
 | 29, Energiehandwerk | Qualifikation, Praxis und fachliche Zuständigkeit | Vertrag oder fachgerechter Auftrag | Maßnahme und Förderung ohnehin geplant? |
 
-Die drei zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen diese Tabelle, ohne drei weitere Pilotplätze zu reservieren:
+Die vier zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen diese Tabelle, ohne vier weitere Pilotplätze zu reservieren:
 
 | Variante | T+6 | T+12 | Gegenprobe |
 | --- | --- | --- | --- |
 | 20, städtische IT-Ausbildung | Bewerbung und gegebenenfalls regulärer Vertrag | Verbleib und Lernfortschritt | Bestand die Stelle und hätten sich andere Beworbene ohnehin gefunden? |
 | 25, Gründerin | freiwillig getestete Leistung und erste bezahlte Nachfrage | Wiederkäufe und tragfähige Kosten | Welche Beratung und Kundschaft gab es bereits ohne Pilot? |
 | 27, beschäftigte Person im Wandel | individuell erlernte, belegte Fähigkeiten | gehaltene Arbeit oder Aufgabenwechsel | Welche betriebliche Förderung und Weiterbildung war ohnehin geplant? |
+| 22, Wohnen und Ausbildung | tragfähiger Wohn- und Wegeplan, möglicher Ausbildungsstart | tatsächlicher Verbleib, Arbeit/Lernen und Wohnstabilität | Wäre die Person ohnehin geblieben; wurde ein anderer Haushalt bei knappem Wohnraum verdrängt? |
 
 Der [IAB-Forschungsbericht zu Kosten und Nutzen von Arbeitsmarktmaßnahmen](https://doku.iab.de/forschungsbericht/2024/fb2124.pdf) begründet, Mitnahme, Verdrängung und öffentliche Kosten getrennt zu betrachten. Diese Forschung evaluiert andere Instrumente und Populationen. Ihre Wirkungsquoten sind **nicht** in die sechzehn JURI-THESIS-Wege übertragen worden.
 
