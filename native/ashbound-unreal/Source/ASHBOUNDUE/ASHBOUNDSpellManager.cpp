@@ -85,23 +85,12 @@ void AASHBOUNDSpellManager::BeginPlay()
         Mesh->SetLinearDamping(0.6f);
     }
 
-    const FVector Anchors[] = {
-        FVector(900.0f, -450.0f, 255.0f),
-        FVector(2600.0f, 410.0f, 255.0f),
-        FVector(4200.0f, -420.0f, 255.0f)
-    };
-    for (int32 Index = 0; Index < 3; ++Index)
-    {
-        AASHBOUNDSpell* Wisp = GetWorld()->SpawnActor<AASHBOUNDSpell>(
-            AASHBOUNDSpell::StaticClass(), Anchors[Index], FRotator::ZeroRotator);
-        if (Wisp) Wisp->Initialize(Index, Anchors[Index], true);
-    }
     Genesis = GetWorld()->SpawnActor<AASHBOUNDGenesis>(AASHBOUNDGenesis::StaticClass(),
-        FVector(1550.0f, 0.0f, 390.0f), FRotator::ZeroRotator);
+        FVector(1450.0f, 625.0f, 108.0f), FRotator::ZeroRotator);
     Witness = GetWorld()->SpawnActor<AASHBOUNDWitness>(AASHBOUNDWitness::StaticClass(),
         FVector(1710.0f, -360.0f, 5.0f), FRotator(0, 90, 0));
     RestoreStory();
-    UE_LOG(LogTemp, Display, TEXT("ASHBOUND living magic ready; three ambient wisps, Q/E/R/F/M input"));
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND living magic ready; lights require a source or player action, Q/E/R/F/M input"));
 
 #if !UE_BUILD_SHIPPING
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqastory")))
@@ -398,6 +387,21 @@ void AASHBOUNDSpellManager::BeginPlay()
             if (Spell) Spell->Initialize(0, BehindGate, false);
         }), 1.0f, false);
     }
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqafortview")))
+    {
+        FTimerHandle FortViewTimer;
+        GetWorld()->GetTimerManager().SetTimer(FortViewTimer,
+            FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
+            if (!Controller || !Controller->GetPawn()) return;
+            const FVector Position(5200.0f, -1150.0f, 225.0f);
+            const FVector Focus(6450.0f, 0.0f, 220.0f);
+            Controller->GetPawn()->SetActorLocation(Position);
+            Controller->SetControlRotation((Focus - Position - FVector(0, 0, 65)).Rotation());
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_FORT_VIEW_QA position=%s"), *Position.ToString());
+        }), 1.0f, false);
+    }
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqa")))
     {
         float CaptureDelay = 6.5f;
@@ -572,7 +576,7 @@ void AASHBOUNDSpellManager::SetStoryStage(int32 NewStage)
     case 0:
         Objective = TEXT("Finde die Zeugin am Weg zum Archiv");
         JournalLine = TEXT("Eine steinerne Gestalt wacht links neben dem Aschepfad.");
-        StoryLine = TEXT("Ein Licht regt sich zwischen den Ruinen.  J öffnet dein Journal.");
+        StoryLine = TEXT("Ein Licht regt sich am alten Steinsockel.  J öffnet dein Journal.");
         break;
     case 1:
         Objective = TEXT("Lies Ilyras Buch im Rundarchiv");
@@ -598,13 +602,6 @@ void AASHBOUNDSpellManager::SetStoryStage(int32 NewStage)
         Objective = TEXT("Kapitel I abgeschlossen: Die Festung erreicht");
         JournalLine = TEXT("Du hast die Zeugin gehört, gelesen, die Zeichen erweckt und die Festung erreicht.");
         StoryLine = TEXT("ZEUGIN: Ein Weg ist offen. Was hier erwacht, bleibt deine Entscheidung.");
-        if (UWorld* World = GetWorld())
-        {
-            const FVector Beacon(5840.0f, 0.0f, 265.0f);
-            AASHBOUNDSpell* Welcome = World->SpawnActor<AASHBOUNDSpell>(
-                AASHBOUNDSpell::StaticClass(), Beacon, FRotator::ZeroRotator);
-            if (Welcome) Welcome->Initialize(0, Beacon, true);
-        }
         break;
     }
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND_STORY stage=%d objective=%s"), StoryStage, *Objective);

@@ -47,7 +47,9 @@ if ($LASTEXITCODE -ne 0) { throw 'ASHBOUND book source export failed' }
     (Join-Path $WorkRoot 'book-catalog.json') (Join-Path $WorkRoot 'book-pages')
 if ($LASTEXITCODE -ne 0) { throw 'ASHBOUND book page rendering failed' }
 & $PythonCommand (Join-Path $nativeRoot 'tools\generate_terrain.py')
-if ($LASTEXITCODE -ne 0 -or -not (Test-Path -LiteralPath (Join-Path $WorkRoot 'ASHBOUND_Valley.obj'))) {
+if ($LASTEXITCODE -ne 0 -or
+    -not (Test-Path -LiteralPath (Join-Path $WorkRoot 'ASHBOUND_Valley.obj')) -or
+    -not (Test-Path -LiteralPath (Join-Path $WorkRoot 'ASHBOUND_WornRoad.obj'))) {
     throw 'Terrain generation failed'
 }
 & $buildTool ASHBOUNDUEEditor Win64 Development "-Project=$uproject" -WaitMutex -NoHotReload

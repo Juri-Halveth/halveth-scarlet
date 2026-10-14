@@ -11,8 +11,8 @@ class UPointLightComponent;
 class USceneComponent;
 class UStaticMeshComponent;
 
-// The first playable creation event in the valley: one pulse births three
-// persistent wisps. Repeated pulses recycle the oldest triad after nine.
+// The first playable creation event: a grounded source emits a short pulse
+// and temporary soil traces; the previous pulse fades on reactivation.
 UCLASS()
 class ASHBOUNDUE_API AASHBOUNDGenesis : public AActor
 {

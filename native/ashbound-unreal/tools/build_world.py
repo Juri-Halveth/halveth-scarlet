@@ -42,6 +42,22 @@ if not unreal.EditorAssetLibrary.does_asset_exist(terrain_path):
 terrain_mesh = unreal.load_asset(terrain_path)
 if not isinstance(terrain_mesh, unreal.StaticMesh):
     raise RuntimeError('Terrain static mesh import failed: ' + terrain_path)
+road_path = '/Game/ASHBOUND/Terrain/ASHBOUND_WornRoad.ASHBOUND_WornRoad'
+if not unreal.EditorAssetLibrary.does_asset_exist(road_path):
+    task = unreal.AssetImportTask()
+    task.set_editor_property('filename', os.path.join(HERE, 'ASHBOUND_WornRoad.obj'))
+    task.set_editor_property('destination_path', '/Game/ASHBOUND/Terrain')
+    task.set_editor_property('automated', True)
+    task.set_editor_property('save', True)
+    asset_tools.import_asset_tasks([task])
+road_mesh = unreal.load_asset(road_path)
+if not isinstance(road_mesh, unreal.StaticMesh):
+    raise RuntimeError('Worn road static mesh import failed: ' + road_path)
+# The automatic Nanite fallback reduced 18,240 authored triangles to 255.
+# The road is collision geometry as well as scenery; keep its actual ruts.
+road_nanite = road_mesh.get_editor_property('nanite_settings')
+road_nanite.set_editor_property('enabled', False)
+road_mesh.set_editor_property('nanite_settings', road_nanite)
 terrain_body = terrain_mesh.get_editor_property('body_setup')
 if terrain_body is None:
     raise RuntimeError('Terrain has no body setup: ' + terrain_path)
@@ -55,6 +71,13 @@ if terrain_body.get_editor_property(
     raise RuntimeError('Terrain collision complexity was not applied')
 if not unreal.EditorAssetLibrary.save_loaded_asset(terrain_mesh):
     raise RuntimeError('Terrain collision setup could not be saved')
+road_body = road_mesh.get_editor_property('body_setup')
+if road_body is None:
+    raise RuntimeError('Road has no body setup')
+road_body.set_editor_property('collision_trace_flag',
+                              unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE)
+if not unreal.EditorAssetLibrary.save_loaded_asset(road_mesh):
+    raise RuntimeError('Road collision setup could not be saved')
 
 def make_surface(name, prefix):
     path = '/Game/ASHBOUND/Surfaces/' + name
@@ -194,10 +217,12 @@ cylinder = unreal.load_asset('/Engine/BasicShapes/Cylinder')
 sphere = unreal.load_asset('/Engine/BasicShapes/Sphere')
 if cylinder is None or sphere is None:
     raise RuntimeError('Engine cylinder or sphere missing')
-collision = spawn_mesh(cube, 'ASHBOUND / Walkable central path', 3500, 0, -250,
-                       140, 29, 5, mat=road_mat)
-collision.set_actor_enable_collision(True)
-collision.get_editor_property('static_mesh_component').set_collision_profile_name('BlockAll')
+road_actor = spawn_mesh(road_mesh, 'ASHBOUND / Walkable worn road', 0, 0, 0,
+                        mat=road_mat)
+road_actor.set_actor_enable_collision(True)
+road_component = road_actor.get_editor_property('static_mesh_component')
+road_component.set_collision_profile_name('BlockAll')
+road_component.set_collision_enabled(unreal.CollisionEnabled.QUERY_AND_PHYSICS)
 
 def paths(model_id):
     return [row['path'] for row in imports[model_id]['meshes']]
@@ -260,6 +285,9 @@ for side in (-1, 1):
     stop.get_editor_property('static_mesh_component').set_visibility(False)
     spawn_mesh(cube, 'ASHBOUND / Portal light seam %s' % side,
                2185, side * 300, 350, .035, .025, .2, mat=rune_mat)
+    # Thick, partly buried footings attach the gate to the road surface.
+    spawn_mesh(cylinder, 'ASHBOUND / Portal foundation %s' % side,
+               2290, side * 290, 5, 1.45, 1.45, .36, mat=stone_mat)
 
 # The book's clue has a playable consequence: three school-matched seals
 # raise the east archive gate. These actors are native game code, not widgets.
@@ -385,6 +413,15 @@ for index, (x, y, hue) in enumerate(((2530, -520, (.28, .55, .7)),
         int(hue[0] * 255), int(hue[1] * 255), int(hue[2] * 255), 255))
     lamp_comp.set_editor_property('cast_shadows', False)
 
+# A visible source for the genesis light, connected to the ground by stone.
+for index, (z, radius, height) in enumerate(((-8, 1.38, .34),
+                                             (40, .82, .72),
+                                             (85, 1.08, .18))):
+    spawn_mesh(cylinder, 'ASHBOUND / Genesis foundation %02d' % index,
+               1450, 625, z, radius, radius, height, mat=stone_mat)
+spawn_mesh(cylinder, 'ASHBOUND / Genesis engraved rim',
+           1450, 625, 96, .95, .95, .035, mat=bronze_mat)
+
 # The imported modular fort retains piece transforms in its mesh vertices.
 # One common transform reconstitutes its architecture at the valley terminus.
 fort_meshes = [model('modular_fort_01', i) for i in range(len(paths('modular_fort_01')))]
@@ -396,25 +433,30 @@ min_z = min(mesh.get_bounding_box().min.z for mesh in fort_meshes)
 fort_scale = .72
 fort_x = 6450 - (min_x + max_x) * fort_scale / 2
 fort_y = -(min_y + max_y) * fort_scale / 2
+# The scanned pieces share baked XY transforms, but their zero-height plane
+# stayed above the irregular path at the fort approach. Seat the whole ruin
+# into the soil without changing any wall-to-wall alignment.
+fort_base_z = -min_z * fort_scale - 48
 for i, mesh in enumerate(fort_meshes):
     spawn_mesh(mesh, 'ASHBOUND / FORT / %02d' % i,
-               fort_x, fort_y, -min_z * fort_scale, fort_scale, mat=stone_mat)
+               fort_x, fort_y, fort_base_z, fort_scale, mat=stone_mat)
 
 statue = model('gothic_statue')
 for i, (x, y) in enumerate([(-200, -850), (-200, 850), (1700, -790), (1700, 790),
                             (3300, -910), (3300, 910)]):
     placed = place_normalized(statue, 'ASHBOUND / Guardian statue %02d' % i,
-                              x, y, terrain_height(x, y), 470 + (i % 2) * 70,
+                              x, y, terrain_height(x, y) - 12, 470 + (i % 2) * 70,
                               yaw=90 if y < 0 else -90)
     placed.get_editor_property('static_mesh_component').set_material(0, stone_mat)
 
 boulder = model('boulder_01')
 for i in range(94):
     x = rng.uniform(-3000, 9700)
-    y = rng.choice([-1, 1]) * rng.uniform(1250, 6850)
+    y = rng.choice([-1, 1]) * rng.uniform(1850, 6850)
+    height = rng.uniform(130, 650)
     place_normalized(boulder, 'ASHBOUND / Boulder %03d' % i,
-                     x, y, terrain_height(x, y) - 30,
-                     rng.uniform(130, 650), rng.uniform(0, 360))
+                     x, y, terrain_height(x, y) - height * .34,
+                     height, rng.uniform(0, 360))
 
 sapling = model('pine_sapling_small')
 for i in range(74):
@@ -428,7 +470,7 @@ for i in range(25):
     x = rng.uniform(-2800, 9500)
     y = rng.choice([-1, 1]) * rng.uniform(1400, 5500)
     place_normalized(stump, 'ASHBOUND / Old root %03d' % i,
-                     x, y, terrain_height(x, y), rng.uniform(75, 180), rng.uniform(0, 360))
+                     x, y, terrain_height(x, y) - 15, rng.uniform(75, 180), rng.uniform(0, 360))
 
 for model_id, count, height_range, lateral in [
     ('rock_moss_set_01', 74, (80, 300), (1100, 6300)),
@@ -439,8 +481,42 @@ for model_id, count, height_range, lateral in [
         x = rng.uniform(-2900, 9700)
         y = rng.choice([-1, 1]) * rng.uniform(*lateral)
         mesh = model(model_id, i)
+        height = rng.uniform(*height_range)
+        inset = height * (.14 if model_id == 'rock_moss_set_01' else .06)
         place_normalized(mesh, 'ASHBOUND / %s %03d' % (model_id, i),
-                         x, y, terrain_height(x, y), rng.uniform(*height_range), rng.uniform(0, 360))
+                         x, y, terrain_height(x, y) - inset, height, rng.uniform(0, 360))
+
+# A few low, buried stones and wind plants make the playable route itself
+# read as a surface. Keep the central lane clear for collision and spells.
+for i in range(190):
+    x = rng.uniform(-900, 7200)
+    side = rng.choice((-1, 1))
+    y = side * rng.uniform(430, 1220)
+    height = rng.uniform(20, 74)
+    mesh = model('rock_moss_set_01', i)
+    place_normalized(mesh, 'ASHBOUND / Buried road stone %03d' % i,
+                     x, y, terrain_height(x, y) - height * .28,
+                     height, rng.uniform(0, 360))
+for i in range(90):
+    x = rng.uniform(-500, 6900)
+    y = rng.uniform(-390, 390)
+    height = rng.uniform(7, 22)
+    pebble = place_normalized(model('rock_moss_set_01', i),
+                              'ASHBOUND / Walkway pebble %03d' % i,
+                              x, y, terrain_height(x, y) - height * .40,
+                              height, rng.uniform(0, 360))
+    pebble.get_editor_property('static_mesh_component').set_collision_enabled(
+        unreal.CollisionEnabled.NO_COLLISION)
+for i in range(140):
+    x = rng.uniform(-600, 7000)
+    y = rng.choice((-1, 1)) * rng.uniform(600, 1380)
+    height = rng.uniform(32, 94)
+    mesh = model('fern_02', i)
+    plant = place_normalized(mesh, 'ASHBOUND / Roadside fern %03d' % i,
+                             x, y, terrain_height(x, y) - height * .08,
+                             height, rng.uniform(0, 360))
+    plant.get_editor_property('static_mesh_component').set_material(0,
+        unreal.load_asset('/Game/ASHBOUND/Materials/M_GroveFern'))
 
 manager_class = unreal.load_class(None, '/Script/ASHBOUNDUE.ASHBOUNDSpellManager')
 if manager_class is None:
@@ -474,8 +550,8 @@ fog = actors.spawn_actor_from_class(unreal.ExponentialHeightFog,
                                     unreal.Vector(0, 0, -80), unreal.Rotator())
 fog.set_actor_label('ASHBOUND / Valley atmosphere')
 fog_comp = fog.get_editor_property('component')
-fog_comp.set_editor_property('fog_density', .0007)
-fog_comp.set_editor_property('fog_height_falloff', .22)
+fog_comp.set_editor_property('fog_density', .007)
+fog_comp.set_editor_property('fog_height_falloff', .055)
 fog_comp.set_editor_property('enable_volumetric_fog', True)
 clouds = actors.spawn_actor_from_class(unreal.VolumetricCloud,
                                        unreal.Vector(), unreal.Rotator())

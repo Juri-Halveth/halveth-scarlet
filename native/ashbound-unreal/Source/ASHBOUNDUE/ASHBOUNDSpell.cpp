@@ -250,9 +250,7 @@ void AASHBOUNDSpell::Tick(float DeltaSeconds)
     bool bBlockingImpact = false;
     if (bAmbient)
     {
-        Center = Target + FVector(30.0f * FMath::Sin(Phase * 0.7f),
-                                  30.0f * FMath::Cos(Phase * 0.7f),
-                                  35.0f * FMath::Sin(Phase));
+        Center = Target + FVector(0.0f, 0.0f, 5.0f * FMath::Sin(Phase));
     }
     else if (!bApplied)
     {
@@ -296,14 +294,14 @@ void AASHBOUNDSpell::Tick(float DeltaSeconds)
     }
 
     const float Breath = 1.0f + 0.15f * FMath::Sin(Phase * 2.0f);
-    CoreMesh->SetRelativeScale3D(FVector(0.40f * Breath));
-    const float Orbit = bAmbient ? 73.0f : 100.0f * (1.0f - FMath::Min(Age / 3.7f, 0.7f));
+    CoreMesh->SetRelativeScale3D(FVector((bAmbient ? 0.13f : 0.40f) * Breath));
+    const float Orbit = bAmbient ? 26.0f : 100.0f * (1.0f - FMath::Min(Age / 3.7f, 0.7f));
     for (int32 Index = 0; Index < Satellites.Num(); ++Index)
     {
         const float Angle = Phase * (School == 2 ? -2.0f : 2.0f) + Index * 2.0f * PI / Satellites.Num();
         Satellites[Index]->SetRelativeLocation(FVector(Orbit * FMath::Cos(Angle),
                                                        Orbit * FMath::Sin(Angle),
-                                                       22.0f * FMath::Sin(Angle * 2.0f)));
+                                                       bAmbient ? -7.0f : 22.0f * FMath::Sin(Angle * 2.0f)));
     }
-    Glow->SetIntensity((bAmbient ? 1600.0f : 3000.0f) * (0.85f + 0.15f * FMath::Sin(Phase * 2.0f)));
+    Glow->SetIntensity((bAmbient ? 550.0f : 3000.0f) * (0.85f + 0.15f * FMath::Sin(Phase * 2.0f)));
 }
