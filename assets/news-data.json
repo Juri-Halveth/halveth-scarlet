@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T17:14:45Z",
+  "generatedAt": "2026-10-14T20:45:26Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-14T17:14:45Z",
-      "lastSuccessAt": "2026-10-14T17:14:45Z",
+      "lastAttemptAt": "2026-10-14T20:45:26Z",
+      "lastSuccessAt": "2026-10-14T20:45:26Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,57 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-14T17:14:45Z",
-      "lastSuccessAt": "2026-10-14T17:14:45Z",
+      "lastAttemptAt": "2026-10-14T20:45:26Z",
+      "lastSuccessAt": "2026-10-14T20:45:26Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "9ab900e4fa8fe878141f660b",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA to Host News Conference Previewing US Spacewalks 100, 101",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-to-host-news-conference-previewing-us-spacewalks-100-101/",
+      "sourcePublishedAt": "2026-10-14T20:13:29Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
+      "firstFetchedAt": "2026-10-14T20:45:26Z"
+    },
+    {
+      "id": "ffb5a326c8ee4530ec2c1b17",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "HydraFusion updates and new Max option",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option",
+      "sourcePublishedAt": "2026-10-14T20:01:35Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
+      "firstFetchedAt": "2026-10-14T20:45:26Z"
+    },
+    {
+      "id": "13dd6fe9a9252ccd9f9a0090",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Astronauts to Answer Questions from Florida Students",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/learning-resources/nasa-astronauts-to-answer-questions-from-florida-students/",
+      "sourcePublishedAt": "2026-10-14T19:12:51Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
+      "firstFetchedAt": "2026-10-14T20:45:26Z"
+    },
+    {
+      "id": "ccb5266bb450f46f27f1162f",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Chandra Breaks Down ‘Treble Clef’s’ Galaxy Cluster Collision",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/missions/chandra/nasas-chandra-breaks-down-treble-clefs-galaxy-cluster-collision/",
+      "sourcePublishedAt": "2026-10-14T16:46:58Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
+      "firstFetchedAt": "2026-10-14T20:45:26Z"
+    },
     {
       "id": "07e53cea639f25f304557811",
       "sourceId": "nasa",
@@ -32,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasas-space-x-crs-35-launch-jellyfish/",
       "sourcePublishedAt": "2026-10-14T15:18:38Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-14T17:14:45Z"
     },
     {
@@ -43,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/langley/nasa-develops-batteries-to-power-humanitys-return-to-moon/",
       "sourcePublishedAt": "2026-10-14T14:41:21Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-14T17:14:45Z"
     },
     {
@@ -54,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview",
       "sourcePublishedAt": "2026-10-14T13:49:15Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-14T17:14:45Z"
     },
     {
@@ -65,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-to-discuss-artemis-acceleration-status-of-upcoming-moon-missions/",
       "sourcePublishedAt": "2026-10-14T13:32:25Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-14T17:14:45Z"
     },
     {
@@ -76,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-14-mars-and-the-beehive-under-an-aurora/",
       "sourcePublishedAt": "2026-10-14T04:05:00Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-14T11:59:20Z"
     },
     {
@@ -87,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/hurricane-simon-lurks-off-the-mexican-coast/",
       "sourcePublishedAt": "2026-10-14T04:01:00Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-14T11:59:20Z"
     },
     {
@@ -98,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-github-app-improvements-for-least-privilege-and-management",
       "sourcePublishedAt": "2026-10-13T23:17:55Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-14T01:15:01Z"
     },
     {
@@ -109,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-names-astronaut-christina-koch-acting-deputy-chief-engineer/",
       "sourcePublishedAt": "2026-10-13T20:41:11Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -120,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot",
       "sourcePublishedAt": "2026-10-13T18:39:56Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -131,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-audit-github-code-quality-finding-dismissals-and-reopenings",
       "sourcePublishedAt": "2026-10-13T17:58:36Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -142,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/photojournal/comparing-off-world-rover-driving-distances/",
       "sourcePublishedAt": "2026-10-13T17:56:08Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -208,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-secret-scanning-blocks-anthropic-keys-by-default-adds-salesforce",
       "sourcePublishedAt": "2026-10-13T16:12:36Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -219,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-enterprise-managed-settings-enforcement-updates",
       "sourcePublishedAt": "2026-10-13T15:20:10Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -241,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-improved-detection-for-withdrawn-dependabot-alerts",
       "sourcePublishedAt": "2026-10-13T14:03:57Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -263,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-search-and-filter-for-budgets-now-available",
       "sourcePublishedAt": "2026-10-13T12:06:09Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -274,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-code-scanning-ai-scan-metrics-in-security-overview",
       "sourcePublishedAt": "2026-10-13T12:03:17Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
+      "fetchedAt": "2026-10-14T20:45:26Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -487,28 +531,6 @@
       "firstFetchedAt": "2026-10-09T09:09:49Z"
     },
     {
-      "id": "4f89388d6e84ff78c35ebe1d",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Floodwaters Overwhelm Thailand",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/",
-      "sourcePublishedAt": "2026-10-09T04:01:00Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
-      "firstFetchedAt": "2026-10-09T09:09:49Z"
-    },
-    {
-      "id": "59ce0cb3c0592a8a60dc3d06",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Briefing to Highlight Contributions to Martian Moons Mission",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-briefing-to-highlight-contributions-to-martian-moons-mission/",
-      "sourcePublishedAt": "2026-10-08T20:22:12Z",
-      "fetchedAt": "2026-10-12T00:35:18Z",
-      "firstFetchedAt": "2026-10-08T22:06:51Z"
-    },
-    {
       "id": "24caa334278b69fd57602bc0",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -518,17 +540,6 @@
       "sourcePublishedAt": "2026-10-08T19:43:05Z",
       "fetchedAt": "2026-10-13T16:02:40Z",
       "firstFetchedAt": "2026-10-09T21:00:06Z"
-    },
-    {
-      "id": "e16f84280efb242f97e1eba3",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Announces Bold Science Initiatives for America’s Golden Age Summit",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-announces-bold-science-initiatives-for-americas-golden-age-summit/",
-      "sourcePublishedAt": "2026-10-08T19:40:00Z",
-      "fetchedAt": "2026-10-12T00:35:18Z",
-      "firstFetchedAt": "2026-10-08T22:06:51Z"
     },
     {
       "id": "8b64b8f7c1061221034fae8f",
@@ -672,17 +683,6 @@
       "sourcePublishedAt": "2026-10-02T19:13:50Z",
       "fetchedAt": "2026-10-08T09:01:55Z",
       "firstFetchedAt": "2026-10-02T22:59:30Z"
-    },
-    {
-      "id": "bc794def379f1205969c01e2",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Unvalidated npm trusted publishing configurations now expire",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-02-unvalidated-npm-trusted-publishing-configurations-now-expire",
-      "sourcePublishedAt": "2026-10-02T19:07:04Z",
-      "fetchedAt": "2026-10-07T16:33:03Z",
-      "firstFetchedAt": "2026-10-05T22:40:38Z"
     }
   ]
 }
