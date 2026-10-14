@@ -43,13 +43,13 @@ STYLES = {
     ),
     "body": ParagraphStyle(
         "body", fontName="Segoe", fontSize=12.2, leading=21,
-        textColor=INK, spaceAfter=20, alignment=TA_LEFT,
+        textColor=INK, spaceAfter=16, alignment=TA_LEFT,
         splitLongWords=0,
     ),
     "bullet": ParagraphStyle(
         "bullet", fontName="Segoe", fontSize=11.8, leading=19,
         textColor=INK, leftIndent=14, firstLineIndent=-11,
-        spaceAfter=12, splitLongWords=0,
+        spaceAfter=9, splitLongWords=0,
     ),
     "source": ParagraphStyle(
         "source", fontName="Segoe", fontSize=10.5, leading=17,
@@ -129,7 +129,7 @@ def draw_page(canvas, doc):
     canvas.setFont("Segoe", 8)
     canvas.setFillColor(MUTED)
     canvas.drawRightString(width - 55, height - 38, "FORSCHUNGSDOSSIER · 14.10.2026")
-    canvas.drawString(55, 31, "Ein Friedensangebot für einen neuen Arbeitsweg")
+    canvas.drawString(55, 31, "Ein neuer Arbeitsweg für Brühl")
     canvas.drawRightString(width - 55, 31, f"{doc.page:02d}")
     if doc.page == 1:
         canvas.setFillColor(colors.HexColor("#163b46"))
@@ -137,22 +137,6 @@ def draw_page(canvas, doc):
         canvas.setStrokeColor(CYAN)
         canvas.setLineWidth(3)
         canvas.circle(width - 57, height - 249, 90, stroke=1, fill=0)
-    elif doc.page < 18:
-        canvas.setFillColor(colors.HexColor("#102b39"))
-        canvas.roundRect(55, 98, width - 110, 84, 11, stroke=0, fill=1)
-        canvas.setFont("Segoe-Bold", 7.8)
-        canvas.setFillColor(GOLD)
-        canvas.drawString(74, 162, "VON DER BEGEGNUNG ZUR VERBESSERUNG")
-        points = [86, 224, 362, 500]
-        canvas.setStrokeColor(colors.HexColor("#588d8b"))
-        canvas.setLineWidth(1.5)
-        canvas.line(points[0], 129, points[-1], 129)
-        for x, label in zip(points, ("HÖREN", "HANDELN", "VERBINDEN", "LERNEN")):
-            canvas.setFillColor(CYAN)
-            canvas.circle(x, 129, 5, stroke=0, fill=1)
-            canvas.setFont("Segoe", 7.6)
-            canvas.setFillColor(MUTED)
-            canvas.drawCentredString(x, 111, label)
     canvas.restoreState()
 
 
@@ -170,7 +154,7 @@ def build() -> None:
         story.extend(parse_page(page, cover=index == 0))
     doc = SimpleDocTemplate(
         str(OUTPUT), pagesize=A4, leftMargin=55, rightMargin=55,
-        topMargin=72, bottomMargin=65, title="Juri - Ein Friedensangebot fuer Bruehl",
+        topMargin=72, bottomMargin=65, title="Juri - Der Uebergangsraum fuer Bruehl",
         author="Juri", subject="Oeffentliches BA-Bruehl-Forschungsdossier",
         pageCompression=1,
     )
