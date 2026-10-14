@@ -81,6 +81,7 @@ test('every built HTML receives one local mobile stylesheet after its page style
       'forschung/juri-thesis/chancenreise.html',
       'forschung/juri-thesis/konzept.html',
       'forschung/juri-thesis/rechtslabor.html',
+      'forschung/juri-thesis/versand.html',
     ].includes(path.relative(build,file).split(path.sep).join('/'));
     if(standalonePage){
       assert.equal(mobile.length,0,file);
