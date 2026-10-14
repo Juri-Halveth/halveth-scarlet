@@ -1,206 +1,200 @@
-# JURI / DER ÜBERGANGSRAUM FÜR BRÜHL
+# JURI / FREI DURCHS HAUS
 
-**Forschungsdossier für einen neuen Arbeitsweg · 14. Oktober 2026**
+**Forschungsdossier für eine mobile Improvisations- und Ideenfunktion in der Agentur für Arbeit Brühl · 14. Oktober 2026**
 
-Ich will dort arbeiten, wo ein Mensch, ein Verfahren und ein Gebäude gerade nicht sauber ineinandergreifen. Ich schlage der Agentur für Arbeit Brühl eine neue Vollzeitfunktion vor: Fachperson für Bürgeranliegen und Übergänge. Facharbeit, eServices, Technik, Gespräche mit Beschäftigten und schwierige Kontakte verbinden sich hier zu einem konkreten Arbeitsweg.
+Eine Kollegin sagt auf dem Flur einen Satz. Ein anderes Team kennt die zweite Hälfte. Ein drittes hat eine Lösung, die noch niemand verbunden hat. Ich möchte genau zwischen diesen Menschen arbeiten: frei beweglich, ansprechbar, neugierig und fähig, aus einer unfertigen Beobachtung einen brauchbaren Versuch zu machen.
 
-**Der Vorschlag in einem Satz:** Eine Person begleitet schwierige Übergänge, handelt fachlich im übertragenen Bereich, hört Kolleginnen zu und arbeitet mit den Teams an wiederkehrenden Brüchen.
+**Mein Vorschlag in einem Satz:** Eine mobile Vollzeitfunktion bewegt sich von Team zu Team, verbindet freiwillige Alltagsbeobachtungen und baut mit den Zuständigen kleine, datensparsame Verbesserungen.
 
-Nach sechs und zwölf Monaten lässt sich prüfen, ob die Wege kürzer, klarer und sicherer geworden sind. Langfristige Beobachtung zeigt, ob Verbesserungen tragen.
-
----page---
-# 01 / WARUM DIESER ARBEITSWEG WICHTIG IST
-
-„Ich arbeite ja gerne weiter da!“ Ich möchte meine Erfahrung an einer Stelle einsetzen, an der Menschen und Verfahren täglich aufeinandertreffen. Der Vorschlag ist eine konkrete Arbeit: ansprechbar sein, fachlich helfen, Kolleginnen hören und Abläufe verbessern.
-
-Ich habe erlebt, wie schnell ein Mensch auf eine Erledigt-Zahl, eine Etage, einen Termin oder ein Fachverfahren reduziert werden kann. Aber jemand kann zugleich Bürgerin, Beschäftigter, Angehörige, Arbeitgeber oder ein Mensch mit Angst vor einer Frist sein. Eine leistungsfähige Verwaltung braucht Verfahren. Sie braucht im entscheidenden Übergang auch jemanden, der Verfahren zusammenführt.
-
-Ich bringe ein überprüfbares Rollenmodell ein. Fachbereiche, Beschäftigte, Personalrat, Arbeitsschutz und Datenschutz können es an der wirklichen Arbeit schärfen. Das Ergebnis soll so konkret sein, dass daraus ein Aufgabenprofil, ein Raumplan, ein Messplan und ein besserer Übergabeweg entstehen.
-
-**Meine Frage an die Leitung:** Wie kann aus einer schwierigen Begegnung ein guter nächster Schritt werden — und aus wiederholten Schwierigkeiten eine bessere Behörde?
+Kein fester Schalter, keine Pflichtbefragung, kein Katalog aus sieben Aufgaben. Das Haus selbst ist der Arbeitsraum. Die einzelnen Ideen zeigen im Gebrauch, ob sie helfen.
 
 ---page---
-# 02 / DER MONTAGMORGEN
+# 01 / DIE LÜCKE ZWISCHEN DEN TEAMS
 
-Ein Mensch kommt in Brühl an. Der Onlineweg ist abgebrochen, ein Schreiben ist schwer verständlich, und heute könnte eine Frist wichtig werden. Unten arbeitet die Eingangszone. Oben arbeiten Fachteams. Das BiZ hat andere Besucher. Das KRM kümmert sich um Rückmeldungen, aber nicht um jede akute Fachfrage. So kann ein Mensch durch mehrere richtige Zuständigkeiten gehen und trotzdem den entscheidenden nächsten Schritt verlieren. Die Brühler BA beschreibt selbst den terminierten Zugang und weiterhin mögliche dringende Vorsprachen [Q1]. Das KRM beschreibt die nachgelagerte Prüfung einer Rückmeldung mit den Fachbereichen [Q2].
+„Ich arbeite ja gerne weiter da!“ Ich will nicht in einen engen Zuständigkeitskasten gestellt werden. Ich möchte dort sein, wo gerade eine Beobachtung, ein Mensch oder ein Einfall auftaucht: am Eingang, im BiZ, auf dem Flur, bei IT-Fragen und in Fachteams. Nicht jeder Tag folgt demselben Plan. Genau diese Beweglichkeit ist der Arbeitsauftrag.
 
-Ich möchte in diesem Moment eine klare Aufgabe haben: erst hören, dann die Dringlichkeit und den zuständigen Weg klären, anschließend im übertragenen Bereich handeln oder eine echte Übergabe herstellen. Ein bloßer Hinweis „fünfte Etage“ oder „online versuchen“ ist noch keine abgeschlossene Verbindung.
+Die Eingangszone, das BiZ, Fachbereiche, KRM und IT haben eigene Aufgaben [Q1, Q2, Q3]. Zwischen ihnen liegen kleine Reibungen: ein unverständlicher Hinweis, ein wiederkehrender Umweg, eine gute Lösung, die nur ein Team kennt. Oft wird so etwas im Vorbeigehen gesagt und dann vom nächsten dringenden Vorgang verdrängt.
 
-Was ich selbst fachlich erledigen darf, richtet sich nach dem Auftrag und meinen Berechtigungen. Was jemand anderes entscheiden muss, gebe ich mit den nötigen Angaben weiter. Den Menschen frage ich am Ende: Wissen Sie, was jetzt passiert und wer übernimmt?
+Ich möchte solche Impulse verbinden. Nicht Menschen und ihre privaten Geschichten werden gesammelt, sondern geklärte Arbeitsideen. Eine Idee kann lauten: „Diesen Hinweis anders formulieren.“ Eine andere: „Diese Information schon beim ersten Kontakt sichtbar machen.“
 
-**Prüfpunkt:** Nicht jede Begegnung muss lang sein. Aber bei den Begegnungen, die sonst wiederkehren oder eskalieren, kann eine einzige gute Verbindung sehr viel Folgearbeit ersparen.
-
----page---
-# 03 / SIEBEN MODULE EINER VOLLZEITFUNKTION
-
-Ich schlage kein zusätzliches Schild an der Tür vor. Ich schlage eine Arbeitsfunktion vor, die sieben Module in einem definierten Dienstposten verbindet:
-
-- Bürgeranliegen: Dringlichkeit, Fristen, Barrieren und gewünschtes Ergebnis erkennen; auf Wunsch einen ruhigen Gesprächsweg eröffnen.
-- Facharbeit: ausdrücklich übertragene Vorgänge selbst erledigen, Unterlagen annehmen, eServices erklären, Meldungen ermöglichen und dokumentieren.
-- BiZ-Brücke: Recherche, digitale Hürden und Orientierung zwischen Bildungsangebot, Kundenzugang und Fachbereich begleiten.
-- Interne IT-Fachbetreuung: bei formeller Übertragung die Beschäftigten einer Aufgabengruppe in den genutzten Fachanwendungen unterstützen [Q3].
-- Prozesswerkstatt: wiederkehrende Fehlleitungen, Abbrüche und Doppelkontakte aggregiert erkennen und mit den Teams eine Korrektur testen.
-- Kolleginnen-Kanal: persönliche Gespräche und eine eigens eingerichtete dienstliche Mailadresse für konkrete Beobachtungen zu belastenden Arbeitsbedingungen; daraus prüfbare Verbesserungsfragen machen.
-- Ruhige Koordination: bei hohem Druck ansprechbar bleiben; bei konkreter Gefahr die vorhandene Notfallkette auslösen.
-
-Vormittag bis um die Mittagszeit kann die sichtbare Präsenz im Haus liegen. Der übrige Vollzeitdienst gehört nicht in ein künstliches Warten: Facharbeit, Rückläufe, Schulung, Dokumentation und Verbesserungsprojekte brauchen Zeit. Der konkrete Dienstplan folgt der Aufgabenlast.
-
-**Die Konstruktionsfrage:** Welche Module gehören dauerhaft zusammen, welche Vertretung braucht die Stelle, und an welcher Stelle endet mein Auftrag? Das lässt sich vor Start in einem Rollen- und Berechtigungsplan beschreiben.
+**Die Frage an Brühl:** Was könnte entstehen, wenn jemand die Freiheit und die Aufgabe hätte, die besten beiläufigen Beobachtungen miteinander zu verbinden?
 
 ---page---
-# 04 / DER RAUM IST EIN WERKZEUG
+# 02 / EIN MONTAGMORGEN ALS ARBEITSPROBE
 
-Mein ursprünglicher Gedanke war ein „Geburtsraum“ für neue Wege: ein Ort, an dem aus einer festgefahrenen Situation ein nächster Schritt entstehen kann. Für eine Behörde übersetze ich das nüchtern in einen Übergangsraum. Er ist erreichbar, freiwillig nutzbar, sichtbar in den Hausablauf eingebunden und für vertrauliche Gespräche geeignet. Er darf kein Raum werden, in den schwierige Menschen einfach verschwinden.
+Eine Kollegin sagt zwischen Tür und Angel: „Die Leute fragen wegen dieses Satzes immer wieder nach.“ Ich höre zu und frage: Welcher Teil ist unklar? Im BiZ lese ich denselben Hinweis mit einer anderen Kollegin. Sie zeigt mir eine Formulierung, die dort schon funktioniert. Mit der zuständigen Stelle entsteht ein Vorschlag für einen verständlicheren Text.
 
-Ein geeigneter Ort nahe dem Eingang oder BiZ könnte kurze Klärungen erlauben, ohne den Schalter zu blockieren. Manche Anliegen brauchen nur zwei Minuten und eine klare Übergabe. Andere verlangen einen geschützten Rahmen, fachliche Rücksprache und Dokumentation. Die Raumwahl entscheidet mit darüber, ob Kolleginnen Hilfe holen, Besuchende den Weg verstehen und sensible Angaben geschützt bleiben.
+Das ist keine neue Fallbearbeitungsstufe. Niemand wird zu mir geschickt, damit ich einen Stapel übernehme. Ich bewege mich zum Problem, verbinde die Menschen und helfe beim Bau eines kleinen Versuchs. Die zuständige Stelle entscheidet, ob der Text eingesetzt wird.
 
-Ich will dort keine Ersatzpolizei spielen. Die Gefährdungsbeurteilung, Meldewege, Rufmöglichkeiten, Sichtbeziehungen, Fluchtwege und Schutzmaßnahmen bleiben Teil des offiziellen Systems [Q4, Q5]. Meine Rolle würde eine menschliche Frühverbindung ergänzen. Gerade weil ich Verantwortung übernehmen will, möchte ich wissen, wen ich wann hinzuziehe und wo meine Kompetenz endet.
+Später schaue ich in den wirklichen Ablauf: Wird die neue Formulierung benutzt? Kommt dieselbe Rückfrage weiterhin? Hat die Änderung eine andere Frage erzeugt? Daraus entsteht der nächste Schritt. Eine zusätzliche Umfrage braucht es dafür nicht.
 
-**Gegenprobe:** Wenn der Raum mehr Wartezeit, Abhängigkeit von einer Person oder verdeckte Risiken erzeugt, muss der Entwurf geändert werden. Ein guter Raum ist keine Kulisse, sondern ein überprüfbarer Arbeitsweg.
-
----page---
-# 05 / WAS DAS SOZIALRECHT VOM ZUGANG ERWARTET
-
-Ich lese § 17 SGB I als anspruchsvolle Gestaltungsaufgabe: Berechtigte sollen Leistungen zeitgemäß, umfassend und zügig erhalten; der Zugang soll möglichst einfach sein, Gebäude und Kommunikation möglichst barrierefrei [Q6]. § 16 SGB I schützt den Weg eines Antrags auch dann, wenn er bei einer unzuständigen Stelle eingeht, durch Annahme und Weiterleitung [Q7]. § 1 SGB III richtet Arbeitsförderung auf Beschäftigungsfähigkeit und einen besseren Arbeitsmarkt [Q8].
-
-Keiner dieser Sätze benennt schon meinen Dienstposten. Aber zusammen stellen sie eine harte Frage an den Alltag: Kann ein Mensch den Weg vom ersten Kontakt zur zuständigen Entscheidung wirklich gehen? Wenn die Antwort bei bestimmten Fällen regelmäßig „nur mit mehreren Versuchen“ lautet, ist die Schnittstelle selbst eine Forschungs- und Organisationsaufgabe.
-
-Ich möchte keine Sonderrechte aus diesen Normen erfinden. Ich möchte ihren Zweck ernst genug nehmen, um einen konkreten Arbeitsweg vorzuschlagen: Anliegen aufnehmen, Frist sichern, im übertragenen Rahmen fachlich handeln, nachvollziehbar übergeben und wiederkehrende Abbrüche reparieren.
-
-**Der Schachzug:** Aus „Das ist nicht ausdrücklich als Stelle im Gesetz genannt“ folgt eine Organisationsprüfung: Welche Stelle, welches Aufgabenprofil und welcher Aufwand machen den gesetzlichen Zugang tatsächlich besser?
+**Mein Arbeitsmittel:** Präsenz, Improvisation, kurze Klärung, ein kleines Experiment und die Rückgabe an die Beteiligten.
 
 ---page---
-# 06 / SCHUTZ FÜR BESUCHENDE UND BESCHÄFTIGTE
+# 03 / BEWEGUNGSFREIHEIT IST DIE FUNKTION
 
-Wenn ein Kontakt angespannt wird, sind die Menschen auf beiden Seiten des Tresens betroffen. Das Arbeitsschutzgesetz verlangt, Gefährdungen der Arbeit zu beurteilen, einschließlich psychischer Belastung [Q4]. Die DGUV beschreibt Gewaltprävention über räumliche und organisatorische Maßnahmen, Notfallwege, Schulung und Deeskalation [Q5]. Das ist kein Argument gegen einen menschlichen Übergang; es ist sein Sicherheitsrahmen.
+Der Dienstposten soll nicht aus sieben fest verketteten Pflichtmodulen bestehen. Ich möchte frei von Team zu Team gehen, mit Menschen sprechen, Fragen aufgreifen und dort verweilen, wo eine Idee gerade wachsen kann. Ein fester Arbeitsplatz ist zum Ausarbeiten und Erreichbarsein hilfreich. Er ist kein Ort, an den die Funktion tagsüber gebunden wird.
 
-Mein Vorschlag verbindet drei Ebenen: Erstens wird ein dringendes Anliegen fachlich ernst genommen. Zweitens bleibt die Person im Gespräch, solange das sicher und sinnvoll ist. Drittens gibt es klare Abbruch- und Alarmwege, sobald konkrete Gefahr erkennbar wird. Ich verspreche nicht, Gewalt zu verhindern. Ich möchte verhindern, dass ein vorhersehbarer Organisationsbruch unbemerkt zusätzlich Druck erzeugt.
+Manchmal ergibt sich ein Gespräch am Eingang, manchmal eine IT-Idee im BiZ, manchmal ein Hinweis aus einem Fachteam. Ich kann eine Verbindung herstellen, einen Entwurf schreiben, eine Darstellung testen oder ein kleines Projekt mit den Zuständigen anstoßen. Was an einem Tag sinnvoll ist, entscheidet die Lage im Haus.
 
-Beschäftigte und Arbeitsschutz können gemeinsam prüfen, wo Maßnahmen greifen und wo sie im Alltag fehlen. Einzelne Hinweise werden sachlich aufgenommen; für die Verbesserung zählen der konkrete Ablauf, der betroffene Ort und eine überprüfbare Änderung.
+Die BA würde einen organisatorischen Rahmen und die zuständigen Kontaktpersonen benennen. Fachliche Entscheidung, Zugriff auf Verfahren und Änderung an offiziellen Texten bleiben bei den dafür befugten Stellen. Das ist eine schmale Zuständigkeitsgrenze, keine Schiene für meinen ganzen Arbeitstag.
 
-**Meine praktische Frage:** Wer übernimmt einen schwierigen, aber noch lösbaren Übergang, bevor er für eine überlastete Eingangszonen-Kollegin, ein Fachteam und den Besuchenden zur reinen Eskalation wird?
-
-„Kolleginnen dürfen sich bei mir auskotzen!“ Ich höre konkrete Tatsachen an, die das Leiden bei der Arbeit verstärken: Räume, Übergaben, Hinweise auf Mobbing, Gewissenskonflikte oder Existenzangst. Das geht persönlich oder über eine eigens eingerichtete dienstliche Mailadresse. Ich bin kein berufspsychologischer Dienst. Mit der Kollegin kläre ich den nächsten sachlichen Schritt; wiederkehrende Muster können Räume und Abläufe verändern.
+**Meine Freiheit hat einen Zweck:** Menschen, die sonst getrennt arbeiten, können zusammen eine bessere Lösung finden.
 
 ---page---
-# 07 / DIE ARBEIT HINTER DER ERLEDIGT-ZAHL
+# 04 / DER FLURTALK-CACHE
 
-Die BA ließ Eingangszonen-Arbeitsvorräte zusätzlich erheben, weil sich die Arbeit regional unterschiedlich und dynamisch entwickelt und für bestimmte Aufgaben Transparenz gebraucht wird [Q9]. Die Interne Revision veröffentlichte einen Bericht zur Eingangszone samt Maßnahmenkatalog [Q10]. Das beweist keinen bestimmten Brühler Personalbedarf. Es belegt aber, dass auch die BA die Abbildung der Arbeit als ernstes Organisationsproblem behandelt.
+„Flurtalk-Cache“ ist mein technisches Bild für ein kurzes menschliches Wahrnehmungsfenster. Ich höre, frage nach und merke mir vorübergehend, was als Arbeitsidee relevant sein könnte. Es ist keine Audioaufnahme, kein verstecktes Mitschreiben, keine Datenbank über Kolleginnen und Kollegen.
 
-Ein Vorgang kann aus einer kurzen Mitteilung bestehen oder aus einem langen frei formulierten Text mit Rückfragen, Fristen, Technikproblemen und einem schwierigen Gespräch. Zählt man beide nur als „eins erledigt“, fehlt ein Teil der Arbeitswirklichkeit. Ich würde den Teams keine neue persönliche Rangliste aufdrücken. Ich möchte für begrenzte Zeit wenige aggregierte Merkmale erfassen: Wiederholkontakt, Zeit bis zur zuständigen Stelle, Unterbrechungen, Übergabeabbrüche und Verbesserungsbedarf.
+Erst wenn die Beteiligten es möchten, wird aus dem Gespräch eine Sachfrage. Vor dem Festhalten wird der Kern bereinigt: Welche Aufgabe hakt? Welche kleine Änderung könnte helfen? Wer ist für den Versuch zuständig? Namen, Kundendaten, Gesundheitsangaben, wörtliche Zitate und persönliche Bewertungen gehören nicht in die Ideenkarte. In einem kleinen Team kann sogar eine scheinbar namenlose Geschichte erkennbar sein; dann muss sie allgemeiner formuliert oder weggelassen werden [Q16, Q17].
 
-Dann vergleichen wir nicht nur vorher und nachher. Wir fragen auch: War gerade eine andere Weisung neu? Hat sich die Zahl der Termine geändert? Wurde Arbeit nur in ein anderes Team verschoben? Eine ehrliche Gegenprobe stärkt den Vorschlag, auch wenn sie ihn verändert.
+Ein persönlicher Vorwurf, eine Gefährdung oder ein schutzbedürftiger Einzelfall erhält den dafür zuständigen vertraulichen Weg. Die Ideenkarte ist dafür keine Ersatzakte. Rohe Notizen, falls im konkreten Arbeitsablauf überhaupt nötig, dürfen nicht still zum dauerhaften Archiv werden.
 
-**Mein Maßstab:** Wer die Arbeit genau sehen will, muss auch ihre schwierigen Teile zählen können.
-
----page---
-# 08 / AUFGABEN, ZUSTÄNDIGKEITEN UND IT-FUNKTION
-
-Die Funktion verbindet fachliches Handeln, Übergangskoordination, Kolleginnen-Kanal, Prozessarbeit und IT-Unterstützung. Für jeden Teil braucht es einen erkennbaren Auftrag: Welche Anliegen kann ich selbst bearbeiten? Wann übernimmt ein Fachteam? Wer prüft einen Hinweis zur Arbeitsumgebung? So wird aus einem breiten Profil eine verlässliche Zusammenarbeit.
-
-Interne IT-Fachbetreuung unterstützt nach der BA-Weisung Beschäftigte einer zugeordneten Aufgabengruppe bei Fachanwendungen [Q3]. Bürgerhilfe am Bildschirm ist ein anderes Modul. Ich möchte beide Wege verständlich verbinden, damit eine technische Frage nicht zwischen Schalter und Fachteam hängen bleibt.
-
-Die zuständigen Bereiche beschreiben fachliche Berechtigungen, Vertretung und Übergaben. Der Personalrat wird bei einschlägigen Maßnahmen beteiligt [Q12]. Für die Auswahl eines öffentlichen Arbeitsplatzes zählen Eignung, Befähigung und fachliche Leistung [Q13].
-
-**Praktischer Prüfpunkt:** Kann die Person eine dringende Frage aufnehmen, eine Fachanwendung erklären, eine Kollegin hören und den jeweiligen Fall an die richtige Stelle bringen?
+**Das Instrument speichert die Idee, nicht die Person.**
 
 ---page---
-# 09 / TALENT, TITEL UND ARBEITSPROBE
+# 05 / VIER ZUSTÄNDE EINER IDEE
 
-Was ist wertvoller: ein Titel oder Talent? Ich beantworte die Frage nicht mit einem pauschalen Sieg für eine Seite. Ein Abschluss kann notwendiges Fachwissen belegen. Eine Arbeitsprobe kann zeigen, ob jemand in einem schwierigen Moment zuhört, priorisiert, fachlich richtig begrenzt, eine IT-Hürde erklärt und die nächste Stelle wirklich erreicht.
+**Flurimpuls:** Ein beiläufiger Satz bleibt zunächst Gespräch. Ich frage offen nach, ohne ihn einer Person als Aussage für ein Projekt zuzuschreiben.
 
-Art. 33 Abs. 2 GG nennt Eignung, Befähigung und fachliche Leistung [Q13]. Darin sehe ich eine Chance, praktische Fähigkeiten fair sichtbar zu machen. Ich schlage eine transparente Prüfung des neuen Aufgabenprofils vor: anonymisierte Beispielsituation am Eingang, strukturierte Fach- und Datenschutzfrage, eine nachvollziehbare Übergabe, ein kleiner Vorschlag zur Prozessverbesserung. Alle Bewerbenden hätten dieselben Anforderungen und ein prüfbares Ergebnis.
+**Ideenkarte:** Mit den Beteiligten wird eine sachliche, datensparsame Fassung geklärt: Problem im Ablauf, vorgeschlagene Änderung, zuständiges Team, kleinster Versuch. Die Karte enthält keine private Geschichte.
 
-Projekte und praktische Erfahrung können Befähigung sichtbar machen. Eine ungewöhnliche Kombination von Kompetenzen soll erkennbar werden, auch wenn sie bisher in keinem alten Kästchen stand.
+**Minitest:** Das zuständige Team erprobt die Änderung in einem begrenzten, rücknehmbaren Rahmen. Das kann ein neuer Hinweistext, eine klarere Wegbeschreibung, eine verständlichere Bildschirmhilfe oder eine veränderte Zusammenarbeit sein. Ein Zugriff auf Fachverfahren oder personenbezogene Daten entsteht daraus nicht automatisch.
 
-**Die eigentliche Talentfrage:** Welche Mischung aus Fachwissen, Ruhe, Technikverständnis und Lernfähigkeit braucht Brühl? Wenn wir das sauber definieren, kann ein Titel diese Frage unterstützen, aber nicht allein beantworten.
+**Wirkung:** Wir betrachten die tatsächliche Nutzung. Wird die Idee übernommen? Löst sie das benannte Problem? Entstehen neue Schwierigkeiten? Danach wird sie behalten, geändert oder verworfen. Das Ergebnis kommt zu den Menschen zurück, die daran gearbeitet haben.
 
----page---
-# 10 / WAS „WERT“ IN DIESEM PILOT BEDEUTET
-
-Was ist der Wert eines Kontakts, nach dem jemand seinen nächsten Schritt versteht? Was ist eine Arbeitsbedingung wert, die eine Kollegin wieder sicher handeln lässt? Die Würde des Menschen steht in Art. 1 GG [Q14]. Für den Arbeitsweg interessieren mich zugleich Verständnis, Vertrauen, Zeit und tatsächliche Handlungsmöglichkeiten.
-
-Für die Entscheidung über eine Stelle braucht die BA ein anderes Blatt: Personalkosten, Raum, Technik, Einarbeitung, Vertretung, Ausbildung, Risiken und Alternativen. § 7 BHO verlangt für finanzwirksame Maßnahmen eine angemessene Wirtschaftlichkeitsuntersuchung [Q15]. Diese Untersuchung darf der Frage nach guter Behandlung nicht ausweichen. Sie muss vielmehr erklären, welche Kosten und Wirkungen beobachtbar sind und welche Werte nicht seriös in Euro übersetzt werden.
-
-Eine Prüfung kann mehrere Spuren nebeneinander führen: Erreichen Menschen ihre zuständige Stelle? Werden Beschäftigte entlastet? Welche Kosten und welche Folgearbeit entstehen? Neben messbaren Abläufen bleibt die Erfahrung der beteiligten Menschen wichtig.
-
-**Mein Satz dazu:** Wenn ein Mensch wieder Freude am Arbeiten findet und andere Menschen im Haus besser ankommen, ist das wertvoll. Wie stark und warum, prüfen wir sorgfältig.
+So wird aus „Wir müssten mal“ ein sichtbarer Arbeitsversuch, ohne erst ein Fragebogenprojekt zu eröffnen.
 
 ---page---
-# 11 / RECHNEN OHNE ZAUBERTRICK
+# 06 / DREI BEISPIELE AUS EINEM HAUS
 
-Ein Vollzeitdienstposten kostet mehr als das Tabellenentgelt. Dazu kommen Arbeitgeberanteile, Raum, IT, Einarbeitung, Vertretung, Führung und fachliche Unterstützung. Ich möchte diese Kosten offen nebeneinander sehen. Auf der anderen Seite stehen möglicherweise vermiedene Wiederholkontakte, kürzere Wege, weniger Nachbearbeitung, bessere Arbeitsbedingungen und frühere Hilfe bei kritischen Situationen. Möglich heißt noch nicht gemessen.
+**Ein schwer verständlicher Hinweis:** Die Eingangszone hört dieselbe Rückfrage häufig. Das BiZ kennt eine einfachere Formulierung. Das zuständige Fachteam prüft die Richtigkeit. Ein neuer Text wird im Alltag getestet. Beobachtbar ist, ob genau diese Rückfrage seltener wird.
 
-Ein Rechenbeispiel macht den Mechanismus sichtbar: Zehn vermiedene Wiederholkontakte pro Woche zu je 25 Minuten ergäben 250 Minuten oder vier Stunden und zehn Minuten. Weitere Wirkungen wie weniger unterbrochene Facharbeit und bessere Orientierung erhalten eigene Messgrößen.
+**Ein digitaler Umweg:** Eine Kollegin zeigt, wo Menschen in einem Onlineweg hängen bleiben. Die IT-Stelle kennt die technische Grenze, ein anderes Team einen Zwischenweg. Zusammen entsteht eine bessere Anleitung oder eine technische Änderungsanforderung. Der Versuch beginnt ohne echte Kundendaten.
 
-Eine Alternative könnte ein rotierender Lotsendienst sein; eine zweite könnte ein besseres digitales Formular sein; eine dritte die von mir vorgeschlagene Vollzeitfunktion. Ich bitte darum, diese Varianten nicht nur nach Anschaffungskosten zu vergleichen, sondern nach erreichter Übergabe, Belastung, Vertretbarkeit und Fehlerreparatur [Q15].
+**Ein Raum, der Gespräche erschwert:** Zwei Teams beschreiben unabhängig, dass Geräusch oder Wegführung ein ruhiges Gespräch verhindern. Mit Arbeitsschutz und Verantwortlichen wird eine kleine räumliche Änderung erprobt. Beobachtbar ist, ob sie praktisch genutzt wird; ein Schutzfall wird separat bearbeitet [Q4, Q5].
 
-**Faire Bilanz:** Wenn der Pilot nur Arbeit verschiebt, schreiben wir das hin. Wenn er Menschen früher zur richtigen Hilfe bringt, schreiben wir auch das hin. So kann eine Haushaltsentscheidung stark sein, ohne kalt zu werden.
-
----page---
-# 12 / SECHS MONATE, ZWÖLF MONATE, FÜNF JAHRE
-
-Vor dem ersten Arbeitstag lege ich mit der BA eine Ausgangslage fest: Welche Anliegen kehren zurück? Wie lange dauert die Verbindung zur zuständigen Stelle? Wo brechen digitale Wege ab? Welche Schutzereignisse und Arbeitsbelastungen werden ohnehin erfasst? Personenbezogene Details werden nicht für eine öffentliche Erfolgsstory benutzt.
-
-In Monat eins bis sechs arbeite ich in definierten Anliegenarten, dokumentiere Übergaben und teste mit den Teams eine konkrete Prozessänderung. Nach sechs Monaten kommt eine erste Bilanz: Was gelang, was belastete andere, was blieb unsichtbar? Diese Bilanz ist ein Lernpunkt für das Modell.
-
-Nach zwölf Monaten prüfen wir, ob die Korrektur trägt. Danach können jährlich bis Jahr fünf dieselben Kernzähler, neue Rahmenbedingungen und Gegenhypothesen betrachtet werden. Zeigt sich ein positiver Trend, prüfen wir die Gründe mit Vergleichswegen.
-
-**Der Lernweg:** Wenn die erste Version schwach ist, ändern wir den Ablauf und prüfen die neue Fassung erneut.
+Die Beispiele sind mögliche Arbeitsproben, keine Behauptungen über bereits beobachtete Brühler Fälle.
 
 ---page---
-# 13 / SCHACHBRETT: DER BESTEHENDE APPARAT
+# 07 / WARUM DAS OHNE PFLICHTUMFRAGE GEHT
 
-**Einwand A: „Es gibt schon die Eingangszone.“** Mein erster Zug: Sie ist Partnerin, nicht Gegnerin. Ich übernehme die genau bezeichneten schwierigen Übergänge und die Rückschau auf wiederkehrende Brüche. Zweiter Einwand: „Dann landen alle schweren Fälle bei dir.“ Zweiter Zug: Zugangskriterien, Kapazität, Vertretung und Abbruchweg verhindern ein neues Auffangbecken.
+Ich will Menschen nicht zuerst in Ja-Nein-Felder pressen. Ein natürlicher Arbeitstag liefert bereits Fragen, Versuche und Rückmeldungen. Die Funktion kann freiwillig nachhaken: „Darf ich das mit dem anderen Team verbinden?“ Danach zeigt die Nutzung, ob der konkrete Versuch trägt.
 
-**Einwand B: „Es gibt schon das KRM.“** Mein erster Zug: Das KRM bearbeitet Rückmeldungen und stimmt sich mit Fachbereichen ab [Q2]. Ein drängender Fachfall vor Ort braucht jetzt einen Bearbeitungs- oder Übergabepfad. Zweiter Einwand: „Der Kunde beschwert sich zugleich.“ Zweiter Zug: Beschwerde geht ans KRM; der Fachvorgang bleibt beim fachlich zuständigen Bereich. Nichts wird verschluckt.
+Für jede Idee braucht es eine eigene, kleine Beobachtungsfrage. Bei einem Hinweistext könnte sie lauten: Wird er verwendet, und bleibt dieselbe Rückfrage? Bei einem Raum: Kann das Gespräch dort stattfinden, ohne andere zu stören? Bei einer technischen Hilfe: Kommen Beschäftigte damit am betroffenen Schritt weiter?
 
-**Einwand C: „Das BiZ hilft doch schon.“** Mein erster Zug: Ja, und es kann Partner und Standort sein. Meine Rolle verbindet seine digitale und berufliche Orientierung mit dem Weg durch das übrige Haus. Zweiter Einwand: „Dann verliert das BiZ Kapazität.“ Zweiter Zug: Raum, Zeit und Vertretung werden vorab vereinbart und in der Bilanz als Kosten geführt.
+Wenn eine Änderung zugleich mit einer anderen Weisung oder einem neuen Terminweg eingeführt wird, kann ihr eigener Anteil unklar bleiben. Dann hält die Ideenkarte genau diese Unsicherheit fest. Der Sinn des Versuchs ist Lernen und Verbessern, nicht eine pauschale Erfolgsquote.
 
-**Einwand D: „Eine Person kennt nicht jedes Fachgebiet.“** Mein erster Zug: Die Rolle braucht Module statt Allmacht. Zweiter Einwand: „Dann ist sie nur ein Lotse.“ Zweiter Zug: Im übertragenen Fachbereich erledige ich selbst; sonst sichere ich die Übergabe und repariere den wiederkehrenden Fehler im System.
-
----page---
-# 14 / SCHACHBRETT: AUFGABEN UND AUSWAHL
-
-**Einwand E: „Die neue Funktion wäre zu breit.“** Mein erster Zug: Die sieben Module erhalten je einen Auftrag, eine Zuständigkeit und eine Vertretung. Zweiter Einwand: „Dann zerfällt alles wieder in Silos.“ Zweiter Zug: Die Person hält den Übergabepunkt und den Rücklauf zusammen; genau diese Verbindung ist die Aufgabe.
-
-**Einwand F: „IT-Fragen sind bereits verteilt.“** Mein erster Zug: Bürgerhilfe, interne Fachbetreuung und allgemeine Technik bekommen getrennte Wege [Q3]. Zweiter Einwand: „Warum trotzdem verbinden?“ Zweiter Zug: Weil die Person am Übergang erkennen kann, welcher Weg gebraucht wird, und ihn nachvollziehbar einleitet.
-
-**Einwand G: „Wer trägt die Verantwortung?“** Mein erster Zug: Die fachlichen Entscheidungen bleiben bei den zuständigen Bereichen; die Übergänge werden gemeinsam beschrieben. Zweiter Einwand: „Wer prüft die neue Funktion?“ Zweiter Zug: Eine benannte Leitung, Fachaufsicht und Beschäftigtenvertretung sehen auf ihre jeweiligen Teile.
-
-**Einwand H: „Wie erkennt man die passende Person?“** Mein erster Zug: Das Profil beschreibt überprüfbare Fähigkeiten; eine Arbeitsprobe misst Eignung, Befähigung und Leistung [Q13]. Zweiter Einwand: „Eine Arbeitsprobe zeigt nur einen Tag.“ Zweiter Zug: Sie wird mit Fachkenntnissen, Erfahrung und einheitlichen Kriterien zusammen gelesen.
+**Der Takt kommt aus der Sache:** Sobald ein Versuch benutzbar ist, schauen wir hin und passen ihn an.
 
 ---page---
-# 15 / SCHACHBRETT: WIRKUNG UND VERTRAUEN
+# 08 / TALENT, DAS SICH WISSEN HOLT
 
-**Einwand I: „Ein freundliches Gesicht verhindert keinen Vorfall.“** Mein erster Zug: Schutztechnik, Meldeweg, Gefährdungsbeurteilung und Schulung bleiben eigene Pflichten [Q4, Q5]. Zweiter Einwand: „Warum dann diese Rolle?“ Zweiter Zug: Weil ein früher fachlicher Kontakt einen anderen Teil der Lage bearbeiten kann: Unklarheit, Fehlleitung und unerledigte Dringlichkeit.
+Ich nenne die Funktion bildhaft einen „Antiprotonen“: jemanden, der starre Wege berührt und Bewegung auslöst. Das ist eine Metapher für Improvisation, keine physikalische Wirkungsbehauptung.
 
-**Einwand J: „Die Bilanz nach sechs Monaten kann schwach sein.“** Mein erster Zug: Genau darum heißt sie Bilanz. Zweiter Einwand: „Dann war die Idee falsch.“ Zweiter Zug: Wir untersuchen, ob Auftrag, Standort, Übergabe oder Messung die Schwäche erklärt, und testen eine gezielte Änderung.
+Für diese Arbeit halte ich Improvisation, Kontaktfähigkeit, Aufmerksamkeit und Lernbereitschaft für entscheidend. Wer eine ungeordnete Situation aufgreift, die richtige Frage stellt und Menschen verbindet, kann sich fehlendes Fachwissen bei den Zuständigen aneignen. Für eine konkrete Fachaufgabe muss dieses Wissen vor der Ausführung vorhanden sein. Die freie Ideenfunktion verlangt aber keine vorgetäuschte Allzuständigkeit.
 
-**Einwand K: „Kolleginnen berichten nur subjektiv.“** Mein erster Zug: Eine Mitteilung zeigt zuerst, was eine Person erlebt oder beobachtet hat. Zweiter Einwand: „Wie entsteht daraus eine Verbesserung?“ Zweiter Zug: Wir trennen Beobachtung, überprüfbare Bedingungen und mögliche Ursachen und testen am Arbeitsablauf, ob sich etwas ändert.
+Art. 33 Abs. 2 GG nennt Eignung, Befähigung und fachliche Leistung für den Zugang zu öffentlichen Ämtern [Q13]. Eine faire Arbeitsprobe könnte zwei unverbundene Beobachtungen, eine datensparsame Ideenkarte und einen kleinen Versuch mit einem Team enthalten. Dabei zeigt sich, wie jemand zuhört, improvisiert und dazulernt.
 
-**Einwand L: „Lebensfreude kann man nicht messen.“** Mein erster Zug: Nicht wie Minuten. Aber Menschen können freiwillig berichten, ob sie den nächsten Schritt verstanden und sich respektiert gefühlt haben. Zweiter Einwand: „Das ist subjektiv.“ Zweiter Zug: Dann wird die subjektive Erfahrung als solche ausgewiesen und neben objektiveren Vorgangsmaßen gelesen. Sie ist weder Nichts noch ein Eurobetrag.
+**Meine Frage:** Wie viel Talent übersehen wir, wenn wir nur vorhandene Stellenkästchen prüfen?
 
-**Einwand M: „Für Kolleginnen gibt es schon Anlaufstellen.“** Mein erster Zug: Ich höre zusätzlich auf konkrete Arbeitsbedingungen und helfe beim passenden nächsten Schritt. Zweiter Einwand: „Wer prüft die Schilderung?“ Zweiter Zug: Zuständige Stellen prüfen Einzelfälle; die Prozesswerkstatt untersucht wiederkehrende Muster ohne Namen.
+---page---
+# 09 / RECHT ALS GESTALTUNGSMATERIAL
+
+§ 17 SGB I beschreibt einen möglichst einfachen, zeitgemäßen und zügigen Zugang zu Sozialleistungen [Q6]. § 16 SGB I regelt Annahme und Weiterleitung von Anträgen [Q7]. § 1 SGB III benennt Ziele der Arbeitsförderung [Q8]. Aus diesen Normen folgt nicht schon ein bestimmter Dienstposten. Sie machen aber eine gute Frage möglich: Welche Organisation hilft Menschen und Beschäftigten tatsächlich durch den Alltag?
+
+Der Datenschutz setzt dem Ideeninstrument eine Form: Zweckbindung, Datenminimierung und begrenzte Speicherung [Q16]. Im Beschäftigungskontext ist die Freiwilligkeit besonders sorgfältig zu prüfen [Q17]. Darum ist die Ideenkarte auf den sachlichen Arbeitsablauf gebaut, während persönliche Einzelfälle in ihre zuständigen Wege gehören.
+
+Der Personalrat ist bei einschlägigen organisatorischen und personellen Maßnahmen zu beteiligen [Q12]. Die BA würde die Rolle, Bewegungsräume und Zugänge mit den zuständigen Stellen gestalten. Das ermöglicht Freiheit innerhalb eines geklärten Arbeitsrahmens.
+
+**Die Rechtsfrage ist nicht „Darf jemand eine Idee haben?“**, sondern wie man ihre Umsetzung sauber in vorhandene Verantwortlichkeiten einbettet.
+
+---page---
+# 10 / EIN HAUS, VIELE PERSPEKTIVEN
+
+Beschäftigte der Eingangszone, des BiZ, der Fachteams, der IT und des KRM sehen jeweils einen anderen Teil des Systems [Q1, Q2, Q3]. Keine Perspektive ersetzt die andere. Die mobile Funktion kann sie zur richtigen Zeit zusammenführen, ohne selbst Leitung oder Fachaufsicht aller Bereiche zu sein.
+
+Die BAuA beschreibt Kommunikation, Kooperation und soziale Beziehungen als Merkmale der Arbeitsgestaltung [Q18, Q19]. Daraus lässt sich eine praktische Organisationsidee ableiten: Nicht jedes Team braucht eine neue Sitzung, um einen guten Hinweis weiterzugeben. Manchmal genügt jemand, der ihn aufnimmt, den anderen Teil findet und beide an einen Tisch bringt.
+
+Ich möchte Kolleginnen und Kollegen zuhören, wenn sie von belastenden Arbeitsbedingungen erzählen. Dabei interessiert mich, welcher konkrete Ablauf oder Raum verändert werden könnte. Wer ein persönliches Schutzanliegen hat, braucht den zuständigen vertraulichen Weg. Ein Flurgespräch soll niemanden in ein Projekt hineinziehen.
+
+**Zusammenarbeit beginnt mit einer freiwilligen Frage und endet mit einer zurückgegebenen Idee.**
+
+---page---
+# 11 / WAS DER ARBEITSPLATZ KOSTET UND BRINGT
+
+Ein Vollzeitdienstposten hat Personalkosten, Raum- und IT-Kosten, Einarbeitung und organisatorischen Aufwand. § 7 BHO verlangt bei finanzwirksamen Maßnahmen eine angemessene Wirtschaftlichkeitsuntersuchung [Q15]. Diese Frage gehört offen zum Vorschlag.
+
+Der mögliche Nutzen liegt nicht allein in gesparten Minuten: Ein verständlicherer Text kann Rückfragen verhindern; eine bessere Verbindung kann Doppelarbeit mindern; eine brauchbare Idee kann in mehreren Teams wirken. Auch eine kleine Änderung kann einen großen Alltagseffekt haben. Das wird erst am konkreten Versuch geprüft, nicht als garantierte Summe behauptet.
+
+Beispielrechnung: Wenn eine Änderung zehn wiederholte Rückfragen pro Woche mit je fünf Minuten Aufwand vermeidet, sind das fünfzig Minuten pro Woche. Diese Rechnung ist ein Szenario, keine Brühler Messung. Andere Effekte und zusätzliche Arbeit gehören daneben.
+
+**Der Wert der Funktion** ist die Fähigkeit, solche Ideen zu finden, umzusetzen und ihren wirklichen Gebrauch sichtbar zu machen.
+
+---page---
+# 12 / DER EXPERIMENTRAHMEN
+
+Vor dem Start braucht die Funktion eine Leitung, die Bewegungsfreiheit ausdrücklich trägt, Kontaktpersonen in den Bereichen, einen erreichbaren Arbeitsplatz und einen kurzen Weg, eine Ideenkarte prüfen zu lassen. Der normale Haus- und Arbeitsschutz gilt weiter [Q4, Q5]. Fachzugriffe werden nur für gesondert übertragene Aufgaben eingerichtet.
+
+Am Anfang gehe ich durchs Haus, lerne die Menschen und ihre Arbeit kennen und frage nach den Reibungen, die ohnehin schon ausgesprochen werden. Ich baue keine verdeckte Beobachtung und keinen Pflichtfragebogen auf. Sobald ein Team eine Idee ausprobieren möchte, formulieren wir den kleinsten rücknehmbaren Versuch.
+
+Jeder Versuch hat einen eigenen Zweck, eine zuständige Stelle und eine praktische Beobachtung. Ergebnisse werden unmittelbar zurückgegeben. Die Organisation kann Ideen, Kosten und Nebenwirkungen zusammen ansehen, wenn ein sinnvoller Entscheidungsstand erreicht ist. Der Arbeitsrhythmus bleibt frei, statt in ein starres Sechs- und Zwölf-Monats-Schema gepresst zu werden.
+
+**Der erste Beleg ist ein benutzter Verbesserungsschritt**, nicht eine künstlich gefüllte Tabelle.
+
+---page---
+# 13 / SCHACHBRETT: BESTEHENDE STELLEN
+
+**Einwand A: „Es gibt doch die Eingangszone.“** Mein Zug: Ja, und gerade dort entstehen Alltagsideen. Die neue Funktion übernimmt keinen festen Schalter und keine automatische Fallzuteilung. Sie trägt freiwillige Ideen zwischen Bereichen.
+
+**Einwand B: „Das KRM sammelt Rückmeldungen.“** Mein Zug: Das KRM hat seinen eigenen Weg für Beschwerden [Q2]. Eine mobile Ideenfunktion entwickelt mit Teams kleine Ablaufänderungen; ein persönlicher Beschwerdefall bleibt im zuständigen Verfahren.
+
+**Einwand C: „Das BiZ kann selbst Ideen entwickeln.“** Mein Zug: Unbedingt. Mein Beitrag ist, eine dort entstandene Idee mit dem passenden anderen Bereich zu verbinden und beim Versuch mitzuwirken.
+
+**Einwand D: „Dann macht diese Person alles und nichts.“** Mein Zug: Das Ergebnis ist konkret: Ideenkarte, zuständiges Team, kleiner Versuch und Rückgabe. Der Weg dorthin darf frei bleiben. Beweglichkeit ist keine Unklarheit über Entscheidungskompetenzen.
+
+---page---
+# 14 / SCHACHBRETT: KOMPETENZ UND FREIHEIT
+
+**Einwand E: „Ohne Fachwissen geht das nicht.“** Mein Zug: Fachwissen ist für Fachentscheidungen erforderlich. Die zentrale Tätigkeit hier ist jedoch Verbinden und Erfinden. Benötigtes Wissen wird gezielt mit Fachleuten gelernt, bevor es in einer Fachaufgabe angewandt wird.
+
+**Einwand F: „Freie Bewegung ist schwer zu führen.“** Mein Zug: Die Leitung setzt Zweck, Kontaktwege und Grenzen. Die Person wählt innerhalb dieses Rahmens selbst, welchem Impuls sie folgt. Das Ergebnis wird an konkreten Versuchen sichtbar, nicht an einem Minutentakt pro Flur.
+
+**Einwand G: „Dann stört sie die Teams.“** Mein Zug: Gespräche sind freiwillig und kurz. Wer gerade keine Zeit hat, arbeitet weiter. Ein guter Ideenversuch entlastet die Beteiligten; wenn er zusätzlich belastet, wird er verändert oder beendet.
+
+**Einwand H: „Wer entscheidet über eine Änderung?“** Mein Zug: Die fachlich zuständige Stelle. Die mobile Funktion bringt Menschen und Vorschläge zusammen, bereitet vor und lernt aus der Nutzung. Sie ersetzt keine fremde Unterschrift oder Berechtigung.
+
+---page---
+# 15 / SCHACHBRETT: DATEN UND WIRKUNG
+
+**Einwand I: „Flurtalk ist vertraulich.“** Mein Zug: Ja. Der rohe Satz bleibt im Gespräch. Nur ein ausdrücklich geklärter, nicht auf Personen rückführbarer Arbeitskern darf zur Ideenkarte werden. Ist das in einem kleinen Team nicht möglich, bleibt er draußen [Q16, Q17].
+
+**Einwand J: „Wir brauchen Zahlen.“** Mein Zug: Für eine wirtschaftliche Entscheidung ja [Q15]. Doch zuerst betrachten wir die tatsächliche Änderung: Wird sie benutzt, löst sie ihr benanntes Problem, erzeugt sie Mehrarbeit? Einzelne Versuche werden beschrieben, statt Menschen zu befragen und daraus eine pauschale Erfolgszahl zu machen.
+
+**Einwand K: „Ein freundliches Gespräch verhindert keinen Vorfall.“** Mein Zug: Arbeitsschutz, Meldewege und Schutzmaßnahmen bleiben eigenständig [Q4, Q5]. Eine Ideenfunktion kann daneben einen wiederkehrenden Organisationsbruch sichtbar machen und mit den Verantwortlichen reparieren.
+
+**Einwand L: „Eine Person kann aus einer Idee keine Kultur machen.“** Mein Zug: Vielleicht nicht allein. Aber sie kann täglich Menschen verbinden, die sonst getrennt bleiben. Ob daraus eine tragfähige Gewohnheit wird, zeigt die freiwillige Übernahme im Haus.
 
 ---page---
 # 16 / WAS ICH KONKRET ERBITTE
 
-Ich bitte die zuständige BA-Leitung um ein strukturiertes Gespräch über vier Entscheidungen, gern mit Personalbereich, Eingangszone, BiZ, Fachbereichen, Arbeitsschutz, Datenschutz, IT und Personalvertretung:
+Ich bitte die zuständige BA-Leitung um ein Gespräch über eine neue mobile Vollzeitfunktion in Brühl. Ich möchte nicht auf einen Schalter, einen Raum oder einen festen Katalog schwieriger Fälle beschränkt werden. Ich möchte frei zwischen den Teams arbeiten, dort auftauchen, wo Ideen entstehen, und mit den Menschen kleine Verbesserungen ausprobieren.
 
-1. **Aufgabe:** Wie kann eine bereichsübergreifende Fachperson Bürgeranliegen, Kolleginnen-Kanal, Facharbeit und Prozessverbesserung verbinden?
-2. **Ort:** Welcher Raum und welcher Ablauf machen Gespräche erreichbar, sicher und anschlussfähig an die Fachteams?
-3. **Zusammenarbeit:** Wie werden IT-Fachbetreuung, Personalvertretung, Arbeitsschutz und zuständige Fachbereiche eingebunden?
-4. **Lernen:** Welche Brühler Ausgangsdaten erlauben eine erste sechsmonatige, zweite zwölfmonatige und spätere jährliche Bilanz?
+Für einen guten Start schlage ich vier Entscheidungen vor:
 
-Ich wünsche eine benannte Ansprechperson und ein Gespräch mit den Stellen, die den Arbeitsweg praktisch gestalten können.
+1. **Bewegung:** Welche Bereiche kann die Funktion besuchen, und wer trägt diesen offenen Arbeitsauftrag?
+2. **Ideeninstrument:** Wie wird nur der freiwillig geklärte sachliche Kern einer Beobachtung festgehalten und nach der Nutzung wieder bereinigt?
+3. **Versuche:** Wer darf einen kleinen, rücknehmbaren Test an einem Hinweis, Ablauf oder Raum freigeben?
+4. **Talent:** Wie kann eine Arbeitsprobe Improvisation, Verbindung und Lernfähigkeit sichtbar machen?
 
-**Meine Einladung:** Nehmen wir einen echten Arbeitstag als Ausgangspunkt, zeichnen die Brüche auf und bauen gemeinsam den nächsten besseren Schritt.
+Personalbereich, Beschäftigtenvertretung, Datenschutz, Arbeitsschutz und betroffene Fachteams sollten ihre jeweiligen Fragen einbringen. Ich wünsche eine Ansprechperson für ein Gespräch, das mit einem wirklichen Arbeitstag beginnt.
+
+**Meine Einladung:** Lassen Sie mich zeigen, wie aus einem Flursatz eine brauchbare Verbesserung wird.
 
 ---page---
 # 17 / QUELLEN UND DIREKTWEGE
 
-Quellenstand: 14. Oktober 2026. Die verlinkten Texte beschreiben Zugang, Arbeitsschutz, Organisation und Auswahl.
+Quellenstand: 14. Oktober 2026. Die Quellen tragen die genannten Rechts- und Organisationsrahmen, nicht die Wirkung des vorgeschlagenen Experiments.
 
 [Q1] BA Brühl, „Terminierte Vorsprache wird zum Standard“, 24.11.2025: https://www.arbeitsagentur.de/vor-ort/bruehl/presse/2025-47-terminierte-vorsprache-wird-zum-standard
 
@@ -229,12 +223,14 @@ Quellenstand: 14. Oktober 2026. Die verlinkten Texte beschreiben Zugang, Arbeits
 
 [Q13] Art. 33 Abs. 2 Grundgesetz: https://www.gesetze-im-internet.de/gg/art_33.html
 
-[Q14] Art. 1 Grundgesetz: https://www.gesetze-im-internet.de/gg/art_1.html
-
 [Q15] § 7 Bundeshaushaltsordnung: https://www.gesetze-im-internet.de/bho/__7.html
 
+[Q16] Art. 5 Datenschutz-Grundverordnung: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679
+
+[Q17] § 26 Bundesdatenschutzgesetz: https://www.gesetze-im-internet.de/bdsg_2018/__26.html
+
+[Q18] BAuA, Arbeitsorganisation: https://www.baua.de/DE/Themen/Arbeitsgestaltung/Gefaehrdungsbeurteilung/Handbuch-Gefaehrdungsbeurteilung/Expertenwissen/Psychische-Faktoren/Arbeitsorganisation/Arbeitsorganisation_dossier
+
+[Q19] BAuA, Soziale Beziehungen: https://www.baua.de/DE/Themen/Arbeitsgestaltung/Gefaehrdungsbeurteilung/Handbuch-Gefaehrdungsbeurteilung/Expertenwissen/Psychische-Faktoren/Soziale-Beziehungen/Soziale-Beziehungen_dossier
+
 **Öffentliche Projektseite:** https://juri-halveth.github.io/halveth-scarlet/forschung/ba-uebergangsraum/
-
-**Eine kleine Pause nach viel Stoff:** HALVETH Singularity Cannon, ein spielbares Forschungsprojekt: https://juri-halveth.github.io/halveth-scarlet/forschung/singularity-cannon/
-
-**Letzte Frage:** Was gewinnen Menschen und Behörde, wenn ein bisher übersehener Übergang endlich funktioniert?
