@@ -1,6 +1,6 @@
 # Brühl konkret: Quellen, Wirkungswege und Prüffragen
 
-**Arbeitsstand 14.10.2026.** Dieses Register gehört zum [öffentlichen Wirkungsatlas](bruehl-atlas.html) und zur [T+6/T+12-Rechnung](WIRKUNGSPRUEFUNG-T6-T12.md). Die sechzehn Wege sind illustrative Falltypen, keine sechzehn verschiedenen Personen. Die benannten Einrichtungen und Angebote existieren laut ihren eigenen Webseiten; ihre Beteiligung an JURI-THESIS, Aufnahme, Finanzierung und künftige Wirkung sind nicht belegt. Die Links wurden am 14.10.2026 als Recherchequellen geprüft. Dynamische Angebote sind beim tatsächlichen Pilotstart erneut zu prüfen.
+**Arbeitsstand 14.10.2026.** Dieses Register gehört zum [öffentlichen Wirkungsatlas](bruehl-atlas.html) und zur [T+6/T+12-Rechnung](WIRKUNGSPRUEFUNG-T6-T12.md). Die sechzehn Hauptwege und fünfzehn Anschlussvarianten sind illustrative Falltypen, keine einunddreißig verschiedenen Personen. Die benannten Einrichtungen und Angebote existieren laut ihren eigenen Webseiten; ihre Beteiligung an JURI-THESIS, Aufnahme, Finanzierung und künftige Wirkung sind nicht belegt. Die Links wurden am 14.10.2026 als Recherchequellen geprüft. Dynamische Angebote sind beim tatsächlichen Pilotstart erneut zu prüfen.
 
 ## 1. Entscheidungsfrage
 
@@ -68,6 +68,10 @@ Ein Kaufbeleg belegt Zahlung und Empfänger, nicht zusätzliche Wertschöpfung. 
 | B46 | [Landesportal: Kita-Ergänzungskraft der Stadt Brühl](https://karriere.nrw/stellenausschreibung/5f23472b-07bf-409f-8ccf-e57b13a2981b) | Stellenausschreibung für Ergänzungskräfte in Kita, Teilzeit oder Vollzeit, Bewerbungsfrist 31.12.2026; passende abgeschlossene Ausbildung oder vergleichbare Qualifikation erforderlich | qualifizierter junger Berufsweg; tatsächliche Betreuungskapazität und Elternarbeit sind gesonderte Wirkungsfragen |
 | B47 | [Stadt Brühl: Kita-Navigator](https://bruehl.kita-navigator.org/) | Online-Vormerkung mit priorisierten Wunscheinrichtungen; ab Aufnahmedatum 01.08.2027 fünf wählbare Umfänge von 25 bis 45 Wochenstunden in Fünf-Stunden-Schritten; Vormerkung ist noch keine Platzzusage | konkreter Ablauf für Eltern; Verfügbarkeit je Altersgruppe und Einrichtung, tatsächliche Betreuung und Erwerbswirkung getrennt |
 | B48 | [Phantasialand: Kochausbildung ab 01.02.2027](https://www.unsere-welt-ist-phantastisch.de/jobs/11657/ausbildung-koch-%28mwdk.a.%29) | Betreiber-eigene Ausschreibung am Standort Brühl: Koch-Ausbildung ab Februar 2027; mittlere Reife, erste Gastronomie-Praxis und selbstständig bewältigbare Anfahrt als Anforderungen | konkreter privater Ausbildungsweg; Betrieb entscheidet über Auswahl, Zahl der offenen Plätze und Vergütung sind nicht aus der Seite belegt |
+| B49 | [Stadtwerke Brühl: Unternehmen](https://www.stadtwerke-bruehl.de/unternehmen/) | Stadtwerke Brühl GmbH bezeichnet sich als hundertprozentige Tochter der Stadt und nennt Energie- und Wasserversorgung, Nahverkehr, E-Mobilität und KarlsBad als Tätigkeitsfelder | Unternehmenswirkung und städtischen Gesellschafterhaushalt getrennt prüfen; kein automatischer Gewinntransfer |
+| B50 | [Stadtwerke Brühl: Elektroniker-Ausbildung 2027](https://jobs.stadtwerke-bruehl.de/jobposting/c5e1bfaded5821c501f71dc48491517bc05a2cfc1) | Beginn 01.09.2027, Dauer 3,5 Jahre; Qualifizierung für Energieverteilung, Steuerung, Instandhaltung; Berufsschule und überbetriebliche Teile außerhalb Brühls | technischer Ausbildungsweg mit Qualitäts- und Fachkräftefrage; Auswahl und tatsächlicher Beginn offen |
+| B51 | [Stadtwerke Brühl: Industriekaufleute-Ausbildung 2027](https://jobs.stadtwerke-bruehl.de/jobposting/0ecbe295bfd9bfeed1e486d370cb3f64224ee77f1) | Beginn 01.09.2027, Dauer drei Jahre; Aufgaben in Einkauf, Abrechnung, Personal, Buchhaltung und Vertrieb; Berufsschule in Brühl; Abitur oder Fachhochschulreife genannt | kaufmännischer Ausbildungsweg mit Unternehmens- und Ortsbezug; Eignung und Besetzung bleiben offen |
+| B52 | [Stadt Brühl: Ausbildung Umwelttechnologie für Abwasserbewirtschaftung 2027](https://karriere.bruehl.de/jobposting/f5d5f04d0b70bc08030e308c7350be1b2e38066f) | Beginn 01.08.2027, Bewerbung bis 30.11.2026; mittlerer Abschluss, Teilzeitausbildung möglich; Betrieb von Klär- und Kanalanlagen, Analyse, Wartung und Störungsbehebung | eigener kommunaler Ausbildungsweg; Stadt trägt Ausbildungskosten, der Infrastruktur- und Qualitätsnutzen braucht eigene Prüfung |
 
 Weitere echte Zugänge:
 
@@ -99,7 +103,7 @@ Die [Kommunalfinanzübersicht des BMF](https://www.bundesfinanzministerium.de/We
 
 Für eine Stadtstelle gilt eine weitere Trennung: Die [Destatis-Methode für den Sektor Staat](https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/Methoden/erlaeuterung-sektor-staat.html) bewertet Nichtmarktproduktion über Kosten. Die Bruttowertschöpfung enthält nicht die Vorleistungen; diese sind erst Teil des Produktionswerts. Eine städtische Lohnzahlung ist daher weder der private Betriebsgewinn aus dem Beispiel noch ein freier kommunaler Rückfluss. Nutzen durch kürzere Wartezeiten, besser gepflegtes Stadtgrün oder die Besetzung einer Vakanz ist ein eigener Qualitäts- und Kostenfall mit vorher gebundenem Gegenfaktum.
 
-### Drei Steuerwege, die in der Wirkungsschätzung getrennt bleiben
+### Vier Steuerwege, die in der Wirkungsschätzung getrennt bleiben
 
 | Weg | Primärquelle | Zurechnung für einen möglichen Brühler Effekt | Benötigter Zusatzbeleg |
 | --- | --- | --- | --- |
@@ -133,7 +137,7 @@ Das [NRW-Gemeindefinanzierungsgesetz 2026](https://recht.nrw.de/gvnrw/2025-s1182
 | 25, Digitalhandel | Leistung für freiwilligen Laden und Test | bezahlte Wiederaufträge | kostenlose bestehende Beratung und geplante Digitalisierung getrennt? |
 | 29, Energiehandwerk | Qualifikation, Praxis und fachliche Zuständigkeit | Vertrag oder fachgerechter Auftrag | Maßnahme und Förderung ohnehin geplant? |
 
-Die zwölf zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen diese Tabelle, ohne zwölf weitere Pilotplätze zu reservieren:
+Die fünfzehn zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen diese Tabelle, ohne fünfzehn weitere Pilotplätze zu reservieren:
 
 | Variante | T+6 | T+12 | Gegenprobe |
 | --- | --- | --- | --- |
@@ -149,6 +153,9 @@ Die zwölf zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen 
 | 23, qualifizierte Stadtgrün-Fachkraft | Eignung, Bewerbung bis zur derzeit genannten Frist 18.10.2026 und möglicher Arbeitsbeginn | gehaltener Vertrag und belegte städtische Leistung | Ist die Stelle noch offen; wären Dienst und Kosten auch ohne Pilot gleich? Eine sechsmonatige Förderung ersetzt keine mehrjährige Ausbildung. |
 | 25, qualifizierte Kita-Ergänzungskraft | Bewerbung, Anerkennung der Qualifikation und gegebenenfalls Vertrag | geleistete Betreuungsstunden, Verbleib und Qualität; Elternarbeitszeit nur nach zusätzlicher tatsächlicher Platznutzung | Wäre die Stelle ohnehin besetzt worden und hätten Familien dieselbe Betreuung erhalten? |
 | 19, Kochausbildung bei privatem Arbeitgeber | Bewerbung und bei Oktober-2026-Pilotstart gegebenenfalls Ausbildungsbeginn im Februar 2027 | gehaltener Vertrag, Ausbildungsfortschritt, tatsächliche Arbeits- und Lernstunden | Hätte der Betrieb denselben Ausbildungsplatz ohnehin mit einer anderen Person besetzt; war die Anfahrt bereits ohne Pilot möglich? |
+| 20, Elektronik-Ausbildung bei Stadtwerken | Bewerbung, Eignung und gegebenenfalls Vertrag | ab September 2027 erste Ausbildungswochen, Vergütung und Lernfortschritt | Wäre der Platz ohnehin besetzt; welche Ausbildungsanteile und Kosten liegen außerhalb Brühls? |
+| 21, kaufmännische Ausbildung bei Stadtwerken | Bewerbung und Auswahl bei erfüllten Schulvoraussetzungen | ab September 2027 erster Ausbildungsmonat, Berufsschule in Brühl und Verbleib | Wäre der Platz ohnehin besetzt; welchen Aufwand trägt das Unternehmen selbst? |
+| 20, Umwelttechnik-Ausbildung bei der Stadt | Bewerbung bis 30.11.2026 und gegebenenfalls Auswahl | ab August 2027 erste Ausbildungswochen und belegter Lernfortschritt | Wäre der Platz ohnehin besetzt; welche Qualitätswirkung und Kosten entstehen im Abwasserbetrieb? |
 
 Der [IAB-Forschungsbericht zu Kosten und Nutzen von Arbeitsmarktmaßnahmen](https://doku.iab.de/forschungsbericht/2024/fb2124.pdf) begründet, Mitnahme, Verdrängung und öffentliche Kosten getrennt zu betrachten. Diese Forschung evaluiert andere Instrumente und Populationen. Ihre Wirkungsquoten sind **nicht** in die sechzehn JURI-THESIS-Wege übertragen worden.
 
