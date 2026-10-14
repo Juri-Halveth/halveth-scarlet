@@ -28,15 +28,15 @@ AASHBOUNDSeal::AASHBOUNDSeal()
     RootComponent = SealRoot;
     SealCore = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SealCore"));
     SealCore->SetupAttachment(SealRoot);
-    SealCore->SetRelativeScale3D(FVector(0.64f));
+    SealCore->SetRelativeScale3D(FVector(0.22f));
     SealCore->SetCollisionProfileName(TEXT("BlockAll"));
     SealCore->SetCastShadow(false);
     static ConstructorHelpers::FObjectFinder<UStaticMesh> Sphere(TEXT("/Engine/BasicShapes/Sphere.Sphere"));
     if (Sphere.Succeeded()) SealCore->SetStaticMesh(Sphere.Object);
     Glow = CreateDefaultSubobject<UPointLightComponent>(TEXT("SealGlow"));
     Glow->SetupAttachment(SealRoot);
-    Glow->SetIntensity(1100.0f);
-    Glow->SetAttenuationRadius(480.0f);
+    Glow->SetIntensity(240.0f);
+    Glow->SetAttenuationRadius(300.0f);
     Glow->SetCastShadows(false);
 }
 
@@ -50,7 +50,7 @@ void AASHBOUNDSeal::BeginPlay()
         DynamicMaterial = UMaterialInstanceDynamic::Create(Material, this);
         SealCore->SetMaterial(0, DynamicMaterial);
         DynamicMaterial->SetVectorParameterValue(TEXT("SpellColor"), SealColor(RequiredSchool));
-        DynamicMaterial->SetScalarParameterValue(TEXT("Radiance"), 3.0f);
+        DynamicMaterial->SetScalarParameterValue(TEXT("Radiance"), 0.8f);
     }
     Glow->SetLightColor(SealColor(RequiredSchool));
 }
@@ -60,15 +60,15 @@ void AASHBOUNDSeal::Tick(float DeltaSeconds)
     Super::Tick(DeltaSeconds);
     Time += DeltaSeconds;
     const float Pulse = 1.0f + 0.09f * FMath::Sin(Time * (bActive ? 5.0f : 2.0f));
-    SealCore->SetRelativeScale3D(FVector(0.64f * Pulse));
+    SealCore->SetRelativeScale3D(FVector(0.22f * Pulse));
 }
 
 bool AASHBOUNDSeal::Activate(int32 SpellSchool)
 {
     if (bActive || SpellSchool != RequiredSchool) return false;
     bActive = true;
-    Glow->SetIntensity(4600.0f);
-    if (DynamicMaterial) DynamicMaterial->SetScalarParameterValue(TEXT("Radiance"), 12.0f);
+    Glow->SetIntensity(1400.0f);
+    if (DynamicMaterial) DynamicMaterial->SetScalarParameterValue(TEXT("Radiance"), 5.0f);
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND seal charged school=%d at %s"),
            RequiredSchool, *GetActorLocation().ToString());
     int32 Count = 0;

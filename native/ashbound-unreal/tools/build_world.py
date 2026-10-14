@@ -186,6 +186,10 @@ terrain_component.set_collision_enabled(unreal.CollisionEnabled.QUERY_AND_PHYSIC
 cube = unreal.load_asset('/Engine/BasicShapes/Cube')
 if cube is None:
     raise RuntimeError('Engine cube missing')
+cylinder = unreal.load_asset('/Engine/BasicShapes/Cylinder')
+sphere = unreal.load_asset('/Engine/BasicShapes/Sphere')
+if cylinder is None or sphere is None:
+    raise RuntimeError('Engine cylinder or sphere missing')
 collision = spawn_mesh(cube, 'ASHBOUND / Walkable central path', 3500, 0, -250,
                        140, 29, 5, mat=road_mat)
 collision.set_actor_enable_collision(True)
@@ -273,28 +277,35 @@ if east_gate is None:
 east_gate.get_editor_property('door_mesh').set_material(0, stone_mat)
 east_gate.set_actor_label('ASHBOUND / Three-seal east gate')
 for school, (x, y) in enumerate(((2680, -490), (3430, 0), (2680, 490))):
-    spawn_mesh(cube, 'ASHBOUND / Seal plinth %d' % school,
-               x, y, 52, 1.0, 1.0, 1.04, mat=stone_mat)
+    # Three readable parts make each seal a piece of the archive, not a cube.
+    spawn_mesh(cylinder, 'ASHBOUND / Seal foot %d' % school,
+               x, y, 14, 1.6, 1.6, .28, mat=stone_mat)
+    spawn_mesh(cylinder, 'ASHBOUND / Seal column %d' % school,
+               x, y, 63, .91, .91, .72, mat=stone_mat)
+    spawn_mesh(cylinder, 'ASHBOUND / Seal capital %d' % school,
+               x, y, 109, 1.27, 1.27, .19, mat=stone_mat)
+    spawn_mesh(cylinder, 'ASHBOUND / Seal bronze lip %d' % school,
+               x, y, 119, 1.12, 1.12, .025, mat=bronze_mat)
     seal = actors.spawn_actor_from_class(seal_class,
-                                          unreal.Vector(x, y, 188), unreal.Rotator())
+                                          unreal.Vector(x, y, 157), unreal.Rotator())
     if seal is None:
         raise RuntimeError('Native archive seal spawn failed: ' + str(school))
     seal.set_editor_property('required_school', school)
     seal.set_actor_label('ASHBOUND / %s seal - spell %d' %
                          (('Resonanz', 'Glut', 'Neufassung')[school], school))
 
-# Low steps and a table-sized pedestal keep the book in the explorable world.
-for index, (width, height) in enumerate(((3.5, 20), (2.5, 24), (1.65, 60))):
-    z = (10, 32, 74)[index]
-    spawn_mesh(cube, 'ASHBOUND / Archive altar tier %02d' % index,
-               vault_x, 0, z, width, width, height / 100, mat=stone_mat)
-spawn_mesh(cube, 'ASHBOUND / Altar stone tabletop',
-           vault_x, 0, 107, 1.72, 1.72, .06, mat=stone_mat)
+# The central reading dais has a walkable footprint and a smaller stone desk.
+for index, (z, radius, height) in enumerate(((10, 3.3, .20), (28, 2.5, .16),
+                                             (73, 1.42, .74), (113, 1.65, .07))):
+    spawn_mesh(cylinder, 'ASHBOUND / Archive altar tier %02d' % index,
+               vault_x, 0, z, radius, radius, height, mat=stone_mat)
+spawn_mesh(cylinder, 'ASHBOUND / Altar bronze rim',
+           vault_x, 0, 119, 1.52, 1.52, .015, mat=bronze_mat)
 for side in (-1, 1):
-    spawn_mesh(cube, 'ASHBOUND / Altar bronze east-west inlay %s' % side,
-               vault_x, side * 84, 112, 1.68, .025, .025, mat=bronze_mat)
-    spawn_mesh(cube, 'ASHBOUND / Altar bronze north-south inlay %s' % side,
-               vault_x + side * 84, 0, 112, .025, 1.68, .025, mat=bronze_mat)
+    spawn_mesh(cylinder, 'ASHBOUND / Reading desk foot %s' % side,
+               vault_x, side * 270, 49, 1.32, 1.32, .98, mat=stone_mat)
+    spawn_mesh(cylinder, 'ASHBOUND / Reading desk rim %s' % side,
+               vault_x, side * 270, 102, 1.5, 1.5, .08, mat=bronze_mat)
 
 book_class = unreal.load_class(None, '/Script/ASHBOUNDUE.ASHBOUNDGrimoire')
 if book_class is None:
@@ -302,14 +313,9 @@ if book_class is None:
 for volume_index, (side, title) in enumerate(((0, 'Ilyras Buch vom ersten Feuer'),
                                                (-270, 'Nerals Atlas ohne Pfeile'),
                                                (270, 'Kaels Uhrschrift'))):
-    if side:
-        spawn_mesh(cube, 'ASHBOUND / Reading lectern %d' % volume_index,
-                   vault_x, side, 55, 1.65, 1.25, 1.1, mat=stone_mat)
-        spawn_mesh(cube, 'ASHBOUND / Reading lectern top %d' % volume_index,
-                   vault_x, side, 111, 1.80, 1.42, .06, mat=stone_mat)
     book = actors.spawn_actor_from_class(book_class,
-                                         unreal.Vector(vault_x, side, 135),
-                                         unreal.Rotator(pitch=35, yaw=0, roll=0))
+                                         unreal.Vector(vault_x, side, 124 if not side else 111),
+                                         unreal.Rotator())
     if book is None:
         raise RuntimeError('Native grimoire spawn failed: ' + title)
     book.set_editor_property('volume_index', volume_index)
@@ -318,31 +324,29 @@ for volume_index, (side, title) in enumerate(((0, 'Ilyras Buch vom ersten Feuer'
     closed_book.set_static_mesh(model('book_encyclopedia_set_01', volume_index))
     closed_book.set_relative_rotation(unreal.Rotator(pitch=90, yaw=0, roll=0), sweep=False, teleport=False)
     closed_book.set_relative_scale3d(unreal.Vector(2.5, 2.5, 2.5))
-    closed_book.set_relative_location(unreal.Vector(-30, -5, 0), sweep=False, teleport=False)
-
-# The scanned CC0 volumes provide surface detail around the authored book.
-archive_books = paths('book_encyclopedia_set_01') if 'book_encyclopedia_set_01' in imports else []
-for index in range(min(6, len(archive_books))):
-    mesh = model('book_encyclopedia_set_01', index)
-    prop = place_normalized(mesh, 'ASHBOUND / Archive volume %02d' % index,
-                            vault_x + 340 + (index % 3) * 86,
-                            -225 + (index // 3) * 450, 105, 56,
-                            yaw=(index % 3) * 13)
-    prop.set_actor_enable_collision(False)
+    closed_book.set_relative_location(unreal.Vector(-28, -5, 0), sweep=False, teleport=False)
 
 for index, (x, y, hue) in enumerate(((2530, -520, (.28, .55, .7)),
                                      (2530, 520, (1.0, .66, .35)),
                                      (3460, -520, (.28, .55, .7)),
                                      (3460, 520, (1.0, .66, .35)))):
-    orb = unreal.load_asset('/Engine/BasicShapes/Sphere')
-    spawn_mesh(orb, 'ASHBOUND / Archive light fixture %02d' % index,
-               x, y, 290, .12, .12, .12, mat=rune_mat)
+    # A recessed glass ember inside a bronze lantern replaces the bare orb.
+    spawn_mesh(cylinder, 'ASHBOUND / Lantern foot %02d' % index,
+               x, y, 218, .47, .47, .09, mat=bronze_mat)
+    spawn_mesh(cylinder, 'ASHBOUND / Lantern stem %02d' % index,
+               x, y, 253, .12, .12, .65, mat=bronze_mat)
+    spawn_mesh(cylinder, 'ASHBOUND / Lantern cage %02d' % index,
+               x, y, 291, .42, .42, .12, mat=bronze_mat)
+    spawn_mesh(sphere, 'ASHBOUND / Lantern ember %02d' % index,
+               x, y, 300, .035, .035, .035, mat=rune_mat)
+    spawn_mesh(cylinder, 'ASHBOUND / Lantern crown %02d' % index,
+               x, y, 312, .48, .48, .09, mat=bronze_mat)
     lamp = actors.spawn_actor_from_class(unreal.PointLight,
                                           unreal.Vector(x, y, 300), unreal.Rotator())
     lamp.set_actor_label('ASHBOUND / Archive practical %02d' % index)
     lamp_comp = lamp.get_editor_property('point_light_component')
-    lamp_comp.set_editor_property('intensity', 250.0)
-    lamp_comp.set_editor_property('attenuation_radius', 600.0)
+    lamp_comp.set_editor_property('intensity', 170.0)
+    lamp_comp.set_editor_property('attenuation_radius', 520.0)
     lamp_comp.set_editor_property('light_color', unreal.Color(
         int(hue[0] * 255), int(hue[1] * 255), int(hue[2] * 255), 255))
     lamp_comp.set_editor_property('cast_shadows', False)

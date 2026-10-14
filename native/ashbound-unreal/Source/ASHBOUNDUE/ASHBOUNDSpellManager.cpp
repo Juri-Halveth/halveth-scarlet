@@ -201,12 +201,15 @@ void AASHBOUNDSpellManager::BeginPlay()
     }
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqa")))
     {
+        float CaptureDelay = 6.5f;
+        FParse::Value(FCommandLine::Get(), TEXT("ashboundqadelay="), CaptureDelay);
+        CaptureDelay = FMath::Clamp(CaptureDelay, 6.5f, 30.0f);
         FTimerHandle CaptureTimer;
         GetWorld()->GetTimerManager().SetTimer(CaptureTimer, FTimerDelegate::CreateLambda([]()
         {
             FScreenshotRequest::RequestScreenshot(
                 FPaths::ProjectSavedDir() / TEXT("Screenshots/ASHBOUND-QA.png"), false, false);
-        }), 6.5f, false);
+        }), CaptureDelay, false);
     }
 #endif
 }

@@ -26,7 +26,7 @@ sample.set_editor_property('texture', texture)
 tint = unreal.MaterialEditingLibrary.create_material_expression(
     material, unreal.MaterialExpressionVectorParameter, -450, 100)
 tint.set_editor_property('parameter_name', 'LeafTint')
-tint.set_editor_property('default_value', unreal.LinearColor(.10, 1.80, .16, 1.0))
+tint.set_editor_property('default_value', unreal.LinearColor(.38, .78, .33, 1.0))
 colour = unreal.MaterialEditingLibrary.create_material_expression(
     material, unreal.MaterialExpressionMultiply, -170, -60)
 roughness = unreal.MaterialEditingLibrary.create_material_expression(
