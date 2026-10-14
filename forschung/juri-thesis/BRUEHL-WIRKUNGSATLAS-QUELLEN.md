@@ -1,6 +1,6 @@
 # Brühl konkret: Quellen, Wirkungswege und Prüffragen
 
-**Arbeitsstand 14.10.2026.** Dieses Register gehört zum [öffentlichen Wirkungsatlas](bruehl-atlas.html) und zur [T+6/T+12-Rechnung](WIRKUNGSPRUEFUNG-T6-T12.md). Die sechzehn Hauptwege und vierzehn Anschlussvarianten sind illustrative Falltypen, keine dreißig verschiedenen Personen. Die benannten Einrichtungen und Angebote existieren laut ihren eigenen Webseiten; ihre Beteiligung an JURI-THESIS, Aufnahme, Finanzierung und künftige Wirkung sind nicht belegt. Die Links wurden am 14.10.2026 als Recherchequellen geprüft. Dynamische Angebote sind beim tatsächlichen Pilotstart erneut zu prüfen.
+**Arbeitsstand 14.10.2026.** Dieses Register gehört zum [öffentlichen Wirkungsatlas](bruehl-atlas.html) und zur [T+6/T+12-Rechnung](WIRKUNGSPRUEFUNG-T6-T12.md). Die sechzehn Hauptwege und fünfzehn Anschlussvarianten sind illustrative Falltypen, keine einunddreißig verschiedenen Personen. Die benannten Einrichtungen und Angebote existieren laut ihren eigenen Webseiten; ihre Beteiligung an JURI-THESIS, Aufnahme, Finanzierung und künftige Wirkung sind nicht belegt. Die Links wurden am 14.10.2026 als Recherchequellen geprüft. Dynamische Angebote sind beim tatsächlichen Pilotstart erneut zu prüfen.
 
 ## 1. Entscheidungsfrage
 
@@ -71,6 +71,7 @@ Ein Kaufbeleg belegt Zahlung und Empfänger, nicht zusätzliche Wertschöpfung. 
 | B49 | [Stadtwerke Brühl: Unternehmen](https://www.stadtwerke-bruehl.de/unternehmen/) | Stadtwerke Brühl GmbH bezeichnet sich als hundertprozentige Tochter der Stadt und nennt Energie- und Wasserversorgung, Nahverkehr, E-Mobilität und KarlsBad als Tätigkeitsfelder | Unternehmenswirkung und städtischen Gesellschafterhaushalt getrennt prüfen; kein automatischer Gewinntransfer |
 | B50 | [Stadtwerke Brühl: Elektroniker-Ausbildung 2027](https://jobs.stadtwerke-bruehl.de/jobposting/c5e1bfaded5821c501f71dc48491517bc05a2cfc1) | Beginn 01.09.2027, Dauer 3,5 Jahre; Qualifizierung für Energieverteilung, Steuerung, Instandhaltung; Berufsschule und überbetriebliche Teile außerhalb Brühls | technischer Ausbildungsweg mit Qualitäts- und Fachkräftefrage; Auswahl und tatsächlicher Beginn offen |
 | B51 | [Stadtwerke Brühl: Industriekaufleute-Ausbildung 2027](https://jobs.stadtwerke-bruehl.de/jobposting/0ecbe295bfd9bfeed1e486d370cb3f64224ee77f1) | Beginn 01.09.2027, Dauer drei Jahre; Aufgaben in Einkauf, Abrechnung, Personal, Buchhaltung und Vertrieb; Berufsschule in Brühl; Abitur oder Fachhochschulreife genannt | kaufmännischer Ausbildungsweg mit Unternehmens- und Ortsbezug; Eignung und Besetzung bleiben offen |
+| B52 | [Stadt Brühl: Ausbildung Umwelttechnologie für Abwasserbewirtschaftung 2027](https://karriere.bruehl.de/jobposting/f5d5f04d0b70bc08030e308c7350be1b2e38066f) | Beginn 01.08.2027, Bewerbung bis 30.11.2026; mittlerer Abschluss, Teilzeitausbildung möglich; Betrieb von Klär- und Kanalanlagen, Analyse, Wartung und Störungsbehebung | eigener kommunaler Ausbildungsweg; Stadt trägt Ausbildungskosten, der Infrastruktur- und Qualitätsnutzen braucht eigene Prüfung |
 
 Weitere echte Zugänge:
 
@@ -136,7 +137,7 @@ Das [NRW-Gemeindefinanzierungsgesetz 2026](https://recht.nrw.de/gvnrw/2025-s1182
 | 25, Digitalhandel | Leistung für freiwilligen Laden und Test | bezahlte Wiederaufträge | kostenlose bestehende Beratung und geplante Digitalisierung getrennt? |
 | 29, Energiehandwerk | Qualifikation, Praxis und fachliche Zuständigkeit | Vertrag oder fachgerechter Auftrag | Maßnahme und Förderung ohnehin geplant? |
 
-Die zwölf zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen diese Tabelle, ohne zwölf weitere Pilotplätze zu reservieren:
+Die fünfzehn zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen diese Tabelle, ohne fünfzehn weitere Pilotplätze zu reservieren:
 
 | Variante | T+6 | T+12 | Gegenprobe |
 | --- | --- | --- | --- |
@@ -154,6 +155,7 @@ Die zwölf zusätzlichen Brühler Anschlussvarianten auf der Webseite ergänzen 
 | 19, Kochausbildung bei privatem Arbeitgeber | Bewerbung und bei Oktober-2026-Pilotstart gegebenenfalls Ausbildungsbeginn im Februar 2027 | gehaltener Vertrag, Ausbildungsfortschritt, tatsächliche Arbeits- und Lernstunden | Hätte der Betrieb denselben Ausbildungsplatz ohnehin mit einer anderen Person besetzt; war die Anfahrt bereits ohne Pilot möglich? |
 | 20, Elektronik-Ausbildung bei Stadtwerken | Bewerbung, Eignung und gegebenenfalls Vertrag | ab September 2027 erste Ausbildungswochen, Vergütung und Lernfortschritt | Wäre der Platz ohnehin besetzt; welche Ausbildungsanteile und Kosten liegen außerhalb Brühls? |
 | 21, kaufmännische Ausbildung bei Stadtwerken | Bewerbung und Auswahl bei erfüllten Schulvoraussetzungen | ab September 2027 erster Ausbildungsmonat, Berufsschule in Brühl und Verbleib | Wäre der Platz ohnehin besetzt; welchen Aufwand trägt das Unternehmen selbst? |
+| 20, Umwelttechnik-Ausbildung bei der Stadt | Bewerbung bis 30.11.2026 und gegebenenfalls Auswahl | ab August 2027 erste Ausbildungswochen und belegter Lernfortschritt | Wäre der Platz ohnehin besetzt; welche Qualitätswirkung und Kosten entstehen im Abwasserbetrieb? |
 
 Der [IAB-Forschungsbericht zu Kosten und Nutzen von Arbeitsmarktmaßnahmen](https://doku.iab.de/forschungsbericht/2024/fb2124.pdf) begründet, Mitnahme, Verdrängung und öffentliche Kosten getrennt zu betrachten. Diese Forschung evaluiert andere Instrumente und Populationen. Ihre Wirkungsquoten sind **nicht** in die sechzehn JURI-THESIS-Wege übertragen worden.
 
