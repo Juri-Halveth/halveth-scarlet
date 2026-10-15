@@ -29,6 +29,9 @@ Its current vegetation, terrain composition and object materials still need
 substantial art work before it can replace the Chapter I scene.
 After bootstrapping, run `& .\native\ashbound-unreal\play-rebirth.ps1 -WorkRoot '<your empty build directory>'`
 to enter this landscape directly in the native first-person runtime. The current
+packaged Development EXE can be opened with the same script using
+`-PackageRoot '<your package directory>'` instead of `-WorkRoot`.
+The current
 scene has ground collision and a short, grounded habitat near the spawn; it does
 not yet carry the Chapter I quest, a 5 × 5 km authored world, digging, or saved
 world state. The visual QA screenshot is generated locally by the optional
