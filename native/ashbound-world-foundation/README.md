@@ -21,15 +21,13 @@ python -m unittest -q test_foundation
 python build_preview.py .\preview
 ```
 
-Der [Vorschaubogen](preview/foundation-preview.png) zeigt den gesamten
-Koordinatenraum und den Querschnitt eines 64-m-Chunks. Das Vorschaukommando
-erzeugt daneben `preview/ground-and-excavation.obj` mit MTL-Datei für einen
-OBJ-Viewer. Der große Geometrieexport bleibt lokal; er ist eine Chunk-Probe,
-keine Darstellung sämtlicher 25 km² auf einmal.
+`build_preview.py` erzeugt weiterhin einen historischen 2D-Diagnosebogen und
+einen OBJ-Chunk. Der Bogen ist keine Spielansicht und kein visuelles Ziel.
 
-**Stand:** eigenständige Modell- und Geometrieprobe. Noch keine Unreal- oder
-EXE-Integration, Laufzeit-Kollision, steuerbare Spielfigur, Grabetool,
-Hydrologie, Erosion, ausgewachsene Pflanzenmeshes oder Langstrecken-Streaming.
-Die alten ASHBOUND-Terrainflächen und ihr sichtbares Void sind dadurch noch
-nicht repariert. Erst wenn das Fundament im Engine-Build mit Bewegung und
-Grabung geprüft ist, kann es die alte Fläche ersetzen.
+**Stand:** Das Modell ist als separates natives Unreal-Level `FoundationLab`
+weitergeführt. Dort werden 3D-Grenzflächen samt Kollision abschnittsweise
+erzeugt, eine Grabung remesht den betroffenen Boden, und lokale Pflanzen sowie
+Felsen werden an die Höhe gesetzt. Der Engine-Kollisionstest und Screenshots
+prüfen diesen Kandidaten. Die bisherige Story-Karte verwendet weiterhin ihre
+älteren Terrainflächen; der Lab-Stand ist noch kein Ersatz für das gesamte
+Spiel. Siehe [native Unreal README](../ashbound-unreal/README.md).

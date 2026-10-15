@@ -14,6 +14,24 @@ After meeting the witness, face her nearby and press **T** for one optional loca
 
 Continue east beyond the fort to enter the expanding wilderness. The native runtime creates and unloads deterministic 128-metre terrain cells with grounded rocks, trees, ferns and grass while keeping nearby cells active. This is a traversable terrain foundation, not a populated open-world campaign: the wilderness has no settlements, NPC schedules, authored quests or saved player position yet.
 
+## Separate 3D foundation lab
+
+`/Game/ASHBOUND/Maps/FoundationLab` is an independent native level for the
+5 × 5 km ground experiment. It streams 64 m collision chunks around the player
+from a continuous 3D solid-density field, with soil above rock and an enclosed
+bedrock depth. Aim at the ground and press **G** to excavate; the affected
+chunk is remeshed, and plants lose their placement when their supporting earth
+is removed. Invisible collision boundaries stop walking off the 5 km domain.
+The map is authored by `tools/build_foundation_lab.py` during bootstrap and
+cooked alongside the chapter map. In a Development package, launch the EXE
+with `/Game/ASHBOUND/Maps/FoundationLab` as an argument to enter this lab.
+
+This lab addresses the earlier void caused by a thin terrain surface. It is
+still a visual and gameplay prototype: the 3D excavations are coarse at 2 m
+sampling, procedural plants and materials need art direction, and excavations
+are not saved between launches. The existing Chapter I map is unchanged; no
+claim is made that its voids or the larger game are finished.
+
 ## Build locally
 
 Windows x64 needs Unreal Engine 5.8 with its first-person Blueprint template and high-content template resources, a Visual Studio C++ toolchain, Node.js, Python 3 with Pillow, and space for the generated project. From the repository root in PowerShell:
