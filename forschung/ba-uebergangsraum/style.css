@@ -85,7 +85,8 @@ nav a[aria-current="page"]{color:var(--cyan);font-weight:800;text-decoration:und
 .hero-layout>div,.hero-layout>aside{min-width:0}
 .scene>.lead,.role-band .lead,.research>.lead{max-width:76ch}
 .scene-note{margin:24px 0 0;color:var(--muted);font-size:.9rem;max-width:76ch;border-left:2px solid var(--line);padding-left:16px}
-.offer-card>p:last-child{color:#deeff0;font-size:1rem;line-height:1.6;margin:24px 0 0}
+.offer-card>p:last-child{color:#deeff0;font-size:1rem;font-weight:400;line-height:1.58;letter-spacing:normal;text-transform:none;margin:19px 0 0}
+.offer-card>strong{font-size:clamp(1.45rem,2vw,1.9rem);font-weight:720;line-height:1.22;letter-spacing:-.025em}
 @media(max-width:650px){
   .hero h1{font-size:clamp(2.25rem,9vw,3.4rem);max-width:none;overflow-wrap:break-word}
   .hero{padding-block:44px 24px}
