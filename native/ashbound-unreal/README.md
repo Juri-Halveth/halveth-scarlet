@@ -12,6 +12,8 @@ Move with WASD and mouse; Space jumps. The witness stands left of the road befor
 
 After meeting the witness, face her nearby and press **T** for one optional locally generated line. This sends only the current chapter stage, number of studied books, archive decision and fungal-home vitality to a locally running Ollama `qwen2.5:14b` at `127.0.0.1:11434`; no model or service is bundled with the EXE. The request is asynchronous, and an authored line appears if Ollama is unavailable or returns an invalid response. Generated lines are transient dialogue, not saved game facts or new quests. The first fungal home near the archive path changes its shape and light with vitality; Reweave nurtures it when cast nearby.
 
+Continue east beyond the fort to enter the expanding wilderness. The native runtime creates and unloads deterministic 128-metre terrain cells with grounded rocks, trees, ferns and grass while keeping nearby cells active. This is a traversable terrain foundation, not a populated open-world campaign: the wilderness has no settlements, NPC schedules, authored quests or saved player position yet.
+
 ## Build locally
 
 Windows x64 needs Unreal Engine 5.8 with its first-person Blueprint template and high-content template resources, a Visual Studio C++ toolchain, Node.js, Python 3 with Pillow, and space for the generated project. From the repository root in PowerShell:

@@ -10,6 +10,7 @@
 #include "ASHBOUNDDreamer.h"
 #include "ASHBOUNDArchiveGate.h"
 #include "ASHBOUNDFungalHome.h"
+#include "ASHBOUNDExpanse.h"
 #include "Components/InputComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/Engine.h"
@@ -130,6 +131,10 @@ void AASHBOUNDSpellManager::BeginPlay()
             FRotator::ZeroRotator);
     }
     else UE_LOG(LogTemp, Error, TEXT("ASHBOUND_FUNGAL_HOME ground not found"));
+    // The authored valley remains intact. New ground streams beyond its east
+    // edge as the player approaches, without loading distant terrain at entry.
+    GetWorld()->SpawnActor<AASHBOUNDExpanse>(AASHBOUNDExpanse::StaticClass(),
+        FVector::ZeroVector, FRotator::ZeroRotator);
     RestoreStory();
     // The first-person template may apply a stale mouse delta while its window
     // gains focus. Establish one authored entry view after possession settles.
@@ -585,6 +590,22 @@ void AASHBOUNDSpellManager::BeginPlay()
             Controller->SetControlRotation((Focus - Position - FVector(0, 0, 65)).Rotation());
             UE_LOG(LogTemp, Display, TEXT("ASHBOUND_FORT_VIEW_QA position=%s"), *Position.ToString());
         }), 1.0f, false);
+    }
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqaexpanseview")))
+    {
+        FTimerHandle ExpanseViewTimer;
+        GetWorld()->GetTimerManager().SetTimer(ExpanseViewTimer,
+            FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
+            if (!Controller || !Controller->GetPawn()) return;
+            const FVector Position(14500.0f, -300.0f, 1100.0f);
+            const FVector Focus(22000.0f, 1000.0f, 550.0f);
+            Controller->GetPawn()->SetActorLocation(Position);
+            Controller->SetControlRotation((Focus - Position - FVector(0, 0, 65)).Rotation());
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_EXPANSE_VIEW_QA position=%s"),
+                *Position.ToString());
+        }), 1.2f, false);
     }
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqa")))
     {
