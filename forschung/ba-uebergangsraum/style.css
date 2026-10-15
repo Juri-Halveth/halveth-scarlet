@@ -110,3 +110,20 @@ nav a[aria-current="page"]{color:var(--cyan);font-weight:800;text-decoration:und
 .story-safety{max-width:80ch;color:#d1e1e7;border-left:3px solid var(--cyan);padding-left:16px;margin:26px 0 0}
 @media(max-width:850px){.story-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.story-figure{overflow-x:auto}.story-figure img{min-width:730px}}
 @media(max-width:520px){.explain-band{padding-block:60px}.story-steps{grid-template-columns:1fr}.story-figure img{min-width:690px}.story-steps li{padding:18px}}
+
+/* Talentfenster: eine ruhige, lesbare Bewerbungsszene statt einer Notenrangliste. */
+.talent-band{padding-block:88px;background:linear-gradient(135deg,#173947,#102536 66%);border-block:1px solid #648a87}
+.talent-band h2{max-width:950px}.talent-band .lead{max-width:850px}
+.talent-story{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:34px;align-items:center;margin-top:32px}
+.talent-comic{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;min-width:0}
+.talent-frame{position:relative;min-height:274px;display:flex;flex-direction:column;justify-content:space-between;padding:19px;border:2px solid #8ab1af;border-radius:18px;background:#203d50;box-shadow:0 12px 25px #07131c77}
+.talent-frame:nth-child(1){transform:rotate(-2deg)}.talent-frame:nth-child(3){transform:rotate(2deg)}
+.talent-frame-bright{background:#28605e;border-color:#c5e7d6}
+.talent-frame span{color:var(--gold);text-transform:uppercase;font-size:.72rem;letter-spacing:.12em;font-weight:850}
+.talent-frame strong{font-size:clamp(1rem,1.35vw,1.28rem);line-height:1.32}
+.talent-frame i{align-self:flex-end;color:var(--cyan);font-size:3rem;font-style:normal;line-height:1}
+.talent-copy{padding:18px 0}.talent-copy h3{font-size:clamp(1.55rem,2.4vw,2.4rem);color:#fff}
+.talent-copy p{color:#d4e4e9}.talent-promise{max-width:860px;margin:30px 0 10px;border-left:4px solid var(--gold);padding:9px 0 9px 20px;font-size:1.18rem;font-weight:750}
+.talent-source{display:inline-block;margin-top:12px;font-size:.9rem}
+@media(max-width:960px){.talent-story{grid-template-columns:1fr}.talent-comic{max-width:750px}.talent-frame{min-height:225px}}
+@media(max-width:620px){.talent-band{padding-block:60px}.talent-comic{grid-template-columns:1fr;gap:12px}.talent-frame,.talent-frame:nth-child(1),.talent-frame:nth-child(3){min-height:118px;transform:none}.talent-frame i{position:absolute;right:18px;bottom:11px;font-size:2rem}.talent-frame strong{max-width:85%;font-size:1rem}.talent-frame span{margin-bottom:7px}.talent-story{gap:10px}}
