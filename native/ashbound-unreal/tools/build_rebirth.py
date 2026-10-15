@@ -85,7 +85,7 @@ alpha = editor.create_material_expression(material, unreal.MaterialExpressionMul
 if not editor.connect_material_expressions(noise, '', alpha, 'A'):
     raise RuntimeError('Noise did not connect to blend mask')
 soil_fraction = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -440, 420)
-soil_fraction.set_editor_property('r', 0.30)
+soil_fraction.set_editor_property('r', 0.12)
 if not editor.connect_material_expressions(soil_fraction, '', alpha, 'B'):
     raise RuntimeError('Soil fraction did not connect to blend mask')
 
@@ -103,7 +103,19 @@ for row, (kind, property_name) in enumerate((
     editor.connect_material_expressions(uv, '', second, 'UVs')
     blend = editor.create_material_expression(material, unreal.MaterialExpressionLinearInterpolate,
                                                80, -320 + row * 380)
-    editor.connect_material_expressions(first, '', blend, 'A')
+    if kind == 'diff':
+        # The original palette read as pale sand from player height. Restore a
+        # modest living leaf tone while preserving the photographed texture.
+        leaf_tint = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant3Vector, -30, -560)
+        leaf_tint.set_editor_property('constant', unreal.LinearColor(.60, .95, .56, 1.0))
+        tinted_leaf = editor.create_material_expression(material,
+            unreal.MaterialExpressionMultiply, -20, -400)
+        editor.connect_material_expressions(first, '', tinted_leaf, 'A')
+        editor.connect_material_expressions(leaf_tint, '', tinted_leaf, 'B')
+        editor.connect_material_expressions(tinted_leaf, '', blend, 'A')
+    else:
+        editor.connect_material_expressions(first, '', blend, 'A')
     editor.connect_material_expressions(second, '', blend, 'B')
     editor.connect_material_expressions(alpha, '', blend, 'Alpha')
     if not editor.connect_material_property(blend, '', property_name):

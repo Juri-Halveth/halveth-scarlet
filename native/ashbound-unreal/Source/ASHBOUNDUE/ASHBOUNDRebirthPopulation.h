@@ -27,11 +27,23 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Rebirth")
     TObjectPtr<UHierarchicalInstancedStaticMeshComponent> Pines;
 
+    // A species is a set of authored shapes, not one mesh rotated repeatedly.
+    UPROPERTY(VisibleAnywhere, Category="Rebirth")
+    TArray<TObjectPtr<UHierarchicalInstancedStaticMeshComponent>> FernVariants;
+    UPROPERTY(VisibleAnywhere, Category="Rebirth")
+    TArray<TObjectPtr<UHierarchicalInstancedStaticMeshComponent>> GrassVariants;
+    UPROPERTY(VisibleAnywhere, Category="Rebirth")
+    TArray<TObjectPtr<UHierarchicalInstancedStaticMeshComponent>> TreeVariants;
+    UPROPERTY(VisibleAnywhere, Category="Rebirth")
+    TArray<TObjectPtr<UHierarchicalInstancedStaticMeshComponent>> MossRockVariants;
+    UPROPERTY(VisibleAnywhere, Category="Rebirth")
+    TArray<TObjectPtr<UHierarchicalInstancedStaticMeshComponent>> FlowerVariants;
+
 protected:
     virtual void BeginPlay() override;
 
 private:
-    int32 Scatter(UHierarchicalInstancedStaticMeshComponent* Target, int32 Count,
-                  float RadiusCm, float HeightCm, float EmbedFraction,
-                  float MinNormalZ, FRandomStream& Random);
+    int32 Scatter(const TArray<UHierarchicalInstancedStaticMeshComponent*>& Targets,
+                  int32 Count, float RadiusCm, float HeightCm, float EmbedFraction,
+                  float MinNormalZ, int32 Habitat, FRandomStream& Random);
 };

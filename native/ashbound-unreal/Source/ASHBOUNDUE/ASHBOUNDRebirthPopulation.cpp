@@ -29,28 +29,64 @@ AASHBOUNDRebirthPopulation::AASHBOUNDRebirthPopulation()
     }
     Ferns->SetCollisionEnabled(ECollisionEnabled::NoCollision);
     Grasses->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+    auto AddVariant = [this](FName Name, TArray<TObjectPtr<UHierarchicalInstancedStaticMeshComponent>>& Group,
+                             bool bCollision)
+    {
+        UHierarchicalInstancedStaticMeshComponent* Component =
+            CreateDefaultSubobject<UHierarchicalInstancedStaticMeshComponent>(Name);
+        Component->SetupAttachment(RootComponent);
+        Component->SetMobility(EComponentMobility::Static);
+        if (!bCollision) Component->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        Group.Add(Component);
+    };
+    for (FName Name : {FName(TEXT("FernA")), FName(TEXT("FernC")), FName(TEXT("FernD"))})
+        AddVariant(Name, FernVariants, false);
+    for (FName Name : {FName(TEXT("GrassSmallB")), FName(TEXT("GrassMidA")), FName(TEXT("GrassMidC")),
+                       FName(TEXT("GrassLargeA")), FName(TEXT("GrassTallC")), FName(TEXT("GrassTinyD"))})
+        AddVariant(Name, GrassVariants, false);
+    for (FName Name : {FName(TEXT("FirB")), FName(TEXT("FirC")),
+                       FName(TEXT("PineA")), FName(TEXT("PineB"))})
+        AddVariant(Name, TreeVariants, true);
+    for (FName Name : {FName(TEXT("MossRock1")), FName(TEXT("MossRock3")),
+                       FName(TEXT("MossRock5"))})
+        AddVariant(Name, MossRockVariants, true);
+    for (FName Name : {FName(TEXT("GazaniaG")), FName(TEXT("GazaniaH")),
+                       FName(TEXT("EmpodiumA")), FName(TEXT("EmpodiumC"))})
+        AddVariant(Name, FlowerVariants, false);
 }
 
-int32 AASHBOUNDRebirthPopulation::Scatter(UHierarchicalInstancedStaticMeshComponent* Target,
+int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedStaticMeshComponent*>& Targets,
     int32 Count, float RadiusCm, float HeightCm, float EmbedFraction,
-    float MinNormalZ, FRandomStream& Random)
+    float MinNormalZ, int32 Habitat, FRandomStream& Random)
 {
-    const UStaticMesh* Mesh = Target->GetStaticMesh();
-    if (!Mesh || !GetWorld()) return 0;
-    const FBox Box = Mesh->GetBoundingBox();
-    const float MeshHeight = FMath::Max(1.0f, Box.Max.Z - Box.Min.Z);
-    const float CentreX = (Box.Min.X + Box.Max.X) * 0.5f;
-    const float CentreY = (Box.Min.Y + Box.Max.Y) * 0.5f;
+    if (Targets.IsEmpty() || !GetWorld()) return 0;
     int32 Added = 0;
     FCollisionQueryParams Params(SCENE_QUERY_STAT(ASHBOUNDRebirthGround), false, this);
-    for (int32 Attempt = 0; Attempt < Count * 3 && Added < Count; ++Attempt)
+    for (int32 Attempt = 0; Attempt < Count * 8 && Added < Count; ++Attempt)
     {
-        const float Angle = Random.FRandRange(0.0f, 2.0f * PI);
-        const float Distance = RadiusCm * FMath::Sqrt(Random.FRand());
-        if ((Target == Pines.Get() && Distance < 1000.0f) ||
-            (Target == Rocks.Get() && Distance < 450.0f)) continue;
+        // The entry vista faces -X. Let the first flower meadow be discoverable
+        // on foot instead of distributing every bloom behind the player.
+        const float Angle = Habitat == 4 ? Random.FRandRange(PI - 1.15f, PI + 1.15f) :
+            Random.FRandRange(0.0f, 2.0f * PI);
+        const float Distance = Habitat == 4 ? Random.FRandRange(500.0f, RadiusCm) :
+            RadiusCm * FMath::Sqrt(Random.FRand());
+        if ((Habitat == 3 && Distance < 1400.0f) ||
+            (Habitat == 0 && Distance < 450.0f)) continue;
         const FVector XY = GetActorLocation() + FVector(FMath::Cos(Angle) * Distance,
                                                        FMath::Sin(Angle) * Distance, 0.0f);
+        const FVector2D Local(XY.X - GetActorLocation().X, XY.Y - GetActorLocation().Y);
+        // Two spatial scales form connected clearings, thickets and meadow
+        // patches. A random yaw alone cannot create a convincing habitat.
+        const float Broad = FMath::PerlinNoise2D((Local + FVector2D(3117, -811)) * 0.00042f);
+        const float Fine = FMath::PerlinNoise2D((Local + FVector2D(-1701, 2549)) * 0.0018f);
+        const float Field = Broad * 0.72f + Fine * 0.28f;
+        const float Threshold = Habitat == 4 ? 0.005f :
+                                Habitat == 3 ? 0.065f :
+                                Habitat == 2 ? 0.02f :
+                                Habitat == 1 ? -0.075f : -0.25f;
+        if (Field < Threshold) continue;
+        if (Habitat == 1 && Random.FRand() > FMath::Clamp((Field + 0.15f) * 2.7f, 0.10f, 1.0f)) continue;
         FHitResult Hit;
         if (!GetWorld()->LineTraceSingleByChannel(Hit, XY + FVector(0, 0, 50000),
                                                    XY - FVector(0, 0, 50000),
@@ -59,15 +95,24 @@ int32 AASHBOUNDRebirthPopulation::Scatter(UHierarchicalInstancedStaticMeshCompon
         {
             continue;
         }
-        const float Size = HeightCm * Random.FRandRange(0.72f, 1.35f);
+        UHierarchicalInstancedStaticMeshComponent* Target = Targets[Random.RandRange(0, Targets.Num() - 1)];
+        const UStaticMesh* Mesh = Target->GetStaticMesh();
+        if (!Mesh) continue;
+        const FBox Box = Mesh->GetBoundingBox();
+        const float MeshHeight = FMath::Max(1.0f, Box.Max.Z - Box.Min.Z);
+        const float Size = HeightCm * Random.FRandRange(0.56f, 1.48f);
         const float Scale = Size / MeshHeight;
         const float Yaw = Random.FRandRange(0.0f, 360.0f);
-        const FRotator Rotation(0, Yaw, 0);
-        const FVector Offset = Rotation.RotateVector(FVector(CentreX, CentreY, 0) * Scale);
+        const float Lean = Habitat == 3 ? 3.0f : 9.0f;
+        const FRotator Rotation(Random.FRandRange(-Lean, Lean), Yaw,
+                                Random.FRandRange(-Lean, Lean));
+        const float Width = Random.FRandRange(0.82f, 1.18f);
+        const FVector InstanceScale(Scale * Width, Scale / Width, Scale);
+        const FVector Offset = Rotation.RotateVector(FVector((Box.Min.X + Box.Max.X) * 0.5f,
+            (Box.Min.Y + Box.Max.Y) * 0.5f, 0) * InstanceScale);
         const FVector Position = Hit.ImpactPoint - Offset -
             FVector(0, 0, (Box.Min.Z + MeshHeight * EmbedFraction) * Scale);
-        Target->AddInstance(FTransform(Rotation, Position,
-            FVector(Scale, Scale, Scale)), true);
+        Target->AddInstance(FTransform(Rotation, Position, InstanceScale), true);
         ++Added;
     }
     return Added;
@@ -89,15 +134,60 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
         TEXT("/Game/ASHBOUND/Models/tree_stump_01/tree_stump_01_1k/StaticMeshes/tree_stump_01_1k.tree_stump_01_1k")));
     Pines->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,
         TEXT("/Game/ASHBOUND/Models/fir_sapling/fir_sapling_1k/StaticMeshes/fir_sapling_a.fir_sapling_a")));
+    const TCHAR* FernNames[] = {TEXT("fern_02_a"), TEXT("fern_02_c"), TEXT("fern_02_d")};
+    for (int32 I = 0; I < FernVariants.Num(); ++I)
+        FernVariants[I]->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,
+            *FString::Printf(TEXT("/Game/ASHBOUND/Models/fern_02/fern_02_1k/StaticMeshes/%s.%s"), FernNames[I], FernNames[I])));
+    const TCHAR* GrassNames[] = {TEXT("grass_medium_01_small_b_LOD0"), TEXT("grass_medium_01_mid_a_LOD0"),
+        TEXT("grass_medium_01_mid_c_LOD0"), TEXT("grass_medium_01_large_a_LOD0"),
+        TEXT("grass_medium_01_tall_c_LOD0"), TEXT("grass_medium_01_tiny_d_LOD0")};
+    for (int32 I = 0; I < GrassVariants.Num(); ++I)
+        GrassVariants[I]->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,
+            *FString::Printf(TEXT("/Game/ASHBOUND/Models/grass_medium_01/grass_medium_01_1k/StaticMeshes/%s.%s"), GrassNames[I], GrassNames[I])));
+    const TCHAR* TreeModels[] = {TEXT("fir_sapling"), TEXT("fir_sapling"),
+        TEXT("pine_sapling_small"), TEXT("pine_sapling_small")};
+    const TCHAR* TreeNames[] = {TEXT("fir_sapling_b"), TEXT("fir_sapling_c"),
+        TEXT("pine_sapling_small_a"), TEXT("pine_sapling_small_b")};
+    for (int32 I = 0; I < TreeVariants.Num(); ++I)
+        TreeVariants[I]->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,
+            *FString::Printf(TEXT("/Game/ASHBOUND/Models/%s/%s_1k/StaticMeshes/%s.%s"),
+                TreeModels[I], TreeModels[I], TreeNames[I], TreeNames[I])));
+    const TCHAR* MossNames[] = {TEXT("rock_moss_set_01_rock01"), TEXT("rock_moss_set_01_rock03"),
+        TEXT("rock_moss_set_01_rock05")};
+    for (int32 I = 0; I < MossRockVariants.Num(); ++I)
+        MossRockVariants[I]->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,
+            *FString::Printf(TEXT("/Game/ASHBOUND/Models/rock_moss_set_01/rock_moss_set_01_1k/StaticMeshes/%s.%s"),
+                MossNames[I], MossNames[I])));
+    const TCHAR* FlowerModels[] = {TEXT("flower_gazania"), TEXT("flower_gazania"),
+        TEXT("flower_empodium"), TEXT("flower_empodium")};
+    const TCHAR* FlowerNames[] = {TEXT("flower_gazania_g_LOD0"), TEXT("flower_gazania_h_LOD0"),
+        TEXT("flower_empodium_a_LOD0"), TEXT("flower_empodium_c_LOD0")};
+    for (int32 I = 0; I < FlowerVariants.Num(); ++I)
+        FlowerVariants[I]->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,
+            *FString::Printf(TEXT("/Game/ASHBOUND/Models/%s/%s_1k/StaticMeshes/%s.%s"),
+                FlowerModels[I], FlowerModels[I], FlowerNames[I], FlowerNames[I])));
+    TArray<UHierarchicalInstancedStaticMeshComponent*> RockGroup{Rocks.Get()};
+    TArray<UHierarchicalInstancedStaticMeshComponent*> FernGroup{Ferns.Get()};
+    TArray<UHierarchicalInstancedStaticMeshComponent*> GrassGroup{Grasses.Get()};
+    TArray<UHierarchicalInstancedStaticMeshComponent*> TreeGroup{Pines.Get()};
+    TArray<UHierarchicalInstancedStaticMeshComponent*> MossGroup;
+    TArray<UHierarchicalInstancedStaticMeshComponent*> FlowerGroup;
+    for (const auto& Component : FernVariants) FernGroup.Add(Component.Get());
+    for (const auto& Component : GrassVariants) GrassGroup.Add(Component.Get());
+    for (const auto& Component : TreeVariants) TreeGroup.Add(Component.Get());
+    for (const auto& Component : MossRockVariants) MossGroup.Add(Component.Get());
+    for (const auto& Component : FlowerVariants) FlowerGroup.Add(Component.Get());
     FRandomStream Random(20261015);
     const bool RocksOnly = FParse::Param(FCommandLine::Get(), TEXT("ashboundrocksonly"));
-    const int32 RockCount = Scatter(Rocks, 45, 12500, 220, 0.20f, 0.55f, Random);
-    const int32 FernCount = RocksOnly ? 0 : Scatter(Ferns, 500, 12000, 105, 0.05f, 0.72f, Random);
-    const int32 GrassCount = RocksOnly ? 0 : Scatter(Grasses, 10000, 12500, 65, 0.03f, 0.76f, Random);
-    const int32 StumpCount = RocksOnly ? 0 : Scatter(Stumps, 30, 11000, 190, 0.08f, 0.65f, Random);
-    const int32 PineCount = RocksOnly ? 0 : Scatter(Pines, 230, 13500, 780, 0.03f, 0.69f, Random);
-    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_REBIRTH_GROUNDED rocks=%d ferns=%d grasses=%d stumps=%d pines=%d"),
-        RockCount, FernCount, GrassCount, StumpCount, PineCount);
+    const int32 RockCount = Scatter(RockGroup, 45, 12500, 220, 0.20f, 0.55f, 0, Random);
+    const int32 MossCount = RocksOnly ? 0 : Scatter(MossGroup, 260, 10500, 100, 0.12f, 0.70f, 0, Random);
+    const int32 FernCount = RocksOnly ? 0 : Scatter(FernGroup, 1300, 10500, 95, 0.06f, 0.72f, 2, Random);
+    const int32 GrassCount = RocksOnly ? 0 : Scatter(GrassGroup, 31000, 10500, 62, 0.04f, 0.76f, 1, Random);
+    const int32 FlowerCount = RocksOnly ? 0 : Scatter(FlowerGroup, 2600, 6500, 33, 0.04f, 0.79f, 4, Random);
+    const int32 StumpCount = RocksOnly ? 0 : Scatter({Stumps.Get()}, 30, 11000, 190, 0.08f, 0.65f, 0, Random);
+    const int32 TreeCount = RocksOnly ? 0 : Scatter(TreeGroup, 410, 13500, 820, 0.03f, 0.69f, 3, Random);
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_REBIRTH_HABITAT rocks=%d moss=%d ferns=%d grass=%d flowers=%d stumps=%d trees=%d"),
+        RockCount, MossCount, FernCount, GrassCount, FlowerCount, StumpCount, TreeCount);
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundshot")))
     {
         float ScreenshotDelay = 8.0f;

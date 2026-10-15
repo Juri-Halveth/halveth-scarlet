@@ -9,9 +9,12 @@ if (-not $WorkRoot) {
     $WorkRoot = if ($env:ASHBOUND_NATIVE_WORK) { $env:ASHBOUND_NATIVE_WORK } else { Join-Path $repoRoot '.local-qa\ashbound-unreal' }
 }
 $WorkRoot = [IO.Path]::GetFullPath($WorkRoot)
-$manifest = Get-Content -LiteralPath (Join-Path $nativeRoot 'asset-manifest.json') -Raw | ConvertFrom-Json
+$manifests = @('asset-manifest.json', 'flora-asset-manifest.json') | ForEach-Object {
+    Get-Content -LiteralPath (Join-Path $nativeRoot $_) -Raw | ConvertFrom-Json
+}
+$files = @($manifests | ForEach-Object { $_.files })
 
-foreach ($item in $manifest.files) {
+foreach ($item in $files) {
     $uri = [Uri]$item.url
     if ($uri.Scheme -ne 'https' -or $uri.Host -ne 'dl.polyhaven.org') {
         throw "Unexpected source URL: $($item.url)"
@@ -41,4 +44,4 @@ foreach ($item in $manifest.files) {
     if ((Get-Item -LiteralPath $destination).Length -ne [long]$item.bytes) { throw "Size mismatch: $relative" }
     if ((Get-FileHash -LiteralPath $destination -Algorithm SHA256).Hash -ne [string]$item.sha256) { throw "SHA256 mismatch: $relative" }
 }
-Write-Output "Verified $($manifest.files.Count) Poly Haven CC0 files in $WorkRoot"
+Write-Output "Verified $($files.Count) Poly Haven CC0 files in $WorkRoot"
