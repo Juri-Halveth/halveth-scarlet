@@ -46,6 +46,7 @@ private:
     void ToggleMagnetism();
     void TriggerGenesis();
     void ToggleJournal();
+    void SpeakWithWitness();
     void UpdateStory(float DeltaSeconds);
     void SetStoryStage(int32 NewStage);
     void RestoreStory();
@@ -67,5 +68,6 @@ private:
     bool bSpokenToWitness = false;
     bool bJournalOpen = false;
     bool bRestoringStory = false;
+    bool bLocalDialoguePending = false;
     bool bReachedFort = false;
 };

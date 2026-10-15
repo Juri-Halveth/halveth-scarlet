@@ -17,6 +17,13 @@
 #include "Engine/StaticMeshActor.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
+#include "HttpModule.h"
+#include "Interfaces/IHttpRequest.h"
+#include "Interfaces/IHttpResponse.h"
+#include "Dom/JsonObject.h"
+#include "Serialization/JsonReader.h"
+#include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonWriter.h"
 #include "GameFramework/PlayerController.h"
 #include "InputCoreTypes.h"
 #include "Kismet/GameplayStatics.h"
@@ -28,6 +35,20 @@
 
 namespace
 {
+FString ReadLocalDialogue(const FString& Payload)
+{
+    TSharedPtr<FJsonObject> Data;
+    if (!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Payload), Data) || !Data.IsValid())
+        return FString();
+    if (!Data->HasTypedField<EJson::String>(TEXT("response"))) return FString();
+    FString Line;
+    if (!Data->TryGetStringField(TEXT("response"), Line)) return FString();
+    Line.ReplaceInline(TEXT("\r"), TEXT(" "));
+    Line.ReplaceInline(TEXT("\n"), TEXT(" "));
+    Line.ReplaceInline(TEXT("\t"), TEXT(" "));
+    return Line.TrimStartAndEnd().Left(220);
+}
+
 FString StorySlot()
 {
 #if !UE_BUILD_SHIPPING
@@ -72,6 +93,7 @@ void AASHBOUNDSpellManager::BeginPlay()
             InputComponent->BindKey(EKeys::M, IE_Pressed, this, &AASHBOUNDSpellManager::ToggleMagnetism);
             InputComponent->BindKey(EKeys::B, IE_Pressed, this, &AASHBOUNDSpellManager::TriggerGenesis);
             InputComponent->BindKey(EKeys::J, IE_Pressed, this, &AASHBOUNDSpellManager::ToggleJournal);
+            InputComponent->BindKey(EKeys::T, IE_Pressed, this, &AASHBOUNDSpellManager::SpeakWithWitness);
             InputComponent->BindKey(EKeys::Escape, IE_Pressed, this, &AASHBOUNDSpellManager::StopReading);
         }
     }
@@ -144,6 +166,46 @@ void AASHBOUNDSpellManager::BeginPlay()
             UE_LOG(LogTemp, Display, TEXT("ASHBOUND_FUNGAL_HOME_QA before=%.2f after=%.2f pass=%d"),
                 Before, After, bPass ? 1 : 0);
             if (!bPass) UE_LOG(LogTemp, Error, TEXT("ASHBOUND_FUNGAL_HOME_QA FAIL"));
+        }), 1.0f, false);
+    }
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqalocaldialogue")))
+    {
+        const FString Good = ReadLocalDialogue(TEXT("{\"response\":\"Die Wurzeln erinnern sich.\\nHöre genauer hin.\"}"));
+        const bool bPass = Good == TEXT("Die Wurzeln erinnern sich. Höre genauer hin.") &&
+            ReadLocalDialogue(TEXT("{\"response\":123}")).IsEmpty() &&
+            ReadLocalDialogue(TEXT("{")).IsEmpty();
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND_LOCAL_DIALOGUE_QA pass=%d good=%d nonstring=%d malformed=%d"),
+            bPass ? 1 : 0, Good == TEXT("Die Wurzeln erinnern sich. Höre genauer hin.") ? 1 : 0,
+            ReadLocalDialogue(TEXT("{\"response\":123}")).IsEmpty() ? 1 : 0,
+            ReadLocalDialogue(TEXT("{")).IsEmpty() ? 1 : 0);
+        if (!bPass) UE_LOG(LogTemp, Error, TEXT("ASHBOUND_LOCAL_DIALOGUE_QA FAIL"));
+    }
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqaqwen")))
+    {
+        FTimerHandle DialogueTimer;
+        GetWorld()->GetTimerManager().SetTimer(DialogueTimer,
+            FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            APlayerController* Controller = UGameplayStatics::GetPlayerController(this, 0);
+            if (!Controller || !Controller->GetPawn() || !Witness.IsValid()) return;
+            const FVector Position = Witness->GetActorLocation() + FVector(-230.0f, 0, 90.0f);
+            Controller->GetPawn()->SetActorLocation(Position);
+            Controller->SetControlRotation((Witness->GetActorLocation() + FVector(0, 0, 145) -
+                Position - FVector(0, 0, 65)).Rotation());
+            bSpokenToWitness = true;
+            FTimerHandle RequestTimer;
+            GetWorld()->GetTimerManager().SetTimer(RequestTimer,
+                FTimerDelegate::CreateWeakLambda(this, [this]()
+            {
+                APlayerController* Current = UGameplayStatics::GetPlayerController(this, 0);
+                FVector Eye;
+                FRotator Look;
+                if (!Current || !Witness.IsValid()) return;
+                Current->GetPlayerViewPoint(Eye, Look);
+                UE_LOG(LogTemp, Display, TEXT("ASHBOUND_LOCAL_DIALOGUE_QA reachable=%d eye=%s"),
+                    Witness->CanSpeak(Eye, Look.Vector()) ? 1 : 0, *Eye.ToString());
+                SpeakWithWitness();
+            }), 0.25f, false);
         }), 1.0f, false);
     }
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqastory")))
@@ -647,6 +709,70 @@ void AASHBOUNDSpellManager::ToggleJournal()
     bJournalOpen = !bJournalOpen;
 }
 
+void AASHBOUNDSpellManager::SpeakWithWitness()
+{
+    APlayerController* Player = UGameplayStatics::GetPlayerController(this, 0);
+    AASHBOUNDWitness* Keeper = Witness.Get();
+    if (!Player || !Keeper || !bSpokenToWitness || bLocalDialoguePending) return;
+    FVector Eye;
+    FRotator Look;
+    Player->GetPlayerViewPoint(Eye, Look);
+    if (!Keeper->CanSpeak(Eye, Look.Vector())) return;
+
+    int32 Studied = 0;
+    for (TActorIterator<AASHBOUNDGrimoire> It(GetWorld()); It; ++It)
+        if (It->IsStudied()) ++Studied;
+    const int32 Decision = StoryMemory ? StoryMemory->WritDecision : 0;
+    const float HomeVitality = FungalHome.IsValid() ? FungalHome->GetVitality() : 0.0f;
+    const FString Prompt = FString::Printf(
+        TEXT("Du bist die Zeugin im eigenständigen Fantasyspiel ASHBOUND. Antworte auf Deutsch mit genau einem kurzen, atmosphärischen Satz aus deiner Perspektive. Erfinde keine neue Quest, keinen Spielbefehl und keine Tatsache über den Spieler. Bekannte Weltfakten: Kapitelstand %d; gelesene Archivbücher %d von 3; Entscheidung zum Archivbefehl %d (0 offen, 1 angenommen, 2 verweigert); Vitalität des lebenden Pilzhauses %.2f von 1. Sprich über eine dieser Beobachtungen."),
+        StoryStage, Studied, Decision, HomeVitality);
+
+    TSharedRef<FJsonObject> Body = MakeShared<FJsonObject>();
+    Body->SetStringField(TEXT("model"), TEXT("qwen2.5:14b"));
+    Body->SetStringField(TEXT("prompt"), Prompt);
+    Body->SetBoolField(TEXT("stream"), false);
+    TSharedRef<FJsonObject> Options = MakeShared<FJsonObject>();
+    Options->SetNumberField(TEXT("num_predict"), 72);
+    Options->SetNumberField(TEXT("temperature"), 0.6);
+    Body->SetObjectField(TEXT("options"), Options);
+    FString Payload;
+    if (!FJsonSerializer::Serialize(Body, TJsonWriterFactory<>::Create(&Payload))) return;
+
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> Request = FHttpModule::Get().CreateRequest();
+    Request->SetURL(TEXT("http://127.0.0.1:11434/api/generate"));
+    Request->SetVerb(TEXT("POST"));
+    Request->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
+    Request->SetContentAsString(Payload);
+    Request->SetTimeout(45.0f);
+    bLocalDialoguePending = true;
+    StoryLine = TEXT("ZEUGIN: Ich suche nach Worten ...");
+    StoryLineRemaining = 47.0f;
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_LOCAL_DIALOGUE requested model=qwen2.5:14b"));
+    const TWeakObjectPtr<AASHBOUNDSpellManager> WeakSelf(this);
+    Request->OnProcessRequestComplete().BindLambda(
+        [WeakSelf](FHttpRequestPtr, FHttpResponsePtr Response, bool bSucceeded)
+    {
+        AASHBOUNDSpellManager* Self = WeakSelf.Get();
+        if (!Self) return;
+        Self->bLocalDialoguePending = false;
+        const FString Line = bSucceeded && Response.IsValid() && Response->GetResponseCode() == 200
+            ? ReadLocalDialogue(Response->GetContentAsString()) : FString();
+        Self->StoryLine = Line.IsEmpty()
+            ? TEXT("ZEUGIN: Die Wurzeln tragen Erinnerungen; mein Weg ist noch offen.")
+            : TEXT("ZEUGIN: ") + Line;
+        Self->StoryLineRemaining = 12.0f;
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND_LOCAL_DIALOGUE source=%s"),
+            Line.IsEmpty() ? TEXT("AUTHORED_FALLBACK") : TEXT("LOCAL_QWEN"));
+    });
+    if (!Request->ProcessRequest())
+    {
+        bLocalDialoguePending = false;
+        StoryLine = TEXT("ZEUGIN: Die Wurzeln tragen Erinnerungen; mein Weg ist noch offen.");
+        StoryLineRemaining = 12.0f;
+    }
+}
+
 void AASHBOUNDSpellManager::RestoreStory()
 {
     const FString Slot = StorySlot();
@@ -846,7 +972,9 @@ void AASHBOUNDSpellManager::UpdateStory(float DeltaSeconds)
     if (AASHBOUNDWitness* Keeper = Witness.Get())
     {
         if (Keeper->CanSpeak(Eye, Look.Vector()))
-            InteractionPrompt = TEXT("F  Mit der Zeugin sprechen");
+            InteractionPrompt = bSpokenToWitness
+                ? TEXT("T  Zeugin fragen (lokales Qwen)    F  Geschichte")
+                : TEXT("F  Mit der Zeugin sprechen");
     }
     if (StoryMemory && StoryMemory->WritDecision == 0 && bSpokenToWitness)
     {

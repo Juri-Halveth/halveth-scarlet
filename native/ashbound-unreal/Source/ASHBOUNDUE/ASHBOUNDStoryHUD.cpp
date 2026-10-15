@@ -35,7 +35,7 @@ void AASHBOUNDStoryHUD::DrawHUD()
                  GEngine->GetSmallFont(), 1.45f * Scale, false);
         DrawText(Manager->GetJournalLine(), Quiet, Left, 174.0f * Scale,
                  GEngine->GetSmallFont(), 1.3f * Scale, false);
-        DrawText(TEXT("WASD Gehen   Q Resonanz   E Glut   R Neufassung"), Quiet,
+        DrawText(TEXT("WASD Gehen   Q Resonanz   E Glut   R Neufassung   T Zeugin"), Quiet,
                  Left, 210.0f * Scale, GEngine->GetSmallFont(), 1.2f * Scale, false);
     }
 
