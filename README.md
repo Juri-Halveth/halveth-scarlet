@@ -4,6 +4,10 @@
 
 # HALVETH · Ein Herz für die Erde
 
+## Wegweiser
+
+[Zehn öffentliche Einstiege](forschung/wegweiser/) verbinden Brühler Vorschläge, spielbare Welten und Forschungsmodelle. Die Karten führen zu bestehenden Projektseiten und benennen deren Form; Suche und Kategorien funktionieren ohne Konto oder Netzwerkdienst. [Rechte und Lizenzen](LICENSES.md) bleiben je Pfad und Version getrennt.
+
 ## Lernstudio
 
 Die eigenstaendige [ASHBOUND-Spielwelt](forschung/ashbound/) verbindet
