@@ -6,6 +6,7 @@
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "HAL/FileManager.h"
+#include "Materials/MaterialInterface.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
 #include "Misc/Paths.h"
@@ -177,17 +178,33 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
     for (const auto& Component : TreeVariants) TreeGroup.Add(Component.Get());
     for (const auto& Component : MossRockVariants) MossGroup.Add(Component.Get());
     for (const auto& Component : FlowerVariants) FlowerGroup.Add(Component.Get());
+    UMaterialInterface* FernWind = LoadObject<UMaterialInterface>(nullptr,
+        TEXT("/Game/ASHBOUND/Materials/M_RebirthFern.M_RebirthFern"));
+    UMaterialInterface* GrassWind = LoadObject<UMaterialInterface>(nullptr,
+        TEXT("/Game/ASHBOUND/Materials/M_RebirthGrass.M_RebirthGrass"));
+    if (FernWind)
+        for (UHierarchicalInstancedStaticMeshComponent* Component : FernGroup)
+            Component->SetMaterial(0, FernWind);
+    if (GrassWind)
+        for (UHierarchicalInstancedStaticMeshComponent* Component : GrassGroup)
+            Component->SetMaterial(0, GrassWind);
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_REBIRTH_WIND fern=%d grass=%d"),
+        FernWind ? 1 : 0, GrassWind ? 1 : 0);
     FRandomStream Random(20261015);
     const bool RocksOnly = FParse::Param(FCommandLine::Get(), TEXT("ashboundrocksonly"));
     const int32 RockCount = Scatter(RockGroup, 45, 12500, 220, 0.20f, 0.55f, 0, Random);
     const int32 MossCount = RocksOnly ? 0 : Scatter(MossGroup, 260, 10500, 100, 0.12f, 0.70f, 0, Random);
     const int32 FernCount = RocksOnly ? 0 : Scatter(FernGroup, 1300, 10500, 95, 0.06f, 0.72f, 2, Random);
     const int32 GrassCount = RocksOnly ? 0 : Scatter(GrassGroup, 31000, 10500, 62, 0.04f, 0.76f, 1, Random);
+    // The broad habitat averages under one tuft per square metre. Give the
+    // first walkable clearing its own short understory rather than enlarging
+    // individual grass cards into paper-like blades.
+    const int32 NearGrassCount = RocksOnly ? 0 : Scatter(GrassGroup, 8000, 2500, 34, 0.05f, 0.77f, 5, Random);
     const int32 FlowerCount = RocksOnly ? 0 : Scatter(FlowerGroup, 2600, 6500, 33, 0.04f, 0.79f, 4, Random);
     const int32 StumpCount = RocksOnly ? 0 : Scatter({Stumps.Get()}, 30, 11000, 190, 0.08f, 0.65f, 0, Random);
     const int32 TreeCount = RocksOnly ? 0 : Scatter(TreeGroup, 410, 13500, 820, 0.03f, 0.69f, 3, Random);
-    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_REBIRTH_HABITAT rocks=%d moss=%d ferns=%d grass=%d flowers=%d stumps=%d trees=%d"),
-        RockCount, MossCount, FernCount, GrassCount, FlowerCount, StumpCount, TreeCount);
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_REBIRTH_HABITAT rocks=%d moss=%d ferns=%d grass=%d near_grass=%d flowers=%d stumps=%d trees=%d"),
+        RockCount, MossCount, FernCount, GrassCount, NearGrassCount, FlowerCount, StumpCount, TreeCount);
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundshot")))
     {
         float ScreenshotDelay = 8.0f;
