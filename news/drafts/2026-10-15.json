@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-15",
+  "createdAt": "2026-10-15T19:11:35.176Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-10-15",
+  "body": "# HALVETH Quellen-Update · 2026-10-15\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [NASA Satellites Observe Historic 2026 El Niño](https://science.nasa.gov/earth/nasa-satellites-observe-historic-2026-el-nino/) · veröffentlicht 2026-10-15\n- **NASA** · Originaltitel (EN): [Power Up: Roll Out Solar Arrays Boost Space Station Power Supply](https://www.nasa.gov/missions/station/iss-research/power-up-roll-out-solar-arrays-boost-space-station-power-supply/) · veröffentlicht 2026-10-15\n- **NASA** · Originaltitel (EN): [NASA to Conduct Low-Altitude Flights Over Texas Farmland](https://www.nasa.gov/general/nasa-to-conduct-low-altitude-flights-over-texas-farmland/) · veröffentlicht 2026-10-15\n- **NASA** · Originaltitel (EN): [NASA Welcomes All Ages, Experience Levels for Space Apps Challenge](https://science.nasa.gov/universe/nasa-welcomes-all-ages-experience-levels-for-space-apps-challenge/) · veröffentlicht 2026-10-15\n- **NASA** · Originaltitel (EN): [NASA Awards Enable Research, Technology to Build Future Workforce](https://www.nasa.gov/learning-resources/nasa-awards-enable-research-technology-to-build-future-workforce/) · veröffentlicht 2026-10-15\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "8323fcf5aec48f650bdcf68e",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Satellites Observe Historic 2026 El Niño",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/nasa-satellites-observe-historic-2026-el-nino/",
+      "sourcePublishedAt": "2026-10-15T17:59:22Z",
+      "fetchedAt": "2026-10-15T19:11:34Z",
+      "firstFetchedAt": "2026-10-15T19:11:34Z"
+    },
+    {
+      "id": "249fd8d9e74a7921bc415ffe",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Power Up: Roll Out Solar Arrays Boost Space Station Power Supply",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/missions/station/iss-research/power-up-roll-out-solar-arrays-boost-space-station-power-supply/",
+      "sourcePublishedAt": "2026-10-15T17:30:00Z",
+      "fetchedAt": "2026-10-15T19:11:34Z",
+      "firstFetchedAt": "2026-10-15T19:11:34Z"
+    },
+    {
+      "id": "ec7a3b45638121f8120d77cb",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA to Conduct Low-Altitude Flights Over Texas Farmland",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/general/nasa-to-conduct-low-altitude-flights-over-texas-farmland/",
+      "sourcePublishedAt": "2026-10-15T16:42:10Z",
+      "fetchedAt": "2026-10-15T19:11:34Z",
+      "firstFetchedAt": "2026-10-15T19:11:34Z"
+    },
+    {
+      "id": "4071bf79af1fe83d5836bb01",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Welcomes All Ages, Experience Levels for Space Apps Challenge",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/universe/nasa-welcomes-all-ages-experience-levels-for-space-apps-challenge/",
+      "sourcePublishedAt": "2026-10-15T16:13:08Z",
+      "fetchedAt": "2026-10-15T19:11:34Z",
+      "firstFetchedAt": "2026-10-15T19:11:34Z"
+    },
+    {
+      "id": "cc1e4c4496ff0178c93fb001",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Awards Enable Research, Technology to Build Future Workforce",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/learning-resources/nasa-awards-enable-research-technology-to-build-future-workforce/",
+      "sourcePublishedAt": "2026-10-15T15:57:47Z",
+      "fetchedAt": "2026-10-15T19:11:34Z",
+      "firstFetchedAt": "2026-10-15T19:11:34Z"
+    }
+  ],
+  "idempotencyKey": "8bbb0fc50a4627adb015ee7420cf90444b91a5ac1702124fe4102e96f339a47d"
+}
