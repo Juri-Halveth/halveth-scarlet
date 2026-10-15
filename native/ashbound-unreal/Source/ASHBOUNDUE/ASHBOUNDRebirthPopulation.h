@@ -26,6 +26,13 @@ public:
     TObjectPtr<UHierarchicalInstancedStaticMeshComponent> Stumps;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Rebirth")
     TObjectPtr<UHierarchicalInstancedStaticMeshComponent> Pines;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Rebirth")
+    TObjectPtr<UHierarchicalInstancedStaticMeshComponent> BroadleafTrees;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Rebirth")
+    TObjectPtr<UHierarchicalInstancedStaticMeshComponent> Shrubs;
+
+    UPROPERTY(VisibleAnywhere, Category="Rebirth")
+    TArray<TObjectPtr<UHierarchicalInstancedStaticMeshComponent>> ShrubVariants;
 
     // A species is a set of authored shapes, not one mesh rotated repeatedly.
     UPROPERTY(VisibleAnywhere, Category="Rebirth")

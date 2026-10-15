@@ -10,6 +10,7 @@ extra = work / 'source-assets' / 'models'
 web = root / 'forschung' / 'ashbound' / 'play' / 'assets' / 'models'
 ids = ['modular_fort_01', 'pine_sapling_small', 'fir_sapling', 'rock_moss_set_01', 'fern_02',
        'tree_stump_01', 'grass_medium_01', 'flower_gazania', 'flower_empodium',
+       'tree_small_02', 'shrub_02',
        'boulder_01', 'dead_tree_trunk', 'gothic_statue',
        'ornate_medieval_dagger', 'book_encyclopedia_set_01']
 result = {}

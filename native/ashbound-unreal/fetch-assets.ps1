@@ -9,7 +9,7 @@ if (-not $WorkRoot) {
     $WorkRoot = if ($env:ASHBOUND_NATIVE_WORK) { $env:ASHBOUND_NATIVE_WORK } else { Join-Path $repoRoot '.local-qa\ashbound-unreal' }
 }
 $WorkRoot = [IO.Path]::GetFullPath($WorkRoot)
-$manifests = @('asset-manifest.json', 'flora-asset-manifest.json') | ForEach-Object {
+$manifests = @('asset-manifest.json', 'flora-asset-manifest.json', 'canopy-asset-manifest.json') | ForEach-Object {
     Get-Content -LiteralPath (Join-Path $nativeRoot $_) -Raw | ConvertFrom-Json
 }
 $files = @($manifests | ForEach-Object { $_.files })

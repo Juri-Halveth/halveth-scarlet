@@ -23,13 +23,16 @@ AASHBOUNDRebirthPopulation::AASHBOUNDRebirthPopulation()
     Grasses = CreateDefaultSubobject<UHierarchicalInstancedStaticMeshComponent>(TEXT("Grasses"));
     Stumps = CreateDefaultSubobject<UHierarchicalInstancedStaticMeshComponent>(TEXT("Stumps"));
     Pines = CreateDefaultSubobject<UHierarchicalInstancedStaticMeshComponent>(TEXT("Pines"));
-    for (UHierarchicalInstancedStaticMeshComponent* Component : {Rocks.Get(), Ferns.Get(), Grasses.Get(), Stumps.Get(), Pines.Get()})
+    BroadleafTrees = CreateDefaultSubobject<UHierarchicalInstancedStaticMeshComponent>(TEXT("BroadleafTrees"));
+    Shrubs = CreateDefaultSubobject<UHierarchicalInstancedStaticMeshComponent>(TEXT("Shrubs"));
+    for (UHierarchicalInstancedStaticMeshComponent* Component : {Rocks.Get(), Ferns.Get(), Grasses.Get(), Stumps.Get(), Pines.Get(), BroadleafTrees.Get(), Shrubs.Get()})
     {
         Component->SetupAttachment(RootComponent);
         Component->SetMobility(EComponentMobility::Static);
     }
     Ferns->SetCollisionEnabled(ECollisionEnabled::NoCollision);
     Grasses->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    Shrubs->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
     auto AddVariant = [this](FName Name, TArray<TObjectPtr<UHierarchicalInstancedStaticMeshComponent>>& Group,
                              bool bCollision)
@@ -55,6 +58,8 @@ AASHBOUNDRebirthPopulation::AASHBOUNDRebirthPopulation()
     for (FName Name : {FName(TEXT("GazaniaG")), FName(TEXT("GazaniaH")),
                        FName(TEXT("EmpodiumA")), FName(TEXT("EmpodiumC"))})
         AddVariant(Name, FlowerVariants, false);
+    for (FName Name : {FName(TEXT("ShrubB")), FName(TEXT("ShrubC")), FName(TEXT("ShrubD"))})
+        AddVariant(Name, ShrubVariants, false);
 }
 
 int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedStaticMeshComponent*>& Targets,
@@ -150,6 +155,15 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
         TEXT("/Game/ASHBOUND/Models/tree_stump_01/tree_stump_01_1k/StaticMeshes/tree_stump_01_1k.tree_stump_01_1k")));
     Pines->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,
         TEXT("/Game/ASHBOUND/Models/fir_sapling/fir_sapling_1k/StaticMeshes/fir_sapling_a.fir_sapling_a")));
+    BroadleafTrees->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,
+        TEXT("/Game/ASHBOUND/Models/tree_small_02/tree_small_02_1k/StaticMeshes/tree_small_02_1k.tree_small_02_1k")));
+    Shrubs->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,
+        TEXT("/Game/ASHBOUND/Models/shrub_02/shrub_02_1k/StaticMeshes/shrub_02_a.shrub_02_a")));
+    const TCHAR* ShrubNames[] = {TEXT("shrub_02_b"), TEXT("shrub_02_c"), TEXT("shrub_02_d")};
+    for (int32 I = 0; I < ShrubVariants.Num(); ++I)
+        ShrubVariants[I]->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,
+            *FString::Printf(TEXT("/Game/ASHBOUND/Models/shrub_02/shrub_02_1k/StaticMeshes/%s.%s"),
+                ShrubNames[I], ShrubNames[I])));
     const TCHAR* FernNames[] = {TEXT("fern_02_a"), TEXT("fern_02_c"), TEXT("fern_02_d")};
     for (int32 I = 0; I < FernVariants.Num(); ++I)
         FernVariants[I]->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,
@@ -186,16 +200,20 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
     TArray<UHierarchicalInstancedStaticMeshComponent*> FernGroup{Ferns.Get()};
     TArray<UHierarchicalInstancedStaticMeshComponent*> GrassGroup{Grasses.Get()};
     TArray<UHierarchicalInstancedStaticMeshComponent*> TreeGroup{Pines.Get()};
+    TArray<UHierarchicalInstancedStaticMeshComponent*> ShrubGroup{Shrubs.Get()};
     TArray<UHierarchicalInstancedStaticMeshComponent*> MossGroup;
     TArray<UHierarchicalInstancedStaticMeshComponent*> FlowerGroup;
     for (const auto& Component : FernVariants) FernGroup.Add(Component.Get());
     for (const auto& Component : GrassVariants) GrassGroup.Add(Component.Get());
     for (const auto& Component : TreeVariants) TreeGroup.Add(Component.Get());
+    for (const auto& Component : ShrubVariants) ShrubGroup.Add(Component.Get());
     for (const auto& Component : MossRockVariants) MossGroup.Add(Component.Get());
     for (const auto& Component : FlowerVariants) FlowerGroup.Add(Component.Get());
     for (UHierarchicalInstancedStaticMeshComponent* Component : FernGroup)
         Component->SetNumCustomDataFloats(2);
     for (UHierarchicalInstancedStaticMeshComponent* Component : GrassGroup)
+        Component->SetNumCustomDataFloats(2);
+    for (UHierarchicalInstancedStaticMeshComponent* Component : ShrubGroup)
         Component->SetNumCustomDataFloats(2);
     UMaterialInterface* FernWind = LoadObject<UMaterialInterface>(nullptr,
         TEXT("/Game/ASHBOUND/Materials/M_RebirthFern.M_RebirthFern"));
@@ -220,10 +238,12 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
     // appearance of individual grass without one Actor per blade.
     const int32 NearGrassCount = RocksOnly ? 0 : Scatter(GrassGroup, 24000, 1800, 27, 0.05f, 0.77f, 5, Random);
     const int32 FlowerCount = RocksOnly ? 0 : Scatter(FlowerGroup, 2600, 6500, 33, 0.04f, 0.79f, 4, Random);
-    const int32 StumpCount = RocksOnly ? 0 : Scatter({Stumps.Get()}, 30, 11000, 190, 0.08f, 0.65f, 0, Random);
-    const int32 TreeCount = RocksOnly ? 0 : Scatter(TreeGroup, 410, 13500, 820, 0.03f, 0.69f, 3, Random);
-    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_REBIRTH_HABITAT rocks=%d moss=%d ferns=%d grass=%d near_grass=%d flowers=%d stumps=%d trees=%d"),
-        RockCount, MossCount, FernCount, GrassCount, NearGrassCount, FlowerCount, StumpCount, TreeCount);
+    const int32 StumpCount = RocksOnly ? 0 : Scatter({Stumps.Get()}, 12, 11000, 190, 0.08f, 0.65f, 0, Random);
+    const int32 PineCount = RocksOnly ? 0 : Scatter(TreeGroup, 65, 13500, 820, 0.03f, 0.69f, 3, Random);
+    const int32 BroadleafCount = RocksOnly ? 0 : Scatter({BroadleafTrees.Get()}, 34, 13500, 850, 0.02f, 0.72f, 3, Random);
+    const int32 ShrubCount = RocksOnly ? 0 : Scatter(ShrubGroup, 420, 12500, 145, 0.08f, 0.73f, 2, Random);
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND_REBIRTH_HABITAT rocks=%d moss=%d ferns=%d grass=%d near_grass=%d flowers=%d stumps=%d pines=%d broadleaf=%d shrubs=%d"),
+        RockCount, MossCount, FernCount, GrassCount, NearGrassCount, FlowerCount, StumpCount, PineCount, BroadleafCount, ShrubCount);
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundshot")))
     {
         float ScreenshotDelay = 8.0f;
