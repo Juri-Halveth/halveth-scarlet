@@ -63,6 +63,7 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
 {
     if (Targets.IsEmpty() || !GetWorld()) return 0;
     int32 Added = 0;
+    int32 CustomDataFailures = 0;
     FCollisionQueryParams Params(SCENE_QUERY_STAT(ASHBOUNDRebirthGround), false, this);
     for (int32 Attempt = 0; Attempt < Count * 8 && Added < Count; ++Attempt)
     {
@@ -113,9 +114,23 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
             (Box.Min.Y + Box.Max.Y) * 0.5f, 0) * InstanceScale);
         const FVector Position = Hit.ImpactPoint - Offset -
             FVector(0, 0, (Box.Min.Z + MeshHeight * EmbedFraction) * Scale);
-        Target->AddInstance(FTransform(Rotation, Position, InstanceScale), true);
+        const int32 InstanceIndex = Target->AddInstance(FTransform(Rotation, Position, InstanceScale), true);
+        if (InstanceIndex < 0) continue;
+        if (Habitat == 1 || Habitat == 2 || Habitat == 5)
+        {
+            // A plant keeps its own vigor and wind phase. Vigor is tied to
+            // this site's habitat field, with a small individual variation.
+            const float Vigor = FMath::Clamp(0.86f + Field * 0.25f +
+                Random.FRandRange(-0.07f, 0.07f), 0.72f, 1.04f);
+            const float PlantState[2] = {Vigor, Random.FRandRange(0.0f, 2.0f * PI)};
+            if (!Target->SetCustomData(InstanceIndex, MakeArrayView(PlantState), false))
+                ++CustomDataFailures;
+        }
         ++Added;
     }
+    if (CustomDataFailures)
+        UE_LOG(LogTemp, Error, TEXT("ASHBOUND_REBIRTH_PLANT_STATE_FAILED habitat=%d count=%d"),
+            Habitat, CustomDataFailures);
     return Added;
 }
 
@@ -178,6 +193,10 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
     for (const auto& Component : TreeVariants) TreeGroup.Add(Component.Get());
     for (const auto& Component : MossRockVariants) MossGroup.Add(Component.Get());
     for (const auto& Component : FlowerVariants) FlowerGroup.Add(Component.Get());
+    for (UHierarchicalInstancedStaticMeshComponent* Component : FernGroup)
+        Component->SetNumCustomDataFloats(2);
+    for (UHierarchicalInstancedStaticMeshComponent* Component : GrassGroup)
+        Component->SetNumCustomDataFloats(2);
     UMaterialInterface* FernWind = LoadObject<UMaterialInterface>(nullptr,
         TEXT("/Game/ASHBOUND/Materials/M_RebirthFern.M_RebirthFern"));
     UMaterialInterface* GrassWind = LoadObject<UMaterialInterface>(nullptr,

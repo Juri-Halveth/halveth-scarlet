@@ -40,6 +40,14 @@ for name, texture_path, tint_value, amplitude_cm, height_rate in SPECS:
     colour = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, -550, -220)
     connect(sample, colour, 'A', 'RGB')
     connect(tint, colour, 'B')
+    vigor = editor.create_material_expression(material, unreal.MaterialExpressionPerInstanceCustomData, -600, 80)
+    vigor.set_editor_property('data_index', 0)
+    vigor.set_editor_property('const_default_value', 1.0)
+    vertex_vigor = editor.create_material_expression(material, unreal.MaterialExpressionVertexInterpolator, -360, 30)
+    connect(vigor, vertex_vigor, 'VS')
+    individual_colour = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, -100, -180)
+    connect(colour, individual_colour, 'A')
+    connect(vertex_vigor, individual_colour, 'B')
     roughness = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -500, 30)
     roughness.set_editor_property('r', .86)
 
@@ -49,13 +57,12 @@ for name, texture_path, tint_value, amplitude_cm, height_rate in SPECS:
     elapsed = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, -560, 340)
     connect(clock, elapsed, 'A')
     connect(speed, elapsed, 'B')
-    instance = editor.create_material_expression(material, unreal.MaterialExpressionPerInstanceRandom, -800, 520)
-    turn = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, -550, 520)
-    turn.set_editor_property('const_b', 6.283185)
-    connect(instance, turn, 'A')
+    instance_phase = editor.create_material_expression(material, unreal.MaterialExpressionPerInstanceCustomData, -550, 520)
+    instance_phase.set_editor_property('data_index', 1)
+    instance_phase.set_editor_property('const_default_value', 0.0)
     phase = editor.create_material_expression(material, unreal.MaterialExpressionAdd, -320, 410)
     connect(elapsed, phase, 'A')
-    connect(turn, phase, 'B')
+    connect(instance_phase, phase, 'B')
     wave = editor.create_material_expression(material, unreal.MaterialExpressionSine, -100, 410)
     connect(phase, wave, '')
     reach = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, 130, 410)
@@ -82,14 +89,17 @@ for name, texture_path, tint_value, amplitude_cm, height_rate in SPECS:
     bend = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, 350, 550)
     connect(reach, bend, 'A')
     connect(weight, bend, 'B')
+    vigor_bend = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, 500, 510)
+    connect(bend, vigor_bend, 'A')
+    connect(vigor, vigor_bend, 'B')
     direction = editor.create_material_expression(material, unreal.MaterialExpressionConstant3Vector, 350, 720)
     direction.set_editor_property('constant', unreal.LinearColor(1.0, .28, 0.0, 1.0))
     offset = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, 560, 600)
-    connect(bend, offset, 'A')
+    connect(vigor_bend, offset, 'A')
     connect(direction, offset, 'B')
 
     for expression, output, target in (
-        (colour, '', unreal.MaterialProperty.MP_BASE_COLOR),
+        (individual_colour, '', unreal.MaterialProperty.MP_BASE_COLOR),
         (sample, 'A', unreal.MaterialProperty.MP_OPACITY_MASK),
         (roughness, '', unreal.MaterialProperty.MP_ROUGHNESS),
         (offset, '', unreal.MaterialProperty.MP_WORLD_POSITION_OFFSET),
