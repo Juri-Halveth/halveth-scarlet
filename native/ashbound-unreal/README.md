@@ -14,23 +14,25 @@ After meeting the witness, face her nearby and press **T** for one optional loca
 
 Continue east beyond the fort to enter the expanding wilderness. The native runtime creates and unloads deterministic 128-metre terrain cells with grounded rocks, trees, ferns and grass while keeping nearby cells active. This is a traversable terrain foundation, not a populated open-world campaign: the wilderness has no settlements, NPC schedules, authored quests or saved player position yet.
 
-## Separate 3D foundation lab
+## World rebuild
 
-`/Game/ASHBOUND/Maps/FoundationLab` is an independent native level for the
-5 × 5 km ground experiment. It streams 64 m collision chunks around the player
-from a continuous 3D solid-density field, with soil above rock and an enclosed
-bedrock depth. Aim at the ground and press **G** to excavate; the affected
-chunk is remeshed, and plants lose their placement when their supporting earth
-is removed. Invisible collision boundaries stop walking off the 5 km domain.
-The map is authored by `tools/build_foundation_lab.py` during bootstrap and
-cooked alongside the chapter map. In a Development package, launch the EXE
-with `/Game/ASHBOUND/Maps/FoundationLab` as an argument to enter this lab.
-
-This lab addresses the earlier void caused by a thin terrain surface. It is
-still a visual and gameplay prototype: the 3D excavations are coarse at 2 m
-sampling, procedural plants and materials need art direction, and excavations
-are not saved between launches. The existing Chapter I map is unchanged; no
-claim is made that its voids or the larger game are finished.
+The separate FoundationLab experiment was rejected after visual review: coarse
+generated terrain and near-uniform ground texturing read as a flat painted
+surface despite 3D collision. Its code and active build entry have been removed.
+`/Game/ASHBOUND/Maps/RebirthGrove` is a separate Unreal Landscape and World
+Partition candidate, authored from the engine's Open World template. It uses a
+world-space 2K ground material and ground-traced instanced habitat. It is included
+for native visual QA, but the default playable Chapter I map remains Prologue.
+The RebirthGrove screenshot is a development observation, not approval of the
+art direction, 5 × 5 km coverage, a finished open world or target performance.
+Its current vegetation, terrain composition and object materials still need
+substantial art work before it can replace the Chapter I scene.
+After bootstrapping, run `& .\native\ashbound-unreal\play-rebirth.ps1 -WorkRoot '<your empty build directory>'`
+to enter this landscape directly in the native first-person runtime. The current
+scene has ground collision and a short, grounded habitat near the spawn; it does
+not yet carry the Chapter I quest, a 5 × 5 km authored world, digging, or saved
+world state. The visual QA screenshot is generated locally by the optional
+`-ashboundshot` Development argument.
 
 ## Build locally
 
@@ -42,7 +44,7 @@ Windows x64 needs Unreal Engine 5.8 with its first-person Blueprint template and
 & .\native\ashbound-unreal\verify-package.ps1
 ```
 
-`bootstrap.ps1` creates a fresh, isolated Unreal project; `package.ps1` cooks a Windows Development build into a fresh output directory. They accept `-WorkRoot`, and the packaging script accepts `-OutputRoot`. Existing project or output paths are refused. The build verifies 47 downloaded Poly Haven source files against SHA-256, size and URL entries in `asset-manifest.json`; the sources are [CC0](https://polyhaven.com/license). The book's paper and leather images in `art/materials/` were generated specifically for this project. Page art is typeset from the project's existing stories using Libre Baskerville (`art/fonts/OFL.txt`). Epic template assets come from the local engine installation. Generated `.uasset` files and executable packages stay outside Git.
+`bootstrap.ps1` creates a fresh, isolated Unreal project; `package.ps1` cooks a Windows Development build into a fresh output directory. They accept `-WorkRoot`, and the packaging script accepts `-OutputRoot`. Existing project or output paths are refused. The build verifies 61 downloaded Poly Haven source files against SHA-256, size and URL entries in `asset-manifest.json`; the sources are [CC0](https://polyhaven.com/license). The book's paper and leather images in `art/materials/` were generated specifically for this project. Page art is typeset from the project's existing stories using Libre Baskerville (`art/fonts/OFL.txt`). Epic template assets come from the local engine installation. Generated `.uasset` files and executable packages stay outside Git.
 Pass `-Configuration Shipping` to `package.ps1` for a player-facing package without the Development QA switches.
 
 The native source lives in `Source/`, world authoring and asset import in `tools/`, and renderer settings in `Config/`. The current play area is a vertical slice: it saves acquired book knowledge and Chapter I facts, but does not yet persist arbitrary world changes, character position or inventory. NPC AI, a full open world and final character animation are still missing. The witness is a scripted stone character for the opening; future characters need behavior, animation and authored dialogue. Frame measurements for one scene and this PC do not establish a stable frame rate for a completed game; the current run record is kept with the local build, not presented as a universal hardware requirement.

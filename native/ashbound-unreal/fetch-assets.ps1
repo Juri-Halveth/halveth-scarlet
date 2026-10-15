@@ -17,7 +17,8 @@ foreach ($item in $manifest.files) {
         throw "Unexpected source URL: $($item.url)"
     }
     $relative = [string]$item.path
-    if (-not $relative.StartsWith('source-assets/models/') -or $relative.Contains('..')) {
+    if ((-not $relative.StartsWith('source-assets/models/') -and
+         -not $relative.StartsWith('source-assets/surfaces/')) -or $relative.Contains('..')) {
         throw "Unexpected asset path: $relative"
     }
     $destination = [IO.Path]::GetFullPath((Join-Path $WorkRoot $relative))

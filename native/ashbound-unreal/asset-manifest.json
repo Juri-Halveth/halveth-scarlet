@@ -369,6 +369,104 @@
       "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/book_encyclopedia_set_01/book_encyclopedia_set_01_paper_roughness_1k.jpg",
       "bytes": 12684,
       "sha256": "62d875e9427f5d71f1bb4d9dc9569e34465bfd3067b8b13f5644b73e23a09fa3"
+    },
+    {
+      "id": "dirt_floor",
+      "path": "source-assets/surfaces/dirt_floor_diff_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dirt_floor/dirt_floor_diff_2k.jpg",
+      "bytes": 3944426,
+      "sha256": "1afaf974bc016e5019f48f6590a53e3e3730f48ae2eb5a1717519ad89038f661"
+    },
+    {
+      "id": "dirt_floor",
+      "path": "source-assets/surfaces/dirt_floor_nor_gl_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dirt_floor/dirt_floor_nor_gl_2k.jpg",
+      "bytes": 4977831,
+      "sha256": "da70ddc5c7d53d905d842ec189afbf7e2a7da84f281e94041346829b65f29786"
+    },
+    {
+      "id": "dirt_floor",
+      "path": "source-assets/surfaces/dirt_floor_rough_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dirt_floor/dirt_floor_rough_2k.jpg",
+      "bytes": 1808214,
+      "sha256": "56d3faa1f0624c3e366d057596f50fe3264415a64c967830f61ca139b9a94bfc"
+    },
+    {
+      "id": "leafy_grass",
+      "path": "source-assets/surfaces/leafy_grass_diff_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leafy_grass/leafy_grass_diff_2k.jpg",
+      "bytes": 4766204,
+      "sha256": "8e1c6d21365d4b89bc5a35ab664da98a78dbc3ab9ba6100474881c8619a5b113"
+    },
+    {
+      "id": "leafy_grass",
+      "path": "source-assets/surfaces/leafy_grass_nor_gl_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leafy_grass/leafy_grass_nor_gl_2k.jpg",
+      "bytes": 6047262,
+      "sha256": "df0cf0ce96e653f033e5b934d5b12995464bda027aa53bd12e329be889aa9f45"
+    },
+    {
+      "id": "leafy_grass",
+      "path": "source-assets/surfaces/leafy_grass_rough_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leafy_grass/leafy_grass_rough_2k.jpg",
+      "bytes": 2274652,
+      "sha256": "34e1733bf4064b6950a575ff57e78c8b7ff71b63749eb48a49221bd65de6fb4f"
+    },
+    {
+      "id": "fir_sapling",
+      "path": "source-assets/models/fir_sapling/fir_sapling_1k.gltf",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/fir_sapling/fir_sapling_1k.gltf",
+      "bytes": 10979,
+      "sha256": "a9466ca9d8c5b9b2eeeeafd3ce426f8912dcbd98a7281bad8c734833eb35b186"
+    },
+    {
+      "id": "fir_sapling",
+      "path": "source-assets/models/fir_sapling/textures/fir_sapling_twigs_nor_gl_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/fir_sapling/fir_sapling_twigs_nor_gl_1k.jpg",
+      "bytes": 474717,
+      "sha256": "34928b2a9d1f722d2f64a7da468c790ecaca9b89c00ac0878a9e0bad26748368"
+    },
+    {
+      "id": "fir_sapling",
+      "path": "source-assets/models/fir_sapling/textures/fir_sapling_branches_diff_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/fir_sapling/fir_sapling_branches_diff_1k.jpg",
+      "bytes": 776633,
+      "sha256": "46d216526b6203dbd5dc3cfce5e49d7a4cc1770da2420faab45adf33671c7de4"
+    },
+    {
+      "id": "fir_sapling",
+      "path": "source-assets/models/fir_sapling/textures/fir_sapling_twigs_diff_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/fir_sapling/fir_sapling_twigs_diff_1k.jpg",
+      "bytes": 252678,
+      "sha256": "a9900fafad850deeb5f79b928fd7590bca9e8ec8734d2368d4c64bba8b0c5b22"
+    },
+    {
+      "id": "fir_sapling",
+      "path": "source-assets/models/fir_sapling/textures/fir_sapling_branches_nor_gl_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/fir_sapling/fir_sapling_branches_nor_gl_1k.jpg",
+      "bytes": 1137599,
+      "sha256": "dbe474f6cd593d51a19fb92a627ad900b9ab47dabd1bf60117a2cf9d110f79ea"
+    },
+    {
+      "id": "fir_sapling",
+      "path": "source-assets/models/fir_sapling/textures/fir_sapling_twigs_arm_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/fir_sapling/fir_sapling_twigs_arm_1k.jpg",
+      "bytes": 300249,
+      "sha256": "d1ec27a55bb67bfe5fa2c8a41a545dc71769934b142db56ad7c703d4146e1770"
+    },
+    {
+      "id": "fir_sapling",
+      "path": "source-assets/models/fir_sapling/textures/fir_sapling_branches_arm_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/fir_sapling/fir_sapling_branches_arm_1k.jpg",
+      "bytes": 793567,
+      "sha256": "44c32b056b78c1046aeeb44c973a1d1352ea12d0d7ef2425527555f1256a0964"
+    },
+    {
+      "id": "fir_sapling",
+      "path": "source-assets/models/fir_sapling/fir_sapling.bin",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/fir_sapling/fir_sapling.bin",
+      "bytes": 21677180,
+      "sha256": "efdebfae6ee4b3ea20c7a85eb9f798ff4953259a3616bcff0b7e580b00f34f40"
     }
   ]
 }
