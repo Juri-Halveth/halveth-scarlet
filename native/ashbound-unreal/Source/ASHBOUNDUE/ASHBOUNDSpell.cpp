@@ -2,6 +2,7 @@
 #include "ASHBOUNDGrove.h"
 #include "ASHBOUNDGrimoire.h"
 #include "ASHBOUNDSeal.h"
+#include "ASHBOUNDFungalHome.h"
 
 #include "Components/PointLightComponent.h"
 #include "Components/SceneComponent.h"
@@ -194,6 +195,15 @@ void AASHBOUNDSpell::ApplyWorldEffect(const FHitResult* FlightImpact)
         return;
     }
 
+    // Reweave can tend a living home as well as grow a separate grove.
+    for (TActorIterator<AASHBOUNDFungalHome> It(World); It; ++It)
+    {
+        if (FVector::DistSquared2D(It->GetActorLocation(), Target) < FMath::Square(480.0f) &&
+            FMath::Abs(It->GetActorLocation().Z - Target.Z) < 450.0f)
+        {
+            It->Nurture();
+        }
+    }
     UStaticMesh* Fern = LoadObject<UStaticMesh>(nullptr,
         TEXT("/Game/ASHBOUND/Models/fern_02/fern_02_1k/StaticMeshes/fern_02_b.fern_02_b"));
     if (!Fern)

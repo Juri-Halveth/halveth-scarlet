@@ -9,6 +9,7 @@
 #include "ASHBOUNDWitness.h"
 #include "ASHBOUNDDreamer.h"
 #include "ASHBOUNDArchiveGate.h"
+#include "ASHBOUNDFungalHome.h"
 #include "Components/InputComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/Engine.h"
@@ -95,6 +96,18 @@ void AASHBOUNDSpellManager::BeginPlay()
     // Ground height from the authored valley surface at (3200, 850).
     Dreamer = GetWorld()->SpawnActor<AASHBOUNDDreamer>(AASHBOUNDDreamer::StaticClass(),
         FVector(3200.0f, 850.0f, -11.7f), FRotator(0, -90, 0));
+    // A separate rooted dwelling near the archive path, clear of the Dreamer's bed.
+    const FVector HomeProbe(3650.0f, 1450.0f, 900.0f);
+    FHitResult HomeGround;
+    FCollisionQueryParams HomeQuery(SCENE_QUERY_STAT(ASHBOUNDFungalHomeGround), false);
+    if (GetWorld()->LineTraceSingleByChannel(HomeGround, HomeProbe,
+        HomeProbe - FVector(0, 0, 1800), ECC_Visibility, HomeQuery))
+    {
+        FungalHome = GetWorld()->SpawnActor<AASHBOUNDFungalHome>(
+            AASHBOUNDFungalHome::StaticClass(), HomeGround.ImpactPoint + FVector(0, 0, 3),
+            FRotator::ZeroRotator);
+    }
+    else UE_LOG(LogTemp, Error, TEXT("ASHBOUND_FUNGAL_HOME ground not found"));
     RestoreStory();
     // The first-person template may apply a stale mouse delta while its window
     // gains focus. Establish one authored entry view after possession settles.
@@ -117,6 +130,22 @@ void AASHBOUNDSpellManager::BeginPlay()
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND living magic ready; lights require a source or player action, Q/E/R/F/M input"));
 
 #if !UE_BUILD_SHIPPING
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqafungalhome")))
+    {
+        FTimerHandle HomeTimer;
+        GetWorld()->GetTimerManager().SetTimer(HomeTimer,
+            FTimerDelegate::CreateWeakLambda(this, [this]()
+        {
+            AASHBOUNDFungalHome* Home = FungalHome.Get();
+            const float Before = Home ? Home->GetVitality() : -1.0f;
+            if (Home) Home->Nurture();
+            const float After = Home ? Home->GetVitality() : -1.0f;
+            const bool bPass = Home && Before >= 0.0f && After > Before && After <= 1.0f;
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_FUNGAL_HOME_QA before=%.2f after=%.2f pass=%d"),
+                Before, After, bPass ? 1 : 0);
+            if (!bPass) UE_LOG(LogTemp, Error, TEXT("ASHBOUND_FUNGAL_HOME_QA FAIL"));
+        }), 1.0f, false);
+    }
     if (FParse::Param(FCommandLine::Get(), TEXT("ashboundqastory")))
     {
         FTimerHandle WitnessTimer, BookTimer, DecisionTimer, SealsTimer, PassageTimer, FortTimer;

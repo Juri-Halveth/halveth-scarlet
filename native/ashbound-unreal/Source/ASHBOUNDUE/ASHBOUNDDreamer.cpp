@@ -56,7 +56,7 @@ void AASHBOUNDDreamer::BeginPlay()
         TEXT("/Game/ASHBOUND/Materials/M_LivingSpellSoft.M_LivingSpellSoft"));
     if (Glow) Heart->SetMaterial(0, Glow);
     UMaterialInterface* Stone = LoadObject<UMaterialInterface>(nullptr,
-        TEXT("/Game/ASHBOUND/Materials/M_AshStone.M_AshStone"));
+        TEXT("/Game/ASHBOUND/Surfaces/M_AshStone.M_AshStone"));
     if (Stone) Bed->SetMaterial(0, Stone);
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND_DREAMER grounded at %s body=%d"),
         *GetActorLocation().ToString(), Body->GetStaticMesh() ? 1 : 0);

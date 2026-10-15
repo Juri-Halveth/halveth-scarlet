@@ -8,6 +8,7 @@ class AStaticMeshActor;
 class AASHBOUNDGenesis;
 class AASHBOUNDWitness;
 class AASHBOUNDDreamer;
+class AASHBOUNDFungalHome;
 class UASHBOUNDStoryMemory;
 
 UCLASS()
@@ -53,6 +54,7 @@ private:
     TWeakObjectPtr<AASHBOUNDGenesis> Genesis;
     TWeakObjectPtr<AASHBOUNDWitness> Witness;
     TWeakObjectPtr<AASHBOUNDDreamer> Dreamer;
+    TWeakObjectPtr<AASHBOUNDFungalHome> FungalHome;
     UPROPERTY()
     TObjectPtr<UASHBOUNDStoryMemory> StoryMemory;
     FString Objective;
