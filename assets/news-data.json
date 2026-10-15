@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-15T09:58:39Z",
+  "generatedAt": "2026-10-15T15:04:26Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-15T09:58:39Z",
-      "lastSuccessAt": "2026-10-15T09:58:39Z",
+      "lastAttemptAt": "2026-10-15T15:04:26Z",
+      "lastSuccessAt": "2026-10-15T15:04:26Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,46 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-15T09:58:39Z",
-      "lastSuccessAt": "2026-10-15T09:58:39Z",
+      "lastAttemptAt": "2026-10-15T15:04:26Z",
+      "lastSuccessAt": "2026-10-15T15:04:26Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "87e7af3475d1f70728c0c227",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Chandra Finds Possible Origin of ‘Treble Clef’ Waves",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/chandra-finds-possible-origin-of-treble-clef-waves/",
+      "sourcePublishedAt": "2026-10-15T14:19:06Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
+      "firstFetchedAt": "2026-10-15T15:04:26Z"
+    },
+    {
+      "id": "449b1014bc1499c1514cf0c9",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Agentic autofix for code scanning alerts general availability",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability",
+      "sourcePublishedAt": "2026-10-15T13:49:20Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
+      "firstFetchedAt": "2026-10-15T15:04:26Z"
+    },
+    {
+      "id": "282497830b35cf32457b60ae",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Email notifications for repository push events have been retired",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-15-email-notifications-for-repository-push-events-have-been-retired",
+      "sourcePublishedAt": "2026-10-15T13:42:19Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
+      "firstFetchedAt": "2026-10-15T15:04:26Z"
+    },
     {
       "id": "c946c10f53580b5ddb23be21",
       "sourceId": "nasa",
@@ -32,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-15-the-milky-way-over-manhattan/",
       "sourcePublishedAt": "2026-10-15T04:05:00Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-15T09:58:39Z"
     },
     {
@@ -43,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/fires-arrive-in-the-amazon-rainforest/",
       "sourcePublishedAt": "2026-10-15T04:01:00Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-15T09:58:39Z"
     },
     {
@@ -54,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-to-host-news-conference-previewing-us-spacewalks-100-101/",
       "sourcePublishedAt": "2026-10-14T20:13:29Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-14T20:45:26Z"
     },
     {
@@ -65,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option",
       "sourcePublishedAt": "2026-10-14T20:01:35Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-14T20:45:26Z"
     },
     {
@@ -76,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/learning-resources/nasa-astronauts-to-answer-questions-from-florida-students/",
       "sourcePublishedAt": "2026-10-14T19:12:51Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-14T20:45:26Z"
     },
     {
@@ -87,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/chandra/nasas-chandra-breaks-down-treble-clefs-galaxy-cluster-collision/",
       "sourcePublishedAt": "2026-10-14T16:46:58Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-14T20:45:26Z"
     },
     {
@@ -98,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/nasas-space-x-crs-35-launch-jellyfish/",
       "sourcePublishedAt": "2026-10-14T15:18:38Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-14T17:14:45Z"
     },
     {
@@ -109,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/langley/nasa-develops-batteries-to-power-humanitys-return-to-moon/",
       "sourcePublishedAt": "2026-10-14T14:41:21Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-14T17:14:45Z"
     },
     {
@@ -120,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview",
       "sourcePublishedAt": "2026-10-14T13:49:15Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-14T17:14:45Z"
     },
     {
@@ -131,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-to-discuss-artemis-acceleration-status-of-upcoming-moon-missions/",
       "sourcePublishedAt": "2026-10-14T13:32:25Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-14T17:14:45Z"
     },
     {
@@ -142,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-14-mars-and-the-beehive-under-an-aurora/",
       "sourcePublishedAt": "2026-10-14T04:05:00Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-14T11:59:20Z"
     },
     {
@@ -164,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-github-app-improvements-for-least-privilege-and-management",
       "sourcePublishedAt": "2026-10-13T23:17:55Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-14T01:15:01Z"
     },
     {
@@ -186,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot",
       "sourcePublishedAt": "2026-10-13T18:39:56Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -197,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-audit-github-code-quality-finding-dismissals-and-reopenings",
       "sourcePublishedAt": "2026-10-13T17:58:36Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -274,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-secret-scanning-blocks-anthropic-keys-by-default-adds-salesforce",
       "sourcePublishedAt": "2026-10-13T16:12:36Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -285,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-enterprise-managed-settings-enforcement-updates",
       "sourcePublishedAt": "2026-10-13T15:20:10Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
@@ -307,7 +340,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-13-improved-detection-for-withdrawn-dependabot-alerts",
       "sourcePublishedAt": "2026-10-13T14:03:57Z",
-      "fetchedAt": "2026-10-15T09:58:39Z",
+      "fetchedAt": "2026-10-15T15:04:26Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -520,17 +553,6 @@
       "firstFetchedAt": "2026-10-09T21:00:06Z"
     },
     {
-      "id": "b85427f614ddb37d467c541d",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Demonstrates Next-Generation Heat Shield Technologies",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/",
-      "sourcePublishedAt": "2026-10-09T16:59:24Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
-      "firstFetchedAt": "2026-10-09T21:00:06Z"
-    },
-    {
       "id": "24caa334278b69fd57602bc0",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -661,28 +683,6 @@
       "sourcePublishedAt": "2026-10-05T22:42:14Z",
       "fetchedAt": "2026-10-08T16:31:38Z",
       "firstFetchedAt": "2026-10-06T03:01:36Z"
-    },
-    {
-      "id": "4ce371788dc0c71f881482b5",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Stateless GitHub App installation tokens rolled out",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out",
-      "sourcePublishedAt": "2026-10-02T22:18:23Z",
-      "fetchedAt": "2026-10-08T09:01:55Z",
-      "firstFetchedAt": "2026-10-02T22:59:30Z"
-    },
-    {
-      "id": "be3b1d34107991259e7d370e",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Copilot code review: API support and new default effort level",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level",
-      "sourcePublishedAt": "2026-10-02T19:13:50Z",
-      "fetchedAt": "2026-10-08T09:01:55Z",
-      "firstFetchedAt": "2026-10-02T22:59:30Z"
     }
   ]
 }
