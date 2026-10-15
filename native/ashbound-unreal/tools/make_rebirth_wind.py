@@ -30,6 +30,9 @@ for name, texture_path, tint_value, amplitude_cm, height_rate in SPECS:
         raise RuntimeError('Rebirth wind material missing: ' + path)
     material.set_editor_property('blend_mode', unreal.BlendMode.BLEND_MASKED)
     material.set_editor_property('two_sided', True)
+    # Thin grass cards need transmitted light on their backfaces; Default Lit
+    # makes the dense understory read as a nearly black mass against the sky.
+    material.set_editor_property('shading_model', unreal.MaterialShadingModel.MSM_TWO_SIDED_FOLIAGE)
     material.set_editor_property('used_with_instanced_static_meshes', True)
     editor.delete_all_material_expressions(material)
 
@@ -48,6 +51,8 @@ for name, texture_path, tint_value, amplitude_cm, height_rate in SPECS:
     individual_colour = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, -100, -180)
     connect(colour, individual_colour, 'A')
     connect(vertex_vigor, individual_colour, 'B')
+    subsurface = editor.create_material_expression(material, unreal.MaterialExpressionConstant3Vector, 20, -40)
+    subsurface.set_editor_property('constant', unreal.LinearColor(.22, .52, .14, 1.0))
     roughness = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -500, 30)
     roughness.set_editor_property('r', .86)
 
@@ -100,6 +105,7 @@ for name, texture_path, tint_value, amplitude_cm, height_rate in SPECS:
 
     for expression, output, target in (
         (individual_colour, '', unreal.MaterialProperty.MP_BASE_COLOR),
+        (subsurface, '', unreal.MaterialProperty.MP_SUBSURFACE_COLOR),
         (sample, 'A', unreal.MaterialProperty.MP_OPACITY_MASK),
         (roughness, '', unreal.MaterialProperty.MP_ROUGHNESS),
         (offset, '', unreal.MaterialProperty.MP_WORLD_POSITION_OFFSET),

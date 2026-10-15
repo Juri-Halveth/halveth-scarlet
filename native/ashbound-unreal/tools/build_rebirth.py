@@ -71,7 +71,7 @@ xy.set_editor_property('g', True)
 if not editor.connect_material_expressions(position, '', xy, ''):
     raise RuntimeError('World position did not connect to XY mask')
 scale = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -700, 60)
-scale.set_editor_property('r', 220.0)
+scale.set_editor_property('r', 155.0)
 uv = editor.create_material_expression(material, unreal.MaterialExpressionDivide, -470, -120)
 editor.connect_material_expressions(xy, '', uv, 'A')
 editor.connect_material_expressions(scale, '', uv, 'B')
@@ -104,11 +104,11 @@ for row, (kind, property_name) in enumerate((
     blend = editor.create_material_expression(material, unreal.MaterialExpressionLinearInterpolate,
                                                80, -320 + row * 380)
     if kind == 'diff':
-        # The original palette read as pale sand from player height. Restore a
-        # modest living leaf tone while preserving the photographed texture.
+        # Keep the photographed leaf litter, but let it read as a living
+        # understory between real grass clumps rather than pale bare soil.
         leaf_tint = editor.create_material_expression(material,
             unreal.MaterialExpressionConstant3Vector, -30, -560)
-        leaf_tint.set_editor_property('constant', unreal.LinearColor(.60, .95, .56, 1.0))
+        leaf_tint.set_editor_property('constant', unreal.LinearColor(.47, .79, .41, 1.0))
         tinted_leaf = editor.create_material_expression(material,
             unreal.MaterialExpressionMultiply, -20, -400)
         editor.connect_material_expressions(first, '', tinted_leaf, 'A')
