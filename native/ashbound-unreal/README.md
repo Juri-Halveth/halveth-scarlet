@@ -4,15 +4,15 @@ The separate **GenesisWorld** landscape candidate can be opened with
 `& .\native\ashbound-unreal\play-genesis.ps1 -PackageRoot '<local package directory>'`.
 `-Width` and `-Height` select the display resolution. The default uses Epic
 lighting. `-Lighting Balanced` disables dynamic global illumination, but it
-is experimental: in the 2026-10-16 packaged Development candidate at an
-actual 2560 × 1440, stationary offscreen Genesis measured about 31.1 FPS
-with the default and 18.7 FPS with Balanced on the reference PC. Do not
-assume Balanced is faster. An earlier source revision measured 32.20 ms/frame
-in Epic and 23.12 ms/frame in Balanced (median of the last 300 CSV frames;
-95th percentile 33.22 and 24.00 ms). Those earlier values do not describe
-the present package. Neither stationary sample establishes moving-world FPS
-or visual acceptance. The candidate still has broad bare slopes and repeated
-plant silhouettes.
+is experimental. An earlier 2026-10-16 package measured about 31.1 FPS at
+actual 2560 × 1440 in a stationary offscreen Epic run, and 18.7 FPS in
+Balanced. Those values do not describe the current meadow revision. In the
+2026-10-17 meadow package, the stationary 1600 × 900 offscreen engine log
+reported about 22.5 FPS after loading on the reference PC. This is a
+different resolution and a short scene sample, not a 1440p benchmark or
+moving-world guarantee. The current render is greener but still falls short
+of a dense wildflower meadow: flowers, canopy and near-ground variation remain
+sparse, and plant silhouettes repeat visibly.
 
 ASHBOUND is an independent first-person Unreal Engine 5.8 game in development. This local Windows build has a walkable ash valley, a ruined archive, three spell schools, three readable 3D books and a three-seal passage into the fort. Chapter I now starts with an in-world witness: speak to her, read Ilyra's book, awaken the three seals, cross the gate and reach the fort. A small HUD and **J** journal show the current goal without hiding the world. The witness conversation, charged seals and chapter completion are saved and reconstructed when the game starts again. Reaching the fort closes this opening chapter. It runs as a native EXE with DX12/SM6, Lumen and virtual shadow maps. The browser research pages are separate from this game.
 The local reference profile starts at Epic scalability and 100% internal render resolution. **2560 × 1440 is the current visual performance target, not a resolution cap.** Display resolution follows the monitor; 4K and 8K remain selectable through the engine and game-user settings. Their frame rates and image quality need separate measurements on the target hardware.
@@ -63,6 +63,13 @@ The ground material sketches the surface transition between cover, soil and
 exposed rock. These are modeled strata beneath a Landscape heightfield, not
 diggable 3D geology. Existing vegetation does not yet regrow when a season
 changes, and the climate values are a fictional art model, not weather data.
+The current meadow pass adds a bundled generated ground albedo, a 10-metre
+streamed foreground grass/flower tier and a noon starting light. Plant
+placement remains grounded in soil, moisture and slope; the former absolute
+world-Z density penalty was removed because map height is not a biome.
+The generated `source-art/meadow_carpet_v1.png` is project-specific art, not
+one of the hash-verified Poly Haven downloads. The photographed meadow used
+as a visual reference is not distributed with the game.
 
 ## Build locally
 

@@ -23,9 +23,11 @@ def import_texture(name):
     path = SURFACES + '/' + name
     texture = unreal.load_asset(path) if unreal.EditorAssetLibrary.does_asset_exist(path) else None
     if texture is None:
-        source = WORK / 'source-assets' / 'surfaces' / (name + '.jpg')
+        source = (Path(__file__).resolve().parents[1] / 'source-art' /
+                  'meadow_carpet_v1.png') if name == 'meadow_carpet_v1' else (
+                      WORK / 'source-assets' / 'surfaces' / (name + '.jpg'))
         if not source.is_file():
-            raise RuntimeError('Missing hash-verified Rebirth surface: ' + str(source))
+            raise RuntimeError('Missing Rebirth surface: ' + str(source))
         task = unreal.AssetImportTask()
         task.set_editor_property('filename', str(source))
         task.set_editor_property('destination_path', SURFACES)
@@ -50,6 +52,14 @@ texture_sets = {
     name: {kind: import_texture(name + '_' + kind + '_2k')
            for kind in ('diff', 'nor_gl', 'rough')}
     for name in ('forest_leaves_02', 'brown_mud_02')
+}
+# The meadow is a bundled, top-down generated albedo. Its detailed geometry
+# still comes from independent instanced plants; the generated surface fills the
+# spaces that would otherwise read as exposed dirt from a distance.
+texture_sets['meadow'] = {
+    'diff': import_texture('meadow_carpet_v1'),
+    'nor_gl': import_texture('leafy_grass_nor_gl_2k'),
+    'rough': import_texture('leafy_grass_rough_2k'),
 }
 # A photographed mixed grass/stone surface supplies mesoscopic colour
 # variation at a second real-world scale; it is still a repeating texture.
@@ -212,7 +222,7 @@ slope = editor.create_material_expression(material,
 editor.connect_material_expressions(normal_up, '', slope, '')
 slope_threshold = editor.create_material_expression(material,
     unreal.MaterialExpressionConstant, -300, 1080)
-slope_threshold.set_editor_property('r', 0.17)
+slope_threshold.set_editor_property('r', 0.32)
 exposed_slope = editor.create_material_expression(material,
     unreal.MaterialExpressionSubtract, -100, 890)
 editor.connect_material_expressions(slope, '', exposed_slope, 'A')
@@ -251,7 +261,7 @@ editor.connect_material_expressions(rock_floor, '', rock_mask, 'A')
 editor.connect_material_expressions(rock_one, '', rock_mask, 'B')
 
 soil_bias = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -240, 430)
-soil_bias.set_editor_property('r', 0.20)
+soil_bias.set_editor_property('r', 0.05)
 
 # A low valley accumulates a deeper organic cover; ridges and steep faces
 # expose mineral soil and bedrock. This is a surface visualization of the
@@ -276,7 +286,7 @@ valley = editor.create_material_expression(material, unreal.MaterialExpressionMi
 editor.connect_material_expressions(valley_floor, '', valley, 'A')
 editor.connect_material_expressions(rock_one, '', valley, 'B')
 valley_soil_gain = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -100, 670)
-valley_soil_gain.set_editor_property('r', 0.58)
+valley_soil_gain.set_editor_property('r', 0.45)
 valley_soil = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, 70, 670)
 editor.connect_material_expressions(valley, '', valley_soil, 'A')
 editor.connect_material_expressions(valley_soil_gain, '', valley_soil, 'B')
@@ -292,7 +302,7 @@ soil_floor = editor.create_material_expression(material, unreal.MaterialExpressi
 editor.connect_material_expressions(soil_region, '', soil_floor, 'A')
 editor.connect_material_expressions(soil_zero, '', soil_floor, 'B')
 soil_ceiling = editor.create_material_expression(material, unreal.MaterialExpressionConstant, 180, 550)
-soil_ceiling.set_editor_property('r', 0.80)
+soil_ceiling.set_editor_property('r', 0.70)
 soil_weight = editor.create_material_expression(material, unreal.MaterialExpressionMin, 360, 430)
 editor.connect_material_expressions(soil_floor, '', soil_weight, 'A')
 editor.connect_material_expressions(soil_ceiling, '', soil_weight, 'B')
@@ -305,21 +315,21 @@ for row, (kind, property_name) in enumerate((
                                                -240, -400 + row * 380)
     second = editor.create_material_expression(material, unreal.MaterialExpressionTextureSample,
                                                 -240, -240 + row * 380)
-    first.set_editor_property('texture', texture_sets['forest_leaves_02'][kind])
+    first.set_editor_property('texture', texture_sets['meadow'][kind])
     second.set_editor_property('texture', texture_sets['brown_mud_02'][kind])
     editor.connect_material_expressions(uv, '', first, 'UVs')
     editor.connect_material_expressions(dirt_uv, '', second, 'UVs')
     blend = editor.create_material_expression(material, unreal.MaterialExpressionLinearInterpolate,
                                                80, -320 + row * 380)
     if kind == 'diff':
-        # Moss and leaf litter are the drier organic cover; the low basin
-        # exposes dark wet earth. No pale sandy photo sits below the plants.
+        # Living meadow covers rooted, illuminated ground. Low wet basins
+        # retain patches of dark earth rather than a uniform green carpet.
         leaf_tint = editor.create_material_expression(material,
             unreal.MaterialExpressionConstant3Vector, -30, -560)
-        leaf_tint.set_editor_property('constant', unreal.LinearColor(.38, .70, .43, 1.0))
+        leaf_tint.set_editor_property('constant', unreal.LinearColor(1.0, 1.0, .96, 1.0))
         humus_tint = editor.create_material_expression(material,
             unreal.MaterialExpressionConstant3Vector, -30, -680)
-        humus_tint.set_editor_property('constant', unreal.LinearColor(.36, .60, .42, 1.0))
+        humus_tint.set_editor_property('constant', unreal.LinearColor(.94, .98, .88, 1.0))
         living_tint = editor.create_material_expression(material,
             unreal.MaterialExpressionLinearInterpolate, -10, -610)
         editor.connect_material_expressions(leaf_tint, '', living_tint, 'A')
@@ -344,7 +354,7 @@ for row, (kind, property_name) in enumerate((
         editor.connect_material_expressions(tinted_aerial, '', mixed_leaf, 'B')
         aerial_mix = editor.create_material_expression(material,
             unreal.MaterialExpressionConstant, -160, -260)
-        aerial_mix.set_editor_property('r', 0.14)
+        aerial_mix.set_editor_property('r', 0.04)
         editor.connect_material_expressions(aerial_mix, '', mixed_leaf, 'Alpha')
         editor.connect_material_expressions(mixed_leaf, '', blend, 'A')
     else:
@@ -379,10 +389,10 @@ for row, (kind, property_name) in enumerate((
         # the low basin stays governed by its wet-soil weight.
         dry_macro = editor.create_material_expression(material,
             unreal.MaterialExpressionConstant3Vector, 700, -520)
-        dry_macro.set_editor_property('constant', unreal.LinearColor(.92, .90, .81, 1.0))
+        dry_macro.set_editor_property('constant', unreal.LinearColor(1.0, 1.0, .96, 1.0))
         moss_macro = editor.create_material_expression(material,
             unreal.MaterialExpressionConstant3Vector, 700, -400)
-        moss_macro.set_editor_property('constant', unreal.LinearColor(.50, .88, .60, 1.0))
+        moss_macro.set_editor_property('constant', unreal.LinearColor(.78, 1.0, .82, 1.0))
         macro_palette = editor.create_material_expression(material,
             unreal.MaterialExpressionLinearInterpolate, 820, -440)
         editor.connect_material_expressions(dry_macro, '', macro_palette, 'A')

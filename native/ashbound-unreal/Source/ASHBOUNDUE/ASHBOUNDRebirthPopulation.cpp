@@ -102,7 +102,8 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
             RadiusCm * FMath::Sqrt(Random.FRand());
         if ((Habitat == 3 && Distance < 1400.0f) ||
             (Habitat == 0 && Distance < 450.0f)) continue;
-        const float HalfCell = bGenesisMacroCell ? 10000.0f : 2500.0f;
+        const float HalfCell = bGenesisDetailCell ? 500.0f :
+            bGenesisMacroCell ? 10000.0f : 2500.0f;
         const FVector XY = bGenesisMode
             ? ScatterCenter + FVector(Random.FRandRange(-HalfCell, HalfCell),
                                       Random.FRandRange(-HalfCell, HalfCell), 0.0f)
@@ -165,6 +166,7 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
                 Suitability = FMath::Clamp(1.15f - Soil.RootCapacity, 0.2f, 1.0f);
                 break;
             case 1: // Grasses occupy rooted margins, not saturated open mud.
+            case 5: // Short foreground cover shares the same soil boundary.
                 Suitability = (0.35f + 0.65f * Soil.RootCapacity) *
                     FMath::Clamp((0.85f - Soil.Moisture) * 2.2f, 0.18f, 1.0f);
                 break;
@@ -196,15 +198,9 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
             if (Random.FRand() > Suitability) continue;
             ++SoilPasses;
         }
-        // Rocky altitude gradually thins roots; it does not impose an abrupt
-        // world-height cutoff that empties whole biomes.
-        if (bGenesisMode && Habitat != 0)
-        {
-            const float Rockiness = FMath::Clamp((GroundPoint.Z - 5500.0f) / 4500.0f,
-                                                  0.0f, 1.0f);
-            const float MinimumDensity = Habitat == 3 ? 0.04f : 0.18f;
-            if (Random.FRand() > FMath::Lerp(1.0f, MinimumDensity, Rockiness)) continue;
-        }
+        // The landscape's Z is a local coordinate, not an altitude or biome.
+        // Soil, moisture and surface normal above already decide whether this
+        // spot supports a root; a world-Z penalty emptied healthy slopes.
         UHierarchicalInstancedStaticMeshComponent* Target = Targets[Random.RandRange(0, Targets.Num() - 1)];
         const UStaticMesh* Mesh = Target->GetStaticMesh();
         if (!Mesh)
@@ -382,6 +378,11 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
     for (const auto& Component : ShrubVariants) ShrubGroup.Add(Component.Get());
     for (const auto& Component : MossRockVariants) MossGroup.Add(Component.Get());
     for (const auto& Component : FlowerVariants) FlowerGroup.Add(Component.Get());
+    // The sunny Genesis meadow uses the small yellow species. The orange
+    // desert gazanias remain available to the separate Rebirth test map.
+    TArray<UHierarchicalInstancedStaticMeshComponent*> MeadowFlowerGroup{
+        FlowerVariants[2].Get(), FlowerVariants[3].Get()};
+    const auto& ActiveFlowers = bGenesisMode ? MeadowFlowerGroup : FlowerGroup;
     for (UHierarchicalInstancedStaticMeshComponent* Component : FernGroup)
         Component->SetNumCustomDataFloats(2);
     for (UHierarchicalInstancedStaticMeshComponent* Component : GrassGroup)
@@ -403,12 +404,29 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
     FRandomStream Random(20261015);
     if (bGenesisMode)
     {
-        const float CellWidth = bGenesisMacroCell ? 20000.0f : 5000.0f;
+        const float CellWidth = bGenesisDetailCell ? 1000.0f :
+            bGenesisMacroCell ? 20000.0f : 5000.0f;
         const uint32 CellX = static_cast<uint32>(FMath::FloorToInt(ScatterCenter.X / CellWidth));
         const uint32 CellY = static_cast<uint32>(FMath::FloorToInt(ScatterCenter.Y / CellWidth));
         Random.Initialize(static_cast<int32>(20261015u ^ (CellX * 73856093u) ^ (CellY * 19349663u)));
     }
     const bool RocksOnly = FParse::Param(FCommandLine::Get(), TEXT("ashboundrocksonly"));
+    if (bGenesisMode && bGenesisDetailCell)
+    {
+        // Follow the player with small, grounded instances. Four square
+        // across the whole landscape would be prohibitive; nine 10 m cells
+        // provide true parallax only where the player can inspect the grass.
+        TArray<UHierarchicalInstancedStaticMeshComponent*> ShortGrass{
+            Grasses.Get(), GrassVariants[0].Get(), GrassVariants[5].Get()};
+        const int32 ShortCount = RocksOnly ? 0 : Scatter(ShortGrass, 460,
+            700, 32, 0.06f, 0.77f, 5, Random);
+        const int32 BloomCount = RocksOnly ? 0 : Scatter(ActiveFlowers, 34,
+            700, 46, 0.04f, 0.79f, 4, Random);
+        UE_LOG(LogTemp, Display,
+            TEXT("ASHBOUND_GENESIS_DETAIL grass=%d flowers=%d center=%s"),
+            ShortCount, BloomCount, *ScatterCenter.ToString());
+        return;
+    }
     const int32 RockCount = Scatter(RockGroup, bGenesisMode ? (bGenesisMacroCell ? 20 : 0) : 45,
         12500, 220, 0.50f, 0.55f, 0, Random);
     const int32 MossCount = RocksOnly ? 0 : Scatter(MossGroup, bGenesisMode ? (bGenesisMacroCell ? 80 : 0) : 260,
@@ -421,16 +439,19 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
     // Several independently rotated blades per instanced mesh create the
     // appearance of individual grass without one Actor per blade.
     const int32 NearGrassCount = RocksOnly || bGenesisMode ? 0 : Scatter(GrassGroup, 24000, 1800, 27, 0.05f, 0.77f, 5, Random);
-    const int32 FlowerCount = RocksOnly || (bGenesisMode && bGenesisMacroCell) ? 0 : Scatter(FlowerGroup, bGenesisMode ? 34 : 2600,
+    // The meadow base is continuous, but nearby blossoms still need real
+    // geometry and parallax. Keep them in the 50 m streamed cells so their
+    // density does not multiply across the entire 5 km Landscape.
+    const int32 FlowerCount = RocksOnly || (bGenesisMode && bGenesisMacroCell) ? 0 : Scatter(ActiveFlowers, bGenesisMode ? 320 : 2600,
         6500, 33, 0.04f, 0.79f, 4, Random);
     const int32 StumpCount = RocksOnly ? 0 : Scatter({Stumps.Get()}, bGenesisMode ? (bGenesisMacroCell ? 5 : 0) : 12,
         11000, 190, 0.08f, 0.65f, 0, Random);
     // Concentrate a smaller tree budget near the player instead of dotting
     // every distant macro cell with saplings. Cull near instances before their
     // cell unload boundary; macro cells retain a distant silhouette.
-    const int32 PineCount = RocksOnly ? 0 : Scatter(TreeGroup, bGenesisMode ? (bGenesisMacroCell ? 6 : 2) : 65,
+    const int32 PineCount = RocksOnly ? 0 : Scatter(TreeGroup, bGenesisMode ? (bGenesisMacroCell ? 12 : 2) : 65,
         13500, 820, 0.03f, 0.69f, 3, Random);
-    const int32 BroadleafCount = RocksOnly ? 0 : Scatter({BroadleafTrees.Get()}, bGenesisMode ? (bGenesisMacroCell ? 6 : 2) : 34,
+    const int32 BroadleafCount = RocksOnly ? 0 : Scatter({BroadleafTrees.Get()}, bGenesisMode ? (bGenesisMacroCell ? 8 : 2) : 34,
         13500, 850, 0.02f, 0.72f, 3, Random);
     const int32 ShrubCount = RocksOnly ? 0 : Scatter(ShrubGroup, bGenesisMode ? (bGenesisMacroCell ? 120 : 0) : 420,
         12500, 145, 0.08f, 0.73f, 2, Random);
