@@ -216,8 +216,8 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
         CullGroup(Ferns, 12000, false);
         CullGroup(Grasses, 9000, false);
         CullGroup(Shrubs, 18000, false);
-        CullGroup(Pines, 35000, false);
-        CullGroup(BroadleafTrees, 35000, false);
+        CullGroup(Pines, bGenesisMacroCell ? 35000 : 18000, false);
+        CullGroup(BroadleafTrees, bGenesisMacroCell ? 35000 : 18000, false);
         for (auto& Group : {&FernVariants, &GrassVariants, &TreeVariants,
                             &MossRockVariants, &FlowerVariants, &ShrubVariants})
             for (auto& Component : *Group)
@@ -227,7 +227,7 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
                 const bool bGrass = Group == &GrassVariants;
                 const bool bFern = Group == &FernVariants;
                 const bool bFlower = Group == &FlowerVariants;
-                CullGroup(Component, bTree ? 35000 : bRock ? 30000 :
+                CullGroup(Component, bTree ? (bGenesisMacroCell ? 35000 : 18000) : bRock ? 30000 :
                           bGrass ? 9000 : bFern ? 12000 : bFlower ? 11000 : 18000,
                           bRock);
             }
@@ -327,9 +327,9 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
     }
     const bool RocksOnly = FParse::Param(FCommandLine::Get(), TEXT("ashboundrocksonly"));
     const int32 RockCount = Scatter(RockGroup, bGenesisMode ? (bGenesisMacroCell ? 20 : 0) : 45,
-        12500, 220, 0.20f, 0.55f, 0, Random);
+        12500, 220, 0.50f, 0.55f, 0, Random);
     const int32 MossCount = RocksOnly ? 0 : Scatter(MossGroup, bGenesisMode ? (bGenesisMacroCell ? 80 : 0) : 260,
-        10500, 100, 0.12f, 0.70f, 0, Random);
+        10500, 100, 0.30f, 0.70f, 0, Random);
     const int32 FernCount = RocksOnly || (bGenesisMode && bGenesisMacroCell) ? 0 : Scatter(FernGroup, bGenesisMode ? 85 : 1300,
         10500, 95, 0.06f, 0.72f, 2, Random);
     const int32 GrassCount = RocksOnly || (bGenesisMode && bGenesisMacroCell) ? 0 : Scatter(GrassGroup, bGenesisMode ? 2100 : 45000,
@@ -342,9 +342,12 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
         6500, 33, 0.04f, 0.79f, 4, Random);
     const int32 StumpCount = RocksOnly ? 0 : Scatter({Stumps.Get()}, bGenesisMode ? (bGenesisMacroCell ? 5 : 0) : 12,
         11000, 190, 0.08f, 0.65f, 0, Random);
-    const int32 PineCount = RocksOnly ? 0 : Scatter(TreeGroup, bGenesisMode ? (bGenesisMacroCell ? 15 : 0) : 65,
+    // Concentrate a smaller tree budget near the player instead of dotting
+    // every distant macro cell with saplings. Cull near instances before their
+    // cell unload boundary; macro cells retain a distant silhouette.
+    const int32 PineCount = RocksOnly ? 0 : Scatter(TreeGroup, bGenesisMode ? (bGenesisMacroCell ? 6 : 2) : 65,
         13500, 820, 0.03f, 0.69f, 3, Random);
-    const int32 BroadleafCount = RocksOnly ? 0 : Scatter({BroadleafTrees.Get()}, bGenesisMode ? (bGenesisMacroCell ? 15 : 0) : 34,
+    const int32 BroadleafCount = RocksOnly ? 0 : Scatter({BroadleafTrees.Get()}, bGenesisMode ? (bGenesisMacroCell ? 6 : 2) : 34,
         13500, 850, 0.02f, 0.72f, 3, Random);
     const int32 ShrubCount = RocksOnly ? 0 : Scatter(ShrubGroup, bGenesisMode ? (bGenesisMacroCell ? 120 : 0) : 420,
         12500, 145, 0.08f, 0.73f, 2, Random);
