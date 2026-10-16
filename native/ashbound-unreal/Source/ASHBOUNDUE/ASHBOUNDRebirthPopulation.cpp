@@ -4,7 +4,9 @@
 #include "Components/SceneComponent.h"
 #include "Engine/StaticMesh.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
+#include "GameFramework/Pawn.h"
 #include "HAL/FileManager.h"
 #include "Materials/MaterialInterface.h"
 #include "Misc/CommandLine.h"
@@ -69,7 +71,14 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
     if (Targets.IsEmpty() || !GetWorld()) return 0;
     int32 Added = 0;
     int32 CustomDataFailures = 0;
+    int32 FieldPasses = 0;
+    int32 GroundHits = 0;
+    int32 NormalPasses = 0;
+    int32 MissingMeshes = 0;
     FCollisionQueryParams Params(SCENE_QUERY_STAT(ASHBOUNDRebirthGround), false, this);
+    if (bGenesisMode)
+        for (TActorIterator<AASHBOUNDRebirthPopulation> It(GetWorld()); It; ++It)
+            Params.AddIgnoredActor(*It);
     for (int32 Attempt = 0; Attempt < Count * 8 && Added < Count; ++Attempt)
     {
         // The entry vista faces -X. Let the first flower meadow be discoverable
@@ -80,9 +89,14 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
             RadiusCm * FMath::Sqrt(Random.FRand());
         if ((Habitat == 3 && Distance < 1400.0f) ||
             (Habitat == 0 && Distance < 450.0f)) continue;
-        const FVector XY = GetActorLocation() + FVector(FMath::Cos(Angle) * Distance,
-                                                       FMath::Sin(Angle) * Distance, 0.0f);
-        const FVector2D Local(XY.X - GetActorLocation().X, XY.Y - GetActorLocation().Y);
+        const float HalfCell = bGenesisMacroCell ? 10000.0f : 2500.0f;
+        const FVector XY = bGenesisMode
+            ? ScatterCenter + FVector(Random.FRandRange(-HalfCell, HalfCell),
+                                      Random.FRandRange(-HalfCell, HalfCell), 0.0f)
+            : ScatterCenter + FVector(FMath::Cos(Angle) * Distance,
+                                      FMath::Sin(Angle) * Distance, 0.0f);
+        const FVector2D Local = bGenesisMode ? FVector2D(XY.X, XY.Y) :
+            FVector2D(XY.X - ScatterCenter.X, XY.Y - ScatterCenter.Y);
         // Two spatial scales form connected clearings, thickets and meadow
         // patches. A random yaw alone cannot create a convincing habitat.
         const float Broad = FMath::PerlinNoise2D((Local + FVector2D(3117, -811)) * 0.00042f);
@@ -93,18 +107,34 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
                                 Habitat == 2 ? 0.02f :
                                 Habitat == 1 ? -0.075f : -0.25f;
         if (Field < Threshold) continue;
+        ++FieldPasses;
         if (Habitat == 1 && Random.FRand() > FMath::Clamp((Field + 0.15f) * 2.7f, 0.10f, 1.0f)) continue;
         FHitResult Hit;
         if (!GetWorld()->LineTraceSingleByChannel(Hit, XY + FVector(0, 0, 50000),
                                                    XY - FVector(0, 0, 50000),
-                                                   ECC_Visibility, Params) ||
-            Hit.ImpactNormal.Z < MinNormalZ)
+                                                   ECC_Visibility, Params))
         {
             continue;
         }
+        ++GroundHits;
+        if (Hit.ImpactNormal.Z < MinNormalZ) continue;
+        ++NormalPasses;
+        // Rocky altitude gradually thins roots; it does not impose an abrupt
+        // world-height cutoff that empties whole biomes.
+        if (bGenesisMode && Habitat != 0)
+        {
+            const float Rockiness = FMath::Clamp((Hit.ImpactPoint.Z - 5500.0f) / 4500.0f,
+                                                  0.0f, 1.0f);
+            const float MinimumDensity = Habitat == 3 ? 0.04f : 0.18f;
+            if (Random.FRand() > FMath::Lerp(1.0f, MinimumDensity, Rockiness)) continue;
+        }
         UHierarchicalInstancedStaticMeshComponent* Target = Targets[Random.RandRange(0, Targets.Num() - 1)];
         const UStaticMesh* Mesh = Target->GetStaticMesh();
-        if (!Mesh) continue;
+        if (!Mesh)
+        {
+            ++MissingMeshes;
+            continue;
+        }
         const FBox Box = Mesh->GetBoundingBox();
         const float MeshHeight = FMath::Max(1.0f, Box.Max.Z - Box.Min.Z);
         const float Size = HeightCm * Random.FRandRange(0.56f, 1.48f);
@@ -136,12 +166,58 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
     if (CustomDataFailures)
         UE_LOG(LogTemp, Error, TEXT("ASHBOUND_REBIRTH_PLANT_STATE_FAILED habitat=%d count=%d"),
             Habitat, CustomDataFailures);
+    if (bGenesisMode && (Habitat == 0 || Habitat == 1))
+        UE_LOG(LogTemp, Display,
+            TEXT("ASHBOUND_GENESIS_CELL_PROBE center=%s habitat=%d field=%d ground=%d normal=%d missing_mesh=%d added=%d"),
+            *ScatterCenter.ToString(), Habitat, FieldPasses, GroundHits,
+            NormalPasses, MissingMeshes, Added);
     return Added;
 }
 
 void AASHBOUNDRebirthPopulation::BeginPlay()
 {
     Super::BeginPlay();
+    bGenesisMode = GetWorld() && GetWorld()->GetMapName().Contains(TEXT("GenesisWorld"));
+    ScatterCenter = GetActorLocation();
+    if (bGenesisMode)
+    {
+        // Cells spawned after play begins cannot change a registered Static
+        // mesh component. Make only these transient cell components Movable.
+        RootComponent->SetMobility(EComponentMobility::Movable);
+        for (UHierarchicalInstancedStaticMeshComponent* Component :
+            {Rocks.Get(), Ferns.Get(), Grasses.Get(), Stumps.Get(), Pines.Get(), BroadleafTrees.Get(), Shrubs.Get()})
+            Component->SetMobility(EComponentMobility::Movable);
+        for (auto& Group : {&FernVariants, &GrassVariants, &TreeVariants,
+                            &MossRockVariants, &FlowerVariants, &ShrubVariants})
+            for (auto& Component : *Group)
+                Component->SetMobility(EComponentMobility::Movable);
+        auto CullGroup = [](UHierarchicalInstancedStaticMeshComponent* Component,
+                            int32 EndCm, bool bShadow)
+        {
+            Component->SetCullDistances(0, EndCm);
+            Component->SetCastShadow(bShadow);
+        };
+        CullGroup(Rocks, 30000, true);
+        CullGroup(Stumps, 22000, true);
+        CullGroup(Ferns, 12000, false);
+        CullGroup(Grasses, 9000, false);
+        CullGroup(Shrubs, 18000, false);
+        CullGroup(Pines, 35000, false);
+        CullGroup(BroadleafTrees, 35000, false);
+        for (auto& Group : {&FernVariants, &GrassVariants, &TreeVariants,
+                            &MossRockVariants, &FlowerVariants, &ShrubVariants})
+            for (auto& Component : *Group)
+            {
+                const bool bTree = Group == &TreeVariants;
+                const bool bRock = Group == &MossRockVariants;
+                const bool bGrass = Group == &GrassVariants;
+                const bool bFern = Group == &FernVariants;
+                const bool bFlower = Group == &FlowerVariants;
+                CullGroup(Component, bTree ? 35000 : bRock ? 30000 :
+                          bGrass ? 9000 : bFern ? 12000 : bFlower ? 11000 : 18000,
+                          bRock);
+            }
+    }
     // The importer runs after the editor module first loads. Resolve the
     // authored assets when play begins; constructor-time hard loads would run
     // before the fresh-project import and leave empty mesh defaults.
@@ -228,24 +304,71 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND_REBIRTH_WIND fern=%d grass=%d"),
         FernWind ? 1 : 0, GrassWind ? 1 : 0);
     FRandomStream Random(20261015);
+    if (bGenesisMode)
+    {
+        const float CellWidth = bGenesisMacroCell ? 20000.0f : 5000.0f;
+        const uint32 CellX = static_cast<uint32>(FMath::FloorToInt(ScatterCenter.X / CellWidth));
+        const uint32 CellY = static_cast<uint32>(FMath::FloorToInt(ScatterCenter.Y / CellWidth));
+        Random.Initialize(static_cast<int32>(20261015u ^ (CellX * 73856093u) ^ (CellY * 19349663u)));
+    }
     const bool RocksOnly = FParse::Param(FCommandLine::Get(), TEXT("ashboundrocksonly"));
-    const int32 RockCount = Scatter(RockGroup, 45, 12500, 220, 0.20f, 0.55f, 0, Random);
-    const int32 MossCount = RocksOnly ? 0 : Scatter(MossGroup, 260, 10500, 100, 0.12f, 0.70f, 0, Random);
-    const int32 FernCount = RocksOnly ? 0 : Scatter(FernGroup, 1300, 10500, 95, 0.06f, 0.72f, 2, Random);
-    const int32 GrassCount = RocksOnly ? 0 : Scatter(GrassGroup, 45000, 10500, 52, 0.04f, 0.76f, 1, Random);
+    const int32 RockCount = Scatter(RockGroup, bGenesisMode ? (bGenesisMacroCell ? 20 : 0) : 45,
+        12500, 220, 0.20f, 0.55f, 0, Random);
+    const int32 MossCount = RocksOnly ? 0 : Scatter(MossGroup, bGenesisMode ? (bGenesisMacroCell ? 80 : 0) : 260,
+        10500, 100, 0.12f, 0.70f, 0, Random);
+    const int32 FernCount = RocksOnly || (bGenesisMode && bGenesisMacroCell) ? 0 : Scatter(FernGroup, bGenesisMode ? 85 : 1300,
+        10500, 95, 0.06f, 0.72f, 2, Random);
+    const int32 GrassCount = RocksOnly || (bGenesisMode && bGenesisMacroCell) ? 0 : Scatter(GrassGroup, bGenesisMode ? 2100 : 45000,
+        10500, 52, 0.04f, 0.76f, 1, Random);
     // Short clumps overlap near the player; the broad layer can stay taller.
     // Several independently rotated blades per instanced mesh create the
     // appearance of individual grass without one Actor per blade.
-    const int32 NearGrassCount = RocksOnly ? 0 : Scatter(GrassGroup, 24000, 1800, 27, 0.05f, 0.77f, 5, Random);
-    const int32 FlowerCount = RocksOnly ? 0 : Scatter(FlowerGroup, 2600, 6500, 33, 0.04f, 0.79f, 4, Random);
-    const int32 StumpCount = RocksOnly ? 0 : Scatter({Stumps.Get()}, 12, 11000, 190, 0.08f, 0.65f, 0, Random);
-    const int32 PineCount = RocksOnly ? 0 : Scatter(TreeGroup, 65, 13500, 820, 0.03f, 0.69f, 3, Random);
-    const int32 BroadleafCount = RocksOnly ? 0 : Scatter({BroadleafTrees.Get()}, 34, 13500, 850, 0.02f, 0.72f, 3, Random);
-    const int32 ShrubCount = RocksOnly ? 0 : Scatter(ShrubGroup, 420, 12500, 145, 0.08f, 0.73f, 2, Random);
+    const int32 NearGrassCount = RocksOnly || bGenesisMode ? 0 : Scatter(GrassGroup, 24000, 1800, 27, 0.05f, 0.77f, 5, Random);
+    const int32 FlowerCount = RocksOnly || (bGenesisMode && bGenesisMacroCell) ? 0 : Scatter(FlowerGroup, bGenesisMode ? 34 : 2600,
+        6500, 33, 0.04f, 0.79f, 4, Random);
+    const int32 StumpCount = RocksOnly ? 0 : Scatter({Stumps.Get()}, bGenesisMode ? (bGenesisMacroCell ? 5 : 0) : 12,
+        11000, 190, 0.08f, 0.65f, 0, Random);
+    const int32 PineCount = RocksOnly ? 0 : Scatter(TreeGroup, bGenesisMode ? (bGenesisMacroCell ? 15 : 0) : 65,
+        13500, 820, 0.03f, 0.69f, 3, Random);
+    const int32 BroadleafCount = RocksOnly ? 0 : Scatter({BroadleafTrees.Get()}, bGenesisMode ? (bGenesisMacroCell ? 15 : 0) : 34,
+        13500, 850, 0.02f, 0.72f, 3, Random);
+    const int32 ShrubCount = RocksOnly ? 0 : Scatter(ShrubGroup, bGenesisMode ? (bGenesisMacroCell ? 120 : 0) : 420,
+        12500, 145, 0.08f, 0.73f, 2, Random);
     UE_LOG(LogTemp, Display, TEXT("ASHBOUND_REBIRTH_HABITAT rocks=%d moss=%d ferns=%d grass=%d near_grass=%d flowers=%d stumps=%d pines=%d broadleaf=%d shrubs=%d"),
         RockCount, MossCount, FernCount, GrassCount, NearGrassCount, FlowerCount, StumpCount, PineCount, BroadleafCount, ShrubCount);
-    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundshot")))
+    if (!bGenesisMode && FParse::Param(FCommandLine::Get(), TEXT("ashboundshot")))
     {
+        float ShotX = 0.0f;
+        float ShotY = 0.0f;
+        const bool HasX = FParse::Value(FCommandLine::Get(), TEXT("ashboundshotx="), ShotX);
+        const bool HasY = FParse::Value(FCommandLine::Get(), TEXT("ashboundshoty="), ShotY);
+        if (HasX != HasY)
+        {
+            UE_LOG(LogTemp, Error, TEXT("ASHBOUND_REBIRTH_QA needs both shotx and shoty"));
+        }
+        else if (HasX && HasY)
+        {
+            FTimerHandle MoveTimer;
+            GetWorldTimerManager().SetTimer(MoveTimer, FTimerDelegate::CreateLambda([this, ShotX, ShotY]()
+            {
+                FHitResult Ground;
+                FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDRemoteTerrainProbe), false, this);
+                const FVector Top(ShotX, ShotY, 50000.0f);
+                const FVector Bottom(ShotX, ShotY, -50000.0f);
+                const bool Found = GetWorld()->LineTraceSingleByChannel(
+                    Ground, Top, Bottom, ECC_Visibility, Query);
+                APlayerController* Controller = GetWorld()->GetFirstPlayerController();
+                APawn* Pawn = Controller ? Controller->GetPawn() : nullptr;
+                const bool Moved = Found && Pawn && Pawn->SetActorLocation(
+                    Ground.ImpactPoint + FVector(0, 0, 200.0f), false, nullptr,
+                    ETeleportType::TeleportPhysics);
+                UE_LOG(LogTemp, Display,
+                    TEXT("ASHBOUND_REBIRTH_REMOTE_GROUND x=%f y=%f hit=%d moved=%d z=%f normal_z=%f"),
+                    ShotX, ShotY, Found ? 1 : 0, Moved ? 1 : 0,
+                    Found ? Ground.ImpactPoint.Z : 0.0f,
+                    Found ? Ground.ImpactNormal.Z : 0.0f);
+            }), 2.0f, false);
+        }
         float ScreenshotDelay = 8.0f;
         FParse::Value(FCommandLine::Get(), TEXT("ashboundshotdelay="), ScreenshotDelay);
         ScreenshotDelay = FMath::Clamp(ScreenshotDelay, 1.0f, 120.0f);

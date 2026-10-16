@@ -30,5 +30,12 @@ $groveLauncher = Join-Path $OutputRoot 'Windows\Start-RebirthGrove.cmd'
 cd /d "%~dp0"
 start "" "%~dp0ASHBOUNDUE.exe" "/Game/ASHBOUND/Maps/RebirthGrove" -DX12 -windowed -ResX=2560 -ResY=1440 %*
 '@ | Set-Content -LiteralPath $groveLauncher -Encoding Ascii
+$genesisLauncher = Join-Path $OutputRoot 'Windows\Start-GenesisWorld.cmd'
+@'
+@echo off
+cd /d "%~dp0"
+start "" "%~dp0ASHBOUNDUE.exe" "/Game/ASHBOUND/Maps/GenesisWorld" -DX12 -windowed -ResX=2560 -ResY=1440 %*
+'@ | Set-Content -LiteralPath $genesisLauncher -Encoding Ascii
 Write-Output "ASHBOUND native Windows package ready: $launcher"
 Write-Output "Rebirth Grove one-click start: $groveLauncher"
+Write-Output "Genesis Ground 5 km test start: $genesisLauncher"

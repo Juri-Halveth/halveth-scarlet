@@ -51,6 +51,24 @@ texture_sets = {
            for kind in ('diff', 'nor_gl', 'rough')}
     for name in ('leafy_grass', 'dirt_floor')
 }
+rock_suffixes = {'diff': 'diffuse', 'nor_gl': 'nor_gl', 'rough': 'rough'}
+texture_sets['rock'] = {}
+for kind, suffix in rock_suffixes.items():
+    rock_path = '/Game/ASHBOUND/Surfaces/rocky_terrain_03_' + suffix
+    rock_texture = unreal.load_asset(rock_path)
+    if not isinstance(rock_texture, unreal.Texture2D):
+        raise RuntimeError('Missing imported rocky terrain surface: ' + rock_path)
+    if kind == 'nor_gl':
+        rock_texture.set_editor_property('srgb', False)
+        rock_texture.set_editor_property('compression_settings',
+                                         unreal.TextureCompressionSettings.TC_NORMALMAP)
+        rock_texture.set_editor_property('flip_green_channel', True)
+    elif kind == 'rough':
+        rock_texture.set_editor_property('srgb', False)
+        rock_texture.set_editor_property('compression_settings',
+                                         unreal.TextureCompressionSettings.TC_MASKS)
+    unreal.EditorAssetLibrary.save_loaded_asset(rock_texture)
+    texture_sets['rock'][kind] = rock_texture
 
 mat_path = SURFACES + '/M_RebirthGround'
 material = unreal.load_asset(mat_path) if unreal.EditorAssetLibrary.does_asset_exist(mat_path) else None
@@ -148,6 +166,72 @@ soil_fraction.set_editor_property('r', 0.12)
 if not editor.connect_material_expressions(soil_fraction, '', alpha, 'B'):
     raise RuntimeError('Soil fraction did not connect to blend mask')
 
+# Exposed rock belongs to elevated or steep ground. Landscape geometry and
+# collision stay in the heightfield; this mask changes surface and ecology.
+normal = editor.create_material_expression(material,
+    unreal.MaterialExpressionVertexNormalWS, -820, 610)
+up = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant3Vector, -820, 800)
+up.set_editor_property('constant', unreal.LinearColor(0, 0, 1, 1))
+flatness = editor.create_material_expression(material,
+    unreal.MaterialExpressionDotProduct, -610, 610)
+editor.connect_material_expressions(normal, '', flatness, 'A')
+editor.connect_material_expressions(up, '', flatness, 'B')
+slope = editor.create_material_expression(material,
+    unreal.MaterialExpressionOneMinus, -420, 610)
+editor.connect_material_expressions(flatness, '', slope, '')
+slope_gain = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant, -420, 800)
+slope_gain.set_editor_property('r', 7.0)
+slope_scaled = editor.create_material_expression(material,
+    unreal.MaterialExpressionMultiply, -230, 610)
+editor.connect_material_expressions(slope, '', slope_scaled, 'A')
+editor.connect_material_expressions(slope_gain, '', slope_scaled, 'B')
+slope_threshold = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant, -230, 800)
+slope_threshold.set_editor_property('r', 0.18)
+slope_rock = editor.create_material_expression(material,
+    unreal.MaterialExpressionSubtract, -40, 610)
+editor.connect_material_expressions(slope_scaled, '', slope_rock, 'A')
+editor.connect_material_expressions(slope_threshold, '', slope_rock, 'B')
+
+z = editor.create_material_expression(material,
+    unreal.MaterialExpressionComponentMask, -700, 940)
+z.set_editor_property('b', True)
+editor.connect_material_expressions(position, '', z, '')
+altitude_start = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant, -700, 1080)
+altitude_start.set_editor_property('r', 5500.0)
+altitude_delta = editor.create_material_expression(material,
+    unreal.MaterialExpressionSubtract, -500, 940)
+editor.connect_material_expressions(z, '', altitude_delta, 'A')
+editor.connect_material_expressions(altitude_start, '', altitude_delta, 'B')
+altitude_width = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant, -500, 1100)
+altitude_width.set_editor_property('r', 4500.0)
+altitude_rock = editor.create_material_expression(material,
+    unreal.MaterialExpressionDivide, -300, 940)
+editor.connect_material_expressions(altitude_delta, '', altitude_rock, 'A')
+editor.connect_material_expressions(altitude_width, '', altitude_rock, 'B')
+rock_raw = editor.create_material_expression(material,
+    unreal.MaterialExpressionMax, -100, 940)
+editor.connect_material_expressions(altitude_rock, '', rock_raw, 'A')
+editor.connect_material_expressions(altitude_rock, '', rock_raw, 'B')
+rock_zero = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant, -100, 1100)
+rock_zero.set_editor_property('r', 0.0)
+rock_floor = editor.create_material_expression(material,
+    unreal.MaterialExpressionMax, 100, 940)
+editor.connect_material_expressions(rock_raw, '', rock_floor, 'A')
+editor.connect_material_expressions(rock_zero, '', rock_floor, 'B')
+rock_one = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant, 100, 1110)
+rock_one.set_editor_property('r', 1.0)
+rock_mask = editor.create_material_expression(material,
+    unreal.MaterialExpressionMin, 300, 940)
+editor.connect_material_expressions(rock_floor, '', rock_mask, 'A')
+editor.connect_material_expressions(rock_one, '', rock_mask, 'B')
+
 for row, (kind, property_name) in enumerate((
         ('diff', unreal.MaterialProperty.MP_BASE_COLOR),
         ('nor_gl', unreal.MaterialProperty.MP_NORMAL),
@@ -177,7 +261,16 @@ for row, (kind, property_name) in enumerate((
         editor.connect_material_expressions(first, '', blend, 'A')
     editor.connect_material_expressions(second, '', blend, 'B')
     editor.connect_material_expressions(alpha, '', blend, 'Alpha')
-    if not editor.connect_material_property(blend, '', property_name):
+    rock_sample = editor.create_material_expression(material,
+        unreal.MaterialExpressionTextureSample, 300, -320 + row * 380)
+    rock_sample.set_editor_property('texture', texture_sets['rock'][kind])
+    editor.connect_material_expressions(uv, '', rock_sample, 'UVs')
+    regional_blend = editor.create_material_expression(material,
+        unreal.MaterialExpressionLinearInterpolate, 560, -320 + row * 380)
+    editor.connect_material_expressions(blend, '', regional_blend, 'A')
+    editor.connect_material_expressions(rock_sample, '', regional_blend, 'B')
+    editor.connect_material_expressions(rock_mask, '', regional_blend, 'Alpha')
+    if not editor.connect_material_property(regional_blend, '', property_name):
         raise RuntimeError('Could not connect Rebirth ' + kind)
 
 # A separate low-frequency habitat mask gives the wider map clearings and
@@ -209,6 +302,17 @@ editor.connect_material_expressions(habitat_floor, '', habitat_mask, 'A')
 editor.connect_material_expressions(one, '', habitat_mask, 'B')
 grass_weight = editor.create_material_expression(material, unreal.MaterialExpressionConstant, 230, 1410)
 grass_weight.set_editor_property('r', 0.80)
+vegetation_mask = editor.create_material_expression(material,
+    unreal.MaterialExpressionOneMinus, 480, 1450)
+editor.connect_material_expressions(rock_mask, '', vegetation_mask, '')
+grass_habitat = editor.create_material_expression(material,
+    unreal.MaterialExpressionMultiply, 690, 1450)
+editor.connect_material_expressions(grass_weight, '', grass_habitat, 'A')
+editor.connect_material_expressions(vegetation_mask, '', grass_habitat, 'B')
+wood_habitat = editor.create_material_expression(material,
+    unreal.MaterialExpressionMultiply, 690, 1670)
+editor.connect_material_expressions(habitat_mask, '', wood_habitat, 'A')
+editor.connect_material_expressions(vegetation_mask, '', wood_habitat, 'B')
 grass_output = editor.create_material_expression(material,
     unreal.MaterialExpressionLandscapeGrassOutput, 540, 1200)
 entries = []
@@ -219,8 +323,8 @@ for name, kind in (('MapGrass', grass_type), ('MapShrubs', shrub_type),
     item.set_editor_property('grass_type', kind)
     entries.append(item)
 grass_output.set_editor_property('grass_types', entries)
-for name, weight in (('MapGrass', grass_weight), ('MapShrubs', habitat_mask),
-                     ('MapCanopy', habitat_mask)):
+for name, weight in (('MapGrass', grass_habitat), ('MapShrubs', wood_habitat),
+                     ('MapCanopy', wood_habitat)):
     if not editor.connect_material_expressions(weight, '', grass_output, name):
         raise RuntimeError('Could not connect landscape habitat: ' + name)
 editor.recompile_material(material)
