@@ -8,6 +8,7 @@
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/Pawn.h"
 #include "HAL/FileManager.h"
+#include "LandscapeProxy.h"
 #include "Materials/MaterialInterface.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
@@ -76,9 +77,18 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
     int32 NormalPasses = 0;
     int32 MissingMeshes = 0;
     FCollisionQueryParams Params(SCENE_QUERY_STAT(ASHBOUNDRebirthGround), false, this);
+    ALandscapeProxy* GenesisLandscape = nullptr;
     if (bGenesisMode)
+    {
         for (TActorIterator<AASHBOUNDRebirthPopulation> It(GetWorld()); It; ++It)
             Params.AddIgnoredActor(*It);
+        for (TActorIterator<ALandscapeProxy> It(GetWorld()); It; ++It)
+        {
+            GenesisLandscape = *It;
+            break;
+        }
+        if (!GenesisLandscape) return 0;
+    }
     for (int32 Attempt = 0; Attempt < Count * 8 && Added < Count; ++Attempt)
     {
         // The entry vista faces -X. Let the first flower meadow be discoverable
@@ -109,21 +119,43 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
         if (Field < Threshold) continue;
         ++FieldPasses;
         if (Habitat == 1 && Random.FRand() > FMath::Clamp((Field + 0.15f) * 2.7f, 0.10f, 1.0f)) continue;
-        FHitResult Hit;
-        if (!GetWorld()->LineTraceSingleByChannel(Hit, XY + FVector(0, 0, 50000),
-                                                   XY - FVector(0, 0, 50000),
-                                                   ECC_Visibility, Params))
+        FVector GroundPoint;
+        FVector GroundNormal;
+        if (bGenesisMode)
         {
-            continue;
+            // The first visibility hit may be a canopy, building or rock. The
+            // authored landscape height is the ground this cell must occupy.
+            const TOptional<float> Height = GenesisLandscape->GetHeightAtLocation(XY);
+            if (!Height.IsSet()) continue;
+            GroundPoint = FVector(XY.X, XY.Y, Height.GetValue());
+            constexpr float SampleStep = 100.0f;
+            const TOptional<float> Left = GenesisLandscape->GetHeightAtLocation(XY + FVector(-SampleStep, 0, 0));
+            const TOptional<float> Right = GenesisLandscape->GetHeightAtLocation(XY + FVector(SampleStep, 0, 0));
+            const TOptional<float> Back = GenesisLandscape->GetHeightAtLocation(XY + FVector(0, -SampleStep, 0));
+            const TOptional<float> Front = GenesisLandscape->GetHeightAtLocation(XY + FVector(0, SampleStep, 0));
+            GroundNormal = Left.IsSet() && Right.IsSet() && Back.IsSet() && Front.IsSet()
+                ? FVector((Left.GetValue() - Right.GetValue()) / (2.0f * SampleStep),
+                          (Back.GetValue() - Front.GetValue()) / (2.0f * SampleStep), 1.0f).GetSafeNormal()
+                : FVector::UpVector;
+        }
+        else
+        {
+            FHitResult Hit;
+            if (!GetWorld()->LineTraceSingleByChannel(Hit, XY + FVector(0, 0, 50000),
+                                                       XY - FVector(0, 0, 50000),
+                                                       ECC_Visibility, Params))
+                continue;
+            GroundPoint = Hit.ImpactPoint;
+            GroundNormal = Hit.ImpactNormal;
         }
         ++GroundHits;
-        if (Hit.ImpactNormal.Z < MinNormalZ) continue;
+        if (GroundNormal.Z < MinNormalZ) continue;
         ++NormalPasses;
         // Rocky altitude gradually thins roots; it does not impose an abrupt
         // world-height cutoff that empties whole biomes.
         if (bGenesisMode && Habitat != 0)
         {
-            const float Rockiness = FMath::Clamp((Hit.ImpactPoint.Z - 5500.0f) / 4500.0f,
+            const float Rockiness = FMath::Clamp((GroundPoint.Z - 5500.0f) / 4500.0f,
                                                   0.0f, 1.0f);
             const float MinimumDensity = Habitat == 3 ? 0.04f : 0.18f;
             if (Random.FRand() > FMath::Lerp(1.0f, MinimumDensity, Rockiness)) continue;
@@ -142,10 +174,10 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
         const float Yaw = Random.FRandRange(0.0f, 360.0f);
         const float Lean = Habitat == 3 ? 3.0f : 9.0f;
         // Let rocks settle into the terrain while plants remain mostly upright.
-        // A ground normal is local to this exact trace, so adjacent instances
-        // can meet different slopes without rotating an entire cell as a sheet.
+        // A ground normal is local to this site, so adjacent instances can
+        // meet different slopes without rotating an entire cell as a sheet.
         const FQuat GroundTilt = FQuat::FindBetweenNormals(
-            FVector::UpVector, Hit.ImpactNormal.GetSafeNormal());
+            FVector::UpVector, GroundNormal.GetSafeNormal());
         const float TiltWeight = Habitat == 0 ? 1.0f : Habitat == 3 ? 0.12f : 0.32f;
         const FQuat Rotation = (FQuat::Slerp(FQuat::Identity, GroundTilt, TiltWeight) *
             FQuat(FVector::UpVector, FMath::DegreesToRadians(Yaw)) *
@@ -159,7 +191,7 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
         const FVector LocalContact((Box.Min.X + Box.Max.X) * 0.5f,
             (Box.Min.Y + Box.Max.Y) * 0.5f,
             Box.Min.Z + MeshHeight * EmbedFraction);
-        const FVector Position = Hit.ImpactPoint -
+        const FVector Position = GroundPoint -
             Rotation.RotateVector(LocalContact * InstanceScale);
         const int32 InstanceIndex = Target->AddInstance(FTransform(Rotation, Position, InstanceScale), true);
         if (InstanceIndex < 0) continue;
