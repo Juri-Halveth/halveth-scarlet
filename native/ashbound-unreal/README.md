@@ -1,8 +1,18 @@
 # ASHBOUND — native Windows game candidate
 
+The separate **GenesisWorld** landscape candidate can be opened with
+`& .\native\ashbound-unreal\play-genesis.ps1 -PackageRoot '<local package directory>'`.
+Use `-Lighting Balanced` for the measured 1440p option without dynamic global
+illumination; omit it for the unchanged Epic lighting. `-Width` and `-Height`
+select the display resolution. On the reference PC, one stationary packaged
+Genesis view measured 26.27 ms/frame in Epic and 19.27 ms/frame in Balanced
+(median of the last 300 CSV frames). This does not establish moving-world FPS
+or visual acceptance. The current candidate still has conspicuous colour and
+repetition problems on distant slopes.
+
 ASHBOUND is an independent first-person Unreal Engine 5.8 game in development. This local Windows build has a walkable ash valley, a ruined archive, three spell schools, three readable 3D books and a three-seal passage into the fort. Chapter I now starts with an in-world witness: speak to her, read Ilyra's book, awaken the three seals, cross the gate and reach the fort. A small HUD and **J** journal show the current goal without hiding the world. The witness conversation, charged seals and chapter completion are saved and reconstructed when the game starts again. Reaching the fort closes this opening chapter. It runs as a native EXE with DX12/SM6, Lumen and virtual shadow maps. The browser research pages are separate from this game.
 The local reference profile starts at Epic scalability and 100% internal render resolution. **2560 × 1440 is the current visual performance target, not a resolution cap.** Display resolution follows the monitor; 4K and 8K remain selectable through the engine and game-user settings. Their frame rates and image quality need separate measurements on the target hardware.
-On the reference PC (Ryzen 7 9700X, RTX 4070 SUPER, 61.6 GiB RAM), an earlier packaged Development candidate rendered the archive gate view offscreen at 2560 × 1440, Epic quality and 100% internal resolution: 540 sampled frames after warm-up had a 10.90 ms median and 12.36 ms 95th-percentile frame time. The expanded environment has not been reprofiled; the historical sample measures one stationary scene, not moving foreground play or a guaranteed frame rate throughout a larger game.
+On the reference PC (Ryzen 7 9700X, RTX 4070 SUPER, 61.6 GiB RAM), an earlier packaged Development candidate rendered the archive gate view offscreen at 2560 × 1440, Epic quality and 100% internal resolution: 540 sampled frames after warm-up had a 10.90 ms median and 12.36 ms 95th-percentile frame time. That historical Chapter I sample is separate from the Genesis measurements above; neither stationary sample guarantees moving-world frame rate.
 
 ![The in-world ASHBOUND grimoire in the native EXE](art/grimoire-preview.png)
 
