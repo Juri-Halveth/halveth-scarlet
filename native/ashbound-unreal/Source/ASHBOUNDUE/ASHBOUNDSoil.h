@@ -10,6 +10,7 @@ struct FASHBOUNDSoilProfile
     float MineralCm = 0.0f;
     float BedrockDepthCm = 0.0f;
     float Moisture = 0.0f;
+    float WetlandAffinity = 0.0f;
     float SolarExposure = 0.0f;
     float RootCapacity = 0.0f;
 };
@@ -67,9 +68,14 @@ struct FASHBOUNDSoil
             FMath::Clamp(DayOfYear, 1, 365) / 365.0f);
         FASHBOUNDSoilProfile Result;
         Result.SolarExposure = Solar;
+        // The same 55 m basin boundary drives the visible mud/leaf blend.
+        // Rock faces still expose mineral material, irrespective of rainfall.
+        Result.WetlandAffinity = FMath::Clamp((5500.0f - Ground.Z) /
+            5500.0f, 0.0f, 1.0f) * (1.0f - Slope);
         Result.Moisture = FMath::Clamp(0.58f + 0.22f * RainRegion +
             0.12f * Drainage + SeasonRain - 0.26f * Slope -
-            0.22f * Altitude - 0.12f * Solar, 0.0f, 1.0f);
+            0.22f * Altitude - 0.12f * Solar +
+            0.18f * Result.WetlandAffinity, 0.0f, 1.0f);
         Result.BedrockDepthCm = FMath::Clamp(165.0f * (1.0f - Slope) *
             (1.0f - 0.45f * Altitude) + 42.0f * Drainage, 8.0f, 220.0f);
         Result.OrganicCm = FMath::Min(Result.BedrockDepthCm * 0.3f,

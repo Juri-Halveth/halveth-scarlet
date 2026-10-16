@@ -164,8 +164,9 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
             case 0: // Exposed mineral and shallow bedrock invite loose stone.
                 Suitability = FMath::Clamp(1.15f - Soil.RootCapacity, 0.2f, 1.0f);
                 break;
-            case 1: // Grasses need some rooted soil but tolerate dry patches.
-                Suitability = 0.35f + 0.65f * Soil.RootCapacity;
+            case 1: // Grasses occupy rooted margins, not saturated open mud.
+                Suitability = (0.35f + 0.65f * Soil.RootCapacity) *
+                    FMath::Clamp((0.85f - Soil.Moisture) * 2.2f, 0.18f, 1.0f);
                 break;
             case 2: // Ferns and shrubs favor moist, developed soil.
                 Suitability = FMath::Clamp((Soil.Moisture - 0.22f) * 2.0f,

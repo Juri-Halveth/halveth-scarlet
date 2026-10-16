@@ -474,6 +474,48 @@
       "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/fir_sapling/fir_sapling.bin",
       "bytes": 21677180,
       "sha256": "efdebfae6ee4b3ea20c7a85eb9f798ff4953259a3616bcff0b7e580b00f34f40"
+    },
+    {
+      "id": "forest_leaves_02",
+      "path": "source-assets/surfaces/forest_leaves_02_diff_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/forest_leaves_02/forest_leaves_02_diffuse_2k.jpg",
+      "bytes": 1668009,
+      "sha256": "9c38b2b151a0415457a6914966422cfca5a546c94674442e5395e0b1e908a196"
+    },
+    {
+      "id": "forest_leaves_02",
+      "path": "source-assets/surfaces/forest_leaves_02_nor_gl_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/forest_leaves_02/forest_leaves_02_nor_gl_2k.jpg",
+      "bytes": 2323898,
+      "sha256": "af0346114834c347a8d6a138f6ea16a97b0bec8d6e4db32c24f1c7e482163235"
+    },
+    {
+      "id": "forest_leaves_02",
+      "path": "source-assets/surfaces/forest_leaves_02_rough_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/forest_leaves_02/forest_leaves_02_rough_2k.jpg",
+      "bytes": 723748,
+      "sha256": "ed2dd60a10242640b1738760015cfae85c8526a79dbf5da563fdffdf30828eae"
+    },
+    {
+      "id": "brown_mud_02",
+      "path": "source-assets/surfaces/brown_mud_02_diff_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_mud_02/brown_mud_02_diff_2k.jpg",
+      "bytes": 2163682,
+      "sha256": "5c735b1df784ab1990f4e209c55d27fa4e7a19508e40484ed5aa783266783726"
+    },
+    {
+      "id": "brown_mud_02",
+      "path": "source-assets/surfaces/brown_mud_02_nor_gl_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_mud_02/brown_mud_02_nor_gl_2k.jpg",
+      "bytes": 4234657,
+      "sha256": "3d6eec0adba8fd514d5634c56f806ad40206975c3ef17de1e2468b9e3ebcf719"
+    },
+    {
+      "id": "brown_mud_02",
+      "path": "source-assets/surfaces/brown_mud_02_rough_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_mud_02/brown_mud_02_rough_2k.jpg",
+      "bytes": 1662813,
+      "sha256": "00ef047ecda114930311efd31cbdb371c7a236f211a00f1dfeb6b1b73ac2f674"
     }
   ]
 }
