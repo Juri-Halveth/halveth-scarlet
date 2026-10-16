@@ -272,7 +272,7 @@ for row, (kind, property_name) in enumerate((
         # understory between real grass clumps rather than pale bare soil.
         leaf_tint = editor.create_material_expression(material,
             unreal.MaterialExpressionConstant3Vector, -30, -560)
-        leaf_tint.set_editor_property('constant', unreal.LinearColor(.70, .70, .65, 1.0))
+        leaf_tint.set_editor_property('constant', unreal.LinearColor(.55, .95, .60, 1.0))
         tinted_leaf = editor.create_material_expression(material,
             unreal.MaterialExpressionMultiply, -20, -400)
         editor.connect_material_expressions(first, '', tinted_leaf, 'A')
