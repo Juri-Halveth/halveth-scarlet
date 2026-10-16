@@ -54,6 +54,7 @@ protected:
 private:
     bool bGenesisMode = false;
     bool bGenesisMacroCell = false;
+    int32 SoilDayOfYear = 172;
     FVector ScatterCenter = FVector::ZeroVector;
     int32 Scatter(const TArray<UHierarchicalInstancedStaticMeshComponent*>& Targets,
                   int32 Count, float RadiusCm, float HeightCm, float EmbedFraction,

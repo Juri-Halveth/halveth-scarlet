@@ -1,4 +1,6 @@
 #include "ASHBOUNDRebirthPopulation.h"
+#include "ASHBOUNDGenesisEcology.h"
+#include "ASHBOUNDSoil.h"
 
 #include "Components/HierarchicalInstancedStaticMeshComponent.h"
 #include "Components/SceneComponent.h"
@@ -76,6 +78,7 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
     int32 GroundHits = 0;
     int32 NormalPasses = 0;
     int32 MissingMeshes = 0;
+    int32 SoilPasses = 0;
     FCollisionQueryParams Params(SCENE_QUERY_STAT(ASHBOUNDRebirthGround), false, this);
     ALandscapeProxy* GenesisLandscape = nullptr;
     if (bGenesisMode)
@@ -151,6 +154,36 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
         ++GroundHits;
         if (GroundNormal.Z < MinNormalZ) continue;
         ++NormalPasses;
+        if (bGenesisMode)
+        {
+            const FASHBOUNDSoilProfile Soil = FASHBOUNDSoil::Sample(
+                GroundPoint, GroundNormal, SoilDayOfYear);
+            float Suitability = 1.0f;
+            switch (Habitat)
+            {
+            case 0: // Exposed mineral and shallow bedrock invite loose stone.
+                Suitability = FMath::Clamp(1.15f - Soil.RootCapacity, 0.2f, 1.0f);
+                break;
+            case 1: // Grasses need some rooted soil but tolerate dry patches.
+                Suitability = 0.35f + 0.65f * Soil.RootCapacity;
+                break;
+            case 2: // Ferns and shrubs favor moist, developed soil.
+                Suitability = FMath::Clamp((Soil.Moisture - 0.22f) * 2.0f,
+                    0.0f, 1.0f) * (0.35f + 0.65f * Soil.RootCapacity);
+                break;
+            case 3: // Trees need both a mineral horizon and root space.
+                Suitability = Soil.MineralCm < 40.0f ? 0.0f : Soil.RootCapacity;
+                break;
+            case 4: // Open, lit soil supports flowers.
+                Suitability = FMath::Clamp((Soil.SolarExposure - 0.3f) * 2.0f,
+                    0.0f, 1.0f) * (0.3f + 0.7f * Soil.RootCapacity);
+                break;
+            default:
+                break;
+            }
+            if (Random.FRand() > Suitability) continue;
+            ++SoilPasses;
+        }
         // Rocky altitude gradually thins roots; it does not impose an abrupt
         // world-height cutoff that empties whole biomes.
         if (bGenesisMode && Habitat != 0)
@@ -212,9 +245,9 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
             Habitat, CustomDataFailures);
     if (bGenesisMode && (Habitat == 0 || Habitat == 1))
         UE_LOG(LogTemp, Display,
-            TEXT("ASHBOUND_GENESIS_CELL_PROBE center=%s habitat=%d field=%d ground=%d normal=%d missing_mesh=%d added=%d"),
+            TEXT("ASHBOUND_GENESIS_CELL_PROBE center=%s habitat=%d field=%d ground=%d normal=%d soil=%d missing_mesh=%d added=%d"),
             *ScatterCenter.ToString(), Habitat, FieldPasses, GroundHits,
-            NormalPasses, MissingMeshes, Added);
+            NormalPasses, SoilPasses, MissingMeshes, Added);
     return Added;
 }
 
@@ -224,6 +257,12 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
     bGenesisMode = GetWorld() &&
         (GetWorld()->GetMapName().Contains(TEXT("GenesisWorld")) ||
          GetWorld()->GetMapName().Contains(TEXT("GenesisHalfStepWorld")));
+    if (bGenesisMode)
+        for (TActorIterator<AASHBOUNDGenesisEcology> It(GetWorld()); It; ++It)
+        {
+            SoilDayOfYear = It->GetDayOfYear();
+            break;
+        }
     ScatterCenter = GetActorLocation();
     if (bGenesisMode)
     {

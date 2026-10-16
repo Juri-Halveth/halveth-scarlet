@@ -51,6 +51,19 @@ not yet carry the Chapter I quest, a 5 × 5 km authored world, digging, or saved
 world state. The visual QA screenshot is generated locally by the optional
 `-ashboundshot` Development argument.
 
+`GenesisWorld` has an experimental soil and daylight model. Its 5.04 km
+Landscape is sampled for height and slope; a deterministic profile estimates
+organic cover, mineral depth, bedrock depth, moisture, annual noon exposure
+and root capacity. Regional rainfall, altitude and aspect affect where rocks,
+grass, ferns, shrubs, flowers and trees can grow. A year/day/24-hour clock
+rotates the map sun; one game hour lasts one real minute. The sparse HUD shows
+date/time and the profile under the player. Development runs can choose a
+start with `-ashboundyear=2 -ashboundday=355 -ashboundhour=12`.
+The ground material sketches the surface transition between cover, soil and
+exposed rock. These are modeled strata beneath a Landscape heightfield, not
+diggable 3D geology. Existing vegetation does not yet regrow when a season
+changes, and the climate values are a fictional art model, not weather data.
+
 ## Build locally
 
 Windows x64 needs Unreal Engine 5.8 with its first-person Blueprint template and high-content template resources, a Visual Studio C++ toolchain, Node.js, Python 3 with Pillow, and space for the generated project. From the repository root in PowerShell:

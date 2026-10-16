@@ -1,4 +1,5 @@
 #include "ASHBOUNDStoryHUD.h"
+#include "ASHBOUNDGenesisEcology.h"
 #include "ASHBOUNDSpellManager.h"
 
 #include "Engine/Canvas.h"
@@ -18,16 +19,42 @@ void AASHBOUNDStoryHUD::DrawHUD()
         }
     }
     const AASHBOUNDSpellManager* Manager = Story.Get();
-    if (!Manager) return;
 
     const float Scale = FMath::Clamp(Canvas->SizeY / 1440.0f, 0.68f, 1.55f);
     const float Left = 44.0f * Scale;
     const FLinearColor Quiet(0.62f, 0.83f, 0.83f, 0.92f);
     const FLinearColor Bright(0.92f, 0.96f, 0.90f, 0.96f);
-    DrawText(TEXT("ASHBOUND  /  KAPITEL I"), Quiet, Left, 40.0f * Scale,
+    DrawText(Manager ? TEXT("ASHBOUND  /  KAPITEL I") : TEXT("ASHBOUND  /  GENESISWELT"), Quiet, Left, 40.0f * Scale,
              GEngine->GetSmallFont(), 1.5f * Scale, false);
-    DrawText(Manager->GetObjective(), Bright, Left, 78.0f * Scale,
-             GEngine->GetSmallFont(), 1.72f * Scale, false);
+    if (Manager)
+        DrawText(Manager->GetObjective(), Bright, Left, 78.0f * Scale,
+                 GEngine->GetSmallFont(), 1.72f * Scale, false);
+
+    if (!Ecology.IsValid())
+        for (TActorIterator<AASHBOUNDGenesisEcology> It(GetWorld()); It; ++It)
+        {
+            Ecology = *It;
+            break;
+        }
+    if (const AASHBOUNDGenesisEcology* Ground = Ecology.Get())
+    {
+        const float Right = Canvas->SizeX - 390.0f * Scale;
+        const float Hour = Ground->GetHour();
+        DrawText(FString::Printf(TEXT("Jahr %d · Tag %03d  /  %02d:%02d"),
+            Ground->GetYear(), Ground->GetDayOfYear(), FMath::FloorToInt(Hour),
+            FMath::FloorToInt((Hour - FMath::FloorToFloat(Hour)) * 60.0f)),
+            Quiet, Right, 40.0f * Scale, GEngine->GetSmallFont(),
+            1.3f * Scale, false);
+        if (Ground->HasGroundProfile())
+        {
+            const FASHBOUNDSoilProfile& Soil = Ground->GetGroundProfile();
+            DrawText(FString::Printf(TEXT("Boden  Humus %.0f  Mineral %.0f  Fels ab %.0f cm"),
+                Soil.OrganicCm, Soil.MineralCm, Soil.BedrockDepthCm),
+                Quiet, Right, 69.0f * Scale, GEngine->GetSmallFont(),
+                1.1f * Scale, false);
+        }
+    }
+    if (!Manager) return;
 
     if (Manager->IsJournalOpen())
     {

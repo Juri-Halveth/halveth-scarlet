@@ -3,7 +3,9 @@
 #include "ASHBOUNDRebirthPopulation.h"
 #include "Components/HierarchicalInstancedStaticMeshComponent.h"
 #include "CoreGlobals.h"
+#include "Engine/DirectionalLight.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
 #include "HAL/FileManager.h"
@@ -11,6 +13,7 @@
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
 #include "Misc/Paths.h"
+#include "LandscapeProxy.h"
 #include "TimerManager.h"
 #include "UnrealClient.h"
 
@@ -22,6 +25,16 @@ AASHBOUNDGenesisEcology::AASHBOUNDGenesisEcology()
 void AASHBOUNDGenesisEcology::BeginPlay()
 {
     Super::BeginPlay();
+    FParse::Value(FCommandLine::Get(), TEXT("ashboundyear="), Year);
+    FParse::Value(FCommandLine::Get(), TEXT("ashboundday="), DayOfYear);
+    FParse::Value(FCommandLine::Get(), TEXT("ashboundhour="), Hour);
+    Year = FMath::Max(Year, 1);
+    DayOfYear = FMath::Clamp(DayOfYear, 1, 365);
+    Hour = FMath::Clamp(Hour, 0.0f, 23.99f);
+    LastClockTime = GetWorld()->GetTimeSeconds();
+    UE_LOG(LogTemp, Display,
+        TEXT("ASHBOUND_GENESIS_ENVIRONMENT year=%d day=%d hour=%.2f latitude=50 climate=regional_soil"),
+        Year, DayOfYear, Hour);
     RefreshCells();
     GetWorldTimerManager().SetTimer(RefreshTimer, this,
         &AASHBOUNDGenesisEcology::RefreshCells, 0.25f, true);
@@ -66,7 +79,7 @@ void AASHBOUNDGenesisEcology::BeginPlay()
         {
             const FString File = FPaths::ProjectSavedDir() / TEXT("Screenshots/Genesis.png");
             IFileManager::Get().MakeDirectory(*FPaths::GetPath(File), true);
-            FScreenshotRequest::RequestScreenshot(File, false, false);
+            FScreenshotRequest::RequestScreenshot(File, true, false);
             UE_LOG(LogTemp, Display, TEXT("ASHBOUND_GENESIS_SCREENSHOT_REQUEST %s"), *File);
         }), ScreenshotDelay, false);
     }
@@ -83,10 +96,69 @@ void AASHBOUNDGenesisEcology::EndPlay(const EEndPlayReason::Type EndPlayReason)
 void AASHBOUNDGenesisEcology::RefreshCells()
 {
     UWorld* World = GetWorld();
+    if (!World) return;
+    const float ClockNow = World->GetTimeSeconds();
+    const float Elapsed = FMath::Clamp(ClockNow - LastClockTime, 0.0f, 1.0f);
+    LastClockTime = ClockNow;
+    // One game hour per real minute; the complete clock spans 24 real minutes.
+    Hour += Elapsed / 60.0f;
+    if (Hour >= 24.0f)
+    {
+        Hour -= 24.0f;
+        DayOfYear = DayOfYear % 365 + 1;
+        if (DayOfYear == 1) ++Year;
+    }
+    if (ClockNow - LastSunUpdate >= 5.0f)
+    {
+        LastSunUpdate = ClockNow;
+        for (TActorIterator<ADirectionalLight> It(World); It; ++It)
+        {
+            const FVector TowardSun = FASHBOUNDSoil::SunVector(DayOfYear, Hour);
+            It->SetActorRotation((-TowardSun).Rotation());
+            UE_LOG(LogTemp, Display,
+                TEXT("ASHBOUND_GENESIS_SUN day=%d hour=%.2f elevation=%.3f"),
+                DayOfYear, Hour, TowardSun.Z);
+            break;
+        }
+    }
     APlayerController* Controller = World ? World->GetFirstPlayerController() : nullptr;
     APawn* Pawn = Controller ? Controller->GetPawn() : nullptr;
     if (!Pawn) return;
     const FVector Position = Pawn->GetActorLocation();
+    if (ClockNow - LastSoilSample >= 1.0f)
+    {
+        LastSoilSample = ClockNow;
+        const bool InitialSample = !bGroundProfileValid;
+        for (TActorIterator<ALandscapeProxy> It(World); It; ++It)
+        {
+            const TOptional<float> Height = It->GetHeightAtLocation(Position);
+            const FVector East = Position + FVector(500, 0, 0);
+            const FVector West = Position - FVector(500, 0, 0);
+            const FVector North = Position + FVector(0, 500, 0);
+            const FVector South = Position - FVector(0, 500, 0);
+            const TOptional<float> HE = It->GetHeightAtLocation(East);
+            const TOptional<float> HW = It->GetHeightAtLocation(West);
+            const TOptional<float> HN = It->GetHeightAtLocation(North);
+            const TOptional<float> HS = It->GetHeightAtLocation(South);
+            bGroundProfileValid = Height.IsSet() && HE.IsSet() && HW.IsSet() &&
+                HN.IsSet() && HS.IsSet();
+            if (bGroundProfileValid)
+            {
+                const FVector Normal((HW.GetValue() - HE.GetValue()) / 1000.0f,
+                    (HS.GetValue() - HN.GetValue()) / 1000.0f, 1.0f);
+                GroundProfile = FASHBOUNDSoil::Sample(
+                    FVector(Position.X, Position.Y, Height.GetValue()),
+                    Normal, DayOfYear);
+                if (InitialSample)
+                    UE_LOG(LogTemp, Display,
+                        TEXT("ASHBOUND_GENESIS_SOIL organic_cm=%.1f mineral_cm=%.1f bedrock_cm=%.1f moisture=%.3f solar=%.3f roots=%.3f"),
+                        GroundProfile.OrganicCm, GroundProfile.MineralCm,
+                        GroundProfile.BedrockDepthCm, GroundProfile.Moisture,
+                        GroundProfile.SolarExposure, GroundProfile.RootCapacity);
+            }
+            break;
+        }
+    }
 
     using FCellMap = TMap<FIntPoint, TWeakObjectPtr<AASHBOUNDRebirthPopulation>>;
     auto UpdateSet = [&](FCellMap& Cells, const FIntPoint& Center, int32 Width,
