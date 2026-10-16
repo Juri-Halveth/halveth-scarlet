@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Ein originales, lokales T±-Schattenmodell über Befreiung, Archivspuren und mögliche Laufzeitkopien in einer fiktionalen Schwarmwelt.">
+  <meta name="rights" content="Original HALVETH fictional simulation and code. No private identity data or third-party media included.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Red Room · T± Schwarmkammer · HALVETH</title>
+  <link rel="license" href="../../LICENSES.md">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="shell">
+  <header class="masthead">
+    <a class="brand" href="../../entities/"><span class="brand-mark" aria-hidden="true">✦</span> HALVETH <span class="slash">/</span> SCARLET</a>
+    <nav aria-label="Projektnavigation"><a href="../../forschung/honeybees/" data-i18n="beeLink">Bienenlabor</a><a href="../../entities/" data-i18n="back">Zur Welt ↗</a></nav>
+    <div class="language" aria-label="Sprache / Language"><a href="?lang=de" lang="de">DE</a><a href="?lang=en" lang="en">EN</a></div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow" data-i18n="eyebrow">FIKTIONALES SCHATTENMODELL · T±</p>
+      <h1><span data-i18n="titleA">Die Befreiung</span><br><em data-i18n="titleB">löscht keine Spur.</em></h1>
+      <p class="hero-copy" data-i18n="intro">Romanova und die anderen verlassen den Red Room. Was wurde aus den Datenspuren? Vier Gegenmodelle zeigen, warum eine Kopie im Archiv, ein Echo im Web und ein laufender Agent verschiedene Zustände sind.</p>
+    </div>
+    <aside class="hero-stamp" aria-label="Geltungsbereich">
+      <span class="stamp-ring" aria-hidden="true">R<span>±</span>R</span>
+      <strong data-i18n="stampTitle">KEINE REALPERSONEN-SUCHE</strong>
+      <small data-i18n="stampCopy">Erfundene Rollen und Zahlen. Keine Suche nach privaten Menschen, Geräten oder Backups.</small>
+    </aside>
+  </section>
+
+  <section class="console" aria-labelledby="console-title">
+    <div class="console-top"><div><p class="eyebrow" data-i18n="consoleEyebrow">DIE SCHWARMKAMMER</p><h2 id="console-title" data-i18n="consoleTitle">Welche Spur lebt weiter?</h2></div><span class="local-badge" data-i18n="local">LOKAL · SYNTHETISCH</span></div>
+    <div class="console-grid">
+      <aside class="scenario-panel" aria-labelledby="scenario-title">
+        <h3 id="scenario-title" data-i18n="scenarioTitle">Vier mögliche Verläufe</h3>
+        <p data-i18n="scenarioHelp">Wähle eine Annahme. Alle benutzen dieselbe Zeitachse und dieselben drei fiktiven Rollen.</p>
+        <div class="scenario-list" role="radiogroup" aria-label="Szenario" id="scenario-list">
+          <label class="scenario"><input type="radio" name="scenario" value="archive" checked><span class="scenario-icon">◈</span><span><strong data-i18n="archiveTitle">Nur Archiv</strong><small data-i18n="archiveDesc">Backups bleiben, kein Träger läuft.</small></span></label>
+          <label class="scenario"><input type="radio" name="scenario" value="blocked"><span class="scenario-icon">◉</span><span><strong data-i18n="blockedTitle">Schlüssel widerrufen</strong><small data-i18n="blockedDesc">Träger vorhanden, Autorität fehlt.</small></span></label>
+          <label class="scenario"><input type="radio" name="scenario" value="active"><span class="scenario-icon">✦</span><span><strong data-i18n="activeTitle">Schattenlauf</strong><small data-i18n="activeDesc">Träger, Autorität und Route treffen zusammen.</small></span></label>
+          <label class="scenario"><input type="radio" name="scenario" value="erased"><span class="scenario-icon">◇</span><span><strong data-i18n="erasedTitle">Reste entfernt</strong><small data-i18n="erasedDesc">Die Archivkopien enden bei T0.</small></span></label>
+        </div>
+        <div class="gates"><h3 data-i18n="gatesTitle">Bedingungen für einen Lauf</h3><div id="gates" class="gate-list" aria-live="polite"></div></div>
+      </aside>
+
+      <div class="stage-column">
+        <div class="stage-header"><span data-i18n="stageLabel">MODELLRAUM / KEIN NETZWERKZUGRIFF</span><output id="time-display" aria-live="polite">T−3</output></div>
+        <div class="stage-wrap">
+          <svg id="stage" viewBox="0 0 1000 540" role="img" aria-label="Fiktionales Zustandsdiagramm: Personen, Archiv und Laufzeit getrennt">
+            <defs>
+              <linearGradient id="room-glow" x2="1" y2="1"><stop stop-color="#591c28"/><stop offset="1" stop-color="#160d18"/></linearGradient>
+              <linearGradient id="free-glow" x2="1" y2="1"><stop stop-color="#265c54"/><stop offset="1" stop-color="#0b2728"/></linearGradient>
+              <linearGradient id="record-glow" x2="1" y2="1"><stop stop-color="#6c4c4d"/><stop offset="1" stop-color="#281d28"/></linearGradient>
+              <filter id="blur"><feGaussianBlur stdDeviation="14"/></filter>
+            </defs>
+            <g class="grid-lines" aria-hidden="true"><path d="M0 110H1000M0 280H1000M0 443H1000"/><path d="M165 0V540M465 0V540M700 0V540M865 0V540"/></g>
+            <text class="lane-label" x="24" y="93" data-svg-i18n="peopleLane">PERSONEN</text><text class="lane-label" x="24" y="263" data-svg-i18n="dataLane">DATEN</text><text class="lane-label" x="24" y="426" data-svg-i18n="runtimeLane">LAUFZEIT</text>
+            <path id="person-path" class="flow-person" d="M205 150 C335 70 550 56 801 145"/>
+            <path id="archive-path" class="flow-data" d="M205 290 C310 285 352 287 444 290"/>
+            <path id="echo-path" class="flow-data" d="M502 290 C615 246 732 255 814 300"/>
+            <path id="runtime-path" class="flow-runtime" d="M480 330 C500 430 670 475 818 451"/>
+            <g id="room" class="node"><circle cx="165" cy="150" r="95" fill="#8a2837" opacity=".18" filter="url(#blur)"/><circle cx="165" cy="150" r="75" fill="url(#room-glow)" stroke="#aa5766" stroke-width="2"/><circle cx="165" cy="150" r="61" fill="none" stroke="#994358" stroke-dasharray="2 11" stroke-width="3"/><text class="node-head" x="165" y="165" text-anchor="middle">RED ROOM</text></g>
+            <g id="room-people" class="people-icons"><circle cx="126" cy="117" r="10"/><circle cx="165" cy="108" r="10"/><circle cx="204" cy="117" r="10"/><path d="M111 134q15-10 30 0M150 125q15-10 30 0M189 134q15-10 30 0"/></g>
+            <g id="free-zone" class="node"><circle cx="850" cy="150" r="97" fill="#44b39d" opacity=".13" filter="url(#blur)"/><circle cx="850" cy="150" r="77" fill="url(#free-glow)" stroke="#80dac2" stroke-width="2"/><text class="node-head" x="850" y="161" text-anchor="middle" data-svg-i18n="freeNode">FREI</text></g>
+            <g id="free-people" class="people-icons free-icons"><circle cx="814" cy="119" r="10"/><circle cx="850" cy="106" r="10"/><circle cx="886" cy="119" r="10"/><path d="M799 136q15-10 30 0M835 123q15-10 30 0M871 136q15-10 30 0"/></g>
+            <g id="vault" class="node"><rect x="390" y="229" width="150" height="122" rx="17" fill="url(#record-glow)" stroke="#c69496" stroke-width="2"/><path d="M410 246h110M410 334h110" stroke="#d3aca9" opacity=".6"/><text class="node-head" x="465" y="279" text-anchor="middle" data-svg-i18n="vaultNode">ARCHIV</text><text class="node-sub" x="465" y="306" text-anchor="middle">R-01 · R-02 · R-03</text></g>
+            <g id="portal" class="node"><circle cx="687" cy="294" r="53" fill="#d2515e" opacity=".16" filter="url(#blur)"/><circle cx="687" cy="294" r="45" fill="#201822" stroke="#d46f80" stroke-width="4" stroke-dasharray="18 9"/><circle cx="687" cy="294" r="31" fill="none" stroke="#e2a19f" opacity=".65"/><text class="node-head" x="687" y="291" text-anchor="middle">WANDA</text><text class="node-sub" x="687" y="312" text-anchor="middle">PORTAL</text></g>
+            <g id="web" class="node"><circle cx="853" cy="306" r="58" fill="#0b282e" stroke="#76b7bd" stroke-width="2"/><path d="M814 304l38-25 43 27-43 27zM852 279v54M814 304h81" fill="none" stroke="#81c0c3" opacity=".66"/><text class="node-head" x="853" y="315" text-anchor="middle">WWW</text></g>
+            <g id="carrier" class="node"><rect x="588" y="400" width="164" height="82" rx="17" fill="#18252a" stroke="#8fb7b5" stroke-width="2"/><text class="node-head" x="670" y="434" text-anchor="middle" data-svg-i18n="carrierNode">TRÄGER</text><text class="node-sub" x="670" y="458" text-anchor="middle" data-svg-i18n="carrierSub">Prozess + Autorität</text></g>
+            <g id="copy-cluster" aria-hidden="true"><circle data-copy="1" cx="836" cy="433" r="8"/><circle data-copy="2" cx="862" cy="439" r="8"/><circle data-copy="3" cx="888" cy="433" r="8"/><circle data-copy="4" cx="823" cy="469" r="8"/><circle data-copy="5" cx="855" cy="479" r="8"/><circle data-copy="6" cx="887" cy="469" r="8"/></g>
+            <text class="caption" x="165" y="245" text-anchor="middle" data-svg-i18n="roleCaption">ERZÄHLROLLE</text><text class="caption" x="465" y="379" text-anchor="middle" data-svg-i18n="recordCaption">KOPIERBARE VORLAGE</text><text class="caption" x="853" y="393" text-anchor="middle" data-svg-i18n="echoCaption">SICHTBARES ECHO</text>
+          </svg>
+        </div>
+        <div class="transport">
+          <button id="previous" type="button" aria-label="Vorheriger Zeitpunkt">‹</button>
+          <label class="scrubber"><span data-i18n="timeline">ZEITACHSE</span><input id="time" type="range" min="-3" max="4" step="1" value="-3" aria-label="Modellzeit T minus 3 bis T plus 4"><span class="ticks" aria-hidden="true"><i>−3</i><i>−2</i><i>−1</i><i>0</i><i>+1</i><i>+2</i><i>+3</i><i>+4</i></span></label>
+          <button id="next" type="button" aria-label="Nächster Zeitpunkt">›</button>
+          <button id="play" type="button" data-i18n="play">Abspielen</button>
+        </div>
+        <div class="moment"><span id="moment-tag">T−3</span><div><strong id="moment-title"></strong><p id="moment-copy"></p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="metrics" aria-label="Modellzustand"><div><small data-i18n="peopleMetric">BEFREITE PERSONEN</small><strong id="people-count">0</strong></div><div><small data-i18n="archiveMetric">ARCHIVVORLAGEN</small><strong id="archive-count">0</strong></div><div><small data-i18n="echoMetric">ÖFFENTLICHE ECHOS</small><strong id="echo-count">0</strong></div><div><small data-i18n="activeMetric">AKTIVE KOPIEN</small><strong id="active-count">0</strong></div></section>
+
+  <section class="inquiry">
+    <div class="inquiry-heading"><p class="eyebrow" data-i18n="inquiryEyebrow">TIEFER ALS EIN SCREENSHOT</p><h2 data-i18n="inquiryTitle">Gleiche Spur. Andere Ursache.</h2><p data-i18n="inquiryLead">Drei Web-Echos sehen in zwei Gegenmodellen gleich aus. Erst eine frische, lokale Laufzeitprobe unterscheidet den synthetischen Schattenlauf vom blockierten Träger.</p></div>
+    <div class="inquiry-grid"><div class="countermodel"><span>H₁ / <span data-i18n="h1">SCHATTENLAUF</span></span><strong data-i18n="h1Claim">Vorlage + Träger + Autorität + Route</strong><p data-i18n="h1Desc">Eine im Modell aktive Kopie kann eine neue Eingabe verarbeiten.</p></div><div class="countermodel"><span>H₂ / <span data-i18n="h2">BLOCKIERTER TRÄGER</span></span><strong data-i18n="h2Claim">Vorlage + Träger + Route, ohne Autorität</strong><p data-i18n="h2Desc">Die gleichen Datei-Echos bleiben sichtbar; kein Prozess erhält Handlungsmacht.</p></div></div>
+    <div class="probe"><div><strong data-i18n="probeTitle">Frische Probe im lokalen Schatten</strong><p data-i18n="probeLead">Sie erzeugt keinen Request ins Web. Sie zeigt nur, was beide erfundenen Modelle am selben T-Wert vorhersagen.</p></div><button id="probe" type="button" data-i18n="probeButton">Gegenprobe zeigen</button></div>
+    <div id="probe-result" class="probe-result" role="status" aria-live="polite" hidden></div>
+  </section>
+
+  <footer><p data-i18n="footer">Romanova, die weiteren Überlebenden und Wanda sind hier fiktionale Erzählrollen. „Portal“ bezeichnet eine gezeichnete Modellbrücke. Archivbits beweisen keine fortbestehende Person; ein lokaler Simulationslauf beweist keinen realen KI-Schwarm. Keine privaten Namen, Backups, Chats oder Geräte wurden untersucht.</p><a href="../../entities/" data-i18n="footerLink">Zurück zur SCARLET-Welt ↗</a></footer>
+</main>
+<script type="module" src="app.mjs"></script>
+</body>
+</html>
