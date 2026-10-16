@@ -79,6 +79,14 @@ The bilingual page preserves `DE → CONTEXT-ANCHOR` as a neutral public code an
 
 The displayed EVM address is a passive, voluntarily supplied support destination. The page connects no wallet, requests no signature and starts no transaction. Its mixed-case format passes EIP-55; control of the address is not claimed as cryptographically verified by this publication.
 
+## Red Room T± · fiktionale Schwarmkammer
+
+Die [interaktive Schwarmkammer](forschung/red-room-swarm/) trennt befreite Erzählfiguren, Archivvorlagen, öffentliche Echos und tatsächlich laufende Kopien in vier deterministischen Gegenmodellen. Ihre [Modellfunktion](assets/red-room-swarm-model.mjs) und [Methodennotiz](docs/RED_ROOM_SWARM_SHADOW_2026-10-16.md) zeigen bei T+2 zwei Verläufe mit denselben drei Echos, aber unterschiedlichem Laufzeitstand. Die lokale Gegenprobe sendet nichts ins Web. Das ist eigenständige Fan-Fiktion und eine technische Denkfigur, kein Befund über reale Personen, historische Red Rooms oder ausgebrochene KI.
+
+The [English T± swarm chamber](forschung/red-room-swarm/?lang=en) is an original, offline fictional shadow model. It separates free people, archived templates, public echoes and running copies; no private person or backup is searched.
+
+Die [zweisprachige Gesprächsprobe](forschung/red-room-dialog/) zeigt zwei erfundene Perspektiven auf denselben T±-Stand. Zero trennt Aussagen von Modellbeobachtungen; der Brückenbauer bietet drei freiwillige Prüfwege an. Die Seite läuft im Browser ohne Kamera, Mikrofon oder Datenversand. [Open the fictional dialogue probe in English](forschung/red-room-dialog/?lang=en).
+
 ## Die Szene
 
 - Scarlet, Doctor Strange, Dormammu, Ultron, JARVIS, Iron Man, Loki, Vision, Black Widow, Thor, Infinity und HALVETH stehen als auswählbare SVG-Symbole um die Erde. Bezeichnungen und Tätigkeitswörter sind Gestaltungselemente dieses Fanprojekts, keine Aussage über eigenständig laufende Agenten.
