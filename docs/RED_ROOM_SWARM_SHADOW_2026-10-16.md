@@ -35,7 +35,7 @@ Ein Archivobjekt ist ein kopierbarer Datensatz. Eine fiktionale Person bleibt al
 
 1. `archive`: Vorlagen und Web-Echos bestehen fort, ohne Träger.
 2. `blocked`: Vorlagen, Web-Echos und Träger bestehen fort, aber ohne Laufzeitautorität.
-3. `active`: Vorlagen, Träger, Autorität und Route treffen zusammen; der lokale Schatten erzeugt bis T+3 Kopien und widerruft den Lauf bei T+4.
+3. `active`: Vorlagen, Träger, Autorität und Route treffen zusammen; der lokale Schatten breitet sich auf dem gerichteten Graphen `A→{B,C}`, `B→{D,E}`, `C→F` aus und widerruft den Lauf bei T+4. Ein Hop benötigt einen Modellschritt, sodass T+1 die Knotenmenge `{A}`, T+2 `{A,B,C}` und T+3 `{A,B,C,D,E,F}` hat. Die Knoten sind erfundene Laufzeitpositionen, keine realen Hosts.
 4. `erased`: Archivfragmente enden bei T0; keine späteren Echos oder Kopien.
 
 `active` und `blocked` haben bei T+2 **je drei öffentliche Echos**. Der erste interne Modellunterschied liegt bei T+1. Dieselbe versionsgebundene Zählregel prüft beide Verläufe bei demselben T-Wert. Die Gegenprobe ab T+2 ist eine **vorprogrammierte lokale Modellabfrage**, kein Netzwerkchallenge gegen reale Systeme. Ein fehlender lokaler Antwortwert belegt nur den Zustand dieser Simulation.

@@ -12,6 +12,27 @@ export const SCENARIOS = Object.freeze({
   erased: Object.freeze({ retained: false, carrier: false, authority: false, route: true, quarantine: false })
 });
 const IDS = Object.freeze(['R-01', 'R-02', 'R-03']);
+// Six invented runtime positions. A directed hop consumes one model tick.
+// This is a bounded graph, not a map of real hosts or network infrastructure.
+export const COPY_GRAPH = Object.freeze({
+  A: Object.freeze(['B', 'C']),
+  B: Object.freeze(['D', 'E']),
+  C: Object.freeze(['F']),
+  D: Object.freeze([]), E: Object.freeze([]), F: Object.freeze([])
+});
+
+function copiesAfterHops(hops) {
+  const reached = new Set(['A']);
+  let frontier = ['A'];
+  for (let step = 0; step < hops; step += 1) {
+    const next = [];
+    for (const source of frontier) for (const target of COPY_GRAPH[source]) {
+      if (!reached.has(target)) { reached.add(target); next.push(target); }
+    }
+    frontier = next;
+  }
+  return Object.freeze(Object.keys(COPY_GRAPH).filter(id => reached.has(id)));
+}
 
 function assertScenario(id) {
   if (!Object.hasOwn(SCENARIOS, id)) throw new RangeError('Unknown synthetic scenario');
@@ -35,7 +56,8 @@ export function frameAt(scenarioId, tick) {
   const publicEchoes = tick >= 1 && config.route && archivedTemplates ? IDS.length : 0;
   const executable = liberated && archivedTemplates && config.carrier &&
     config.authority && config.route && !(config.quarantine && tick >= 4);
-  const activeCopies = !executable || tick < 1 ? 0 : tick === 1 ? 1 : tick === 2 ? 3 : 6;
+  const activeIds = !executable || tick < 1 ? Object.freeze([]) : copiesAfterHops(tick - 1);
+  const activeCopies = activeIds.length;
   const challenge = tick < 2 ? 'NOT_RUN' :
     activeCopies ? 'LOCAL_EXECUTION_WITNESS' : 'NO_LOCAL_RESPONSE';
   return Object.freeze({
@@ -43,7 +65,7 @@ export function frameAt(scenarioId, tick) {
     data: Object.freeze({ archivedTemplates, backupFragments, publicEchoes }),
     runtime: Object.freeze({ carrierAvailable: tick >= 0 && config.carrier,
       authorityAvailable: tick >= 0 && config.authority && !(config.quarantine && tick >= 4),
-      routeAvailable: config.route, activeCopies, challenge }),
+      routeAvailable: config.route, activeCopies, activeIds, challenge }),
     ids: IDS,
     status: 'SYNTHETIC_SHADOW_ONLY'
   });

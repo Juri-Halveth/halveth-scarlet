@@ -38,8 +38,12 @@ test('same surface traces can hide a different synthetic runtime state', async (
 
 test('local quarantine stops modeled copies without erasing historical echoes', async () => {
   const { frameAt } = await model;
+  assert.deepEqual(frameAt('active', 1).runtime.activeIds, ['A']);
+  assert.deepEqual(frameAt('active', 2).runtime.activeIds, ['A', 'B', 'C']);
+  assert.deepEqual(frameAt('active', 3).runtime.activeIds, ['A', 'B', 'C', 'D', 'E', 'F']);
   assert.equal(frameAt('active', 3).runtime.activeCopies, 6);
   assert.equal(frameAt('active', 4).runtime.activeCopies, 0);
+  assert.deepEqual(frameAt('active', 4).runtime.activeIds, []);
   assert.equal(frameAt('active', 4).data.publicEchoes, 3);
   assert.equal(frameAt('active', 4).people.free, 3);
 });

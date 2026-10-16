@@ -110,7 +110,8 @@ function render() {
   const stage = $('stage');
   for (const [key, value] of Object.entries({ liberated:frame.people.free > 0, records:frame.data.archivedTemplates > 0,
     echoes:frame.data.publicEchoes > 0, running:frame.runtime.activeCopies > 0 })) stage.dataset[key] = String(value);
-  for (const node of document.querySelectorAll('[data-copy]')) node.classList.toggle('visible', Number(node.dataset.copy) <= frame.runtime.activeCopies);
+  for (const node of document.querySelectorAll('[data-copy]')) node.classList.toggle('visible', frame.runtime.activeIds.includes(node.dataset.copy));
+  for (const edge of document.querySelectorAll('[data-edge-to]')) edge.classList.toggle('visible', frame.runtime.activeIds.includes(edge.dataset.edgeTo));
   const gates = [
     [tr.gateArchive, frame.data.archivedTemplates > 0],
     [tr.gateCarrier, frame.runtime.carrierAvailable],
