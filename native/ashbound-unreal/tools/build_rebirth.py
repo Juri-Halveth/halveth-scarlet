@@ -145,7 +145,9 @@ position = editor.create_material_expression(material, unreal.MaterialExpression
 xy = editor.create_material_expression(material, unreal.MaterialExpressionComponentMask, -700, -120)
 xy.set_editor_property('r', True)
 xy.set_editor_property('g', True)
-if not editor.connect_material_expressions(position, '', xy, ''):
+# In UE 5.8 Python this pin is named "None"; an empty destination name
+# reports success but leaves the mask disconnected and the material invalid.
+if not editor.connect_material_expressions(position, '', xy, 'None'):
     raise RuntimeError('World position did not connect to XY mask')
 scale = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -700, 60)
 scale.set_editor_property('r', 155.0)
@@ -179,39 +181,59 @@ soil_fraction.set_editor_property('r', 0.11)
 if not editor.connect_material_expressions(soil_fraction, '', alpha, 'B'):
     raise RuntimeError('Soil fraction did not connect to blend mask')
 
-# The rock transition is an altitude band. Terrain and collision remain native
-# Landscape data; this graph changes only the visible surface.
-
-z = editor.create_material_expression(material,
-    unreal.MaterialExpressionComponentMask, -700, 940)
-z.set_editor_property('b', True)
-editor.connect_material_expressions(position, '', z, '')
-altitude_start = editor.create_material_expression(material,
-    unreal.MaterialExpressionConstant, -700, 1080)
-altitude_start.set_editor_property('r', 5500.0)
-altitude_delta = editor.create_material_expression(material,
-    unreal.MaterialExpressionSubtract, -500, 940)
-editor.connect_material_expressions(z, '', altitude_delta, 'A')
-editor.connect_material_expressions(altitude_start, '', altitude_delta, 'B')
-altitude_width = editor.create_material_expression(material,
-    unreal.MaterialExpressionConstant, -500, 1100)
-altitude_width.set_editor_property('r', 4500.0)
-altitude_rock = editor.create_material_expression(material,
-    unreal.MaterialExpressionDivide, -300, 940)
-editor.connect_material_expressions(altitude_delta, '', altitude_rock, 'A')
-editor.connect_material_expressions(altitude_width, '', altitude_rock, 'B')
+# Rock belongs to exposed, steep terrain, not to an arbitrary world-Z band.
+# A height-only blend painted entire smooth hills mint and violet. The vertex
+# normal keeps the geology tied to the actual Landscape shape; weak regional
+# noise only breaks up the transition, and flat basins stay mostly soil.
+terrain_normal = editor.create_material_expression(material,
+    unreal.MaterialExpressionVertexNormalWS, -700, 890)
+world_up = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant3Vector, -700, 1080)
+world_up.set_editor_property('constant', unreal.LinearColor(0, 0, 1, 1))
+normal_up = editor.create_material_expression(material,
+    unreal.MaterialExpressionDotProduct, -500, 890)
+editor.connect_material_expressions(terrain_normal, '', normal_up, 'A')
+editor.connect_material_expressions(world_up, '', normal_up, 'B')
+slope = editor.create_material_expression(material,
+    unreal.MaterialExpressionOneMinus, -300, 890)
+editor.connect_material_expressions(normal_up, '', slope, '')
+slope_threshold = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant, -300, 1080)
+slope_threshold.set_editor_property('r', 0.08)
+exposed_slope = editor.create_material_expression(material,
+    unreal.MaterialExpressionSubtract, -100, 890)
+editor.connect_material_expressions(slope, '', exposed_slope, 'A')
+editor.connect_material_expressions(slope_threshold, '', exposed_slope, 'B')
+rock_gain = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant, -100, 1090)
+rock_gain.set_editor_property('r', 3.5)
+rock_slope = editor.create_material_expression(material,
+    unreal.MaterialExpressionMultiply, 100, 890)
+editor.connect_material_expressions(exposed_slope, '', rock_slope, 'A')
+editor.connect_material_expressions(rock_gain, '', rock_slope, 'B')
+rock_noise_gain = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant, -100, 1170)
+rock_noise_gain.set_editor_property('r', 0.12)
+rock_noise = editor.create_material_expression(material,
+    unreal.MaterialExpressionMultiply, 100, 1130)
+editor.connect_material_expressions(noise, '', rock_noise, 'A')
+editor.connect_material_expressions(rock_noise_gain, '', rock_noise, 'B')
+rock_variation = editor.create_material_expression(material,
+    unreal.MaterialExpressionAdd, 300, 890)
+editor.connect_material_expressions(rock_slope, '', rock_variation, 'A')
+editor.connect_material_expressions(rock_noise, '', rock_variation, 'B')
 rock_zero = editor.create_material_expression(material,
-    unreal.MaterialExpressionConstant, -100, 1100)
+    unreal.MaterialExpressionConstant, 300, 1090)
 rock_zero.set_editor_property('r', 0.0)
 rock_floor = editor.create_material_expression(material,
-    unreal.MaterialExpressionMax, 100, 940)
-editor.connect_material_expressions(altitude_rock, '', rock_floor, 'A')
+    unreal.MaterialExpressionMax, 500, 890)
+editor.connect_material_expressions(rock_variation, '', rock_floor, 'A')
 editor.connect_material_expressions(rock_zero, '', rock_floor, 'B')
 rock_one = editor.create_material_expression(material,
-    unreal.MaterialExpressionConstant, 100, 1110)
+    unreal.MaterialExpressionConstant, 500, 1090)
 rock_one.set_editor_property('r', 1.0)
 rock_mask = editor.create_material_expression(material,
-    unreal.MaterialExpressionMin, 300, 940)
+    unreal.MaterialExpressionMin, 700, 890)
 editor.connect_material_expressions(rock_floor, '', rock_mask, 'A')
 editor.connect_material_expressions(rock_one, '', rock_mask, 'B')
 
@@ -226,7 +248,7 @@ soil_floor = editor.create_material_expression(material, unreal.MaterialExpressi
 editor.connect_material_expressions(soil_mask, '', soil_floor, 'A')
 editor.connect_material_expressions(soil_zero, '', soil_floor, 'B')
 soil_ceiling = editor.create_material_expression(material, unreal.MaterialExpressionConstant, 180, 550)
-soil_ceiling.set_editor_property('r', 0.30)
+soil_ceiling.set_editor_property('r', 0.22)
 soil_weight = editor.create_material_expression(material, unreal.MaterialExpressionMin, 360, 430)
 editor.connect_material_expressions(soil_floor, '', soil_weight, 'A')
 editor.connect_material_expressions(soil_ceiling, '', soil_weight, 'B')
