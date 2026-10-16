@@ -2,3 +2,4 @@
 #copy-cluster circle{transform-box:fill-box;transform-origin:center}
 #copy-edges path{fill:none;stroke:#a4eedb;stroke-width:1.6;opacity:0}#copy-edges path.visible{opacity:.7}
 @media(max-width:500px){.hero-stamp{display:flex;flex-direction:column;align-items:flex-start;gap:3px}.stamp-ring{font-size:2.3rem;line-height:1.15}.stamp-ring span{font-size:1.1rem}.inquiry h2{font-size:1.58rem}}
+.dialog-cta{margin:28px 0 0}.dialog-cta a{display:inline-block;border:1px solid #8fcfc0;border-radius:100px;padding:12px 20px;text-decoration:none;font-weight:800;background:#17312f;color:#c8f5e9}.dialog-cta a:hover{background:#23443f}

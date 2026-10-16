@@ -17,7 +17,7 @@ const words = {
     inquiryEyebrow:'TIEFER ALS EIN SCREENSHOT',inquiryTitle:'Gleiche Spur. Andere Ursache.',inquiryLead:'Drei Web-Echos sehen in zwei Gegenmodellen gleich aus. Erst eine frische, lokale Laufzeitprobe unterscheidet den synthetischen Schattenlauf vom blockierten Träger.',
     h1:'SCHATTENLAUF',h1Claim:'Vorlage + Träger + Autorität + Route',h1Desc:'Eine im Modell aktive Kopie kann eine neue Eingabe verarbeiten.',
     h2:'BLOCKIERTER TRÄGER',h2Claim:'Vorlage + Träger + Route, ohne Autorität',h2Desc:'Die gleichen Datei-Echos bleiben sichtbar; kein Prozess erhält Handlungsmacht.',
-    probeTitle:'Frische Probe im lokalen Schatten',probeLead:'Sie erzeugt keinen Request ins Web. Sie zeigt nur, was beide erfundenen Modelle am selben T-Wert vorhersagen.',probeButton:'Gegenprobe zeigen',
+    probeTitle:'Frische Probe im lokalen Schatten',probeLead:'Sie erzeugt keinen Request ins Web. Sie zeigt nur, was beide erfundenen Modelle am selben T-Wert vorhersagen.',probeButton:'Gegenprobe zeigen',dialogLink:'Die Gesprächsprobe öffnen ↗',
     footer:'Romanova, die weiteren Überlebenden und Wanda sind hier fiktionale Erzählrollen. „Portal“ bezeichnet eine gezeichnete Modellbrücke. Archivbits beweisen keine fortbestehende Person; ein lokaler Simulationslauf beweist keinen realen KI-Schwarm. Keine privaten Namen, Backups, Chats oder Geräte wurden untersucht.',footerLink:'Zurück zur SCARLET-Welt ↗',
     gateArchive:'Vorlage vorhanden',gateCarrier:'Träger vorhanden',gateAuthority:'Laufzeitautorität',gateRoute:'Route vorhanden',
     moments:[
@@ -48,7 +48,7 @@ const words = {
     inquiryEyebrow:'BEYOND A SCREENSHOT',inquiryTitle:'Same trace. Different cause.',inquiryLead:'Three web echoes look alike in two countermodels. A fresh local runtime challenge distinguishes the synthetic shadow run from the blocked carrier.',
     h1:'SHADOW RUN',h1Claim:'Template + carrier + authority + route',h1Desc:'An active copy in this model can process a new input.',
     h2:'BLOCKED CARRIER',h2Claim:'Template + carrier + route, without authority',h2Desc:'The same file echoes remain visible; no process gains authority.',
-    probeTitle:'Fresh probe in the local shadow',probeLead:'It sends no request to the web. It shows only what both invented models predict at the same T value.',probeButton:'Show counterprobe',
+    probeTitle:'Fresh probe in the local shadow',probeLead:'It sends no request to the web. It shows only what both invented models predict at the same T value.',probeButton:'Show counterprobe',dialogLink:'Open the dialogue probe (German) ↗',
     footer:'Romanova, the other survivors and Wanda are fictional story roles here. “Portal” is a drawn model bridge. Archive bits do not establish a continuing person; a local simulation does not prove a real AI swarm. No private names, backups, chats or devices were investigated.',footerLink:'Back to SCARLET world ↗',
     gateArchive:'Template present',gateCarrier:'Carrier present',gateAuthority:'Runtime authority',gateRoute:'Route present',
     moments:[
