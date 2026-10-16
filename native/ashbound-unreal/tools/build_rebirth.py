@@ -51,6 +51,9 @@ texture_sets = {
            for kind in ('diff', 'nor_gl', 'rough')}
     for name in ('leafy_grass', 'dirt_floor')
 }
+# A photographed mixed grass/stone surface supplies mesoscopic colour
+# variation at a second real-world scale; it is still a repeating texture.
+aerial = import_texture('aerial_grass_rock_diff_2k')
 rock_suffixes = {'diff': 'diffuse', 'nor_gl': 'nor_gl', 'rough': 'rough'}
 texture_sets['rock'] = {}
 for kind, suffix in rock_suffixes.items():
@@ -168,6 +171,16 @@ rock_uv = editor.create_material_expression(material, unreal.MaterialExpressionM
 editor.connect_material_expressions(uv, '', rock_uv, 'A')
 editor.connect_material_expressions(rock_period, '', rock_uv, 'B')
 
+aerial_period = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -700, 250)
+aerial_period.set_editor_property('r', 0.29)
+aerial_uv = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, -470, 270)
+editor.connect_material_expressions(uv, '', aerial_uv, 'A')
+editor.connect_material_expressions(aerial_period, '', aerial_uv, 'B')
+aerial_sample = editor.create_material_expression(material,
+    unreal.MaterialExpressionTextureSample, -260, 250)
+aerial_sample.set_editor_property('texture', aerial)
+editor.connect_material_expressions(aerial_uv, '', aerial_sample, 'UVs')
+
 # A broad, low-frequency mask changes soil families over tens of metres rather
 # than printing the same texture across a 2 km plane.
 noise = editor.create_material_expression(material, unreal.MaterialExpressionNoise, -470, 240)
@@ -177,7 +190,7 @@ alpha = editor.create_material_expression(material, unreal.MaterialExpressionMul
 if not editor.connect_material_expressions(noise, '', alpha, 'A'):
     raise RuntimeError('Noise did not connect to blend mask')
 soil_fraction = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -440, 420)
-soil_fraction.set_editor_property('r', 0.11)
+soil_fraction.set_editor_property('r', 0.10)
 if not editor.connect_material_expressions(soil_fraction, '', alpha, 'B'):
     raise RuntimeError('Soil fraction did not connect to blend mask')
 
@@ -238,7 +251,7 @@ editor.connect_material_expressions(rock_floor, '', rock_mask, 'A')
 editor.connect_material_expressions(rock_one, '', rock_mask, 'B')
 
 soil_bias = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -240, 430)
-soil_bias.set_editor_property('r', 0.11)
+soil_bias.set_editor_property('r', 0.20)
 
 # A low valley accumulates a deeper organic cover; ridges and steep faces
 # expose mineral soil and bedrock. This is a surface visualization of the
@@ -279,7 +292,7 @@ soil_floor = editor.create_material_expression(material, unreal.MaterialExpressi
 editor.connect_material_expressions(soil_region, '', soil_floor, 'A')
 editor.connect_material_expressions(soil_zero, '', soil_floor, 'B')
 soil_ceiling = editor.create_material_expression(material, unreal.MaterialExpressionConstant, 180, 550)
-soil_ceiling.set_editor_property('r', 0.32)
+soil_ceiling.set_editor_property('r', 0.34)
 soil_weight = editor.create_material_expression(material, unreal.MaterialExpressionMin, 360, 430)
 editor.connect_material_expressions(soil_floor, '', soil_weight, 'A')
 editor.connect_material_expressions(soil_ceiling, '', soil_weight, 'B')
@@ -303,10 +316,10 @@ for row, (kind, property_name) in enumerate((
         # understory between real grass clumps rather than pale bare soil.
         leaf_tint = editor.create_material_expression(material,
             unreal.MaterialExpressionConstant3Vector, -30, -560)
-        leaf_tint.set_editor_property('constant', unreal.LinearColor(.55, .85, .55, 1.0))
+        leaf_tint.set_editor_property('constant', unreal.LinearColor(.48, .88, .44, 1.0))
         humus_tint = editor.create_material_expression(material,
             unreal.MaterialExpressionConstant3Vector, -30, -680)
-        humus_tint.set_editor_property('constant', unreal.LinearColor(.35, .62, .36, 1.0))
+        humus_tint.set_editor_property('constant', unreal.LinearColor(.32, .68, .32, 1.0))
         living_tint = editor.create_material_expression(material,
             unreal.MaterialExpressionLinearInterpolate, -10, -610)
         editor.connect_material_expressions(leaf_tint, '', living_tint, 'A')
@@ -316,7 +329,24 @@ for row, (kind, property_name) in enumerate((
             unreal.MaterialExpressionMultiply, -20, -400)
         editor.connect_material_expressions(first, '', tinted_leaf, 'A')
         editor.connect_material_expressions(living_tint, '', tinted_leaf, 'B')
-        editor.connect_material_expressions(tinted_leaf, '', blend, 'A')
+        # The first surface includes small leaves and grains. A second,
+        # independent world scale breaks its printed repetition at 5 m.
+        mixed_leaf = editor.create_material_expression(material,
+            unreal.MaterialExpressionLinearInterpolate, -15, -315)
+        editor.connect_material_expressions(tinted_leaf, '', mixed_leaf, 'A')
+        aerial_tint = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant3Vector, -190, -135)
+        aerial_tint.set_editor_property('constant', unreal.LinearColor(.62, .92, .55, 1.0))
+        tinted_aerial = editor.create_material_expression(material,
+            unreal.MaterialExpressionMultiply, -90, -135)
+        editor.connect_material_expressions(aerial_sample, '', tinted_aerial, 'A')
+        editor.connect_material_expressions(aerial_tint, '', tinted_aerial, 'B')
+        editor.connect_material_expressions(tinted_aerial, '', mixed_leaf, 'B')
+        aerial_mix = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant, -160, -260)
+        aerial_mix.set_editor_property('r', 0.72)
+        editor.connect_material_expressions(aerial_mix, '', mixed_leaf, 'Alpha')
+        editor.connect_material_expressions(mixed_leaf, '', blend, 'A')
     else:
         editor.connect_material_expressions(first, '', blend, 'A')
     editor.connect_material_expressions(second, '', blend, 'B')

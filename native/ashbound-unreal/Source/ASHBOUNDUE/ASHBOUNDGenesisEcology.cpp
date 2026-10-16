@@ -150,11 +150,24 @@ void AASHBOUNDGenesisEcology::RefreshCells()
                     FVector(Position.X, Position.Y, Height.GetValue()),
                     Normal, DayOfYear);
                 if (InitialSample)
+                {
                     UE_LOG(LogTemp, Display,
                         TEXT("ASHBOUND_GENESIS_SOIL organic_cm=%.1f mineral_cm=%.1f bedrock_cm=%.1f moisture=%.3f solar=%.3f roots=%.3f"),
                         GroundProfile.OrganicCm, GroundProfile.MineralCm,
                         GroundProfile.BedrockDepthCm, GroundProfile.Moisture,
                         GroundProfile.SolarExposure, GroundProfile.RootCapacity);
+                    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundsoilprobe")))
+                        for (const float DepthCm : {5.0f, 45.0f, 125.0f, 250.0f})
+                        {
+                            const FASHBOUNDSoilVolumeSample V = FASHBOUNDSoil::SampleVolume(
+                                FVector(Position.X, Position.Y, Height.GetValue() - DepthCm),
+                                Height.GetValue(), Normal, DayOfYear);
+                            UE_LOG(LogTemp, Display,
+                                TEXT("ASHBOUND_SOIL_VOLUME x=%.0f y=%.0f depth=%.0f matter=%d organic_bottom=%.1f rock_top=%.1f moisture=%.3f porosity=%.3f"),
+                                Position.X, Position.Y, V.DepthCm, static_cast<int32>(V.Matter),
+                                V.OrganicBottomCm, V.RockTopCm, V.Moisture, V.Porosity);
+                        }
+                }
             }
             break;
         }

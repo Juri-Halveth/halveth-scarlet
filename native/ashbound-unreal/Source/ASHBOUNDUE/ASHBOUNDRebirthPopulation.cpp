@@ -172,8 +172,19 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
                     0.0f, 1.0f) * (0.35f + 0.65f * Soil.RootCapacity);
                 break;
             case 3: // Trees need both a mineral horizon and root space.
-                Suitability = Soil.MineralCm < 40.0f ? 0.0f : Soil.RootCapacity;
+            {
+                // Only the sparse tree candidates pay for a 3D root query.
+                // A shallow rock lens cannot support a tree merely because
+                // the surface column's average profile looks deep enough.
+                const FASHBOUNDSoilVolumeSample Root = FASHBOUNDSoil::SampleVolume(
+                    GroundPoint - FVector(0, 0, 45.0f), GroundPoint.Z,
+                    GroundNormal, SoilDayOfYear);
+                Suitability = Soil.MineralCm < 40.0f ||
+                    Root.Matter == EASHBOUNDSoilMatter::Bedrock ? 0.0f :
+                    Soil.RootCapacity * FMath::Clamp(Root.Porosity * 2.0f,
+                        0.0f, 1.0f);
                 break;
+            }
             case 4: // Open, lit soil supports flowers.
                 Suitability = FMath::Clamp((Soil.SolarExposure - 0.3f) * 2.0f,
                     0.0f, 1.0f) * (0.3f + 0.7f * Soil.RootCapacity);
