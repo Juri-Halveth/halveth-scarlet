@@ -23,9 +23,11 @@ def import_texture(name):
     path = SURFACES + '/' + name
     texture = unreal.load_asset(path) if unreal.EditorAssetLibrary.does_asset_exist(path) else None
     if texture is None:
-        source = WORK / 'source-assets' / 'surfaces' / (name + '.jpg')
+        source = (Path(__file__).resolve().parents[1] / 'source-art' /
+                  'meadow_carpet_v1.png') if name == 'meadow_carpet_v1' else (
+                      WORK / 'source-assets' / 'surfaces' / (name + '.jpg'))
         if not source.is_file():
-            raise RuntimeError('Missing hash-verified Rebirth surface: ' + str(source))
+            raise RuntimeError('Missing Rebirth surface: ' + str(source))
         task = unreal.AssetImportTask()
         task.set_editor_property('filename', str(source))
         task.set_editor_property('destination_path', SURFACES)
@@ -49,8 +51,19 @@ def import_texture(name):
 texture_sets = {
     name: {kind: import_texture(name + '_' + kind + '_2k')
            for kind in ('diff', 'nor_gl', 'rough')}
-    for name in ('leafy_grass', 'dirt_floor')
+    for name in ('forest_leaves_02', 'brown_mud_02')
 }
+# The meadow is a bundled, top-down generated albedo. Its detailed geometry
+# still comes from independent instanced plants; the generated surface fills the
+# spaces that would otherwise read as exposed dirt from a distance.
+texture_sets['meadow'] = {
+    'diff': import_texture('meadow_carpet_v1'),
+    'nor_gl': import_texture('leafy_grass_nor_gl_2k'),
+    'rough': import_texture('leafy_grass_rough_2k'),
+}
+# A photographed mixed grass/stone surface supplies mesoscopic colour
+# variation at a second real-world scale; it is still a repeating texture.
+aerial = import_texture('aerial_grass_rock_diff_2k')
 rock_suffixes = {'diff': 'diffuse', 'nor_gl': 'nor_gl', 'rough': 'rough'}
 texture_sets['rock'] = {}
 for kind, suffix in rock_suffixes.items():
@@ -145,7 +158,9 @@ position = editor.create_material_expression(material, unreal.MaterialExpression
 xy = editor.create_material_expression(material, unreal.MaterialExpressionComponentMask, -700, -120)
 xy.set_editor_property('r', True)
 xy.set_editor_property('g', True)
-if not editor.connect_material_expressions(position, '', xy, ''):
+# In UE 5.8 Python this pin is named "None"; an empty destination name
+# reports success but leaves the mask disconnected and the material invalid.
+if not editor.connect_material_expressions(position, '', xy, 'None'):
     raise RuntimeError('World position did not connect to XY mask')
 scale = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -700, 60)
 scale.set_editor_property('r', 155.0)
@@ -166,67 +181,128 @@ rock_uv = editor.create_material_expression(material, unreal.MaterialExpressionM
 editor.connect_material_expressions(uv, '', rock_uv, 'A')
 editor.connect_material_expressions(rock_period, '', rock_uv, 'B')
 
-# A broad, low-frequency mask changes soil families over tens of metres rather
-# than printing the same texture across a 2 km plane.
+aerial_period = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -700, 250)
+aerial_period.set_editor_property('r', 0.02)
+aerial_uv = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, -470, 270)
+editor.connect_material_expressions(uv, '', aerial_uv, 'A')
+editor.connect_material_expressions(aerial_period, '', aerial_uv, 'B')
+aerial_sample = editor.create_material_expression(material,
+    unreal.MaterialExpressionTextureSample, -260, 250)
+aerial_sample.set_editor_property('texture', aerial)
+editor.connect_material_expressions(aerial_uv, '', aerial_sample, 'UVs')
+
+# A broad, low-frequency mask changes soil families over hundreds of metres.
+# Distant hills need regional colour variation after fine photos mip away.
 noise = editor.create_material_expression(material, unreal.MaterialExpressionNoise, -470, 240)
-noise.set_editor_property('scale', 0.00045)
+noise.set_editor_property('scale', 0.000035)
 editor.connect_material_expressions(position, '', noise, 'Position')
 alpha = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, -240, 240)
 if not editor.connect_material_expressions(noise, '', alpha, 'A'):
     raise RuntimeError('Noise did not connect to blend mask')
 soil_fraction = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -440, 420)
-soil_fraction.set_editor_property('r', 0.11)
+soil_fraction.set_editor_property('r', 0.10)
 if not editor.connect_material_expressions(soil_fraction, '', alpha, 'B'):
     raise RuntimeError('Soil fraction did not connect to blend mask')
 
-# The rock transition is an altitude band. Terrain and collision remain native
-# Landscape data; this graph changes only the visible surface.
-
-z = editor.create_material_expression(material,
-    unreal.MaterialExpressionComponentMask, -700, 940)
-z.set_editor_property('b', True)
-editor.connect_material_expressions(position, '', z, '')
-altitude_start = editor.create_material_expression(material,
-    unreal.MaterialExpressionConstant, -700, 1080)
-altitude_start.set_editor_property('r', 5500.0)
-altitude_delta = editor.create_material_expression(material,
-    unreal.MaterialExpressionSubtract, -500, 940)
-editor.connect_material_expressions(z, '', altitude_delta, 'A')
-editor.connect_material_expressions(altitude_start, '', altitude_delta, 'B')
-altitude_width = editor.create_material_expression(material,
-    unreal.MaterialExpressionConstant, -500, 1100)
-altitude_width.set_editor_property('r', 4500.0)
-altitude_rock = editor.create_material_expression(material,
-    unreal.MaterialExpressionDivide, -300, 940)
-editor.connect_material_expressions(altitude_delta, '', altitude_rock, 'A')
-editor.connect_material_expressions(altitude_width, '', altitude_rock, 'B')
+# Rock belongs to exposed, steep terrain, not to an arbitrary world-Z band.
+# A height-only blend painted entire smooth hills mint and violet. The vertex
+# normal keeps the geology tied to the actual Landscape shape; weak regional
+# noise only breaks up the transition, and flat basins stay mostly soil.
+terrain_normal = editor.create_material_expression(material,
+    unreal.MaterialExpressionVertexNormalWS, -700, 890)
+world_up = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant3Vector, -700, 1080)
+world_up.set_editor_property('constant', unreal.LinearColor(0, 0, 1, 1))
+normal_up = editor.create_material_expression(material,
+    unreal.MaterialExpressionDotProduct, -500, 890)
+editor.connect_material_expressions(terrain_normal, '', normal_up, 'A')
+editor.connect_material_expressions(world_up, '', normal_up, 'B')
+slope = editor.create_material_expression(material,
+    unreal.MaterialExpressionOneMinus, -300, 890)
+editor.connect_material_expressions(normal_up, '', slope, '')
+slope_threshold = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant, -300, 1080)
+slope_threshold.set_editor_property('r', 0.32)
+exposed_slope = editor.create_material_expression(material,
+    unreal.MaterialExpressionSubtract, -100, 890)
+editor.connect_material_expressions(slope, '', exposed_slope, 'A')
+editor.connect_material_expressions(slope_threshold, '', exposed_slope, 'B')
+rock_gain = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant, -100, 1090)
+rock_gain.set_editor_property('r', 3.0)
+rock_slope = editor.create_material_expression(material,
+    unreal.MaterialExpressionMultiply, 100, 890)
+editor.connect_material_expressions(exposed_slope, '', rock_slope, 'A')
+editor.connect_material_expressions(rock_gain, '', rock_slope, 'B')
+rock_noise_gain = editor.create_material_expression(material,
+    unreal.MaterialExpressionConstant, -100, 1170)
+rock_noise_gain.set_editor_property('r', 0.12)
+rock_noise = editor.create_material_expression(material,
+    unreal.MaterialExpressionMultiply, 100, 1130)
+editor.connect_material_expressions(noise, '', rock_noise, 'A')
+editor.connect_material_expressions(rock_noise_gain, '', rock_noise, 'B')
+rock_variation = editor.create_material_expression(material,
+    unreal.MaterialExpressionAdd, 300, 890)
+editor.connect_material_expressions(rock_slope, '', rock_variation, 'A')
+editor.connect_material_expressions(rock_noise, '', rock_variation, 'B')
 rock_zero = editor.create_material_expression(material,
-    unreal.MaterialExpressionConstant, -100, 1100)
+    unreal.MaterialExpressionConstant, 300, 1090)
 rock_zero.set_editor_property('r', 0.0)
 rock_floor = editor.create_material_expression(material,
-    unreal.MaterialExpressionMax, 100, 940)
-editor.connect_material_expressions(altitude_rock, '', rock_floor, 'A')
+    unreal.MaterialExpressionMax, 500, 890)
+editor.connect_material_expressions(rock_variation, '', rock_floor, 'A')
 editor.connect_material_expressions(rock_zero, '', rock_floor, 'B')
 rock_one = editor.create_material_expression(material,
-    unreal.MaterialExpressionConstant, 100, 1110)
+    unreal.MaterialExpressionConstant, 500, 1090)
 rock_one.set_editor_property('r', 1.0)
 rock_mask = editor.create_material_expression(material,
-    unreal.MaterialExpressionMin, 300, 940)
+    unreal.MaterialExpressionMin, 700, 890)
 editor.connect_material_expressions(rock_floor, '', rock_mask, 'A')
 editor.connect_material_expressions(rock_one, '', rock_mask, 'B')
 
 soil_bias = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -240, 430)
-soil_bias.set_editor_property('r', 0.14)
+soil_bias.set_editor_property('r', 0.05)
+
+# A low valley accumulates a deeper organic cover; ridges and steep faces
+# expose mineral soil and bedrock. This is a surface visualization of the
+# runtime soil profile, not underground voxel geometry.
+world_z = editor.create_material_expression(material, unreal.MaterialExpressionComponentMask, -700, 490)
+world_z.set_editor_property('b', True)
+editor.connect_material_expressions(position, '', world_z, 'None')
+valley_top = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -700, 570)
+valley_top.set_editor_property('r', 5500.0)
+valley_inverse = editor.create_material_expression(material, unreal.MaterialExpressionSubtract, -510, 490)
+editor.connect_material_expressions(valley_top, '', valley_inverse, 'A')
+editor.connect_material_expressions(world_z, '', valley_inverse, 'B')
+valley_range = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -510, 570)
+valley_range.set_editor_property('r', 5500.0)
+valley_raw = editor.create_material_expression(material, unreal.MaterialExpressionDivide, -340, 490)
+editor.connect_material_expressions(valley_inverse, '', valley_raw, 'A')
+editor.connect_material_expressions(valley_range, '', valley_raw, 'B')
+valley_floor = editor.create_material_expression(material, unreal.MaterialExpressionMax, -150, 570)
+editor.connect_material_expressions(valley_raw, '', valley_floor, 'A')
+editor.connect_material_expressions(rock_zero, '', valley_floor, 'B')
+valley = editor.create_material_expression(material, unreal.MaterialExpressionMin, 10, 570)
+editor.connect_material_expressions(valley_floor, '', valley, 'A')
+editor.connect_material_expressions(rock_one, '', valley, 'B')
+valley_soil_gain = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -100, 670)
+valley_soil_gain.set_editor_property('r', 0.45)
+valley_soil = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, 70, 670)
+editor.connect_material_expressions(valley, '', valley_soil, 'A')
+editor.connect_material_expressions(valley_soil_gain, '', valley_soil, 'B')
 soil_mask = editor.create_material_expression(material, unreal.MaterialExpressionAdd, -10, 430)
 editor.connect_material_expressions(alpha, '', soil_mask, 'A')
 editor.connect_material_expressions(soil_bias, '', soil_mask, 'B')
+soil_region = editor.create_material_expression(material, unreal.MaterialExpressionAdd, 115, 430)
+editor.connect_material_expressions(soil_mask, '', soil_region, 'A')
+editor.connect_material_expressions(valley_soil, '', soil_region, 'B')
 soil_zero = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -10, 550)
 soil_zero.set_editor_property('r', 0.0)
 soil_floor = editor.create_material_expression(material, unreal.MaterialExpressionMax, 180, 430)
-editor.connect_material_expressions(soil_mask, '', soil_floor, 'A')
+editor.connect_material_expressions(soil_region, '', soil_floor, 'A')
 editor.connect_material_expressions(soil_zero, '', soil_floor, 'B')
 soil_ceiling = editor.create_material_expression(material, unreal.MaterialExpressionConstant, 180, 550)
-soil_ceiling.set_editor_property('r', 0.30)
+soil_ceiling.set_editor_property('r', 0.70)
 soil_weight = editor.create_material_expression(material, unreal.MaterialExpressionMin, 360, 430)
 editor.connect_material_expressions(soil_floor, '', soil_weight, 'A')
 editor.connect_material_expressions(soil_ceiling, '', soil_weight, 'B')
@@ -239,23 +315,48 @@ for row, (kind, property_name) in enumerate((
                                                -240, -400 + row * 380)
     second = editor.create_material_expression(material, unreal.MaterialExpressionTextureSample,
                                                 -240, -240 + row * 380)
-    first.set_editor_property('texture', texture_sets['leafy_grass'][kind])
-    second.set_editor_property('texture', texture_sets['dirt_floor'][kind])
+    first.set_editor_property('texture', texture_sets['meadow'][kind])
+    second.set_editor_property('texture', texture_sets['brown_mud_02'][kind])
     editor.connect_material_expressions(uv, '', first, 'UVs')
     editor.connect_material_expressions(dirt_uv, '', second, 'UVs')
     blend = editor.create_material_expression(material, unreal.MaterialExpressionLinearInterpolate,
                                                80, -320 + row * 380)
     if kind == 'diff':
-        # Keep the photographed leaf litter, but let it read as a living
-        # understory between real grass clumps rather than pale bare soil.
+        # Living meadow covers rooted, illuminated ground. Low wet basins
+        # retain patches of dark earth rather than a uniform green carpet.
         leaf_tint = editor.create_material_expression(material,
             unreal.MaterialExpressionConstant3Vector, -30, -560)
-        leaf_tint.set_editor_property('constant', unreal.LinearColor(.70, .70, .65, 1.0))
+        leaf_tint.set_editor_property('constant', unreal.LinearColor(1.0, 1.0, .96, 1.0))
+        humus_tint = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant3Vector, -30, -680)
+        humus_tint.set_editor_property('constant', unreal.LinearColor(.94, .98, .88, 1.0))
+        living_tint = editor.create_material_expression(material,
+            unreal.MaterialExpressionLinearInterpolate, -10, -610)
+        editor.connect_material_expressions(leaf_tint, '', living_tint, 'A')
+        editor.connect_material_expressions(humus_tint, '', living_tint, 'B')
+        editor.connect_material_expressions(valley, '', living_tint, 'Alpha')
         tinted_leaf = editor.create_material_expression(material,
             unreal.MaterialExpressionMultiply, -20, -400)
         editor.connect_material_expressions(first, '', tinted_leaf, 'A')
-        editor.connect_material_expressions(leaf_tint, '', tinted_leaf, 'B')
-        editor.connect_material_expressions(tinted_leaf, '', blend, 'A')
+        editor.connect_material_expressions(living_tint, '', tinted_leaf, 'B')
+        # The first surface includes small leaves and grains. A second,
+        # independent world scale breaks its printed repetition at 5 m.
+        mixed_leaf = editor.create_material_expression(material,
+            unreal.MaterialExpressionLinearInterpolate, -15, -315)
+        editor.connect_material_expressions(tinted_leaf, '', mixed_leaf, 'A')
+        aerial_tint = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant3Vector, -190, -135)
+        aerial_tint.set_editor_property('constant', unreal.LinearColor(.30, .60, .34, 1.0))
+        tinted_aerial = editor.create_material_expression(material,
+            unreal.MaterialExpressionMultiply, -90, -135)
+        editor.connect_material_expressions(aerial_sample, '', tinted_aerial, 'A')
+        editor.connect_material_expressions(aerial_tint, '', tinted_aerial, 'B')
+        editor.connect_material_expressions(tinted_aerial, '', mixed_leaf, 'B')
+        aerial_mix = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant, -160, -260)
+        aerial_mix.set_editor_property('r', 0.04)
+        editor.connect_material_expressions(aerial_mix, '', mixed_leaf, 'Alpha')
+        editor.connect_material_expressions(mixed_leaf, '', blend, 'A')
     else:
         editor.connect_material_expressions(first, '', blend, 'A')
     editor.connect_material_expressions(second, '', blend, 'B')
@@ -267,9 +368,52 @@ for row, (kind, property_name) in enumerate((
     regional_blend = editor.create_material_expression(material,
         unreal.MaterialExpressionLinearInterpolate, 560, -320 + row * 380)
     editor.connect_material_expressions(blend, '', regional_blend, 'A')
-    editor.connect_material_expressions(rock_sample, '', regional_blend, 'B')
+    if kind == 'diff':
+        # Exposed rock should be dark slate and moss, not a tan stripe across
+        # every distant hill. Keep the source photo's granular variation.
+        rock_tint = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant3Vector, 340, -120)
+        rock_tint.set_editor_property('constant', unreal.LinearColor(.30, .52, .42, 1.0))
+        dark_rock = editor.create_material_expression(material,
+            unreal.MaterialExpressionMultiply, 410, -200)
+        editor.connect_material_expressions(rock_sample, '', dark_rock, 'A')
+        editor.connect_material_expressions(rock_tint, '', dark_rock, 'B')
+        editor.connect_material_expressions(dark_rock, '', regional_blend, 'B')
+    else:
+        editor.connect_material_expressions(rock_sample, '', regional_blend, 'B')
     editor.connect_material_expressions(rock_mask, '', regional_blend, 'Alpha')
-    if not editor.connect_material_property(regional_blend, '', property_name):
+    surface_output = regional_blend
+    if kind == 'diff':
+        # Fine-scale photography averages out at distance. Modulate the same
+        # photographed surface in connected, broad moss/earth regions, while
+        # the low basin stays governed by its wet-soil weight.
+        dry_macro = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant3Vector, 700, -520)
+        dry_macro.set_editor_property('constant', unreal.LinearColor(1.0, 1.0, .96, 1.0))
+        moss_macro = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant3Vector, 700, -400)
+        moss_macro.set_editor_property('constant', unreal.LinearColor(.78, 1.0, .82, 1.0))
+        macro_palette = editor.create_material_expression(material,
+            unreal.MaterialExpressionLinearInterpolate, 820, -440)
+        editor.connect_material_expressions(dry_macro, '', macro_palette, 'A')
+        editor.connect_material_expressions(moss_macro, '', macro_palette, 'B')
+        macro_half = editor.create_material_expression(material,
+            unreal.MaterialExpressionMultiply, 710, -300)
+        half = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant, 610, -300)
+        half.set_editor_property('r', 0.5)
+        editor.connect_material_expressions(noise, '', macro_half, 'A')
+        editor.connect_material_expressions(half, '', macro_half, 'B')
+        macro_shift = editor.create_material_expression(material,
+            unreal.MaterialExpressionAdd, 800, -280)
+        editor.connect_material_expressions(macro_half, '', macro_shift, 'A')
+        editor.connect_material_expressions(half, '', macro_shift, 'B')
+        editor.connect_material_expressions(macro_shift, '', macro_palette, 'Alpha')
+        surface_output = editor.create_material_expression(material,
+            unreal.MaterialExpressionMultiply, 950, -320)
+        editor.connect_material_expressions(regional_blend, '', surface_output, 'A')
+        editor.connect_material_expressions(macro_palette, '', surface_output, 'B')
+    if not editor.connect_material_property(surface_output, '', property_name):
         raise RuntimeError('Could not connect Rebirth ' + kind)
 
 # An optional low-frequency grass-map mask remains separate from the runtime

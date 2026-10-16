@@ -16,7 +16,11 @@ class ASHBOUNDUE_API AASHBOUNDRebirthPopulation : public AActor
 public:
     AASHBOUNDRebirthPopulation();
     // Set on a deferred spawn before BeginPlay; only GenesisWorld uses it.
-    void ConfigureGenesisCell(bool bMacro) { bGenesisMacroCell = bMacro; }
+    void ConfigureGenesisCell(bool bMacro, bool bDetail = false)
+    {
+        bGenesisMacroCell = bMacro;
+        bGenesisDetailCell = bDetail;
+    }
 
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Rebirth")
     TObjectPtr<UHierarchicalInstancedStaticMeshComponent> Rocks;
@@ -54,6 +58,8 @@ protected:
 private:
     bool bGenesisMode = false;
     bool bGenesisMacroCell = false;
+    bool bGenesisDetailCell = false;
+    int32 SoilDayOfYear = 172;
     FVector ScatterCenter = FVector::ZeroVector;
     int32 Scatter(const TArray<UHierarchicalInstancedStaticMeshComponent*>& Targets,
                   int32 Count, float RadiusCm, float HeightCm, float EmbedFraction,

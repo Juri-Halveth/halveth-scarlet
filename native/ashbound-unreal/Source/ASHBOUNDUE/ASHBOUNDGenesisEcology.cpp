@@ -3,7 +3,9 @@
 #include "ASHBOUNDRebirthPopulation.h"
 #include "Components/HierarchicalInstancedStaticMeshComponent.h"
 #include "CoreGlobals.h"
+#include "Engine/DirectionalLight.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
 #include "HAL/FileManager.h"
@@ -11,6 +13,7 @@
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
 #include "Misc/Paths.h"
+#include "LandscapeProxy.h"
 #include "TimerManager.h"
 #include "UnrealClient.h"
 
@@ -22,6 +25,16 @@ AASHBOUNDGenesisEcology::AASHBOUNDGenesisEcology()
 void AASHBOUNDGenesisEcology::BeginPlay()
 {
     Super::BeginPlay();
+    FParse::Value(FCommandLine::Get(), TEXT("ashboundyear="), Year);
+    FParse::Value(FCommandLine::Get(), TEXT("ashboundday="), DayOfYear);
+    FParse::Value(FCommandLine::Get(), TEXT("ashboundhour="), Hour);
+    Year = FMath::Max(Year, 1);
+    DayOfYear = FMath::Clamp(DayOfYear, 1, 365);
+    Hour = FMath::Clamp(Hour, 0.0f, 23.99f);
+    LastClockTime = GetWorld()->GetTimeSeconds();
+    UE_LOG(LogTemp, Display,
+        TEXT("ASHBOUND_GENESIS_ENVIRONMENT year=%d day=%d hour=%.2f latitude=50 climate=regional_soil"),
+        Year, DayOfYear, Hour);
     RefreshCells();
     GetWorldTimerManager().SetTimer(RefreshTimer, this,
         &AASHBOUNDGenesisEcology::RefreshCells, 0.25f, true);
@@ -66,7 +79,7 @@ void AASHBOUNDGenesisEcology::BeginPlay()
         {
             const FString File = FPaths::ProjectSavedDir() / TEXT("Screenshots/Genesis.png");
             IFileManager::Get().MakeDirectory(*FPaths::GetPath(File), true);
-            FScreenshotRequest::RequestScreenshot(File, false, false);
+            FScreenshotRequest::RequestScreenshot(File, true, false);
             UE_LOG(LogTemp, Display, TEXT("ASHBOUND_GENESIS_SCREENSHOT_REQUEST %s"), *File);
         }), ScreenshotDelay, false);
     }
@@ -77,20 +90,94 @@ void AASHBOUNDGenesisEcology::EndPlay(const EEndPlayReason::Type EndPlayReason)
     GetWorldTimerManager().ClearTimer(RefreshTimer);
     NearCells.Empty();
     MacroCells.Empty();
+    DetailCells.Empty();
     Super::EndPlay(EndPlayReason);
 }
 
 void AASHBOUNDGenesisEcology::RefreshCells()
 {
     UWorld* World = GetWorld();
+    if (!World) return;
+    const float ClockNow = World->GetTimeSeconds();
+    const float Elapsed = FMath::Clamp(ClockNow - LastClockTime, 0.0f, 1.0f);
+    LastClockTime = ClockNow;
+    // One game hour per real minute; the complete clock spans 24 real minutes.
+    Hour += Elapsed / 60.0f;
+    if (Hour >= 24.0f)
+    {
+        Hour -= 24.0f;
+        DayOfYear = DayOfYear % 365 + 1;
+        if (DayOfYear == 1) ++Year;
+    }
+    if (ClockNow - LastSunUpdate >= 5.0f)
+    {
+        LastSunUpdate = ClockNow;
+        for (TActorIterator<ADirectionalLight> It(World); It; ++It)
+        {
+            const FVector TowardSun = FASHBOUNDSoil::SunVector(DayOfYear, Hour);
+            It->SetActorRotation((-TowardSun).Rotation());
+            UE_LOG(LogTemp, Display,
+                TEXT("ASHBOUND_GENESIS_SUN day=%d hour=%.2f elevation=%.3f"),
+                DayOfYear, Hour, TowardSun.Z);
+            break;
+        }
+    }
     APlayerController* Controller = World ? World->GetFirstPlayerController() : nullptr;
     APawn* Pawn = Controller ? Controller->GetPawn() : nullptr;
     if (!Pawn) return;
     const FVector Position = Pawn->GetActorLocation();
+    if (ClockNow - LastSoilSample >= 1.0f)
+    {
+        LastSoilSample = ClockNow;
+        const bool InitialSample = !bGroundProfileValid;
+        for (TActorIterator<ALandscapeProxy> It(World); It; ++It)
+        {
+            const TOptional<float> Height = It->GetHeightAtLocation(Position);
+            const FVector East = Position + FVector(500, 0, 0);
+            const FVector West = Position - FVector(500, 0, 0);
+            const FVector North = Position + FVector(0, 500, 0);
+            const FVector South = Position - FVector(0, 500, 0);
+            const TOptional<float> HE = It->GetHeightAtLocation(East);
+            const TOptional<float> HW = It->GetHeightAtLocation(West);
+            const TOptional<float> HN = It->GetHeightAtLocation(North);
+            const TOptional<float> HS = It->GetHeightAtLocation(South);
+            bGroundProfileValid = Height.IsSet() && HE.IsSet() && HW.IsSet() &&
+                HN.IsSet() && HS.IsSet();
+            if (bGroundProfileValid)
+            {
+                const FVector Normal((HW.GetValue() - HE.GetValue()) / 1000.0f,
+                    (HS.GetValue() - HN.GetValue()) / 1000.0f, 1.0f);
+                GroundProfile = FASHBOUNDSoil::Sample(
+                    FVector(Position.X, Position.Y, Height.GetValue()),
+                    Normal, DayOfYear);
+                if (InitialSample)
+                {
+                    UE_LOG(LogTemp, Display,
+                        TEXT("ASHBOUND_GENESIS_SOIL organic_cm=%.1f mineral_cm=%.1f bedrock_cm=%.1f moisture=%.3f solar=%.3f roots=%.3f"),
+                        GroundProfile.OrganicCm, GroundProfile.MineralCm,
+                        GroundProfile.BedrockDepthCm, GroundProfile.Moisture,
+                        GroundProfile.SolarExposure, GroundProfile.RootCapacity);
+                    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundsoilprobe")))
+                        for (const float DepthCm : {5.0f, 45.0f, 125.0f, 250.0f})
+                        {
+                            const FASHBOUNDSoilVolumeSample V = FASHBOUNDSoil::SampleVolume(
+                                FVector(Position.X, Position.Y, Height.GetValue() - DepthCm),
+                                Height.GetValue(), Normal, DayOfYear);
+                            UE_LOG(LogTemp, Display,
+                                TEXT("ASHBOUND_SOIL_VOLUME x=%.0f y=%.0f depth=%.0f matter=%d organic_bottom=%.1f rock_top=%.1f moisture=%.3f porosity=%.3f"),
+                                Position.X, Position.Y, V.DepthCm, static_cast<int32>(V.Matter),
+                                V.OrganicBottomCm, V.RockTopCm, V.Moisture, V.Porosity);
+                        }
+                }
+            }
+            break;
+        }
+    }
 
     using FCellMap = TMap<FIntPoint, TWeakObjectPtr<AASHBOUNDRebirthPopulation>>;
     auto UpdateSet = [&](FCellMap& Cells, const FIntPoint& Center, int32 Width,
-                         int32 LoadRadius, int32 KeepRadius, int32 Budget, bool bMacro)
+                         int32 LoadRadius, int32 KeepRadius, int32 Budget,
+                         bool bMacro, bool bDetail = false)
     {
         for (auto It = Cells.CreateIterator(); It; ++It)
         {
@@ -133,7 +220,7 @@ void AASHBOUNDGenesisEcology::RefreshCells()
             const FVector Origin((Cell.X + 0.5f) * Width, (Cell.Y + 0.5f) * Width, 0.0f);
             FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDGenesisCellGround), false, this);
             Query.AddIgnoredActor(Pawn);
-            for (const FCellMap* Existing : {&NearCells, &MacroCells})
+            for (const FCellMap* Existing : {&DetailCells, &NearCells, &MacroCells})
                 for (const auto& Pair : *Existing)
                     if (AASHBOUNDRebirthPopulation* Population = Pair.Value.Get())
                         Query.AddIgnoredActor(Population);
@@ -152,7 +239,7 @@ void AASHBOUNDGenesisEcology::RefreshCells()
                     ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
             if (Population)
             {
-                Population->ConfigureGenesisCell(bMacro);
+                Population->ConfigureGenesisCell(bMacro, bDetail);
                 UGameplayStatics::FinishSpawningActor(Population, Transform);
                 Cells.Add(Cell, Population);
                 ++Spawned;
@@ -161,7 +248,8 @@ void AASHBOUNDGenesisEcology::RefreshCells()
         if (Spawned || DeferredForTerrain)
             UE_LOG(LogTemp, Display,
                 TEXT("ASHBOUND_GENESIS_ECOLOGY tier=%s center=%d,%d active=%d pending=%d spawned=%d terrain_deferred=%d"),
-                bMacro ? TEXT("MACRO") : TEXT("NEAR"), Center.X, Center.Y,
+                bDetail ? TEXT("DETAIL") : bMacro ? TEXT("MACRO") : TEXT("NEAR"),
+                Center.X, Center.Y,
                 Cells.Num(), Missing.Num() - Spawned, Spawned, DeferredForTerrain);
     };
 
@@ -169,8 +257,14 @@ void AASHBOUNDGenesisEcology::RefreshCells()
                                 FMath::FloorToInt(Position.Y / MacroCellWidthCm));
     const FIntPoint NearCenter(FMath::FloorToInt(Position.X / NearCellWidthCm),
                                FMath::FloorToInt(Position.Y / NearCellWidthCm));
+    const FIntPoint DetailCenter(FMath::FloorToInt(Position.X / DetailCellWidthCm),
+                                 FMath::FloorToInt(Position.Y / DetailCellWidthCm));
     UpdateSet(MacroCells, MacroCenter, MacroCellWidthCm, 1, 2, 2, true);
-    UpdateSet(NearCells, NearCenter, NearCellWidthCm, 2, 3, 3, false);
+    // The broad material carries vegetation colour beyond the 90 m instance
+    // cull. Streaming 25 plant cells there consumed draw/setup work without
+    // adding visible blades in the entry vista.
+    UpdateSet(NearCells, NearCenter, NearCellWidthCm, 1, 1, 3, false);
+    UpdateSet(DetailCells, DetailCenter, DetailCellWidthCm, 1, 1, 4, false, true);
 
     const double Now = FPlatformTime::Seconds();
     if (LastMetricsAt <= 0.0)
@@ -181,7 +275,7 @@ void AASHBOUNDGenesisEcology::RefreshCells()
     else if (Now - LastMetricsAt >= 5.0)
     {
         int64 Instances = 0;
-        for (const FCellMap* Cells : {&NearCells, &MacroCells})
+        for (const FCellMap* Cells : {&DetailCells, &NearCells, &MacroCells})
             for (const auto& Pair : *Cells)
                 if (AASHBOUNDRebirthPopulation* Population = Pair.Value.Get())
                 {
@@ -193,8 +287,9 @@ void AASHBOUNDGenesisEcology::RefreshCells()
         const double FramesPerSecond =
             (GFrameCounter - LastMetricsFrame) / (Now - LastMetricsAt);
         UE_LOG(LogTemp, Display,
-            TEXT("ASHBOUND_GENESIS_RUNTIME near=%d macro=%d instances=%lld frames_per_second=%.1f sample_seconds=%.1f"),
-            NearCells.Num(), MacroCells.Num(), Instances, FramesPerSecond, Now - LastMetricsAt);
+            TEXT("ASHBOUND_GENESIS_RUNTIME detail=%d near=%d macro=%d instances=%lld frames_per_second=%.1f sample_seconds=%.1f"),
+            DetailCells.Num(), NearCells.Num(), MacroCells.Num(), Instances,
+            FramesPerSecond, Now - LastMetricsAt);
         LastMetricsAt = Now;
         LastMetricsFrame = GFrameCounter;
     }

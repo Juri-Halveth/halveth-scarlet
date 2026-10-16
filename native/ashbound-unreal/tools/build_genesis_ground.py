@@ -105,6 +105,9 @@ for label, component_class, property_name, value in (
     if component is None:
         raise RuntimeError('Genesis daylight component missing: ' + label)
     component.set_editor_property(property_name, value)
+    if label == 'ASHBOUND / Sun':
+        # The native 24-hour clock rotates the sun during play.
+        component.set_editor_property('mobility', unreal.ComponentMobility.MOVABLE)
 volume = by_label.get('ASHBOUND / Balanced daylight')
 if volume is None:
     volume = actors.spawn_actor_from_class(unreal.PostProcessVolume,

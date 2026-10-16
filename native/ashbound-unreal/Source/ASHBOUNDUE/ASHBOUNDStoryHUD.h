@@ -5,6 +5,7 @@
 #include "ASHBOUNDStoryHUD.generated.h"
 
 class AASHBOUNDSpellManager;
+class AASHBOUNDGenesisEcology;
 
 // Sparse, resolution-aware text. The landscape, books and magic stay visible.
 UCLASS()
@@ -17,4 +18,5 @@ public:
 
 private:
     TWeakObjectPtr<AASHBOUNDSpellManager> Story;
+    TWeakObjectPtr<AASHBOUNDGenesisEcology> Ecology;
 };
