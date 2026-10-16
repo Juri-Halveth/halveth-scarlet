@@ -13,8 +13,8 @@ if (-not $WorkRoot) { $WorkRoot = Join-Path $repoRoot '.local-qa\ashbound-unreal
 $map = '/Game/ASHBOUND/Maps/GenesisWorld'
 $arguments = @($map, '-DX12', '-windowed', "-ResX=$Width", "-ResY=$Height")
 if ($Lighting -eq 'Balanced') {
-    # Paired 1440p capture on the reference PC: 26.27 ms Epic versus 19.27 ms
-    # Balanced median at the same stationary Genesis camera. Scene-specific.
+    # Offscreen 2560x1440 capture on the reference PC: 32.20 ms Epic versus
+    # 23.12 ms Balanced median at the same stationary Genesis camera.
     $arguments += '-ExecCmds="r.DynamicGlobalIlluminationMethod 0"'
 }
 

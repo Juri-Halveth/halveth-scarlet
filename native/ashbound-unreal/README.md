@@ -4,10 +4,14 @@ The separate **GenesisWorld** landscape candidate can be opened with
 `& .\native\ashbound-unreal\play-genesis.ps1 -PackageRoot '<local package directory>'`.
 Use `-Lighting Balanced` for the measured 1440p option without dynamic global
 illumination; omit it for the unchanged Epic lighting. `-Width` and `-Height`
-select the display resolution. On the reference PC, one stationary packaged
-Genesis view measured 26.27 ms/frame in Epic and 19.27 ms/frame in Balanced
-(median of the last 300 CSV frames). This does not establish moving-world FPS
-or visual acceptance. The current candidate still has conspicuous colour and
+select the display resolution. On the reference PC, paired **offscreen**
+Genesis captures at a verified 2560 × 1440 measured 32.20 ms/frame in Epic
+and 23.12 ms/frame in Balanced (median of the last 300 CSV frames; 95th
+percentile 33.22 and 24.00 ms respectively). The screenshot was 2560 × 1440
+and Unreal's `systemresolution` metadata agreed. Earlier hidden-window tests
+requested 2560 × 1440 but actually rendered 1536 × 864; their faster FPS
+figures are not 1440p results. Neither sample establishes moving-world FPS
+or visual acceptance. The candidate still has conspicuous colour and
 repetition problems on distant slopes.
 
 ASHBOUND is an independent first-person Unreal Engine 5.8 game in development. This local Windows build has a walkable ash valley, a ruined archive, three spell schools, three readable 3D books and a three-seal passage into the fort. Chapter I now starts with an in-world witness: speak to her, read Ilyra's book, awaken the three seals, cross the gate and reach the fort. A small HUD and **J** journal show the current goal without hiding the world. The witness conversation, charged seals and chapter completion are saved and reconstructed when the game starts again. Reaching the fort closes this opening chapter. It runs as a native EXE with DX12/SM6, Lumen and virtual shadow maps. The browser research pages are separate from this game.
