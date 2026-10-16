@@ -141,14 +141,26 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
         const float Scale = Size / MeshHeight;
         const float Yaw = Random.FRandRange(0.0f, 360.0f);
         const float Lean = Habitat == 3 ? 3.0f : 9.0f;
-        const FRotator Rotation(Random.FRandRange(-Lean, Lean), Yaw,
-                                Random.FRandRange(-Lean, Lean));
+        // Let rocks settle into the terrain while plants remain mostly upright.
+        // A ground normal is local to this exact trace, so adjacent instances
+        // can meet different slopes without rotating an entire cell as a sheet.
+        const FQuat GroundTilt = FQuat::FindBetweenNormals(
+            FVector::UpVector, Hit.ImpactNormal.GetSafeNormal());
+        const float TiltWeight = Habitat == 0 ? 1.0f : Habitat == 3 ? 0.12f : 0.32f;
+        const FQuat Rotation = (FQuat::Slerp(FQuat::Identity, GroundTilt, TiltWeight) *
+            FQuat(FVector::UpVector, FMath::DegreesToRadians(Yaw)) *
+            FRotator(Random.FRandRange(-Lean, Lean), 0.0f,
+                     Random.FRandRange(-Lean, Lean)).Quaternion()).GetNormalized();
         const float Width = Random.FRandRange(0.82f, 1.18f);
         const FVector InstanceScale(Scale * Width, Scale / Width, Scale);
-        const FVector Offset = Rotation.RotateVector(FVector((Box.Min.X + Box.Max.X) * 0.5f,
-            (Box.Min.Y + Box.Max.Y) * 0.5f, 0) * InstanceScale);
-        const FVector Position = Hit.ImpactPoint - Offset -
-            FVector(0, 0, (Box.Min.Z + MeshHeight * EmbedFraction) * Scale);
+        // Rotate the complete scaled contact point, including its vertical
+        // offset. Subtracting only a world-Z offset lifts tilted meshes off
+        // their traced ground and visibly makes rocks/vegetation hover.
+        const FVector LocalContact((Box.Min.X + Box.Max.X) * 0.5f,
+            (Box.Min.Y + Box.Max.Y) * 0.5f,
+            Box.Min.Z + MeshHeight * EmbedFraction);
+        const FVector Position = Hit.ImpactPoint -
+            Rotation.RotateVector(LocalContact * InstanceScale);
         const int32 InstanceIndex = Target->AddInstance(FTransform(Rotation, Position, InstanceScale), true);
         if (InstanceIndex < 0) continue;
         if (Habitat == 1 || Habitat == 2 || Habitat == 5)
@@ -177,7 +189,9 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
 void AASHBOUNDRebirthPopulation::BeginPlay()
 {
     Super::BeginPlay();
-    bGenesisMode = GetWorld() && GetWorld()->GetMapName().Contains(TEXT("GenesisWorld"));
+    bGenesisMode = GetWorld() &&
+        (GetWorld()->GetMapName().Contains(TEXT("GenesisWorld")) ||
+         GetWorld()->GetMapName().Contains(TEXT("GenesisHalfStepWorld")));
     ScatterCenter = GetActorLocation();
     if (bGenesisMode)
     {
