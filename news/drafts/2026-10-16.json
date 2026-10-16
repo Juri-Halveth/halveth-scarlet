@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "createdAt": "2026-10-16T17:27:03.238Z",
+  "target": {
+    "kind": "profile",
+    "name": "Halveth"
+  },
+  "state": "DRAFT_ONLY",
+  "title": "HALVETH Quellen-Update · 2026-10-16",
+  "body": "# HALVETH Quellen-Update · 2026-10-16\n\nTagesentwurf für u/Halveth. Noch nicht auf Reddit veröffentlicht.\n\nNeue Meldungen aus offiziellen Quellen. Die folgenden Überschriften bleiben im englischen Original; sie sind keine von HALVETH verfassten Zusammenfassungen.\n\n- **NASA** · Originaltitel (EN): [Artemis II Heat Shield After Splashdown](https://www.nasa.gov/image-article/artemis-ii-heat-shield-after-splashdown/) · veröffentlicht 2026-10-16\n- **NASA** · Originaltitel (EN): [I Am Artemis: Allison Mjoen](https://www.nasa.gov/missions/station/i-am-artemis-allison-mjoen/) · veröffentlicht 2026-10-16\n- **GitHub Changelog** · Originaltitel (EN): [Open source license compliance generally available](https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available) · veröffentlicht 2026-10-16\n- **NASA** · Originaltitel (EN): [NASA’s Hubble Spies Spiral’s Edge](https://science.nasa.gov/missions/hubble/nasas-hubble-spies-spirals-edge/) · veröffentlicht 2026-10-16\n- **GitHub Changelog** · Originaltitel (EN): [Xcode 27 runner image generally available](https://github.blog/changelog/2026-10-15-xcode-27-runner-image-generally-available) · veröffentlicht 2026-10-16\n\n[Alle Quellen mit Abrufzeit und Aktualitätsstatus](https://juri-halveth.github.io/halveth-scarlet/news/?lang=de)\n\nHALVETH · automatisiert zusammengestellter Quellenüberblick. Die Quellen bleiben für Inhalt und Einordnung maßgeblich.\n",
+  "items": [
+    {
+      "id": "f899e30222bf644bedc9f6c9",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Artemis II Heat Shield After Splashdown",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/artemis-ii-heat-shield-after-splashdown/",
+      "sourcePublishedAt": "2026-10-16T16:28:01Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
+      "firstFetchedAt": "2026-10-16T17:27:03Z"
+    },
+    {
+      "id": "3b5dbc13df98572c87640b0c",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "I Am Artemis: Allison Mjoen",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/missions/station/i-am-artemis-allison-mjoen/",
+      "sourcePublishedAt": "2026-10-16T14:24:29Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
+      "firstFetchedAt": "2026-10-16T17:27:03Z"
+    },
+    {
+      "id": "97665fd5758ad12c8193b0af",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Open source license compliance generally available",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available",
+      "sourcePublishedAt": "2026-10-16T14:00:32Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
+      "firstFetchedAt": "2026-10-16T17:27:03Z"
+    },
+    {
+      "id": "5c0d8f6486aaa5554d1507cf",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Hubble Spies Spiral’s Edge",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-spies-spirals-edge/",
+      "sourcePublishedAt": "2026-10-16T12:42:08Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
+      "firstFetchedAt": "2026-10-16T17:27:03Z"
+    },
+    {
+      "id": "1d717ea1f886632875385b7a",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Xcode 27 runner image generally available",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-15-xcode-27-runner-image-generally-available",
+      "sourcePublishedAt": "2026-10-16T04:36:30Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
+      "firstFetchedAt": "2026-10-16T17:27:03Z"
+    }
+  ],
+  "idempotencyKey": "dc3810965d55ebc4490eec58b20c98079951c2ccd8e212c69e16d1b3d9fe87c9"
+}

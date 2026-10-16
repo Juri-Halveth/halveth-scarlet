@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T12:29:38Z",
+  "generatedAt": "2026-10-16T17:27:03Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-16T12:29:38Z",
-      "lastSuccessAt": "2026-10-16T12:29:38Z",
+      "lastAttemptAt": "2026-10-16T17:27:03Z",
+      "lastSuccessAt": "2026-10-16T17:27:03Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,68 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-16T12:29:38Z",
-      "lastSuccessAt": "2026-10-16T12:29:38Z",
+      "lastAttemptAt": "2026-10-16T17:27:03Z",
+      "lastSuccessAt": "2026-10-16T17:27:03Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "f899e30222bf644bedc9f6c9",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Artemis II Heat Shield After Splashdown",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/image-article/artemis-ii-heat-shield-after-splashdown/",
+      "sourcePublishedAt": "2026-10-16T16:28:01Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
+      "firstFetchedAt": "2026-10-16T17:27:03Z"
+    },
+    {
+      "id": "3b5dbc13df98572c87640b0c",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "I Am Artemis: Allison Mjoen",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/missions/station/i-am-artemis-allison-mjoen/",
+      "sourcePublishedAt": "2026-10-16T14:24:29Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
+      "firstFetchedAt": "2026-10-16T17:27:03Z"
+    },
+    {
+      "id": "97665fd5758ad12c8193b0af",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Open source license compliance generally available",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available",
+      "sourcePublishedAt": "2026-10-16T14:00:32Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
+      "firstFetchedAt": "2026-10-16T17:27:03Z"
+    },
+    {
+      "id": "5c0d8f6486aaa5554d1507cf",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA’s Hubble Spies Spiral’s Edge",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-spies-spirals-edge/",
+      "sourcePublishedAt": "2026-10-16T12:42:08Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
+      "firstFetchedAt": "2026-10-16T17:27:03Z"
+    },
+    {
+      "id": "1d717ea1f886632875385b7a",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Xcode 27 runner image generally available",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-15-xcode-27-runner-image-generally-available",
+      "sourcePublishedAt": "2026-10-16T04:36:30Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
+      "firstFetchedAt": "2026-10-16T17:27:03Z"
+    },
     {
       "id": "876f2e365ccffb939aea3c04",
       "sourceId": "nasa",
@@ -32,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-16-chasing-the-international-space-station/",
       "sourcePublishedAt": "2026-10-16T04:05:00Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
@@ -43,18 +98,18 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/isaias-dims-the-gulf-coast/",
       "sourcePublishedAt": "2026-10-16T04:00:00Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
       "id": "6fdf4a6bc9a49fd054fb2c60",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
-      "title": "Multi-repo support and other improvements for GitHub Copilot in Slack and Microsoft Teams",
+      "title": "Multi-repo support and other improvements for GitHub in Slack and Teams",
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates",
       "sourcePublishedAt": "2026-10-16T02:16:35Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
@@ -65,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-download-github-code-quality-license-usage-as-a-csv",
       "sourcePublishedAt": "2026-10-15T20:11:26Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -76,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/directorates/smd/planetary-science-division/nasa-to-help-unlock-mysteries-of-mars-moons-in-upcoming-mission/",
       "sourcePublishedAt": "2026-10-15T19:58:08Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -87,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november",
       "sourcePublishedAt": "2026-10-15T19:35:13Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -98,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/nasa-satellites-observe-historic-2026-el-nino/",
       "sourcePublishedAt": "2026-10-15T17:59:22Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-15T19:11:34Z"
     },
     {
@@ -109,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/missions/station/iss-research/power-up-roll-out-solar-arrays-boost-space-station-power-supply/",
       "sourcePublishedAt": "2026-10-15T17:30:00Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-15T19:11:34Z"
     },
     {
@@ -120,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/general/nasa-to-conduct-low-altitude-flights-over-texas-farmland/",
       "sourcePublishedAt": "2026-10-15T16:42:10Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-15T19:11:34Z"
     },
     {
@@ -131,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/universe/nasa-welcomes-all-ages-experience-levels-for-space-apps-challenge/",
       "sourcePublishedAt": "2026-10-15T16:13:08Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-15T19:11:34Z"
     },
     {
@@ -153,7 +208,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available",
       "sourcePublishedAt": "2026-10-15T15:04:51Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-15T19:11:34Z"
     },
     {
@@ -186,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability",
       "sourcePublishedAt": "2026-10-15T13:49:20Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-15T15:04:26Z"
     },
     {
@@ -197,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-email-notifications-for-repository-push-events-have-been-retired",
       "sourcePublishedAt": "2026-10-15T13:42:19Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-15T15:04:26Z"
     },
     {
@@ -241,7 +296,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option",
       "sourcePublishedAt": "2026-10-14T20:01:35Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-14T20:45:26Z"
     },
     {
@@ -296,7 +351,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview",
       "sourcePublishedAt": "2026-10-14T13:49:15Z",
-      "fetchedAt": "2026-10-16T12:29:38Z",
+      "fetchedAt": "2026-10-16T17:27:03Z",
       "firstFetchedAt": "2026-10-14T17:14:45Z"
     },
     {
@@ -465,17 +520,6 @@
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
-      "id": "dd53e3f058a1b779153955ca",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "TB 26-08 Complex Modes in Lightly Damped Structural Systems: A Two-Mode Interaction Perspective",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-08-complex-modes-in-lightly-damped-structural-systemsa-two-mode-interaction-perspective/",
-      "sourcePublishedAt": "2026-10-13T15:02:21Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
-      "firstFetchedAt": "2026-10-13T16:02:40Z"
-    },
-    {
       "id": "1b3d7c4e863349bcc378e59d",
       "sourceId": "github",
       "publisher": "GitHub Changelog",
@@ -484,17 +528,6 @@
       "url": "https://github.blog/changelog/2026-10-13-improved-detection-for-withdrawn-dependabot-alerts",
       "sourcePublishedAt": "2026-10-13T14:03:57Z",
       "fetchedAt": "2026-10-15T15:04:26Z",
-      "firstFetchedAt": "2026-10-13T16:02:40Z"
-    },
-    {
-      "id": "9bbfc0f84ff7a182abdfd172",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA JPL Testing Readies Voyager Technologies Lander for Moon Mission",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/missions/moon-base/nasa-jpl-testing-readies-voyager-technologies-lander-for-moon-mission/",
-      "sourcePublishedAt": "2026-10-13T13:00:00Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -517,17 +550,6 @@
       "url": "https://github.blog/changelog/2026-10-13-code-scanning-ai-scan-metrics-in-security-overview",
       "sourcePublishedAt": "2026-10-13T12:03:17Z",
       "fetchedAt": "2026-10-15T09:58:39Z",
-      "firstFetchedAt": "2026-10-13T16:02:40Z"
-    },
-    {
-      "id": "e2b470dba130b961666e8c9c",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA Science, Cargo Launch on 35th SpaceX Resupply Mission to Station",
-      "titleLanguage": "en",
-      "url": "https://www.nasa.gov/news-release/nasa-science-cargo-launch-on-35th-spacex-resupply-mission-to-station/",
-      "sourcePublishedAt": "2026-10-13T11:12:18Z",
-      "fetchedAt": "2026-10-14T01:15:01Z",
       "firstFetchedAt": "2026-10-13T16:02:40Z"
     },
     {
@@ -660,28 +682,6 @@
       "url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection",
       "sourcePublishedAt": "2026-10-07T16:13:56Z",
       "fetchedAt": "2026-10-12T17:58:30Z",
-      "firstFetchedAt": "2026-10-07T22:00:58Z"
-    },
-    {
-      "id": "1e174328109aea325ae34ff3",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Local sandboxing for GitHub Copilot now generally available",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available",
-      "sourcePublishedAt": "2026-10-07T15:46:17Z",
-      "fetchedAt": "2026-10-12T07:24:25Z",
-      "firstFetchedAt": "2026-10-07T22:00:58Z"
-    },
-    {
-      "id": "8241d56116d90ff33b6b9c9b",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Discover local models in GitHub Copilot CLI",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-07-discover-local-models-in-github-copilot-cli",
-      "sourcePublishedAt": "2026-10-07T15:46:13Z",
-      "fetchedAt": "2026-10-10T18:39:03Z",
       "firstFetchedAt": "2026-10-07T22:00:58Z"
     }
   ]
