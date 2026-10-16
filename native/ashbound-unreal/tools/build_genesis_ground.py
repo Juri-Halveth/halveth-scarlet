@@ -74,7 +74,6 @@ else:
 # Migrate only this candidate map: a fixed origin grove would leave the rest
 # of the 5 km ground empty. The manager loads bounded, repeatable habitat cells.
 ecology_class = unreal.load_class(None, '/Script/ASHBOUNDUE.ASHBOUNDGenesisEcology')
-population_class = unreal.load_class(None, '/Script/ASHBOUNDUE.AASHBOUNDRebirthPopulation')
 if ecology_class is None:
     raise RuntimeError('Genesis ecology manager class unavailable')
 for actor in actors.get_all_level_actors():
@@ -91,3 +90,33 @@ if not managers:
         raise RuntimeError('Could not save Genesis ecology')
     unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True, True)
 unreal.log('ASHBOUND_GENESIS_ECOLOGY_AUTHORED managers=1')
+
+# Bind the candidate's daylight to this map. Automatic exposure otherwise
+# washed out the photographed soil and made distant vegetation read as a flat
+# colour strip; these values are evaluated again during visual QA.
+by_label = {actor.get_actor_label(): actor for actor in actors.get_all_level_actors()}
+for label, component_class, property_name, value in (
+        ('ASHBOUND / Sun', unreal.DirectionalLightComponent, 'intensity', 4.0),
+        ('ASHBOUND / Skylight', unreal.SkyLightComponent, 'intensity', 0.55),
+        ('ASHBOUND / Distance air', unreal.ExponentialHeightFogComponent,
+         'fog_density', 0.006)):
+    actor = by_label.get(label)
+    component = actor.get_component_by_class(component_class) if actor else None
+    if component is None:
+        raise RuntimeError('Genesis daylight component missing: ' + label)
+    component.set_editor_property(property_name, value)
+volume = by_label.get('ASHBOUND / Balanced daylight')
+if volume is None:
+    volume = actors.spawn_actor_from_class(unreal.PostProcessVolume,
+                                           unreal.Vector(), unreal.Rotator())
+    volume.set_actor_label('ASHBOUND / Balanced daylight')
+if not isinstance(volume, unreal.PostProcessVolume):
+    raise RuntimeError('Genesis daylight volume has unexpected type')
+volume.set_editor_property('unbound', True)
+settings = volume.get_editor_property('settings')
+settings.set_editor_property('override_auto_exposure_bias', True)
+settings.set_editor_property('auto_exposure_bias', -0.45)
+volume.set_editor_property('settings', settings)
+if not level.save_current_level():
+    raise RuntimeError('Could not save Genesis daylight')
+unreal.log('ASHBOUND_GENESIS_DAYLIGHT_AUTHORED exposure_bias=-0.45')
