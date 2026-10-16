@@ -1,4 +1,4 @@
-# Red Room × DER SCHLICHTER: lokale Gesprächsprobe
+# Red Room × DER SCHLICHTER: browserbasierte Gesprächsprobe
 
 ## Stand und Quellen
 
@@ -19,4 +19,4 @@ Die neue Seite `forschung/red-room-dialog/` ist ein eigenständiger SCARLET-Fors
 
 Bei T+2 zeigen `blocked` und `active` beide drei öffentliche Echos. Die zweite fiktive Perspektive erhält in beiden Fällen dieselbe modellgebundene Echoinformation. Zero zeigt separat null beziehungsweise drei aktive Kopien aus dem internen synthetischen Modell. Der Wechsel der Szenariowahl ändert keine Personenäußerung und keine Brückenoption. So wird sichtbare Spur nicht still zur Laufzeitbehauptung.
 
-Der Prototyp hat keinen Text-, Mikrofon-, Kamera- oder Netzwerk-Ingress, keine echten Teilnehmer, keine Einwilligung, keine emotionale oder biometrische Auswertung und keine Versöhnungswirkung. Sein Claim lautet ausschließlich: **Die entworfenen Rollen und Relationen sind an einem synthetischen Beispiel lokal bedienbar.**
+Der Prototyp ist in Deutsch und Englisch bedienbar. Er hat keinen Text-, Mikrofon-, Kamera- oder Netzwerk-Ingress, keine echten Teilnehmer, keine Einwilligung, keine emotionale oder biometrische Auswertung und keine Versöhnungswirkung. Sein Claim lautet ausschließlich: **Die entworfenen Rollen und Relationen sind an einem synthetischen Beispiel im Browser bedienbar.**

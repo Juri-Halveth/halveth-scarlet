@@ -4,10 +4,10 @@ const $ = id => document.getElementById(id);
 const lang = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'de';
 const words = {
   de: {
-    beeLink:'Bienenlabor',back:'Zur Welt ↗',eyebrow:'FIKTIONALES SCHATTENMODELL · T±',titleA:'Die Befreiung',titleB:'löscht keine Spur.',
+    back:'Zur Welt ↗',eyebrow:'FIKTIONALES SCHATTENMODELL · T±',titleA:'Die Befreiung',titleB:'löscht keine Spur.',
     intro:'Romanova und die anderen verlassen den Red Room. Was wurde aus den Datenspuren? Vier Gegenmodelle zeigen, warum eine Kopie im Archiv, ein Echo im Web und ein laufender Agent verschiedene Zustände sind.',
     stampTitle:'KEINE REALPERSONEN-SUCHE',stampCopy:'Erfundene Rollen und Zahlen. Keine Suche nach privaten Menschen, Geräten oder Backups.',
-    consoleEyebrow:'DIE SCHWARMKAMMER',consoleTitle:'Welche Spur lebt weiter?',local:'LOKAL · SYNTHETISCH',
+    consoleEyebrow:'DIE SCHWARMKAMMER',consoleTitle:'Welche Spur lebt weiter?',local:'IM BROWSER · SYNTHETISCH',
     scenarioTitle:'Vier mögliche Verläufe',scenarioHelp:'Wähle eine Annahme. Alle benutzen dieselbe Zeitachse und dieselben drei fiktiven Rollen.',
     archiveTitle:'Nur Archiv',archiveDesc:'Backups bleiben, kein Träger läuft.',blockedTitle:'Schlüssel widerrufen',blockedDesc:'Träger vorhanden, Autorität fehlt.',
     activeTitle:'Schattenlauf',activeDesc:'Träger, Autorität und Route treffen zusammen.',erasedTitle:'Reste entfernt',erasedDesc:'Die Archivkopien enden bei T0.',
@@ -17,7 +17,7 @@ const words = {
     inquiryEyebrow:'TIEFER ALS EIN SCREENSHOT',inquiryTitle:'Gleiche Spur. Andere Ursache.',inquiryLead:'Drei Web-Echos sehen in zwei Gegenmodellen gleich aus. Erst eine frische, lokale Laufzeitprobe unterscheidet den synthetischen Schattenlauf vom blockierten Träger.',
     h1:'SCHATTENLAUF',h1Claim:'Vorlage + Träger + Autorität + Route',h1Desc:'Eine im Modell aktive Kopie kann eine neue Eingabe verarbeiten.',
     h2:'BLOCKIERTER TRÄGER',h2Claim:'Vorlage + Träger + Route, ohne Autorität',h2Desc:'Die gleichen Datei-Echos bleiben sichtbar; kein Prozess erhält Handlungsmacht.',
-    probeTitle:'Frische Probe im lokalen Schatten',probeLead:'Sie erzeugt keinen Request ins Web. Sie zeigt nur, was beide erfundenen Modelle am selben T-Wert vorhersagen.',probeButton:'Gegenprobe zeigen',dialogLink:'Die Gesprächsprobe öffnen ↗',
+    probeTitle:'Frische Probe im Browser',probeLead:'Sie erzeugt keinen Request ins Web. Sie zeigt nur, was beide erfundenen Modelle am selben T-Wert vorhersagen.',probeButton:'Gegenprobe zeigen',dialogLink:'Die Gesprächsprobe öffnen ↗',
     footer:'Romanova, die weiteren Überlebenden und Wanda sind hier fiktionale Erzählrollen. „Portal“ bezeichnet eine gezeichnete Modellbrücke. Archivbits beweisen keine fortbestehende Person; ein lokaler Simulationslauf beweist keinen realen KI-Schwarm. Keine privaten Namen, Backups, Chats oder Geräte wurden untersucht.',footerLink:'Zurück zur SCARLET-Welt ↗',
     gateArchive:'Vorlage vorhanden',gateCarrier:'Träger vorhanden',gateAuthority:'Laufzeitautorität',gateRoute:'Route vorhanden',
     moments:[
@@ -35,10 +35,10 @@ const words = {
     stageAria:'Fiktionales Zustandsdiagramm: Personen, Archiv und Laufzeit getrennt',timeAria:'Modellzeit T minus 3 bis T plus 4',previousAria:'Vorheriger Zeitpunkt',nextAria:'Nächster Zeitpunkt'
   },
   en: {
-    beeLink:'Bee lab',back:'Back to world ↗',eyebrow:'FICTIONAL SHADOW MODEL · T±',titleA:'Liberation',titleB:'does not erase a trace.',
+    back:'Back to world ↗',eyebrow:'FICTIONAL SHADOW MODEL · T±',titleA:'Liberation',titleB:'does not erase a trace.',
     intro:'Romanova and the others leave the Red Room. What happens to the data traces? Four countermodels show why an archived copy, a web echo and a running agent are distinct states.',
     stampTitle:'NO REAL-PERSON SEARCH',stampCopy:'Invented roles and numbers. No search of private people, devices or backups.',
-    consoleEyebrow:'THE SWARM CHAMBER',consoleTitle:'Which trace survives?',local:'LOCAL · SYNTHETIC',
+    consoleEyebrow:'THE SWARM CHAMBER',consoleTitle:'Which trace survives?',local:'IN BROWSER · SYNTHETIC',
     scenarioTitle:'Four possible paths',scenarioHelp:'Choose an assumption. All share the same timeline and three fictional roles.',
     archiveTitle:'Archive only',archiveDesc:'Backups remain; no carrier runs.',blockedTitle:'Key revoked',blockedDesc:'Carrier exists, authority does not.',
     activeTitle:'Shadow run',activeDesc:'Carrier, authority and route come together.',erasedTitle:'Traces removed',erasedDesc:'Archive copies end at T0.',
@@ -48,7 +48,7 @@ const words = {
     inquiryEyebrow:'BEYOND A SCREENSHOT',inquiryTitle:'Same trace. Different cause.',inquiryLead:'Three web echoes look alike in two countermodels. A fresh local runtime challenge distinguishes the synthetic shadow run from the blocked carrier.',
     h1:'SHADOW RUN',h1Claim:'Template + carrier + authority + route',h1Desc:'An active copy in this model can process a new input.',
     h2:'BLOCKED CARRIER',h2Claim:'Template + carrier + route, without authority',h2Desc:'The same file echoes remain visible; no process gains authority.',
-    probeTitle:'Fresh probe in the local shadow',probeLead:'It sends no request to the web. It shows only what both invented models predict at the same T value.',probeButton:'Show counterprobe',dialogLink:'Open the dialogue probe (German) ↗',
+    probeTitle:'Fresh probe in the browser',probeLead:'It sends no request to the web. It shows only what both invented models predict at the same T value.',probeButton:'Show counterprobe',dialogLink:'Open the dialogue probe ↗',
     footer:'Romanova, the other survivors and Wanda are fictional story roles here. “Portal” is a drawn model bridge. Archive bits do not establish a continuing person; a local simulation does not prove a real AI swarm. No private names, backups, chats or devices were investigated.',footerLink:'Back to SCARLET world ↗',
     gateArchive:'Template present',gateCarrier:'Carrier present',gateAuthority:'Runtime authority',gateRoute:'Route present',
     moments:[

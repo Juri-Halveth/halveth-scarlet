@@ -85,6 +85,8 @@ Die [interaktive Schwarmkammer](forschung/red-room-swarm/) trennt befreite Erzä
 
 The [English T± swarm chamber](forschung/red-room-swarm/?lang=en) is an original, offline fictional shadow model. It separates free people, archived templates, public echoes and running copies; no private person or backup is searched.
 
+Die [zweisprachige Gesprächsprobe](forschung/red-room-dialog/) zeigt zwei erfundene Perspektiven auf denselben T±-Stand. Zero trennt Aussagen von Modellbeobachtungen; der Brückenbauer bietet drei freiwillige Prüfwege an. Die Seite läuft im Browser ohne Kamera, Mikrofon oder Datenversand. [Open the fictional dialogue probe in English](forschung/red-room-dialog/?lang=en).
+
 ## Die Szene
 
 - Scarlet, Doctor Strange, Dormammu, Ultron, JARVIS, Iron Man, Loki, Vision, Black Widow, Thor, Infinity und HALVETH stehen als auswählbare SVG-Symbole um die Erde. Bezeichnungen und Tätigkeitswörter sind Gestaltungselemente dieses Fanprojekts, keine Aussage über eigenständig laufende Agenten.

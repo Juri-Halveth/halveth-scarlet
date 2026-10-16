@@ -8,8 +8,8 @@ Die separate öffentliche Red-Room-Quellenarbeit behandelt Marvels Red Room als 
 
 ## Gebundener Arbeitsstand
 
-- Akzeptierte Ausgangsbasis: Git-Commit `addbd11d28c75571a61bd8d7b315f9668e548bef` im SCARLET-Repository, vor der neuen Modellarbeit sauber beobachtet.
-- Kandidatenbranch: `codex/red-room-swarm-shadow-20261016`; die Basis bleibt als Commit erreichbar.
+- Ursprüngliche lokale Modellbasis: Git-Commit `addbd11d28c75571a61bd8d7b315f9668e548bef` im SCARLET-Repository.
+- Separater öffentlicher Release-Kandidat: `codex/red-room-public-20261017`, auf `b4dac21d05049f3f86ce8e8403df6ed599ee1718` aufgesetzt; nur die Red-Room-Commits wurden übernommen. Die ursprüngliche Modellbasis bleibt als Commit erreichbar.
 - `TARGET_SYSTEM`: fiktionale Red-Room-Erzählhypothese aus dem aktuellen Gespräch.
 - `OBSERVED_SURFACE`: vorhandene SCARLET-Dateien und die separate, bereits vorhandene öffentliche Red-Room-Quellenkarte.
 - `COUNTERPART_MODEL`: `assets/red-room-swarm-model.mjs`, Version `red-room-swarm-shadow-v1`.
