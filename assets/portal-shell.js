@@ -36,6 +36,7 @@
     {id:'boundary',path:'forschung/grenzbeobachter/',index:'18',image:'nexus',accent:'#62dfcf',de:'Grenzbeobachter',en:'Boundary observers',deNote:'Festes und adaptives Beobachten im Modell',enNote:'Fixed and adaptive observation in a model'},
     {id:'gstar',path:'forschung/weltkeimwerk/',index:'19',image:'nexus',accent:'#ff443d',de:'G^* · Weltkeimwerk',en:'G^* · World seedwork',deNote:'Ein Zellraum entfaltet sich automatisch in der Zeit',enNote:'A cell space unfolds automatically in time'},
     {id:'ashbound',path:'forschung/ashbound/',index:'20',image:'gate',accent:'#b5ecd9',de:'ASHBOUND · Spielwelt',en:'ASHBOUND · game world',deNote:'Sechs Orte, Figuren, Entscheidungen und eine wandelbare 3D-Insel',enNote:'Six places, characters, choices and a changing 3D island'},
+    {id:'wegweiser',path:'forschung/wegweiser/',index:'21',image:'nexus',accent:'#8cebd2',de:'Wegweiser',en:'Project guide',deNote:'Zehn direkte Wege zu Menschen, Spielen und Forschung',enNote:'Ten direct paths to people, games and research'},
   ];
 
   const normalized=(url)=>decodeURI(url.pathname).replace(/index\.html$/i,'').replace(/\/+$/,'/')||'/';

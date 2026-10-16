@@ -78,9 +78,17 @@ test('every built HTML receives one local mobile stylesheet after its page style
       'forschung/ashbound/index.html',
       'forschung/ashbound/play/index.html',
       'forschung/juri-thesis/index.html',
+      'forschung/juri-thesis/wirkungswege.html',
+      'forschung/juri-thesis/wirtschaftslabor.html',
+      'forschung/juri-thesis/bruehl-atlas.html',
       'forschung/juri-thesis/chancenreise.html',
       'forschung/juri-thesis/konzept.html',
       'forschung/juri-thesis/rechtslabor.html',
+      'forschung/juri-thesis/versand.html',
+      'forschung/ba-uebergangsraum/index.html',
+      'forschung/ba-uebergangsraum/ez-nullmonat.html',
+      'forschung/ba-uebergangsraum/quellen.html',
+      'forschung/wegweiser/index.html',
     ].includes(path.relative(build,file).split(path.sep).join('/'));
     if(standalonePage){
       assert.equal(mobile.length,0,file);

@@ -49,9 +49,27 @@ for (const name of [...directories, ...files]) {
 }
 if (!fs.existsSync(path.join(output, 'forschung', 'ashbound', 'index.html'))) throw new Error('ASHBOUND public route missing');
 const pages = htmlFiles(output);
+const thesisDir=path.join(output,'forschung','juri-thesis');
+const thesisAssets=fs.readdirSync(thesisDir);
+// A versioned module entry still imports an unversioned dependency unless its
+// import URL is changed as well. Keep the source readable and version the copy.
+for (const name of thesisAssets.filter(name=>name.endsWith('.js'))) {
+  const file=path.join(thesisDir,name);
+  const source=fs.readFileSync(file,'utf8');
+  const built=source.replace(/(from\s+['"])(\.\/[^'"?]+\.mjs)(['"])/g,(match,start,importPath,end)=>{
+    const dependency=path.resolve(thesisDir,importPath);
+    if(path.dirname(dependency)!==thesisDir || !fs.existsSync(dependency)) throw new Error(`Missing local module: ${importPath}`);
+    const digest=createHash('sha256').update(fs.readFileSync(dependency)).digest('hex');
+    return start+importPath+'?v='+digest+end;
+  });
+  if(built!==source) fs.writeFileSync(file,built);
+}
 // Version shared presentation by the exact copied bytes, not a release label.
 const assetDigests=Object.fromEntries([
-  'assets/portal-shell.css','assets/portal-shell.js','languages/hub-language.css','assets/mobile.css'
+  'assets/portal-shell.css','assets/portal-shell.js','languages/hub-language.css','assets/mobile.css',
+  ...thesisAssets
+    .filter(name=>/\.(css|js)$/.test(name))
+    .map(name=>'forschung/juri-thesis/'+name)
 ].map(asset=>[asset,createHash('sha256').update(fs.readFileSync(path.join(output,asset))).digest('hex')]));
 for (const file of pages) {
   const relative=path.relative(output,file).split(path.sep).join('/');
@@ -60,9 +78,17 @@ for (const file of pages) {
     'forschung/ashbound/index.html',
     'forschung/ashbound/play/index.html',
     'forschung/juri-thesis/index.html',
+    'forschung/juri-thesis/wirkungswege.html',
+    'forschung/juri-thesis/bruehl-atlas.html',
+    'forschung/juri-thesis/wirtschaftslabor.html',
     'forschung/juri-thesis/chancenreise.html',
     'forschung/juri-thesis/konzept.html',
     'forschung/juri-thesis/rechtslabor.html',
+    'forschung/juri-thesis/versand.html',
+    'forschung/ba-uebergangsraum/index.html',
+    'forschung/ba-uebergangsraum/ez-nullmonat.html',
+    'forschung/ba-uebergangsraum/quellen.html',
+    'forschung/wegweiser/index.html',
   ].includes(relative);
   const prefix=relativeRoot+'languages/';
   const html=fs.readFileSync(file,'utf8').replace(/<!-- HUB_LANGUAGES_START -->[\s\S]*?<!-- HUB_LANGUAGES_END -->/g,'').replace(/<!-- MOBILE_LAYOUT_START -->[\s\S]*?<!-- MOBILE_LAYOUT_END -->/g,'');
@@ -71,8 +97,9 @@ for (const file of pages) {
   const built=html.replace(/(<head[^>]*>)/,match=>match+tags).replace(/<\/head>/i,mobile+'</head>');
   fs.writeFileSync(file,built.replace(/\b(src|href)=(["'])([^"']+)\2/g,(match,attribute,quote,url)=>{
     const pathname=url.split(/[?#]/)[0];
-    const asset=Object.keys(assetDigests).find(name=>pathname===relativeRoot+name);
-    return asset?attribute+'='+quote+pathname+'?v='+assetDigests[asset]+quote:match;
+    if (/^(?:[a-z]+:|\/\/|#)/i.test(pathname)) return match;
+    const linked=path.relative(output,path.resolve(path.dirname(file),pathname)).split(path.sep).join('/');
+    return assetDigests[linked]?attribute+'='+quote+pathname+'?v='+assetDigests[linked]+quote:match;
   }));
 }
 const urls = pages.map(file => siteURL + path.relative(output, file).split(path.sep).join('/').replace(/index\.html$/, ''));

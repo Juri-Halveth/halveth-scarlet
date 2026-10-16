@@ -23,3 +23,12 @@
 @media(max-width:1100px){.allocation-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.allocation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:530px){.allocation-grid{grid-template-columns:1fr}}
+.topbar nav a[aria-current="page"]{color:#245e4d;text-decoration:underline;text-underline-offset:7px}
+.hero{min-height:620px}
+.hero h1{font-size:clamp(3.1rem,5.2vw,5.5rem)}
+.dispatch-strip{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;padding:17px clamp(20px,7vw,120px);background:#e6f1ea;color:#173d35;border-block:1px solid #aec9bb;font-size:.9rem;line-height:1.5}
+.dispatch-strip strong{font-weight:850}
+.dispatch-strip span{max-width:74ch}
+.dispatch-strip a{color:#174b3e;font-weight:800;text-underline-offset:3px;white-space:nowrap}
+.dispatch-strip :focus-visible,.topbar :focus-visible{outline:3px solid #a76f13;outline-offset:4px}
+@media(max-width:760px){.topbar nav{overflow:visible;flex-wrap:wrap;white-space:normal;gap:9px 17px}.hero{min-height:0}.hero h1{font-size:clamp(2.8rem,10vw,4.4rem)}.dispatch-strip{align-items:flex-start;justify-content:flex-start;gap:6px 14px}}
