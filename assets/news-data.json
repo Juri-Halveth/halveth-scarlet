@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T17:27:03Z",
+  "generatedAt": "2026-10-16T21:13:10Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-16T17:27:03Z",
-      "lastSuccessAt": "2026-10-16T17:27:03Z",
+      "lastAttemptAt": "2026-10-16T21:13:10Z",
+      "lastSuccessAt": "2026-10-16T21:13:10Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,24 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-16T17:27:03Z",
-      "lastSuccessAt": "2026-10-16T17:27:03Z",
+      "lastAttemptAt": "2026-10-16T21:13:10Z",
+      "lastSuccessAt": "2026-10-16T21:13:10Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "472f9f8e7d3f265b598f26b0",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "NASA Names Stephen Cash Marshall Space Flight Center Director",
+      "titleLanguage": "en",
+      "url": "https://www.nasa.gov/news-release/nasa-names-stephen-cash-marshall-space-flight-center-director/",
+      "sourcePublishedAt": "2026-10-16T20:14:39Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
+      "firstFetchedAt": "2026-10-16T21:13:10Z"
+    },
     {
       "id": "f899e30222bf644bedc9f6c9",
       "sourceId": "nasa",
@@ -32,7 +43,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/artemis-ii-heat-shield-after-splashdown/",
       "sourcePublishedAt": "2026-10-16T16:28:01Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -43,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/missions/station/i-am-artemis-allison-mjoen/",
       "sourcePublishedAt": "2026-10-16T14:24:29Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -54,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available",
       "sourcePublishedAt": "2026-10-16T14:00:32Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -65,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-spies-spirals-edge/",
       "sourcePublishedAt": "2026-10-16T12:42:08Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -76,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-xcode-27-runner-image-generally-available",
       "sourcePublishedAt": "2026-10-16T04:36:30Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -87,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-16-chasing-the-international-space-station/",
       "sourcePublishedAt": "2026-10-16T04:05:00Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
@@ -98,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/isaias-dims-the-gulf-coast/",
       "sourcePublishedAt": "2026-10-16T04:00:00Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
@@ -109,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates",
       "sourcePublishedAt": "2026-10-16T02:16:35Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
@@ -120,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-download-github-code-quality-license-usage-as-a-csv",
       "sourcePublishedAt": "2026-10-15T20:11:26Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -131,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/directorates/smd/planetary-science-division/nasa-to-help-unlock-mysteries-of-mars-moons-in-upcoming-mission/",
       "sourcePublishedAt": "2026-10-15T19:58:08Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -142,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november",
       "sourcePublishedAt": "2026-10-15T19:35:13Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -153,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/nasa-satellites-observe-historic-2026-el-nino/",
       "sourcePublishedAt": "2026-10-15T17:59:22Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-15T19:11:34Z"
     },
     {
@@ -164,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/missions/station/iss-research/power-up-roll-out-solar-arrays-boost-space-station-power-supply/",
       "sourcePublishedAt": "2026-10-15T17:30:00Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-15T19:11:34Z"
     },
     {
@@ -175,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/general/nasa-to-conduct-low-altitude-flights-over-texas-farmland/",
       "sourcePublishedAt": "2026-10-15T16:42:10Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-15T19:11:34Z"
     },
     {
@@ -208,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available",
       "sourcePublishedAt": "2026-10-15T15:04:51Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-15T19:11:34Z"
     },
     {
@@ -241,7 +252,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability",
       "sourcePublishedAt": "2026-10-15T13:49:20Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-15T15:04:26Z"
     },
     {
@@ -252,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-email-notifications-for-repository-push-events-have-been-retired",
       "sourcePublishedAt": "2026-10-15T13:42:19Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-15T15:04:26Z"
     },
     {
@@ -296,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option",
       "sourcePublishedAt": "2026-10-14T20:01:35Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-14T20:45:26Z"
     },
     {
@@ -351,7 +362,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview",
       "sourcePublishedAt": "2026-10-14T13:49:15Z",
-      "fetchedAt": "2026-10-16T17:27:03Z",
+      "fetchedAt": "2026-10-16T21:13:10Z",
       "firstFetchedAt": "2026-10-14T17:14:45Z"
     },
     {
@@ -483,17 +494,6 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/organizations/ogc/job-opportunities-nasa-office-of-the-general-counsel/",
       "sourcePublishedAt": "2026-10-13T17:16:00Z",
-      "fetchedAt": "2026-10-14T11:59:20Z",
-      "firstFetchedAt": "2026-10-13T21:17:53Z"
-    },
-    {
-      "id": "4c493ed319e7f16a9de2c18b",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Voyager Technologies’ Griffin-1 Completes Environmental Testing at NASA JPL",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/photojournal/voyager-technologies-griffin-1-completes-environmental-testing-at-nasa-jpl/",
-      "sourcePublishedAt": "2026-10-13T17:11:11Z",
       "fetchedAt": "2026-10-14T11:59:20Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
