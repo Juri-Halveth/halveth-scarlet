@@ -11,6 +11,19 @@ Rechenmodell mit der bereits an die Stadt gemeldeten JURI-THESIS. Ein privater
 Pilotfonds ist darin ein neues, gesondert zu vereinbarendes Budget und keine
 automatische Verwendung eines persönlichen MICROVALUE-Anteils.
 
+## Persönliches Einmalangebot
+
+Die öffentliche Hauptseite führt nun die persönliche Verhandlungslogik zuerst:
+ein konkret benannter Beitrag gegen eine freiwillig vereinbarte Einmalzahlung;
+danach kann der Vertragspartner die ausdrücklich vereinbarte Nutzung oder
+Leistung ohne laufende Mikrovergütung aus diesem Vertrag fortführen. Vier
+offene Einstiege sind ein Nutzungsrecht an einem tatsächlich geschützten Werk,
+ein beauftragter Dienst oder Werkerfolg, ein direkter Festpreis für den
+benannten Beitrag und die spätere Ablösung einer zuvor vertraglich geschaffenen
+Vorgangsbeteiligung. Diese Möglichkeiten sind nicht abschließend. Die bloße
+Rechenidee oder eine veröffentlichte Statistik schafft keinen Zahlungsanspruch.
+Die Stadtidee ist auf der Hauptseite nur ein kurzer Querverweis.
+
 ## Tatsächlich veröffentlichte Zahlen und Regeln
 
 | Quelle | Gebundene Aussage | Grenze |

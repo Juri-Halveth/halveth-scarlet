@@ -44,11 +44,12 @@
     .bar { background:var(--accent); height:100%; border-radius:20px; }
     .math { background:var(--pale); border-left:5px solid var(--accent); padding:18px 20px; border-radius:0 10px 10px 0; overflow-wrap:anywhere; }
     .choices { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .choices.four { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .choice { border:1px solid var(--line); border-radius:12px; padding:16px; background:var(--paper); }
     .choice b { display:block; margin-bottom:6px; }
     a { color:#075a70; }
     footer { color:var(--muted); font-size:.86rem; padding:20px 2px; }
-    @media (max-width:760px) { .grid,.grid.two,.choices,.result { grid-template-columns:1fr; } .cent {grid-template-columns:repeat(2,1fr)} .year { grid-template-columns:65px 1fr 95px; } .year .fallback { grid-column:3; } .year .normal { display:none; } }
+    @media (max-width:760px) { .grid,.grid.two,.choices,.choices.four,.result { grid-template-columns:1fr; } .cent {grid-template-columns:repeat(2,1fr)} .year { grid-template-columns:65px 1fr 95px; } .year .fallback { grid-column:3; } .year .normal { display:none; } }
   </style>
 </head>
 <body>
@@ -56,8 +57,21 @@
   <header>
     <div class="eyebrow">HALVETH / MICROVALUE / Szenariorechner</div>
     <h1>Was wäre mein Anteil bis 67 – auf einen Schlag?</h1>
-    <p>Ein Mensch hat endlich Zeit. Ein Geschäft kann wachsen. Was wäre es wert, einen möglichen Anteil an künftigen Vorgängen heute in einer Summe abzulösen? Hier lässt sich die Rechnung verändern und bis zum 67. Geburtstag verfolgen.</p>
+    <p>Mein Vorschlag: Wir einigen uns auf eine einmalige Auszahlung für meinen konkret vereinbarten Beitrag. Danach führt der Partner sein Geschäft weiter. Der Rechner zeigt, wie ich den Betrag bis 67 begründe; der Weg dorthin ist eine Verhandlung über Leistung, Rechte und Preis.</p>
   </header>
+
+  <section class="panel" aria-labelledby="proposal-title">
+    <h2 id="proposal-title">Mein Teil jetzt. Ihr Geschäft danach.</h2>
+    <p class="lede">Ich möchte meinen Beitrag nicht bis zum 67. Geburtstag in winzigen Monats- oder Vorgangsbeträgen verfolgen müssen. Ich biete eine <strong>einmalige, vertraglich definierte Abgeltung</strong> an. Dafür braucht es einen bestimmten Leistungsgegenstand und einen Partner, der den Preis akzeptiert. Nach Zahlung soll er die ausdrücklich vereinbarte Leistung oder Nutzung ohne laufende Beteiligung aus diesem Vertrag fortführen können.</p>
+    <div class="choices four">
+      <div class="choice"><b>Tür A · Werk nutzen</b>Eigene Texte, Grafiken oder Software können – soweit sie tatsächlich geschützt sind und mir die Nutzungsrechte zustehen – mit genau benanntem Nutzungsumfang lizenziert werden. Die bloße Rechenidee ist dadurch nicht exklusiv.</div>
+      <div class="choice"><b>Tür B · Arbeit beauftragen</b>Forschung, Produktentwurf, Auditlogik oder eine Umsetzung können als überprüfbare Leistung mit Festpreis vereinbart werden. Je nach Vertragsform werden Tätigkeit oder ein bestimmter Erfolg geschuldet. Das setzt einen Auftrag voraus, aber keinen zuvor bewiesenen Verstoß.</div>
+      <div class="choice"><b>Tür C · Direkter Festpreis</b>Für einen benannten Beitrag und eine bestimmte Nutzung können beide Seiten unmittelbar einen Einmalbetrag vereinbaren. Eine Vorgangsbeteiligung muss dafür nicht erst eingerichtet werden.</div>
+      <div class="choice"><b>Tür D · Beteiligung ablösen</b>Wenn die Parteien erst eine Vorgangsbeteiligung vereinbaren, können sie diese definierte künftige Reihe später gegen eine einmalige Summe abgelten. Welche Vorgänge und welcher Zeitraum zählen, steht im Vertrag.</div>
+    </div>
+    <p class="math"><strong>Was ich anbiete:</strong> eine bestimmte Gegenleistung und eine klare Schlussrechnung – keine Kontrolle über das gesamte Zahlungsnetz. <strong>Was der Partner erhält:</strong> die vereinbarte Nutzung oder Leistung und anschließend Planungssicherheit. Eine Einigung entsteht durch beiderseitige Zustimmung, nicht durch den Rechner allein.</p>
+    <p class="subtle">Diese Türen sind Einstiege, keine abschließende Liste. Eine andere rechtmäßige Vereinbarung kann ihren eigenen Gegenstand und Preis bekommen.</p>
+  </section>
 
   <section class="panel" aria-labelledby="cent-title">
     <h2 id="cent-title">Erst der eine Cent. Dann die unsichtbare vierte Stelle.</h2>
@@ -138,18 +152,17 @@
   </section>
 
   <section class="panel" aria-labelledby="path-title">
-    <h2 id="path-title">Von der Rechenzahl zur Auszahlung heute</h2>
+    <h2 id="path-title">So wird aus dem Vorschlag ein unterschreibbarer Vertrag</h2>
     <div class="choices">
-      <div class="choice"><b>1. Pool</b>Wer stellt den einen Cent beziehungsweise die Vergütung je Vorgang tatsächlich bereit? Betreiberbudget, vereinbarte Leistung oder Pilotbudget?</div>
-      <div class="choice"><b>2. Recht und Regel</b>Welcher Vertrag gibt dir den Anteil? Welche Vorgänge zählen, welche Rückbuchungen nicht, und wer bestimmt die soziale Weitergabe?</div>
-      <div class="choice"><b>3. Auskauf</b>Die Gegenpartei müsste die künftige, unsichere Reihe freiwillig gegen einen heute fälligen Festbetrag ablösen. Die Summe oben ist dein nomineller Vorschlag, kein automatisch geschuldeter Betrag.</div>
+      <div class="choice"><b>1. Gegenstand</b>Welche konkrete Arbeit, welche Dateien oder welche benannte Beteiligung stehen zur Verfügung? Bestehende Lizenzen und Rechte Dritter werden je Artefakt geprüft.</div>
+      <div class="choice"><b>2. Preis</b>Die rohe Rechnung bis 67 ist mein Verhandlungsanker. Der tatsächlich vereinbarte Einmalbetrag, Zahlungszeitpunkt, Steuern und mögliche Raten stehen als eigene Vertragsfelder.</div>
+      <div class="choice"><b>3. Danach</b>Nach erfüllter Zahlung darf der Partner im vereinbarten Umfang weitermachen. Was abgegolten ist und welche Rechte bei mir bleiben, wird ausdrücklich festgehalten; ein pauschaler Verzicht auf andere Angelegenheiten gehört nicht still dazu.</div>
     </div>
-    <p>Dein Wunsch „ohne Zinsen“ ist umgesetzt. Trotzdem bleibt Geschäftswachstum ungewiss: Der Rechner zeigt eine <strong>Wenn-dann-Summe</strong>, keine sichere Forderung. Die <a href="https://www.deutsche-rentenversicherung.de/SharedDocs/Glossareintraege/DE/A/altersgrenze">Deutsche Rentenversicherung beschreibt 67 als Regelaltersgrenze für Jahrgänge ab 1964</a>; hier dient 67 vor allem als dein gewählter Rechenhorizont.</p>
+    <p>Die Rechnung bleibt bewusst ohne Zinsen. Geschäftswachstum und vertragliche Erfassung sind ungewiss; die Summe ist ein <strong>Wenn-dann-Angebot</strong>, keine bereits fällige Forderung. Die <a href="https://www.deutsche-rentenversicherung.de/SharedDocs/Glossareintraege/DE/A/altersgrenze">Deutsche Rentenversicherung beschreibt 67 als Regelaltersgrenze für Jahrgänge ab 1964</a>; hier dient 67 als gewählter Rechenhorizont. <a href="https://www.gesetze-im-internet.de/bgb/__311.html">§ 311 BGB</a> beschreibt den Vertrag als Weg zu einem rechtsgeschäftlichen Schuldverhältnis; <a href="https://www.gesetze-im-internet.de/urhg/__31.html">§ 31 UrhG</a> erlaubt die Einräumung bestimmter Nutzungsrechte an geschützten Werken. <a href="https://www.dpma.de/service/schutzrechte_kurz_erklaert/urheberrecht/">Das DPMA unterscheidet das geschützte Werk von einer bloßen Idee</a>.</p>
   </section>
   <section class="panel" aria-labelledby="bruehl-title">
-    <h2 id="bruehl-title">Und wenn ein Teil eine Stadt bewegt?</h2>
-    <p class="lede">Für Brühl liegt bereits ein Vorschlag vor: 30 Menschen sollen Entwicklungszeit und individuelle Möglichkeiten erhalten. MICROVALUE könnte zu einer <strong>neu vereinbarten privaten Finanzierungsroute</strong> für diesen Pilot werden. Ein eigener Stadtfonds benötigt einen realen Zahler; er entsteht nicht durch die Zerlegung des persönlichen Anteils.</p>
-    <p><a href="bruehl-partnerschaft.html"><strong>Ein Cent, eine Stadt, 30 Möglichkeiten – Partnerschaft und Finanzierung durchrechnen ↗</strong></a></p>
+    <h2 id="bruehl-title">Ein Zwinkern nach Brühl</h2>
+    <p>Der Vorschlag für 30 Menschen wurde laut Versandmeldung an die Stadt geschickt. Falls später ein Partner zusätzlich einen Stadtpilot ermöglichen möchte, ist das <a href="bruehl-partnerschaft.html">eine eigene Idee mit eigener Finanzierung</a>. Mein Einmalangebot hier hängt davon nicht ab.</p>
   </section>
   <footer>HALVETH / Juri Janovski · 17.10.2026 · Öffentlicher Modellrechner · Eingaben bleiben in diesem Browser. <a href="../../index.html">Zur Scarlet-Startseite</a></footer>
 </main>
