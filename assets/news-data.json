@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-17T19:27:37Z",
+  "generatedAt": "2026-10-17T22:22:11Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,17 +8,17 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-17T19:27:37Z",
+      "lastAttemptAt": "2026-10-17T22:22:11Z",
       "lastSuccessAt": "2026-10-17T19:27:37Z",
-      "status": "fresh",
-      "error": null
+      "status": "failed",
+      "error": "FETCH_OR_VALIDATION_FAILED"
     },
     {
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-17T19:27:37Z",
-      "lastSuccessAt": "2026-10-17T19:27:37Z",
+      "lastAttemptAt": "2026-10-17T22:22:11Z",
+      "lastSuccessAt": "2026-10-17T22:22:11Z",
       "status": "fresh",
       "error": null
     }
@@ -76,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available",
       "sourcePublishedAt": "2026-10-16T14:00:32Z",
-      "fetchedAt": "2026-10-17T19:27:37Z",
+      "fetchedAt": "2026-10-17T22:22:11Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -98,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-xcode-27-runner-image-generally-available",
       "sourcePublishedAt": "2026-10-16T04:36:30Z",
-      "fetchedAt": "2026-10-17T19:27:37Z",
+      "fetchedAt": "2026-10-17T22:22:11Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -131,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates",
       "sourcePublishedAt": "2026-10-16T02:16:35Z",
-      "fetchedAt": "2026-10-17T19:27:37Z",
+      "fetchedAt": "2026-10-17T22:22:11Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
@@ -142,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-download-github-code-quality-license-usage-as-a-csv",
       "sourcePublishedAt": "2026-10-15T20:11:26Z",
-      "fetchedAt": "2026-10-17T19:27:37Z",
+      "fetchedAt": "2026-10-17T22:22:11Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -164,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november",
       "sourcePublishedAt": "2026-10-15T19:35:13Z",
-      "fetchedAt": "2026-10-17T19:27:37Z",
+      "fetchedAt": "2026-10-17T22:22:11Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -230,7 +230,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available",
       "sourcePublishedAt": "2026-10-15T15:04:51Z",
-      "fetchedAt": "2026-10-17T19:27:37Z",
+      "fetchedAt": "2026-10-17T22:22:11Z",
       "firstFetchedAt": "2026-10-15T19:11:34Z"
     },
     {
@@ -263,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability",
       "sourcePublishedAt": "2026-10-15T13:49:20Z",
-      "fetchedAt": "2026-10-17T19:27:37Z",
+      "fetchedAt": "2026-10-17T22:22:11Z",
       "firstFetchedAt": "2026-10-15T15:04:26Z"
     },
     {
@@ -274,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-email-notifications-for-repository-push-events-have-been-retired",
       "sourcePublishedAt": "2026-10-15T13:42:19Z",
-      "fetchedAt": "2026-10-17T19:27:37Z",
+      "fetchedAt": "2026-10-17T22:22:11Z",
       "firstFetchedAt": "2026-10-15T15:04:26Z"
     },
     {
@@ -318,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option",
       "sourcePublishedAt": "2026-10-14T20:01:35Z",
-      "fetchedAt": "2026-10-17T19:27:37Z",
+      "fetchedAt": "2026-10-17T22:22:11Z",
       "firstFetchedAt": "2026-10-14T20:45:26Z"
     },
     {
@@ -373,7 +373,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview",
       "sourcePublishedAt": "2026-10-14T13:49:15Z",
-      "fetchedAt": "2026-10-17T19:27:37Z",
+      "fetchedAt": "2026-10-17T22:22:11Z",
       "firstFetchedAt": "2026-10-14T17:14:45Z"
     },
     {
