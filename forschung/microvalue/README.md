@@ -4,7 +4,10 @@ Die [öffentliche Seite](index.html) beginnt mit Geldquelle und Nutzen des
 vorgeschlagenen Ein-Cent-Dienstes. Das aktuelle
 [15-seitige Entscheidungsdossier](MICROVALUE-ENTSCHEIDUNG-15-SEITEN.pdf)
 führt vom echten Subcent-Beispiel über die 24/24/24/24/4-Aufteilung zu einem
-Monats- und Jahresszenario mit Verlust-Gegenprobe. Der frühere
+Monats- und Jahresszenario mit Verlust-Gegenprobe. Das aktuelle Dossier
+zeigt das als sieben Vektorgrafiken: Ablauf mit Pfeilen,
+Cent-Aufteilung, Rundung, Finanzierungswege und drei Rechengrafiken. Es sind
+Erklärbilder zu deklarierten Beispielwerten, keine gemessenen Ergebnisse. Der frühere
 [bebilderte Grundlagentext](HALVETH-MICROVALUE-ERKLAERT.pdf) bleibt als
 historische Erklärung erhalten. Im Rechner werden eingegebene Geburtsdaten
 nicht gesendet oder gespeichert.

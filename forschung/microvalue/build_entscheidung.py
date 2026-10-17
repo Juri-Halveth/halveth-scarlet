@@ -12,7 +12,7 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
-    BaseDocTemplate, Frame, PageBreak, PageTemplate, Paragraph, Spacer,
+    BaseDocTemplate, Flowable, Frame, PageBreak, PageTemplate, Paragraph, Spacer,
     Table, TableStyle,
 )
 
@@ -97,9 +97,140 @@ def page(n, title, lead, *body):
     return [p(f"{n:02d} / 15 · HALVETH MICROVALUE", "eyebrow"), p(title, "title"), p(lead, "lead"), *body]
 
 
+class Visual(Flowable):
+    """Compact vector figures: labels are part of the PDF, not screenshots."""
+
+    def __init__(self, kind):
+        super().__init__()
+        self.kind = kind
+        self.width = 489
+        self.height = 145 if kind in {"split", "month", "year", "sensitivity"} else 115
+        self.spaceAfter = 16
+
+    def draw(self):
+        c = self.canv
+        c.setFillColor(colors.HexColor("#F4FAF9"))
+        c.roundRect(0, 0, self.width, self.height, 13, fill=1, stroke=0)
+
+        def label(x, y, value, size=9, bold=False, color=NAVY):
+            c.setFillColor(color)
+            c.setFont("MV-Bold" if bold else "MV", size)
+            c.drawString(x, y, value)
+
+        def center(x, y, value, size=9, bold=False, color=NAVY):
+            c.setFillColor(color)
+            c.setFont("MV-Bold" if bold else "MV", size)
+            c.drawCentredString(x, y, value)
+
+        def box(x, y, w, h, title, sub, fill=PALE):
+            c.setFillColor(fill)
+            c.roundRect(x, y, w, h, 9, fill=1, stroke=0)
+            center(x+w/2, y+h/2+7, title, 10, True)
+            center(x+w/2, y+h/2-10, sub, 8)
+
+        def arrow(x1, y, x2):
+            c.setStrokeColor(TEAL)
+            c.setFillColor(TEAL)
+            c.setLineWidth(2)
+            c.line(x1, y, x2-7, y)
+            path = c.beginPath()
+            path.moveTo(x2, y)
+            path.lineTo(x2-8, y+5)
+            path.lineTo(x2-8, y-5)
+            path.close()
+            c.drawPath(path, fill=1, stroke=0)
+
+        if self.kind == "journey":
+            items = [("Vorgang", "klar zählen"), ("Geldquelle", "Vertrag"),
+                     ("Ein Cent", "5 Anteile"), ("Wirkung", "messen")]
+            for i, (title, sub) in enumerate(items):
+                x = 11 + i*122
+                box(x, 31, 106, 60, title, sub, GOLD if i == 2 else PALE)
+                if i < 3:
+                    arrow(x+108, 61, x+121)
+            label(12, 101, "VOM VORGANG ZUM PRÜFBAREN NUTZEN", 8, True, TEAL)
+        elif self.kind == "split":
+            label(12, 118, "1 CENT = 0,0100 EURO = 100 %", 12, True)
+            x = 12
+            for i, percent in enumerate([24, 24, 24, 24, 4]):
+                w = 460*percent/100
+                c.setFillColor(GOLD if i == 4 else TEAL)
+                c.roundRect(x, 67, w-3, 29, 5, fill=1, stroke=0)
+                if i < 4:
+                    center(x+(w-3)/2, 75, "24 %", 9, True, WHITE)
+                x += w
+            for i in range(4):
+                center(12+460*(i+.5)*.24, 46, "0,0024 €", 8, True)
+            center(12+460*.98, 46, "4 %", 7, True)
+            label(12, 17, "Kleine Rechenanteile werden erst durch vereinbarte Bündelung zahlbar.", 9)
+        elif self.kind == "rounding":
+            label(12, 91, "DOKUMENTIERTES ABRECHNUNGSBEISPIEL", 8, True, TEAL)
+            box(12, 24, 190, 52, "0,0049951 €", "Zwischenrechnung")
+            arrow(209, 50, 275)
+            box(276, 24, 198, 52, "0,00 €", "nach Rundung: keine Gebühr", GOLD)
+            label(12, 10, "Dieser Bruchteil ist keine nachgewiesene auszahlbare Reserve.", 8)
+        elif self.kind == "funding":
+            label(12, 91, "DREI MÖGLICHE FINANZIERUNGSWEGE", 8, True, TEAL)
+            for i, (a, b) in enumerate([("Servicepreis", "frei vereinbart"),
+                                        ("Einsparung", "erst messen"),
+                                        ("Auftrag", "fester Preis")]):
+                box(11+i*162, 29, 151, 50, a, b, GOLD if i == 1 else PALE)
+            label(12, 11, "Jeder Weg braucht einen benannten Zahler und eine eigene Buchungsregel.", 8)
+        elif self.kind == "month":
+            label(12, 118, "MONAT 1 · ZWEI VERSCHIEDENE RECHNUNGEN", 9, True, TEAL)
+            box(10, 56, 140, 48, "+1.800 €", "ersparte Arbeit")
+            center(166, 78, "−", 20, True, TEAL)
+            box(183, 56, 135, 48, "1.000 €", "Cent-Pool")
+            center(333, 78, "=", 20, True, TEAL)
+            box(350, 56, 128, 48, "+800 €", "laufender Saldo", GOLD)
+            c.setStrokeColor(TEAL)
+            c.line(412, 53, 412, 43)
+            label(13, 20, "Nur falls 3.000 € Aufbau hinzukommen:", 9)
+            label(319, 20, "+800 − 3.000 = −2.200 €", 9, True)
+        elif self.kind in {"year", "sensitivity"}:
+            left, right, bottom, top = 45, 471, 30, 105
+            c.setStrokeColor(LINE)
+            c.line(left, bottom, right, bottom)
+            c.line(left, bottom, left, top)
+            for y, t in [(bottom, "≈−8k"), (bottom+33, "0"), (top, "≈+10k")]:
+                c.setStrokeColor(LINE)
+                c.line(left, y, right, y)
+                label(9, y-3, t, 7)
+            def plot(points, color):
+                c.setStrokeColor(color)
+                c.setLineWidth(3)
+                for i in range(len(points)-1):
+                    c.line(*points[i], *points[i+1])
+                c.setFillColor(color)
+                for x, y in points:
+                    c.circle(x, y, 2.3, stroke=0, fill=1)
+            if self.kind == "year":
+                label(46, 126, "●  laufend: +9.600 €", 8, True, TEAL)
+                label(230, 126, "●  mit optionalem Aufbau: +6.600 €", 8, True, colors.HexColor("#B87625"))
+                for month in [1, 4, 8, 12]:
+                    label(left+(right-left)*(month-1)/11-3, 11, str(month), 7)
+                def yval(v): return bottom+33+v*0.0043
+                plot([(left+(right-left)*m/11, yval((m+1)*800)) for m in range(12)], TEAL)
+                plot([(left+(right-left)*m/11, yval((m+1)*800-3000)) for m in range(12)], colors.HexColor("#B87625"))
+            else:
+                label(46, 126, "●  ohne Aufbau", 8, True, TEAL)
+                label(230, 126, "●  mit optionalem Aufbau", 8, True, colors.HexColor("#B87625"))
+                def yval(v): return bottom+33+v*0.0043
+                xs = [left+34, right-35]
+                plot([(xs[0], yval(9600)), (xs[1], yval(-1200))], TEAL)
+                plot([(xs[0], yval(6600)), (xs[1], yval(-4200))], colors.HexColor("#B87625"))
+                label(left+23, 11, "0,4 pp weniger Fälle", 8)
+                label(right-120, 11, "0,2 pp weniger Fälle", 8)
+
+
+def visual(kind):
+    return Visual(kind)
+
+
 pages = []
 pages.append(page(1, "Ein Cent ist eine Frage an ein System.",
     "Was geschieht, wenn ein klar definierter Zahlungsdienst einen Cent pro Vorgang wert ist – und mehrere Beteiligte diesen Cent fair, nachvollziehbar und nützlich aufteilen?",
+    visual("journey"),
     p("MICROVALUE ist ein <b>Vorschlag für einen neuen Vertrag und eine messbare Dienstleistung</b>. Die Idee verbindet transparente Kleinbeträge mit einem Test: Werden Fehler, Rückfragen oder Bearbeitungszeiten geringer? Wer zahlt den Cent? Wer erhält welchen Anteil? Was bleibt für Händler und Bürger besser als vorher?"),
     callout("<b>Die Entscheidung in einem Satz:</b> Einen begrenzten Pilot mit festgelegtem Preis, fünf Anteilen und Vorher/Nachher-Messung prüfen. Danach erst über Umfang, Fortführung und eine persönliche Einmalvergütung entscheiden."),
     p("Dieses Dossier führt Beobachtung, Modell und Angebot getrennt. Die veröffentlichten Abrechnungsbeispiele zeigen, dass unter einem Cent gerechnet oder bepreist werden kann. Sie zeigen noch keinen freien Geldbestand für diese Idee."),
@@ -107,6 +238,7 @@ pages.append(page(1, "Ein Cent ist eine Frage an ein System.",
 
 pages.append(page(2, "Von null bis hundert Prozent.",
     "Ein Euro hat 100 Cent. Ein Cent ist 0,01 €. In einer Rechnung kann ein Cent nochmals in kleinere Anteile zerlegt werden.",
+    visual("split"),
     table([
         ["Anteil am einen Cent", "Prozent", "Betrag"],
         ["Erster Teil", "24 %", "0,0024 €"],
@@ -121,6 +253,7 @@ pages.append(page(2, "Von null bis hundert Prozent.",
 
 pages.append(page(3, "Die echte Abrechnung: Eine Spur, kein Schatz.",
     "VR Payment rechnet in seiner FAQ eine girocard-Gebühr zunächst auf mehr als zwei Euro-Nachkommastellen aus.",
+    visual("rounding"),
     callout("239 € Umsatz × 0,00209 % = 0,0049951 € rechnerischer Zwischenwert → nach Rundung 0,00 € Abrechnungsbetrag.", GOLD),
     Spacer(1, 14),
     p("Laut FAQ wird in diesem Beispiel bei einem gerundeten Ergebnis unter 0,01 € <b>keine Scheme Manager Fee erhoben</b>. Der Zwischenwert ist deshalb gerade kein Nachweis, dass sich die fehlenden Bruchteile irgendwo als auszahlbare Bankreserve sammeln."),
@@ -142,6 +275,7 @@ pages.append(page(4, "Unter einem Cent ist real – aber nicht neu allein.",
 
 pages.append(page(5, "Woher käme der Cent überhaupt?",
     "Bevor irgendjemand einen Anteil erhält, muss der Vertrag die Geldquelle festlegen.",
+    visual("funding"),
     p("<b>Weg A – neuer Servicepreis:</b> Ein Händler oder Geschäftspartner bezahlt für einen klaren zusätzlichen Dienst. Dann muss sein Nutzen höher sein als der zusätzliche Preis. Die Gebühr darf nicht als unsichtbarer Rest einer anderen Abrechnung ausgegeben werden."),
     p("<b>Weg B – Einsparung:</b> Ein Anbieter spart durch weniger Rückfragen, Buchungsfehler oder manuelle Korrekturen. Er kann einen Teil dieser nachgewiesenen Einsparung für das Projekt bereitstellen. Dazu braucht es eine belastbare Baseline."),
     p("<b>Weg C – Auftrag:</b> Ein Partner bezahlt Forschung, Software oder einen Audit-Prototyp direkt als feste Leistung. Das benötigt keinen Ein-Cent-Pool pro Zahlungsvorgang."),
@@ -161,6 +295,7 @@ pages.append(page(6, "Wieso sollte jemand mitmachen?",
 
 pages.append(page(7, "Ein Monat: woher kommt das Minus?",
     "Offen deklarierte Beispielwerte: 100.000 passende Vorgänge, ein Cent Pool je Vorgang, 0,4 Prozentpunkte weniger Klärfälle, sechs Minuten je vermiedenem Fall und 45 € Vollkosten pro Stunde.",
+    visual("month"),
     table([
         ["Monatsrechnung", "Formel", "Ergebnis"],
         ["Vermiedene Fälle", "100.000 × 0,004", "400"],
@@ -176,6 +311,7 @@ pages.append(page(7, "Ein Monat: woher kommt das Minus?",
 
 pages.append(page(8, "Ein Jahr: ab wann dreht es ins Plus?",
     "Nach Finanzierung des Cent-Pools bleiben im Beispiel +800 € pro Monat. Nur falls zusätzlich 3.000 € Aufbau anfallen, wird dieser Posten im vierten Monat aufgeholt.",
+    visual("year"),
     table([
         ["Zeitpunkt", "Ohne Aufbauposten", "Mit optionalem 3.000-€-Aufbau"],
         ["Nach Monat 1", "+800 €", "−2.200 €"],
@@ -189,6 +325,7 @@ pages.append(page(8, "Ein Jahr: ab wann dreht es ins Plus?",
 
 pages.append(page(9, "Der Gegentest: Was, wenn es kaum hilft?",
     "Halbiert sich der angenommene Effekt auf 0,2 Prozentpunkte weniger Klärfälle, spart das Beispiel nur 900 € im Monat.",
+    visual("sensitivity"),
     table([
         ["Szenario, 12 Monate", "0,4 Prozentpunkte", "0,2 Prozentpunkte"],
         ["Vermiedene Kosten", "21.600 €", "10.800 €"],

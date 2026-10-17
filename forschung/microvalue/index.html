@@ -48,8 +48,15 @@
     .choice { border:1px solid var(--line); border-radius:12px; padding:16px; background:var(--paper); }
     .choice b { display:block; margin-bottom:6px; }
     .flow { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0; }
-    .flow div { padding:16px; background:var(--pale); border-radius:12px; }
+    .flow div { padding:16px 23px 16px 16px; background:var(--pale); border-radius:12px; position:relative; }
     .flow b { display:block; color:var(--accent); font-size:1.1rem; }
+    .flow div:not(:last-child)::after { content:"→"; position:absolute; right:-17px; top:50%; transform:translateY(-50%); z-index:2; background:#fff; border-radius:50%; width:31px; height:31px; display:grid; place-items:center; color:var(--accent); font-size:1.35rem; font-weight:900; box-shadow:0 1px 5px #12304630; }
+    .equation-visual { display:flex; align-items:stretch; gap:8px; margin:20px 0; }
+    .equation-visual .number { flex:1; min-width:0; padding:17px 10px; border-radius:13px; background:var(--pale); text-align:center; }
+    .equation-visual .number.result { background:#fbe9bd; display:block; }
+    .equation-visual strong { display:block; font-size:clamp(1.1rem,2.4vw,1.65rem); }
+    .equation-visual small { display:block; margin-top:4px; color:var(--muted); }
+    .equation-visual .operator { align-self:center; font-size:1.9rem; font-weight:900; color:var(--accent); }
     .gain { width:100%; border-collapse:collapse; margin:16px 0; }
     .gain th,.gain td { padding:10px; border-bottom:1px solid var(--line); text-align:right; }
     .gain th:first-child,.gain td:first-child { text-align:left; }
@@ -60,7 +67,7 @@
     .gain-bars .bar.negative { background:#b46b1e; }
     a { color:#075a70; }
     footer { color:var(--muted); font-size:.86rem; padding:20px 2px; }
-    @media (max-width:760px) { .grid,.grid.two,.choices,.choices.four,.result,.flow { grid-template-columns:1fr; } .cent {grid-template-columns:repeat(2,1fr)} .year { grid-template-columns:65px 1fr 95px; } .year .fallback { grid-column:3; } .year .normal { display:none; } .gain-bars > div {grid-template-columns:105px 1fr 90px; font-size:.82rem;} }
+    @media (max-width:760px) { .grid,.grid.two,.choices,.choices.four,.result,.flow { grid-template-columns:1fr; } .flow div:not(:last-child)::after { content:"↓"; right:50%; top:auto; bottom:-20px; transform:translateX(50%); } .equation-visual { display:grid; grid-template-columns:1fr; } .equation-visual .operator { font-size:1.45rem; justify-self:center; line-height:.8; } .gain th:first-child,.gain td:first-child {width:48%;} .gain th:not(:first-child),.gain td:not(:first-child) {width:26%; font-size:.86rem;} .cent {grid-template-columns:repeat(2,1fr)} .year { grid-template-columns:65px 1fr 95px; } .year .fallback { grid-column:3; } .year .normal { display:none; } .gain-bars > div {grid-template-columns:105px 1fr 90px; font-size:.82rem;} }
   </style>
 </head>
 <body>
@@ -94,7 +101,13 @@
   <section class="panel" aria-labelledby="gain-title">
     <h2 id="gain-title">Ein Monat. Ein Jahr. Wann profitiert ein Partner?</h2>
     <p>Dieses Beispiel ist eine <strong>Prüfrechnung</strong>, kein Ergebnis eines echten Piloten: 100.000 passende Vorgänge im Monat; ein vertraglich finanzierter Cent je Vorgang; durch bessere Klärung 0,4 Prozentpunkte weniger aufwendige Fälle; sechs Minuten Bearbeitungszeit und 45 € Vollkosten je Fallstunde. Die laufende Wirkung und ein <em>möglicher</em> einmaliger Aufbau werden getrennt gezeigt.</p>
-    <div class="table-wrap"><table class="gain"><thead><tr><th>Schritt</th><th>Monat</th><th>12 Monate</th></tr></thead><tbody>
+    <div class="equation-visual" role="img" aria-label="Im Beispiel: 1800 Euro vermiedene Bearbeitungskosten minus 1000 Euro Cent-Pool ergeben 800 Euro laufenden Monatssaldo.">
+      <div class="number"><strong>+1.800 €</strong><small>Arbeit gespart</small></div><span class="operator" aria-hidden="true">−</span>
+      <div class="number"><strong>1.000 €</strong><small>Cent-Pool finanziert</small></div><span class="operator" aria-hidden="true">=</span>
+      <div class="number result"><strong>+800 €</strong><small>laufend pro Monat</small></div>
+    </div>
+    <p class="math"><strong>Woher stammt das Minus?</strong> Nur aus einem zweiten, optionalen Schritt: +800 € laufender Saldo − 3.000 € angenommener einmaliger Aufbau = −2.200 € im ersten Monat. Ohne diesen Aufbauposten gibt es in diesem Szenario kein Minus im ersten Monat.</p>
+    <div class="table-wrap"><table class="gain"><thead><tr><th>Schritt</th><th>Monat</th><th>Jahr</th></tr></thead><tbody>
       <tr><td>Vermiedene Fälle</td><td>400</td><td>4.800</td></tr>
       <tr><td>Vermiedene Bearbeitungskosten</td><td>1.800 €</td><td>21.600 €</td></tr>
       <tr><td>Ein-Cent-Pool</td><td>1.000 €</td><td>12.000 €</td></tr>
