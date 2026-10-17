@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HALVETH MICROVALUE – nominaler Einmal-Auskauf bis 67</title>
+  <style>
+    :root { --ink:#102b40; --muted:#567080; --accent:#087c86; --gold:#f3bd55; --pale:#eaf5f4; --line:#c8dde0; --paper:#f8fbfb; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(155deg,#0b2437 0,#174859 31%,#f8fbfb 31.1%); color:var(--ink); font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif; }
+    main { width:min(1080px,calc(100% - 32px)); margin:0 auto; padding:36px 0 80px; }
+    header { color:white; padding:18px 0 42px; }
+    .eyebrow { color:var(--gold); font-size:.82rem; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
+    h1 { margin:12px 0 10px; font-size:clamp(2.3rem,6vw,5rem); line-height:1.05; letter-spacing:-.05em; max-width:880px; }
+    header p { max-width:700px; font-size:1.1rem; color:#e0f1f2; }
+    .panel { background:white; border:1px solid var(--line); border-radius:22px; box-shadow:0 20px 50px #12304616; padding:clamp(20px,4vw,34px); margin:0 0 24px; }
+    h2 { margin:0 0 14px; font-size:1.45rem; }
+    summary { cursor:pointer; font-size:1.3rem; font-weight:800; }
+    .lede { font-size:1.08rem; max-width:850px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .grid.two { grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:16px; }
+    .cent { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin:18px 0; }
+    .cent span { display:block; text-align:center; padding:18px 7px; border-radius:12px; background:#d7eeeb; font-weight:800; }
+    .cent span:last-child { background:#fbe9bd; }
+    .cent small { display:block; font-weight:400; }
+    .scenarios { width:100%; border-collapse:collapse; }
+    .scenarios th,.scenarios td { padding:12px 8px; border-bottom:1px solid var(--line); text-align:right; }
+    .scenarios th:first-child,.scenarios td:first-child { text-align:left; }
+    .table-wrap { overflow-x:auto; }
+    label { display:block; font-weight:700; font-size:.94rem; }
+    label small { display:block; color:var(--muted); font-weight:400; margin:5px 0 12px; }
+    input { font:inherit; color:var(--ink); width:100%; border:2px solid var(--line); border-radius:10px; padding:11px 12px; background:white; }
+    input:focus-visible { outline:3px solid #ffd17c; border-color:var(--accent); }
+    .result { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .big { background:var(--ink); color:white; border-radius:16px; padding:23px; min-height:150px; }
+    .big.alt { background:#0a727a; }
+    .big span { display:block; color:#d3ebec; font-weight:700; }
+    .big strong { display:block; font-size:clamp(1.6rem,4vw,3.1rem); line-height:1.12; margin:13px 0; overflow-wrap:anywhere; }
+    .big small { color:#d3ebec; }
+    .subtle { color:var(--muted); }
+    .timeline { display:grid; gap:11px; }
+    .year { display:grid; grid-template-columns:85px 1fr 125px 125px; gap:12px; align-items:center; border-bottom:1px solid var(--line); padding:8px 0; font-size:.9rem; }
+    .track { background:#e0eded; border-radius:20px; height:11px; overflow:hidden; }
+    .bar { background:var(--accent); height:100%; border-radius:20px; }
+    .math { background:var(--pale); border-left:5px solid var(--accent); padding:18px 20px; border-radius:0 10px 10px 0; overflow-wrap:anywhere; }
+    .choices { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .choice { border:1px solid var(--line); border-radius:12px; padding:16px; background:var(--paper); }
+    .choice b { display:block; margin-bottom:6px; }
+    a { color:#075a70; }
+    footer { color:var(--muted); font-size:.86rem; padding:20px 2px; }
+    @media (max-width:760px) { .grid,.grid.two,.choices,.result { grid-template-columns:1fr; } .cent {grid-template-columns:repeat(2,1fr)} .year { grid-template-columns:65px 1fr 95px; } .year .fallback { grid-column:3; } .year .normal { display:none; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">HALVETH / MICROVALUE / Szenariorechner</div>
+    <h1>Was wäre mein Anteil bis 67 – auf einen Schlag?</h1>
+    <p>Ein Mensch hat endlich Zeit. Ein Geschäft kann wachsen. Was wäre es wert, einen möglichen Anteil an künftigen Vorgängen heute in einer Summe abzulösen? Hier lässt sich die Rechnung verändern und bis zum 67. Geburtstag verfolgen.</p>
+  </header>
+
+  <section class="panel" aria-labelledby="cent-title">
+    <h2 id="cent-title">Erst der eine Cent. Dann die unsichtbare vierte Stelle.</h2>
+    <p class="lede">Auf einer Anzeige steht <strong>0,01 €</strong>. Für die Modellrechnung zerlegen wir diesen Cent in <strong>vier Teile zu je 0,0024 €</strong> und einen <strong>Rest von 0,0004 €</strong>. Zusammen ist das wieder genau ein Cent.</p>
+    <div class="cent" aria-label="Viermal 0,0024 Euro plus 0,0004 Euro ergibt 0,01 Euro"><span>0,0024 €<small>Teil 1</small></span><span>0,0024 €<small>Teil 2</small></span><span>0,0024 €<small>Teil 3</small></span><span>0,0024 €<small>Teil 4</small></span><span>0,0004 €<small>Rest</small></span></div>
+    <p>Die vierte Dezimalstelle ist eine <strong>Recheneinheit unter einem Cent</strong>. Sie kann in internen Berechnungen vorkommen, obwohl eine gewöhnliche Euro-Zahlung am Ende auf Cent gebucht wird. Das Diagramm zeigt eine vorgeschlagene Verteilung, keinen Fund versteckter Bankgelder. <a href="HALVETH-MICROVALUE-ERKLAERT.pdf">Die bebilderte Erklärung als PDF öffnen</a>.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="evidence-title">
+    <h2 id="evidence-title">Wo stehen diese Stellen in echten Abrechnungen?</h2>
+    <div class="choices">
+      <div class="choice"><b>Ein Cent als Durchschnitt</b>Die <a href="https://www.vr-payment.de/files/2026/preisinfos/VRP_PL_girocard-Entgelt_B_260204.pdf" target="_blank" rel="noopener noreferrer">VR-Payment-Preisliste 02/2026</a> führt für ein girocard-Modell 0,10 € Abwicklungsgebühr pro Zehnerblock auf. Bei zehn Vorgängen sind das rechnerisch 0,01 € je Vorgang. Der volle Block kostet 0,10 €; bei nur einem Vorgang im Block darf man nicht einfach 0,01 € als tatsächliche Gebühr ausgeben.</div>
+      <div class="choice"><b>Unterhalb von 0,01 € wird gerechnet</b>VR Payment zeigt selbst ein <a href="https://www.vr-payment.de/faq/" target="_blank" rel="noopener noreferrer">Beispiel für die Scheme Manager Fee</a>: 239 € × 0,00209 % = 0,0049951 €. Auf der Abrechnung wird daraus 0,00 €. Laut FAQ wird bei diesem Ergebnis keine Gebühr erhoben. Der Zwischenwert ist daher nicht automatisch irgendwo angesammeltes Geld.</div>
+      <div class="choice"><b>Und dein Modell?</b>Viermal 0,0024 € plus 0,0004 € zerlegt einen Cent rechnerisch. Wer einen Anteil erhält, welche girocard-Vorgänge erfasst sind und aus welchem Budget gezahlt wird, müsste erst vereinbart werden. Die veröffentlichten Gebühren belegen die Rechenpraxis, nicht bereits diese Verteilungsregel.</div>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="inputs-title">
+    <h2 id="inputs-title">Deine Zeit und das angenommene Geschäft</h2>
+    <p class="lede"><strong>Jetzt die echte Größenordnung:</strong> <a href="https://www.vr-payment.de/unternehmen-pressekontakt" target="_blank" rel="noopener noreferrer">VR Payment nennt 1,27 Milliarden abgewickelte Transaktionen für 2025</a>. Für <a href="https://www.vr-payment.de/files/x_content/corporate/aktuelles/Medieninfos/2025/VR_Payment_Medieninformation_250612_1.pdf" target="_blank" rel="noopener noreferrer">2024 nannte das Unternehmen 983 Millionen im Netzbetrieb</a>. Die zweite Zahl ist rechnerisch 29,2 % kleiner. Ob beide Zahlen exakt gleich abgegrenzt sind, bleibt hier offen; daraus folgt keine gesicherte Wachstumsrate bis 2062.</p>
+    <p class="subtle">Die veröffentlichte Zahl steht als Ausgangswert im Feld. Der Anteil tatsächlich einbezogener Vorgänge ist unbekannt und wird separat gewählt. Das Geburtsdatum bleibt nur in diesem Browser.</p>
+    <div class="grid">
+      <label>Dein jetziges Alter
+        <small>Nur falls du kein Geburtsdatum einträgst.</small>
+        <input id="age" type="number" min="0" max="67" step="1" value="31" inputmode="numeric">
+      </label>
+      <label>Abgewickelte Vorgänge als Ausgangswert
+        <small>Ausgangswert: veröffentlichte VR-Payment-Zahl 2025. Für zukünftige Jahre nur eine Basisannahme.</small>
+        <input id="volume" type="number" min="0" max="10000000000" step="1000" value="1270000000" inputmode="numeric">
+      </label>
+      <label>Wachstum pro Jahr in %
+        <small>0 = kein Wachstum unterstellt. Historische 29,2 % werden nicht fortgeschrieben.</small>
+        <input id="growth" type="number" min="-50" max="50" step="0.5" value="0" inputmode="decimal">
+      </label>
+    </div>
+    <div class="grid two">
+      <label>Davon vertraglich erfasster Anteil in %
+        <small>100 % zeigt die rechnerische Oberkante für diesen Basiswert. Der wirkliche Anteil ist unbekannt.</small>
+        <input id="coverage" type="number" min="0" max="100" step="0.1" value="100" inputmode="decimal">
+      </label>
+      <p class="math">2025 allein: 1,27 Milliarden × 0,0024 € = <strong>3,048 Millionen €</strong>; mit dem 0,0004-€-Rest wären es <strong>508.000 €</strong>. Das ist die Rechenwirkung bei 100 % Erfassung, kein ausgewiesener Ertrag und keine bestehende Vergütung.</p>
+    </div>
+    <div class="grid two">
+      <label>Geburtsdatum (freiwillig, für den genauen Zeitraum)
+        <small>Bleibt auf deinem Gerät; wird nicht in die Adresse geschrieben.</small>
+        <input id="birth" type="date" autocomplete="off">
+      </label>
+      <label>Beginn der Rechnung
+        <small>Der Tag, an dem ein möglicher Auskauf betrachtet wird.</small>
+        <input id="start" type="date" value="2026-10-17">
+      </label>
+    </div>
+    <p class="subtle" id="input-error" role="status"></p>
+  </section>
+
+  <section class="panel" aria-labelledby="scenarios-title">
+    <h2 id="scenarios-title">Wie stark dreht Wachstum die Summe?</h2>
+    <p>Gleicher erster Jahrgang, gleiches Ende bei 67. Nur die angenommene jährliche Änderung der Vorgänge wechselt.</p>
+    <div class="table-wrap"><table class="scenarios"><thead><tr><th>Wachstum/Jahr</th><th>Vorgänge gesamt</th><th>24er-Anteil</th><th>Vierer-Rest</th></tr></thead><tbody id="scenarios"></tbody></table></div>
+    <p class="subtle">Der Ausgangswert 2025 ist belegt; wie viele der Vorgänge ein neues Produkt oder ein Vertrag erfassen würde, ist offen. Ein hoher Wachstumswert über Jahrzehnte kann eine riesige Zahl erzeugen und ist keine Prognose.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="result-title">
+    <h2 id="result-title">Die rohe Summe der angenommenen Jahre</h2>
+    <div class="result">
+      <div class="big"><span>Wenn du einen der vier 24er-Anteile erhältst</span><strong id="normal-total">–</strong><small>0,0024 € × alle angenommenen Vorgänge bis 67</small></div>
+      <div class="big alt"><span>Wenn dein Platz an jemand Bedürftigeren geht und dir der Vierer-Rest bleibt</span><strong id="fallback-total">–</strong><small>0,0004 € × alle angenommenen Vorgänge bis 67</small></div>
+    </div>
+    <p id="readout" class="lede" aria-live="polite"></p>
+    <div class="math" id="formula"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="timeline-title">
+    <details><summary id="timeline-title">Alle Jahre einzeln ansehen</summary>
+    <p class="subtle">Die Balken zeigen Vorgänge je Jahr, keine Bankbuchungen. Geld kann erst aus einem vereinbarten Pool und einer tatsächlichen Abrechnung entstehen.</p>
+    <div id="timeline" class="timeline"></div>
+    </details>
+  </section>
+
+  <section class="panel" aria-labelledby="path-title">
+    <h2 id="path-title">Von der Rechenzahl zur Auszahlung heute</h2>
+    <div class="choices">
+      <div class="choice"><b>1. Pool</b>Wer stellt den einen Cent beziehungsweise die Vergütung je Vorgang tatsächlich bereit? Betreiberbudget, vereinbarte Leistung oder Pilotbudget?</div>
+      <div class="choice"><b>2. Recht und Regel</b>Welcher Vertrag gibt dir den Anteil? Welche Vorgänge zählen, welche Rückbuchungen nicht, und wer bestimmt die soziale Weitergabe?</div>
+      <div class="choice"><b>3. Auskauf</b>Die Gegenpartei müsste die künftige, unsichere Reihe freiwillig gegen einen heute fälligen Festbetrag ablösen. Die Summe oben ist dein nomineller Vorschlag, kein automatisch geschuldeter Betrag.</div>
+    </div>
+    <p>Dein Wunsch „ohne Zinsen“ ist umgesetzt. Trotzdem bleibt Geschäftswachstum ungewiss: Der Rechner zeigt eine <strong>Wenn-dann-Summe</strong>, keine sichere Forderung. Die <a href="https://www.deutsche-rentenversicherung.de/SharedDocs/Glossareintraege/DE/A/altersgrenze">Deutsche Rentenversicherung beschreibt 67 als Regelaltersgrenze für Jahrgänge ab 1964</a>; hier dient 67 vor allem als dein gewählter Rechenhorizont.</p>
+  </section>
+  <footer>HALVETH / Juri Janovski · 17.10.2026 · Öffentlicher Modellrechner · Eingaben bleiben in diesem Browser. <a href="../../index.html">Zur Scarlet-Startseite</a></footer>
+</main>
+<script>
+(() => {
+  'use strict';
+  const ids = ['age','volume','growth','coverage','birth','start'];
+  const els = Object.fromEntries(ids.map(id => [id, document.getElementById(id)]));
+  const eur = new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:2});
+  const num = new Intl.NumberFormat('de-DE',{maximumFractionDigits:0});
+  const days = (a,b) => (b-a)/86400000;
+  function parseDate(value) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
+    const [y,m,d]=value.split('-').map(Number), result=new Date(Date.UTC(y,m-1,d));
+    return result.getUTCFullYear()===y && result.getUTCMonth()===m-1 && result.getUTCDate()===d ? result : null;
+  }
+  function nextYear(date) { return new Date(Date.UTC(date.getUTCFullYear()+1,date.getUTCMonth(),date.getUTCDate())); }
+  function countPeriods(start,end) {
+    const rows=[];let point=start, index=0;
+    while(point<end && index<70) {
+      const next=nextYear(point), stop=next<end?next:end;
+      rows.push({index, fraction:days(point,stop)/days(point,next),coveredDays:days(point,stop)});
+      point=stop;index++;
+    }
+    return rows;
+  }
+  function calculate(periods,first,growth) {
+    return periods.reduce((sum,row)=>sum+first*Math.pow(1+growth/100,row.index)*row.fraction,0);
+  }
+  function render() {
+    const age = Number(els.age.value), basis = Number(els.volume.value), growth = Number(els.growth.value), coverage=Number(els.coverage.value);
+    const error = document.getElementById('input-error');
+    const start=parseDate(els.start.value), birth=els.birth.value?parseDate(els.birth.value):null;
+    const valid = (birth || Number.isInteger(age) && age>=0 && age<=67) && start && (!els.birth.value || birth) && Number.isFinite(basis) && basis>=0 && basis<=1e10 && Number.isFinite(growth) && growth>=-50 && growth<=50 && Number.isFinite(coverage) && coverage>=0 && coverage<=100;
+    if (!valid) { error.textContent='Bitte gültiges Datum, Alter 0–67, Vorgänge 0–10 Milliarden, Anteil 0–100 % und Wachstum −50 bis +50 % eingeben.'; return; }
+    const end=birth?new Date(Date.UTC(birth.getUTCFullYear()+67,birth.getUTCMonth(),birth.getUTCDate())):new Date(Date.UTC(start.getUTCFullYear()+67-age,start.getUTCMonth(),start.getUTCDate()));
+    if (birth && (birth>start || end<start)) { error.textContent='Das Geburtsdatum muss vor dem Beginn liegen; der 67. Geburtstag darf nicht davor liegen.'; return; }
+    error.textContent='';
+    const first=basis*coverage/100, rate=1+growth/100, periods=countPeriods(start,end);
+    const rows=periods.map(period=>({events:first*Math.pow(rate,period.index)*period.fraction,fraction:period.fraction}));
+    const totalEvents=calculate(periods,first,growth);
+    const normal=totalEvents*0.0024, fallback=totalEvents*0.0004;
+    document.getElementById('normal-total').textContent=eur.format(normal);
+    document.getElementById('fallback-total').textContent=eur.format(fallback);
+    const full=periods.filter(p=>p.fraction===1).length, partial=periods.find(p=>p.fraction<1);
+    const horizon=birth?`${full} volle Jahre${partial?` und ${partial.coveredDays} Tage`:''} bis zum 67. Geburtstag`:`${full} volle Jahre bis 67`;
+    document.getElementById('readout').textContent=periods.length===0 ? 'Bis zum 67. Geburtstag verbleibt ab diesem Startdatum keine Zeit.' : `Die Rechnung umfasst ${horizon}, ${coverage.toLocaleString('de-DE')} % des Ausgangsvolumens und insgesamt etwa ${num.format(totalEvents)} modellierte Vorgänge. Der Vierer-Rest ist genau ein Sechstel des 24er-Anteils.`;
+    const formula = growth===0 ? `${num.format(first)} Vorgänge je vollem Jahr × ${full} volle Jahre${partial?` plus ${partial.coveredDays} Tage anteilig`:''} = etwa ${num.format(totalEvents)} Vorgänge. Danach × 0,0024 € oder × 0,0004 €.` : `Jahr 1: ${num.format(first)} Vorgänge. Jedes volle Folgejahr × ${rate.toLocaleString('de-DE',{maximumFractionDigits:3})}; das letzte Teiljahr zählt anteilig. Danach × 0,0024 € oder × 0,0004 €.`;
+    document.getElementById('formula').textContent=formula+' Kein Zins, kein Abzug für das frühe Auszahlungsdatum.';
+    const scenarioGrowth=[...new Set([0,5,10,growth])].sort((a,b)=>a-b);
+    document.getElementById('scenarios').replaceChildren(...scenarioGrowth.map(g=>{
+      const tr=document.createElement('tr'), volume=calculate(periods,first,g);
+      [g.toLocaleString('de-DE')+' %'+(g===growth?' ★':''),num.format(volume),eur.format(volume*0.0024),eur.format(volume*0.0004)].forEach(value=>{const td=document.createElement('td');td.textContent=value;tr.append(td)});
+      return tr;
+    }));
+    const peak=Math.max(1,...rows.map(r=>r.events));
+    document.getElementById('timeline').replaceChildren(...rows.map((row,i)=>{
+      const line=document.createElement('div'); line.className='year';
+      const year=document.createElement('strong');year.textContent=`${i+1}. Jahr${row.fraction<1?'*':''}`;
+      const bar=document.createElement('div');bar.className='track';const fill=document.createElement('div');fill.className='bar';fill.style.width=`${Math.max(0,Math.min(100,row.events/peak*100))}%`;bar.append(fill);bar.setAttribute('aria-label',`${num.format(row.events)} Vorgänge in diesem Zeitraum`);
+      const amount=document.createElement('span');amount.className='normal';amount.textContent=eur.format(row.events*0.0024);
+      const alt=document.createElement('span');alt.className='fallback';alt.textContent=eur.format(row.events*0.0004);
+      line.append(year,bar,amount,alt);return line;
+    }));
+  }
+  ids.forEach(id=>els[id].addEventListener('input',render));
+  render();
+})();
+</script>
+</body>
+</html>
