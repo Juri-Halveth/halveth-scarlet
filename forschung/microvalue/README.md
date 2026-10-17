@@ -5,9 +5,13 @@ vorgeschlagenen Ein-Cent-Dienstes. Das aktuelle
 [15-seitige Entscheidungsdossier](MICROVALUE-ENTSCHEIDUNG-15-SEITEN.pdf)
 führt vom echten Subcent-Beispiel über die 24/24/24/24/4-Aufteilung zu einem
 Monats- und Jahresszenario mit Verlust-Gegenprobe. Das aktuelle Dossier
-zeigt das als sieben Vektorgrafiken: Ablauf mit Pfeilen,
-Cent-Aufteilung, Rundung, Finanzierungswege und drei Rechengrafiken. Es sind
-Erklärbilder zu deklarierten Beispielwerten, keine gemessenen Ergebnisse. Der frühere
+zeigt sieben Vektorgrafiken – Cent-Aufteilung, Rundung, Finanzierungswege
+und Rechengrafiken – sowie zwei neue redaktionelle Konzeptillustrationen
+unter `assets/`. Die Motive wurden für diese Ausgabe generiert und als
+platzsparende JPEG-Kopien eingebunden; sie zeigen
+fiktive Personen und keinen tatsächlich durchgeführten Pilot. Die
+Vektorgrafiken erläutern deklarierte Beispielwerte, keine gemessenen
+Ergebnisse. Der frühere
 [bebilderte Grundlagentext](HALVETH-MICROVALUE-ERKLAERT.pdf) bleibt als
 historische Erklärung erhalten. Im Rechner werden eingegebene Geburtsdaten
 nicht gesendet oder gespeichert.

@@ -11,6 +11,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib.utils import ImageReader
 from reportlab.platypus import (
     BaseDocTemplate, Flowable, Frame, PageBreak, PageTemplate, Paragraph, Spacer,
     Table, TableStyle,
@@ -95,6 +96,29 @@ def source(label, key):
 
 def page(n, title, lead, *body):
     return [p(f"{n:02d} / 15 · HALVETH MICROVALUE", "eyebrow"), p(title, "title"), p(lead, "lead"), *body]
+
+
+class Illustration(Flowable):
+    """Original conceptual art, cropped within the text column."""
+    def __init__(self, filename, height=172):
+        super().__init__()
+        self.path = HERE / "assets" / filename
+        self.width, self.height = 489, height
+        self.spaceAfter = 13
+
+    def draw(self):
+        c = self.canv
+        c.saveState()
+        path = c.beginPath()
+        path.rect(0, 0, self.width, self.height)
+        c.clipPath(path, stroke=0, fill=0)
+        c.drawImage(ImageReader(str(self.path)), 0, (self.height - self.width * 9 / 16) / 2,
+                    width=self.width, height=self.width * 9 / 16, preserveAspectRatio=False)
+        c.restoreState()
+
+
+def illustration(filename, height=172):
+    return Illustration(filename, height)
 
 
 class Visual(Flowable):
@@ -230,7 +254,8 @@ def visual(kind):
 pages = []
 pages.append(page(1, "Ein Cent ist eine Frage an ein System.",
     "Was geschieht, wenn ein klar definierter Zahlungsdienst einen Cent pro Vorgang wert ist – und mehrere Beteiligte diesen Cent fair, nachvollziehbar und nützlich aufteilen?",
-    visual("journey"),
+    illustration("microvalue-laden-und-team-v1.jpg", 176),
+    p("Konzeptillustration: ein möglicher Alltag, keine dokumentierte Pilotwirkung.", "small"),
     p("MICROVALUE ist ein <b>Vorschlag für einen neuen Vertrag und eine messbare Dienstleistung</b>. Die Idee verbindet transparente Kleinbeträge mit einem Test: Werden Fehler, Rückfragen oder Bearbeitungszeiten geringer? Wer zahlt den Cent? Wer erhält welchen Anteil? Was bleibt für Händler und Bürger besser als vorher?"),
     callout("<b>Die Entscheidung in einem Satz:</b> Einen begrenzten Pilot mit festgelegtem Preis, fünf Anteilen und Vorher/Nachher-Messung prüfen. Danach erst über Umfang, Fortführung und eine persönliche Einmalvergütung entscheiden."),
     p("Dieses Dossier führt Beobachtung, Modell und Angebot getrennt. Die veröffentlichten Abrechnungsbeispiele zeigen, dass unter einem Cent gerechnet oder bepreist werden kann. Sie zeigen noch keinen freien Geldbestand für diese Idee."),
@@ -382,6 +407,7 @@ pages.append(page(14, "Der kleinste Test, der etwas entscheidet.",
 
 pages.append(page(15, "Die Bitte: eine Entscheidung über einen Test.",
     "Ich bitte nicht um Glauben an eine magische Nachkommastelle. Ich bitte um einen Termin, an dem wir einen Cent, einen Vorgang und einen wirtschaftlichen Nutzen präzise festlegen.",
+    illustration("microvalue-gemeinsamer-entwurf-v1.jpg", 144),
     p("<b>VR Payment oder ein Zahlungsanbieter:</b> eine passende Vorgangsklasse, die heutige Abrechnungsregel und einen Produkt- oder Budgetkontakt benennen. <b>Eine Bank oder ein Verbund:</b> sagen, ob ein gemeinsamer Dienst mit klarer Kostenteilung interessant ist. <b>Fach- und Förderstellen:</b> den passenden technischen Prüf- oder Beauftragungsweg nennen."),
     p("Ich bringe die Modellfrage, die Rechenstruktur und einen prüfbaren Entwurf ein. Ein Partner bringt die Zuständigkeit und gegebenenfalls eine finanzierte Erprobung ein. Wir vereinbaren schriftlich, was getestet wird, wer was erhält und wie eine spätere Einmalvergütung gestaltet werden kann."),
     callout("<b>Eine Frage für das erste Gespräch:</b> Welcher konkrete Vorgang verursacht heute Kosten oder Reibung, die wir gemeinsam messbar verringern könnten?"),
