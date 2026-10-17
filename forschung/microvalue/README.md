@@ -6,6 +6,11 @@ erklärt Anzeige, Zwischenrechnung, Rundung, Buchung und die vorgeschlagene
 Aufteilung. Im Rechner werden eingegebene Geburtsdaten nicht gesendet oder
 gespeichert.
 
+Die [Brühler Partnerschaftsskizze](bruehl-partnerschaft.html) verbindet dieses
+Rechenmodell mit der bereits an die Stadt gemeldeten JURI-THESIS. Ein privater
+Pilotfonds ist darin ein neues, gesondert zu vereinbarendes Budget und keine
+automatische Verwendung eines persönlichen MICROVALUE-Anteils.
+
 ## Tatsächlich veröffentlichte Zahlen und Regeln
 
 | Quelle | Gebundene Aussage | Grenze |
@@ -44,3 +49,23 @@ Ausgangsmenge, keine tatsächliche Vertragsabdeckung. Für einen echten
 Vorschlag an ein Unternehmen wären insbesondere Produkt, Vergütungsquelle,
 zulässige Vorgänge, Rückbuchungen, Laufzeit, Gegenleistung und
 Auszahlungsregel zu verhandeln.
+
+## Brühler Pilot: getrennte Rechnung
+
+Die Ausgangszahl 1,27 Milliarden ist ein veröffentlichtes Gesamtvolumen für
+2025, keine Menge vergütungsfähiger Vorgänge. Das Beispiel
+`30 × 5.000 € × 6 Monate = 900.000 €` enthält nur direkte Zahlungen einer
+Runde. Bei einem vertraglich finanzierten Beitrag von `0,0024 €` pro
+erfasstem Vorgang wären dafür `375.000.000` Vorgänge erforderlich, also
+rund 29,5 % des veröffentlichten Gesamtvolumens. Bei `0,0004 €` wären es
+`2.250.000.000` Vorgänge; das liegt über der veröffentlichten Jahresmenge.
+Das separate rollierende Jahresszenario der JURI-THESIS rechnet mit
+`1.100.000 €` unter anderen Annahmen und bräuchte rund `458.333.334`
+vergütete Vorgänge zu `0,0024 €`. Eine Finanzierung oder Teilnahme von VR
+Payment, einer Bank oder der Stadt folgt aus keiner dieser Zahlen.
+
+Die [Bundesbank](https://www.bundesbank.de/de/aufgaben/themen/wie-geld-entsteht-665288)
+erklärt, dass Banken bei Krediten Buchgeld schaffen können, aber durch
+Regulierung, Liquidität, Kosten und Risiko begrenzt sind. Für den Pilot wird
+kein Kredithebel unterstellt. Ein möglicher privater Partner müsste die
+Zahlung aus einem benannten und tragfähigen Vertrag oder Budget leisten.
