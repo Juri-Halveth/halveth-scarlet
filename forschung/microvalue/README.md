@@ -1,10 +1,13 @@
 # HALVETH MICROVALUE · Quellenstand 17.10.2026
 
-Die [öffentliche Seite](index.html) zeigt den Ein-Cent-Gedanken, veröffentlichte
-Zahlungszahlen und einen lokalen Szenariorechner. Der [bebilderte Grundlagentext](HALVETH-MICROVALUE-ERKLAERT.pdf)
-erklärt Anzeige, Zwischenrechnung, Rundung, Buchung und die vorgeschlagene
-Aufteilung. Im Rechner werden eingegebene Geburtsdaten nicht gesendet oder
-gespeichert.
+Die [öffentliche Seite](index.html) beginnt mit Geldquelle und Nutzen des
+vorgeschlagenen Ein-Cent-Dienstes. Das aktuelle
+[15-seitige Entscheidungsdossier](MICROVALUE-ENTSCHEIDUNG-15-SEITEN.pdf)
+führt vom echten Subcent-Beispiel über die 24/24/24/24/4-Aufteilung zu einem
+Monats- und Jahresszenario mit Verlust-Gegenprobe. Der frühere
+[bebilderte Grundlagentext](HALVETH-MICROVALUE-ERKLAERT.pdf) bleibt als
+historische Erklärung erhalten. Im Rechner werden eingegebene Geburtsdaten
+nicht gesendet oder gespeichert.
 
 Die [Brühler Partnerschaftsskizze](bruehl-partnerschaft.html) verbindet dieses
 Rechenmodell mit der bereits an die Stadt gemeldeten JURI-THESIS. Ein privater
@@ -13,7 +16,8 @@ automatische Verwendung eines persönlichen MICROVALUE-Anteils.
 
 ## Persönliches Einmalangebot
 
-Die öffentliche Hauptseite führt nun die persönliche Verhandlungslogik zuerst:
+Die öffentliche Hauptseite führt zuerst Geldquelle, Beispielnutzen und
+Gegenprobe. Danach folgt die persönliche Verhandlungslogik:
 ein konkret benannter Beitrag gegen eine freiwillig vereinbarte Einmalzahlung;
 danach kann der Vertragspartner die ausdrücklich vereinbarte Nutzung oder
 Leistung ohne laufende Mikrovergütung aus diesem Vertrag fortführen. Vier
@@ -21,7 +25,8 @@ offene Einstiege sind ein Nutzungsrecht an einem tatsächlich geschützten Werk,
 ein beauftragter Dienst oder Werkerfolg, ein direkter Festpreis für den
 benannten Beitrag und die spätere Ablösung einer zuvor vertraglich geschaffenen
 Vorgangsbeteiligung. Diese Möglichkeiten sind nicht abschließend. Die bloße
-Rechenidee oder eine veröffentlichte Statistik schafft keinen Zahlungsanspruch.
+Rechenidee oder eine veröffentlichte Statistik ersetzt keine Vereinbarung
+über Leistung und Preis.
 Die Stadtidee ist auf der Hauptseite nur ein kurzer Querverweis.
 
 ## Tatsächlich veröffentlichte Zahlen und Regeln
@@ -32,6 +37,23 @@ Die Stadtidee ist auf der Hauptseite nur ein kurzer Querverweis.
 | [VR Payment, Medieninformation 12.06.2025](https://www.vr-payment.de/files/x_content/corporate/aktuelles/Medieninfos/2025/VR_Payment_Medieninformation_250612_1.pdf) | 983 Millionen Transaktionen 2024 im Netzbetrieb | Die exakte Vergleichbarkeit mit der breiter formulierten 2025-Zahl ist offen. |
 | [VR Payment, Preisliste girocard 02/2026](https://www.vr-payment.de/files/2026/preisinfos/VRP_PL_girocard-Entgelt_B_260204.pdf) | Für ein bezeichnetes girocard-Modell: Abwicklungsgebühr 0,10 € je Zehnerblock; auch 1–10 Vorgänge bilden einen 0,10-€-Block. | Ein Cent je Vorgang ist nur der Durchschnitt eines vollen Zehnerblocks, keine allgemeine Einzelgebühr aller VR-Payment-Transaktionen. |
 | [VR Payment, FAQ Scheme Manager Fee](https://www.vr-payment.de/faq/) | 239 € × 0,00209 % = 0,0049951 €; auf zwei Stellen gerundet 0,00 €. In diesem Beispiel fällt nach Rundung keine Gebühr an. | Der Zwischenwert ist kein belegter Bestand, Anspruch oder automatisch akkumuliertes Guthaben. |
+| [EZB, TIPS](https://www.ecb.europa.eu/paym/target/tips/html/index.en.html) | Festes Entgelt 0,002 € je Instant Payment, geteilt zwischen sendendem und empfangendem Teilnehmer. | Andere Infrastruktur als girocard und keine Zahlung an MICROVALUE. |
+
+## Modellierter Nutzen, mit Gegenprobe
+
+Ein offen gewählter Pilot mit 100.000 passenden Vorgängen pro Monat, einem
+vertraglich finanzierten Cent pro Vorgang, 0,4 Prozentpunkten weniger
+Klärfällen, sechs Minuten pro vermiedenem Fall und 45 € Vollkosten pro Stunde
+spart rechnerisch 1.800 € im Monat. Der Cent-Pool kostet 1.000 € im Monat.
+Der laufende Saldo beträgt damit +800 € nach einem Monat und +9.600 €
+nach zwölf Monaten. **Nur falls** zusätzlich 3.000 € einmaliger Pilotaufbau
+anfallen, werden daraus −2.200 € im ersten Monat und +6.600 € im Jahr.
+Bei nur 0,2 Prozentpunkten weniger Klärfällen läge der Jahressaldo bei
+−1.200 € ohne oder −4.200 € mit diesem Aufbau. Die zwölfmonatige
+Gewinnschwelle liegt ohne Aufbau bei rund 0,222 und mit ihm bei rund
+0,278 Prozentpunkten. Diese Zahlen sind
+Modellparameter, keine gemessenen Unternehmensdaten. Ein Pilot benötigt
+eine benannte Vorgangsklasse, Preisquelle und Kontrollgruppe.
 
 ## Rechenregel
 

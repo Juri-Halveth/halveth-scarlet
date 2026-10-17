@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HALVETH MICROVALUE – nominaler Einmal-Auskauf bis 67</title>
+  <title>HALVETH MICROVALUE – ein Cent, fünf Anteile, ein prüfbarer Nutzen</title>
   <style>
     :root { --ink:#102b40; --muted:#567080; --accent:#087c86; --gold:#f3bd55; --pale:#eaf5f4; --line:#c8dde0; --paper:#f8fbfb; }
     * { box-sizing:border-box; }
@@ -47,18 +47,91 @@
     .choices.four { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .choice { border:1px solid var(--line); border-radius:12px; padding:16px; background:var(--paper); }
     .choice b { display:block; margin-bottom:6px; }
+    .flow { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0; }
+    .flow div { padding:16px; background:var(--pale); border-radius:12px; }
+    .flow b { display:block; color:var(--accent); font-size:1.1rem; }
+    .gain { width:100%; border-collapse:collapse; margin:16px 0; }
+    .gain th,.gain td { padding:10px; border-bottom:1px solid var(--line); text-align:right; }
+    .gain th:first-child,.gain td:first-child { text-align:left; }
+    .gain .total { font-weight:800; background:var(--pale); }
+    .gain-bars { display:grid; gap:12px; margin:18px 0; }
+    .gain-bars > div { display:grid; grid-template-columns:180px 1fr 125px; gap:10px; align-items:center; }
+    .gain-bars .track { height:16px; }
+    .gain-bars .bar.negative { background:#b46b1e; }
     a { color:#075a70; }
     footer { color:var(--muted); font-size:.86rem; padding:20px 2px; }
-    @media (max-width:760px) { .grid,.grid.two,.choices,.choices.four,.result { grid-template-columns:1fr; } .cent {grid-template-columns:repeat(2,1fr)} .year { grid-template-columns:65px 1fr 95px; } .year .fallback { grid-column:3; } .year .normal { display:none; } }
+    @media (max-width:760px) { .grid,.grid.two,.choices,.choices.four,.result,.flow { grid-template-columns:1fr; } .cent {grid-template-columns:repeat(2,1fr)} .year { grid-template-columns:65px 1fr 95px; } .year .fallback { grid-column:3; } .year .normal { display:none; } .gain-bars > div {grid-template-columns:105px 1fr 90px; font-size:.82rem;} }
   </style>
 </head>
 <body>
 <main>
   <header>
-    <div class="eyebrow">HALVETH / MICROVALUE / Szenariorechner</div>
-    <h1>Was wäre mein Anteil bis 67 – auf einen Schlag?</h1>
-    <p>Mein Vorschlag: Wir einigen uns auf eine einmalige Auszahlung für meinen konkret vereinbarten Beitrag. Danach führt der Partner sein Geschäft weiter. Der Rechner zeigt, wie ich den Betrag bis 67 begründe; der Weg dorthin ist eine Verhandlung über Leistung, Rechte und Preis.</p>
+    <div class="eyebrow">HALVETH / MICROVALUE / Entscheidungsmodell</div>
+    <h1>Ein Cent. Fünf Anteile. Wer gewinnt wirklich?</h1>
+    <p>Erst zeigen wir, wo Geld tatsächlich entsteht. Dann rechnen wir den Vorteil für einen Zahlungsanbieter, einen möglichen Verbund und die Menschen durch. Zuletzt kommt mein Angebot: 24 % eines vereinbarten Ein-Cent-Pools, ersatzweise 4 %.</p>
   </header>
+
+  <section class="panel" aria-labelledby="first-title">
+    <h2 id="first-title">Was steckt konkret hinter MICROVALUE?</h2>
+    <p class="lede">Ein Zahlungsvorgang kann Gebühren, Rechenwerte und Buchungen auslösen. MICROVALUE fragt: <strong>Können mehrere Partner für einen genau benannten Dienst freiwillig einen Cent pro erfasstem Vorgang bereitstellen und transparent teilen?</strong> Der Cent wäre ein neuer, im Vertrag finanzierter Preis- oder Einsparungspool – kein unentdeckter Rest in fremden Konten.</p>
+    <div class="flow" aria-label="Vom Vorgang zum überprüfbaren Nutzen">
+      <div><b>1 · Vorgang</b>Ein exakt definierter Zahlungstyp wird gezählt.</div>
+      <div><b>2 · Quelle</b>Vertrag und Preis benennen, wer den Cent finanziert.</div>
+      <div><b>3 · Verteilung</b>24 + 24 + 24 + 24 + 4 Prozent ergeben 100 Prozent.</div>
+      <div><b>4 · Wirkung</b>Kosten, Fehler, Erlöse und Kundenschutz werden gemessen.</div>
+    </div>
+    <p class="math"><strong>Der ehrliche Kern:</strong> Die Teilung ist mathematisch einfach. Ob ein Dienst den Cent wert ist, muss der Pilot im Vergleich zum bisherigen Ablauf zeigen. Er spart einem Partner nur dann Geld, wenn der messbare Nutzen Preis, Betrieb und Umsetzung übersteigt.</p>
+    <p><a href="MICROVALUE-ENTSCHEIDUNG-15-SEITEN.pdf">Die Entscheidung mit Rechenwegen, Gegenprobe und Quellen als PDF lesen</a>.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="cent-title">
+    <h2 id="cent-title">Erst der eine Cent. Dann die unsichtbare vierte Stelle.</h2>
+    <p class="lede">Auf einer Anzeige steht <strong>0,01 €</strong>. Davon sind <strong>24 % = 0,0024 €</strong> und <strong>4 % = 0,0004 €</strong>. Vier 24-%-Anteile und ein 4-%-Anteil ergeben 100 % dieses einen Cents.</p>
+    <div class="cent" aria-label="Viermal 0,0024 Euro plus 0,0004 Euro ergibt 0,01 Euro"><span>0,0024 €<small>Teil 1</small></span><span>0,0024 €<small>Teil 2</small></span><span>0,0024 €<small>Teil 3</small></span><span>0,0024 €<small>Teil 4</small></span><span>0,0004 €<small>Rest</small></span></div>
+    <p>Die vierte Dezimalstelle ist eine <strong>Recheneinheit unter einem Cent</strong>. Sie kann in internen Berechnungen vorkommen, obwohl eine gewöhnliche Euro-Zahlung am Ende auf Cent gebucht wird. Das Diagramm zeigt eine vorgeschlagene Verteilung, keinen Fund versteckter Bankgelder.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="gain-title">
+    <h2 id="gain-title">Ein Monat. Ein Jahr. Wann profitiert ein Partner?</h2>
+    <p>Dieses Beispiel ist eine <strong>Prüfrechnung</strong>, kein Ergebnis eines echten Piloten: 100.000 passende Vorgänge im Monat; ein vertraglich finanzierter Cent je Vorgang; durch bessere Klärung 0,4 Prozentpunkte weniger aufwendige Fälle; sechs Minuten Bearbeitungszeit und 45 € Vollkosten je Fallstunde. Die laufende Wirkung und ein <em>möglicher</em> einmaliger Aufbau werden getrennt gezeigt.</p>
+    <div class="table-wrap"><table class="gain"><thead><tr><th>Schritt</th><th>Monat</th><th>12 Monate</th></tr></thead><tbody>
+      <tr><td>Vermiedene Fälle</td><td>400</td><td>4.800</td></tr>
+      <tr><td>Vermiedene Bearbeitungskosten</td><td>1.800 €</td><td>21.600 €</td></tr>
+      <tr><td>Ein-Cent-Pool</td><td>1.000 €</td><td>12.000 €</td></tr>
+      <tr class="total"><td>Laufender Saldo ohne Aufbauposten</td><td>+800 €</td><td>+9.600 €</td></tr>
+      <tr><td>Falls zusätzlich 3.000 € Aufbau anfallen</td><td>−3.000 €</td><td>−3.000 €</td></tr>
+      <tr class="total"><td>Saldo mit diesem Aufbauposten</td><td>−2.200 €</td><td>+6.600 €</td></tr>
+    </tbody></table></div>
+    <div class="gain-bars" role="img" aria-label="Laufender Modell-Saldo: nach einem Monat plus 800 Euro, nach zwölf Monaten plus 9600 Euro. Mit zusätzlich 3000 Euro einmaligem Aufbau: im ersten Monat minus 2200 Euro, nach zwölf Monaten plus 6600 Euro.">
+      <div><span>Monat 1 · laufend</span><div class="track"><div class="bar" style="width:8%"></div></div><strong>+800 €</strong></div>
+      <div><span>Jahr 1 · laufend</span><div class="track"><div class="bar" style="width:100%"></div></div><strong>+9.600 €</strong></div>
+      <div><span>Monat 1 · mit Aufbau</span><div class="track"><div class="bar negative" style="width:23%"></div></div><strong>−2.200 €</strong></div>
+      <div><span>Jahr 1 · mit Aufbau</span><div class="track"><div class="bar" style="width:69%"></div></div><strong>+6.600 €</strong></div>
+    </div>
+    <p class="math">Sinkt die Fallquote nur um <strong>0,2 Prozentpunkte</strong>, spart der Partner 900 € je Monat. Das wäre <strong>−100 € laufend pro Monat</strong>, nach einem Jahr −1.200 € ohne oder −4.200 € mit dem angenommenen Aufbauposten. Der Pilot braucht deshalb eine echte Kostenmessung. Mit den 3.000 € Aufbau liegt die Zwölf-Monats-Schwelle bei rund <strong>0,278 Prozentpunkten</strong> weniger Klärfällen.</p>
+    <p class="subtle">Die 100.000 Vorgänge, Fallquote, Minuten, Stundensätze und der optionale Aufbauposten sind frei gewählte Beispielwerte. Der Test müsste sie mit einem Vorher/Nachher-Vergleich erheben.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="partners-title">
+    <h2 id="partners-title">Mehrere Parteien – wer bringt was ein?</h2>
+    <div class="choices">
+      <div class="choice"><b>Zahlungsanbieter</b>Er bringt den definierten Dienst, Abrechnungsdaten im zulässigen Umfang und einen Vertrag ein. Sein möglicher Gewinn: weniger Klärfälle oder ein bezahltes neues Produkt. Wer den Cent finanziert, muss im Preis sichtbar sein.</div>
+      <div class="choice"><b>Banken und Partner</b>Sie können Funktionen, Reichweite und Kosten über eigene Verträge teilen. Für Liquidität zwischen Instituten gelten eigene Konten, Befugnisse, Sicherheiten und Aufsichtsregeln. Ein Mikroentgelt ersetzt das nicht.</div>
+      <div class="choice"><b>Händler und Bürger</b>Sie profitieren nur, wenn Zahlungen verlässlich bleiben, Fehler seltener werden oder Kosten sinken – und wenn eine neue Gebühr diesen Vorteil nicht auffrisst. Das ist ein eigenes Prüfkriterium.</div>
+    </div>
+    <p class="math">Der 4-%-Rest entspräche bei 100.000 Vorgängen <strong>40 € im Monat</strong>. Selbst bei 1,27 Milliarden Vorgängen wären es rechnerisch <strong>508.000 € im Jahr</strong>. Das kann ein vertraglicher Projektbeitrag sein; als Rettung einer Bank ist diese Zahl für sich kein belastbares Liquiditätsmodell.</p>
+    <p>Für gemeinsame Zahlungsliquidität gibt es bereits <a href="https://www.ecb.europa.eu/paym/target/coco/html/index.de.html">TARGET Central Liquidity Management</a>. Für den Schutz von Einlagen bestehen <a href="https://www.bundesbank.de/de/aufgaben/finanzaufsicht/einzelaspekte/einlagensicherung-597886">eigene Sicherungssysteme</a>. MICROVALUE müsste einen <em>zusätzlichen, messbaren</em> Beitrag liefern, etwa bessere Abstimmung, schnellere Fehlererkennung oder einen gesondert finanzierten Dienst.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="evidence-title">
+    <h2 id="evidence-title">Wo stehen diese Stellen in echten Abrechnungen?</h2>
+    <div class="choices four">
+      <div class="choice"><b>Ein Cent als Durchschnitt</b>Die <a href="https://www.vr-payment.de/files/2026/preisinfos/VRP_PL_girocard-Entgelt_B_260204.pdf" target="_blank" rel="noopener noreferrer">VR-Payment-Preisliste 02/2026</a> führt für ein girocard-Modell 0,10 € Abwicklungsgebühr pro Zehnerblock auf. Bei zehn Vorgängen sind das rechnerisch 0,01 € je Vorgang. Der volle Block kostet 0,10 €; bei nur einem Vorgang im Block darf man nicht einfach 0,01 € als tatsächliche Gebühr ausgeben.</div>
+      <div class="choice"><b>Unterhalb von 0,01 € wird gerechnet</b>VR Payment zeigt selbst ein <a href="https://www.vr-payment.de/faq/" target="_blank" rel="noopener noreferrer">Beispiel für die Scheme Manager Fee</a>: 239 € × 0,00209 % = 0,0049951 €. Auf der Abrechnung wird daraus 0,00 €. Laut FAQ wird bei diesem Ergebnis keine Gebühr erhoben. Der Zwischenwert ist daher nicht automatisch irgendwo angesammeltes Geld.</div>
+      <div class="choice"><b>Unterhalb von 0,01 € wird auch bepreist</b>Das Eurosystem nennt für <a href="https://www.ecb.europa.eu/paym/target/tips/html/index.en.html" target="_blank" rel="noopener noreferrer">TIPS ein Entgelt von 0,002 € je Instant Payment</a>, geteilt in 0,001 € für sendenden und empfangenden Teilnehmer. Das zeigt: Ein Preis unter einem Cent ist technisch und vertraglich möglich. TIPS und girocard sind verschiedene Systeme.</div>
+      <div class="choice"><b>Und dein Modell?</b>Viermal 0,0024 € plus 0,0004 € zerlegt einen Cent rechnerisch. Wer einen Anteil erhält, welche girocard-Vorgänge erfasst sind und aus welchem Budget gezahlt wird, müsste erst vereinbart werden. Die veröffentlichten Gebühren belegen die Rechenpraxis, nicht bereits diese Verteilungsregel.</div>
+    </div>
+  </section>
 
   <section class="panel" aria-labelledby="proposal-title">
     <h2 id="proposal-title">Mein Teil jetzt. Ihr Geschäft danach.</h2>
@@ -71,22 +144,6 @@
     </div>
     <p class="math"><strong>Was ich anbiete:</strong> einen bestimmten Beitrag und eine klare Schlussrechnung. <strong>Was der Partner erhält:</strong> die vereinbarte Nutzung oder Leistung und anschließend Planungssicherheit. Im Gespräch werden Gegenstand, Einmalbetrag, Zahlungstermin und der Umfang der Fortführung festgelegt.</p>
     <p class="subtle">Diese Türen sind Einstiege, keine abschließende Liste. Eine andere rechtmäßige Vereinbarung kann ihren eigenen Gegenstand und Preis bekommen.</p>
-  </section>
-
-  <section class="panel" aria-labelledby="cent-title">
-    <h2 id="cent-title">Erst der eine Cent. Dann die unsichtbare vierte Stelle.</h2>
-    <p class="lede">Auf einer Anzeige steht <strong>0,01 €</strong>. Für die Modellrechnung zerlegen wir diesen Cent in <strong>vier Teile zu je 0,0024 €</strong> und einen <strong>Rest von 0,0004 €</strong>. Zusammen ist das wieder genau ein Cent.</p>
-    <div class="cent" aria-label="Viermal 0,0024 Euro plus 0,0004 Euro ergibt 0,01 Euro"><span>0,0024 €<small>Teil 1</small></span><span>0,0024 €<small>Teil 2</small></span><span>0,0024 €<small>Teil 3</small></span><span>0,0024 €<small>Teil 4</small></span><span>0,0004 €<small>Rest</small></span></div>
-    <p>Die vierte Dezimalstelle ist eine <strong>Recheneinheit unter einem Cent</strong>. Sie kann in internen Berechnungen vorkommen, obwohl eine gewöhnliche Euro-Zahlung am Ende auf Cent gebucht wird. Das Diagramm zeigt eine vorgeschlagene Verteilung, keinen Fund versteckter Bankgelder. <a href="HALVETH-MICROVALUE-ERKLAERT.pdf">Die bebilderte Erklärung als PDF öffnen</a>.</p>
-  </section>
-
-  <section class="panel" aria-labelledby="evidence-title">
-    <h2 id="evidence-title">Wo stehen diese Stellen in echten Abrechnungen?</h2>
-    <div class="choices">
-      <div class="choice"><b>Ein Cent als Durchschnitt</b>Die <a href="https://www.vr-payment.de/files/2026/preisinfos/VRP_PL_girocard-Entgelt_B_260204.pdf" target="_blank" rel="noopener noreferrer">VR-Payment-Preisliste 02/2026</a> führt für ein girocard-Modell 0,10 € Abwicklungsgebühr pro Zehnerblock auf. Bei zehn Vorgängen sind das rechnerisch 0,01 € je Vorgang. Der volle Block kostet 0,10 €; bei nur einem Vorgang im Block darf man nicht einfach 0,01 € als tatsächliche Gebühr ausgeben.</div>
-      <div class="choice"><b>Unterhalb von 0,01 € wird gerechnet</b>VR Payment zeigt selbst ein <a href="https://www.vr-payment.de/faq/" target="_blank" rel="noopener noreferrer">Beispiel für die Scheme Manager Fee</a>: 239 € × 0,00209 % = 0,0049951 €. Auf der Abrechnung wird daraus 0,00 €. Laut FAQ wird bei diesem Ergebnis keine Gebühr erhoben. Der Zwischenwert ist daher nicht automatisch irgendwo angesammeltes Geld.</div>
-      <div class="choice"><b>Und dein Modell?</b>Viermal 0,0024 € plus 0,0004 € zerlegt einen Cent rechnerisch. Wer einen Anteil erhält, welche girocard-Vorgänge erfasst sind und aus welchem Budget gezahlt wird, müsste erst vereinbart werden. Die veröffentlichten Gebühren belegen die Rechenpraxis, nicht bereits diese Verteilungsregel.</div>
-    </div>
   </section>
 
   <section class="panel" aria-labelledby="inputs-title">
