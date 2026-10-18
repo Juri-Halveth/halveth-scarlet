@@ -1,5 +1,55 @@
 # ASHBOUND — native Windows game candidate
 
+## Mirror Encounter: one scene, several views
+
+The native `MirrorEncounter` map is a small, synthetic perspective lab. One
+room contains three coloured objects, an occluding partition, a living luminous
+butterfly with four flapping wings, and a swivel mirror. The same butterfly
+follows a bounded 3D path and appears directly and in the mirror; its glow
+changes over time. Walk with WASD and mouse; hold **Q** or **E** to turn the mirror up to
+45 degrees in either direction. Observe which object is visible directly,
+through the mirror, or hidden by the partition. This tests camera-relative
+visibility and reflection without duplicating the underlying object. It is a
+separate game map, not a change to the accepted Chapter I story.
+
+After a fresh build, open it with
+`& .\native\ashbound-unreal\play-mirror.ps1 -PackageRoot '<local package directory>'`.
+The package also contains `Start-MirrorEncounter.cmd`. The authoring step in
+`bootstrap.ps1` creates this map after the Genesis landscape. The optional
+Development-only `-ashboundmirrorqa` switch writes two synthetic screenshots
+at zero and 30 degrees to the project's `Saved/Screenshots` directory.
+Planar reflection needs the global clip-plane renderer setting included in
+this project. The mirror captures an additional scene view at 50% screen
+percentage, so its frame-time cost must be measured in the packaged game.
+`Start-ASHBOUND-Stabil.cmd` is an optional whole-game fallback that starts
+the default Prologue and keeps the same shadow setting for the session. It
+does not replace the normal game launcher or reduce rendering across every
+map by default. Short 1440p runs of Prologue and GenesisWorld without the
+fallback stayed alive for 25 and 30 seconds respectively; longer play still
+needs checking.
+`package.ps1` checks for the first-person Enhanced Input configuration before
+building. Without the template's `DefaultInput.ini`, the room can render while
+WASD and mouse input fail, as happened in the first QA package.
+The first 2560 × 1440 interactive test of the butterfly build ended in a DX12
+`DXGI_ERROR_DEVICE_HUNG` GPU crash after about seven seconds. A previous
+offscreen QA process was still running at the time; its contribution to the
+crash is unknown. After stopping all QA processes, the normal mirror settings
+ran for 30 seconds offscreen and 30 seconds windowed without a GPU crash.
+Earlier shadow-disabled tests also retained the planar reflection. The normal
+launcher therefore keeps the visual settings; `Start-MirrorEncounter-Stabil.cmd`
+and `-StableShadows` on `play-mirror.ps1` are optional fallbacks. One short
+survival test does not establish long-session stability or driver root cause.
+`qa-mirror-runtime.ps1` runs the actual packaged game binary for a bounded
+offscreen interval, refuses to overlap an existing process from that package,
+and stops only the process it started. This avoids testing only the root
+launcher while a child game keeps rendering.
+
+This lab uses no original video frame, face, voice, transcript, or licensed TV
+image. A reflected view is an observation of the room, not a second actor or
+independent witness. It does not yet implement a phone view, multi-observer
+replay, relationship history, or a user-authored encounter; those require
+their own state and interaction design.
+
 The separate **GenesisWorld** landscape candidate can be opened with
 `& .\native\ashbound-unreal\play-genesis.ps1 -PackageRoot '<local package directory>'`.
 `-Width` and `-Height` select the display resolution. The default uses Epic

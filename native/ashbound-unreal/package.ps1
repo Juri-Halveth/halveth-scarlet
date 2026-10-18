@@ -16,6 +16,14 @@ $uproject = Join-Path $WorkRoot 'ASHBOUNDUE\ASHBOUNDUE.uproject'
 $uat = Join-Path $EngineRoot 'Engine\Build\BatchFiles\RunUAT.bat'
 if (-not (Test-Path -LiteralPath $uproject)) { throw "Missing source project: $uproject" }
 if (-not (Test-Path -LiteralPath $uat)) { throw "Missing Unreal Automation Tool: $uat" }
+$inputConfig = Join-Path $WorkRoot 'ASHBOUNDUE\Config\DefaultInput.ini'
+if (-not (Test-Path -LiteralPath $inputConfig)) {
+    throw "Missing first-person input config: $inputConfig. Recreate the project with bootstrap.ps1 before packaging."
+}
+$inputText = Get-Content -LiteralPath $inputConfig -Raw
+if ($inputText -notmatch 'DefaultPlayerInputClass=/Script/EnhancedInput.EnhancedPlayerInput') {
+    throw "Enhanced Input player class missing in $inputConfig"
+}
 if (Test-Path -LiteralPath $OutputRoot) { throw "Output exists; choose a fresh OutputRoot: $OutputRoot" }
 
 & $uat BuildCookRun "-project=$uproject" -noP4 -platform=Win64 "-clientconfig=$Configuration" `
@@ -36,6 +44,27 @@ $genesisLauncher = Join-Path $OutputRoot 'Windows\Start-GenesisWorld.cmd'
 cd /d "%~dp0"
 start "" "%~dp0ASHBOUNDUE.exe" "/Game/ASHBOUND/Maps/GenesisWorld" -DX12 -windowed -ResX=2560 -ResY=1440 %*
 '@ | Set-Content -LiteralPath $genesisLauncher -Encoding Ascii
+$mirrorLauncher = Join-Path $OutputRoot 'Windows\Start-MirrorEncounter.cmd'
+@'
+@echo off
+cd /d "%~dp0"
+start "" "%~dp0ASHBOUNDUE.exe" "/Game/ASHBOUND/Maps/MirrorEncounter" -DX12 -windowed -ResX=2560 -ResY=1440 %*
+'@ | Set-Content -LiteralPath $mirrorLauncher -Encoding Ascii
+$mirrorStableLauncher = Join-Path $OutputRoot 'Windows\Start-MirrorEncounter-Stabil.cmd'
+@'
+@echo off
+cd /d "%~dp0"
+start "" "%~dp0ASHBOUNDUE.exe" "/Game/ASHBOUND/Maps/MirrorEncounter" -DX12 -windowed -ResX=2560 -ResY=1440 -ExecCmds="r.Shadow.Virtual.Enable 0" %*
+'@ | Set-Content -LiteralPath $mirrorStableLauncher -Encoding Ascii
+$stableLauncher = Join-Path $OutputRoot 'Windows\Start-ASHBOUND-Stabil.cmd'
+@'
+@echo off
+cd /d "%~dp0"
+start "" "%~dp0ASHBOUNDUE.exe" -DX12 -windowed -ResX=2560 -ResY=1440 -ExecCmds="r.Shadow.Virtual.Enable 0" %*
+'@ | Set-Content -LiteralPath $stableLauncher -Encoding Ascii
 Write-Output "ASHBOUND native Windows package ready: $launcher"
 Write-Output "Rebirth Grove one-click start: $groveLauncher"
 Write-Output "Genesis Ground 5 km test start: $genesisLauncher"
+Write-Output "Mirror Encounter native test start: $mirrorLauncher"
+Write-Output "Mirror Encounter optional stable start: $mirrorStableLauncher"
+Write-Output "Whole-game optional stable start: $stableLauncher"
