@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { beeinflusse_koerper_durch_singularitaet as step } from './singularity-core.mjs';
+import { beeinflusse_koerper_durch_singularitaet as step } from '../forschung/singularity-cannon/singularity-core.mjs';
 
 const field = { x: 100, y: 100, radius: 80, strength: 1, horizon: 12 };
 

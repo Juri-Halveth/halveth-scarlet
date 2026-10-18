@@ -10,15 +10,12 @@ ROOT = Path(__file__).resolve().parent
 FILES = (
     "index.html",
     "singularity-core.mjs",
-    "singularity-core.test.mjs",
-    "singularity-runtime.test.mjs",
     "README.md",
     "SOURCE_RECEIPT.json",
     "LICENSE-HALVETH-PIRL-2.0.md",
-    "package_release.py",
 )
 MANIFEST = "RELEASE_SHA256.json"
-ARCHIVE = "HALVETH_SINGULARITY_CANNON_2026-10-18_v3.zip"
+ARCHIVE = "HALVETH_SINGULARITY_CANNON.zip"
 
 
 def digest(path: Path) -> str:
@@ -39,6 +36,7 @@ def main() -> None:
         "schema": "halveth.singularity-release-sha256.v1",
         "date": "2026-10-18",
         "revision": 3,
+        "distribution": "current",
         "textEncoding": "UTF-8 with LF line endings, matching published Git blobs",
         "files": records,
         "claimCeiling": "Checksums bind packaged bytes, not authorship, physical correctness, or external acceptance.",
