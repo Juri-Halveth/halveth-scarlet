@@ -14,7 +14,7 @@ asset_tools = unreal.AssetToolsHelpers.get_asset_tools()
 material_editor = unreal.MaterialEditingLibrary
 
 
-def material(name, color, metallic=0.0, roughness=0.75):
+def material(name, color, metallic=0.0, roughness=0.75, emissive=0.0):
     path = f'{MATERIALS}/{name}'
     asset = unreal.load_asset(path) if unreal.EditorAssetLibrary.does_asset_exist(path) else None
     if asset is None:
@@ -37,6 +37,17 @@ def material(name, color, metallic=0.0, roughness=0.75):
                        (matte, unreal.MaterialProperty.MP_ROUGHNESS)):
         if not material_editor.connect_material_property(node, '', prop):
             raise RuntimeError(f'Material connection failed: {name} {prop}')
+    if emissive:
+        glow = material_editor.create_material_expression(
+            asset, unreal.MaterialExpressionMultiply, -100, 350)
+        strength = material_editor.create_material_expression(
+            asset, unreal.MaterialExpressionConstant, -320, 380)
+        strength.set_editor_property('r', emissive)
+        material_editor.connect_material_expressions(tint, '', glow, 'A')
+        material_editor.connect_material_expressions(strength, '', glow, 'B')
+        if not material_editor.connect_material_property(
+                glow, '', unreal.MaterialProperty.MP_EMISSIVE_COLOR):
+            raise RuntimeError(f'Emissive connection failed: {name}')
     material_editor.recompile_material(asset)
     if not unreal.EditorAssetLibrary.save_loaded_asset(asset):
         raise RuntimeError(f'Material save failed: {name}')
@@ -53,6 +64,9 @@ dark_material = material('M_EncounterFrame', (0.025, 0.04, 0.055), 0.65, 0.32)
 red_material = material('M_EncounterRed', (0.72, 0.04, 0.04), 0.25, 0.34)
 blue_material = material('M_EncounterBlue', (0.015, 0.23, 0.78), 0.25, 0.34)
 gold_material = material('M_EncounterGold', (0.85, 0.45, 0.08), 0.55, 0.24)
+material('M_ButterflyBody', (1.0, 0.48, 0.12), emissive=4.0)
+material('M_ButterflyCyan', (0.06, 0.78, 1.0), emissive=5.0)
+material('M_ButterflyViolet', (0.62, 0.17, 0.96), emissive=5.0)
 
 if not level.new_level(MAP):
     raise RuntimeError('Could not create native MirrorEncounter map')
@@ -88,6 +102,12 @@ if rig_class is None:
 rig = actors.spawn_actor_from_class(rig_class,
                                     unreal.Vector(445, 0, 150), unreal.Rotator())
 rig.set_actor_label('Mirror Encounter / swivel with Q and E')
+butterfly_class = unreal.load_class(None, '/Script/ASHBOUNDUE.ASHBOUNDFairyButterfly')
+if butterfly_class is None:
+    raise RuntimeError('Compile ASHBOUNDFairyButterfly before authoring the map')
+butterfly = actors.spawn_actor_from_class(
+    butterfly_class, unreal.Vector(-25, -25, 185), unreal.Rotator())
+butterfly.set_actor_label('Living butterfly / direct and reflected')
 box('Mirror frame / top', (442, 0, 288), (0.24, 4.4, 0.14), dark_material)
 box('Mirror frame / bottom', (442, 0, 12), (0.24, 4.4, 0.14), dark_material)
 box('Mirror frame / north', (442, 210, 150), (0.24, 0.14, 2.9), dark_material)

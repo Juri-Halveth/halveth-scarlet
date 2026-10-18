@@ -3,8 +3,10 @@
 ## Mirror Encounter: one scene, several views
 
 The native `MirrorEncounter` map is a small, synthetic perspective lab. One
-room contains three coloured objects, an occluding partition, and a swivel
-mirror. Walk with WASD and mouse; hold **Q** or **E** to turn the mirror up to
+room contains three coloured objects, an occluding partition, a living luminous
+butterfly with four flapping wings, and a swivel mirror. The same butterfly
+follows a bounded 3D path and appears directly and in the mirror; its glow
+changes over time. Walk with WASD and mouse; hold **Q** or **E** to turn the mirror up to
 45 degrees in either direction. Observe which object is visible directly,
 through the mirror, or hidden by the partition. This tests camera-relative
 visibility and reflection without duplicating the underlying object. It is a
@@ -19,6 +21,9 @@ at zero and 30 degrees to the project's `Saved/Screenshots` directory.
 Planar reflection needs the global clip-plane renderer setting included in
 this project. The mirror captures an additional scene view at 50% screen
 percentage, so its frame-time cost must be measured in the packaged game.
+`package.ps1` checks for the first-person Enhanced Input configuration before
+building. Without the template's `DefaultInput.ini`, the room can render while
+WASD and mouse input fail, as happened in the first QA package.
 
 This lab uses no original video frame, face, voice, transcript, or licensed TV
 image. A reflected view is an observation of the room, not a second actor or

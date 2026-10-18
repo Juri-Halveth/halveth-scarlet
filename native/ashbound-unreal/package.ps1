@@ -16,6 +16,14 @@ $uproject = Join-Path $WorkRoot 'ASHBOUNDUE\ASHBOUNDUE.uproject'
 $uat = Join-Path $EngineRoot 'Engine\Build\BatchFiles\RunUAT.bat'
 if (-not (Test-Path -LiteralPath $uproject)) { throw "Missing source project: $uproject" }
 if (-not (Test-Path -LiteralPath $uat)) { throw "Missing Unreal Automation Tool: $uat" }
+$inputConfig = Join-Path $WorkRoot 'ASHBOUNDUE\Config\DefaultInput.ini'
+if (-not (Test-Path -LiteralPath $inputConfig)) {
+    throw "Missing first-person input config: $inputConfig. Recreate the project with bootstrap.ps1 before packaging."
+}
+$inputText = Get-Content -LiteralPath $inputConfig -Raw
+if ($inputText -notmatch 'DefaultPlayerInputClass=/Script/EnhancedInput.EnhancedPlayerInput') {
+    throw "Enhanced Input player class missing in $inputConfig"
+}
 if (Test-Path -LiteralPath $OutputRoot) { throw "Output exists; choose a fresh OutputRoot: $OutputRoot" }
 
 & $uat BuildCookRun "-project=$uproject" -noP4 -platform=Win64 "-clientconfig=$Configuration" `
