@@ -10,6 +10,10 @@ The figures and their roles are authored project perspectives and fan interpreta
 
 This manually edited guide summarizes the audited source. The original technical documentation remains the reference for commands, build requirements, exact versions and detailed evidence.
 
+## ASHBOUND · native game world
+
+[Explore the ASHBOUND project](forschung/ashbound/) or download the published [Windows x64 preview 0.4.2](https://github.com/Juri-Halveth/halveth-scarlet/releases/tag/ashbound-native-v0.4.2-portal-preview). The newer [world foundation](https://github.com/Juri-Halveth/halveth-scarlet/pull/67), [meadow and soil](https://github.com/Juri-Halveth/halveth-scarlet/pull/68), and [mirror encounter](https://github.com/Juri-Halveth/halveth-scarlet/pull/73) are stacked draft changes; they are not included in that download. The separate [Lernstudio](https://github.com/Juri-Halveth/lernstudio) is the learning project.
+
 
 ## Portfolio highlight · HALVETH Portal Chess
 
