@@ -1,5 +1,31 @@
 # ASHBOUND — native Windows game candidate
 
+## Mirror Encounter: one scene, several views
+
+The native `MirrorEncounter` map is a small, synthetic perspective lab. One
+room contains three coloured objects, an occluding partition, and a swivel
+mirror. Walk with WASD and mouse; hold **Q** or **E** to turn the mirror up to
+45 degrees in either direction. Observe which object is visible directly,
+through the mirror, or hidden by the partition. This tests camera-relative
+visibility and reflection without duplicating the underlying object. It is a
+separate game map, not a change to the accepted Chapter I story.
+
+After a fresh build, open it with
+`& .\native\ashbound-unreal\play-mirror.ps1 -PackageRoot '<local package directory>'`.
+The package also contains `Start-MirrorEncounter.cmd`. The authoring step in
+`bootstrap.ps1` creates this map after the Genesis landscape. The optional
+Development-only `-ashboundmirrorqa` switch writes two synthetic screenshots
+at zero and 30 degrees to the project's `Saved/Screenshots` directory.
+Planar reflection needs the global clip-plane renderer setting included in
+this project. The mirror captures an additional scene view at 50% screen
+percentage, so its frame-time cost must be measured in the packaged game.
+
+This lab uses no original video frame, face, voice, transcript, or licensed TV
+image. A reflected view is an observation of the room, not a second actor or
+independent witness. It does not yet implement a phone view, multi-observer
+replay, relationship history, or a user-authored encounter; those require
+their own state and interaction design.
+
 The separate **GenesisWorld** landscape candidate can be opened with
 `& .\native\ashbound-unreal\play-genesis.ps1 -PackageRoot '<local package directory>'`.
 `-Width` and `-Height` select the display resolution. The default uses Epic
