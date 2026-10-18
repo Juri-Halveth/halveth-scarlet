@@ -1,92 +1,56 @@
-# HALVETH // Singularity Cannon · Forschungsdemo
+# HALVETH // Singularity Cannon
 
-**Projektleitung und benannte Entwicklung:** Juri Janovski (Juri Halveth), 2026. [Demo öffnen](./) · [Paket herunterladen](HALVETH_SINGULARITY_CANNON_2026-10-18_v3.zip) · [HTML-Quelltext](index.html) · [kleines Bewegungsmodul](singularity-core.mjs) · [Quellreceipt](SOURCE_RECEIPT.json).
+**Projektleitung und benannte Entwicklung:** Juri Janovski (Juri Halveth), 2026.
+[Demo öffnen](./) · [Aktuelles Offline-Paket](HALVETH_SINGULARITY_CANNON.zip) · [Lizenz](LICENSE-HALVETH-PIRL-2.0.md)
 
-Diese Veröffentlichung ist eine eigenständige, offline lauffähige **Spielsimulation** eines beweglichen Attraktors. Sie ist von einer Erinnerung an *Unreal II: The Awakening* und dessen Singularity-Cannon-Motiv angeregt. Sie enthält keine Originaldateien, Grafiken, Musik, Modelle oder Skripte des Spiels. Die historischen Eigenschaften werden hier nicht als exakte Rekonstruktion behauptet. Das [offizielle Spielhandbuch](https://cdn.akamai.steamstatic.com/steam/apps/13200/manuals/Manual_english.pdf) bindet den Spieltitel und das Entwicklerteam; die [UnrealWiki-Klassenreferenz](https://wiki.beyondunreal.com/UE2%3AWeaponInvSingularityCannon_%28U2XMP%29) nennt `projectileBlackHole` für die XMP-Waffenklasse. Letztere ist eine Community-Quelle zum Codekontext und keine Freigabe der Originalsoftware.
+Eine eigenständige WebGL-/Canvas-Spielsimulation, angeregt vom Singularity-Cannon-Motiv aus *Unreal II: The Awakening*. Sie enthält keine Originaldateien des Spiels. Der aktuelle Stand umfasst schwarze Kerne, unterschiedlich geneigte helle Scheiben, begrenzte Zeichenbudgets, Rücknahme und den örtlichen Strömungseinzug beim Selbsttreffer.
 
 ## Start und Bedienung
 
-### Aktuell: örtlicher Strömungseinzug über 3,6 Sekunden (Revision 3)
+Die Webseite öffnen oder das aktuelle ZIP entpacken und `index.html` im Browser öffnen. Es sind keine Installation, externen Bibliotheken, Konten oder Telemetrie nötig.
 
-Der Selbsttreffer zieht die Darstellung jetzt **örtlich und stückweise** in den Emitter. Die gesamte Seite erhält keine gemeinsame Rotation oder Skalierung mehr. Ein dichtes, texturiertes Netz verformt einzelne Bildbereiche unterschiedlich: nahe Quellpunkte erreichen den Kern früher, entfernte Punkte später; die Winkelbewegung nimmt beim Annähern zu. Eine kleine, zeitlich stetige Variation erzeugt unterschiedliche Strömungsbahnen. Nahe am Kern löst der GPU-Renderer dunkle Hintergrundflächen zunehmend auf, sodass helle Schrift- und Materiespuren als einzelne Fäden erkennbar bleiben.
+- **Klicken / tippen:** Ein Feld vom kleinen Emitter links zum gewählten Punkt schicken. Vier Felder laufen gleichzeitig; zusätzliche Schüsse warten in einer sichtbaren Warteschlange.
+- **Direkt auf den Emitter klicken:** Den Selbsttreffer auslösen.
+- **Z / Zurück:** Den Zustand vor dem letzten Schuss wiederherstellen. Bis zu acht Zustände werden vorgehalten.
+- **P:** Pause. **R:** Einen neuen Spielraum erzeugen. Auf dem Desktop liegen weitere Einstellungen unter **Steuerung**.
+- **Mobil:** Direkt ins Feld tippen. Die großen Desktop-Bedienfelder sind ausgeblendet.
 
-- Der Einzug dauert **3,6 Sekunden** anhand der vergangenen Animationszeit. Eine niedrige Zeichenrate verlängert dieses Zeitfenster nicht künstlich. Danach folgen der kurze visuelle „BLUB.“-Moment und derselbe rücknehmbare `EH-000`-Spielzustand.
-- Die eigene Spielansicht wird beim Start einmal lokal abgebildet: die frisch gezeichneten Canvas-Ebenen und die sichtbaren Beschriftungen/Bedienfelder. Die UI-Abbildung verwendet DOM-Textpositionen und vereinfachte Panelhintergründe; sie ist kein allgemeiner Screenshot-Dienst und keine pixelidentische Browser-Engine-Reproduktion. Während des Einzugs wird dieser Quellstand räumlich verformt, die ursprüngliche Szene wartet.
-- Der WebGL-Pfad verwendet höchstens 1,6 Millionen Ausgabepixel und ein Netz von höchstens 113 × 73 Punkten. Textur und Puffer entstehen einmal pro Einzug und werden bei der Rückkehr freigegeben. Ein groberer Canvas-Pfad verwendet höchstens 800.000 Pixel, 27 × 19 Punkte und 24 Zeichenaufrufe pro Sekunde. Diese Budgets sind keine gemessene Bildratenzusage.
-- Das künstlerische 2D-Abflussmodell nutzt einen ortsabhängigen Einzugsfortschritt und einen nach innen stärker gewundenen Weg. Es löst keine relativistischen Gravitationsgleichungen und simuliert kein reales Wasser. Die genaue Abbildung ist im Code als `fluidPoint` gebunden und wird auf Reihenfolge, endliche Werte, stetige Ankunft und Abweichung von einer starren Transformation geprüft.
-- **Z / Escape / Schuss zurücknehmen**, **R**, die bewusste Neuladung und der kurze reduzierte Bewegungspfad bleiben erhalten. Die tatsächlichen DOM-Elemente behalten ihre Layoutposition und werden nach der Rückkehr wieder sichtbar und bedienbar.
+## Selbsttreffer: 3,6 Sekunden Strömungseinzug
 
-Das Paket `2026-10-18_v3` ergänzt die bisherigen ZIPs. Die folgenden Revision-2-Angaben dokumentieren den vorherigen Stand und werden durch diesen örtlichen Einzug ersetzt.
+Ein dichtes, texturiertes Netz zieht einzelne Bildbereiche örtlich in den Emitter. Nahe Quellpunkte erreichen den Kern zuerst; entfernte Punkte folgen später. Die Winkelbewegung nimmt nach innen zu. Stetig unterschiedliche Strömungswege und die örtliche Auflösung dunkler Flächen machen helle Schrift- und Materiespuren als Fäden sichtbar.
 
-### Vorheriger Stand: Raumkollaps und EH-000 (Revision 2)
+Die eigene Szene wird beim Start einmal lokal abgebildet: die frisch gezeichneten Canvas-Ebenen sowie sichtbare Beschriftungen und vereinfachte Bedienfelder. Dieser Quellstand wird räumlich verformt, während die ursprüngliche Szene wartet. Es wird keine gemeinsame Drehung oder Verkleinerung auf die gesamte Seite angewendet.
 
-Ein bewusst direkt auf den Emitter gesetztes Ziel löst einen zusätzlichen **inszenierten Szeneneffekt** aus. Nach einer kurzen Scharfschaltzeit faltet sich die eigene Webseitenansicht zum Emitter: Spielszene, Titel, Bedienfelder und vorhandene Seitennavigation werden als Darstellungsebenen eingezogen. Anschließend erscheint kurz „BLUB.“ und dann der gestaltete Spielzustand `EH-000 / EMITTER_ABSORBED`.
+Der Einzug dauert **3,6 Sekunden vergangene Animationszeit**. Mit Scharfschaltmoment und anschließendem visuellen **„BLUB.“** erscheint nach ungefähr 4,6 Sekunden der gestaltete Spielzustand **EH-000 / EMITTER_ABSORBED**. „BLUB.“ enthält keinen Ton.
 
-Die Browserleiste, andere Tabs, Betriebssystem, Dateien und Netzverbindungen werden dabei nicht verändert. Der Code erzeugt keinen tatsächlichen Browserfehler und kein echtes Schwarzes Loch. „BLUB.“ ist hier ein visueller Textmoment, ohne Ton. Die Animation verwendet zusammengesetzte CSS-Transformationen und Transparenz; sie berechnet keine Verformung der Browser-Engine.
+**Z, Escape oder „Schuss zurücknehmen“** stellen die Szene wieder her. **R** erzeugt einen neuen Raum. **„Neu laden“** lädt die Seite erst nach dem bewussten Klick neu. Bei reduzierter Bewegung gibt es eine kurze Ausblendung. Die ursprünglichen DOM-Elemente erhalten nach der Rückkehr ihren Eingabezustand zurück; Textur und Zeichenpuffer werden freigegeben. Der Effekt bleibt in dieser Webseite.
 
-- **Z**, **Escape** oder **„Schuss zurücknehmen“** hebt den Kollaps auf und nutzt die vorhandene begrenzte Undo-Historie. Bei einem älteren, wartenden Selbsttreffer wird dessen erneute Kollapsauslösung unterdrückt, falls er im zurückgeholten Zustand noch vorhanden ist.
-- **R** baut einen frischen Spielraum auf. **„Neu laden“** lädt dieselbe Seite erst nach dem bewussten Tastendruck beziehungsweise Klick tatsächlich neu. Die Szene lädt niemals von selbst neu.
-- Normale ausgehende Schüsse lösen den Kollaps nicht aus, obwohl sie am Emitter starten. Ein wartender Selbsttreffer wird erst nach seinem tatsächlichen Start scharf.
-- Während des Effekts bleiben Abbruch und Wiederherstellung erreichbar. Die eingezogenen Bedienelemente sind vorübergehend `inert`; danach erhalten sie ihren vorherigen Eingabezustand zurück. Im Kollaps werden weitere Schüsse nicht angenommen.
-- Bei `prefers-reduced-motion` verwendet die Szene eine kurze Ausblendung ohne Rotation und Skalierung. Die Einzugsposition folgt beim Ändern des Fensters den unverformten Layoutmaßen.
+## Darstellung und Leistungsbudgets
 
-Das Paket `2026-10-18_v2` ergänzt die bisherigen Releases; die ZIP-Dateien vom 10. Oktober und vom ersten Update am 18. Oktober bleiben unverändert erhalten.
+- Der schwarze Kern verdeckt auch Vordergrundobjekte. Helle Strukturen erhalten pro Schuss eine zufällige, danach stabile Orientierung.
+- Einmal erzeugte Sterntextur und wiederverwendete Uniform-Puffer begrenzen wiederholte Arbeit.
+- Die normale WebGL-Zeichenfläche ist auf 1,6 Millionen Pixel begrenzt; **Mehr Details** erlaubt bis zu 4 Millionen. Der Canvas-Vordergrund besitzt ein separates Budget von ungefähr 3,6 Millionen Pixeln.
+- Der Strömungseinzug verwendet höchstens 1,6 Millionen Ausgabepixel und 113 × 73 Netzpunkte. Sein gröberer Canvas-Fallback verwendet höchstens 800.000 Pixel, 27 × 19 Punkte und höchstens etwa 24 Zeichenaufrufe pro Sekunde.
 
-### Bild- und Bedienungsupdate vom 18. Oktober 2026
+Dies sind Rechenbudgets, keine zugesicherte Bildrate. Der angezeigte rAF-Takt zählt Browser-Callbacks und belegt keine vollständig angezeigten Frames oder Monitorfrequenz.
 
-- Der größere Kern ist schwarz (`#000000`) und verdeckt auch die darüber gezeichneten Staub-, Objekt- und Effektlagen. Sein dunkles Zentrum hängt nicht von der Materialzufuhr ab; nur die Entstehungs- und Endphase blenden es ein beziehungsweise aus.
-- Die hellen Strukturen sind überwiegend weiß/silbergrau. Jeder Schuss erhält eine zufällige, danach stabile Neigung, Orientierung und Umlaufrichtung. Materialzufuhr steuert weiterhin Helligkeit und Winkelbereiche. Ein gebogener hinterer Lichtbogen vermittelt künstlerisch die Linsenwirkung; er ist kein berechneter Photonenring oder relativistisches Raytracing.
-- Der Sternhintergrund entsteht einmal als lokale Textur. Im laufenden Shader werden deren Koordinaten verschoben und verzerrt; die pro Bild ausgeführten prozeduralen Hintergrundberechnungen entfallen.
-- „Automatisch“ begrenzt die Shader-Zeichenfläche auf höchstens 1,6 Millionen Pixel, „Mehr Details“ auf höchstens 4 Millionen. Das ist ein festes Pixelbudget, keine adaptive Hardwaremessung. Die tatsächliche Größe und der rAF-Takt stehen in der Steuerung. Die Vordergrundzeichenfläche besitzt ein separates Budget von ungefähr 3,6 Millionen Pixeln.
-- Uniform-Puffer werden wiederverwendet. UI-Wellen werden höchstens etwa 30-mal pro Sekunde aktualisiert; die pausierte Szene wird nur bei einer Änderung erneut gezeichnet. Der PNG-Export zeichnet synchron neu, statt den WebGL-Zeichenpuffer dauerhaft zu erhalten.
-- **Z** oder die sichtbare Taste **„Zurück“** stellt den Zustand vor dem letzten Schuss wieder her: Objekte, Staub, Effekte, aktive Felder, wartende Schüsse, Zähler und Simulationszeit. Es werden höchstens acht solcher Zustände gehalten. Eine Größenänderung wird beim Wiederherstellen berücksichtigt. Nach „Alles zurücksetzen“ ist diese Historie leer. Zukünftige Zufallsereignisse werden nicht deterministisch zurückgespult.
+## Modell und Rechte
 
-Diese Änderungen reduzieren bestimmte Rechenarbeiten und beheben die Überzeichnung des Kerns. Sie garantieren keine bestimmte Bildrate auf anderer Hardware. Das frühere ZIP vom 10. Oktober bleibt als historische Fassung erhalten; der Download verweist auf das neue Paket vom 18. Oktober.
+Die Demo verwendet künstlerische 2D-Felder und eine projizierte Bildtiefe. `fluidPoint` definiert den örtlichen Einzug. Es werden keine relativistischen Geodäten, realen Wasserströmungen oder astronomischen Messwerte berechnet. Browserrahmen und Betriebssystem gehören nicht zur simulierten Szene.
 
-`index.html` direkt im Browser öffnen. Beim Laden ist kein Feld vorhanden. Zeiger bewegen und klicken/tippen: Jeder Schuss folgt einer stetigen Geraden vom Emitter zum Zeigerziel und zieht sich dort als Projektion in die Bildtiefe zurück. Bis zu vier Felder laufen gleichzeitig; weitere Schüsse werden gezählt und sichtbar in eine Warteschlange gelegt, bis ein Rechenplatz frei wird. Kein Klick setzt Treffer- oder Zeitspur zurück. Die Schaltflächen steuern einströmende Objekte, Sogstärke, Pause, bewusste Rücksetzung und einen lokalen PNG-Export. Die Zeichenfläche ist per Tab erreichbar; Leertaste startet dort den Schuss. `P` pausiert und `R` setzt zurück, wenn kein Formelement fokussiert ist. Die Seite lädt keine externen Bibliotheken oder Telemetrie. Der PNG-Export bleibt auf dem eigenen Gerät.
+`singularity-core.mjs` ist ein separates Referenzmodell für eine weiche, begrenzte Beschleunigung. Die einzelne HTML-Datei besitzt ihre eigene eingebettete Laufzeit, damit sie auch offline funktioniert. Parameter und Wirkung der beiden Modelle sind nicht vollständig identisch.
 
-## Gebundenes Modell
+Für die eigenen Beiträge gilt [HALVETH PIRL 2.0](LICENSE-HALVETH-PIRL-2.0.md), soweit Juri Janovski die jeweiligen Rechte hält. Spieltitel und fremde Werke bleiben bei ihren Rechteinhabern. [SOURCE_RECEIPT.json](SOURCE_RECEIPT.json) bindet die Metadaten der gelieferten Ausgangsdateien; private Gesprächsprotokolle werden nicht ausgeliefert. Hashwerte binden Bytes, nicht allein Urheberschaft oder eine amtliche Anerkennung.
 
-Das Feld berechnet in zwei Dimensionen eine weiche, begrenzte Beschleunigung aus Distanz, Stärke und Masse. Sein Radius ist ein Weitenmaß der Abnahme, keine harte Wirkungsgrenze; der Beitrag wird in der Ferne kleiner, aber nicht abrupt null. Die HTML-Demo ergänzt absichtlich eine tangentiale Komponente, damit Umlaufbahnen visuell erkennbar werden. Ein kleiner kontinuierlicher Fluss bewegt auch ohne Schuss den Sternhintergrund, Staub und Objekte. Ein aktives Feld krümmt die Darstellung des Hintergrunds und lenkt Staub und Objekte zusätzlich. Die projizierte Bildtiefe verkleinert Weitenmaß, Leuchtscheibe und Einfluss bis zum Abklingen des Schusses. Die Seitenelemente reagieren als **sichtbare Interface-Rückmeldung** auf Position, Alter, Präsenz und Abstand desselben Feldzustands: Titel, Referenzlabel und Boxen verschieben sich höchstens sieben Bildschirmpixel; ein Impuls läuft über die beiden Boxen. Der Schalter „UI-Wellen“ und die Systemeinstellung für reduzierte Bewegung deaktivieren diese Rückmeldung. Die Bedienoberfläche ist kein physikalischer Körper im simulierten Raum; Browserrahmen und Betriebssystemleiste gehören nicht zur Webseite. `singularity-core.mjs` ist ein kleines separates Referenzmodell: Es integriert Geschwindigkeit **und Position** einmal pro Schritt; ein Aufrufer darf die Position danach nicht ein zweites Mal fortschreiben. Die HTML-Demo verwendet dieses Modul nicht, damit ihre einzelne HTML-Datei auch per `file://` offline funktioniert. Ihre Parameter sind für den Spieleffekt gewählt und stimmen nicht vollständig mit dem Referenzmodul überein.
+## Pflege im Repository
 
-Der dunkle Kern und die Linsenverzerrung bleiben als Spielmodell bestehen. Die helle Scheibe startet bei null und reagiert auf nahe Staub- und Objekttracer sowie kurze Aufnahmeimpulse; sie nimmt bei fehlender Zufuhr wieder ab. Vier geglättete Winkelbereiche binden ihre sichtbare Form an die tatsächlichen Positionen der simulierten Tracer. Nahe Staub-Tracer zeigen zusätzlich ihre eigene kurze, geschwindigkeitsabhängige Bewegungsspur. Die fleckigen Lichtanteile bewegen sich mit unterschiedlichen Winkelgeschwindigkeiten. Die vier Winkelbereiche sind eine grobe Darstellungsauflösung, keine physikalisch gemessenen Sektoren. Das ist eine sichtbare, zustandsabhängige Kopplung, aber **keine** astrophysikalische Akkretions- oder Strahlungssimulation. Die Lichtverzerrung und das Zurückziehen in die Bildtiefe sind künstlerische WebGL/Canvas-Darstellungen. Die Tiefenvariable ist ein Projektionsparameter, keine gemessene räumliche Koordinate. Weder Schwarzschild- noch Kerr-Geodäten, Energieerhaltung, reale Materie oder astronomische Messwerte werden berechnet. Insbesondere wird **kein Photonenring berechnet**. „Zeitspur“ ist Simulationszeit. Die Live-Anzeige zählt `requestAnimationFrame`-Callbacks innerhalb eines ungefähr einsekündigen Fensters und nennt die tatsächliche Canvas-Backing-Größe. Das ist ein browser- und fensterbezogener Takt, weder ein Nachweis für vollständig angezeigte Frames noch für die Bildwiederholrate des Monitors. **120 sichtbare FPS oder 8K sind mit diesem Paket nicht nachgewiesen**.
+Die aktuellen automatisierten Prüfungen liegen ausschließlich unter `tests/`. Vom Repository-Stamm aus:
 
-## Physikalischer Bezug und offene Forschungsfrage
+```text
+node --test tests/singularity-cannon-core.test.mjs tests/singularity-cannon-runtime.test.mjs tests/singularity-cannon-ui.test.cjs
+python forschung/singularity-cannon/package_release.py
+```
 
-Ein Schwarzes Loch selbst ist keine leuchtende feste Kugel mit einem immer gleichen Ring. Licht kann aus heißem Material in der Umgebung kommen; starke Gravitation verändert dessen sichtbare Form. Die [NASA-Anatomie Schwarzer Löcher](https://science.nasa.gov/universe/black-holes/anatomy/) trennt Akkretionsscheibe, Schatten und durch Lichtablenkung entstehende Ringbilder. In einer [NASA-Visualisierung einer Akkretionsscheibe](https://svs.gsfc.nasa.gov/13326) bilden und verlieren sich helle Gasstrukturen; unterschiedliche Umlaufgeschwindigkeiten verzerren sie. Diese Quellen motivieren die bewegten Flecken und die Abhängigkeit von Materialzufuhr. Die Demo verwendet keine zu diesen Quellen kalibrierten Größen.
+Die Tests prüfen unter anderem Zustandswiederherstellung, Pixelbudgets, örtliche Verformung, nahe Ankunft vor ferner Ankunft, endliche Werte und das Zeitfenster. Sie ersetzen keine visuelle Browserprüfung.
 
-Planetenringe sind eine andere Objektklasse: Viele einzelne Partikel umkreisen einen Planeten, statt eine feste Oberfläche zu bilden. [Cassini-Daten bei NASA](https://science.nasa.gov/mission/cassini/science/rings/) beschreiben überwiegend eisige Saturnringe und Material aus den Fontänen des Mondes Enceladus im E-Ring. Solche Ringe können Spuren von Materialtransport oder Mondaktivität tragen. Ein Ring allein ist kein Nachweis für Leben; dafür wären unabhängige chemische und geophysikalische Beobachtungen sowie Kontrollen gegen unbelebte Prozesse nötig. Das bleibt eine getrennte Forschungshypothese, nicht ein Effekt dieser Demo.
-
-Das sichtbare Fenster ist ein endlicher Ausschnitt. Objekte, die ihn verlassen, werden nicht an einer unsichtbaren Wand zurückgeworfen; die Demo entfernt sie außerhalb des Ausschnitts und lässt neue Objekte am Rand einströmen. Aufgenommene Staub-Tracer werden dort als Darstellungsbestand erneut eingesetzt. Das ist ein offener Bildfluss, kein persistent berechnetes, unendliches Weltmodell. Die Obergrenze von vier gleichzeitig aktiven Feldern ist ein Rechenbudget. Die Warteschlange bewahrt zusätzliche Klicks; aktive Felder, wartende Schüsse und gesamte Schusszahl bleiben unterscheidbar. Ein neuer Schuss setzt diese Zähler nicht zurück. „Alles zurücksetzen“ beziehungsweise `R` leert sie bewusst; „Zurück“ kann einen früheren Zustand mit entsprechend früheren Zählerständen wiederherstellen.
-
-## Patch gegenüber dem angelieferten Paket
-
-- Der zuvor längenlose Partikelpfad zeichnet jetzt tatsächlich kurze elliptische Lichtspuren.
-- Bei deaktiviertem WebGL bleibt der dunkle Canvas-Hintergrund sichtbar, weil er nach dem Löschen gezeichnet wird.
-- Objekt-, Funken- und Strahlzahlen sind begrenzt; wiederholte Klicks erhöhen sie nicht unbegrenzt.
-- Die Seite startet ohne festes Feld. Jeder Klick wird als Schuss behalten; WebGL und Canvas zeichnen alle aktiven Felder, während weitere Schüsse bei vier aktiven Feldern sichtbar warten.
-- Schüsse erreichen ihr Zeigerziel auf einer stetigen Geraden und verkleinern sich danach als Tiefenprojektion. Hintergrund, Staub und Objekte besitzen einen sanften Grundfluss; aktive Felder beeinflussen ihre sichtbare Bewegung zusätzlich, ohne scharfe Radiuskante.
-- Die Bildränder reflektieren Objekte nicht mehr. Ausgetretene Objekte werden außerhalb des Ausschnitts entfernt und neue Objekte strömen vom Rand ein.
-- Die leuchtende Scheibe ist nicht mehr als vollständige Ellipse vorgezeichnet: Helligkeit und Winkelverteilung folgen nahen Tracern, Flecken bewegen sich differenziell und das Leuchten klingt ohne Zufuhr ab. Die Tracer selbst erhalten sichtbare Bewegungsspuren. Dunkler Kern und gravitative Spielwirkung sind davon getrennt.
-- Eine Live-Anzeige zeigt rAF-Takt und Canvas-Pixelgröße als gebundene Laufzeitbeobachtung.
-- Bei verfügbarem WebGL zeichnet Canvas die Akkretionsscheibe nicht noch einmal darüber; seine Scheibenzeichnung bleibt als Fallback erhalten. Das entfernt doppelte Zeichenarbeit, ist aber keine Zusage einer bestimmten Bildrate.
-- Titel und Interface-Boxen reagieren mit begrenzter Verschiebung und einem gezeichneten Wellenimpuls auf denselben aktiven Feldzustand. Ein eigener Schalter und `prefers-reduced-motion` schalten die Reaktion ab; alle Bedienelemente bleiben anklickbar.
-- Tastenkürzel greifen nicht in fokussierte Schaltflächen, Links oder Formelemente ein.
-- „Alles zurücksetzen“ hebt auch einen vorherigen Pausenzustand auf.
-- Der PNG-Export nutzt einen lokalen Blob-Download und meldet den gestarteten Export sichtbar.
-- Die öffentliche Scarlet-Navigation bleibt neben dem Referenzlabel frei; die Tastaturhilfe verwendet „Leertaste“, damit die globale Sprachlogik sie nicht als anderes Wort ersetzt.
-- Das Referenzmodul prüft numerische Eingaben und dokumentiert seine Mutationsgrenze.
-
-Diese Änderungen begrenzen einige Last- und Bedienungsfehler. Sie sind keine hardwareübergreifende Leistungs- oder Barrierefreiheitszertifizierung.
-
-## Quellen, Rechte, offene Front
-
-Die drei vom Nutzer gelieferten Dateien sind in `SOURCE_RECEIPT.json` mit Dateiname, Umfang und SHA-256 gebunden. Das lange Textprotokoll enthält Gesprächs- und Recherchematerial und wird **nicht** mitveröffentlicht. Darin zitierte Foren, Gerüchte und alte Antworten belegen allenfalls, dass Aussagen kursierten; sie belegen weder die Originalimplementierung noch reale Physik. Weitere historische Detailclaims benötigen die entsprechende Primärquelle oder eine ausdrücklich begrenzte Community-Attribution.
-
-Für den neuen eigenen HTML-, JavaScript-, Test- und Dokumentationsbeitrag gilt die [repo-spezifische Lizenzzuordnung](../../LICENSES.md) zu [HALVETH PIRL 2.0](LICENSE-HALVETH-PIRL-2.0.md), **nur soweit Juri Janovski die jeweiligen Rechte tatsächlich hält**. Spieltitel und fremde Werke bleiben bei ihren Rechteinhabern. Eine Git-Version und Hashwerte dokumentieren Dateien und Zeitpunkt im jeweiligen System, nicht allein Urheberschaft, Erfindungshöhe, Patentpriorität oder eine amtliche Anerkennung. Es wird keine Patentanmeldung vorgenommen oder behauptet. Die Grundidee eines fiktiven schwarzen Lochs, naturwissenschaftliche Gesetze und Methoden als solche werden nicht exklusiv beansprucht; vgl. [§ 69a UrhG](https://www.gesetze-im-internet.de/urhg/__69a.html) für die Unterscheidung zwischen Programmausdruck und zugrunde liegenden Ideen.
-
-## Prüfung
-
-`node --test singularity-core.test.mjs singularity-runtime.test.mjs` prüft den sanften Einfluss außerhalb des Referenzradius, Horizont, einen inneren Bewegungsschritt und ungültige Eingaben sowie Zustandswiederherstellung, Größenänderung, Pixelbudgets, stabile Feldorientierung und die abschließende schwarze Kernmaske. Die Runtime-Tests führen den ausgelieferten Inline-Code mit einem kleinen DOM-/Canvas-Ersatz aus. Sie beweisen keine GPU-Shader-Korrektheit oder sichtbare Bildrate; dafür bleibt die Browserprüfung erforderlich. Dieselben Fälle werden über `tests/singularity-cannon-runtime.test.mjs` in der Repository-CI ausgeführt.
-
-`python package_release.py` erzeugt das SHA-256-Manifest und ein sortiertes ZIP mit festem ZIP-Zeitstempel. Die Textdateien werden mit LF-Zeilenenden paketiert, entsprechend den veröffentlichten Git-Textblobs; dadurch ändern Windows-Zeilenenden nicht den Paketinhalt. Das Manifest bindet diese Paketbytes. Das ZIP enthält weder das Gesprächsprotokoll noch Originaldateien des Spiels.
+Der Paketbau erzeugt genau **HALVETH_SINGULARITY_CANNON.zip** und das zugehörige [SHA-256-Manifest](RELEASE_SHA256.json). Das ZIP enthält die aktuelle Demo, das Referenzmodul, diese Anleitung, Lizenz, Quellmetadaten und Manifest. Testdateien, Testaufnahmen, Versuchsskripte und alte Varianten werden nicht mitgeliefert. Textdateien werden als UTF-8 mit LF-Zeilenenden paketiert.
