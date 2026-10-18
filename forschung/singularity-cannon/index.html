@@ -10,6 +10,7 @@
 :root {color-scheme:dark; --bg:#060a12;--panel:#0e1625;--cyan:#8fffe4;--mint:#b6ffc7;--gold:#f7ca86;--muted:#8996b0;--line:rgba(183,218,229,.15)}
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;background:var(--bg);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#e8f9f8;overflow:hidden}
+#world-layer{position:relative;width:100%;height:100%}
 #stage{position:relative;width:100vw;height:100dvh;min-height:500px;background:#03070e}
 canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
 #fx{pointer-events:auto;cursor:crosshair}
@@ -40,9 +41,23 @@ h1{font-size:clamp(20px,3.2vw,39px);margin:6px 0 3px;letter-spacing:-.045em;text
   #message{top:50%;padding:0 18px;font-size:10px;letter-spacing:.11em}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.field-reactive{transform:none!important}.field-reactive::after{opacity:0!important}}
+/* The cinematic collapse affects this document, not browser chrome. */
+body.self-capture .void-pull-target{transform:rotate(var(--capture-turn,0rad)) scale(var(--capture-scale,1));transform-origin:var(--capture-origin-x,0px) var(--capture-origin-y,0px);opacity:var(--capture-opacity,1);pointer-events:none;will-change:transform,opacity}
+.capture-overlay{position:fixed;inset:0;z-index:2147483600;background:rgba(0,0,0,var(--capture-cover,0));color:#eef2f9;overflow:hidden;isolation:isolate}
+.capture-overlay[hidden],.capture-panel[hidden],.capture-blub[hidden],.capture-abort[hidden]{display:none!important}
+.capture-mouth{position:absolute;left:var(--capture-x);top:var(--capture-y);width:var(--mouth-size,54px);height:var(--mouth-size,54px);border-radius:50%;background:#000;transform:translate(-50%,-50%);box-shadow:0 0 0 1px #c8d5e39c,0 0 24px 3px #b1c7e650,0 0 85px 15px #b1c7e626;opacity:var(--mouth-opacity,1);pointer-events:none}
+.capture-mouth::before,.capture-mouth::after{content:'';position:absolute;inset:-18%;border:2px solid #e3ebf8aa;border-radius:50%;transform:rotate(-25deg) scaleY(.34);box-shadow:0 0 14px #dbe8ff88}
+.capture-mouth::after{inset:-7%;transform:rotate(31deg) scaleY(.65);border-width:1px;opacity:.6}
+.capture-status{position:absolute;top:max(28px,env(safe-area-inset-top));left:20px;right:20px;text-align:center;font:600 11px/1.6 ui-monospace,monospace;letter-spacing:.18em;color:#c2cfdf}
+.capture-abort{position:absolute;bottom:max(28px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);white-space:nowrap;background:#111723e8;border-color:#9eafc366;min-height:44px}.capture-abort:active{transform:translateX(-50%)}
+.capture-blub{position:absolute;left:var(--capture-x);top:var(--capture-y);transform:translate(-50%,-50%);font:800 clamp(25px,7vw,86px)/1 system-ui;letter-spacing:.08em;color:#e2e8f2;text-shadow:0 0 35px #b1c7e650}
+.capture-panel{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(580px,calc(100% - 40px));padding:clamp(24px,5vw,44px);border:1px solid #8799ad3d;border-radius:20px;background:radial-gradient(ellipse at 50% 0,#17233488,transparent 65%),#070b11;text-align:center;box-shadow:0 30px 100px #000}
+.capture-panel small{display:block;color:#a9bacb;letter-spacing:.16em;font-size:10px}.capture-code{font:800 clamp(46px,10vw,82px)/1.1 ui-monospace,monospace;margin:20px 0 6px;color:#fff}.capture-panel h2{font-size:clamp(15px,3vw,22px);letter-spacing:.1em;margin:0 0 24px}.capture-panel p{font-size:15px;line-height:1.7;color:#b9c6d7;margin:15px 0 25px}.capture-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.capture-actions button{min-height:46px;background:#dce6f3;color:#0a111b;border-color:#dce6f3}.capture-actions button.secondary{background:transparent;color:#dce6f3;border-color:#64758b}.capture-panel .capture-help{margin:20px 0 0;font-size:11px;color:#7e91a7}
+@media(prefers-reduced-motion:reduce){body.self-capture .void-pull-target{transform:none!important}.capture-mouth::before,.capture-mouth::after{display:none}}
 </style>
 </head>
 <body class="singularity-cannon-scene">
+<div id="world-layer">
 <main id="stage">
   <canvas id="space" aria-hidden="true"></canvas>
   <canvas id="fx" tabindex="0" role="button" aria-label="Interaktive Weltraumsimulation. Auf Mobilgeräten direkt auf das Feld tippen, um eine Singularität abzufeuern. Mit der Tastatur Leertaste drücken."></canvas>
@@ -86,11 +101,26 @@ h1{font-size:clamp(20px,3.2vw,39px);margin:6px 0 3px;letter-spacing:-.045em;text
         <label><input type="checkbox" id="uiWave" checked> UI-Wellen</label>
         <label>BILDQUALITÄT <select id="quality"><option value="auto">Automatisch</option><option value="detail">Mehr Details</option></select></label>
       </div>
-      <div class="footer"><span>KLICK: SCHUSS IN DIE TIEFE · WEITERE SCHÜSSE WARTEN SICHTBAR · Z: LETZTEN SCHUSS ZURÜCKNEHMEN</span><span id="renderStat">rAF-TAKT: MISST…</span><span>OFFLINE · <a href="README.md" style="color:#b6ffc7">MODELL &amp; RECHTE</a> · <a href="HALVETH_SINGULARITY_CANNON_2026-10-18.zip" download style="color:#b6ffc7">PAKET ↓</a></span></div>
+      <div class="footer"><span>KLICK: SCHUSS IN DIE TIEFE · WEITERE SCHÜSSE WARTEN SICHTBAR · Z: LETZTEN SCHUSS ZURÜCKNEHMEN</span><span id="renderStat">rAF-TAKT: MISST…</span><span>OFFLINE · <a href="README.md" style="color:#b6ffc7">MODELL &amp; RECHTE</a> · <a href="HALVETH_SINGULARITY_CANNON_2026-10-18_v2.zip" download style="color:#b6ffc7">PAKET ↓</a></span></div>
     </div>
   </section>
 
 </main>
+</div>
+<section id="capture-overlay" class="capture-overlay" role="dialog" aria-modal="true" aria-label="Szeneneffekt: Emitter verschluckt" tabindex="-1" data-phase="idle" hidden>
+  <div class="capture-mouth" aria-hidden="true"></div>
+  <div id="capture-status" class="capture-status" role="status" aria-live="polite"></div>
+  <div id="capture-blub" class="capture-blub" aria-hidden="true" hidden>BLUB.</div>
+  <button id="capture-abort" class="capture-abort" type="button">↶ SELBSTTREFFER ABBRECHEN · Z</button>
+  <div id="capture-panel" class="capture-panel" hidden>
+    <small>INSZENIERTER SPIELFEHLER</small>
+    <div class="capture-code">EH-000</div>
+    <h2>EMITTER_ABSORBED</h2>
+    <p>Du hast die Quelle selbst getroffen.<br>Der Emitter hat die Raumansicht mit in den Kern gezogen.</p>
+    <div class="capture-actions"><button id="capture-reload" type="button">↻ NEU LADEN</button><button id="capture-undo" class="secondary" type="button">↶ SCHUSS ZURÜCKNEHMEN</button></div>
+    <p class="capture-help">Z / Escape: zurück · R: neuer Raum</p>
+  </div>
+</section>
 <script>
 'use strict';
 (() => {
@@ -103,6 +133,8 @@ let objects=[],dust=[],sparks=[],beams=[],holes=[],pendingShots=[],fallbackStars
 let perfWindowStart=last,perfFrames=0,lastUiUpdate=0,needsRedraw=true;
 const shotHistory=[];
 const MAX_UNDO=8;
+const capture={phase:'idle',age:0,holeId:null};
+const captureSurfaces=[];
 const controls={
   force:document.getElementById('force'),
   trails:document.getElementById('trails'),
@@ -130,6 +162,68 @@ function setHudExpanded(expanded){
   captureInterfaceBounds();
 }
 
+function layoutCapture(){
+  const x=w*.115,y=h*.51,overlay=dom('capture-overlay');
+  overlay.style.setProperty('--capture-x',x+'px');overlay.style.setProperty('--capture-y',y+'px');
+  for(const surface of captureSurfaces){
+    surface.el.classList.remove('void-pull-target');
+    const rect=surface.el.getBoundingClientRect();
+    surface.el.style.setProperty('--capture-origin-x',(x-rect.left)+'px');
+    surface.el.style.setProperty('--capture-origin-y',(y-rect.top)+'px');
+    surface.el.classList.add('void-pull-target');
+  }
+}
+function setCapturePhase(phase){
+  capture.phase=phase;capture.age=0;
+  dom('capture-overlay').dataset.phase=phase;
+  dom('capture-panel').hidden=phase!=='void';dom('capture-blub').hidden=phase!=='blub';
+  dom('capture-abort').hidden=phase==='void';
+  dom('capture-status').textContent=phase==='pull'?'EMITTER ERFASST · RAUM FALTET SICH':phase==='blub'?'SIGNAL VERLOREN':'SZENENFEHLER EH-000 · EMITTER VERSCHLUCKT';
+}
+function beginCapture(hole){
+  if(capture.phase!=='idle')return;
+  hole.selfCaptureSpent=true;capture.holeId=hole.id;
+  const roots=[dom('world-layer'),...document.querySelectorAll('.hub-navigation,.portal-shell,.portal-atmosphere')];
+  for(const el of new Set(roots)){
+    captureSurfaces.push({el,inert:el.inert});el.inert=true;
+  }
+  const overlay=dom('capture-overlay');overlay.hidden=false;
+  document.body.classList.add('self-capture');
+  setCapturePhase('pull');layoutCapture();
+  overlay.focus({preventScroll:true});needsRedraw=true;refreshUI();
+}
+function clearCapture(){
+  for(const {el,inert} of captureSurfaces){
+    el.classList.remove('void-pull-target');el.inert=inert;
+    el.style.removeProperty('--capture-origin-x');el.style.removeProperty('--capture-origin-y');
+  }
+  captureSurfaces.length=0;document.body.classList.remove('self-capture');
+  for(const property of ['--capture-turn','--capture-scale','--capture-opacity'])document.body.style.removeProperty(property);
+  const overlay=dom('capture-overlay');
+  const returnFocus=overlay.contains(document.activeElement);
+  overlay.hidden=true;overlay.dataset.phase='idle';
+  for(const property of ['--capture-cover','--mouth-size','--mouth-opacity'])overlay.style.removeProperty(property);
+  dom('capture-panel').hidden=true;dom('capture-blub').hidden=true;
+  capture.phase='idle';capture.age=0;capture.holeId=null;needsRedraw=true;
+  if(returnFocus)canvas.focus({preventScroll:true});
+}
+function updateCapture(dt){
+  if(capture.phase==='idle')return;
+  capture.age+=dt;
+  const overlay=dom('capture-overlay');
+  if(capture.phase==='pull'){
+    const t=clamp(capture.age/(reducedMotion.matches?.28:2.2),0,1);
+    document.body.style.setProperty('--capture-scale',Math.pow(1-t*t,1.2).toFixed(5));
+    document.body.style.setProperty('--capture-turn',(-1.8*t*t).toFixed(4)+'rad');
+    document.body.style.setProperty('--capture-opacity',Math.pow(1-t,.28).toFixed(4));
+    overlay.style.setProperty('--capture-cover',Math.pow(t,1.6).toFixed(4));
+    overlay.style.setProperty('--mouth-size',((54+230*Math.sin(t*Math.PI))*Math.pow(1-t,.3)).toFixed(2)+'px');
+    overlay.style.setProperty('--mouth-opacity',String(t<.99?1:0));
+    if(t>=1){overlay.style.setProperty('--capture-cover','1');overlay.style.setProperty('--mouth-opacity','0');setCapturePhase('blub');}
+  }else if(capture.phase==='blub'&&capture.age>=(reducedMotion.matches?.2:.65)){
+    setCapturePhase('void');dom('capture-reload').focus({preventScroll:true});
+  }
+}
 function shader(type,src){
 
   const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);
@@ -261,11 +355,14 @@ function setupGL(){
   }catch(e){console.warn('WebGL fallback',e);gl=null;}
 }
 function resize(){
-  const r=stage.getBoundingClientRect();
+  // Layout size stays stable while the page's presentation layer folds.
+  // getBoundingClientRect would measure the shrinking visual transform.
+  const r={width:stage.clientWidth,height:stage.clientHeight};
   w=Math.max(1,r.width);h=Math.max(1,r.height);
   dpr=Math.min(window.devicePixelRatio||1,1.5,Math.sqrt(3600000/(w*h)));
   glDpr=Math.min(window.devicePixelRatio||1,1.5,Math.sqrt((controls.quality.value==='detail'?4000000:1600000)/(w*h)));
   needsRedraw=true;
+  if(capture.phase!=='idle')layoutCapture();
   canvas.width=Math.max(1,Math.round(w*dpr));canvas.height=Math.max(1,Math.round(h*dpr));
   ctx.setTransform(dpr,0,0,dpr,0,0);
   glCanvas.width=Math.max(1,Math.floor(w*glDpr));glCanvas.height=Math.max(1,Math.floor(h*glDpr));
@@ -303,7 +400,7 @@ function launchPendingShots(){
   while(holes.length<MAX_HOLES && pendingShots.length){
     const target=pendingShots.shift();
     const diskAngle=rnd(-.48,.48),diskTilt=rnd(.23,.52);
-    const hole={diskAngle,diskTilt,diskCos:Math.cos(diskAngle),diskSin:Math.sin(diskAngle),x:w*.115,y:h*.51,startX:w*.115,startY:h*.51,targetX:target.x,targetY:target.y,
+    const hole={id:target.id,selfCaptureSpent:!!target.selfCaptureSpent,diskAngle,diskTilt,diskCos:Math.cos(diskAngle),diskSin:Math.sin(diskAngle),x:w*.115,y:h*.51,startX:w*.115,startY:h*.51,targetX:target.x,targetY:target.y,
       age:0,life:7,travelTime:1.35,depth:0,scale:1,presence:0,feed:0,supply:0,burst:0,
       sectorFeed:[0,0,0,0],sectorSupply:[0,0,0,0],baseRad:getBaseRadius(),rad:getBaseRadius(),seed:Math.random()*100};
     holes.push(hole);newest=hole;
@@ -368,8 +465,15 @@ function update(dt){
     hole.scale=1-.82*hole.depth;
     hole.presence=clamp(hole.age/.24,0,1)*(1-hole.depth);
     hole.rad=hole.baseRad*hole.scale;
-    if(hole.age>hole.life)holes.splice(i,1);
+    if(hole.age>hole.life){holes.splice(i,1);continue;}
+    // Every ordinary shot starts at the emitter. Arm only a deliberate
+    // emitter destination; the normal outgoing launch must never self-hit.
+    const emitterX=w*.115,emitterY=h*.51,selfRadius=Math.max(22,Math.min(w,h)*.04);
+    if(!hole.selfCaptureSpent&&hole.age>=.34&&
+       Math.hypot(hole.targetX-emitterX,hole.targetY-emitterY)<=selfRadius&&
+       Math.hypot(hole.x-emitterX,hole.y-emitterY)<=selfRadius)beginCapture(hole);
   }
+  if(capture.phase!=='idle')return;
   launchPendingShots();
   for(let i=objects.length-1;i>=0;i--){
     let o=objects[i];
@@ -581,7 +685,7 @@ function refreshUI(){
   dom('strengthValue').textContent=controls.force.value+'%';
   dom('undo-shot').disabled=shotHistory.length===0;
   const depth=holes.length?Math.round(holes[holes.length-1].depth*100):0;
-  dom('state').textContent=paused?'PAUSIERT':pendingShots.length?`${holes.length} AKTIV · ${pendingShots.length} WARTEN`:holes.length?`${holes.length} FELD${holes.length===1?'':'ER'} · TIEFE ${depth}%`:shotsFired?'FELDER WEITERGEZOGEN':'BEREIT';
+  dom('state').textContent=capture.phase!=='idle'?'EMITTER ERFASST':paused?'PAUSIERT':pendingShots.length?`${holes.length} AKTIV · ${pendingShots.length} WARTEN`:holes.length?`${holes.length} FELD${holes.length===1?'':'ER'} · TIEFE ${depth}%`:shotsFired?'FELDER WEITERGEZOGEN':'BEREIT';
 }
 function captureInterfaceBounds(){
   uiBounds=uiSurfaces.map(surface=>{
@@ -621,10 +725,11 @@ function updateInterfaceField(){
   });
 }
 function frame(now){
-  const dt=clamp((now-last)/1000,0,1/30);last=now;frameCount++;
-  if(!paused)update(dt);
-  if(!paused||needsRedraw)draw();
-  if(now-lastUiUpdate>=33){updateInterfaceField();lastUiUpdate=now;}
+  const visualDt=clamp((now-last)/1000,0,.1),dt=Math.min(visualDt,1/30);last=now;frameCount++;
+  if(!paused&&capture.phase==='idle')update(dt);
+  updateCapture(visualDt);
+  if((!paused&&capture.phase==='idle')||needsRedraw)draw();
+  if(capture.phase==='idle'&&now-lastUiUpdate>=33){updateInterfaceField();lastUiUpdate=now;}
   perfFrames++;
   if(now-perfWindowStart>=1000){
     const callbacksPerSecond=perfFrames*1000/(now-perfWindowStart);
@@ -638,8 +743,12 @@ function rememberShot(){
   if(shotHistory.length>MAX_UNDO)shotHistory.shift();
 }
 function undoShot(){
-  const state=shotHistory.pop();if(!state)return;
+  const swallowedId=capture.holeId;
+  clearCapture();
+  const state=shotHistory.pop();if(!state){refreshUI();return;}
   ({objects,dust,sparks,beams,holes,pendingShots,shotsFired,elapsed,eaten,paused,aim,frameCount}=state);
+  // An older queued self-hit must not replay the cinematic after recovery.
+  if(swallowedId!==null)for(const hole of [...holes,...pendingShots])if(hole.id===swallowedId)hole.selfCaptureSpent=true;
   // A restored shot remains usable after a viewport-size change.
   const sx=w/state.width,sy=h/state.height,radial=Math.min(sx,sy);
   if(sx!==1||sy!==1){
@@ -662,14 +771,16 @@ function undoShot(){
   flash('LETZTER SCHUSS ZURÜCKGENOMMEN');refreshUI();
 }
 function fire(){
+  if(capture.phase!=='idle')return;
   rememberShot();needsRedraw=true;
   shotsFired++;
-  pendingShots.push({x:aim.x,y:aim.y});
+  pendingShots.push({id:shotsFired,x:aim.x,y:aim.y});
   launchPendingShots();
   flash(pendingShots.length?`${pendingShots.length} ${pendingShots.length===1?'SCHUSS':'SCHÜSSE'} WARTEN`:'SCHUSS IN DIE TIEFE');
   refreshUI();
 }
 function reset(){
+  clearCapture();
   shotHistory.length=0;needsRedraw=true;
   objects=[];dust=[];sparks=[];beams=[];holes=[];pendingShots=[];shotsFired=0;elapsed=0;eaten=0;paused=false;dom('pause').textContent='II PAUSE';aim={x:w*.68,y:h*.47};
   spawnObjects(64);spawnDust(850);flash('RAUM BEREIT · ERSTER SCHUSS PER KLICK');refreshUI();
@@ -681,6 +792,9 @@ hudToggle.addEventListener('click',()=>setHudExpanded(hudDetails.hidden));
 setHudExpanded(false);
 dom('fire').addEventListener('click',fire);
 dom('undo-shot').addEventListener('click',undoShot);
+dom('capture-abort').addEventListener('click',undoShot);
+dom('capture-undo').addEventListener('click',undoShot);
+dom('capture-reload').addEventListener('click',()=>window.location.reload());
 controls.quality.addEventListener('change',resize);
 for(const control of Object.values(controls))control.addEventListener('change',()=>{needsRedraw=true;});
 dom('spawn').addEventListener('click',()=>{needsRedraw=true;const count=spawnObjects(45,true);flash(count?`${count} OBJEKTE STRÖMEN EIN`:'OBJEKTBUDGET BELEGT · KURZ WARTEN')});
@@ -718,6 +832,11 @@ dom('save').addEventListener('click',()=>{
 });
 document.addEventListener('keydown',e=>{
  if(e.altKey||e.ctrlKey||e.metaKey||e.repeat)return;
+ if(capture.phase!=='idle'){
+   if(e.code==='KeyZ'||e.code==='Escape'){e.preventDefault();undoShot();}
+   else if(e.code==='KeyR'){e.preventDefault();reset();}
+   return;
+ }
  const target=e.target;
  if(target instanceof HTMLElement && target.closest('button,input,a,textarea,[contenteditable="true"]'))return;
  if(e.code==='Space'){e.preventDefault();fire()}

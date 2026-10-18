@@ -1,10 +1,24 @@
 # HALVETH // Singularity Cannon · Forschungsdemo
 
-**Projektleitung und benannte Entwicklung:** Juri Janovski (Juri Halveth), 2026. [Demo öffnen](./) · [Paket herunterladen](HALVETH_SINGULARITY_CANNON_2026-10-18.zip) · [HTML-Quelltext](index.html) · [kleines Bewegungsmodul](singularity-core.mjs) · [Quellreceipt](SOURCE_RECEIPT.json).
+**Projektleitung und benannte Entwicklung:** Juri Janovski (Juri Halveth), 2026. [Demo öffnen](./) · [Paket herunterladen](HALVETH_SINGULARITY_CANNON_2026-10-18_v2.zip) · [HTML-Quelltext](index.html) · [kleines Bewegungsmodul](singularity-core.mjs) · [Quellreceipt](SOURCE_RECEIPT.json).
 
 Diese Veröffentlichung ist eine eigenständige, offline lauffähige **Spielsimulation** eines beweglichen Attraktors. Sie ist von einer Erinnerung an *Unreal II: The Awakening* und dessen Singularity-Cannon-Motiv angeregt. Sie enthält keine Originaldateien, Grafiken, Musik, Modelle oder Skripte des Spiels. Die historischen Eigenschaften werden hier nicht als exakte Rekonstruktion behauptet. Das [offizielle Spielhandbuch](https://cdn.akamai.steamstatic.com/steam/apps/13200/manuals/Manual_english.pdf) bindet den Spieltitel und das Entwicklerteam; die [UnrealWiki-Klassenreferenz](https://wiki.beyondunreal.com/UE2%3AWeaponInvSingularityCannon_%28U2XMP%29) nennt `projectileBlackHole` für die XMP-Waffenklasse. Letztere ist eine Community-Quelle zum Codekontext und keine Freigabe der Originalsoftware.
 
 ## Start und Bedienung
+
+### Selbsttreffer: Raumkollaps und EH-000 (18. Oktober, Revision 2)
+
+Ein bewusst direkt auf den Emitter gesetztes Ziel löst einen zusätzlichen **inszenierten Szeneneffekt** aus. Nach einer kurzen Scharfschaltzeit faltet sich die eigene Webseitenansicht zum Emitter: Spielszene, Titel, Bedienfelder und vorhandene Seitennavigation werden als Darstellungsebenen eingezogen. Anschließend erscheint kurz „BLUB.“ und dann der gestaltete Spielzustand `EH-000 / EMITTER_ABSORBED`.
+
+Die Browserleiste, andere Tabs, Betriebssystem, Dateien und Netzverbindungen werden dabei nicht verändert. Der Code erzeugt keinen tatsächlichen Browserfehler und kein echtes Schwarzes Loch. „BLUB.“ ist hier ein visueller Textmoment, ohne Ton. Die Animation verwendet zusammengesetzte CSS-Transformationen und Transparenz; sie berechnet keine Verformung der Browser-Engine.
+
+- **Z**, **Escape** oder **„Schuss zurücknehmen“** hebt den Kollaps auf und nutzt die vorhandene begrenzte Undo-Historie. Bei einem älteren, wartenden Selbsttreffer wird dessen erneute Kollapsauslösung unterdrückt, falls er im zurückgeholten Zustand noch vorhanden ist.
+- **R** baut einen frischen Spielraum auf. **„Neu laden“** lädt dieselbe Seite erst nach dem bewussten Tastendruck beziehungsweise Klick tatsächlich neu. Die Szene lädt niemals von selbst neu.
+- Normale ausgehende Schüsse lösen den Kollaps nicht aus, obwohl sie am Emitter starten. Ein wartender Selbsttreffer wird erst nach seinem tatsächlichen Start scharf.
+- Während des Effekts bleiben Abbruch und Wiederherstellung erreichbar. Die eingezogenen Bedienelemente sind vorübergehend `inert`; danach erhalten sie ihren vorherigen Eingabezustand zurück. Im Kollaps werden weitere Schüsse nicht angenommen.
+- Bei `prefers-reduced-motion` verwendet die Szene eine kurze Ausblendung ohne Rotation und Skalierung. Die Einzugsposition folgt beim Ändern des Fensters den unverformten Layoutmaßen.
+
+Das Paket `2026-10-18_v2` ergänzt die bisherigen Releases; die ZIP-Dateien vom 10. Oktober und vom ersten Update am 18. Oktober bleiben unverändert erhalten.
 
 ### Bild- und Bedienungsupdate vom 18. Oktober 2026
 
