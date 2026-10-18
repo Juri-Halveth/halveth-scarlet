@@ -18,7 +18,7 @@ FILES = (
     "package_release.py",
 )
 MANIFEST = "RELEASE_SHA256.json"
-ARCHIVE = "HALVETH_SINGULARITY_CANNON_2026-10-18_v2.zip"
+ARCHIVE = "HALVETH_SINGULARITY_CANNON_2026-10-18_v3.zip"
 
 
 def digest(path: Path) -> str:
@@ -38,7 +38,7 @@ def main() -> None:
     manifest = {
         "schema": "halveth.singularity-release-sha256.v1",
         "date": "2026-10-18",
-        "revision": 2,
+        "revision": 3,
         "textEncoding": "UTF-8 with LF line endings, matching published Git blobs",
         "files": records,
         "claimCeiling": "Checksums bind packaged bytes, not authorship, physical correctness, or external acceptance.",
