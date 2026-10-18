@@ -2,6 +2,7 @@ param(
     [string]$EngineRoot = 'C:\Program Files\Epic Games\UE_5.8',
     [string]$WorkRoot,
     [string]$PackageRoot,
+    [switch]$StableShadows,
     [ValidateRange(640, 16384)][int]$Width = 2560,
     [ValidateRange(480, 16384)][int]$Height = 1440
 )
@@ -10,8 +11,8 @@ $ErrorActionPreference = 'Stop'
 $repoRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..\..'))
 if (-not $WorkRoot) { $WorkRoot = Join-Path $repoRoot '.local-qa\ashbound-unreal' }
 $map = '/Game/ASHBOUND/Maps/MirrorEncounter'
-$arguments = @($map, '-DX12', '-windowed', "-ResX=$Width", "-ResY=$Height",
-    '-ExecCmds="r.Shadow.Virtual.Enable 0"')
+$arguments = @($map, '-DX12', '-windowed', "-ResX=$Width", "-ResY=$Height")
+if ($StableShadows) { $arguments += '-ExecCmds="r.Shadow.Virtual.Enable 0"' }
 
 if ($PackageRoot) {
     $launcher = Join-Path ([IO.Path]::GetFullPath($PackageRoot)) 'Windows\ASHBOUNDUE.exe'
