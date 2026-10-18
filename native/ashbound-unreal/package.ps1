@@ -48,7 +48,7 @@ $mirrorLauncher = Join-Path $OutputRoot 'Windows\Start-MirrorEncounter.cmd'
 @'
 @echo off
 cd /d "%~dp0"
-start "" "%~dp0ASHBOUNDUE.exe" "/Game/ASHBOUND/Maps/MirrorEncounter" -DX12 -windowed -ResX=2560 -ResY=1440 %*
+start "" "%~dp0ASHBOUNDUE.exe" "/Game/ASHBOUND/Maps/MirrorEncounter" -DX12 -windowed -ResX=2560 -ResY=1440 -ExecCmds="r.Shadow.Virtual.Enable 0" %*
 '@ | Set-Content -LiteralPath $mirrorLauncher -Encoding Ascii
 Write-Output "ASHBOUND native Windows package ready: $launcher"
 Write-Output "Rebirth Grove one-click start: $groveLauncher"

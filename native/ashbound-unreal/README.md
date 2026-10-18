@@ -24,6 +24,13 @@ percentage, so its frame-time cost must be measured in the packaged game.
 `package.ps1` checks for the first-person Enhanced Input configuration before
 building. Without the template's `DefaultInput.ini`, the room can render while
 WASD and mouse input fail, as happened in the first QA package.
+The first 2560 × 1440 interactive test of the butterfly build ended in a DX12
+`DXGI_ERROR_DEVICE_HUNG` GPU crash after about seven seconds. A bounded
+offscreen tests at the same resolution ran for 32 and 55 seconds with virtual
+shadow maps disabled while the planar butterfly reflection remained visible;
+a windowed run remained alive for 30 seconds under the same setting. The
+Mirror Encounter launchers now apply `r.Shadow.Virtual.Enable 0` to this map;
+this is a crash mitigation, not proof that the engine or GPU driver is fixed.
 
 This lab uses no original video frame, face, voice, transcript, or licensed TV
 image. A reflected view is an observation of the room, not a second actor or
