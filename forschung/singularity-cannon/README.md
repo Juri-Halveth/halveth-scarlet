@@ -1,12 +1,24 @@
 # HALVETH // Singularity Cannon · Forschungsdemo
 
-**Projektleitung und benannte Entwicklung:** Juri Janovski (Juri Halveth), 2026. [Demo öffnen](./) · [Paket herunterladen](HALVETH_SINGULARITY_CANNON_2026-10-18_v2.zip) · [HTML-Quelltext](index.html) · [kleines Bewegungsmodul](singularity-core.mjs) · [Quellreceipt](SOURCE_RECEIPT.json).
+**Projektleitung und benannte Entwicklung:** Juri Janovski (Juri Halveth), 2026. [Demo öffnen](./) · [Paket herunterladen](HALVETH_SINGULARITY_CANNON_2026-10-18_v3.zip) · [HTML-Quelltext](index.html) · [kleines Bewegungsmodul](singularity-core.mjs) · [Quellreceipt](SOURCE_RECEIPT.json).
 
 Diese Veröffentlichung ist eine eigenständige, offline lauffähige **Spielsimulation** eines beweglichen Attraktors. Sie ist von einer Erinnerung an *Unreal II: The Awakening* und dessen Singularity-Cannon-Motiv angeregt. Sie enthält keine Originaldateien, Grafiken, Musik, Modelle oder Skripte des Spiels. Die historischen Eigenschaften werden hier nicht als exakte Rekonstruktion behauptet. Das [offizielle Spielhandbuch](https://cdn.akamai.steamstatic.com/steam/apps/13200/manuals/Manual_english.pdf) bindet den Spieltitel und das Entwicklerteam; die [UnrealWiki-Klassenreferenz](https://wiki.beyondunreal.com/UE2%3AWeaponInvSingularityCannon_%28U2XMP%29) nennt `projectileBlackHole` für die XMP-Waffenklasse. Letztere ist eine Community-Quelle zum Codekontext und keine Freigabe der Originalsoftware.
 
 ## Start und Bedienung
 
-### Selbsttreffer: Raumkollaps und EH-000 (18. Oktober, Revision 2)
+### Aktuell: örtlicher Strömungseinzug über 3,6 Sekunden (Revision 3)
+
+Der Selbsttreffer zieht die Darstellung jetzt **örtlich und stückweise** in den Emitter. Die gesamte Seite erhält keine gemeinsame Rotation oder Skalierung mehr. Ein dichtes, texturiertes Netz verformt einzelne Bildbereiche unterschiedlich: nahe Quellpunkte erreichen den Kern früher, entfernte Punkte später; die Winkelbewegung nimmt beim Annähern zu. Eine kleine, zeitlich stetige Variation erzeugt unterschiedliche Strömungsbahnen. Nahe am Kern löst der GPU-Renderer dunkle Hintergrundflächen zunehmend auf, sodass helle Schrift- und Materiespuren als einzelne Fäden erkennbar bleiben.
+
+- Der Einzug dauert **3,6 Sekunden** anhand der vergangenen Animationszeit. Eine niedrige Zeichenrate verlängert dieses Zeitfenster nicht künstlich. Danach folgen der kurze visuelle „BLUB.“-Moment und derselbe rücknehmbare `EH-000`-Spielzustand.
+- Die eigene Spielansicht wird beim Start einmal lokal abgebildet: die frisch gezeichneten Canvas-Ebenen und die sichtbaren Beschriftungen/Bedienfelder. Die UI-Abbildung verwendet DOM-Textpositionen und vereinfachte Panelhintergründe; sie ist kein allgemeiner Screenshot-Dienst und keine pixelidentische Browser-Engine-Reproduktion. Während des Einzugs wird dieser Quellstand räumlich verformt, die ursprüngliche Szene wartet.
+- Der WebGL-Pfad verwendet höchstens 1,6 Millionen Ausgabepixel und ein Netz von höchstens 113 × 73 Punkten. Textur und Puffer entstehen einmal pro Einzug und werden bei der Rückkehr freigegeben. Ein groberer Canvas-Pfad verwendet höchstens 800.000 Pixel, 27 × 19 Punkte und 24 Zeichenaufrufe pro Sekunde. Diese Budgets sind keine gemessene Bildratenzusage.
+- Das künstlerische 2D-Abflussmodell nutzt einen ortsabhängigen Einzugsfortschritt und einen nach innen stärker gewundenen Weg. Es löst keine relativistischen Gravitationsgleichungen und simuliert kein reales Wasser. Die genaue Abbildung ist im Code als `fluidPoint` gebunden und wird auf Reihenfolge, endliche Werte, stetige Ankunft und Abweichung von einer starren Transformation geprüft.
+- **Z / Escape / Schuss zurücknehmen**, **R**, die bewusste Neuladung und der kurze reduzierte Bewegungspfad bleiben erhalten. Die tatsächlichen DOM-Elemente behalten ihre Layoutposition und werden nach der Rückkehr wieder sichtbar und bedienbar.
+
+Das Paket `2026-10-18_v3` ergänzt die bisherigen ZIPs. Die folgenden Revision-2-Angaben dokumentieren den vorherigen Stand und werden durch diesen örtlichen Einzug ersetzt.
+
+### Vorheriger Stand: Raumkollaps und EH-000 (Revision 2)
 
 Ein bewusst direkt auf den Emitter gesetztes Ziel löst einen zusätzlichen **inszenierten Szeneneffekt** aus. Nach einer kurzen Scharfschaltzeit faltet sich die eigene Webseitenansicht zum Emitter: Spielszene, Titel, Bedienfelder und vorhandene Seitennavigation werden als Darstellungsebenen eingezogen. Anschließend erscheint kurz „BLUB.“ und dann der gestaltete Spielzustand `EH-000 / EMITTER_ABSORBED`.
 

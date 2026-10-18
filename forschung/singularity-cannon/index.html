@@ -42,7 +42,9 @@ h1{font-size:clamp(20px,3.2vw,39px);margin:6px 0 3px;letter-spacing:-.045em;text
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.field-reactive{transform:none!important}.field-reactive::after{opacity:0!important}}
 /* The cinematic collapse affects this document, not browser chrome. */
-body.self-capture .void-pull-target{transform:rotate(var(--capture-turn,0rad)) scale(var(--capture-scale,1));transform-origin:var(--capture-origin-x,0px) var(--capture-origin-y,0px);opacity:var(--capture-opacity,1);pointer-events:none;will-change:transform,opacity}
+body.self-capture .void-pull-target{visibility:hidden;pointer-events:none}
+#capture-flow,#capture-fallback{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#capture-flow[hidden],#capture-fallback[hidden]{display:none!important}
 .capture-overlay{position:fixed;inset:0;z-index:2147483600;background:rgba(0,0,0,var(--capture-cover,0));color:#eef2f9;overflow:hidden;isolation:isolate}
 .capture-overlay[hidden],.capture-panel[hidden],.capture-blub[hidden],.capture-abort[hidden]{display:none!important}
 .capture-mouth{position:absolute;left:var(--capture-x);top:var(--capture-y);width:var(--mouth-size,54px);height:var(--mouth-size,54px);border-radius:50%;background:#000;transform:translate(-50%,-50%);box-shadow:0 0 0 1px #c8d5e39c,0 0 24px 3px #b1c7e650,0 0 85px 15px #b1c7e626;opacity:var(--mouth-opacity,1);pointer-events:none}
@@ -53,7 +55,7 @@ body.self-capture .void-pull-target{transform:rotate(var(--capture-turn,0rad)) s
 .capture-blub{position:absolute;left:var(--capture-x);top:var(--capture-y);transform:translate(-50%,-50%);font:800 clamp(25px,7vw,86px)/1 system-ui;letter-spacing:.08em;color:#e2e8f2;text-shadow:0 0 35px #b1c7e650}
 .capture-panel{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(580px,calc(100% - 40px));padding:clamp(24px,5vw,44px);border:1px solid #8799ad3d;border-radius:20px;background:radial-gradient(ellipse at 50% 0,#17233488,transparent 65%),#070b11;text-align:center;box-shadow:0 30px 100px #000}
 .capture-panel small{display:block;color:#a9bacb;letter-spacing:.16em;font-size:10px}.capture-code{font:800 clamp(46px,10vw,82px)/1.1 ui-monospace,monospace;margin:20px 0 6px;color:#fff}.capture-panel h2{font-size:clamp(15px,3vw,22px);letter-spacing:.1em;margin:0 0 24px}.capture-panel p{font-size:15px;line-height:1.7;color:#b9c6d7;margin:15px 0 25px}.capture-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.capture-actions button{min-height:46px;background:#dce6f3;color:#0a111b;border-color:#dce6f3}.capture-actions button.secondary{background:transparent;color:#dce6f3;border-color:#64758b}.capture-panel .capture-help{margin:20px 0 0;font-size:11px;color:#7e91a7}
-@media(prefers-reduced-motion:reduce){body.self-capture .void-pull-target{transform:none!important}.capture-mouth::before,.capture-mouth::after{display:none}}
+@media(prefers-reduced-motion:reduce){body.self-capture .void-pull-target{visibility:visible;opacity:var(--capture-opacity,1)}.capture-mouth::before,.capture-mouth::after{display:none}}
 </style>
 </head>
 <body class="singularity-cannon-scene">
@@ -101,13 +103,15 @@ body.self-capture .void-pull-target{transform:rotate(var(--capture-turn,0rad)) s
         <label><input type="checkbox" id="uiWave" checked> UI-Wellen</label>
         <label>BILDQUALITÄT <select id="quality"><option value="auto">Automatisch</option><option value="detail">Mehr Details</option></select></label>
       </div>
-      <div class="footer"><span>KLICK: SCHUSS IN DIE TIEFE · WEITERE SCHÜSSE WARTEN SICHTBAR · Z: LETZTEN SCHUSS ZURÜCKNEHMEN</span><span id="renderStat">rAF-TAKT: MISST…</span><span>OFFLINE · <a href="README.md" style="color:#b6ffc7">MODELL &amp; RECHTE</a> · <a href="HALVETH_SINGULARITY_CANNON_2026-10-18_v2.zip" download style="color:#b6ffc7">PAKET ↓</a></span></div>
+      <div class="footer"><span>KLICK: SCHUSS IN DIE TIEFE · WEITERE SCHÜSSE WARTEN SICHTBAR · Z: LETZTEN SCHUSS ZURÜCKNEHMEN</span><span id="renderStat">rAF-TAKT: MISST…</span><span>OFFLINE · <a href="README.md" style="color:#b6ffc7">MODELL &amp; RECHTE</a> · <a href="HALVETH_SINGULARITY_CANNON_2026-10-18_v3.zip" download style="color:#b6ffc7">PAKET ↓</a></span></div>
     </div>
   </section>
 
 </main>
 </div>
 <section id="capture-overlay" class="capture-overlay" role="dialog" aria-modal="true" aria-label="Szeneneffekt: Emitter verschluckt" tabindex="-1" data-phase="idle" hidden>
+  <canvas id="capture-flow" aria-hidden="true" hidden></canvas>
+  <canvas id="capture-fallback" aria-hidden="true" hidden></canvas>
   <div class="capture-mouth" aria-hidden="true"></div>
   <div id="capture-status" class="capture-status" role="status" aria-live="polite"></div>
   <div id="capture-blub" class="capture-blub" aria-hidden="true" hidden>BLUB.</div>
@@ -135,6 +139,8 @@ const shotHistory=[];
 const MAX_UNDO=8;
 const capture={phase:'idle',age:0,holeId:null};
 const captureSurfaces=[];
+let captureRender=null;
+const CAPTURE_SECONDS=3.6;
 const controls={
   force:document.getElementById('force'),
   trails:document.getElementById('trails'),
@@ -162,30 +168,166 @@ function setHudExpanded(expanded){
   captureInterfaceBounds();
 }
 
+// A two-dimensional artistic drain: each source point has its own radius,
+// arrival time and angular travel. This is not a rigid transform or GR solver.
+function fluidPoint(x,y,t,width=w,height=h,out=[0,0,0]){
+  const cx=width*.115,cy=height*.51,dx=x-cx,dy=y-cy;
+  const sourceRadius=Math.hypot(dx,dy),core=Math.max(12,Math.min(width,height)*.027);
+  const farthest=Math.hypot(width*.885,height*.51);
+  const progress=clamp(t,0,1),sourceAngle=Math.atan2(dy,dx);
+  const localTime=clamp(progress+.045*Math.sin(Math.PI*progress)*Math.sin(sourceAngle*11+sourceRadius*.035),0,1);
+  const front=farthest*1.015*localTime*localTime*(3-2*localTime);
+  const radius=Math.sqrt(Math.max(0,sourceRadius*sourceRadius-front*front));
+  const turn=1.15*Math.log((sourceRadius+core)/(radius+core));
+  const angle=sourceAngle+turn;
+  out[0]=cx+Math.cos(angle)*radius;out[1]=cy+Math.sin(angle)*radius;
+  out[2]=clamp(radius/core,0,1);return out;
+}
 function layoutCapture(){
-  const x=w*.115,y=h*.51,overlay=dom('capture-overlay');
-  overlay.style.setProperty('--capture-x',x+'px');overlay.style.setProperty('--capture-y',y+'px');
-  for(const surface of captureSurfaces){
-    surface.el.classList.remove('void-pull-target');
-    const rect=surface.el.getBoundingClientRect();
-    surface.el.style.setProperty('--capture-origin-x',(x-rect.left)+'px');
-    surface.el.style.setProperty('--capture-origin-y',(y-rect.top)+'px');
-    surface.el.classList.add('void-pull-target');
+  const overlay=dom('capture-overlay');
+  overlay.style.setProperty('--capture-x',w*.115+'px');overlay.style.setProperty('--capture-y',h*.51+'px');
+  if(captureRender)sizeCaptureRenderer();
+}
+// Paint only this demo's visible labels and panels into the local source plate.
+// Text positions come from DOM ranges; no remote image or page capture service.
+function paintCaptureDom(paint){
+  const roots=[...document.querySelectorAll('.top,.legend,.hud,.undo-shot,#message,.hub-navigation,.portal-shell,.portal-atmosphere')];
+  const range=document.createRange?.();if(!range)return;
+  let glyphs=0;
+  function visit(el){
+    const style=window.getComputedStyle(el),rect=el.getBoundingClientRect();
+    if(style.display==='none'||style.visibility==='hidden'||!rect.width||!rect.height)return;
+    paint.save();paint.globalAlpha*=Number(style.opacity||1);
+    const radius=Math.min(parseFloat(style.borderRadius)||0,rect.height/2,rect.width/2);
+    function box(){paint.beginPath();paint.roundRect(rect.left,rect.top,rect.width,rect.height,radius);}
+    if(style.backgroundImage!=='none'){box();paint.fillStyle='#0a1523';paint.fill();}
+    if(style.backgroundColor!=='rgba(0, 0, 0, 0)'&&style.backgroundColor!=='transparent'){
+      box();paint.fillStyle=style.backgroundColor;paint.fill();
+    }
+    if(parseFloat(style.borderTopWidth)>0){box();paint.strokeStyle=style.borderTopColor;paint.lineWidth=parseFloat(style.borderTopWidth);paint.stroke();}
+    const size=parseFloat(style.fontSize)||12;
+    paint.font=style.font||`${style.fontWeight} ${size}px ${style.fontFamily}`;
+    paint.textBaseline='alphabetic';paint.fillStyle=style.color;
+    for(const child of el.childNodes){
+      if(child.nodeType===1){if(el.tagName!=='DETAILS'||el.open||child.tagName==='SUMMARY')visit(child);}
+      else if(child.nodeType===3&&child.textContent.trim()){
+        let offset=0;
+        for(const char of child.textContent){
+          if(glyphs++>6000)break;
+          range.setStart(child,offset);offset+=char.length;range.setEnd(child,offset);
+          const r=range.getBoundingClientRect();
+          if(r.width&&r.height&&char.trim())paint.fillText(char,r.left,r.bottom-size*.18);
+        }
+      }
+    }
+    if(el.tagName==='INPUT'||el.tagName==='SELECT')paint.fillText(el.value,rect.left+5,rect.bottom-size*.3);
+    paint.restore();
   }
+  for(const root of roots)if(!roots.some(other=>other!==root&&other.contains(root)))visit(root);
+}
+function createCaptureRenderer(){
+  const plate=document.createElement('canvas'),scale=Math.min(1.5,Math.sqrt(1600000/(w*h)));
+  plate.width=Math.max(1,Math.round(w*scale));plate.height=Math.max(1,Math.round(h*scale));
+  const paint=plate.getContext('2d');paint.scale(plate.width/w,plate.height/h);
+  paint.fillStyle='#03070e';paint.fillRect(0,0,w,h);
+  // A fresh draw is copied in the same task, before the WebGL drawing buffer clears.
+  draw();paint.drawImage(glCanvas,0,0,w,h);paint.drawImage(canvas,0,0,w,h);paintCaptureDom(paint);
+  const surface=dom('capture-flow');let gpu=surface.getContext('webgl',{alpha:false,antialias:false,depth:false});
+  let pipeline=null,texture=null,vertices=null,indices=null;
+  if(gpu){
+    try{
+      function compile(type,source){const part=gpu.createShader(type);gpu.shaderSource(part,source);gpu.compileShader(part);if(!gpu.getShaderParameter(part,gpu.COMPILE_STATUS))throw new Error('Flow shader');return part;}
+      pipeline=gpu.createProgram();
+      const vs=compile(gpu.VERTEX_SHADER,'attribute vec2 point;attribute vec2 uv;attribute float fade;uniform vec2 resolution;varying vec2 tex;varying float opacity;varying float strain;void main(){tex=uv;opacity=fade;vec2 center=resolution*vec2(.115,.51);strain=length(point-center)/max(1.,length(uv*resolution-center));gl_Position=vec4(point.x/resolution.x*2.-1.,1.-point.y/resolution.y*2.,0.,1.);}');
+      const fs=compile(gpu.FRAGMENT_SHADER,'precision mediump float;uniform sampler2D image;uniform float progress;varying vec2 tex;varying float opacity;varying float strain;void main(){vec3 color=texture2D(image,tex).rgb;float light=max(color.r,max(color.g,color.b));float erosion=(1.-smoothstep(.18,.92,strain))*smoothstep(.05,.3,progress);float fragments=smoothstep(.018,.18,light);gl_FragColor=vec4(color*opacity*mix(1.,fragments,erosion),1.);}');
+      gpu.attachShader(pipeline,vs);gpu.attachShader(pipeline,fs);gpu.linkProgram(pipeline);
+      gpu.deleteShader(vs);gpu.deleteShader(fs);
+      if(!gpu.getProgramParameter(pipeline,gpu.LINK_STATUS))throw new Error('Flow program');
+      gpu.useProgram(pipeline);vertices=gpu.createBuffer();indices=gpu.createBuffer();
+      gpu.bindBuffer(gpu.ARRAY_BUFFER,vertices);
+      for(const [name,size,offset] of [['point',2,0],['uv',2,8],['fade',1,16]]){
+        const loc=gpu.getAttribLocation(pipeline,name);gpu.enableVertexAttribArray(loc);gpu.vertexAttribPointer(loc,size,gpu.FLOAT,false,20,offset);
+      }
+      texture=gpu.createTexture();gpu.bindTexture(gpu.TEXTURE_2D,texture);
+      gpu.texParameteri(gpu.TEXTURE_2D,gpu.TEXTURE_MIN_FILTER,gpu.LINEAR);gpu.texParameteri(gpu.TEXTURE_2D,gpu.TEXTURE_MAG_FILTER,gpu.LINEAR);
+      gpu.texParameteri(gpu.TEXTURE_2D,gpu.TEXTURE_WRAP_S,gpu.CLAMP_TO_EDGE);gpu.texParameteri(gpu.TEXTURE_2D,gpu.TEXTURE_WRAP_T,gpu.CLAMP_TO_EDGE);
+      gpu.texImage2D(gpu.TEXTURE_2D,0,gpu.RGBA,gpu.RGBA,gpu.UNSIGNED_BYTE,plate);
+      gpu.uniform1i(gpu.getUniformLocation(pipeline,'image'),0);gpu.disable(gpu.DEPTH_TEST);
+    }catch(error){
+      if(texture)gpu.deleteTexture(texture);if(vertices)gpu.deleteBuffer(vertices);if(indices)gpu.deleteBuffer(indices);if(pipeline)gpu.deleteProgram(pipeline);
+      gpu=null;
+    }
+  }
+  const output=gpu?surface:dom('capture-fallback');output.hidden=false;
+  dom('capture-overlay').dataset.renderPath=gpu?'webgl-mesh':'canvas-mesh';
+  const cols=Math.min(gpu?112:26,Math.max(12,Math.ceil(w/(gpu?14:45))));
+  const rows=Math.min(gpu?72:18,Math.max(10,Math.ceil(h/(gpu?14:45))));
+  const data=new Float32Array((cols+1)*(rows+1)*5),order=new Uint16Array(cols*rows*6);
+  for(let y=0;y<=rows;y++)for(let x=0;x<=cols;x++){
+    const i=(y*(cols+1)+x)*5;data[i+2]=x/cols;data[i+3]=y/rows;
+  }
+  let n=0;
+  for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){
+    const a=y*(cols+1)+x,b=a+1,c=a+cols+1,d=c+1;
+    order[n++]=a;order[n++]=b;order[n++]=c;order[n++]=b;order[n++]=d;order[n++]=c;
+  }
+  captureRender={plate,output,gpu,pipeline,texture,vertices,indices,data,order,point:[0,0,0],last:-1,paint:gpu?null:output.getContext('2d')};
+  if(gpu){gpu.bufferData(gpu.ARRAY_BUFFER,data,gpu.DYNAMIC_DRAW);gpu.bindBuffer(gpu.ELEMENT_ARRAY_BUFFER,indices);gpu.bufferData(gpu.ELEMENT_ARRAY_BUFFER,order,gpu.STATIC_DRAW);}
+  sizeCaptureRenderer();renderCaptureFlow(0);
+}
+function sizeCaptureRenderer(){
+  const r=captureRender,scale=Math.min(1.5,Math.sqrt((r.gpu?1600000:800000)/(w*h)));
+  r.output.width=Math.max(1,Math.floor(w*scale));r.output.height=Math.max(1,Math.floor(h*scale));
+  if(r.gpu){r.gpu.viewport(0,0,r.output.width,r.output.height);r.gpu.uniform2f(r.gpu.getUniformLocation(r.pipeline,'resolution'),w,h);}
+  r.last=-1;
+}
+function renderCaptureFlow(t){
+  const r=captureRender;if(!r)return;
+  if(!r.gpu&&t<1&&r.last>=0&&(t-r.last)*CAPTURE_SECONDS<1/24)return;
+  r.last=t;const {data,order,plate}=r;
+  for(let i=0;i<data.length;i+=5){
+    fluidPoint(data[i+2]*w,data[i+3]*h,t,w,h,r.point);
+    data[i]=r.point[0];data[i+1]=r.point[1];data[i+4]=r.point[2];
+  }
+  if(r.gpu){
+    const g=r.gpu;g.clearColor(0,0,0,1);g.clear(g.COLOR_BUFFER_BIT);
+    g.uniform1f(g.getUniformLocation(r.pipeline,'progress'),t);
+    g.bindBuffer(g.ARRAY_BUFFER,r.vertices);g.bufferSubData(g.ARRAY_BUFFER,0,data);
+    g.drawElements(g.TRIANGLES,order.length,g.UNSIGNED_SHORT,0);return;
+  }
+  // Bounded Canvas fallback: the same deformation, on a coarser mesh at 24 Hz.
+  const p=r.paint;p.setTransform(r.output.width/w,0,0,r.output.height/h,0,0);p.fillStyle='#000';p.fillRect(0,0,w,h);
+  for(let i=0;i<order.length;i+=3){
+    const a=order[i]*5,b=order[i+1]*5,c=order[i+2]*5;
+    if(data[a+4]+data[b+4]+data[c+4]<.02)continue;
+    const sx=data[a+2]*plate.width,sy=data[a+3]*plate.height;
+    const ux=(data[b+2]-data[a+2])*plate.width,uy=(data[b+3]-data[a+3])*plate.height;
+    const vx=(data[c+2]-data[a+2])*plate.width,vy=(data[c+3]-data[a+3])*plate.height,det=ux*vy-uy*vx;
+    const dx=data[b]-data[a],dy=data[b+1]-data[a+1],ex=data[c]-data[a],ey=data[c+1]-data[a+1];
+    const aa=(dx*vy-ex*uy)/det,bb=(dy*vy-ey*uy)/det,cc=(ex*ux-dx*vx)/det,dd=(ey*ux-dy*vx)/det;
+    p.save();p.beginPath();p.moveTo(data[a],data[a+1]);p.lineTo(data[b],data[b+1]);p.lineTo(data[c],data[c+1]);p.closePath();p.clip();
+    p.globalAlpha=(data[a+4]+data[b+4]+data[c+4])/3;p.transform(aa,bb,cc,dd,data[a]-aa*sx-cc*sy,data[a+1]-bb*sx-dd*sy);p.drawImage(plate,0,0);p.restore();
+  }
+}
+function releaseCaptureRenderer(){
+  const r=captureRender;if(!r)return;
+  if(r.gpu){r.gpu.deleteTexture(r.texture);r.gpu.deleteBuffer(r.vertices);r.gpu.deleteBuffer(r.indices);r.gpu.deleteProgram(r.pipeline);}
+  r.plate.width=r.plate.height=1;r.output.width=r.output.height=1;r.output.hidden=true;captureRender=null;
 }
 function setCapturePhase(phase){
   capture.phase=phase;capture.age=0;
   dom('capture-overlay').dataset.phase=phase;
   dom('capture-panel').hidden=phase!=='void';dom('capture-blub').hidden=phase!=='blub';
   dom('capture-abort').hidden=phase==='void';
-  dom('capture-status').textContent=phase==='pull'?'EMITTER ERFASST · RAUM FALTET SICH':phase==='blub'?'SIGNAL VERLOREN':'SZENENFEHLER EH-000 · EMITTER VERSCHLUCKT';
+  dom('capture-status').textContent=phase==='pull'?'EMITTER ERFASST · RAUM STRÖMT IN DEN KERN':phase==='blub'?'SIGNAL VERLOREN':'SZENENFEHLER EH-000 · EMITTER VERSCHLUCKT';
 }
 function beginCapture(hole){
   if(capture.phase!=='idle')return;
   hole.selfCaptureSpent=true;capture.holeId=hole.id;
   const roots=[dom('world-layer'),...document.querySelectorAll('.hub-navigation,.portal-shell,.portal-atmosphere')];
+  if(!reducedMotion.matches)createCaptureRenderer();
   for(const el of new Set(roots)){
-    captureSurfaces.push({el,inert:el.inert});el.inert=true;
+    captureSurfaces.push({el,inert:el.inert});el.inert=true;el.classList.add('void-pull-target');
   }
   const overlay=dom('capture-overlay');overlay.hidden=false;
   document.body.classList.add('self-capture');
@@ -195,10 +337,10 @@ function beginCapture(hole){
 function clearCapture(){
   for(const {el,inert} of captureSurfaces){
     el.classList.remove('void-pull-target');el.inert=inert;
-    el.style.removeProperty('--capture-origin-x');el.style.removeProperty('--capture-origin-y');
   }
+  releaseCaptureRenderer();
   captureSurfaces.length=0;document.body.classList.remove('self-capture');
-  for(const property of ['--capture-turn','--capture-scale','--capture-opacity'])document.body.style.removeProperty(property);
+  for(const property of ['--capture-opacity'])document.body.style.removeProperty(property);
   const overlay=dom('capture-overlay');
   const returnFocus=overlay.contains(document.activeElement);
   overlay.hidden=true;overlay.dataset.phase='idle';
@@ -212,14 +354,13 @@ function updateCapture(dt){
   capture.age+=dt;
   const overlay=dom('capture-overlay');
   if(capture.phase==='pull'){
-    const t=clamp(capture.age/(reducedMotion.matches?.28:2.2),0,1);
-    document.body.style.setProperty('--capture-scale',Math.pow(1-t*t,1.2).toFixed(5));
-    document.body.style.setProperty('--capture-turn',(-1.8*t*t).toFixed(4)+'rad');
-    document.body.style.setProperty('--capture-opacity',Math.pow(1-t,.28).toFixed(4));
-    overlay.style.setProperty('--capture-cover',Math.pow(t,1.6).toFixed(4));
-    overlay.style.setProperty('--mouth-size',((54+230*Math.sin(t*Math.PI))*Math.pow(1-t,.3)).toFixed(2)+'px');
+    const t=clamp(capture.age/(reducedMotion.matches?.28:CAPTURE_SECONDS),0,1);
+    document.body.style.setProperty('--capture-opacity',String(1-t));
+    if(!reducedMotion.matches)renderCaptureFlow(t);
+    overlay.style.setProperty('--capture-cover',reducedMotion.matches?String(t):'1');
+    overlay.style.setProperty('--mouth-size',(Math.max(30,Math.min(w,h)*.075)*(1+.15*Math.sin(t*Math.PI))).toFixed(2)+'px');
     overlay.style.setProperty('--mouth-opacity',String(t<.99?1:0));
-    if(t>=1){overlay.style.setProperty('--capture-cover','1');overlay.style.setProperty('--mouth-opacity','0');setCapturePhase('blub');}
+    if(t>=1){dom('capture-flow').hidden=true;dom('capture-fallback').hidden=true;overlay.style.setProperty('--capture-cover','1');overlay.style.setProperty('--mouth-opacity','0');setCapturePhase('blub');}
   }else if(capture.phase==='blub'&&capture.age>=(reducedMotion.matches?.2:.65)){
     setCapturePhase('void');dom('capture-reload').focus({preventScroll:true});
   }
@@ -725,9 +866,9 @@ function updateInterfaceField(){
   });
 }
 function frame(now){
-  const visualDt=clamp((now-last)/1000,0,.1),dt=Math.min(visualDt,1/30);last=now;frameCount++;
+  const wallDt=Math.max(0,(now-last)/1000),dt=Math.min(wallDt,1/30);last=now;frameCount++;
   if(!paused&&capture.phase==='idle')update(dt);
-  updateCapture(visualDt);
+  updateCapture(wallDt);
   if((!paused&&capture.phase==='idle')||needsRedraw)draw();
   if(capture.phase==='idle'&&now-lastUiUpdate>=33){updateInterfaceField();lastUiUpdate=now;}
   perfFrames++;

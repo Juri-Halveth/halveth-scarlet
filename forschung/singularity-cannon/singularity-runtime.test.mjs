@@ -28,10 +28,10 @@ function runtime(width=1280,height=720,devicePixelRatio=1,reducedMotion=false){
     contains(el){return el===this;}
   }
   const elements=new Map([...html.matchAll(/id="([^"]+)"/g)].map(m=>[m[1],new Element(m[1])]));
-  const document={body:new Element('body'),getElementById:id=>elements.get(id),querySelectorAll:()=>[],addEventListener:(type,fn)=>listeners[type]=fn};
+  const document={body:new Element('body'),getElementById:id=>elements.get(id),querySelectorAll:()=>[],createElement:tag=>new Element(tag),addEventListener:(type,fn)=>listeners[type]=fn};
   const window={devicePixelRatio,location:{reload:()=>{reloads++;}},matchMedia:()=>({matches:reducedMotion}),addEventListener:(type,fn)=>listeners[type]=fn};
   const scope={document,window,HTMLElement:Element,structuredClone,console,performance:{now:()=>100},requestAnimationFrame(){},setTimeout:()=>1,clearTimeout(){}};
-  vm.runInNewContext(script.replace(/\}\)\(\);\s*$/,`globalThis.runtime={fire,undoShot,reset,update,draw,resize,frame,updateCapture,readCapture:()=>({...capture}),read:()=>structuredClone({objects,dust,sparks,beams,holes,pendingShots,shotsFired,elapsed,eaten,paused,aim,frameCount})};})();`),scope);
+  vm.runInNewContext(script.replace(/\}\)\(\);\s*$/,`globalThis.runtime={fluidPoint,CAPTURE_SECONDS,readFlow:()=>captureRender?({vertices:captureRender.data.length/5,indices:captureRender.order.length,width:captureRender.output.width,height:captureRender.output.height,last:captureRender.last}):null,fire,undoShot,reset,update,draw,resize,frame,updateCapture,readCapture:()=>({...capture}),read:()=>structuredClone({objects,dust,sparks,beams,holes,pendingShots,shotsFired,elapsed,eaten,paused,aim,frameCount})};})();`),scope);
   return {api:scope.runtime,elements,viewport,calls,listeners,document,reloadCount:()=>reloads,point:(x,y)=>elements.get('fx').events.pointerdown({clientX:x,clientY:y})};
 }
 const plain=value=>JSON.parse(JSON.stringify(value));
@@ -118,7 +118,7 @@ test('ordinary outgoing shots never self-capture just because they start at the 
   assert.equal(elements.get('world-layer').inert,false);
 });
 
-test('an armed emitter destination folds the page, blubs, and opens the staged error',()=>{
+test('an armed emitter destination drains for 3.6 seconds, blubs, and opens the staged error',()=>{
   const {api,point,elements,reloadCount}=runtime();
   point(1280*.115,720*.51);api.update(.2);
   assert.equal(api.readCapture().phase,'idle');
@@ -127,7 +127,7 @@ test('an armed emitter destination folds the page, blubs, and opens the staged e
   assert.equal(elements.get('world-layer').inert,true);
   assert.equal(elements.get('capture-overlay').hidden,false);
   const count=api.read().shotsFired;api.fire();assert.equal(api.read().shotsFired,count);
-  api.updateCapture(2.3);
+  api.updateCapture(3.61);
   assert.equal(api.readCapture().phase,'blub');
   api.updateCapture(.7);
   assert.equal(api.readCapture().phase,'void');
@@ -136,10 +136,10 @@ test('an armed emitter destination folds the page, blubs, and opens the staged e
   elements.get('capture-reload').click();assert.equal(reloadCount(),1);
 });
 
-test('undo and reset both remove collapse transforms and restore page input',()=>{
+test('undo and reset both release the flow renderer and restore page input',()=>{
   const {api,point,elements,document}=runtime();
   for(const recover of [()=>api.undoShot(),()=>api.reset()]){
-    point(1280*.115,720*.51);api.update(.4);api.updateCapture(3);api.updateCapture(1);
+    point(1280*.115,720*.51);api.update(.4);api.updateCapture(4);api.updateCapture(1);
     assert.equal(api.readCapture().phase,'void');
     recover();
     assert.equal(api.readCapture().phase,'idle');
@@ -148,12 +148,14 @@ test('undo and reset both remove collapse transforms and restore page input',()=
     assert.equal(document.body.classList.contains('self-capture'),false);
     assert.equal(elements.get('world-layer').classList.contains('void-pull-target'),false);
     assert.equal(api.read().shotsFired,0);
+    assert.equal(api.readFlow(),null);
+    assert.equal(elements.get('capture-fallback').hidden,true);
   }
 });
 
 test('Escape recovers the staged error even when its reload button has focus',()=>{
   const {api,point,elements,listeners}=runtime();
-  point(1280*.115,720*.51);api.update(.4);api.updateCapture(3);api.updateCapture(1);
+  point(1280*.115,720*.51);api.update(.4);api.updateCapture(4);api.updateCapture(1);
   let prevented=false;
   listeners.keydown({code:'Escape',target:elements.get('capture-reload'),preventDefault:()=>{prevented=true;}});
   assert.equal(prevented,true);assert.equal(api.readCapture().phase,'idle');
@@ -180,14 +182,72 @@ test('reduced motion uses the short fade route and the recovery remains availabl
   assert.equal(api.readCapture().phase,'idle');assert.equal(elements.get('world-layer').inert,false);
 });
 
-test('resize during a collapse uses layout dimensions, not the folded visual size',()=>{
+test('resize during the drain keeps the actual DOM fixed and resizes only its flow renderer',()=>{
   const {api,point,elements,viewport}=runtime();
   point(1280*.115,720*.51);api.update(.4);api.updateCapture(1);
-  assert.ok(elements.get('stage').getBoundingClientRect().width<1280);
+  assert.equal(elements.get('stage').getBoundingClientRect().width,1280);
+  assert.equal(elements.get('world-layer').style.getPropertyValue('transform'),'');
+  assert.ok(api.readFlow().width*api.readFlow().height<=800000);
   api.resize();
   assert.ok(Math.abs(parseFloat(elements.get('capture-overlay').style.getPropertyValue('--capture-x'))-147.2)<1e-9);
   assert.equal(elements.get('fx').width,1280);
   viewport.width=900;api.resize();
   assert.equal(elements.get('capture-overlay').style.getPropertyValue('--capture-x'),'103.5px');
   assert.equal(elements.get('fx').width,900);
+});
+
+
+test('the drain consumes near material first while distant source points remain',()=>{
+  const {api}=runtime(),cx=1280*.115,cy=720*.51;
+  const near=api.fluidPoint(cx+90,cy,.2),far=api.fluidPoint(cx+900,cy,.2);
+  assert.equal(near[2],0,'near source material has entered the core');
+  assert.equal(far[2],1,'far material remains visible');
+  assert.ok(Math.hypot(far[0]-cx,far[1]-cy)<900);
+  assert.ok(Math.hypot(far[0]-cx,far[1]-cy)>850);
+});
+
+test('the field is a spatial deformation, not one rigid scale and rotation',()=>{
+  const {api}=runtime(),cx=1280*.115,cy=720*.51;
+  const close=api.fluidPoint(cx+500,cy,.4),distant=api.fluidPoint(cx+900,cy,.4);
+  const closeScale=Math.hypot(close[0]-cx,close[1]-cy)/500;
+  const distantScale=Math.hypot(distant[0]-cx,distant[1]-cy)/900;
+  assert.ok(distantScale-closeScale>.1);
+  const closeTurn=Math.atan2(close[1]-cy,close[0]-cx),farTurn=Math.atan2(distant[1]-cy,distant[0]-cx);
+  assert.ok(closeTurn-farTurn>.1,'near material winds faster');
+});
+
+test('flow points remain finite and arrive continuously, including corners and the core',()=>{
+  const {api}=runtime();
+  for(const [width,height] of [[1280,720],[390,844],[3840,2160]]){
+    for(const [x,y] of [[0,0],[width,0],[width,height],[width*.115,height*.51]]){
+      let previous=Infinity;
+      for(let i=0;i<=100;i++){
+        const p=api.fluidPoint(x,y,i/100,width,height);
+        assert.ok(p.every(Number.isFinite));assert.ok(p[2]>=0&&p[2]<=1);
+        const radius=Math.hypot(p[0]-width*.115,p[1]-height*.51);
+        assert.ok(radius<=previous+1e-6);previous=radius;
+        if(i===100)assert.equal(p[2],0);
+      }
+    }
+  }
+});
+
+test('normal capture keeps its full 3.6-second perception window and releases bounded buffers',()=>{
+  const {api,point,elements}=runtime(3840,2160,2);
+  point(3840*.115,2160*.51);api.update(.4);
+  assert.equal(api.CAPTURE_SECONDS,3.6);
+  assert.ok(api.readFlow().vertices<=27*19);
+  assert.ok(api.readFlow().width*api.readFlow().height<=800000);
+  api.updateCapture(3.59);assert.equal(api.readCapture().phase,'pull');
+  api.updateCapture(.02);assert.equal(api.readCapture().phase,'blub');
+  assert.equal(elements.get('capture-fallback').hidden,true);
+  api.undoShot();assert.equal(api.readFlow(),null);
+});
+
+
+test('slow animation callbacks do not stretch the drain beyond its perception window',()=>{
+  const {api,point}=runtime();
+  point(1280*.115,720*.51);api.update(.4);
+  api.frame(1900);api.frame(3700);
+  assert.equal(api.readCapture().phase,'blub');
 });
