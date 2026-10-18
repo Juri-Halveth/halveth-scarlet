@@ -17,3 +17,4 @@ forschung/de-anker-hela/public-monologue.md -text
 
 # Keep the public JURI-THESIS brief byte-identical and review it as an artifact.
 forschung/juri-thesis/assets/*.pdf binary
+forschung/microvalue/*.pdf binary
