@@ -55,6 +55,14 @@ for name, texture_path, tint_value, amplitude_cm, height_rate in SPECS:
     subsurface.set_editor_property('constant', unreal.LinearColor(.22, .52, .14, 1.0))
     roughness = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -500, 30)
     roughness.set_editor_property('r', .86)
+    # HISM cells fade their masked foliage before the end-cull distance.
+    # Without this, whole instance clusters visibly pop out at the boundary.
+    fade = editor.create_material_expression(
+        material, unreal.MaterialExpressionPerInstanceFadeAmount, -560, 150)
+    faded_alpha = editor.create_material_expression(
+        material, unreal.MaterialExpressionMultiply, -290, 150)
+    connect(sample, faded_alpha, 'A', 'A')
+    connect(fade, faded_alpha, 'B')
 
     clock = editor.create_material_expression(material, unreal.MaterialExpressionTime, -800, 290)
     speed = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -800, 390)
@@ -106,7 +114,7 @@ for name, texture_path, tint_value, amplitude_cm, height_rate in SPECS:
     for expression, output, target in (
         (individual_colour, '', unreal.MaterialProperty.MP_BASE_COLOR),
         (subsurface, '', unreal.MaterialProperty.MP_SUBSURFACE_COLOR),
-        (sample, 'A', unreal.MaterialProperty.MP_OPACITY_MASK),
+        (faded_alpha, '', unreal.MaterialProperty.MP_OPACITY_MASK),
         (roughness, '', unreal.MaterialProperty.MP_ROUGHNESS),
         (offset, '', unreal.MaterialProperty.MP_WORLD_POSITION_OFFSET),
     ):
