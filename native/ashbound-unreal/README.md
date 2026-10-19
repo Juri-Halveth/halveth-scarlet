@@ -66,6 +66,13 @@ settings and about 40 FPS with the four-group Very High selection. This short
 sample does not establish a moving-world average. The current render is greener
 but still falls short of a dense wildflower meadow: flowers, canopy and
 near-ground variation remain sparse, and plant silhouettes repeat visibly.
+The Genesis landscape now crossfades from the close meadow photo to a
+kilometre-scale aerial ground photo as camera distance increases, leaving
+connected moss and exposed-earth regions visible on remote hills. A fresh
+Development package passed shader-cook and packaged runtime QA on 2026-10-19;
+the fixed 1440p entry view stayed near 40 FPS in six five-second samples.
+This improves ground colour breakup, but the far tree line and hill silhouettes
+still need dedicated distant geometry and moving-camera evaluation.
 
 ASHBOUND is an independent first-person Unreal Engine 5.8 game in development. This local Windows build has a walkable ash valley, a ruined archive, three spell schools, three readable 3D books and a three-seal passage into the fort. Chapter I now starts with an in-world witness: speak to her, read Ilyra's book, awaken the three seals, cross the gate and reach the fort. A small HUD and **J** journal show the current goal without hiding the world. The witness conversation, charged seals and chapter completion are saved and reconstructed when the game starts again. Reaching the fort closes this opening chapter. It runs as a native EXE with DX12/SM6, Lumen and virtual shadow maps. The browser research pages are separate from this game.
 The local reference profile starts at the Very High mix described above and 100% internal render resolution. **2560 × 1440 is the current visual performance target, not a resolution cap.** Higher display resolutions remain selectable through launch arguments and game-user settings. Their frame rates and image quality need separate measurements on the target hardware.

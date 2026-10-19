@@ -182,7 +182,9 @@ editor.connect_material_expressions(uv, '', rock_uv, 'A')
 editor.connect_material_expressions(rock_period, '', rock_uv, 'B')
 
 aerial_period = editor.create_material_expression(material, unreal.MaterialExpressionConstant, -700, 250)
-aerial_period.set_editor_property('r', 0.02)
+# One aerial repeat spans about 1 km. Its connected moss and exposed-earth
+# regions stay legible across the hills instead of shrinking to pixel noise.
+aerial_period.set_editor_property('r', 0.0015)
 aerial_uv = editor.create_material_expression(material, unreal.MaterialExpressionMultiply, -470, 270)
 editor.connect_material_expressions(uv, '', aerial_uv, 'A')
 editor.connect_material_expressions(aerial_period, '', aerial_uv, 'B')
@@ -222,21 +224,21 @@ slope = editor.create_material_expression(material,
 editor.connect_material_expressions(normal_up, '', slope, '')
 slope_threshold = editor.create_material_expression(material,
     unreal.MaterialExpressionConstant, -300, 1080)
-slope_threshold.set_editor_property('r', 0.32)
+slope_threshold.set_editor_property('r', 0.045)
 exposed_slope = editor.create_material_expression(material,
     unreal.MaterialExpressionSubtract, -100, 890)
 editor.connect_material_expressions(slope, '', exposed_slope, 'A')
 editor.connect_material_expressions(slope_threshold, '', exposed_slope, 'B')
 rock_gain = editor.create_material_expression(material,
     unreal.MaterialExpressionConstant, -100, 1090)
-rock_gain.set_editor_property('r', 3.0)
+rock_gain.set_editor_property('r', 4.0)
 rock_slope = editor.create_material_expression(material,
     unreal.MaterialExpressionMultiply, 100, 890)
 editor.connect_material_expressions(exposed_slope, '', rock_slope, 'A')
 editor.connect_material_expressions(rock_gain, '', rock_slope, 'B')
 rock_noise_gain = editor.create_material_expression(material,
     unreal.MaterialExpressionConstant, -100, 1170)
-rock_noise_gain.set_editor_property('r', 0.12)
+rock_noise_gain.set_editor_property('r', 0.06)
 rock_noise = editor.create_material_expression(material,
     unreal.MaterialExpressionMultiply, 100, 1130)
 editor.connect_material_expressions(noise, '', rock_noise, 'A')
@@ -346,15 +348,50 @@ for row, (kind, property_name) in enumerate((
         editor.connect_material_expressions(tinted_leaf, '', mixed_leaf, 'A')
         aerial_tint = editor.create_material_expression(material,
             unreal.MaterialExpressionConstant3Vector, -190, -135)
-        aerial_tint.set_editor_property('constant', unreal.LinearColor(.30, .60, .34, 1.0))
+        aerial_tint.set_editor_property('constant', unreal.LinearColor(.82, .88, .72, 1.0))
         tinted_aerial = editor.create_material_expression(material,
             unreal.MaterialExpressionMultiply, -90, -135)
         editor.connect_material_expressions(aerial_sample, '', tinted_aerial, 'A')
         editor.connect_material_expressions(aerial_tint, '', tinted_aerial, 'B')
         editor.connect_material_expressions(tinted_aerial, '', mixed_leaf, 'B')
+        # Keep the near meadow crisp; bring the kilometre-scale aerial patches
+        # into the base colour only as the ground recedes from the camera.
+        pixel_depth = editor.create_material_expression(material,
+            unreal.MaterialExpressionPixelDepth, -410, -620)
+        depth_start = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant, -410, -550)
+        depth_start.set_editor_property('r', 8000.0)
+        depth_offset = editor.create_material_expression(material,
+            unreal.MaterialExpressionSubtract, -220, -610)
+        editor.connect_material_expressions(pixel_depth, '', depth_offset, 'A')
+        editor.connect_material_expressions(depth_start, '', depth_offset, 'B')
+        depth_span = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant, -220, -530)
+        depth_span.set_editor_property('r', 20000.0)
+        depth_fraction = editor.create_material_expression(material,
+            unreal.MaterialExpressionDivide, -50, -610)
+        editor.connect_material_expressions(depth_offset, '', depth_fraction, 'A')
+        editor.connect_material_expressions(depth_span, '', depth_fraction, 'B')
+        depth_floor = editor.create_material_expression(material,
+            unreal.MaterialExpressionMax, 120, -610)
+        if not editor.connect_material_expressions(depth_fraction, '', depth_floor, 'A'):
+            raise RuntimeError('Depth fraction did not connect to lower clamp')
+        editor.connect_material_expressions(rock_zero, '', depth_floor, 'B')
+        depth_clamped = editor.create_material_expression(material,
+            unreal.MaterialExpressionMin, 260, -610)
+        editor.connect_material_expressions(depth_floor, '', depth_clamped, 'A')
+        editor.connect_material_expressions(rock_one, '', depth_clamped, 'B')
+        aerial_near = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant, 100, -510)
+        aerial_near.set_editor_property('r', 0.04)
+        aerial_far = editor.create_material_expression(material,
+            unreal.MaterialExpressionConstant, 100, -430)
+        aerial_far.set_editor_property('r', 0.82)
         aerial_mix = editor.create_material_expression(material,
-            unreal.MaterialExpressionConstant, -160, -260)
-        aerial_mix.set_editor_property('r', 0.04)
+            unreal.MaterialExpressionLinearInterpolate, 430, -580)
+        editor.connect_material_expressions(aerial_near, '', aerial_mix, 'A')
+        editor.connect_material_expressions(aerial_far, '', aerial_mix, 'B')
+        editor.connect_material_expressions(depth_clamped, '', aerial_mix, 'Alpha')
         editor.connect_material_expressions(aerial_mix, '', mixed_leaf, 'Alpha')
         editor.connect_material_expressions(mixed_leaf, '', blend, 'A')
     else:
@@ -392,7 +429,7 @@ for row, (kind, property_name) in enumerate((
         dry_macro.set_editor_property('constant', unreal.LinearColor(1.0, 1.0, .96, 1.0))
         moss_macro = editor.create_material_expression(material,
             unreal.MaterialExpressionConstant3Vector, 700, -400)
-        moss_macro.set_editor_property('constant', unreal.LinearColor(.78, 1.0, .82, 1.0))
+        moss_macro.set_editor_property('constant', unreal.LinearColor(.70, .90, .72, 1.0))
         macro_palette = editor.create_material_expression(material,
             unreal.MaterialExpressionLinearInterpolate, 820, -440)
         editor.connect_material_expressions(dry_macro, '', macro_palette, 'A')
