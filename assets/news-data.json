@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T07:50:20Z",
+  "generatedAt": "2026-10-19T15:39:29Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-19T07:50:20Z",
-      "lastSuccessAt": "2026-10-19T07:50:20Z",
+      "lastAttemptAt": "2026-10-19T15:39:29Z",
+      "lastSuccessAt": "2026-10-19T15:39:29Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,35 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-19T07:50:20Z",
-      "lastSuccessAt": "2026-10-19T07:50:20Z",
+      "lastAttemptAt": "2026-10-19T15:39:29Z",
+      "lastSuccessAt": "2026-10-19T15:39:29Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "e2d4eb78e4d1ad54ab94a287",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Some Git over HTTPS may temporarily require authentication",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-19-some-git-over-https-may-temporarily-require-authentication",
+      "sourcePublishedAt": "2026-10-19T10:37:30Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
+      "firstFetchedAt": "2026-10-19T15:39:29Z"
+    },
+    {
+      "id": "3369221ba274f1a5ea8d4388",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "CodeQL changes for macOS 27, Xcode 27, and Swift 6.4",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-19-codeql-changes-for-macos-27-xcode-27-and-swift-6-4",
+      "sourcePublishedAt": "2026-10-19T10:29:09Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
+      "firstFetchedAt": "2026-10-19T15:39:29Z"
+    },
     {
       "id": "72e72c0e61b865e545626d1c",
       "sourceId": "nasa",
@@ -32,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-19-treble-clef-unusual-x-ray-hot-radio-source/",
       "sourcePublishedAt": "2026-10-19T04:05:00Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-19T07:50:20Z"
     },
     {
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/autumn-paints-polands-bieszczady-mountains/",
       "sourcePublishedAt": "2026-10-19T04:01:00Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-19T07:50:20Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-18-sonified-eagle-nebula-pillars/",
       "sourcePublishedAt": "2026-10-18T04:05:00Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-18T05:57:11Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-17-3d-67p/",
       "sourcePublishedAt": "2026-10-17T04:05:00Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-17T09:25:05Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-names-stephen-cash-marshall-space-flight-center-director/",
       "sourcePublishedAt": "2026-10-16T20:14:39Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-16T21:13:10Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/artemis-ii-heat-shield-after-splashdown/",
       "sourcePublishedAt": "2026-10-16T16:28:01Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/missions/station/i-am-artemis-allison-mjoen/",
       "sourcePublishedAt": "2026-10-16T14:24:29Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -109,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available",
       "sourcePublishedAt": "2026-10-16T14:00:32Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-spies-spirals-edge/",
       "sourcePublishedAt": "2026-10-16T12:42:08Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-xcode-27-runner-image-generally-available",
       "sourcePublishedAt": "2026-10-16T04:36:30Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -142,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-16-chasing-the-international-space-station/",
       "sourcePublishedAt": "2026-10-16T04:05:00Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
@@ -153,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/isaias-dims-the-gulf-coast/",
       "sourcePublishedAt": "2026-10-16T04:00:00Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
@@ -164,7 +186,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates",
       "sourcePublishedAt": "2026-10-16T02:16:35Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
@@ -175,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-download-github-code-quality-license-usage-as-a-csv",
       "sourcePublishedAt": "2026-10-15T20:11:26Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -197,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november",
       "sourcePublishedAt": "2026-10-15T19:35:13Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -263,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available",
       "sourcePublishedAt": "2026-10-15T15:04:51Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-15T19:11:34Z"
     },
     {
@@ -296,7 +318,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability",
       "sourcePublishedAt": "2026-10-15T13:49:20Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-15T15:04:26Z"
     },
     {
@@ -307,7 +329,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-email-notifications-for-repository-push-events-have-been-retired",
       "sourcePublishedAt": "2026-10-15T13:42:19Z",
-      "fetchedAt": "2026-10-19T07:50:20Z",
+      "fetchedAt": "2026-10-19T15:39:29Z",
       "firstFetchedAt": "2026-10-15T15:04:26Z"
     },
     {
@@ -661,28 +683,6 @@
       "sourcePublishedAt": "2026-10-08T14:25:53Z",
       "fetchedAt": "2026-10-13T07:45:28Z",
       "firstFetchedAt": "2026-10-08T16:31:38Z"
-    },
-    {
-      "id": "d309be13e53a281a3c73dd58",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Claude Haiku 5.5 in GitHub Copilot",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot",
-      "sourcePublishedAt": "2026-10-07T20:12:18Z",
-      "fetchedAt": "2026-10-13T00:44:29Z",
-      "firstFetchedAt": "2026-10-07T22:00:58Z"
-    },
-    {
-      "id": "d6b735286b3739eabb6bfc47",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Purpose-built model for leaked secret detection",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection",
-      "sourcePublishedAt": "2026-10-07T16:13:56Z",
-      "fetchedAt": "2026-10-12T17:58:30Z",
-      "firstFetchedAt": "2026-10-07T22:00:58Z"
     }
   ]
 }
