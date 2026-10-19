@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T01:22:29Z",
+  "generatedAt": "2026-10-19T07:50:20Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-19T01:22:29Z",
-      "lastSuccessAt": "2026-10-19T01:22:29Z",
+      "lastAttemptAt": "2026-10-19T07:50:20Z",
+      "lastSuccessAt": "2026-10-19T07:50:20Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,35 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-19T01:22:29Z",
-      "lastSuccessAt": "2026-10-19T01:22:29Z",
+      "lastAttemptAt": "2026-10-19T07:50:20Z",
+      "lastSuccessAt": "2026-10-19T07:50:20Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "72e72c0e61b865e545626d1c",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "APOD: 2026 October 19 – Treble Clef: Unusual X-ray Hot Radio Source",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-19-treble-clef-unusual-x-ray-hot-radio-source/",
+      "sourcePublishedAt": "2026-10-19T04:05:00Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
+      "firstFetchedAt": "2026-10-19T07:50:20Z"
+    },
+    {
+      "id": "abadf9dc76d73a46863a94f1",
+      "sourceId": "nasa",
+      "publisher": "NASA",
+      "title": "Autumn Paints Poland’s Bieszczady Mountains",
+      "titleLanguage": "en",
+      "url": "https://science.nasa.gov/earth/earth-observatory/autumn-paints-polands-bieszczady-mountains/",
+      "sourcePublishedAt": "2026-10-19T04:01:00Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
+      "firstFetchedAt": "2026-10-19T07:50:20Z"
+    },
     {
       "id": "39e132054eaf69eb1bddb20e",
       "sourceId": "nasa",
@@ -32,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-18-sonified-eagle-nebula-pillars/",
       "sourcePublishedAt": "2026-10-18T04:05:00Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-18T05:57:11Z"
     },
     {
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-17-3d-67p/",
       "sourcePublishedAt": "2026-10-17T04:05:00Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-17T09:25:05Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/news-release/nasa-names-stephen-cash-marshall-space-flight-center-director/",
       "sourcePublishedAt": "2026-10-16T20:14:39Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-16T21:13:10Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/artemis-ii-heat-shield-after-splashdown/",
       "sourcePublishedAt": "2026-10-16T16:28:01Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/missions/station/i-am-artemis-allison-mjoen/",
       "sourcePublishedAt": "2026-10-16T14:24:29Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available",
       "sourcePublishedAt": "2026-10-16T14:00:32Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-spies-spirals-edge/",
       "sourcePublishedAt": "2026-10-16T12:42:08Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -109,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-xcode-27-runner-image-generally-available",
       "sourcePublishedAt": "2026-10-16T04:36:30Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-16-chasing-the-international-space-station/",
       "sourcePublishedAt": "2026-10-16T04:05:00Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/isaias-dims-the-gulf-coast/",
       "sourcePublishedAt": "2026-10-16T04:00:00Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
@@ -142,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates",
       "sourcePublishedAt": "2026-10-16T02:16:35Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
@@ -153,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-download-github-code-quality-license-usage-as-a-csv",
       "sourcePublishedAt": "2026-10-15T20:11:26Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -175,7 +197,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november",
       "sourcePublishedAt": "2026-10-15T19:35:13Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -241,7 +263,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available",
       "sourcePublishedAt": "2026-10-15T15:04:51Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-15T19:11:34Z"
     },
     {
@@ -274,7 +296,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability",
       "sourcePublishedAt": "2026-10-15T13:49:20Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-15T15:04:26Z"
     },
     {
@@ -285,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-email-notifications-for-repository-push-events-have-been-retired",
       "sourcePublishedAt": "2026-10-15T13:42:19Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-15T15:04:26Z"
     },
     {
@@ -329,7 +351,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option",
       "sourcePublishedAt": "2026-10-14T20:01:35Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-14T20:45:26Z"
     },
     {
@@ -384,7 +406,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview",
       "sourcePublishedAt": "2026-10-14T13:49:15Z",
-      "fetchedAt": "2026-10-19T01:22:29Z",
+      "fetchedAt": "2026-10-19T07:50:20Z",
       "firstFetchedAt": "2026-10-14T17:14:45Z"
     },
     {
@@ -473,28 +495,6 @@
       "url": "https://science.nasa.gov/photojournal/comparing-off-world-rover-driving-distances/",
       "sourcePublishedAt": "2026-10-13T17:56:08Z",
       "fetchedAt": "2026-10-15T04:44:52Z",
-      "firstFetchedAt": "2026-10-13T21:17:53Z"
-    },
-    {
-      "id": "44dbcee82122f9c0d18b3538",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "NASA’s Record-Setting Perseverance Rover Team",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/photojournal/nasas-record-setting-perseverance-rover-team/",
-      "sourcePublishedAt": "2026-10-13T17:48:46Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
-      "firstFetchedAt": "2026-10-13T21:17:53Z"
-    },
-    {
-      "id": "c0d9b7ae26fda919c7d869a8",
-      "sourceId": "nasa",
-      "publisher": "NASA",
-      "title": "Perseverance Navcam Image Marks Record Drive",
-      "titleLanguage": "en",
-      "url": "https://science.nasa.gov/photojournal/perseverance-navcam-image-marks-record-drive/",
-      "sourcePublishedAt": "2026-10-13T17:42:51Z",
-      "fetchedAt": "2026-10-14T17:14:45Z",
       "firstFetchedAt": "2026-10-13T21:17:53Z"
     },
     {
