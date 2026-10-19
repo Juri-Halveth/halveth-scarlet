@@ -10,14 +10,16 @@
 
 [Zehn öffentliche Einstiege](forschung/wegweiser/) verbinden Brühler Vorschläge, spielbare Welten und Forschungsmodelle. Die Karten führen zu bestehenden Projektseiten und benennen deren Form; Suche und Kategorien funktionieren ohne Konto oder Netzwerkdienst. [Rechte und Lizenzen](LICENSES.md) bleiben je Pfad und Version getrennt.
 
-## Lernstudio
+## ASHBOUND · native Spielwelt
 
-Die eigenstaendige [ASHBOUND-Spielwelt](forschung/ashbound/) verbindet
+Die eigenständige [ASHBOUND-Spielwelt](forschung/ashbound/) verbindet
 eine originale 3D-Insel, Chronik, Lehrmodelle und einen lokalen 32-Bit-
 Gleichheitskern. Die frühere Morrowind-Fan-Chronik bleibt als klar abgegrenzte
 Erzählung innerhalb dieses eigenen Spiels erhalten; lokale Morrowind-Installationen
 und das separate [Lernstudio](https://github.com/Juri-Halveth/lernstudio) werden
 nicht verändert.
+
+Die [Windows-x64-Vorschau 0.4.2](https://github.com/Juri-Halveth/halveth-scarlet/releases/tag/ashbound-native-v0.4.2-portal-preview) ist der veröffentlichte native Download. Die neueren Entwürfe für [Weltfundament](https://github.com/Juri-Halveth/halveth-scarlet/pull/67), [Wiese und Boden](https://github.com/Juri-Halveth/halveth-scarlet/pull/68) und [Spiegelbegegnung](https://github.com/Juri-Halveth/halveth-scarlet/pull/73) bauen aufeinander auf und sind noch nicht Teil dieses Downloads.
 
 <!-- HALVETH_WORK_CERTIFICATES_V1_1 -->
 ## Juri Janovski / Juri Halveth – Privates HALVETH-Werkzertifikat

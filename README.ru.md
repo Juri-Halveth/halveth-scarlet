@@ -10,6 +10,10 @@
 
 Этот путеводитель составлен и отредактирован вручную по проверенному источнику. Исходная техническая документация остаётся справочным материалом для команд, требований сборки, точных версий и подробных проверок.
 
+## ASHBOUND · самостоятельный игровой мир
+
+[Открыть проект ASHBOUND](forschung/ashbound/) или скачать опубликованную [предварительную версию 0.4.2 для Windows x64](https://github.com/Juri-Halveth/halveth-scarlet/releases/tag/ashbound-native-v0.4.2-portal-preview). Более новые изменения — [основа мира](https://github.com/Juri-Halveth/halveth-scarlet/pull/67), [луг и почва](https://github.com/Juri-Halveth/halveth-scarlet/pull/68), [сцена с зеркалом](https://github.com/Juri-Halveth/halveth-scarlet/pull/73) — находятся в последовательных черновых PR и ещё не входят в эту загрузку. Отдельный [Lernstudio](https://github.com/Juri-Halveth/lernstudio) посвящён обучению.
+
 
 ## Портфолио · HALVETH Portal Chess
 
