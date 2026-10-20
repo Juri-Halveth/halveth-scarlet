@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T21:06:08Z",
+  "generatedAt": "2026-10-20T00:23:31Z",
   "refreshPolicy": "hourly; last-good retained on failure",
   "staleAfterMinutes": 180,
   "sources": [
@@ -8,8 +8,8 @@
       "id": "nasa",
       "label": "NASA",
       "feedUrl": "https://www.nasa.gov/news-release/feed/",
-      "lastAttemptAt": "2026-10-19T21:06:08Z",
-      "lastSuccessAt": "2026-10-19T21:06:08Z",
+      "lastAttemptAt": "2026-10-20T00:23:31Z",
+      "lastSuccessAt": "2026-10-20T00:23:31Z",
       "status": "fresh",
       "error": null
     },
@@ -17,13 +17,35 @@
       "id": "github",
       "label": "GitHub Changelog",
       "feedUrl": "https://github.blog/changelog/feed/",
-      "lastAttemptAt": "2026-10-19T21:06:08Z",
-      "lastSuccessAt": "2026-10-19T21:06:08Z",
+      "lastAttemptAt": "2026-10-20T00:23:31Z",
+      "lastSuccessAt": "2026-10-20T00:23:31Z",
       "status": "fresh",
       "error": null
     }
   ],
   "items": [
+    {
+      "id": "ed64890568349a4e14d91ffd",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "Copilot model policy API for enterprise, orgs, and teams",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams",
+      "sourcePublishedAt": "2026-10-19T21:32:18Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
+      "firstFetchedAt": "2026-10-20T00:23:31Z"
+    },
+    {
+      "id": "c4d5caa9ca539eec6c7fc248",
+      "sourceId": "github",
+      "publisher": "GitHub Changelog",
+      "title": "GitHub Copilot models deprecated on October 19, 2026",
+      "titleLanguage": "en",
+      "url": "https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026",
+      "sourcePublishedAt": "2026-10-19T21:27:10Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
+      "firstFetchedAt": "2026-10-20T00:23:31Z"
+    },
     {
       "id": "6cab8ea372fc6c9dbee3b31f",
       "sourceId": "nasa",
@@ -32,7 +54,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/kennedy/nasa-improves-shock-vibration-analysis/",
       "sourcePublishedAt": "2026-10-19T19:28:32Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-19T21:06:08Z"
     },
     {
@@ -43,7 +65,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/glenn/acoustics-software/",
       "sourcePublishedAt": "2026-10-19T18:11:40Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-19T21:06:08Z"
     },
     {
@@ -54,7 +76,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/glenn/acoustics-experimental-facilities/",
       "sourcePublishedAt": "2026-10-19T18:08:52Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-19T21:06:08Z"
     },
     {
@@ -65,7 +87,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/humans-in-space/nasas-simulated-mars-crew-marks-one-year-inside-habitat/",
       "sourcePublishedAt": "2026-10-19T18:01:51Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-19T21:06:08Z"
     },
     {
@@ -76,7 +98,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/centers-and-facilities/glenn/acoustics-instrumentation/",
       "sourcePublishedAt": "2026-10-19T16:37:45Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-19T21:06:08Z"
     },
     {
@@ -87,7 +109,7 @@
       "titleLanguage": "en",
       "url": "https://www.nasa.gov/image-article/martian-dawn/",
       "sourcePublishedAt": "2026-10-19T16:03:51Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-19T21:06:08Z"
     },
     {
@@ -98,7 +120,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-19-some-git-over-https-may-temporarily-require-authentication",
       "sourcePublishedAt": "2026-10-19T10:37:30Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-19T15:39:29Z"
     },
     {
@@ -109,7 +131,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-19-codeql-changes-for-macos-27-xcode-27-and-swift-6-4",
       "sourcePublishedAt": "2026-10-19T10:29:09Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-19T15:39:29Z"
     },
     {
@@ -120,7 +142,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-19-treble-clef-unusual-x-ray-hot-radio-source/",
       "sourcePublishedAt": "2026-10-19T04:05:00Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-19T07:50:20Z"
     },
     {
@@ -131,7 +153,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/earth/earth-observatory/autumn-paints-polands-bieszczady-mountains/",
       "sourcePublishedAt": "2026-10-19T04:01:00Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-19T07:50:20Z"
     },
     {
@@ -142,7 +164,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-18-sonified-eagle-nebula-pillars/",
       "sourcePublishedAt": "2026-10-18T04:05:00Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-18T05:57:11Z"
     },
     {
@@ -153,7 +175,7 @@
       "titleLanguage": "en",
       "url": "https://science.nasa.gov/image-article/apod-2026-october-17-3d-67p/",
       "sourcePublishedAt": "2026-10-17T04:05:00Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-17T09:25:05Z"
     },
     {
@@ -197,7 +219,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available",
       "sourcePublishedAt": "2026-10-16T14:00:32Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -219,7 +241,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-xcode-27-runner-image-generally-available",
       "sourcePublishedAt": "2026-10-16T04:36:30Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-16T17:27:03Z"
     },
     {
@@ -252,7 +274,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates",
       "sourcePublishedAt": "2026-10-16T02:16:35Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-16T07:13:41Z"
     },
     {
@@ -263,7 +285,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-download-github-code-quality-license-usage-as-a-csv",
       "sourcePublishedAt": "2026-10-15T20:11:26Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -285,7 +307,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november",
       "sourcePublishedAt": "2026-10-15T19:35:13Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-15T22:22:31Z"
     },
     {
@@ -351,7 +373,7 @@
       "titleLanguage": "en",
       "url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available",
       "sourcePublishedAt": "2026-10-15T15:04:51Z",
-      "fetchedAt": "2026-10-19T21:06:08Z",
+      "fetchedAt": "2026-10-20T00:23:31Z",
       "firstFetchedAt": "2026-10-15T19:11:34Z"
     },
     {
@@ -661,28 +683,6 @@
       "sourcePublishedAt": "2026-10-08T19:01:42Z",
       "fetchedAt": "2026-10-13T07:45:28Z",
       "firstFetchedAt": "2026-10-08T22:06:51Z"
-    },
-    {
-      "id": "18d441cbd3f99a19e751ebcc",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Screen readers can navigate timelines as lists",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-08-screen-readers-can-navigate-timelines-as-lists",
-      "sourcePublishedAt": "2026-10-08T16:00:56Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
-      "firstFetchedAt": "2026-10-08T16:31:38Z"
-    },
-    {
-      "id": "3683122ea1883bb615a0c011",
-      "sourceId": "github",
-      "publisher": "GitHub Changelog",
-      "title": "Draft pull requests count toward pull request limits",
-      "titleLanguage": "en",
-      "url": "https://github.blog/changelog/2026-10-08-draft-pull-requests-count-toward-pull-request-limits",
-      "sourcePublishedAt": "2026-10-08T14:25:53Z",
-      "fetchedAt": "2026-10-13T07:45:28Z",
-      "firstFetchedAt": "2026-10-08T16:31:38Z"
     }
   ]
 }
