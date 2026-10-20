@@ -1,5 +1,5 @@
-/* Current published UI strings only; source meanings and licences remain unchanged. */
-window.HalvethEnglish = Object.freeze({
+/* Current UI translations, including dynamic inline controller messages. */
+window.HalvethEnglish=Object.freeze({
   "HALVETH · Erde, Herzen & Scarlet Events": "HALVETH · Earth, Hearts & Scarlet Events",
   "GARTEN · PERSPEKTIVEN": "GARDEN · PERSPECTIVES",
   "Spielklänge ein- oder ausschalten": "Turn game sounds on or off",
@@ -104,5 +104,39 @@ window.HalvethEnglish = Object.freeze({
   "BLACK WIDOW: Befreien": "BLACK WIDOW: Free",
   "THOR: Mut": "THOR: Courage",
   "INFINITY: Möglichkeiten": "INFINITY: Possibilities",
-  "HALVETH: Gemeinsam": "HALVETH: Together"
+  "HALVETH: Gemeinsam": "HALVETH: Together",
+  "Die Erde im Mittelpunkt. Ein leuchtender Fan-Kosmos von HALVETH mit Tagesring, vielen Projektperspektiven, Erdzoom und einem Herz für die Erde.": "Earth at the centre. A luminous fan universe by HALVETH, with a daily orbit, project perspectives, Earth zoom and a heart for our planet.",
+  "0, grün": "0, green",
+  "blau": "blue",
+  "rosé": "pink",
+  "ERDE · NASA MODIS / GIBS": "EARTH · NASA MODIS / GIBS",
+  ": NASA GSFC, Reto Stöckli / Robert Simmon. Die Erdansicht nutzt eine astronomische Näherung aus der Gerätezeit. Scrollen, zwei Finger oder +/− zoomen bis 4×. Beim Hineinzoomen wird bei NASA GIBS ein MODIS-Tagesbild für den vorherigen UTC-Tag angefragt. Der angefragte Tag steht an der Ansicht; GIBS kann auf einen verfügbaren Bildtag ausweichen. Die Aufnahme ist ein zeitversetztes Mosaik, kein Live-Video. Bei Ladefehlern bleibt Blue Marble sichtbar. Dabei lädt dein Browser ein Bild direkt von NASA. Der Tagesring folgt der Berliner Zivilzeit einschließlich Sommerzeitwechsel und bleibt vor Mitternacht unter 100 %.": ": NASA GSFC, Reto Stöckli / Robert Simmon. Earth's orientation uses an astronomical approximation based on your device clock. Use the wheel, two fingers, or +/− to zoom up to 4×. Zooming in requests a daily MODIS image from NASA GIBS for the previous UTC day. The requested date is shown beside the view; GIBS may use an available image date instead. The image is a delayed mosaic, not live video. Blue Marble stays visible if loading fails. Your browser downloads the image directly from NASA. The daily ring follows Berlin civil time, including daylight-saving changes, and stays below 100% before midnight.",
+  "DEIN HERZ IST DA. DANKE. ♥": "YOUR HEART IS HERE. THANK YOU. ♥",
+  "DAS WAR DEIN HERZ.": "THAT WAS YOUR HEART.",
+  "HEHEHE… ALLES GUT.": "HEHEHE… ALL GOOD.",
+  "Eine Erde. Ein bisschen mehr Liebe.": "One Earth. A little more love.",
+  "Dein Herz ist angekommen. Die Szene ist grün.": "Your heart has arrived. The scene is green.",
+  "Der Spielmoment ist vorbei. Alles wieder grün.": "The playful moment is over. Everything is green again.",
+  "Scarlets Spielevent beginnt. Das Finale endet automatisch oder sofort mit einem Herz.": "Scarlet's game event is starting. The finale ends automatically, or immediately with a heart.",
+  " bis Mitternacht in Berlin": " until midnight in Berlin",
+  "NASA MODIS · angefragter Bildtag ": "NASA MODIS · requested image date ",
+  " · zeitversetzt": " · delayed imagery",
+  "NASA-Tagesbild lädt": "Loading NASA daily imagery",
+  "NASA-Tagesbild nicht verfügbar": "NASA daily imagery unavailable",
+  " · angefragter Bildtag ": " · requested image date ",
+  " · Blue Marble sichtbar": " · showing Blue Marble",
+  "Die Erdtextur konnte nicht geladen werden.": "The Earth texture could not be loaded.",
+  "Erdansicht pausiert. Zum Wiederherstellen neu laden.": "Earth view paused. Reload to restore it.",
+  "SCARLET · Verbinden": "SCARLET · Connect",
+  "DR STRANGE · Perspektiven": "DR STRANGE · Perspectives",
+  "DORMAMMU · Hinterfragen": "DORMAMMU · Question",
+  "ULTRON · Neu denken": "ULTRON · Rethink",
+  "JARVIS · Zuhören": "JARVIS · Listen",
+  "IRON MAN · Gestalten": "IRON MAN · Create",
+  "LOKI · Neue Wege": "LOKI · New paths",
+  "VISION · Vertrauen": "VISION · Trust",
+  "BLACK WIDOW · Befreien": "BLACK WIDOW · Free",
+  "THOR · Mut": "THOR · Courage",
+  "INFINITY · Möglichkeiten": "INFINITY · Possibilities",
+  "HALVETH · Gemeinsam": "HALVETH · Together"
 });
