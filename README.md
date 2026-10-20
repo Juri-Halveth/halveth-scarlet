@@ -2,7 +2,12 @@
 [Original / Deutsch](README.md) · [English](README.en.md) · [Русский](README.ru.md)
 <!-- /HUB_LANGUAGES_V1 -->
 
-# HALVETH · Ein Herz für die Erde
+# SCARLET – interaktive Welten und Forschungsdemos
+
+Browser-Szenen, Spielwelten und Forschungsmodelle mit direkten Einstiegen und eigenem Entwicklungsstand.
+
+[**Projekt öffnen →**](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/) · [Arbeitsproben](https://juri-halveth.github.io/koennen/) · [Portfolio](https://juri-halveth.github.io/)
+
 
 [![HALVETH Scarlet: zehn öffentliche Wege zu Menschen, Welten und Forschung](forschung/wegweiser/preview.png)](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/)
 
@@ -10,7 +15,7 @@
 
 [Zehn öffentliche Einstiege](forschung/wegweiser/) verbinden Brühler Vorschläge, spielbare Welten und Forschungsmodelle. Die Karten führen zu bestehenden Projektseiten und benennen deren Form; Suche und Kategorien funktionieren ohne Konto oder Netzwerkdienst. [Rechte und Lizenzen](LICENSES.md) bleiben je Pfad und Version getrennt.
 
-## Lernstudio
+## ASHBOUND · eigenständige Spielwelt
 
 Die eigenstaendige [ASHBOUND-Spielwelt](forschung/ashbound/) verbindet
 eine originale 3D-Insel, Chronik, Lehrmodelle und einen lokalen 32-Bit-
@@ -18,15 +23,6 @@ Gleichheitskern. Die frühere Morrowind-Fan-Chronik bleibt als klar abgegrenzte
 Erzählung innerhalb dieses eigenen Spiels erhalten; lokale Morrowind-Installationen
 und das separate [Lernstudio](https://github.com/Juri-Halveth/lernstudio) werden
 nicht verändert.
-
-<!-- HALVETH_WORK_CERTIFICATES_V1_1 -->
-## Juri Janovski / Juri Halveth – Privates HALVETH-Werkzertifikat
-
-[Privates HALVETH-Werkzertifikat: Dokumentierte Weboberfläche und Forschungsdarstellung – HALVETH Scarlet](https://juri-halveth.github.io/werkzertifikate/#werk-halveth-scarlet).
-
-HALVETH VERACHEL STUDIOS · Quellstand, dokumentierte Ergebnisse und SHA-256-Belege stehen im Werkzertifikat. Private, mit Codex erstellte Werkdokumentation; keine ISTQB- oder sonstige Personenzertifizierung.
-<!-- /HALVETH_WORK_CERTIFICATES_V1_1 -->
-
 
 Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer gemeinsamen Umlaufbahn und ein Herz als Hauptaktion. Mint, Blau und Rosé bilden die Atmosphäre; geschwungene Doppelbänder greifen das Yin-Yang-Motiv auf.
 

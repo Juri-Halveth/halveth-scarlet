@@ -1,6 +1,6 @@
 [Original / Deutsch](README.md) · [English](README.en.md) · [Русский](README.ru.md)
 
-# HALVETH Scarlet
+# SCARLET – интерактивные миры и исследовательские демонстрации
 
 **Краткий путеводитель по проекту · EN / RU**
 
