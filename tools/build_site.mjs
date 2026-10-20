@@ -40,7 +40,7 @@ const includeSiteInput = file => {
 execFileSync(process.execPath, [path.join(root, 'tools/build_profiles.mjs')], { cwd: root, stdio: 'inherit' });
 fs.rmSync(output, { recursive: true, force: true });
 fs.mkdirSync(output);
-const directories = ['languages', 'assets', 'entities', 'news', 'forschung', 'room', 'snapshot', 'collage', 'docs', 'releases'];
+const directories = ['languages', 'assets', 'entities', 'forschung', 'room', 'snapshot', 'collage', 'docs', 'releases'];
 const files = ['index.html', 'favicon.ico', '.nojekyll', 'robots.txt', 'README.md', 'CONTRIBUTIONS.md', 'LICENSES.md', 'LICENSE-HALVETH-PIRL-2.0.md', 'HALVETH-RIGHTS.md', 'HALVETH-RIGHTS.json', 'halveth-rights.schema.json'];
 for (const name of [...directories, ...files]) {
   const source = path.join(root, name);
@@ -49,27 +49,9 @@ for (const name of [...directories, ...files]) {
 }
 if (!fs.existsSync(path.join(output, 'forschung', 'ashbound', 'index.html'))) throw new Error('ASHBOUND public route missing');
 const pages = htmlFiles(output);
-const thesisDir=path.join(output,'forschung','juri-thesis');
-const thesisAssets=fs.readdirSync(thesisDir);
-// A versioned module entry still imports an unversioned dependency unless its
-// import URL is changed as well. Keep the source readable and version the copy.
-for (const name of thesisAssets.filter(name=>name.endsWith('.js'))) {
-  const file=path.join(thesisDir,name);
-  const source=fs.readFileSync(file,'utf8');
-  const built=source.replace(/(from\s+['"])(\.\/[^'"?]+\.mjs)(['"])/g,(match,start,importPath,end)=>{
-    const dependency=path.resolve(thesisDir,importPath);
-    if(path.dirname(dependency)!==thesisDir || !fs.existsSync(dependency)) throw new Error(`Missing local module: ${importPath}`);
-    const digest=createHash('sha256').update(fs.readFileSync(dependency)).digest('hex');
-    return start+importPath+'?v='+digest+end;
-  });
-  if(built!==source) fs.writeFileSync(file,built);
-}
 // Version shared presentation by the exact copied bytes, not a release label.
 const assetDigests=Object.fromEntries([
-  'assets/portal-shell.css','assets/portal-shell.js','languages/hub-language.css','assets/mobile.css',
-  ...thesisAssets
-    .filter(name=>/\.(css|js)$/.test(name))
-    .map(name=>'forschung/juri-thesis/'+name)
+  'assets/portal-shell.css','assets/portal-shell.js','languages/hub-language.css','assets/mobile.css'
 ].map(asset=>[asset,createHash('sha256').update(fs.readFileSync(path.join(output,asset))).digest('hex')]));
 for (const file of pages) {
   const relative=path.relative(output,file).split(path.sep).join('/');
@@ -77,24 +59,15 @@ for (const file of pages) {
   const standalonePage=[
     'forschung/ashbound/index.html',
     'forschung/ashbound/play/index.html',
-    'forschung/juri-thesis/index.html',
-    'forschung/juri-thesis/wirkungswege.html',
-    'forschung/juri-thesis/bruehl-atlas.html',
-    'forschung/juri-thesis/wirtschaftslabor.html',
-    'forschung/juri-thesis/chancenreise.html',
-    'forschung/juri-thesis/konzept.html',
-    'forschung/juri-thesis/rechtslabor.html',
-    'forschung/juri-thesis/versand.html',
-    'forschung/ba-uebergangsraum/index.html',
-    'forschung/ba-uebergangsraum/ez-nullmonat.html',
-    'forschung/ba-uebergangsraum/quellen.html',
     'forschung/wegweiser/index.html',
   ].includes(relative);
   const prefix=relativeRoot+'languages/';
   const html=fs.readFileSync(file,'utf8').replace(/<!-- HUB_LANGUAGES_START -->[\s\S]*?<!-- HUB_LANGUAGES_END -->/g,'').replace(/<!-- MOBILE_LAYOUT_START -->[\s\S]*?<!-- MOBILE_LAYOUT_END -->/g,'');
   const tags=standalonePage?'':'<!-- HUB_LANGUAGES_START --><link rel="stylesheet" href="'+prefix+'hub-language.css"><script src="'+prefix+'catalog.js" defer></script><script src="'+prefix+'hub-language.js" defer></script><!-- HUB_LANGUAGES_END -->';
   const mobile=standalonePage?'':'<!-- MOBILE_LAYOUT_START --><link rel="stylesheet" href="'+relativeRoot+'assets/mobile.css"><!-- MOBILE_LAYOUT_END -->';
-  const built=html.replace(/(<head[^>]*>)/,match=>match+tags).replace(/<\/head>/i,mobile+'</head>');
+  const archived=/forschung\/(?:ba-uebergangsraum|brightcast-starlight|de-anker-hela|halveth-research|handschriftliche-konvergenzen|juri-thesis|microvalue|q-notizen|red-room-dialog|tagesstand-2026-09-13|usdai-sabr-kontext)\//;
+  const curated=html.replace(/<a\b[^>]*href=[\"']([^\"']+)[\"'][^>]*>.*?<\/a>/gis,(m,url)=>archived.test(url)?'<a href=\"/halveth-scarlet/forschung/wegweiser/\">Technische Demos / Technical demos</a>':m);
+  const built=curated.replace(/(<head[^>]*>)/,match=>match+tags).replace(/<\/head>/i,mobile+'</head>');
   fs.writeFileSync(file,built.replace(/\b(src|href)=(["'])([^"']+)\2/g,(match,attribute,quote,url)=>{
     const pathname=url.split(/[?#]/)[0];
     if (/^(?:[a-z]+:|\/\/|#)/i.test(pathname)) return match;

@@ -75,7 +75,9 @@ function withLanguages(html,prefix){
  return html.replace(/(<head[^>]*>)/,match=>match+'<!-- HUB_LANGUAGES_START --><link rel="stylesheet" href="'+assets+'hub-language.css"><script src="'+assets+'catalog.js" defer></script><script src="'+assets+'hub-language.js" defer></script><!-- HUB_LANGUAGES_END -->');
 }
 
-for (const [file, content] of expected) {
+for (const [file, originalContent] of expected) {
+  const archived=/forschung\/(?:ba-uebergangsraum|brightcast-starlight|de-anker-hela|halveth-research|handschriftliche-konvergenzen|juri-thesis|microvalue|q-notizen|red-room-dialog|tagesstand-2026-09-13|usdai-sabr-kontext)\//;
+  const content=originalContent.replace(/<a\b[^>]*href=["']([^"']+)["'][^>]*>.*?<\/a>/gis,(m,url)=>archived.test(url)?'<a href="/halveth-scarlet/forschung/wegweiser/">Technische Demos / Technical demos</a>':m);
   const destination = path.join(root, file);
   if (check) {
     if (!fs.existsSync(destination) || fs.readFileSync(destination, 'utf8').replace(/\r\n/g, '\n') !== content) throw new Error(`Generated profile is missing or stale: ${file}`);

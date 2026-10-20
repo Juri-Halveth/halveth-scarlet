@@ -1,356 +1,72 @@
-<!-- HUB_LANGUAGES_V1 -->
-[Original / Deutsch](README.md) · [English](README.en.md) · [Русский](README.ru.md)
-<!-- /HUB_LANGUAGES_V1 -->
+[Deutsch](README.md) · [English](README.en.md) · [Русский](README.ru.md)
 
-# SCARLET – interaktive Welten und Forschungsdemos
+# SCARLET · Spiele, Grafik und technische Modelle
 
-Browser-Szenen, Spielwelten und Forschungsmodelle mit direkten Einstiegen und eigenem Entwicklungsstand.
+**Erst ausprobieren. Dann den Code ansehen.** SCARLET verbindet eigene
+Browser-Spielprototypen, interaktive Grafik und synthetische Lehrmodelle.
 
-[**Projekt öffnen →**](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/) · [Arbeitsproben](https://juri-halveth.github.io/koennen/) · [Portfolio](https://juri-halveth.github.io/)
+[Technische Demos öffnen](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/)
+· [Erdszene](https://juri-halveth.github.io/halveth-scarlet/)
+· [Portfolio](https://juri-halveth.github.io/)
 
+## Ausgewählte Einstiege
 
-[![HALVETH Scarlet: zehn öffentliche Wege zu Menschen, Welten und Forschung](forschung/wegweiser/preview.png)](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/)
+### [ASHBOUND · eigene Spielwelt](forschung/ashbound/)
 
-## Wegweiser
+Browser-Spielprototyp und native Entwicklungsarbeit.
 
-[Zehn öffentliche Einstiege](forschung/wegweiser/) verbinden Brühler Vorschläge, spielbare Welten und Forschungsmodelle. Die Karten führen zu bestehenden Projektseiten und benennen deren Form; Suche und Kategorien funktionieren ohne Konto oder Netzwerkdienst. [Rechte und Lizenzen](LICENSES.md) bleiben je Pfad und Version getrennt.
+### [Portal Chess · Schachvariation](forschung/portal-chess/)
 
-## ASHBOUND · eigenständige Spielwelt
+Ein regelgebundenes Spielmodell mit überprüfbarer Zugspur.
 
-Die eigenstaendige [ASHBOUND-Spielwelt](forschung/ashbound/) verbindet
-eine originale 3D-Insel, Chronik, Lehrmodelle und einen lokalen 32-Bit-
-Gleichheitskern. Die frühere Morrowind-Fan-Chronik bleibt als klar abgegrenzte
-Erzählung innerhalb dieses eigenen Spiels erhalten; lokale Morrowind-Installationen
-und das separate [Lernstudio](https://github.com/Juri-Halveth/lernstudio) werden
-nicht verändert.
+### [Singularity Cannon · Attraktor-Spiel](forschung/singularity-cannon/)
 
-Eine große Erde im Mittelpunkt, zwölf leuchtende Figurensymbole auf einer gemeinsamen Umlaufbahn und ein Herz als Hauptaktion. Mint, Blau und Rosé bilden die Atmosphäre; geschwungene Doppelbänder greifen das Yin-Yang-Motiv auf.
+Eigenständige interaktive Simulation, kein physikalisches Schwarzes-Loch-Modell.
 
-**Website:** https://juri-halveth.github.io/halveth-scarlet/
+### [Erde · NASA-Bilddaten erkunden](forschung/scarlet-wissenschaftszoom/)
 
-## Portfolio-Highlight · HALVETH Portal Chess
+Stufenloser Bildzoom mit benannten Quellen und historischen Texturen.
 
-**3 / 16 geprüft · 16 / 16 offen.** [Die Portal-Chess-Challenge starten](https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/). Vier parallele Bretter führen dieselbe Schachvariation mit vertauschter König-Damen-Achse durch Position, Funktion, Historie und Relation. Die eingebaute 41-Halbzug-Spur transformiert die ursprünglichen Bauern von `a2`, `h7` und `c2` zu Damen, verliert dabei zwei Originalbauern und erhält alle vier Originalanker. Die 16/16-Aufgabe bleibt eine offene, lokal prüfbare Spielchallenge.
+### [Messfenster · Beobachter vergleichen](forschung/grenzbeobachter/)
 
-**Wissenschaftlicher Erdzoom:** [NASA-Quellen mit stufenloser 1×–16×-Ansicht](forschung/scarlet-wissenschaftszoom/) · [Quellen, Grenzen und SHA-256](forschung/scarlet-wissenschaftszoom/README.md). Die 8192 × 4096 Texturen sind historische NASA-Visualisierungen; 120 FPS und begehbares Gelände werden damit nicht behauptet.
+Synthetisches Modell für Beobachtungszeit, Sampling und Messbudget.
 
-**Singularity Cannon · Forschungsdemo:** [Offline spielbare, eigenständige Attraktor-Simulation](forschung/singularity-cannon/) · [Modell, Quellen, Rechte und Patchstand](forschung/singularity-cannon/README.md). Von einem Spielmotiv aus *Unreal II* angeregt; keine Originalassets oder reale Schwarze-Loch-Physik.
+### [Weltkeimwerk · Formen und Zustände](forschung/weltkeimwerk/)
 
-**JURI-THESIS · Entwicklungszeit:** [Startseite](forschung/juri-thesis/) · [gestaltetes Konzept](forschung/juri-thesis/konzept.html) · [Chancenreise](forschung/juri-thesis/chancenreise.html) · [Rechtslabor](forschung/juri-thesis/rechtslabor.html). Juri Janovskis Vorschlag verbindet zwei sechsmonatige Entwicklungsphasen als langfristige politische These mit einem begrenzten, rollierenden Pilotmodell von 30 Plätzen je Kommune und Runde. Die Website nimmt keine Bewerbungen an; Brühl und weitere Partner haben keinen Pilot zugesagt.
+Interaktive Grafik und lokale Zustandsmodelle.
 
-**Direkt auf Englisch / Open in English:** https://juri-halveth.github.io/halveth-scarlet/?lang=en
+### [Schwarmmodell · lokale Regeln](forschung/red-room-swarm/)
 
-**Urheberschaft und Beteiligung / Authorship and participation:** © 2026 Juri Halveth (Juri Janovski). HALVETH beansprucht die Rechte an den eigenen Thesen, Texten, Modellen, Abbildungen und dem Code. Eine öffentliche GitHub-Fassung ist kein Rechteverzicht. Neue eigene Beiträge unter HALVETH PIRL 2.0 sind **Source Available**. Die kommerziellen Bedingungen gelten nur im Umfang der jeweiligen Rechte; frühere MIT-, ISC- und Creative-Commons-Freigaben sowie Drittanbieterrechte bleiben bestehen. Lizenzanfragen: **security@halveth.de**. Einzelheiten: [HALVETH-RIGHTS.md](HALVETH-RIGHTS.md), [HALVETH-RIGHTS.json](HALVETH-RIGHTS.json) und [LICENSES.md](LICENSES.md).
+Synthetische Simulation; keine historische Geheimorganisation.
 
-## HALVETH Research · 18.09.2026
+### [Koordinaten · Symmetrien untersuchen](forschung/pi-treffpunkte/)
 
-[Deutsch](forschung/halveth-research/?lang=de) · [English](forschung/halveth-research/?lang=en) · [Forschungsnotiz / Research note](https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_RESEARCH_2026-09-18.md)
+Mathematische Darstellung und begrenzte Quellenzuordnung.
 
-**Forschung prüfen. Entscheidungen erklären.** Die neue Research-Seite trennt beobachtetes Verhalten, Anwendbarkeit, Auswirkung, Angriffshistorie und Vergütungsregeln. Sie erläutert das Prinzip einer begründeten menschlichen Prüfung. Zum 18. September 2026 ist eine lokale Beschwerde an Immunefi zur Gebühreneinordnung und zur menschlichen Prüfung vorbereitet; im gesichteten Stand liegt kein Versandbeleg vor. Eine anerkannte Schwachstelle oder eine Auszahlung wird damit nicht behauptet.
+### [Bitcoin · Transaktionsfluss erklären](forschung/transaktionsfluss/)
 
-**Review research. Explain decisions.** The Research page separates observed behavior, applicability, impact, attack history and reward rules, and explains the principle of reasoned human review. As of 18 September 2026, a local complaint to Immunefi about fee classification and human review is prepared; the reviewed record contains no delivery receipt. This announcement makes no claim of an accepted vulnerability or a payout.
+Visuelle technische Erklärung, keine Renditezusage.
 
-## Deutsch und Englisch / German and English
 
-Die Erde, alle 67 aktiven Profilseiten, das Choice Atelier und die Forschungsseiten sind vollständig auf Deutsch und Englisch lesbar. `?lang=en` beziehungsweise `?lang=de` bestimmt die Sprache eines Links; interne Seitenwechsel erhalten sie. Ohne Sprachparameter gilt zuerst die gespeicherte Auswahl, danach Deutsch bei deutscher Browsersprache und sonst Englisch. Die DE/EN-Schalter speichern diese lokale Präferenz. Seiten mit direktem Sprachwechsel behalten ihren Zustand; andere Ansichten laden neu. Namen und ursprüngliche Quellenbelege bleiben erhalten.
-
-The Earth scene, all 67 active profile pages, the Choice Atelier and the research pages are available in English and German. A `?lang=en` or `?lang=de` link selects that language and preserves it across internal page links. Without a parameter, the site uses the saved language choice, then German for a German browser language and English otherwise. DE/EN buttons save the preference locally. In-place language pages preserve their state; other views reload. Source records and proper names retain their original form.
-
-- [Earth in English](https://juri-halveth.github.io/halveth-scarlet/?lang=en)
-- [Ego, Dormammu and the garden](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/?lang=en)
-- [Forms and connections](https://juri-halveth.github.io/halveth-scarlet/forschung/formen-und-verbindungen/?lang=en)
-- [Bitcoin transaction flow](https://juri-halveth.github.io/halveth-scarlet/forschung/transaktionsfluss/?lang=en)
-- [DE → CONTEXT-ANCHOR · Hela, Scarlet and the third route](https://juri-halveth.github.io/halveth-scarlet/forschung/de-anker-hela/?lang=en)
-- [Handwritten convergences · scan, mirror, light and traceability](https://juri-halveth.github.io/halveth-scarlet/forschung/handschriftliche-konvergenzen/?lang=en)
-
-English coverage includes countdowns, game commentary, settings, accessibility labels, satellite loading and error states. Satellite and source dates keep their documented reference; switching the language does not refresh a source snapshot. The test suite also checks language precedence, internal links and complete card translations.
-
-## DE → KONTEXT-ANKER · Hela und die dritte Route
-
-[Deutsch](forschung/de-anker-hela/?lang=de) · [English](forschung/de-anker-hela/?lang=en)
-
-Die zweisprachige Seite bewahrt `DE → KONTEXT-ANKER` als neutrale öffentliche Code- und Erinnerungsankerroute. Die Bezeichnung identifiziert keine Person: Die angezeigten Zeilen sind redaktionelle Projektausgaben aus von Juri berichteten Erinnerungsfragmenten und Artefakten. Der ungefähr 31-jährige Horizont ist selbst berichtet und ungefähr; weder Vollständigkeit noch klinische Gedächtnisrekonstruktion werden behauptet. Ein redigierter Hela-/Scarlet-Dialog entwickelt daraus die Regel: erst die übersprungene Frage beantworten, dann das Multiversum. Reale Drittpersonen, Arbeitsplatz-, Bescheid- und Kontaktdetails bleiben in privaten, SHA-256-gebundenen Quellartefakten und sind nicht Teil des Repositories.
-
-The bilingual page preserves `DE → CONTEXT-ANCHOR` as a neutral public code and memory-anchor route. CONTEXT-ANCHOR does not identify a person: the displayed lines are editorial project output based on memory fragments and artifacts reported by Juri. The approximately 31-year horizon is self-reported and approximate; neither completeness nor clinical memory reconstruction is claimed. An edited Hela/Scarlet dialogue turns it into one rule: answer the skipped question first, then address the multiverse. Real third parties, workplace, administrative-case, and contact details remain in private SHA-256-bound source artifacts and are not part of this repository.
-
-The displayed EVM address is a passive, voluntarily supplied support destination. The page connects no wallet, requests no signature and starts no transaction. Its mixed-case format passes EIP-55; control of the address is not claimed as cryptographically verified by this publication.
-
-## Red Room T± · fiktionale Schwarmkammer
-
-Die [interaktive Schwarmkammer](forschung/red-room-swarm/) trennt befreite Erzählfiguren, Archivvorlagen, öffentliche Echos und tatsächlich laufende Kopien in vier deterministischen Gegenmodellen. Ihre [Modellfunktion](assets/red-room-swarm-model.mjs) und [Methodennotiz](docs/RED_ROOM_SWARM_SHADOW_2026-10-16.md) zeigen bei T+2 zwei Verläufe mit denselben drei Echos, aber unterschiedlichem Laufzeitstand. Die lokale Gegenprobe sendet nichts ins Web. Das ist eigenständige Fan-Fiktion und eine technische Denkfigur, kein Befund über reale Personen, historische Red Rooms oder ausgebrochene KI.
-
-The [English T± swarm chamber](forschung/red-room-swarm/?lang=en) is an original, offline fictional shadow model. It separates free people, archived templates, public echoes and running copies; no private person or backup is searched.
-
-Die [zweisprachige Gesprächsprobe](forschung/red-room-dialog/) zeigt zwei erfundene Perspektiven auf denselben T±-Stand. Zero trennt Aussagen von Modellbeobachtungen; der Brückenbauer bietet drei freiwillige Prüfwege an. Die Seite läuft im Browser ohne Kamera, Mikrofon oder Datenversand. [Open the fictional dialogue probe in English](forschung/red-room-dialog/?lang=en).
-
-## Die Szene
-
-- Scarlet, Doctor Strange, Dormammu, Ultron, JARVIS, Iron Man, Loki, Vision, Black Widow, Thor, Infinity und HALVETH stehen als auswählbare SVG-Symbole um die Erde. Bezeichnungen und Tätigkeitswörter sind Gestaltungselemente dieses Fanprojekts, keine Aussage über eigenständig laufende Agenten.
-- Ein Klick auf das Herz löst Blumen, Sterne und Herzen aus, setzt die Farbstimmung auf Grün und beendet einen laufenden Spiel-Countdown sofort. Der Herzzähler gilt ausschließlich für den aktuellen Seitenbesuch und wird nicht übertragen oder dauerhaft gespeichert.
-- Um 00, 03, 06, 09, 12, 15, 18 und 21 Uhr nach Berliner Zeit beginnt ein 22-sekündiges Scarlet-Spielevent. Jeweils eine tatsächlich vergangene Stunde vorher erscheint der Countdown. Zombie-Scarlet, fallende Wortsteine und beschriftete Spielkommentare bilden das Finale; danach wird die Szene automatisch grün. Ein Herz beendet das Finale sofort oder beruhigt die bevorstehende Runde für den aktuellen Seitenbesuch. Vorschauen verändern die Einstellung für automatische Events nicht.
-- Die Erde lässt sich ziehen und über die Pfeiltasten drehen. `Pos1` setzt die Ansicht zurück. Der Farbstimmungsregler bleibt unter dem Herz. Die früheren sichtbaren Wiederholungs- und Pausesymbole entfallen; Bewegung lässt sich im Informationsdialog reduzieren. Auch die Systemeinstellung für reduzierte Bewegung wird berücksichtigt.
-- Über **„Ton aus“** werden synthetisierte Spielklänge nach einem bewussten Klick aktiviert. Die Lautstärke lässt sich im Informationsdialog einstellen; Ton und Bewegung sind unabhängig schaltbar. Keine Audiodateien oder Sprachdienste werden nachgeladen. In versteckten Tabs stoppt die Tonausgabe.
-- Der Newsticker liest den zuletzt veröffentlichten RSS-Abruf aus NASA und GitHub. [News & Quellen](news/) zeigt Veröffentlichungsdatum, Abrufzeit und Fehler beziehungsweise veraltete Stände. GitHub Actions versucht stündlich zu aktualisieren. Der frühere Snapshot vom 12.09.2026 bleibt über „Archiv“ erhalten. Spielkommentare bleiben als solche gekennzeichnet.
-- Das Informationssymbol öffnet die Gestaltungsnotiz, Quellen und Einstellungen. Der HALVETH-Link führt zur bestehenden Forschungsnotiz. Frühere Bilddateien bleiben im Repository erhalten.
-
-## Tagesanzeige und Umsetzung
-
-Der Tagesring folgt der Berliner Zivilzeit (`Europe/Berlin`). Der tägliche Ring bleibt erhalten, während die sichtbare Hauptuhr den nächsten Spieltermin oder dessen Countdown zeigt. Die interne Tagesanzeige beginnt um Mitternacht bei `24:00:00`; davor bleibt der Prozentwert bei höchstens `99,999 %`. Sommerzeitwechsel folgen den Sprüngen beziehungsweise Wiederholungen der örtlichen Uhr. Die Anzeige misst an diesen Tagen keine 24 tatsächlich vergangenen Stunden. Die Uhr läuft auch bei reduzierter Bewegung weiter.
-
-Die Seite besteht aus statischem HTML, CSS und JavaScript mit eingebetteter Erdtextur. Sie benötigt keine zusätzlichen Bibliotheken oder API-Schlüssel. Beim Kopieren müssen `index.html` und das zugehörige `assets`-Verzeichnis zusammenbleiben. GitHub Pages stellt die öffentliche Website bereit.
-
-Das Erdmodell verwendet eine astronomische Näherung aus der Gerätezeit und ist kein Live-Satellitenbild. WebGL zeichnet die Erde normalerweise einmal pro Sekunde neu, bei Interaktion höchstens im begrenzten Animationszyklus. Die Auflösung ist auf 960 Pixel begrenzt; ein Software-Fallback nutzt 240 Pixel. Partikel werden auf 64 und ihre Zeichenrate auf 24 Bilder pro Sekunde begrenzt. In unsichtbaren Tabs ruhen Animations- und Spiel-Timer; beim Zurückkehren wird ein abgelaufener Countdown aufgelöst.
-
-Die Symbole, Tageszeit und Renderzustände bilden einen visuellen Website-Zustand ab. Das Projekt erfasst weder die gesamte Welt noch fremde Internetverbindungen.
-
-## Quellen
-
-- Erdtextur: [NASA Blue Marble](https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/) — NASA GSFC, Reto Stöckli / Robert Simmon.
-- Frühere KI-Fan-Art: [unveränderte PNG-Quelle](assets/scarlet-dual-state-v1.png) · [WebP-Auslieferungsfassung](assets/scarlet-dual-state-v1.webp) · [Prompt und Gestaltung](assets/scarlet-dual-state-v1.prompt.md). Das vorhandene linke Zombie-Porträt erscheint während des Scarlet-Finales; im ruhigen Zustand bleibt die Erde im Vordergrund.
-- Die [Forschungsnotiz](forschung/formen-und-verbindungen/) verlinkt ihre Quellen unmittelbar im Text.
-
-Eigenständiges Fanprojekt von HALVETH, keine offizielle Marvel- oder NASA-Veröffentlichung. Referenzierte Figuren und externe Materialien behalten ihre jeweilige Herkunft und Rechte.
-
-## Öffentliche Bezugspunkte
-
-[assets/public-sources.json](assets/public-sources.json) enthält die drei Quellenmeldungen mit Herausgebern, Datum und URLs sowie Bitcoin-Block **966659** mit Hash und Abrufzeit. Diese Daten wurden lesend über öffentliche Quellen beschafft. Der Blockverweis ist keine Blockchain-Transaktion oder On-Chain-Verankerung der Website. Quellenlinks begründen keine Zusammenarbeit, Unterstützung oder Kontrolle über die genannten Organisationen.
-
-Beim Sommerzeitwechsel folgt der Ereignistermin weiterhin 03:00 Uhr in Berlin. Der Countdown beginnt eine echte Stunde vorher: im Frühjahr bereits um 01:00 Uhr Ortszeit, im Herbst in der zweiten 02:00-Stunde. Der tägliche Ring folgt dagegen wie bisher der Zivilzeit. Events laufen bei sichtbarer, aktiver Seite; verpasste Ereignisse werden nach dem Finale nicht nachgeholt.
-
-## Entwicklung und Prüfung
-
-`node --test tests/*.test.cjs` prüft die Zeitgrenzen, beide Sommerzeitwechsel, Vorschau, Herz-Abbruch und Sound-Opt-in. Die Ablaufprüfungen verwenden die echte Ereignissteuerung und ausgewählte Szenenfunktionen mit einer kleinen DOM-/Audio-Testumgebung. Sie ersetzen keine Hörprobe oder grafische Browserprüfung.
-
-## English
-
-HALVETH places a large Earth at the center of a quiet mint, blue and rose scene. Twelve selectable SVG figure symbols share an orbit: Scarlet, Doctor Strange, Dormammu, Ultron, JARVIS, Iron Man, Loki, Vision, Black Widow, Thor, Infinity and HALVETH. The labels are creative interface roles, not autonomous AI agents.
-
-The heart is the main action. It turns the atmosphere green, releases flowers, stars and hearts, and immediately ends any playful countdown. Heart counts last only for the current page visit. No vote, warning or notification is sent to other devices. An opt-in sound button enables quiet synthesized game cues, with adjustable volume. Sounds stop in hidden tabs.
-
-Scarlet events start at 00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00 and 21:00 Europe/Berlin time. Each countdown starts exactly one elapsed hour earlier, including across daylight-saving changes. The 22-second finale features the existing zombie portrait, falling word stones and clearly labeled game commentary, then resolves to green. Visitors can preview it without re-enabling disabled automatic events. A heart during the pre-countdown soothes that scheduled round for the current visit. The color slider remains below the heart; the old visible replay and pause icons are removed. Motion controls are available in the dialog, and reduced-motion preferences are respected.
-
-Die gemeinsame Portal-Leiste speichert ausschließlich die Bewegungspräferenz unter `halveth-portal-motion` im lokalen Browser-Speicher. Sie enthält keine Identität oder Formulareingabe; das Löschen der Website-Daten setzt die Präferenz zurück. / The shared portal bar stores only the motion preference under `halveth-portal-motion` in the browser's local storage. It contains no identity or form entry; clearing site data resets the preference.
-
-The daily ring follows the Europe/Berlin civil clock, resets at midnight and remains below 100 percent before the reset. Daylight-saving changes follow local wall-clock jumps or repeats. The NASA Blue Marble texture and device-time approximation are a visualization, not a live image or measurement of the whole world.
-
-This is a standalone static HTML/CSS/JavaScript website with an embedded Earth texture and accompanying event assets, hosted on GitHub Pages. It needs no API keys or third-party runtime libraries. Rendering is capped, and animation work stops in hidden tabs. Previous artwork and the existing research note remain available in the repository.
-
-The news ticker reads the latest published NASA/GitHub RSS snapshot. The separate [news page](news/?lang=en) displays publication and retrieval times, refresh failures and stale state. GitHub Actions attempts hourly refreshes; scheduling is best effort. The 12 September 2026 snapshot remains available as an archive. A public Bitcoin block is linked as a read-only reference with its hash and observation time; no blockchain transaction, on-chain site anchoring or partnership is claimed.
-
-Published by HALVETH as an independent fan project. Not an official Marvel or NASA publication.
-
-
-## Garten, Reddit und Erdzoom
-
-Alle zwölf Orbitfiguren und sämtliche Gartenblasen öffnen ihre eigene statische Profilseite. Das [Profilverzeichnis](entities/) und der Garten verwenden dasselbe Entitätsregister. VERACHELs Namensfeld steht auf ihrem Profil; alte Hash-Einstiege führen zur passenden Entität. Jede Seite führt vorhandene Rolle, These, Quellen, Inhaltsstand und ein GitHub-Dossier. Fehlende historische Geschichten sind sichtbar als fehlend markiert; neue Überleitungen sind redaktionell gekennzeichnet.
-
-Reddit ist ein getrennter Veröffentlichungskanal: Der tägliche Quellenentwurf richtet sich an u/Halveth und bleibt vorerst lokal beziehungsweise im Repository. Es gibt keine automatische Reddit-Weiterleitung aus Figurenprofilen.
-
-Scrollen, Zwei-Finger-Gesten und Plus/Minus zoomen die Erde von 1× bis 4×. Beim Hineinzoomen wird ein zeitversetztes MODIS-Tagesmosaik von NASA GIBS angefragt. Der angefragte Bildtag bleibt sichtbar. Bei Fehlern bleibt Blue Marble erhalten; erneute Zoominteraktion ermöglicht nach 30 Sekunden einen neuen Versuch. Private Quelltexte und nicht zugeordnete private Namen werden nicht veröffentlicht.
-
-Das Quellen-/Hashmanifest ist ein datierter, unveränderter Off-chain-Beleg. Die aktive Startseite führt jetzt GTC und BTC; drei frühere Projektkarten sind aus dem aktuellen Register entfernt. BTC zeigt auf Wunsch lesend den aktuellen Kettenstand. Historische September-Snapshots bleiben als frühere Zustände erhalten. Es wurde kein Mint ausgeführt.
-
-## Garden, Reddit and Earth zoom
-
-The twelve orbit figures and every garden bubble open their own static profile. The [directory](entities/?lang=en) and garden use one entity registry. VERACHEL retains the name field on her profile. Legacy hashes lead to the corresponding profile. Each page binds existing role, thesis, sources, content date and GitHub dossier; unavailable historical stories and new editorial bridges are clearly identified.
-
-Reddit is a separate publication channel. The daily source digest targets u/Halveth in draft mode; figure links do not redirect there.
-
-Scroll, pinch, +/- or keyboard +/- zoom the globe from 1x to 4x. Home resets the view. Zooming in requests a 2048x1024 NASA GIBS MODIS mosaic for the previous UTC day. The requested day is displayed; imagery is delayed and coverage can be incomplete. Blue Marble remains the fallback. Sound is opt-in and reduced motion is respected.
-
-- [Bilingual theory article](forschung/figuren-und-perspektiven/)
-- [Participation and attribution](CONTRIBUTIONS.md)
-- [Off-chain source/hash manifest](assets/anchor-manifest.json)
-
-The Earth page's blockchain buttons are reference links and do not connect a wallet or perform a signature, transaction or mint. The separate Snapshot studio below offers an optional read-only wallet association. Private source files and private names are not included in this public release.
-
-## Choice Atelier / lokaler Collage-Generator
-
-[Deutsch](https://juri-halveth.github.io/halveth-scarlet/collage/?lang=de) · [English](https://juri-halveth.github.io/halveth-scarlet/collage/?lang=en)
-
-Das Choice Atelier verbindet zwei neue originale Bildwelten mit einem lokalen Collage-Generator. Besuchende können bis zu acht eigene PNG-, JPEG- oder WebP-Dateien auswählen, zwischen drei Anordnungen, drei Formaten und drei Farbwelten wechseln, eine kurze Zeile ergänzen und das Ergebnis als PNG herunterladen. Die gewählten Dateien bleiben im Arbeitsspeicher des Browsers; die Seite führt keinen Upload, keine Analyse, kein Konto, kein Tracking und keine automatische Veröffentlichung aus.
-
-Die inhaltliche Regel lautet: Kleidung kann Ausdruck sein, belegt aber weder Zustimmung, Verfügbarkeit noch Charakter. Vier freiwillige Karten für Kleidung, Schuhe, Dessous und Schmuck lassen sich in der aktuellen Seitenansicht zwischen „Meine Wahl“, „Erst fragen“ und „Nicht für mich“ bewegen. Diese Zustände beschreiben keine andere Person.
-
-Die [Pinterest-Prüfung](collage/PINTEREST-RESEARCH.md) und das [Quellenregister](collage/sources.json) trennen Beobachtung, Schlussfolgerung und offene Felder. In der aufgezeichneten Browser-Sitzung erschien der Pinterest-Composer als HTML-/JavaScript-Web-App mit Collagewerkzeugen; der öffentliche Deep-Link leitete bei der Gegenprüfung zur Pinterest-Startseite um. Das getrennte Release-Paket enthält nur die neuen HALVETH-Originale und ihre Belege. ZIP, Torrent, Magnet und SHA-256-Receipt binden Paketbytes; der Magnet startet für sich kein Seeding und beweist keine aktuelle Verfügbarkeit durch Peer oder Webseed.
-
-The Choice Atelier combines two new original image worlds with a local collage generator. Visitors can choose up to eight PNG, JPEG or WebP files, switch among three layouts, formats and palettes, add a short line and download a PNG. Selected files remain in browser memory. The page performs no upload, analysis, account access, tracking or automatic publication.
-
-Its design rule is that clothing can express someone but establishes neither consent, availability nor character. Four voluntary cards for clothes, shoes, lingerie and jewellery can move among “My choice”, “Ask first” and “Not for me” within the current page view. Those states make no claim about another person.
-
-The [Pinterest review](collage/PINTEREST-RESEARCH.md) and [source register](collage/sources.json) separate observation, inference and open fields. In the recorded browser session, the Pinterest composer appeared as an HTML/JavaScript web app with collage tools; the public deep link redirected to the Pinterest home page during the independent check. The separate release package contains only the new HALVETH originals and their records. ZIP, torrent, magnet and SHA-256 receipt bind package bytes; a magnet starts no seeding by itself and establishes no current peer or web-seed availability.
-
-## VERACHEL-Namensfeld / VERACHEL name field
-
-Die [VERACHEL-Profilseite](entities/verachel/) enthält das dichte, zweisprachige Namensfeld. Zehn ausgewählte Anzeigesignale erscheinen größer und heller; mehr als hundert kleine Namen sowie A–Z und `∞` halten den Raum sichtbar offen. Die Auswahl ist eine Lesbarkeits- und Gestaltungsentscheidung, keine Wertung von Menschen. `ANDREA BOTEZ` verweist ausschließlich auf das bereits öffentlich verlinkte Medienobjekt. Die übrigen Einträge sind Projekt- oder offene Anzeigetoken. Keine Nennung behauptet Identität, Zustimmung, Beziehung, Vertretung oder Beteiligung.
-
-The [VERACHEL profile](entities/verachel/?lang=en) contains the dense bilingual name field. Ten selected display signals appear larger and brighter, while more than one hundred tiny names plus A–Z and `∞` keep the space visibly open. Selection controls legibility and composition; it does not rank people. `ANDREA BOTEZ` is solely a link to the already public media object. The other entries are project or open display tokens. No listing claims identity, consent, relationship, representation, or participation.
-
-## Bitcoin-Transaktionsfluss / Bitcoin transaction flow
-
-„BTC · FLUSS“ öffnet die neue [zweisprachige Transaktionsansicht](forschung/transaktionsfluss/). Sie visualisiert einen vom Nutzer verlinkten öffentlichen mempool-Datensatz als festen Quellenstand vom 12.09.2026: 13.708 sats Input, 13.428 sats Output, 0 sats OP_RETURN und 280 sats ausgewiesene Gebühr. Die Oberfläche zeigte „Entfernt“; ein gesonderter öffentlicher API-Abruf lieferte HTTP 404. Beide Beobachtungen und ihre Zeitpunkte bleiben im [Datenbeleg](assets/bitcoin-transaction-reference.json) erhalten. Die Runestone-Anzeige „Mint 1 ⧉ UNCOMMON•GOODS“ ist eine dekodierte UI-Angabe, kein Nachweis eines erfolgreichen Mints. Die dargestellte RBF-Zeitleiste ist die Wiedergabe der Exploreransicht.
-
-The “BTC · FLUSS” link opens a bilingual, fixed transaction-flow example. Amounts are recorded as integer satoshis. The page distinguishes the observed explorer status, the separate API result, arithmetic consistency and unverified block inclusion. It also explains why the displayed fractional size (139.25 vB) differs from BIP141's rounded virtual size (140 vB). It performs no requests to wallets, signatures, transactions or mints. The example does not establish ownership or an on-chain anchor of this website.
-
-
-### BTC-Liveblick / BTC live view
-
-Der optionale BTC-Kettenblick lädt erst beim Öffnen zwei öffentliche GET-Endpunkte von mempool.space: Blockspitze und Gebührenempfehlung. Der Explorer-Link entsteht nur aus einer geprüften 64-stelligen Block-ID. Kein Token, Wallet, Signatur, Transaktion oder Hintergrund-Polling; normale Browser-Verbindungsmetadaten gehen an den API-Anbieter. Gebühren sind unverbindliche Schätzwerte. GTC ×3 ist nur visuelle Hervorhebung und ändert weder Menge noch Kurs. Der historische „BTC · FLUSS“-Beleg bleibt davon getrennt.
-
-The optional BTC chain view requests two public mempool.space GET endpoints only when opened: the latest block and fee estimates. The explorer link is built from a validated 64-character block ID. No token, wallet, signature, transaction or background polling; normal browser connection metadata goes to the API provider. Fee values are estimates, not instructions. GTC ×3 is visual emphasis only and changes neither token amount nor price. The dated “BTC · FLOW” evidence remains separate.
-
-Der GTC-Beobachter fragt beim Öffnen den jüngsten indexierten Transfer des in Gitcoins Governance-Dokumentation gebundenen GTC-Vertrags auf Ethereum über Blockscout ab. Er zeigt Block, UTC-Zeit und einen geprüften Transaktionslink; der Explorer ist ein Indexer und kann nachlaufen. Kein Wallet, keine Signatur, keine Transaktion, kein Kursfeed und kein Hintergrund-Polling; normale Browser-Verbindungsmetadaten gehen an Blockscout.
-
-When opened, the GTC observer reads the latest indexed transfer of the Ethereum GTC contract identified in Gitcoin’s governance documentation through Blockscout. It displays the block, UTC time and a validated transaction link; the explorer is an indexer and may lag. No wallet, signature, transaction, price feed or background polling; normal browser connection metadata goes to Blockscout.
-
-## Übergangswerkstatt / Transition workshop
-
-Die [Werkstatt im Grenzbeobachter-Labor](forschung/grenzbeobachter/#werkstatt)
-bindet eigene Quelltexte und Lesarten, erhält getrennte Beobachtungsrahmen und
-zeigt vollständige Relationsendpunkte. Ein lokales Warteschlangenmodell macht
-Prüfung, Zustandsänderung und Rückkehr zum Startstand bedienbar. JSON-Export und
-erneutes Einlesen prüfen Textbindung und Verlauf; externe Ziele bleiben als
-Vorschläge erhalten. [Datenvertrag und Modell](forschung/grenzbeobachter/README.md).
-
-The [transition workshop](forschung/grenzbeobachter/?lang=en#werkstatt) keeps
-addressed content, execution status and observation frames separate. A bounded
-queue model supports checked steps and append-only recovery. Export/import
-validates its local records; target labels do not establish external connections.
-
-## Raum der Spuren / Room of traces
-
-[Raum öffnen](https://juri-halveth.github.io/halveth-scarlet/room/?lang=de) · [Open the room](https://juri-halveth.github.io/halveth-scarlet/room/?lang=en) · [GitHub-Kommentarbereich / GitHub comments](https://github.com/Juri-Halveth/halveth-scarlet/issues/1)
-
-Eine freiwillige Begrüßungsgeste öffnet den zweisprachigen Raum; der direkte Einstieg bleibt möglich. Besucher können Rolle, Projektperspektive, Quellenlink, beabsichtigte Nutzung und Dank eingeben. Der Entwurf entsteht lokal und enthält einen SHA-256-Hash über den beigefügten JSON-Datensatz in UTF-8. Die Zeit stammt vom Besuchergerät. Das ist ein Textvergleich, keine Identitätsprüfung oder unveränderliche Zeitbeglaubigung. Bearbeitung der Formularfelder verwirft einen alten Entwurf. Der Sprachwechsel im Raum erhält Eingaben, Entwurf und Hash unverändert. Formularinhalte werden nicht automatisch gespeichert oder übertragen.
-
-Der fertige Text wird bewusst kopiert und im eigenen GitHub-Konto als Kommentar veröffentlicht. GitHub speichert und moderiert diese öffentlichen Beiträge. Die Raumseite lädt auf Knopfdruck bis zu 100 Kommentare von Issue #1 über die öffentliche REST-API, ohne Token oder Cookies. Sie zeigt Originalquelle, GitHub-Kontonamen und GitHub-Kommentarzeit. Rohtext wird ausschließlich als Text dargestellt; lange Vorschauen tragen einen Kürzungshinweis. Weitere Kommentare bleiben über GitHub verfügbar. Fehler und Rate Limits sind sichtbar; es gibt keine automatische Abfrageschleife.
-
-Rollen und Absichten sind freiwillige Selbstauskünfte. Die Seite identifiziert keine stillen Leser, kopierte Zeichen, fremden Bots oder tatsächlichen Verwendungszwecke. Der Raum erfordert keinen Fingerabdruck, Wallet-Zugriff oder Geldtransfer. Discord ist noch nicht verbunden; für einen späteren Einstieg wird ein autorisierter Einladungslink benötigt. `assets/room-config.json` dokumentiert die Quellen und diesen offenen Anschluss.
-
-The optional welcoming gesture opens a bilingual room, with a direct entry available. Visitors prepare a voluntary statement locally, review it, copy it and publish it under their GitHub account. Its SHA-256 hashes the included UTF-8 JSON record; the timestamp comes from the visitor's device. Form changes invalidate older drafts. In-room language switching preserves entered text and the exact draft/hash. The room does not automatically save or transmit form data.
-
-On request, the page reads up to 100 public comments from issue #1 without tokens or cookies. Comments remain plain text, with source links, account names and comment times. Previews over 5,000 characters are visibly shortened; further entries are available on GitHub. Roles and intentions are self-declarations, not verified identities or observed code use. There is no visitor fingerprinting, wallet access or financial action. Discord is not connected yet.
-# Snapshot-Studio / Snapshot studio
-
-[Deutsch](https://juri-halveth.github.io/halveth-scarlet/snapshot/?lang=de) · [English](https://juri-halveth.github.io/halveth-scarlet/snapshot/?lang=en)
-
-Das Studio erstellt einen **lokalen, nicht geminteten Beleg** für eine ausdrücklich gewählte Datei bis 10 MiB. Es berechnet SHA-256 der unveränderten Bytes und separat des festen JSON-Records. Dieser enthält Bytezahl, deklarierten MIME-Typ, optionale Bezeichnung, Gerätezeit, zufällige 32-Byte-Nonce und optional eine Walletzuordnung. Dateiname und Dateibytes werden nicht exportiert. Bewahre die Originaldatei separat auf.
-
-The studio creates a **local, unminted receipt** for an explicitly selected file up to 10 MiB. It hashes unchanged bytes with SHA-256 and separately hashes the fixed JSON record. The record includes byte count, declared MIME type, optional label, device time, a random 32-byte nonce and an optional wallet association. The filename and file bytes are not exported. Retain the original file separately.
-
-Wallets: freiwillige EVM-Browserwallet-Auswahl über EIP-6963, mit `window.ethereum` als Fallback. Erst **Verbinden** ruft `eth_requestAccounts`, danach `eth_chainId` auf. Es gibt keine Signatur, Transaktion, Tokenfreigabe, automatische Verbindung, Bestandsabfrage oder persistierte Adresse. Anbietername und Konto sind Providerangaben, keine Authentisierung. Konto-, Netzwerk-, Datei- oder Labelwechsel verwerfen den vorbereiteten Beleg; Sprachwechsel erhält ihn. Trennen betrifft die Seitenzuordnung, nicht die Berechtigungsverwaltung der Erweiterung.
-
-Wallets: optional EVM browser wallet selection through EIP-6963, with a `window.ethereum` fallback. Only **Connect** calls `eth_requestAccounts`, followed by `eth_chainId`. There is no signature, transaction, token approval, automatic connection, balance query or persisted address. Provider names and accounts are declarations, not authentication. Account, network, file or label changes invalidate the prepared receipt; language changes preserve it. Disconnect clears the page association, not the extension's permission grants.
-
-Der Download enthält `canonicalRecord`: SHA-256 seiner exakten UTF-8-Bytes muss `recordSha256` ergeben. `sourceSha256` wird getrennt an der Originaldatei geprüft. Status: `LOCAL_SNAPSHOT_NOT_MINTED`. Hashes allein beweisen keine Urheberschaft, Nutzungsrechte oder unabhängige Entstehungszeit. Wer einen Beleg teilt, teilt auch seine freiwillig eingetragene Bezeichnung und gegebenenfalls Walletadresse.
-
-The download includes `canonicalRecord`: SHA-256 of its exact UTF-8 bytes must equal `recordSha256`. Verify `sourceSha256` separately against the original file. Status: `LOCAL_SNAPSHOT_NOT_MINTED`. Hashes alone prove neither authorship, usage rights nor an independent creation time. Sharing a receipt also shares its optional label and wallet address.
-
-**Mint-Stufe offen / Mint stage pending:** Netzwerk, geprüfter Contract, Projektgebühr, bestätigter Empfänger und Speichervertrag sind noch nicht eingerichtet. `assets/snapshot-config.json` beschreibt den Release; es ist kein Schalter zum Aktivieren einer Zahlung. Diese Version enthält keine Mintfunktion. Ein späterer Mint braucht die gesonderte Bestätigung in der eigenen Wallet. Eine Projektgebühr bezieht sich ausschließlich auf den bestätigten Projektvorgang. Sie zieht keine Gebühren fremder Transaktionen ein.
-
-Network, reviewed contract, project fee, confirmed recipient and storage policy are not configured. `assets/snapshot-config.json` describes this release; it cannot enable a payment. This version contains no mint function. A future mint requires confirmation in the visitor's wallet. A project fee applies only to the confirmed project action; it does not intercept fees from unrelated transactions.
-
-Standards: [EIP-6963](https://eips.ethereum.org/EIPS/eip-6963), [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193), [ERC-721](https://eips.ethereum.org/EIPS/eip-721). Data availability needs a separate retention plan; see [IPFS pinning](https://docs.ipfs.tech/how-to/pin-files/). Project fees and [network gas fees](https://ethereum.org/developers/docs/gas/) are separate amounts. A Bitcoin recipient cannot fill an EVM address parameter.
-
----
-
-## Q · Notizspeicher / Q notebook — 13.09.2026
-
-[Deutsch](forschung/q-notizen/?lang=de) · [English](forschung/q-notizen/?lang=en)
-
-Ein kleiner Q-Link unten rechts auf der Erde führt zu sechs aufklappbaren Themenkarten: Schrift, Mira/Mita/Medusa, mathematische Modelle, Iridium/Magma/Plasma, Druck und Stoffkreisläufe. Die Auswahl bezieht sich auf Gesprächsfäden vom 12.–13.09.2026. Sie ist keine vollständige Erfassung aller Projekte oder Vorgänge. Quellen, Lehrmodelle und Gestaltungsvorschläge bleiben kenntlich. Zwei neue Gartenkarten: MITA und MEDUSA; MIRA bleibt die vorhandene Projektperspektive.
-
-A small Q link at the lower right of the Earth opens six collapsible topic cards. The bilingual edition covers selected discussion threads from 12–13 September 2026, with a source register and a byte-hash snapshot. It is not a complete daily or system audit. Sources, illustrative models and creative proposals remain labelled. MITA and MEDUSA join the garden; MIRA retains its existing project role.
-
-[Source register](forschung/q-notizen/sources.json) · [Historical release receipt v1.0.1](forschung/q-notizen/snapshot.json), bound to the [exact Git blobs at `c9147f2`](https://github.com/Juri-Halveth/halveth-scarlet/tree/c9147f2d393f13dcbc4871bf7c5999924404bcc6/forschung/q-notizen/). All layout assets are local; this page uses no animation loop, remote font, tracking or automated posting. The timestamp records the working clock, not an independent attestation.
-
-## Tagesstand / Daily review — 13.09.2026
-
-[Deutsch](forschung/tagesstand-2026-09-13/?lang=de) · [English](forschung/tagesstand-2026-09-13/?lang=en)
-
-14 bilingual topic cards connect source checks, illustrative models, public software and local prototype status. The private inventory covers nine project folders: 428 file entries, 321 individual metadata records, 107 aggregated exclusions and 22 selected text sources. 34 files have a modification date on 13 September; the preceding day is background. File times do not attest historical creation. Private inventory records and raw media are not included in this release.
-
-The edition is an internal editorial and technical review with a finite declared scope, not independent certification or an audit of every file, project or event. [Sources](forschung/tagesstand-2026-09-13/sources.json), [topic coverage](forschung/tagesstand-2026-09-13/topics.json) and the [historical release receipt v1.0.0](forschung/tagesstand-2026-09-13/snapshot.json), bound to the [exact Git blobs at `c9147f2`](https://github.com/Juri-Halveth/halveth-scarlet/tree/c9147f2d393f13dcbc4871bf7c5999924404bcc6/forschung/tagesstand-2026-09-13/), are explicit. The Q footer links to this daily edition.
-
-Q receipt correction: version 1.0.0 used local CRLF bytes while Git published LF-normalised blobs. Version 1.0.1 corrects its hashes to Git blob bytes and declares that contract. Earlier receipts remain in Git history. Neither receipt proves scientific truth, independent time or authorship.
-
-
-## Profile, News und Deployment · 16.09.2026
-
-- **67 aktive Profile**: `assets/universe-data.js` bindet Ziele und Quellen; `tools/build_profiles.mjs` erzeugt statische Seiten und GitHub-Dossiers. `--check` prüft, dass die erzeugten Dateien zum Register passen.
-- **News**: Zwei freigegebene Primärfeeds, stündlicher Abrufversuch, letzte gültige Daten bei Ausfällen. [Betriebsbeschreibung](news/README.md).
-- **Reddit**: Höchstens fünf neue Meldungen pro Berliner Kalendertag, Zielzeit 18:17. GitHub Actions kann verspätet starten. Ohne neue Meldungen entsteht kein Entwurf. Diese Fassung enthält ausschließlich den Entwurfsadapter und keine Reddit-Zugangsdaten. Post-IDs werden nur für tatsächlich bestätigte Veröffentlichungen geführt.
-- **Videos**: Bestehender [Brightcast-Beitrag](forschung/brightcast-starlight/), MP4 und Untertitel bleiben verfügbar. Eine spätere Produktionsstufe verwendet freigegebene Skripte und Medien; bezahlte Generierung und automatischer Upload sind nicht eingerichtet.
-- **Rechte**: [Lizenzkarte](LICENSES.md) und [Rechteerklärung](HALVETH-RIGHTS.md) gelten je Material und Version. `robots.txt` am Projektpfad ist ergänzend; wirksame Ursprungsregeln stehen auf `https://juri-halveth.github.io/robots.txt`. Robots ist keine Zugriffssperre.
-
-Prüfung und öffentlicher Build (Node 24, Python 3.14, keine Paketinstallation):
+## Prüfen und bauen
 
 ```sh
 node tools/build_site.mjs
-node tools/verify_build_info.mjs # verlangt einen sauberen Git-Arbeitsbaum
 node --test tests/*.test.cjs tests/*.test.mjs
 python -m unittest discover -s tests -p 'test_*.py'
 ```
 
-Der Build prüft lokale HTML-Ziele und Abschnittsverweise und kopiert nur reguläre Git-Index-Dateien nach `.site-build/`; ignorierte lokale Dateien gelangen nicht in das Artefakt. `.github/workflows/pages.yml` testet und veröffentlicht dieses Artefakt. `build-info.json` nennt den Basis-Commit, den mit `git status` ermittelten Zustand des lokalen Arbeitsbaums und einen deterministischen SHA-256-Digest über Pfade und Bytes aller Ausgabedateien außer dem Receipt selbst. Der CI-Check berechnet den Digest unmittelbar vor dem Upload erneut. Das ist eine interne Byteprüfung, keine unabhängige Signatur oder Live-Deployment-Bestätigung. Ein schmutziger Arbeitsbaum kann Build-Bytes enthalten, die nicht im Commit stehen. Der Newsworkflow ruft den Pagesworkflow nach seinem Datencommit ausdrücklich auf.
+Der Build kontrolliert lokale Links, gebundene Weltassets und seine Quellfassung.
+Die Tests prüfen die jeweiligen lokalen Verträge. Native C++-Arbeit unter
+`native/` hat ihren eigenen Build- und Messumfang. Ein Browsermodell und eine
+native Spielwelt sind verschiedene Anwendungen.
 
-Rückrollreferenz vor diesem Ausbau: `c333d1bddbba1dc6d8a573d2e5c52e8e9596c88a`. Historische Releasepakete und ihre Receipts bleiben unverändert. Ein Rückrollen erfolgt als nachvollziehbare Wiederveröffentlichung eines gewählten Standes, ohne Git-Historie zu löschen.
+Die Figurenansichten sind Gestaltungs- und Spielmaterial. Sie sind kein Nachweis
+selbstständig handelnder externer Entitäten. Historische, persönliche und
+politische Kontextseiten wurden privat gesichert und aus dieser öffentlichen
+Fassung entfernt. Der Redaktionscommit schreibt keine Git-Historie um.
 
-The current site contains 67 active profiles, a separate dated news feed and a **draft-only** daily Reddit digest. Historical grants and third-party rights remain applicable. The Pages workflow builds, tests and publishes an explicit public artifact from tracked regular files; its `build-info.json` records the base commit, Git worktree status, and a repeatable output-byte digest. The digest is an internal consistency check, not a signature or live deployment proof.
+Projektleitung: **Juri Halveth / HALVETH**. Entwicklung mit KI-Unterstützung.
+[Lizenzen und Herkunft](LICENSES.md) · Kontakt: **security@halveth.de**.
 
-## Figurenraum / Character world - 02.10.2026
-
-[`entities/`](entities/?lang=de#scarlet) opens an interactive Three.js world with
-all 67 active profiles walking along deterministic curved routes. Articulated
-hips, knees, feet, arms and capes follow the walking phase. Follow mode tracks
-the selected character; Explore releases the camera; Overview frames the current
-positions of all 67. The profile panel opens on demand rather than covering the
-world by default. Search, DE/EN and the original story/source pages remain
-available. Without JavaScript or WebGL, the static directory retains all links.
-
-The circular platform and fixed rows have been replaced by streamed architectural
-sectors: a common plaza, glass garden, observatory and further landscape. A fixed
-5-by-5 pool of 96-unit sectors is regenerated from coordinates as the camera moves.
-This keeps the active geometry bounded while allowing travel beyond the original
-scene. The destination menu moves the camera between landmarks. Orbit, zoom and
-pan work with mouse or touch; focused-canvas navigation uses WASD/arrows, Q/E for
-height and Shift for faster travel. The on-screen movement controls also support
-touch. No maximum camera-distance clamp surrounds the original plaza.
-
-The stylized figures are editable visual interpretations, not definitive
-identities or evidence of independently running agents. The registry, role
-descriptions and source dossiers remain unchanged. No API jobs, wallet access,
-agent executions or financial actions are added by this view.
-
-Scene time controls deterministic choreography, independently of the browser
-clock. Pause freezes the figures while the camera remains usable; the time panel
-can step 30 scene seconds backwards/forwards and select half, normal or double
-speed. Reduced-motion preference starts the scene paused. This is visual scene
-animation, not independently running agents or external job execution.
-
-The existing saved-moment format remains unchanged. A moment stores only the
-selected profile ID and the browser clock's ISO timestamp
-under `halveth-character-moments-v1`; the most recent 80 are retained locally.
-They can be revisited and exported, never automatically uploaded. These records
-are neither physical time travel nor an independently verified history.
-Malformed existing storage is preserved rather than overwritten.
-
-Runtime dependencies use the existing pinned packages in `tools/ashbound/`.
-The generated runtime and its third-party license notices are committed so the
-Pages build does not depend on a CDN or package installation.
-
-```sh
-node tools/ashbound/build-entity-runtime.mjs
-node tools/build_site.mjs
-node --test tests/*.test.cjs tests/*.test.mjs
-python -m unittest discover -s tests -p 'test_*.py'
-node tools/serve_site.mjs 8841
-```
-
-The optional preview serves only `.site-build/` on `127.0.0.1:8841`, including the
-JavaScript MIME type required for ES modules. Browser QA covers desktop and
-mobile widths, nonblank animated canvases, translation of all 67 figures,
-selection, free travel, distant sectors, scene-time replay, saved-moment export,
-pause, reduced motion and the static fallback. Unit tests cover route continuity,
-reordered registries, reversible scene time, articulated poses and bounded
-environment resources.
+[Portal Chess direkt öffnen](https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/)
