@@ -2,6 +2,8 @@
 
 # SCARLET · Spiele, Grafik und technische Modelle
 
+[Windows: alte glTF-Arbeitskopien prüfen und gezielt reparieren](docs/WINDOWS_GLTF_RECOVERY.md)
+
 **Erst ausprobieren. Dann den Code ansehen.** SCARLET verbindet eigene
 Browser-Spielprototypen, interaktive Grafik und synthetische Lehrmodelle.
 
