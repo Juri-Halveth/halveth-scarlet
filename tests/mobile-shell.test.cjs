@@ -89,6 +89,8 @@ test('every built HTML receives one local mobile stylesheet after its page style
       'forschung/ba-uebergangsraum/ez-nullmonat.html',
       'forschung/ba-uebergangsraum/quellen.html',
       'forschung/wegweiser/index.html',
+      'forschung/wegweiser/en.html',
+      'forschung/wegweiser/ru.html',
     ].includes(path.relative(build,file).split(path.sep).join('/'));
     if(standalonePage){
       assert.equal(mobile.length,0,file);
