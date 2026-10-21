@@ -20,6 +20,7 @@ const entities=window.HalvethUniverse.entities;
 const ids=new Set(entities.map(e=>e.id));
 const initial=()=>({schema:'halveth.ashbound.save.v1',version:VERSION,choices:[],region:'haven',party:['scarlet','lucinet','rachel'],books:[],quest:createQuest(),expedition:visitRegion(createExpedition(),'haven')});
 let state=initial(), compiled, current, world, activeTab='world', activeBook=null, mode='pause', audio=null, sound=false;
+let pendingSave=false;
 let storyStatus='loading', recoveryRaw=null, saveProtected=false, sceneUnavailable=false;
 let motion=!matchMedia('(prefers-reduced-motion: reduce)').matches, fallTime=0,fallRunning=false,fallLast=null,fallFrame=null;
 let kernelState=createKernel(), kernelLedger=null, kernelAnchorId=null, kernelBusy=false, kernelError=false;
@@ -35,7 +36,7 @@ function preserveRejectedSave(raw){
   // An unsuccessful backup must never permit overwriting the rejected original.
   saveProtected=!safeStorage.set(key,raw)||safeStorage.get(key)!==raw;
 }
-function save(){if(saveProtected){toast(t('recoveryProtected'));return;}if(!safeStorage.set('ashbound-save-v1',JSON.stringify(state)))toast(t('storageError'));}
+function save(){if(storyStatus!=='ready'){pendingSave=true;return;}if(saveProtected){toast(t('recoveryProtected'));return;}if(!safeStorage.set('ashbound-save-v1',JSON.stringify(state)))toast(t('storageError'));}
 function chime(){
   if(!sound||document.hidden)return;
   try{audio??=new AudioContext();audio.resume();const gain=audio.createGain();gain.connect(audio.destination);gain.gain.setValueAtTime(.025,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.0001,audio.currentTime+.55);
@@ -110,13 +111,14 @@ function renderEncounter(){
     $('encounter-title').textContent=t('encounterCompleteTitle');$('encounter-copy').textContent=t('encounterCompleteCopy');
     $('encounter-action').hidden=true;$('encounter-status').textContent=t('encounterCompleteStatus');return;
   }
-  const copy=t('encounterSteps')[step.id],ready=relation===step.relation;
+  const copy=t('encounterSteps')[step.id],ready=!kernelBusy&&!kernelError&&!!kernelLedger&&!!kernelAnchorId&&relation===step.relation;
   $('encounter-character').textContent=copy.character;$('encounter-role').textContent=copy.role;
   $('encounter-title').textContent=copy.title;$('encounter-copy').textContent=copy.copy;
   $('encounter-action').hidden=false;$('encounter-action').disabled=!ready;$('encounter-action').replaceChildren(icon('arrow-right'),el('span',copy.action));
   $('encounter-status').textContent=ready?copy.ready:copy.wait.replace('{relation}',step.relation);icons();
 }
 function advanceEncounter(){
+  if(kernelBusy||kernelError||!kernelLedger||!kernelAnchorId){renderEncounter();return;}
   const result=attemptStep(state.quest,kernelState.comparison.relation);if(!result.accepted){renderEncounter();return;}
   state.quest=result.quest;state.region=result.step.region;state.expedition=visitRegion(state.expedition,state.region);save();renderPlace();renderEncounter();renderJournal();chime();toast(t('encounterAdvanced'));
 }
@@ -304,7 +306,7 @@ async function loadStories(){
     const next={de:await de.json(),en:await en.json()};
     for(const data of Object.values(next))replay(runtime.Story,data,[]);
     try{for(const data of Object.values(next))replay(runtime.Story,data,state.choices);}catch{preserveRejectedSave(saved??JSON.stringify(state));state.choices=[];}
-    compiled=next;storyStatus='ready';renderStory();renderJournal();document.body.dataset.ready='true';
+    compiled=next;storyStatus='ready';if(pendingSave){pendingSave=false;save();}renderStory();renderJournal();document.body.dataset.ready='true';
     if(recoveryRaw!==null)toast(t(saveProtected?'recoveryProtected':'recovered'));
   }catch{compiled=undefined;storyStatus='error';document.body.dataset.ready='error';renderStory();}
 }

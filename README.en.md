@@ -1,6 +1,6 @@
 # SCARLET · Games, graphics and technical models
 
-[Open the technical demos](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/)
+[Open the technical demos](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/en.html)
 · [Earth scene](https://juri-halveth.github.io/halveth-scarlet/)
 
 Browser game prototypes, interactive graphics and synthetic teaching models.

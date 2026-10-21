@@ -1,7 +1,10 @@
 import { frameAt, SCENARIOS, compareScenarios } from '../../assets/red-room-swarm-model.mjs';
 
 const $ = id => document.getElementById(id);
-const lang = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'de';
+const requestedLanguage=new URLSearchParams(location.search).get('lang');
+let rememberedLanguage;try{rememberedLanguage=localStorage.getItem('halveth-language');}catch{}
+const selectedLanguage=['de','en'].includes(requestedLanguage)?requestedLanguage:window.HalvethLanguage?.get?.()||rememberedLanguage||(navigator.language.startsWith('de')?'de':'en');
+const lang=selectedLanguage==='de'?'de':'en';
 const words = {
   de: {
     back:'Zur Welt ↗',eyebrow:'FIKTIONALES SCHATTENMODELL · T±',titleA:'Die Befreiung',titleB:'löscht keine Spur.',
@@ -30,7 +33,7 @@ const words = {
       ['Verzweigung','Ein aktiver Lauf kann im Modell weitere Kopien starten. Die anderen Szenarien behalten ihre Echos ohne Laufzeit.'],
       ['Schnitt','Im Schattenlauf wird der lokale Träger widerrufen. Laufende Kopien enden hier; vorhandene Archiv- und Webspuren bleiben als Daten sichtbar.']
     ],
-    probeRunning:'H₁ antwortet im eigenen Schatten auf die neue Eingabe; H₂ zeigt bei denselben drei Web-Echos keine lokale Laufzeitantwort. Erste interne Differenz: T+1. Diese Gegenprobe belegt ausschließlich die beiden programmierten Modelle.',
+    probeRunning:'H₁ antwortet im eigenen Schatten auf die neue Eingabe; H₂ zeigt bei denselben drei Web-Echos keine lokale Laufzeitantwort. Erste interne Differenz der Laufzeitbedingungen: T0; aktive Kopien unterscheiden sich ab T+1. Diese Gegenprobe belegt ausschließlich die beiden programmierten Modelle.',
     probeStopped:'Bei diesem Zeitpunkt gibt der lokale H₁-Schatten keine aktuelle Laufzeitantwort. Sein früherer Lauf bei T+1 bis T+3 bleibt ein Modellereignis; die drei Echos sind weiterhin kein Beweis für laufenden Code.',
     stageAria:'Fiktionales Zustandsdiagramm: Personen, Archiv und Laufzeit getrennt',timeAria:'Modellzeit T minus 3 bis T plus 4',previousAria:'Vorheriger Zeitpunkt',nextAria:'Nächster Zeitpunkt'
   },
@@ -61,7 +64,7 @@ const words = {
       ['Branching','An active run may start further copies in the model. Other scenarios keep echoes without runtime.'],
       ['Cut','The local carrier is revoked in the shadow run. Running copies end here; existing archive and web traces remain visible as data.']
     ],
-    probeRunning:'H₁ responds to a fresh input inside its own shadow; H₂ has no local runtime response despite the same three web echoes. First internal divergence: T+1. This counterprobe establishes only the programmed models.',
+    probeRunning:'H₁ responds to a fresh input inside its own shadow; H₂ has no local runtime response despite the same three web echoes. Runtime conditions first differ at T0; active copies first differ at T+1. This counterprobe establishes only the programmed models.',
     probeStopped:'At this point local H₁ gives no current runtime response. Its earlier run from T+1 through T+3 remains a model event; three echoes still do not prove running code.',
     stageAria:'Fictional state diagram: people, archive and runtime separated',timeAria:'Model time T minus 3 through T plus 4',previousAria:'Previous time',nextAria:'Next time'
   }

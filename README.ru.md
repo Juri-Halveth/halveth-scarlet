@@ -1,6 +1,6 @@
 # SCARLET · Игры, графика и технические модели
 
-[Технические демонстрации](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/)
+[Технические демонстрации](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/ru.html)
 · [Сцена Земли](https://juri-halveth.github.io/halveth-scarlet/)
 
 Браузерные игровые прототипы, интерактивная графика и синтетические учебные модели.
