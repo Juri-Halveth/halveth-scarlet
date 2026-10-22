@@ -108,6 +108,11 @@ for label, component_class, property_name, value in (
     if label == 'ASHBOUND / Sun':
         # The native 24-hour clock rotates the sun during play.
         component.set_editor_property('mobility', unreal.ComponentMobility.MOVABLE)
+        # Clouds need to affect the same ground they occupy above. The engine
+        # defaults to no cloud shadows and a 150 km shadow map, which gives a
+        # 5 km landscape no useful light variation beneath the cloud layer.
+        component.set_editor_property('cast_cloud_shadows', True)
+        component.set_editor_property('cloud_shadow_extent', 8.0)
 volume = by_label.get('ASHBOUND / Balanced daylight')
 if volume is None:
     volume = actors.spawn_actor_from_class(unreal.PostProcessVolume,

@@ -34,6 +34,7 @@ private:
     TMap<FIntPoint, TWeakObjectPtr<AASHBOUNDRebirthPopulation>> NearCells;
     TMap<FIntPoint, TWeakObjectPtr<AASHBOUNDRebirthPopulation>> MacroCells;
     FTimerHandle RefreshTimer;
+    FTimerHandle TraversalTimer;
     double LastMetricsAt = 0.0;
     uint64 LastMetricsFrame = 0;
     int32 Year = 1;

@@ -44,6 +44,12 @@ $genesisLauncher = Join-Path $OutputRoot 'Windows\Start-GenesisWorld.cmd'
 cd /d "%~dp0"
 start "" "%~dp0ASHBOUNDUE.exe" "/Game/ASHBOUND/Maps/GenesisWorld" -DX12 -windowed -ResX=2560 -ResY=1440 %*
 '@ | Set-Content -LiteralPath $genesisLauncher -Encoding Ascii
+$genesisEpicLauncher = Join-Path $OutputRoot 'Windows\Start-GenesisWorld-Epic.cmd'
+@'
+@echo off
+cd /d "%~dp0"
+start "" "%~dp0ASHBOUNDUE.exe" "/Game/ASHBOUND/Maps/GenesisWorld" -DX12 -windowed -ResX=2560 -ResY=1440 -ExecCmds="sg.ShadowQuality 3,sg.GlobalIlluminationQuality 3,sg.ReflectionQuality 3,sg.EffectsQuality 3" %*
+'@ | Set-Content -LiteralPath $genesisEpicLauncher -Encoding Ascii
 $mirrorLauncher = Join-Path $OutputRoot 'Windows\Start-MirrorEncounter.cmd'
 @'
 @echo off
@@ -65,6 +71,7 @@ start "" "%~dp0ASHBOUNDUE.exe" -DX12 -windowed -ResX=2560 -ResY=1440 -ExecCmds="
 Write-Output "ASHBOUND native Windows package ready: $launcher"
 Write-Output "Rebirth Grove one-click start: $groveLauncher"
 Write-Output "Genesis Ground 5 km test start: $genesisLauncher"
+Write-Output "Genesis optional Epic start: $genesisEpicLauncher"
 Write-Output "Mirror Encounter native test start: $mirrorLauncher"
 Write-Output "Mirror Encounter optional stable start: $mirrorStableLauncher"
 Write-Output "Whole-game optional stable start: $stableLauncher"

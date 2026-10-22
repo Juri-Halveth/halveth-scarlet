@@ -117,7 +117,7 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
         const float Fine = FMath::PerlinNoise2D((Local + FVector2D(-1701, 2549)) * 0.0018f);
         const float Field = Broad * 0.72f + Fine * 0.28f;
         const float Threshold = Habitat == 4 ? 0.005f :
-                                Habitat == 3 ? 0.065f :
+                                Habitat == 3 ? (bGenesisMode ? 0.14f : 0.065f) :
                                 Habitat == 2 ? 0.02f :
                                 Habitat == 1 ? -0.075f : -0.25f;
         if (Field < Threshold) continue;
@@ -285,15 +285,17 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
             for (auto& Component : *Group)
                 Component->SetMobility(EComponentMobility::Movable);
         auto CullGroup = [](UHierarchicalInstancedStaticMeshComponent* Component,
-                            int32 EndCm, bool bShadow)
+                            int32 EndCm, bool bShadow, bool bFade = false)
         {
-            Component->SetCullDistances(0, EndCm);
+            // The masked fern/grass materials consume PerInstanceFadeAmount.
+            // Start thinning them before a whole HISM cluster disappears.
+            Component->SetCullDistances(bFade ? EndCm * 3 / 4 : 0, EndCm);
             Component->SetCastShadow(bShadow);
         };
         CullGroup(Rocks, 30000, true);
         CullGroup(Stumps, 22000, true);
-        CullGroup(Ferns, 12000, false);
-        CullGroup(Grasses, 9000, false);
+        CullGroup(Ferns, 10000, false, true);
+        CullGroup(Grasses, 6500, false, true);
         CullGroup(Shrubs, 18000, false);
         CullGroup(Pines, bGenesisMacroCell ? 35000 : 18000, false);
         CullGroup(BroadleafTrees, bGenesisMacroCell ? 35000 : 18000, false);
@@ -307,8 +309,8 @@ void AASHBOUNDRebirthPopulation::BeginPlay()
                 const bool bFern = Group == &FernVariants;
                 const bool bFlower = Group == &FlowerVariants;
                 CullGroup(Component, bTree ? (bGenesisMacroCell ? 35000 : 18000) : bRock ? 30000 :
-                          bGrass ? 9000 : bFern ? 12000 : bFlower ? 11000 : 18000,
-                          bRock);
+                          bGrass ? 6500 : bFern ? 10000 : bFlower ? 11000 : 18000,
+                          bRock, bGrass || bFern);
             }
     }
     // The importer runs after the editor module first loads. Resolve the
