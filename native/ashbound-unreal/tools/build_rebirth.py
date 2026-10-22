@@ -53,14 +53,15 @@ texture_sets = {
            for kind in ('diff', 'nor_gl', 'rough')}
     for name in ('forest_leaves_02', 'brown_mud_02')
 }
-# The meadow is a bundled, top-down generated albedo. Its detailed geometry
-# still comes from independent instanced plants; the generated surface fills the
-# spaces that would otherwise read as exposed dirt from a distance.
+# The meadow photograph fills the open soil between instanced plants. Mix the
+# green meadow with a separate photographed leaf/earth surface so the ground
+# has litter and fine-scale colour variation instead of a uniform carpet.
 texture_sets['meadow'] = {
     'diff': import_texture('meadow_carpet_v1'),
     'nor_gl': import_texture('leafy_grass_nor_gl_2k'),
     'rough': import_texture('leafy_grass_rough_2k'),
 }
+leafy_grass_albedo = import_texture('leafy_grass_diff_2k')
 # A photographed mixed grass/stone surface supplies mesoscopic colour
 # variation at a second real-world scale; it is still a repeating texture.
 aerial = import_texture('aerial_grass_rock_diff_2k')
@@ -337,9 +338,21 @@ for row, (kind, property_name) in enumerate((
         editor.connect_material_expressions(leaf_tint, '', living_tint, 'A')
         editor.connect_material_expressions(humus_tint, '', living_tint, 'B')
         editor.connect_material_expressions(valley, '', living_tint, 'Alpha')
+        earth_litter = editor.create_material_expression(
+            material, unreal.MaterialExpressionTextureSample, -380, -720)
+        earth_litter.set_editor_property('texture', leafy_grass_albedo)
+        editor.connect_material_expressions(uv, '', earth_litter, 'UVs')
+        meadow_mix = editor.create_material_expression(
+            material, unreal.MaterialExpressionLinearInterpolate, -175, -450)
+        editor.connect_material_expressions(first, '', meadow_mix, 'A')
+        editor.connect_material_expressions(earth_litter, '', meadow_mix, 'B')
+        litter_share = editor.create_material_expression(
+            material, unreal.MaterialExpressionConstant, -365, -630)
+        litter_share.set_editor_property('r', 0.28)
+        editor.connect_material_expressions(litter_share, '', meadow_mix, 'Alpha')
         tinted_leaf = editor.create_material_expression(material,
             unreal.MaterialExpressionMultiply, -20, -400)
-        editor.connect_material_expressions(first, '', tinted_leaf, 'A')
+        editor.connect_material_expressions(meadow_mix, '', tinted_leaf, 'A')
         editor.connect_material_expressions(living_tint, '', tinted_leaf, 'B')
         # The first surface includes small leaves and grains. A second,
         # independent world scale breaks its printed repetition at 5 m.

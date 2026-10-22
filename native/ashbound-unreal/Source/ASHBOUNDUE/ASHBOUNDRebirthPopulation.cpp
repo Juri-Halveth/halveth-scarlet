@@ -117,7 +117,7 @@ int32 AASHBOUNDRebirthPopulation::Scatter(const TArray<UHierarchicalInstancedSta
         const float Fine = FMath::PerlinNoise2D((Local + FVector2D(-1701, 2549)) * 0.0018f);
         const float Field = Broad * 0.72f + Fine * 0.28f;
         const float Threshold = Habitat == 4 ? 0.005f :
-                                Habitat == 3 ? 0.065f :
+                                Habitat == 3 ? (bGenesisMode ? 0.14f : 0.065f) :
                                 Habitat == 2 ? 0.02f :
                                 Habitat == 1 ? -0.075f : -0.25f;
         if (Field < Threshold) continue;
