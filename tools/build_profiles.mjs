@@ -76,8 +76,7 @@ function withLanguages(html,prefix){
 }
 
 for (const [file, originalContent] of expected) {
-  const archived=/forschung\/(?:ba-uebergangsraum|brightcast-starlight|de-anker-hela|halveth-research|handschriftliche-konvergenzen|juri-thesis|microvalue|q-notizen|red-room-dialog|tagesstand-2026-09-13|usdai-sabr-kontext)\//;
-  const content=originalContent.replace(/<a\b[^>]*href=["']([^"']+)["'][^>]*>.*?<\/a>/gis,(m,url)=>archived.test(url)?'<a href="/halveth-scarlet/forschung/wegweiser/">Technische Demos / Technical demos</a>':m);
+  const content=originalContent;
   const destination = path.join(root, file);
   if (check) {
     if (!fs.existsSync(destination) || fs.readFileSync(destination, 'utf8').replace(/\r\n/g, '\n') !== content) throw new Error(`Generated profile is missing or stale: ${file}`);

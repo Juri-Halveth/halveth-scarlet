@@ -29,7 +29,7 @@ test('Every garden entity retains a complete English counterpart and stable iden
   for(const e of entities)for(const key of ['role','kind','note','sourceLabel']){assert.equal(typeof e.en[key],'string',e.id+'.'+key);if(e[key])assert(e.en[key].length,e.id+'.'+key);}
   const celsius=entities.find(e=>e.id==='celsius');assert.equal(celsius.localDialog,true);assert.equal(celsius.en.doorLabel,'Let Celsius speak');assert(context.window.HalvethUniverse.featured.includes('celsius'));
   const atelier=entities.find(e=>e.id==='choice-atelier');assert.equal(atelier.url,'collage/');assert.match(atelier.note,/lokalen Browser/);
-  const brightcast=entities.find(e=>e.id==='brightcast-starlight');assert.equal(brightcast.url,'forschung/brightcast-starlight/');assert(context.window.HalvethUniverse.featured.includes('brightcast-starlight'));
+  const brightcast=entities.find(e=>e.id==='brightcast-starlight');assert.equal(brightcast.url,'forschung/wegweiser/');assert(context.window.HalvethUniverse.featured.includes('brightcast-starlight'));
   const pi=entities.find(e=>e.id==='pi-treffpunkte');assert.equal(pi.url,'forschung/pi-treffpunkte/');assert.equal(pi.localDialog,true);assert(context.window.HalvethUniverse.featured.includes('pi-treffpunkte'));
   const chess=entities.find(e=>e.id==='portal-chess');assert.equal(chess.url,'forschung/portal-chess/');assert.match(chess.note,/16\/16/);assert.match(chess.en.note,/16\/16/);
 });

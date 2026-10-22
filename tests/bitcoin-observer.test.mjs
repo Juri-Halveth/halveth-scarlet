@@ -18,7 +18,7 @@ test('observer uses only fixed read-only mempool endpoints and retains partial r
   const urls=[];
   const fetchImpl=async(url,options)=>{
     urls.push([url,options]);
-    if(url.endsWith('/blocks/tip'))return {ok:true,json:async()=>[{id:hash,height:900001,timestamp:1791636122}]};
+    if(url==='https://mempool.space/api/blocks')return {ok:true,json:async()=>[{id:hash,height:900001,timestamp:1791636122}]};
     if(url.endsWith('/v1/fees/recommended'))return {ok:false,status:503};
     throw new Error('unexpected URL');
   };
@@ -34,7 +34,7 @@ test('live observer waits for the user to open it and builds a fixed explorer UR
   const refresh={disabled:false,addEventListener:(name,fn)=>listeners.set('refresh:'+name,fn)};
   for(const id of ['btc-observer','btc-live-refresh','btc-live-status','btc-live-height','btc-live-hash','btc-live-time','btc-live-fees','btc-live-link'])nodes.set(id,id==='btc-observer'?details:id==='btc-live-refresh'?refresh:{textContent:'',href:''});
   const root={documentElement:{lang:'de'},getElementById:id=>nodes.get(id)};
-  const calls=[];const fetchImpl=async(url,options)=>{calls.push({url,options});return {ok:true,json:async()=>url.endsWith('/blocks/tip')?[{id:hash,height:900001,timestamp:1791636122}]:{fastestFee:12,hourFee:3}};};
+  const calls=[];const fetchImpl=async(url,options)=>{calls.push({url,options});return {ok:true,json:async()=>url==='https://mempool.space/api/blocks'?[{id:hash,height:900001,timestamp:1791636122}]:{fastestFee:12,hourFee:3}};};
   connectBitcoinObserver(root,fetchImpl);assert.equal(calls.length,0);
   details.open=true;listeners.get('details:toggle')();
   await new Promise(resolve=>setTimeout(resolve,0));
@@ -51,7 +51,7 @@ test('failed refresh clears old chain data and never leaves a stale block link',
   let fail=false;
   const fetchImpl=async url=>{
     if(fail)throw new Error('temporary outage');
-    return {ok:true,json:async()=>url.endsWith('/blocks/tip')?[{id:hash,height:900001,timestamp:1791636122}]:{fastestFee:12,hourFee:3}};
+    return {ok:true,json:async()=>url==='https://mempool.space/api/blocks'?[{id:hash,height:900001,timestamp:1791636122}]:{fastestFee:12,hourFee:3}};
   };
   connectBitcoinObserver(root,fetchImpl);details.open=true;listeners.get('details:toggle')();
   await new Promise(resolve=>setTimeout(resolve,0));

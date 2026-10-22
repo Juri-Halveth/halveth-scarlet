@@ -38,6 +38,7 @@ const includeSiteInput = file => {
   return true;
 };
 execFileSync(process.execPath, [path.join(root, 'tools/build_profiles.mjs')], { cwd: root, stdio: 'inherit' });
+execFileSync(process.execPath, [path.join(root, 'tools/build_guide.mjs'), '--check'], { cwd: root, stdio: 'inherit' });
 fs.rmSync(output, { recursive: true, force: true });
 fs.mkdirSync(output);
 const directories = ['languages', 'assets', 'entities', 'forschung', 'room', 'snapshot', 'collage', 'docs', 'releases'];
@@ -60,6 +61,8 @@ for (const file of pages) {
     'forschung/ashbound/index.html',
     'forschung/ashbound/play/index.html',
     'forschung/wegweiser/index.html',
+    'forschung/wegweiser/en.html',
+    'forschung/wegweiser/ru.html',
   ].includes(relative);
   const prefix=relativeRoot+'languages/';
   const html=fs.readFileSync(file,'utf8').replace(/<!-- HUB_LANGUAGES_START -->[\s\S]*?<!-- HUB_LANGUAGES_END -->/g,'').replace(/<!-- MOBILE_LAYOUT_START -->[\s\S]*?<!-- MOBILE_LAYOUT_END -->/g,'');

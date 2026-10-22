@@ -306,7 +306,7 @@ function renderCaptureFlow(t){
     const dx=data[b]-data[a],dy=data[b+1]-data[a+1],ex=data[c]-data[a],ey=data[c+1]-data[a+1];
     const aa=(dx*vy-ex*uy)/det,bb=(dy*vy-ey*uy)/det,cc=(ex*ux-dx*vx)/det,dd=(ey*ux-dy*vx)/det;
     p.save();p.beginPath();p.moveTo(data[a],data[a+1]);p.lineTo(data[b],data[b+1]);p.lineTo(data[c],data[c+1]);p.closePath();p.clip();
-    p.globalAlpha=(data[a+4]+data[b+4]+data[c+4])/3;p.transform(aa,bb,cc,dd,data[a]-aa*sx-cc*sy,data[a+1]-bb*sx-dd*sy);p.drawImage(plate,0,0);p.restore();
+    p.globalAlpha=(data[a+4]+data[b+4]+data[c+4])/3;p.transform(aa,bb,cc,dd,data[a]-aa*sx-cc*sy,data[a+1]-bb*sx-dd*sy);const left=Math.max(0,Math.min(sx,sx+ux,sx+vx)),top=Math.max(0,Math.min(sy,sy+uy,sy+vy));const width=Math.min(plate.width,Math.max(sx,sx+ux,sx+vx))-left,height=Math.min(plate.height,Math.max(sy,sy+uy,sy+vy))-top;if(width>0&&height>0)p.drawImage(plate,left,top,width,height,left,top,width,height);p.restore();
   }
 }
 function releaseCaptureRenderer(){

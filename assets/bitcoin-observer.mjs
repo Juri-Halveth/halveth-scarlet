@@ -1,6 +1,6 @@
 const API_ROOT='https://mempool.space/api/';
 const EXPLORER='https://mempool.space/';
-const ENDPOINTS=Object.freeze({tip:new URL('blocks/tip',API_ROOT).href,fees:new URL('v1/fees/recommended',API_ROOT).href});
+const ENDPOINTS=Object.freeze({tip:new URL('blocks',API_ROOT).href,fees:new URL('v1/fees/recommended',API_ROOT).href});
 const HASH=/^[a-f0-9]{64}$/i;
 const number=value=>typeof value==='number'&&Number.isFinite(value)&&value>=0?value:null;
 export function validateTip(payload){
@@ -35,7 +35,7 @@ export async function loadBitcoinOverview(fetchImpl=globalThis.fetch){
   return {tip,fees,tipAvailable:tip!==null,feesAvailable:fees!==null};
 }
 const setText=(root,id,value)=>{const node=root.getElementById(id);if(node)node.textContent=value;return node;};
-function language(root){return root.documentElement?.lang?.toLowerCase().startsWith('en')?'en':'de';}
+function language(root){const lang=root.documentElement?.lang?.toLowerCase().split('-')[0];return ['de','en','ru'].includes(lang)?lang:'de';}
 export function connectBitcoinObserver(root=globalThis.document,fetchImpl=globalThis.fetch){
   if(!root)return;
   const details=root.getElementById('btc-observer'),refresh=root.getElementById('btc-live-refresh');
@@ -43,6 +43,7 @@ export function connectBitcoinObserver(root=globalThis.document,fetchImpl=global
   let started=false,busy=false,lastStatus='idle';
   const strings={
     de:{idle:'Beim Öffnen werden öffentliche Explorer-Daten lesend abgefragt.',loading:'Lade öffentliche Bitcoin-Daten …',ok:'Live-Stand gelesen. Quelle: mempool.space.',partial:'Ein Teil der aktuellen Daten ist gerade nicht verfügbar.',failed:'Explorer-Daten gerade nicht verfügbar. Öffne die Quelle direkt oder versuche es später erneut.'},
+    ru:{idle:'Откройте панель, чтобы прочитать публичные данные обозревателя.',loading:'Загрузка публичных данных Bitcoin …',ok:'Данные прочитаны. Источник: mempool.space.',partial:'Часть текущих данных недоступна.',failed:'Данные обозревателя сейчас недоступны. Откройте источник или повторите позже.'},
     en:{idle:'Open this panel to request public explorer data.',loading:'Loading public Bitcoin data …',ok:'Live status read. Source: mempool.space.',partial:'Some current data is unavailable.',failed:'Explorer data is currently unavailable. Open the source directly or try again later.'}
   };
   const setStatus=key=>{lastStatus=key;setText(root,'btc-live-status',strings[language(root)][key]);};
@@ -61,7 +62,7 @@ export function connectBitcoinObserver(root=globalThis.document,fetchImpl=global
       if(data.tip){
         setText(root,'btc-live-height',data.tip.height.toLocaleString(language(root)));
         setText(root,'btc-live-hash',data.tip.id);
-        setText(root,'btc-live-time',new Intl.DateTimeFormat(language(root)==='en'?'en-GB':'de-DE',{dateStyle:'short',timeStyle:'medium',timeZone:'UTC'}).format(new Date(data.tip.timestamp*1000))+' UTC');
+        setText(root,'btc-live-time',new Intl.DateTimeFormat(({de:'de-DE',en:'en-GB',ru:'ru-RU'})[language(root)],{dateStyle:'short',timeStyle:'medium',timeZone:'UTC'}).format(new Date(data.tip.timestamp*1000))+' UTC');
         if(link)link.href=new URL('/block/'+data.tip.id,EXPLORER).href;
       }
       if(data.fees)setText(root,'btc-live-fees',data.fees.fastest+' / '+data.fees.hour);

@@ -426,8 +426,8 @@ window.HalvethUniverse = {
           "url": "assets/anchor-manifest.json"
         },
         {
-          "label": "HALVETH · Mira, Mita & Medusa",
-          "url": "forschung/q-notizen/#garten"
+          "label": "Technische Demos / Technical demos",
+          "url": "forschung/wegweiser/"
         }
       ],
       "label": "MIRA",
@@ -1757,8 +1757,8 @@ window.HalvethUniverse = {
           "url": "forschung/figuren-und-perspektiven/#garden"
         },
         {
-          "label": "HALVETH · Mira, Mita & Medusa",
-          "url": "forschung/q-notizen/#garten"
+          "label": "Technische Demos / Technical demos",
+          "url": "forschung/wegweiser/"
         },
         {
           "label": "MITA · linked project / source",
@@ -1792,8 +1792,8 @@ window.HalvethUniverse = {
           "url": "forschung/figuren-und-perspektiven/#garden"
         },
         {
-          "label": "HALVETH · Mira, Mita & Medusa",
-          "url": "forschung/q-notizen/#garten"
+          "label": "Technische Demos / Technical demos",
+          "url": "forschung/wegweiser/"
         },
         {
           "label": "MEDUSA · linked project / source",
@@ -1827,8 +1827,8 @@ window.HalvethUniverse = {
           "url": "forschung/figuren-und-perspektiven/#garden"
         },
         {
-          "label": "KONTEXT-PRISMA · linked project / source",
-          "url": "forschung/usdai-sabr-kontext/"
+          "label": "Technische Demos / Technical demos",
+          "url": "forschung/wegweiser/"
         }
       ],
       "label": "KONTEXT-PRISMA",
@@ -1839,7 +1839,7 @@ window.HalvethUniverse = {
       "doorLabel": "Vier Kontexte prüfen",
       "sourceLabel": "HALVETH / LUCINET · USDAI/SABR-Quellenprüfung, 15.09.2026.",
       "note": "Im YouTube-Player sind USDAI und SABR Diagnosemarker. Finanz-SABR und das Kryptoprotokoll USD.AI bleiben eigene Knoten. Textähnlichkeit allein wird weder zu Identität noch zu Absicht, Wallet, Schlüssel oder Finanzsignal.",
-      "url": "forschung/usdai-sabr-kontext/",
+      "url": "forschung/wegweiser/",
       "en": {
         "role": "Separates identical or similar signs by source, referent, domain, version and time before evaluating connections.",
         "kind": "SOURCE-BOUND RESEARCH ANCHOR",
@@ -1861,8 +1861,8 @@ window.HalvethUniverse = {
           "url": "forschung/figuren-und-perspektiven/#garden"
         },
         {
-          "label": "BRIGHTCAST 001 · linked project / source",
-          "url": "forschung/brightcast-starlight/"
+          "label": "Technische Demos / Technical demos",
+          "url": "forschung/wegweiser/"
         }
       ],
       "label": "BRIGHTCAST 001",
@@ -1873,7 +1873,7 @@ window.HalvethUniverse = {
       "doorLabel": "Brightcast ansehen",
       "sourceLabel": "HALVETH · Starlight Third Route Brightcast, 15.09.2026.",
       "note": "Der veröffentlichte Kanon und der HALVETH-Gegenentwurf bleiben getrennt. Beccas Aussage wird nicht umgeschrieben; die dritte Route verlangt weder Straffreiheit noch Vergebung durch Betroffene.",
-      "url": "forschung/brightcast-starlight/",
+      "url": "forschung/wegweiser/",
       "en": {
         "role": "Examines Starlight as a third narrative route between rule and extermination: protection, truth, removal of power and accountability.",
         "kind": "SOURCE-BOUND FAN VIDEO ESSAY",
