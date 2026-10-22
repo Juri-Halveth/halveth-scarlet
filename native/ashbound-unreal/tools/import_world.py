@@ -8,8 +8,10 @@ work = Path(os.environ.get('ASHBOUND_NATIVE_WORK', root / '.local-qa' / 'ashboun
 out = work / 'import_world.json'
 extra = work / 'source-assets' / 'models'
 web = root / 'forschung' / 'ashbound' / 'play' / 'assets' / 'models'
-ids = ['modular_fort_01', 'pine_sapling_small', 'rock_moss_set_01', 'fern_02',
-       'tree_stump_01', 'grass_medium_01', 'boulder_01', 'dead_tree_trunk', 'gothic_statue',
+ids = ['modular_fort_01', 'pine_sapling_small', 'fir_sapling', 'rock_moss_set_01', 'fern_02',
+       'tree_stump_01', 'grass_medium_01', 'flower_gazania', 'flower_empodium',
+       'tree_small_02', 'shrub_02',
+       'boulder_01', 'dead_tree_trunk', 'gothic_statue',
        'ornate_medieval_dagger', 'book_encyclopedia_set_01']
 result = {}
 for model_id in ids:
@@ -18,13 +20,17 @@ for model_id in ids:
     source = source_root / model_id / (model_id + '_1k.gltf')
     if not source.is_file():
         raise RuntimeError('Missing model source: ' + str(source))
-    task = unreal.AssetImportTask()
-    task.set_editor_property('filename', str(source))
-    task.set_editor_property('destination_path', '/Game/ASHBOUND/Models/' + model_id)
-    task.set_editor_property('automated', True)
-    task.set_editor_property('save', True)
-    unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks([task])
-    paths = list(task.get_editor_property('imported_object_paths'))
+    destination = '/Game/ASHBOUND/Models/' + model_id
+    paths = unreal.EditorAssetLibrary.list_assets(destination, recursive=True,
+                                                  include_folder=False)
+    if not paths:
+        task = unreal.AssetImportTask()
+        task.set_editor_property('filename', str(source))
+        task.set_editor_property('destination_path', destination)
+        task.set_editor_property('automated', True)
+        task.set_editor_property('save', True)
+        unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks([task])
+        paths = list(task.get_editor_property('imported_object_paths'))
     meshes = []
     for asset_path in paths:
         asset = unreal.load_asset(asset_path)
@@ -46,13 +52,17 @@ for name in ['rocky_terrain_03_diffuse.jpg', 'rocky_terrain_03_nor_gl.jpg',
     source = root / 'forschung' / 'ashbound' / 'play' / 'assets' / 'surfaces' / name
     if not source.is_file():
         raise RuntimeError('Missing surface source: ' + str(source))
-    task = unreal.AssetImportTask()
-    task.set_editor_property('filename', str(source))
-    task.set_editor_property('destination_path', '/Game/ASHBOUND/Surfaces')
-    task.set_editor_property('automated', True)
-    task.set_editor_property('save', True)
-    unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks([task])
-    result[name] = list(task.get_editor_property('imported_object_paths'))
+    destination = '/Game/ASHBOUND/Surfaces'
+    asset_path = destination + '/' + Path(name).stem
+    result[name] = [asset_path] if unreal.EditorAssetLibrary.does_asset_exist(asset_path) else []
+    if not result[name]:
+        task = unreal.AssetImportTask()
+        task.set_editor_property('filename', str(source))
+        task.set_editor_property('destination_path', destination)
+        task.set_editor_property('automated', True)
+        task.set_editor_property('save', True)
+        unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks([task])
+        result[name] = list(task.get_editor_property('imported_object_paths'))
     if not result[name]:
         raise RuntimeError('No texture imported from: ' + str(source))
 with open(out, 'w', encoding='utf-8') as file:
