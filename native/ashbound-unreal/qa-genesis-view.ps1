@@ -3,7 +3,10 @@ param(
     [string]$EvidenceRoot,
     [ValidateRange(3, 120)][int]$ShotDelaySeconds = 18,
     [double]$ShotX,
-    [double]$ShotY
+    [double]$ShotY,
+    [double]$TraverseX,
+    [double]$TraverseY,
+    [ValidateRange(5, 120)][int]$TraverseSeconds = 30
 )
 
 $ErrorActionPreference = 'Stop'
@@ -11,15 +14,23 @@ $package = [IO.Path]::GetFullPath($PackageRoot)
 $game = Join-Path $package 'Windows\ASHBOUNDUE\Binaries\Win64\ASHBOUNDUE.exe'
 if (-not (Test-Path -LiteralPath $game)) { throw "Missing packaged game: $game" }
 $remote = $PSBoundParameters.ContainsKey('ShotX') -or $PSBoundParameters.ContainsKey('ShotY')
+$traverse = $PSBoundParameters.ContainsKey('TraverseX') -or $PSBoundParameters.ContainsKey('TraverseY')
 if ($remote -and -not ($PSBoundParameters.ContainsKey('ShotX') -and $PSBoundParameters.ContainsKey('ShotY'))) {
     throw 'Remote view needs both ShotX and ShotY.'
+}
+if ($traverse -and -not ($PSBoundParameters.ContainsKey('TraverseX') -and $PSBoundParameters.ContainsKey('TraverseY'))) {
+    throw 'Traversal needs both TraverseX and TraverseY.'
+}
+if ($remote -and $traverse) { throw 'Remote teleport and traversal are separate QA modes.' }
+if ($traverse -and $ShotDelaySeconds -le ($TraverseSeconds + 4)) {
+    throw 'ShotDelaySeconds must exceed TraverseSeconds by at least five seconds.'
 }
 
 if (-not $EvidenceRoot) { $EvidenceRoot = Join-Path $package 'qa-evidence' }
 $evidence = [IO.Path]::GetFullPath($EvidenceRoot)
 New-Item -ItemType Directory -Path $evidence -Force | Out-Null
 $tag = Get-Date -Format 'yyyyMMdd-HHmmss-fff'
-$stem = if ($remote) { "genesis-remote-$tag" } else { "genesis-entry-$tag" }
+$stem = if ($traverse) { "genesis-traverse-$tag" } elseif ($remote) { "genesis-remote-$tag" } else { "genesis-entry-$tag" }
 $log = Join-Path $evidence "$stem.log"
 $savedShot = Join-Path $package 'Windows\ASHBOUNDUE\Saved\Screenshots\Genesis.png'
 $copyShot = Join-Path $evidence "$stem.png"
@@ -38,6 +49,12 @@ $args = @('/Game/ASHBOUND/Maps/GenesisWorld', '-DX12', '-RenderOffscreen',
 if ($remote) {
     $args += "-ashboundshotx=$ShotX"
     $args += "-ashboundshoty=$ShotY"
+}
+if ($traverse) {
+    $args += '-ashboundtraverse'
+    $args += "-ashboundtraversex=$TraverseX"
+    $args += "-ashboundtraversey=$TraverseY"
+    $args += "-ashboundtraverseduration=$TraverseSeconds"
 }
 $process = Start-Process -FilePath $game -ArgumentList $args -PassThru -WindowStyle Hidden
 try {
@@ -67,6 +84,15 @@ try {
             Where-Object { $_.Line -match 'hit=1 moved=1' })
         if (-not $probe.Count) { throw "Remote terrain/pawn probe failed; see $log" }
         Write-Output $probe[-1].Line
+    }
+    if ($traverse) {
+        $done = @(Select-String -LiteralPath $log -Pattern 'ASHBOUND_GENESIS_TRAVERSE_DONE')
+        $progress = @(Select-String -LiteralPath $log -Pattern 'ASHBOUND_GENESIS_TRAVERSE_PROGRESS')
+        if (-not $done.Count -or $progress.Count -lt 2) {
+            throw "Traversal did not complete with repeated samples; see $log"
+        }
+        Write-Output $done[-1].Line
+        Write-Output "TRAVERSAL_SAMPLES=$($progress.Count)"
     }
     Write-Output "VIEW_SCREENSHOT=$copyShot"
     Write-Output 'VIEW_RESOLUTION=2560x1440'

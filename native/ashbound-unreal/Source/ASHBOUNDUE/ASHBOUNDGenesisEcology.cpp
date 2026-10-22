@@ -83,11 +83,101 @@ void AASHBOUNDGenesisEcology::BeginPlay()
             UE_LOG(LogTemp, Display, TEXT("ASHBOUND_GENESIS_SCREENSHOT_REQUEST %s"), *File);
         }), ScreenshotDelay, false);
     }
+
+    // Isolated movement witness. It advances the possessed pawn over terrain
+    // in small steps to exercise cell streaming; it does not emulate WASD or
+    // establish normal player movement quality.
+    if (FParse::Param(FCommandLine::Get(), TEXT("ashboundtraverse")))
+    {
+        float EndX = 0.0f, EndY = 0.0f, Duration = 30.0f;
+        const bool HasX = FParse::Value(FCommandLine::Get(), TEXT("ashboundtraversex="), EndX);
+        const bool HasY = FParse::Value(FCommandLine::Get(), TEXT("ashboundtraversey="), EndY);
+        FParse::Value(FCommandLine::Get(), TEXT("ashboundtraverseduration="), Duration);
+        Duration = FMath::Clamp(Duration, 5.0f, 120.0f);
+        if (!HasX || !HasY ||
+            !FMath::IsFinite(EndX) || !FMath::IsFinite(EndY) ||
+            FMath::Abs(EndX) > 240000.0f || FMath::Abs(EndY) > 240000.0f)
+        {
+            UE_LOG(LogTemp, Error, TEXT("ASHBOUND_GENESIS_TRAVERSE invalid destination"));
+        }
+        else
+        {
+            FTimerHandle StartTimer;
+            GetWorldTimerManager().SetTimer(StartTimer,
+                FTimerDelegate::CreateLambda([this, EndX, EndY, Duration]()
+            {
+                APlayerController* Controller = GetWorld()->GetFirstPlayerController();
+                APawn* Pawn = Controller ? Controller->GetPawn() : nullptr;
+                if (!Pawn)
+                {
+                    UE_LOG(LogTemp, Error, TEXT("ASHBOUND_GENESIS_TRAVERSE missing pawn"));
+                    return;
+                }
+                const TWeakObjectPtr<APawn> PawnWeak(Pawn);
+                const FVector Start = Pawn->GetActorLocation();
+                const float StartedAt = GetWorld()->GetTimeSeconds();
+                UE_LOG(LogTemp, Display,
+                    TEXT("ASHBOUND_GENESIS_TRAVERSE_START x=%.0f y=%.0f target_x=%.0f target_y=%.0f duration=%.1f"),
+                    Start.X, Start.Y, EndX, EndY, Duration);
+                GetWorldTimerManager().SetTimer(TraversalTimer,
+                    FTimerDelegate::CreateLambda([this, PawnWeak, Start, EndX, EndY, Duration, StartedAt,
+                                                  Steps = 0]() mutable
+                {
+                    APawn* MovingPawn = PawnWeak.Get();
+                    if (!MovingPawn)
+                    {
+                        UE_LOG(LogTemp, Error, TEXT("ASHBOUND_GENESIS_TRAVERSE pawn lost"));
+                        GetWorldTimerManager().ClearTimer(TraversalTimer);
+                        return;
+                    }
+                    const float Alpha = FMath::Clamp(
+                        (GetWorld()->GetTimeSeconds() - StartedAt) / Duration, 0.0f, 1.0f);
+                    const FVector XY(FMath::Lerp(Start.X, EndX, Alpha),
+                                     FMath::Lerp(Start.Y, EndY, Alpha), 0.0f);
+                    FCollisionQueryParams Query(SCENE_QUERY_STAT(ASHBOUNDGenesisTraversal), false, this);
+                    Query.AddIgnoredActor(MovingPawn);
+                    FHitResult Ground;
+                    if (!GetWorld()->LineTraceSingleByChannel(Ground,
+                        XY + FVector(0, 0, 50000), XY - FVector(0, 0, 50000),
+                        ECC_Visibility, Query))
+                    {
+                        UE_LOG(LogTemp, Error,
+                            TEXT("ASHBOUND_GENESIS_TRAVERSE ground missing x=%.0f y=%.0f"), XY.X, XY.Y);
+                        GetWorldTimerManager().ClearTimer(TraversalTimer);
+                        return;
+                    }
+                    if (!MovingPawn->SetActorLocation(Ground.ImpactPoint + FVector(0, 0, 200),
+                        false, nullptr, ETeleportType::TeleportPhysics))
+                    {
+                        UE_LOG(LogTemp, Error,
+                            TEXT("ASHBOUND_GENESIS_TRAVERSE pawn move failed x=%.0f y=%.0f"),
+                            XY.X, XY.Y);
+                        GetWorldTimerManager().ClearTimer(TraversalTimer);
+                        return;
+                    }
+                    ++Steps;
+                    if (Steps % 20 == 0 || Alpha >= 1.0f)
+                        UE_LOG(LogTemp, Display,
+                            TEXT("ASHBOUND_GENESIS_TRAVERSE_PROGRESS alpha=%.3f x=%.0f y=%.0f steps=%d detail=%d near=%d macro=%d"),
+                            Alpha, XY.X, XY.Y, Steps,
+                            DetailCells.Num(), NearCells.Num(), MacroCells.Num());
+                    if (Alpha >= 1.0f)
+                    {
+                        UE_LOG(LogTemp, Display,
+                            TEXT("ASHBOUND_GENESIS_TRAVERSE_DONE x=%.0f y=%.0f steps=%d"),
+                            XY.X, XY.Y, Steps);
+                        GetWorldTimerManager().ClearTimer(TraversalTimer);
+                    }
+                }), 0.25f, true);
+            }), 2.0f, false);
+        }
+    }
 }
 
 void AASHBOUNDGenesisEcology::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
     GetWorldTimerManager().ClearTimer(RefreshTimer);
+    GetWorldTimerManager().ClearTimer(TraversalTimer);
     NearCells.Empty();
     MacroCells.Empty();
     DetailCells.Empty();

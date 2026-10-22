@@ -14,6 +14,7 @@ probe, not continuous traversal or a moving-frame-rate measurement.
 ```powershell
 ./qa-genesis-view.ps1 -PackageRoot C:\path\to\package
 ./qa-genesis-view.ps1 -PackageRoot C:\path\to\package -ShotX 180000 -ShotY -120000
+./qa-genesis-view.ps1 -PackageRoot C:\path\to\package -TraverseX 80000 -TraverseY -40000 -TraverseSeconds 30 -ShotDelaySeconds 40
 ```
 
 ## 2026-10-22 comparison on the reference PC
@@ -30,8 +31,21 @@ entry frame while its post-load 1440p samples fell to 31.4 and 29.2 FPS.
 That candidate was **rejected and is not in this branch**. The comparison is
 scene- and hardware-bound, not a benchmark of continuous player movement.
 
+The optional traversal witness moved a pawn in 120 ground-following steps
+from the entry to `(80000, -40000)` over 30 seconds. Six progress records
+showed active detail/near/macro cell counts while moving. Its final screenshot
+was actually 2560 x 1440. Five-second runtime samples during that route
+ranged from 47.2 to 63.0 FPS; these averages do not measure frame pacing or
+human-controlled play. The end view still has bare, smooth ridges.
+After adding an explicit success check for each pawn move, a second fresh
+package completed 40 steps to `(20000, -10000)` in 10 seconds, recorded two
+progress samples and captured a real 2560 x 1440 frame. This confirms the
+final QA code path rather than relying on the earlier package alone.
+
 The entry and remote frames still show sparse distant ridges, repeated plant
 shapes and smooth ground. Visual acceptance therefore remains open. The next
 art candidate should be compared at the same position and resolution and
-retain acceptable frame pacing before integration. Normal player traversal,
-long-session stability and wider world views remain separate checks.
+retain acceptable frame pacing before integration. The optional stepwise
+traversal exercises streamed cells under a moving pawn, but it bypasses player
+input and does not establish normal play feel. Long-session stability and
+wider world views remain separate checks.
