@@ -9,8 +9,9 @@ have their own entry points and development states. Native code under `native/`
 has a separate build and measurement scope.
 
 Run `node tools/build_site.mjs` and `node --test tests/*.test.cjs tests/*.test.mjs`.
-Historical personal and political context pages are preserved privately and removed
-from this public file tree. Editorial commits do not rewrite Git history.
+Earlier personal and political context pages were preserved privately. The
+[JURI-THESIS civic proposal](forschung/juri-thesis/) is a specific restored public
+exception. Editorial commits do not rewrite Git history.
 
 Project lead: Juri Halveth / HALVETH. AI-assisted development.
 [Licences](LICENSES.md) · security@halveth.de

@@ -49,6 +49,11 @@ Mathematische Darstellung und begrenzte Quellenzuordnung.
 
 Visuelle technische Erklärung, keine Renditezusage.
 
+### [JURI-THESIS · Entwicklungszeit für Menschen](forschung/juri-thesis/)
+
+Öffentlicher Vorschlag für einen 30-Personen-Pilot in Brühl mit Konzept,
+Beispielen und dem aktuellen Projektstand.
+
 
 ## Prüfen und bauen
 
@@ -64,9 +69,10 @@ Die Tests prüfen die jeweiligen lokalen Verträge. Native C++-Arbeit unter
 native Spielwelt sind verschiedene Anwendungen.
 
 Die Figurenansichten sind Gestaltungs- und Spielmaterial. Sie sind kein Nachweis
-selbstständig handelnder externer Entitäten. Historische, persönliche und
-politische Kontextseiten wurden privat gesichert und aus dieser öffentlichen
-Fassung entfernt. Der Redaktionscommit schreibt keine Git-Historie um.
+selbstständig handelnder externer Entitäten. Frühere persönliche und politische
+Kontextseiten wurden privat gesichert. Die JURI-THESIS ist als gezielte
+öffentliche Ausnahme wieder erreichbar. Der Redaktionscommit schrieb keine
+Git-Historie um.
 
 Projektleitung: **Juri Halveth / HALVETH**. Entwicklung mit KI-Unterstützung.
 [Lizenzen und Herkunft](LICENSES.md) · Kontakt: **security@halveth.de**.
