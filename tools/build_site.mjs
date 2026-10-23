@@ -50,6 +50,20 @@ for (const name of [...directories, ...files]) {
 }
 if (!fs.existsSync(path.join(output, 'forschung', 'ashbound', 'index.html'))) throw new Error('ASHBOUND public route missing');
 const pages = htmlFiles(output);
+// Bind this module family to one release, including nested imports. A cached
+// controller must not be paired with an older renderer after a Pages update.
+const entityAssets=fs.readdirSync(path.join(output,'assets')).filter(name=>/^entity-.*\.(?:mjs|js|css)$/.test(name)).map(name=>'assets/'+name);
+const entityModules=entityAssets.filter(name=>/\.(?:mjs|js)$/.test(name));
+const entityVersion=createHash('sha256').update(entityModules.map(name=>name+'\n'+fs.readFileSync(path.join(output,name),'utf8')).join('\n')).digest('hex');
+const entityModuleSet=new Set(entityModules);
+for(const name of entityModules){
+  const file=path.join(output,name),source=fs.readFileSync(file,'utf8');
+  const versioned=source.replace(/((?:from\s*|import\s*\(\s*)['"])(\.\/?[^'"?]+)(['"])/g,(match,start,relative,end)=>{
+    const target=path.relative(output,path.resolve(path.dirname(file),relative)).split(path.sep).join('/');
+    return entityModuleSet.has(target)?start+relative+'?v='+entityVersion+end:match;
+  });
+  if(versioned!==source)fs.writeFileSync(file,versioned);
+}
 const thesisDir=path.join(output,'forschung','juri-thesis');
 const thesisAssets=fs.readdirSync(thesisDir);
 // Bind the browser-visible entry and its imported model to the same copied bytes.
@@ -67,6 +81,7 @@ for (const name of thesisAssets.filter(name=>name.endsWith('.js'))) {
 // Version shared presentation by the exact copied bytes, not a release label.
 const assetDigests=Object.fromEntries([
   'assets/portal-shell.css','assets/portal-shell.js','languages/hub-language.css','assets/mobile.css',
+  ...entityAssets,'assets/universe-data.js',
   ...thesisAssets.filter(name=>/\.(css|js)$/.test(name)).map(name=>'forschung/juri-thesis/'+name)
 ].map(asset=>[asset,createHash('sha256').update(fs.readFileSync(path.join(output,asset))).digest('hex')]));
 for (const file of pages) {

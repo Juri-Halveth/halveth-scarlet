@@ -47,6 +47,7 @@ const DESIGNS = {
   schwamm: ['tunic', 'sponge', 7, 'patches'], mita: ['dress', 'twintails', 0, 'ribbon'],
   medusa: ['robe', 'serpents', 3, 'torque'], 'context-prism': ['guardian', 'crest', 11, 'crystal'],
   'brightcast-starlight': ['armor', 'long', 6, 'star'],
+  deadpool: ['suit', 'helmet', 0, 'split'],
   'pi-treffpunkte': ['robe', 'bun', 2, 'compass'], 'choice-atelier': ['coat', 'bob', 8, 'beret'],
 };
 

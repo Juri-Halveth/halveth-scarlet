@@ -5,6 +5,8 @@ import { WORLD_DESTINATIONS } from './entity-world-model.mjs';
 import { createWorldEnvironment } from './entity-world-environment.mjs';
 import { createWorldGifts } from './entity-world-gifts.mjs';
 import { validateWorldEvent } from './world-events.mjs';
+import { signatureFor } from './entity-signatures.mjs';
+import { createSignatureSculpture } from './entity-signature-scene.mjs';
 
 export function createCharacterWorld(host, entities, { onSelect, onError, onModeChange = () => {}, onClock = () => {}, paused = false }) {
   const renderer = new T.WebGLRenderer({ antialias: true, powerPreference: 'default' });
@@ -18,8 +20,8 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
   canvas.title = 'WASD / arrows: move; Q / E: down / up; Shift: faster';
   host.append(canvas);
   const scene = new T.Scene();
-  scene.background = new T.Color('#243133');
-  scene.fog = new T.Fog('#243133', 100, 285);
+  scene.background = new T.Color('#080b16');
+  scene.fog = new T.Fog('#080b16', 100, 285);
   const camera = new T.PerspectiveCamera(48, 1, .08, 650);
   const controls = new OrbitControls(camera, canvas);
   controls.enableDamping = false;
@@ -33,6 +35,13 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
   scene.add(environment.group);
   const gifts = createWorldGifts(T);
   scene.add(gifts.group);
+  const sculpture = createSignatureSculpture(T);scene.add(sculpture.group);
+  sculpture.set(signatureFor(entities[0]));
+  const starGeometry=new T.BufferGeometry();
+  const stars=[];for(let i=0;i<650;i++){const a=i*2.3999632297,r=30+(i%79);stars.push(Math.cos(a)*r,Math.sin(i*1.618)*45,Math.sin(a)*r);}
+  starGeometry.setAttribute('position',new T.Float32BufferAttribute(stars,3));
+  const starMaterial=new T.PointsMaterial({color:'#bed3ef',size:.09,transparent:true,opacity:.6});
+  const starField=new T.Points(starGeometry,starMaterial);scene.add(starField);
   controls.autoRotateSpeed = .4;
   scene.add(new T.HemisphereLight('#f4ffee', '#54505b', 2.5));
   const key = new T.DirectionalLight('#ffefd4', 3.1); key.position.set(18, 32, 21); scene.add(key);
@@ -61,19 +70,26 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
   const active = () => entries.find(entry => entry.entity.id === selected);
 
   function switchMode(next, notify = true) {
-    mode = ['focus', 'overview'].includes(next) ? next : 'all';
+    mode = ['signature','focus', 'overview'].includes(next) ? next : 'all';
     host.dataset.mode = mode;
     if (notify) onModeChange(mode);
     dirty = true;
   }
   function sample() {
+    const signatureMode=mode==='signature';
+    environment.group.visible=gifts.group.visible=!signatureMode;
+    sculpture.group.visible=signatureMode;starField.visible=signatureMode;
+    focusMark.visible=!signatureMode;
     for (const entry of entries) {
+      entry.figure.group.visible=entry.contact.visible=!signatureMode;
+      if(signatureMode)continue;
       const pose = sampleRoamingPath(entry.route, clock, entry.position, entry.tangent);
       entry.figure.group.position.copy(entry.position);
       entry.figure.group.rotation.y = pose.heading;
       entry.contact.position.copy(entry.position); entry.contact.position.y += .012;
       entry.figure.animate(clock, entry.entity.id === selected, false, pose);
     }
+    if(signatureMode){sculpture.animate(clock,paused);host.dataset.worldTime=clock.toFixed(3);return;}
     const entry = active();
     focusMark.position.copy(entry.position); focusMark.position.y += .025;
     followPoint.copy(entry.position).y += 1.3;
@@ -87,7 +103,9 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
   }
   function resetCamera() {
     const mobile = host.clientWidth < 760;
-    if (mode === 'overview') {
+    if(mode==='signature') {
+      controls.target.set(0,1.4,0);camera.position.set(mobile?6.2:5.5,3.3,mobile?9.4:8.2);
+    } else if (mode === 'overview') {
       controls.target.set(0, 0, 0);
       camera.position.set(0, mobile ? 79 : 52, mobile ? 86 : 66);
     } else if (mode === 'focus') {
@@ -128,7 +146,7 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
     pointers.set(event.pointerId, { x: event.clientX, y: event.clientY, button: event.button });
     if (pointers.size > 1) multiPointer = true;
     userPointer = true;
-    if (event.button === 2 || event.ctrlKey || event.metaKey || event.shiftKey || multiPointer) switchMode('all');
+    if (mode!=='signature' && (event.button === 2 || event.ctrlKey || event.metaKey || event.shiftKey || multiPointer)) switchMode('all');
   };
   const onUp = event => {
     const down = pointers.get(event.pointerId); pointers.delete(event.pointerId);
@@ -171,7 +189,7 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
     travel(held.x + has('KeyD', 'ArrowRight') - has('KeyA', 'ArrowLeft'), held.y + has('KeyE') - has('KeyQ'), held.z + has('KeyW', 'ArrowUp') - has('KeyS', 'ArrowDown'), dt, has('ShiftLeft', 'ShiftRight') ? 32 : 12);
     if (!paused) clock += dt * rate;
     if (!paused || dirty) {
-      sample(); environment.update(camera.position, clock); gifts.update(clock, paused);
+      sample(); if(mode!=='signature'){environment.update(camera.position, clock); gifts.update(clock, paused);}
       if (controls.autoRotate && !paused) controls.update(dt);
       renderer.render(scene, camera); frames++; host.dataset.frames = String(frames); dirty = false;
       host.dataset.cameraPosition = camera.position.toArray().map(n => n.toFixed(2)).join(',');
@@ -187,6 +205,7 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
   host.dataset.entityCount = String(entries.length); host.dataset.visibleEntities = String(entries.length);
   host.dataset.selected = selected; host.dataset.mode = mode; host.dataset.state = 'READY';
   return {
+    signature(value, companion=null){sculpture.set(value,companion);dirty=true;},
     materialize(raw, focus = false, appearanceId) {
       let event, instance;
       try { event = validateWorldEvent(raw); instance = appearanceId === undefined ? event : validateWorldEvent({ ...event, id: appearanceId }); } catch { return; }
@@ -206,6 +225,7 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
     select(id) {
       if (!entries.some(e => e.entity.id === id)) return;
       selected = id; host.dataset.selected = selected;
+      sculpture.set(signatureFor(active().entity));
       lastFollow.copy(active().position); lastFollow.y += 1.3;
       if (mode === 'focus') resetCamera(); dirty = true;
     },
@@ -241,6 +261,7 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
       canvas.removeEventListener('pointercancel', clearInput); canvas.removeEventListener('keydown', onKeyDown); canvas.removeEventListener('blur', clearInput);
       canvas.removeEventListener('webglcontextlost', onLost); canvas.removeEventListener('webglcontextrestored', onRestored);
       entries.forEach(entry => entry.figure.dispose()); environment.dispose(); gifts.dispose();
+      sculpture.dispose();starGeometry.dispose();starMaterial.dispose();
       shadowGeometry.dispose(); shadowMaterial.dispose(); markGeometry.dispose(); markMaterial.dispose();
       renderer.dispose(); canvas.remove();
     }
