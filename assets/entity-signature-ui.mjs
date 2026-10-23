@@ -54,5 +54,6 @@ export function bindSignatureUI({entities,getLanguage,onChange}) {
     const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)+'\n'],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=`halveth-${entity.id}-signature.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status(t('JSON exportiert.','JSON exported.'));
   });
   return {select(next){entity=next;session=sessions.get(entity.id)||createContinuity(signatureFor(entity));sessions.set(entity.id,session);if(partner===entity.id)partner='';
-    $('signature-partner').replaceChildren(...[{id:'',label:t('Allein betrachten','View alone')},...entities.filter(e=>e.id!==entity.id)].map(e=>{const o=document.createElement('option');o.value=e.id;o.textContent=e.label;return o;}));$('signature-partner').value=partner;render();},refresh(){if(entity)this.select(entity);},current};
+    $('signature-partner').replaceChildren(...[{id:'',label:t('Allein betrachten','View alone')},...entities.filter(e=>e.id!==entity.id)].map(e=>{const o=document.createElement('option');o.value=e.id;o.textContent=e.label;return o;}));$('signature-partner').value=partner;render();},refresh(){if(entity)this.select(entity);},current,
+    all(){return entities.map(e=>{const saved=sessions.get(e.id);return saved?saved.branches.find(b=>b.id===saved.active).state:signatureFor(e);});}};
 }

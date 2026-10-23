@@ -114,3 +114,31 @@ body.signature-atlas .world-directory .profile-grid a{background:#151321;border-
 }
 
 @media(max-width:760px){body.signature-atlas .world-header-actions .hub-navigation a:first-child{display:none!important}body.signature-atlas .world-header-actions .hub-navigation{gap:0;flex-wrap:nowrap}body.signature-atlas .world-header-actions{flex-wrap:nowrap;min-width:0}body.signature-atlas .world-header-actions .profile-languages{width:auto;min-width:0}body.signature-atlas .world-camera-controls{align-items:center}}
+
+.wave-controls{display:none}
+body.signature-atlas[data-world-mode=chain] :is(.world-inspector,.signature-caption,.world-movement,.world-destination,.world-selection,#entity-info-toggle){display:none!important}
+body.signature-atlas[data-world-mode=chain] .world-stage{min-height:620px}
+body.signature-atlas[data-world-mode=chain] .world-heading{top:22px;left:28px;width:auto;pointer-events:none}
+body.signature-atlas[data-world-mode=chain] .world-heading h1{font-size:26px;line-height:1.15;margin:10px 0}
+body.signature-atlas[data-world-mode=chain] .world-heading h1 br{display:none}
+body.signature-atlas[data-world-mode=chain] .world-heading :is(.signature-intro,.signature-home-link,.scene-clock-label){display:none}
+body.signature-atlas[data-world-mode=chain] .world-stage::before{background:linear-gradient(#0b0d1888,transparent 25%);pointer-events:none}
+body.signature-atlas[data-world-mode=chain] .wave-controls{display:block;position:absolute;z-index:4;left:50%;bottom:18px;transform:translateX(-50%);width:min(660px,calc(100% - 38px));padding:15px 18px;border:1px solid #e6a3ca38;border-radius:15px;background:#100f1ce8;backdrop-filter:blur(12px);text-align:center}
+.wave-kicker{margin:0 0 7px;font:9px/1.6 'Segoe UI',sans-serif;letter-spacing:.14em;color:#e3b8cc}.wave-kicker>span{font-family:monospace;color:#ffe3b9}
+#wave-state{font-size:12px;line-height:1.6;color:#e3d3e3;margin:5px 0 12px;min-height:20px}
+.wave-actions{display:flex;justify-content:center;gap:7px;flex-wrap:wrap}.wave-actions button{font:11px/1.4 'Segoe UI',sans-serif;padding:10px 14px;min-height:44px}
+body.signature-atlas .wave-primary{background:linear-gradient(120deg,#63324c,#322a4f);border-color:#ecadcf88;color:#ffe9d7}
+.wave-explanation{font:10px/1.7 'Segoe UI',sans-serif;color:#b4a8bd;text-align:left;margin:11px 0 0}.wave-explanation summary{cursor:pointer;min-height:30px;align-content:center;text-align:center}.wave-explanation p{max-width:550px;margin:8px auto}
+body.signature-atlas[data-world-mode=chain] .world-camera-controls{bottom:215px}
+@media(min-width:761px){body.signature-atlas[data-world-mode=chain] .world-stage:has(.wave-explanation[open]) .world-camera-controls{bottom:300px}}
+@media(max-width:1100px) and (min-width:761px){body.signature-atlas .world-modes button{padding-inline:8px;font-size:11px}body.signature-atlas .world-brand{font-size:13px}body.signature-atlas .world-brand small{font-size:8px}}
+@media(max-width:760px){
+ body.signature-atlas .world-modes button{gap:4px;font-size:10px;padding:0 6px}
+ body.signature-atlas[data-world-mode=chain] .world-stage{min-height:0}
+ body.signature-atlas[data-world-mode=chain] .world-canvas{height:560px}
+ body.signature-atlas[data-world-mode=chain] .world-heading{top:22px;left:20px;width:calc(100% - 40px)}
+ body.signature-atlas[data-world-mode=chain] .world-heading h1{font-size:24px;max-width:270px}
+ body.signature-atlas[data-world-mode=chain] .wave-controls{position:relative;inset:auto;transform:none;width:calc(100% - 28px);margin:0 14px 15px;padding:15px 12px}
+ body.signature-atlas[data-world-mode=chain] .world-camera-controls{top:500px;bottom:auto;left:50%;transform:translateX(-50%)}
+ .wave-actions{display:grid;grid-template-columns:1fr 1fr}.wave-actions button{padding-inline:8px;font-size:11px}.wave-explanation summary{min-height:44px}
+}

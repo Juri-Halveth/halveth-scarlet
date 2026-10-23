@@ -22,6 +22,7 @@ test('comparison uses the edited active branch of the partner and keeps both ide
   p.nodes.get('sig-coherence').value='100';p.event('sig-coherence','change');
   p.event('signature-fork','click');
   p.nodes.get('sig-memory').value='0';p.event('sig-memory','change');
+  assert.equal(p.ui.all().find(s=>s.entityId==='mara').values.memory,0,'the shared wave receives the edited branch');
   p.ui.select(p.entities[0]);p.nodes.get('signature-partner').value='mara';p.event('signature-partner','change');
   const [selected,partner]=p.frames.at(-1);
   assert.equal(selected.entityId,'scarlet');assert.equal(partner.entityId,'mara');
