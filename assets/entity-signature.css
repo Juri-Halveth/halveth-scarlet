@@ -130,7 +130,7 @@ body.signature-atlas[data-world-mode=chain] .wave-controls{display:block;positio
 body.signature-atlas .wave-primary{background:linear-gradient(120deg,#63324c,#322a4f);border-color:#ecadcf88;color:#ffe9d7}
 .wave-explanation{font:10px/1.7 'Segoe UI',sans-serif;color:#b4a8bd;text-align:left;margin:11px 0 0}.wave-explanation summary{cursor:pointer;min-height:30px;align-content:center;text-align:center}.wave-explanation p{max-width:550px;margin:8px auto}
 body.signature-atlas[data-world-mode=chain] .world-camera-controls{bottom:215px}
-@media(min-width:761px){body.signature-atlas[data-world-mode=chain] .world-stage:has(.wave-explanation[open]) .world-camera-controls{bottom:300px}}
+@media(min-width:761px){body.signature-atlas[data-world-mode=chain] .world-stage:has(.wave-explanation[open]) .world-camera-controls{bottom:370px}}
 @media(max-width:1100px) and (min-width:761px){body.signature-atlas .world-modes button{padding-inline:8px;font-size:11px}body.signature-atlas .world-brand{font-size:13px}body.signature-atlas .world-brand small{font-size:8px}}
 @media(max-width:760px){
  body.signature-atlas .world-modes button{gap:4px;font-size:10px;padding:0 6px}
@@ -142,3 +142,5 @@ body.signature-atlas[data-world-mode=chain] .world-camera-controls{bottom:215px}
  body.signature-atlas[data-world-mode=chain] .world-camera-controls{top:500px;bottom:auto;left:50%;transform:translateX(-50%)}
  .wave-actions{display:grid;grid-template-columns:1fr 1fr}.wave-actions button{padding-inline:8px;font-size:11px}.wave-explanation summary{min-height:44px}
 }
+
+.wave-explanation #wave-export{display:block;margin:12px auto 0;min-height:44px;padding:10px 14px}

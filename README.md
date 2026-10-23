@@ -33,12 +33,21 @@ jeweiligen Dossiers zugeordnet. [Deadpool als Continuity-Experiment](docs/entiti
 ### [Wellenkette · alle Formen gemeinsam](entities/?view=chain#scarlet)
 
 **Welle** öffnet alle 68 Signaturen als räumliche, verbundene Kette.
-**Nacheinander** lässt sie in Reihenfolge erscheinen. **Alle ins Zentrum**
-zieht die gesamte Kette gleichzeitig zusammen; **Wieder entfalten** öffnet
-dieselben Formen erneut. Kleine Spiegelflächen zeigen verzögerte
-Rotationsstände und die feinen Spuren gespeicherte Positionen dieser Animation.
-Der freiwillig aktivierte Klang wird lokal erzeugt. Die Einstellung für
-reduzierte Bewegung wird berücksichtigt. Bestehende Modellkoordinaten bleiben erhalten.
+**Nacheinander** lässt sie in Reihenfolge erscheinen. **Gemeinsamer Licht-Snapshot**
+bindet alle Formen an denselben Modellzeitpunkt, hält Position und Drehstand fest
+und umgibt sie frontal mit einem gemeinsamen 160-ms-Lichtimpuls. **Weiterfließen**
+setzt die Bewegung an diesem Zeitpunkt fort. Eine frühe Aufnahme materialisiert
+alle Einträge am gemeinsamen Zeitpunkt. Änderungen an Signaturen während der
+Aufnahme werden beim Weiterfließen übernommen.
+
+Die **Frame-Spur** zeichnet unmittelbar nach jeder `renderer.render`-Rückkehr
+im Wellenmodus die Modellposen aller Entitäten, Kamera, Modellzeit, Snapshot-ID
+und monotone Übergabezeit auf. Die letzten 240 Einträge bleiben lokal im Speicher;
+verdrängte Einträge werden gezählt. Der Export enthält den letzten gemeinsamen
+Snapshot mit Signaturen. Zwischenräume bleiben `UNOBSERVED`; GPU-Präsentation,
+Monitor-Scanout und unbegrenzt viele Zwischenzustände sind eigene Beobachtungsfragen.
+Die 160 ms sind Modelldauer, keine zugesagte Bildschirm-Latenz. Klang ist freiwillig
+und lokal erzeugt. Reduzierte Bewegung ersetzt den Impuls durch den festen Snapshot.
 
 ### [ASHBOUND · eigene Spielwelt](forschung/ashbound/)
 
