@@ -20,6 +20,7 @@ test('invalid coordinates and unknown axes or shapes fail without changing the o
   const s=signatureFor({id:'scarlet'}),before=JSON.stringify(s);
   for(const value of [-.01,1.01,NaN,Infinity,'0.5']) assert.throws(()=>withCoordinate(s,'memory',value));
   assert.throws(()=>withCoordinate(s,'personality',.5));assert.throws(()=>withFamily(s,'unknown'));
+  for(const family of ['__proto__','constructor','toString'])assert.throws(()=>withFamily(s,family),/Invalid signature/);
   assert.equal(JSON.stringify(s),before);
 });
 test('all eight forms can be chosen while retaining independent coordinates',()=>{

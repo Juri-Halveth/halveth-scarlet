@@ -152,7 +152,8 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
     const down = pointers.get(event.pointerId); pointers.delete(event.pointerId);
     const wasMulti = multiPointer;
     if (!pointers.size) { userPointer = false; multiPointer = false; }
-    if (!down || down.button !== 0 || wasMulti || Math.hypot(event.clientX - down.x, event.clientY - down.y) > 6) return;
+    // Hidden walking figures must not intercept clicks on the signature sculpture.
+    if (mode === 'signature' || !down || down.button !== 0 || wasMulti || Math.hypot(event.clientX - down.x, event.clientY - down.y) > 6) return;
     const rect = canvas.getBoundingClientRect();
     pointer.set((event.clientX - rect.left) / rect.width * 2 - 1, -(event.clientY - rect.top) / rect.height * 2 + 1);
     raycaster.setFromCamera(pointer, camera);

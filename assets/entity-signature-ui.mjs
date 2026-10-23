@@ -5,6 +5,11 @@ export function bindSignatureUI({entities,getLanguage,onChange}) {
   const $=id=>document.getElementById(id), sessions=new Map();let entity,session,partner='';
   const en=()=>getLanguage()==='en', t=(de,eng)=>en()?eng:de, current=()=>session.branches.find(b=>b.id===session.active).state;
   const status=value=>{$('signature-status').textContent=value;};
+  const companion=()=>{
+    if(!partner)return null;
+    const saved=sessions.get(partner);
+    return saved?saved.branches.find(b=>b.id===saved.active).state:signatureFor(entities.find(e=>e.id===partner));
+  };
   function act(operation,payload) {
     try {session=transition(session,operation,payload);sessions.set(entity.id,session);render();return true;}
     catch(error){render();status(error.message);return false;}
@@ -22,7 +27,7 @@ export function bindSignatureUI({entities,getLanguage,onChange}) {
     $('signature-branch').replaceChildren(...session.branches.map(b=>{const o=document.createElement('option');o.value=b.id;o.textContent=`${b.id}${b.parent?' ← '+b.parent:' · '+t('Ursprung','origin')}`;return o;}));$('signature-branch').value=session.active;
     $('signature-history').textContent=`${session.branches.length}/${MAX_BRANCHES} ${t('Branches','branches')} · ${session.events.length} ${t('Ereignisse','events')} · ${t('Modellschritt','model step')} ${session.branches.find(b=>b.id===session.active).step}`;
     $('signature-fork').disabled=session.branches.length>=MAX_BRANCHES;
-    const other=partner?signatureFor(entities.find(e=>e.id===partner)):null;
+    const other=companion();
     $('signature-docking-result').textContent='';
     if(other){const comparison=docking(s,other),best=comparison.contributions[0],axis=AXES.find(a=>a.id===best.axis);$('signature-docking-result').textContent=`${t('Offener Anschluss','Open connection')}: ${en()?axis.en:axis.de}. ${entity.label} ↔ ${entities.find(e=>e.id===partner).label}. ${t('Vergleich der Entwurfswerte, keine gemessene Eignung.','A comparison of design coordinates, not measured suitability.')}`;}
     onChange(s,other);status('');
@@ -33,7 +38,7 @@ export function bindSignatureUI({entities,getLanguage,onChange}) {
     const value=document.createElement('output');value.id='sig-value-'+axis.id;value.htmlFor='sig-'+axis.id;
     const input=document.createElement('input');input.type='range';input.min='0';input.max='100';input.step='1';input.id='sig-'+axis.id;
     // Commit one transition on release; preview is continuous and does not flood the history.
-    input.addEventListener('input',()=>{const s=withCoordinate(current(),axis.id,Number(input.value)/100);value.textContent=s.values[axis.id].toFixed(2);onChange(s,partner?signatureFor(entities.find(e=>e.id===partner)):null);});
+    input.addEventListener('input',()=>{const s=withCoordinate(current(),axis.id,Number(input.value)/100);value.textContent=s.values[axis.id].toFixed(2);onChange(s,companion());});
     input.addEventListener('change',()=>act('SET',withCoordinate(current(),axis.id,Number(input.value)/100)));
     row.append(name,value,input);$('signature-parameters').append(row);
   }

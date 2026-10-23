@@ -37,7 +37,7 @@ export function signatureFor(entity) {
   return { schema:SIGNATURE_VERSION, entityId:entity.id, family, seed:hash, origin:'AUTHORED_DESIGN', values };
 }
 export function validateSignature(input) {
-  if(!input || input.schema!==SIGNATURE_VERSION || !FAMILIES[input.family] || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(input.entityId) || !Number.isInteger(input.seed) || input.seed<0 || input.seed>0xffffffff) throw new TypeError('Invalid signature');
+  if(!input || input.schema!==SIGNATURE_VERSION || !Object.hasOwn(FAMILIES,input.family) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(input.entityId) || !Number.isInteger(input.seed) || input.seed<0 || input.seed>0xffffffff) throw new TypeError('Invalid signature');
   if(!input.values || Object.keys(input.values).length!==AXES.length || AXES.some(a=>!Number.isFinite(input.values[a.id]) || input.values[a.id]<0 || input.values[a.id]>1)) throw new TypeError('Coordinates must be finite and within [0,1]');
   return { schema:SIGNATURE_VERSION,entityId:input.entityId,family:input.family,seed:input.seed,origin:'AUTHORED_DESIGN',values:{...input.values} };
 }

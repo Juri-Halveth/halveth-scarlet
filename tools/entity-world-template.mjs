@@ -7,7 +7,7 @@ export function entityWorldBody({ cards, languageButtons, count }) {
   <a class="world-brand" href="../">${icon('orbit')}<span>HALVETH<small>${bi('DIE KONSTELLATION','THE CONSTELLATION')}</small></span></a>
   <div class="world-modes" role="group" aria-label="Ansicht" data-en-aria-label="View">
     <button type="button" id="mode-signature" aria-pressed="true">${icon('orbit')}${bi('Signatur','Signature')}</button>
-    <button type="button" id="mode-focus" aria-pressed="true">${icon('focus')}${bi('Folgen','Follow')}</button>
+    <button type="button" id="mode-focus" aria-pressed="false">${icon('focus')}${bi('Folgen','Follow')}</button>
     <button type="button" id="mode-all" aria-pressed="false">${icon('compass')}${bi('Erkunden','Explore')}</button>
     <button type="button" id="mode-overview" aria-pressed="false" title="Alle Figuren im Raum" data-en-title="All characters in the world">${icon('users')}<span>${count}</span></button>
   </div>
