@@ -14,7 +14,7 @@ test('home leads to Portal Chess without placing the portfolio challenge over th
   assert(sceneEnd >= 0, 'home scene closing seam');
   assert(feature > sceneEnd, 'challenge follows the scene in document flow');
   assert.match(home, /assets\/portal-chess-feature\.css\?v=portfolio-challenge-20261012/);
-  assert.match(home, /class="portal-chess-quicklink" href="forschung\/portal-chess\/"/);
+  assert.match(home, /class="home-chess-entry" href="forschung\/portal-chess\/"/);
   assert.match(home, /16 BAUERN\. 16 DAMEN\?/);
   assert.match(home, /3 \/ 16 verifiziert/);
   assert.match(home, /DREI PFORTE SPIELEN/);

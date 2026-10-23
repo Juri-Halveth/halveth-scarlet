@@ -1,0 +1,116 @@
+/* The atlas shares one renderer and one entity registry with the walking world. */
+body.signature-atlas{margin:0;background:#080b16;color:#f4ede9;--accent:#ffd69e;--muted:#b8afbd;font-family:'Segoe UI',system-ui,sans-serif}
+body.signature-atlas *{box-sizing:border-box}
+body.signature-atlas button{background:#151521;border-color:#ffffff25;min-height:44px;border-radius:9px}
+body.signature-atlas button:hover{background:#322134;border-color:#f1accb80}
+body.signature-atlas .icon-button{height:44px;width:44px;min-width:44px}
+body.signature-atlas .world-header{height:82px;padding:0 28px;background:#0c0c15;border-color:#ffffff19;gap:15px}
+body.signature-atlas .world-brand{letter-spacing:.12em;font-size:16px;color:#f7e7d9}
+body.signature-atlas .world-brand small{font-size:9px;color:#c0a9b8;letter-spacing:.15em}
+body.signature-atlas .world-brand>svg{color:#eec6a2}
+body.signature-atlas .world-modes{background:#16141f;border-color:#ffffff19;border-radius:12px}
+body.signature-atlas .world-modes button{font-size:12px;padding:0 12px;border-radius:8px}
+body.signature-atlas .world-modes button[aria-pressed=true]{background:#f0d1b2;color:#241521}
+body.signature-atlas .world-header-actions .profile-languages button{min-height:44px;color:#c8b8c6}
+body.signature-atlas .world-header-actions .profile-languages button[aria-pressed=true]{background:#3e263c;color:#fff0e8}
+body.signature-atlas .world-stage{height:calc(100dvh - 190px);min-height:540px;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#4b123522,transparent 60%)}
+body.signature-atlas .world-stage::before{height:100%;background:linear-gradient(90deg,#0b0d18e8,transparent 32%,transparent 66%,#0b0d1888);z-index:1}
+body.signature-atlas .world-heading{left:38px;top:65px;width:270px;text-shadow:none}
+body.signature-atlas .world-heading p:first-child{font-size:10px;letter-spacing:.18em;color:#f2bc9f;margin-bottom:24px}
+body.signature-atlas .world-heading h1{font-family:Georgia,serif;font-weight:400;font-size:45px;line-height:1.04;color:#fff1e6;letter-spacing:-.035em;margin-bottom:25px}
+body.signature-atlas .world-heading>span{font-size:11px;color:#b4aaba;line-height:1.6}
+body.signature-atlas .world-heading .signature-intro{color:#c8bbc9;font-size:14px;line-height:1.75;margin:28px 0 23px;max-width:240px}
+.signature-home-link{pointer-events:auto;color:#f3d3b3;font-size:12px;text-underline-offset:6px}
+body.signature-atlas .world-destination{background:#14131fe8;border-color:#ffffff26;margin-top:25px}
+body.signature-atlas select{background:#181521;color:#f7e9e5;min-height:44px;border:1px solid #ffffff25;border-radius:6px;padding:5px 8px;font-size:13px;max-width:100%}
+body.signature-atlas .scene-clock-label{display:block;color:#b8b0c8;margin-top:14px;font:10px monospace}
+body.signature-atlas .world-inspector{width:292px;right:24px;top:30px;max-height:calc(100% - 60px);padding:21px;background:#12111be8;border:1px solid #df9dbd38;border-radius:16px;backdrop-filter:blur(20px)}
+body.signature-atlas .world-inspector h2{font-size:31px;font-family:Georgia,serif;font-weight:400;letter-spacing:-.03em;color:#ffe5dd}
+body.signature-atlas #entity-role{color:#e4d9e3;font-size:12px;line-height:1.65}
+body.signature-atlas .entity-kind{font-size:10px;color:#bba7b8}
+body.signature-atlas .entity-meta{color:#c5b3c7;font-family:monospace;font-size:10px}
+body.signature-atlas .entity-meta .icon-button{height:36px;min-height:36px;width:36px;min-width:36px}
+body.signature-atlas .entity-links a{font-size:11px;color:#f2ccaa;border-color:#ffffff20;min-height:44px}
+body.signature-atlas .entity-details,body.signature-atlas .entity-neighbors{border-color:#ffffff20;color:#cdbbcc;font-size:11px}
+body.signature-atlas .entity-neighbors button{font-size:11px;min-height:36px}
+.signature-insights{border-block:1px solid #ffffff1e;padding-block:14px;margin-block:18px}
+.signature-kicker{font-size:9px;letter-spacing:.13em!important;color:#e3b4c9}
+.signature-insights p:not(.signature-kicker){font-size:12px;line-height:1.7;color:#e1d0dc;margin:8px 0}
+.signature-insights strong{color:#ffcfac;font-weight:500}
+body.signature-atlas .signature-note{font-size:11px;line-height:1.65;color:#b8a8bc}
+body.signature-atlas :is(.signature-parameters,.signature-docking,.signature-continuity){border-bottom:1px solid #ffffff20;padding:7px 0}
+body.signature-atlas :is(.signature-parameters,.signature-docking,.signature-continuity)>summary{cursor:pointer;font-size:12px;min-height:44px;display:list-item;align-content:center;color:#f2d4d9}
+#signature-parameters{display:grid;gap:12px;margin:16px 0}
+#signature-parameters label{display:grid;grid-template-columns:1fr auto;font-size:11px;color:#d0bccf;gap:3px}
+#signature-parameters input{grid-column:1/-1;width:100%;accent-color:#f495b6;min-height:26px}
+#signature-parameters output{font-family:monospace;color:#ffdaa9}
+body.signature-atlas :is(#signature-reset,#signature-export){width:100%;font-size:12px;padding:8px}
+body.signature-atlas :is(.signature-docking,.signature-continuity)>label{font-size:11px;display:block;margin-block:12px 5px;color:#c9b4c9}
+body.signature-atlas :is(#signature-partner,#signature-branch){width:100%;font-size:12px}
+#signature-docking-result{font-size:11px;color:#d3bbcf;line-height:1.7}
+.continuity-actions{display:flex;flex-wrap:wrap;gap:5px}
+.continuity-actions button{font-size:10px;padding:6px 9px;flex:1}
+#signature-history{display:block;font:10px/1.8 monospace;margin:12px 0;color:#d8c1d5}
+#signature-status{font-size:11px;color:#ffd6a8}
+.signature-caption{pointer-events:none;position:absolute;bottom:90px;left:50%;transform:translateX(-50%);display:grid;text-align:center;gap:12px;z-index:1;width:min(390px,90%);color:#bb97b9}
+.signature-caption>span{font-size:10px;letter-spacing:.27em!important;color:#ffd4bd}
+.signature-caption strong{font:15px Georgia,serif;letter-spacing:.06em!important;color:#eed1e4}
+.signature-caption small{font-size:10px;color:#b8a7bd}
+body.signature-atlas .world-camera-controls{bottom:25px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
+body.signature-atlas .world-camera-controls button{background:#141320d9}
+body.signature-atlas[data-world-mode=signature] :is(.world-movement,.world-destination){display:none}
+body.signature-atlas:not([data-world-mode=signature]) .signature-caption{display:none}
+body.signature-atlas .world-bottom{min-height:100px;background:#0e0e18;border-block:1px solid #ffffff1c;padding:18px 28px;gap:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
+body.signature-atlas .world-time-controls button{font-size:11px;padding:0 12px}
+body.signature-atlas .world-time-controls .moment-save{background:#322039;color:#efd3e5;border-color:#b570a84d}
+body.signature-atlas .world-selection{display:flex;align-items:center;gap:14px;width:auto}
+body.signature-atlas .selection-copy{min-width:130px;color:#f6e2da}
+body.signature-atlas .selection-copy small{font-size:8px;letter-spacing:.15em!important;color:#bfa6bd}
+body.signature-atlas .selection-copy strong{display:block;font-size:13px;max-width:175px;overflow-wrap:anywhere}
+body.signature-atlas .world-reading{color:#e3bfdf;font-size:12px}
+.atlas-chess-link{color:#ffd29b;text-decoration:none;border:1px solid #ffcf8b45;border-radius:9px;padding:10px 13px;font-size:12px;display:flex;align-items:center;gap:8px;min-height:44px}
+.atlas-chess-link small{display:block;font-size:9px;color:#c8b59b}
+body.signature-atlas .world-status{min-height:0;margin:0}body.signature-atlas .world-status:empty{display:none}
+body.signature-atlas .world-timeline{border-color:#ffffff22}body.signature-atlas .scene-time-controls{border-color:#ffffff22}
+body.signature-atlas .world-search{background:#14121f;color:#f6e6ef;border-color:#ac709665;border-radius:17px}
+body.signature-atlas .world-search input{background:#0b0b16;border-color:#e6b3d84d;color:#fbe9f3}
+body.signature-atlas #entity-search-results span{color:#c7b4ca}
+body.signature-atlas .world-directory{max-width:1150px;padding:50px 24px;margin:auto}
+body.signature-atlas .world-directory .profile-grid a{background:#151321;border-color:#ffffff20;color:#f5e0e9;border-radius:13px}
+.atlas-footer{padding:22px 28px;display:flex;flex-wrap:wrap;gap:24px;font-size:10px;color:#af98b0;background:#0c0c14}
+.atlas-footer a{color:#d4bfd1;text-underline-offset:4px}.atlas-footer>span{margin-left:auto}
+@media(min-width:1600px){body.signature-atlas .world-heading{left:65px;top:85px;width:315px}body.signature-atlas .world-heading h1{font-size:57px}body.signature-atlas .world-heading .signature-intro{font-size:15px;max-width:280px}body.signature-atlas .world-inspector{right:40px;width:320px;padding:25px}}
+@media(max-width:1100px) and (min-width:761px){body.signature-atlas .world-heading{left:22px;width:210px}body.signature-atlas .world-heading h1{font-size:34px}body.signature-atlas .world-heading .signature-intro{font-size:12px;max-width:185px}body.signature-atlas .world-inspector{width:250px;right:16px;padding:16px}body.signature-atlas .world-modes button{padding:0 8px}body.signature-atlas .world-header{padding:0 16px}body.signature-atlas .world-swarm-link{display:none}.signature-caption{left:47%;max-width:260px}}
+@media(max-width:760px){
+ body.signature-atlas .world-header{height:auto;min-height:138px;padding:12px 15px;gap:10px;flex-wrap:wrap}
+ body.signature-atlas .world-brand{font-size:13px}body.signature-atlas .world-brand small{font-size:8px}
+ body.signature-atlas .world-header-actions{width:auto!important;gap:3px}body.signature-atlas .world-header-actions .profile-languages{flex:0 0 auto!important}
+ body.signature-atlas .world-header-actions .profile-languages button{padding:0 7px;min-width:34px}
+ body.signature-atlas #entity-info-toggle{display:none}body.signature-atlas .world-modes{width:100%;order:3;justify-content:space-evenly}body.signature-atlas .world-modes button{min-height:44px;padding:0 8px;font-size:11px}
+ body.signature-atlas .world-stage{height:auto;min-height:0;display:flex;flex-direction:column;overflow:visible}
+ body.signature-atlas .world-stage::before{height:200px;background:linear-gradient(#0b0d18e8,transparent)}
+ body.signature-atlas .world-canvas{position:relative;width:100%;height:490px;z-index:0;flex:none}
+ body.signature-atlas .world-heading{top:20px;left:20px;width:calc(100% - 40px)}
+ body.signature-atlas .world-heading h1{font-size:28px;line-height:1.06;margin:10px 0}body.signature-atlas .world-heading h1 br{display:none}
+ body.signature-atlas .world-heading p:first-child{font-size:8px;margin:0}body.signature-atlas .world-heading>span{font-size:10px}
+ body.signature-atlas .signature-intro,body.signature-atlas .signature-home-link,body.signature-atlas .scene-clock-label{display:none}
+ body.signature-atlas .world-inspector{position:relative;inset:auto;width:calc(100% - 28px);max-width:none;max-height:none;overflow:visible;margin:0 14px 18px;padding:20px;box-shadow:0 -20px 60px #0b0b16;border-radius:16px;z-index:3}
+ body.signature-atlas .world-inspector h2{font-size:34px;margin:12px 0}body.signature-atlas #entity-info-close{display:none}
+ body.signature-atlas .world-inspector .entity-neighbors{display:block}
+ body.signature-atlas .signature-caption{top:365px;bottom:auto;left:50%;gap:8px;width:85%}
+ body.signature-atlas .signature-caption strong{font-size:13px}
+ body.signature-atlas .world-camera-controls{top:435px;bottom:auto!important;height:44px;align-self:auto;justify-self:auto;grid-area:auto;left:50%;transform:translateX(-50%);margin:0;gap:5px}
+ body.signature-atlas .world-camera-controls .icon-button{width:44px;height:44px;min-height:44px;min-width:44px}
+ body.signature-atlas #camera-left,body.signature-atlas #camera-right{display:inline-flex}
+ body.signature-atlas .world-movement{top:340px;bottom:auto}
+ body.signature-atlas:not([data-world-mode=signature]) .world-camera-controls{left:15px;transform:none;top:250px}
+ body.signature-atlas:not([data-world-mode=signature]) .world-camera-controls button:nth-child(2){display:none}
+ body.signature-atlas .world-bottom{justify-content:center;padding:18px 15px;gap:15px;min-height:0}
+ body.signature-atlas .world-selection{width:100%;justify-content:center}body.signature-atlas .selection-copy{text-align:center;min-width:180px}
+ body.signature-atlas .world-time-controls{display:flex;flex-wrap:wrap;justify-content:center;gap:5px}
+ body.signature-atlas .world-time-controls button{min-height:44px}
+ body.signature-atlas .atlas-chess-link{width:100%;justify-content:center}
+ body.signature-atlas .atlas-footer{padding:22px 18px;gap:18px}body.signature-atlas .atlas-footer>span{width:100%;margin:0}
+}
+
+@media(max-width:760px){body.signature-atlas .world-header-actions .hub-navigation a:first-child{display:none!important}body.signature-atlas .world-header-actions .hub-navigation{gap:0;flex-wrap:nowrap}body.signature-atlas .world-header-actions{flex-wrap:nowrap;min-width:0}body.signature-atlas .world-header-actions .profile-languages{width:auto;min-width:0}body.signature-atlas .world-camera-controls{align-items:center}}

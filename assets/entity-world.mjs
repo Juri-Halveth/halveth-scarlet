@@ -1,6 +1,7 @@
 import * as runtime from './entity-vendor/runtime.mjs';
 import { createCharacterWorld } from './entity-world-scene.mjs';
 import { orderedEntities, matchingEntities, neighbors, readMoments, appendMoment, TIMELINE_KEY, MOMENT_SCHEMA, MAX_MOMENTS, WORLD_DESTINATIONS } from './entity-world-model.mjs';
+import { bindSignatureUI } from './entity-signature-ui.mjs';
 
 const $ = id => document.getElementById(id);
 const entities = orderedEntities(window.HalvethUniverse.entities);
@@ -10,8 +11,8 @@ const t = (de, en) => lang() === 'en' ? en : de;
 const field = (entity, key) => lang() === 'en' ? entity.en[key] : entity[key];
 const icons = Object.fromEntries(Object.entries(runtime).filter(([key]) => !['THREE', 'OrbitControls', 'createIcons'].includes(key)));
 runtime.createIcons({ icons, attrs: { width: 18, height: 18, 'stroke-width': 1.7 } });
-let selected = ids.has(location.hash.slice(1)) ? location.hash.slice(1) : entities[0].id;
-let mode = 'focus', scene;
+let selected = ids.has(location.hash.slice(1)) ? location.hash.slice(1) : ids.has('scarlet') ? 'scarlet' : entities[0].id;
+let mode = 'signature', scene;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = reduced.matches;
 let timeline;
@@ -21,6 +22,7 @@ let moments = timeline.moments;
 document.body.classList.add('world-enhanced');
 $('profile-directory').hidden = true;
 const status = text => { $('world-status').textContent = text; };
+const signatureUI=bindSignatureUI({entities,getLanguage:lang,onChange(value,other){scene?.signature(value,other);}});
 
 function renderSelection() {
   const entity = entities.find(item => item.id === selected);
@@ -36,11 +38,15 @@ function renderSelection() {
   }));
   if (!related.length) $('entity-neighbors').textContent = t('Weitere Zuordnungen offen.', 'Further connections are open.');
   document.title = `${entity.label} · ${t('Figurenraum', 'Character world')} · HALVETH`;
+  signatureUI.select(entity);
 }
 function select(id, announce = true) {
   if (!ids.has(id)) return;
   selected = id; scene?.select(id);
   const url = new URL(location.href); url.hash = id; history.replaceState(history.state, '', url);
+  for(const link of document.querySelectorAll('[data-hub-navigation] a[hreflang]')){
+    const localized=new URL(url);localized.searchParams.set('lang',link.hreflang);link.href=localized.href;
+  }
   renderSelection();
   if (announce) status(t('Im Fokus: ', 'In focus: ') + entities.find(e => e.id === id).label);
 }
@@ -49,6 +55,7 @@ function setMode(next) {
   renderMode();
 }
 function renderMode() {
+  $('mode-signature').setAttribute('aria-pressed',String(mode==='signature'));
   $('mode-focus').setAttribute('aria-pressed', String(mode === 'focus'));
   $('mode-all').setAttribute('aria-pressed', String(mode === 'all'));
   $('mode-overview').setAttribute('aria-pressed', String(mode === 'overview'));
@@ -76,7 +83,7 @@ function startScene() {
       },
       onError(reason) { $('world-error').hidden = reason === 'CONTEXT_RESTORED'; }
     });
-    scene.select(selected); scene.setMode(mode); $('world-loading').hidden = true;
+    scene.select(selected); scene.setMode(mode); signatureUI.refresh(); $('world-loading').hidden = true;
   } catch (error) {
     console.warn('Character world renderer unavailable:', error.message);
     $('world-loading').hidden = true; $('world-error').hidden = false; $('world-canvas').dataset.state = 'UNAVAILABLE';
@@ -90,7 +97,7 @@ function renderSearch() {
     const button = document.createElement('button'); button.type = 'button';
     const label = document.createElement('strong'); label.textContent = entity.label;
     const role = document.createElement('span'); role.textContent = field(entity, 'role');
-    button.append(label, role); button.addEventListener('click', () => { select(entity.id); setMode('focus'); $('world-search').close(); });
+    button.append(label, role); button.addEventListener('click', () => { select(entity.id); setMode(mode==='signature'?'signature':'focus'); $('world-search').close(); });
     return button;
   }));
   if (!found.length) $('entity-search-results').textContent = t('Keine passende Figur.', 'No matching character.');
@@ -115,6 +122,7 @@ $('world-search-open').addEventListener('click', () => { renderSearch(); $('worl
 $('world-search-close').addEventListener('click', () => $('world-search').close());
 $('entity-search').addEventListener('input', renderSearch);
 $('mode-focus').addEventListener('click', () => setMode('focus'));
+$('mode-signature').addEventListener('click',()=>setMode('signature'));
 $('mode-all').addEventListener('click', () => setMode('all'));
 $('mode-overview').addEventListener('click', () => setMode('overview'));
 function showInspector(open) {
@@ -145,7 +153,7 @@ $('world-pause').addEventListener('click', () => { paused = !paused; updatePause
 reduced.addEventListener('change', event => { paused = event.matches; updatePause(); });
 for (const [id, method, value] of [['camera-left','rotate',-1],['camera-right','rotate',1],['camera-in','zoom',1],['camera-out','zoom',-1],['camera-reset','reset',0]]) $(id).addEventListener('click', () => scene?.[method](value));
 for (const [id, delta] of [['entity-prev', -1], ['entity-next', 1]]) $(id).addEventListener('click', () => {
-  const index = entities.findIndex(e => e.id === selected); select(entities[(index + delta + entities.length) % entities.length].id); setMode('focus');
+  const index = entities.findIndex(e => e.id === selected); select(entities[(index + delta + entities.length) % entities.length].id); setMode(mode==='signature'?'signature':'focus');
 });
 $('directory-open').addEventListener('click', openDirectory);
 $('world-fallback').addEventListener('click', () => { $('profile-directory').hidden = false; $('profile-directory').scrollIntoView(); });
@@ -171,4 +179,7 @@ window.addEventListener('halveth:language', () => { renderSelection(); renderTim
 window.addEventListener('hashchange', () => { if (ids.has(location.hash.slice(1))) select(location.hash.slice(1)); });
 window.addEventListener('halveth:world-gift', event => scene?.materialize?.(event.detail.event, event.detail.focus, event.detail.appearanceId));
 window.addEventListener('halveth:world-stage', event => scene?.broadcast?.(event.detail === true));
-renderSelection(); renderTimeline(); renderDestinations(); updatePause(); startScene();
+for(const panel of document.querySelectorAll('.signature-parameters,.signature-docking,.signature-continuity')) panel.addEventListener('toggle',()=>{if(panel.open && mode!=='signature')setMode('signature');});
+showInspector(true);renderMode();renderSelection(); renderTimeline(); renderDestinations(); updatePause(); startScene();
+// Legacy entity fragments are also static directory anchors. Restore the scene's entry view.
+if(ids.has(location.hash.slice(1))) requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'instant'}));

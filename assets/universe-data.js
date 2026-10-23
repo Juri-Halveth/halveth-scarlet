@@ -1980,6 +1980,37 @@ window.HalvethUniverse = {
         "note": "The page carries an open 16/16 challenge and an embedded 41-ply trace. The local checker confirms three transformed original pawns, two lost original pawns and four preserved original anchors in that trace. The public media reference in the name field is an inspiration node only; it asserts no affiliation, contribution or consent by an external person.",
         "sourceLabel": "HALVETH · Portal Chess · user-originated game proposition and local move-trace checker, 12 October 2026."
       }
+    },
+    {
+      "id": "deadpool",
+      "profilePath": "entities/deadpool/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · Continuity model",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/entity-continuity.mjs"
+        },
+        {
+          "label": "Marvel · Deadpool",
+          "url": "https://www.marvel.com/characters/deadpool-wade-wilson"
+        },
+        {
+          "label": "EIP-140 · REVERT",
+          "url": "https://eips.ethereum.org/EIPS/eip-140"
+        }
+      ],
+      "label": "DEADPOOL",
+      "role": "Ein Ursprung, getrennte Fortsetzungen: Identität, Zustand und Ereignisgeschichte.",
+      "kind": "CONTINUITY-EXPERIMENT",
+      "section": "garden",
+      "sourceLabel": "HALVETH · Zustandsmodell nach Juris Frage · 23.10.2026",
+      "note": "FORK, CHECKPOINT und RESTORE sind lokale Modelloperationen. Figurenherkunft: Marvel. Die Signatur ist frei gestaltet.",
+      "url": "entities/?lang=de#deadpool",
+      "en": {
+        "role": "One origin, separate continuations: identity, state and event history.",
+        "kind": "CONTINUITY EXPERIMENT",
+        "sourceLabel": "HALVETH · state model from Juri’s question · 23 October 2026",
+        "note": "FORK, CHECKPOINT and RESTORE are local model operations. Character origins: Marvel. The signature is an authored design."
+      }
     }
   ]
 };

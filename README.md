@@ -13,6 +13,23 @@ Browser-Spielprototypen, interaktive Grafik und synthetische Lehrmodelle.
 
 ## Ausgewählte Einstiege
 
+### [1001 · Entitäten als veränderbare Signaturen](entities/)
+
+68 Profile, acht räumliche Grundformen und sechs frei gestaltete Koordinaten.
+Stärken und offene Anschlüsse werden sichtbar; zwei Formen lassen sich
+nebeneinander andocken. Im selben Raum bleiben die begehbaren Figuren erreichbar.
+
+**Ausprobieren:** Profil wählen → „Signatur verändern“ → Gestalt oder Werte ändern.
+Unter „Identität / Zeit / Verzweigung“ erhält FORK den Elternbranch;
+CHECKPOINT und RESTORE merken beziehungsweise rekonstruieren Modellzustände.
+Die Ereignisspur bleibt erhalten. Der JSON-Export enthält die gewählten
+Koordinaten, Branches, Checkpoints und Ereignisse. Je Entität gelten die
+sichtbaren Grenzen von 16 Branches und 128 Transitionen pro Sitzung.
+
+Die Signaturen sind eigene Entwurfskoordinaten. Sie sind keine gemessenen
+Persönlichkeitswerte. Figurenquellen und bestehende Rechte bleiben in den
+jeweiligen Dossiers zugeordnet. [Deadpool als Continuity-Experiment](docs/entities/deadpool.md).
+
 ### [ASHBOUND · eigene Spielwelt](forschung/ashbound/)
 
 Browser-Spielprototyp und native Entwicklungsarbeit.

@@ -54,7 +54,8 @@ function assertStaticProfiles(html) {
 
 test('the actual registry has one unique ID per current entity and preserves caller-defined source order', async () => {
   const { orderedEntities } = await modelPromise;
-  assert.equal(entities.length, 67);
+  assert.ok(entities.length >= 68);
+  assert.ok(ids.has('deadpool'));
   assert.equal(ids.size, entities.length);
   const ordered = orderedEntities(entities);
   assert.notStrictEqual(ordered, entities);
@@ -336,7 +337,7 @@ async function controllerRegression() {
     const blockedNetwork = (...args) => { networkCalls.push(args); throw new Error('Unexpected network request'); };
     const sandbox = vm.createContext({
       window: { HalvethUniverse: registry, HalvethLanguage: { get: () => 'en' }, addEventListener(type, fn) { events[type] = fn; } },
-      document: { body: element(), getElementById: id => nodes.get(id), createElement: element },
+      document: { body: element(), getElementById: id => nodes.get(id), createElement: element, querySelectorAll:()=>[] },
       location: { href: 'http://localhost/entities/', hash: '' },
       history: { state: null, replaceState() {} },
       matchMedia: () => ({ matches: true, addEventListener() {} }),
@@ -352,10 +353,11 @@ async function controllerRegression() {
     const model = new vm.SourceTextModule(read('assets/entity-world-model.mjs'), { context: sandbox });
     const runtime = new vm.SyntheticModule(['createIcons'], function () { this.setExport('createIcons', () => {}); }, { context: sandbox });
     const scene = new vm.SyntheticModule(['createCharacterWorld'], function () {
-      this.setExport('createCharacterWorld', () => ({ select() {}, setMode() {}, pause() {}, dispose() {} }));
+      this.setExport('createCharacterWorld', () => ({ select() {}, setMode() {}, pause() {}, dispose() {}, signature() {} }));
     }, { context: sandbox });
     const controller = new vm.SourceTextModule(read('assets/entity-world.mjs'), { context: sandbox });
-    const dependencies = { './entity-vendor/runtime.mjs': runtime, './entity-world-scene.mjs': scene, './entity-world-model.mjs': model };
+    const signatures = new vm.SyntheticModule(['bindSignatureUI'],function(){this.setExport('bindSignatureUI',()=>({select(){},refresh(){},current(){return {};}}));},{context:sandbox});
+    const dependencies = { './entity-vendor/runtime.mjs': runtime, './entity-world-scene.mjs': scene, './entity-world-model.mjs': model, './entity-signature-ui.mjs':signatures };
     await controller.link(specifier => { assert.ok(dependencies[specifier], specifier); return dependencies[specifier]; });
     await controller.evaluate();
     return { nodes, storage, writes, networkCalls, events, sandbox };
