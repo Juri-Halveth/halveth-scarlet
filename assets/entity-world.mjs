@@ -30,9 +30,9 @@ function renderWave(summary){
   lastWaveSummary=summary;
   if(previous?.revealed!==summary.revealed)$('wave-count').textContent=`${summary.revealed} / ${summary.total}`;
   if(previous?.phase!==summary.phase){
-    const labels={FORMING:t('Eine Form nach der anderen.','One form after another.'),LINKED:t('Alle verbunden. Ein gemeinsamer Impuls.','All connected. One shared impulse.'),COLLAPSING:t('Alle bewegen sich gleichzeitig zum Zentrum.','All moving toward the center together.'),PACKED:t('Alle im Zentrum. Die Formen bleiben erhalten.','All at the center. Every form is retained.'),UNFOLDING:t('Dieselben Formen entfalten sich wieder.','The same forms unfold again.')};
+    const labels={FORMING:t('Eine Form nach der anderen.','One form after another.'),LINKED:t('Alle verbunden. Bereit für denselben Moment.','All connected. Ready for the same instant.'),CAPTURING:t('Ein Lichtimpuls. Alle im selben Moment.','One light impulse. All at the same instant.'),CAPTURED:t(`Alle ${summary.total} im selben Snapshot · T ${(summary.captureTime??0).toFixed(3)} s`,`All ${summary.total} in one snapshot · T ${(summary.captureTime??0).toFixed(3)} s`)};
     $('wave-state').textContent=labels[summary.phase];
-    if(waveSoundEnabled&&!paused&&summary.phase==='COLLAPSING'&&previous?.phase!==summary.phase)waveSound?.note(0);
+    if(waveSoundEnabled&&!paused&&summary.phase==='CAPTURING'&&previous?.phase!==summary.phase)waveSound?.note(0);
   }
   if(waveSoundEnabled&&!paused&&summary.revealed>(previous?.revealed||0))waveSound?.note(summary.revealed-1);
 }
@@ -148,7 +148,12 @@ $('entity-search').addEventListener('input', renderSearch);
 $('mode-focus').addEventListener('click', () => setMode('focus'));
 $('mode-signature').addEventListener('click',()=>setMode('signature'));
 $('mode-chain').addEventListener('click',()=>setMode('chain'));
-for(const [id,action] of [['wave-replay','REPLAY'],['wave-collapse','COLLAPSE'],['wave-unfold','UNFOLD']])$(id).addEventListener('click',()=>{if(mode!=='chain')setMode('chain');scene?.waveAction(action);});
+for(const [id,action] of [['wave-replay','REPLAY'],['wave-collapse','CAPTURE'],['wave-unfold','RESUME']])$(id).addEventListener('click',()=>{if(mode!=='chain')setMode('chain');scene?.waveAction(action);});
+$('wave-export').addEventListener('click',()=>{
+  const payload=scene?.waveExport();if(!payload)return;
+  const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)+'\n'],{type:'application/json'}));
+  const a=document.createElement('a');a.href=url;a.download='halveth-wave-frames.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
 $('wave-sound').addEventListener('click',async()=>{
   if(waveSoundBusy)return;waveSoundBusy=true;
   try{waveSound||=createWaveAudio();waveSoundEnabled=await waveSound.enable(!waveSoundEnabled);$('wave-sound').setAttribute('aria-pressed',String(waveSoundEnabled));$('wave-sound').textContent=waveSoundEnabled?t('Klang an','Sound on'):t('Klang aus','Sound off');if(waveSoundEnabled&&!paused)waveSound.note(lastWaveSummary?.revealed||0);}

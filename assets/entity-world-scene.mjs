@@ -97,7 +97,7 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
     if(signatureMode){sculpture.animate(clock,paused);host.dataset.worldTime=clock.toFixed(3);return;}
     if(chainMode){
       const state=wave.animate(dt,camera,{paused});
-      host.dataset.wavePhase=state.phase;host.dataset.waveRevealed=String(state.revealed);host.dataset.waveCompression=state.compression.toFixed(4);host.dataset.waveEntities=String(state.total);host.dataset.waveHistorySamples=String(state.historySamples);
+      host.dataset.wavePhase=state.phase;host.dataset.waveRevealed=String(state.revealed);host.dataset.waveSnapshot=state.captureId||'';host.dataset.waveSnapshotTime=state.captureTime===null?'':String(state.captureTime);host.dataset.waveEntities=String(state.total);host.dataset.waveHistorySamples=String(state.historySamples);
       host.dataset.worldTime=clock.toFixed(3);onWaveState(state);return;
     }
     const entry = active();
@@ -204,10 +204,15 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
     const dt = Math.max(0, Math.min((now - previous) / 1000, .05)); previous = now;
     travel(held.x + has('KeyD', 'ArrowRight') - has('KeyA', 'ArrowLeft'), held.y + has('KeyE') - has('KeyQ'), held.z + has('KeyW', 'ArrowUp') - has('KeyS', 'ArrowDown'), dt, has('ShiftLeft', 'ShiftRight') ? 32 : 12);
     if (!paused) clock += dt * rate;
-    if (!paused || dirty) {
-      sample(paused?0:dt*rate); if(!['signature','chain'].includes(mode)){environment.update(camera.position, clock); gifts.update(clock, paused);}
-      if (controls.autoRotate && !paused) controls.update(dt);
-      renderer.render(scene, camera); frames++; host.dataset.frames = String(frames); dirty = false;
+    if (!paused || dirty || (mode==='chain'&&wave?.summary().phase==='CAPTURING')) {
+      sample(dt*rate); if(!['signature','chain'].includes(mode)){environment.update(camera.position, clock); gifts.update(clock, paused);}
+      if (controls.autoRotate && !paused && !(mode==='chain'&&wave?.summary().captureId)) controls.update(dt);
+      const startedAt=performance.now();renderer.render(scene, camera);
+      if(mode==='chain'){
+        const receipt=wave.recordFrame({startedAt,submittedAt:performance.now(),recordedAt:new Date().toISOString()},camera);
+        host.dataset.waveFrame=String(receipt.frameId);host.dataset.waveRetainedFrames=String(receipt.retained);
+      }
+      frames++; host.dataset.frames = String(frames); dirty = false;
       host.dataset.cameraPosition = camera.position.toArray().map(n => n.toFixed(2)).join(',');
       host.dataset.activeChunks = String(environment.chunkCount);
       if (now - lastTelemetry > 250) {
@@ -224,6 +229,7 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
     signature(value, companion=null){sculpture.set(value,companion);wave?.setSignature(value);dirty=true;},
     waveSignatures(values){const all=ensureWave();values.forEach(value=>all.setSignature(value));dirty=true;},
     waveAction(action){const result=ensureWave().action(action);dirty=true;onWaveState(result);},
+    waveExport(){return ensureWave().export();},
     reducedMotion(value){reducedMotion=Boolean(value);wave?.setReducedMotion(reducedMotion);},
     materialize(raw, focus = false, appearanceId) {
       let event, instance;
