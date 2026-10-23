@@ -7,8 +7,9 @@ import { createWorldGifts } from './entity-world-gifts.mjs';
 import { validateWorldEvent } from './world-events.mjs';
 import { signatureFor } from './entity-signatures.mjs';
 import { createSignatureSculpture } from './entity-signature-scene.mjs';
+import { createEntityWave } from './entity-wave-scene.mjs';
 
-export function createCharacterWorld(host, entities, { onSelect, onError, onModeChange = () => {}, onClock = () => {}, paused = false }) {
+export function createCharacterWorld(host, entities, { onSelect, onError, onModeChange = () => {}, onClock = () => {}, onWaveState=()=>{}, reducedMotion=false, paused = false }) {
   const renderer = new T.WebGLRenderer({ antialias: true, powerPreference: 'default' });
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.6));
   renderer.outputColorSpace = T.SRGBColorSpace;
@@ -37,6 +38,8 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
   scene.add(gifts.group);
   const sculpture = createSignatureSculpture(T);scene.add(sculpture.group);
   sculpture.set(signatureFor(entities[0]));
+  let wave;
+  const ensureWave=()=>{if(!wave){wave=createEntityWave(T,entities,{reducedMotion});scene.add(wave.group);}return wave;};
   const starGeometry=new T.BufferGeometry();
   const stars=[];for(let i=0;i<650;i++){const a=i*2.3999632297,r=30+(i%79);stars.push(Math.cos(a)*r,Math.sin(i*1.618)*45,Math.sin(a)*r);}
   starGeometry.setAttribute('position',new T.Float32BufferAttribute(stars,3));
@@ -70,19 +73,21 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
   const active = () => entries.find(entry => entry.entity.id === selected);
 
   function switchMode(next, notify = true) {
-    mode = ['signature','focus', 'overview'].includes(next) ? next : 'all';
+    mode = ['chain','signature','focus', 'overview'].includes(next) ? next : 'all';
+    if(mode==='chain')ensureWave();
     host.dataset.mode = mode;
     if (notify) onModeChange(mode);
     dirty = true;
   }
-  function sample() {
-    const signatureMode=mode==='signature';
-    environment.group.visible=gifts.group.visible=!signatureMode;
-    sculpture.group.visible=signatureMode;starField.visible=signatureMode;
-    focusMark.visible=!signatureMode;
+  function sample(dt=0) {
+    const signatureMode=mode==='signature',chainMode=mode==='chain',abstractMode=signatureMode||chainMode;
+    environment.group.visible=gifts.group.visible=!abstractMode;
+    sculpture.group.visible=signatureMode;starField.visible=abstractMode;
+    if(wave)wave.group.visible=chainMode;
+    focusMark.visible=!abstractMode;
     for (const entry of entries) {
-      entry.figure.group.visible=entry.contact.visible=!signatureMode;
-      if(signatureMode)continue;
+      entry.figure.group.visible=entry.contact.visible=!abstractMode;
+      if(abstractMode)continue;
       const pose = sampleRoamingPath(entry.route, clock, entry.position, entry.tangent);
       entry.figure.group.position.copy(entry.position);
       entry.figure.group.rotation.y = pose.heading;
@@ -90,6 +95,11 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
       entry.figure.animate(clock, entry.entity.id === selected, false, pose);
     }
     if(signatureMode){sculpture.animate(clock,paused);host.dataset.worldTime=clock.toFixed(3);return;}
+    if(chainMode){
+      const state=wave.animate(dt,camera,{paused});
+      host.dataset.wavePhase=state.phase;host.dataset.waveRevealed=String(state.revealed);host.dataset.waveCompression=state.compression.toFixed(4);host.dataset.waveEntities=String(state.total);host.dataset.waveHistorySamples=String(state.historySamples);
+      host.dataset.worldTime=clock.toFixed(3);onWaveState(state);return;
+    }
     const entry = active();
     focusMark.position.copy(entry.position); focusMark.position.y += .025;
     followPoint.copy(entry.position).y += 1.3;
@@ -103,7 +113,11 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
   }
   function resetCamera() {
     const mobile = host.clientWidth < 760;
-    if(mode==='signature') {
+    if(mode==='chain'){
+      controls.target.set(0,1.4,0);
+      const distance=Math.max(24,20/Math.max(.45,Math.min(1.4,camera.aspect)));
+      camera.position.set(0,1.4+distance*.4,distance);
+    } else if(mode==='signature') {
       controls.target.set(0,1.4,0);camera.position.set(mobile?6.2:5.5,3.3,mobile?9.4:8.2);
     } else if (mode === 'overview') {
       controls.target.set(0, 0, 0);
@@ -122,6 +136,7 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
     const width = Math.max(1, host.clientWidth), height = Math.max(1, host.clientHeight);
     renderer.setSize(width, height, false); camera.aspect = width / height;
     camera.updateProjectionMatrix(); dirty = true;
+    if(mode==='chain')resetCamera();
   }
   function travel(x, y, z, seconds = 1, speed = 12) {
     if (!x && !y && !z) return;
@@ -146,14 +161,14 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
     pointers.set(event.pointerId, { x: event.clientX, y: event.clientY, button: event.button });
     if (pointers.size > 1) multiPointer = true;
     userPointer = true;
-    if (mode!=='signature' && (event.button === 2 || event.ctrlKey || event.metaKey || event.shiftKey || multiPointer)) switchMode('all');
+    if (!['signature','chain'].includes(mode) && (event.button === 2 || event.ctrlKey || event.metaKey || event.shiftKey || multiPointer)) switchMode('all');
   };
   const onUp = event => {
     const down = pointers.get(event.pointerId); pointers.delete(event.pointerId);
     const wasMulti = multiPointer;
     if (!pointers.size) { userPointer = false; multiPointer = false; }
     // Hidden walking figures must not intercept clicks on the signature sculpture.
-    if (mode === 'signature' || !down || down.button !== 0 || wasMulti || Math.hypot(event.clientX - down.x, event.clientY - down.y) > 6) return;
+    if (['signature','chain'].includes(mode) || !down || down.button !== 0 || wasMulti || Math.hypot(event.clientX - down.x, event.clientY - down.y) > 6) return;
     const rect = canvas.getBoundingClientRect();
     pointer.set((event.clientX - rect.left) / rect.width * 2 - 1, -(event.clientY - rect.top) / rect.height * 2 + 1);
     raycaster.setFromCamera(pointer, camera);
@@ -190,7 +205,7 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
     travel(held.x + has('KeyD', 'ArrowRight') - has('KeyA', 'ArrowLeft'), held.y + has('KeyE') - has('KeyQ'), held.z + has('KeyW', 'ArrowUp') - has('KeyS', 'ArrowDown'), dt, has('ShiftLeft', 'ShiftRight') ? 32 : 12);
     if (!paused) clock += dt * rate;
     if (!paused || dirty) {
-      sample(); if(mode!=='signature'){environment.update(camera.position, clock); gifts.update(clock, paused);}
+      sample(paused?0:dt*rate); if(!['signature','chain'].includes(mode)){environment.update(camera.position, clock); gifts.update(clock, paused);}
       if (controls.autoRotate && !paused) controls.update(dt);
       renderer.render(scene, camera); frames++; host.dataset.frames = String(frames); dirty = false;
       host.dataset.cameraPosition = camera.position.toArray().map(n => n.toFixed(2)).join(',');
@@ -206,7 +221,10 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
   host.dataset.entityCount = String(entries.length); host.dataset.visibleEntities = String(entries.length);
   host.dataset.selected = selected; host.dataset.mode = mode; host.dataset.state = 'READY';
   return {
-    signature(value, companion=null){sculpture.set(value,companion);dirty=true;},
+    signature(value, companion=null){sculpture.set(value,companion);wave?.setSignature(value);dirty=true;},
+    waveSignatures(values){const all=ensureWave();values.forEach(value=>all.setSignature(value));dirty=true;},
+    waveAction(action){const result=ensureWave().action(action);dirty=true;onWaveState(result);},
+    reducedMotion(value){reducedMotion=Boolean(value);wave?.setReducedMotion(reducedMotion);},
     materialize(raw, focus = false, appearanceId) {
       let event, instance;
       try { event = validateWorldEvent(raw); instance = appearanceId === undefined ? event : validateWorldEvent({ ...event, id: appearanceId }); } catch { return; }
@@ -262,7 +280,7 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
       canvas.removeEventListener('pointercancel', clearInput); canvas.removeEventListener('keydown', onKeyDown); canvas.removeEventListener('blur', clearInput);
       canvas.removeEventListener('webglcontextlost', onLost); canvas.removeEventListener('webglcontextrestored', onRestored);
       entries.forEach(entry => entry.figure.dispose()); environment.dispose(); gifts.dispose();
-      sculpture.dispose();starGeometry.dispose();starMaterial.dispose();
+      sculpture.dispose();wave?.dispose();starGeometry.dispose();starMaterial.dispose();
       shadowGeometry.dispose(); shadowMaterial.dispose(); markGeometry.dispose(); markMaterial.dispose();
       renderer.dispose(); canvas.remove();
     }

@@ -353,11 +353,12 @@ async function controllerRegression() {
     const model = new vm.SourceTextModule(read('assets/entity-world-model.mjs'), { context: sandbox });
     const runtime = new vm.SyntheticModule(['createIcons'], function () { this.setExport('createIcons', () => {}); }, { context: sandbox });
     const scene = new vm.SyntheticModule(['createCharacterWorld'], function () {
-      this.setExport('createCharacterWorld', () => ({ select() {}, setMode() {}, pause() {}, dispose() {}, signature() {} }));
+      this.setExport('createCharacterWorld', () => ({ select() {}, setMode() {}, pause() {}, dispose() {}, signature() {},waveSignatures(){},waveAction(){},reducedMotion(){} }));
     }, { context: sandbox });
     const controller = new vm.SourceTextModule(read('assets/entity-world.mjs'), { context: sandbox });
-    const signatures = new vm.SyntheticModule(['bindSignatureUI'],function(){this.setExport('bindSignatureUI',()=>({select(){},refresh(){},current(){return {};}}));},{context:sandbox});
-    const dependencies = { './entity-vendor/runtime.mjs': runtime, './entity-world-scene.mjs': scene, './entity-world-model.mjs': model, './entity-signature-ui.mjs':signatures };
+    const signatures = new vm.SyntheticModule(['bindSignatureUI'],function(){this.setExport('bindSignatureUI',()=>({select(){},refresh(){},current(){return {};},all(){return [];}}));},{context:sandbox});
+    const audio = new vm.SyntheticModule(['createWaveAudio'],function(){this.setExport('createWaveAudio',()=>{assert.fail('Audio must wait for a gesture');});},{context:sandbox});
+    const dependencies = { './entity-vendor/runtime.mjs': runtime, './entity-world-scene.mjs': scene, './entity-world-model.mjs': model, './entity-signature-ui.mjs':signatures, './entity-wave-audio.mjs':audio };
     await controller.link(specifier => { assert.ok(dependencies[specifier], specifier); return dependencies[specifier]; });
     await controller.evaluate();
     return { nodes, storage, writes, networkCalls, events, sandbox };

@@ -2,6 +2,7 @@ import * as runtime from './entity-vendor/runtime.mjs';
 import { createCharacterWorld } from './entity-world-scene.mjs';
 import { orderedEntities, matchingEntities, neighbors, readMoments, appendMoment, TIMELINE_KEY, MOMENT_SCHEMA, MAX_MOMENTS, WORLD_DESTINATIONS } from './entity-world-model.mjs';
 import { bindSignatureUI } from './entity-signature-ui.mjs';
+import { createWaveAudio } from './entity-wave-audio.mjs';
 
 const $ = id => document.getElementById(id);
 const entities = orderedEntities(window.HalvethUniverse.entities);
@@ -12,7 +13,7 @@ const field = (entity, key) => lang() === 'en' ? entity.en[key] : entity[key];
 const icons = Object.fromEntries(Object.entries(runtime).filter(([key]) => !['THREE', 'OrbitControls', 'createIcons'].includes(key)));
 runtime.createIcons({ icons, attrs: { width: 18, height: 18, 'stroke-width': 1.7 } });
 let selected = ids.has(location.hash.slice(1)) ? location.hash.slice(1) : ids.has('scarlet') ? 'scarlet' : entities[0].id;
-let mode = 'signature', scene;
+let mode = new URL(location.href).searchParams.get('view')==='chain'?'chain':'signature', scene;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = reduced.matches;
 let timeline;
@@ -23,6 +24,18 @@ document.body.classList.add('world-enhanced');
 $('profile-directory').hidden = true;
 const status = text => { $('world-status').textContent = text; };
 const signatureUI=bindSignatureUI({entities,getLanguage:lang,onChange(value,other){scene?.signature(value,other);}});
+let waveSound,waveSoundEnabled=false,waveSoundBusy=false,lastWaveSummary;
+function renderWave(summary){
+  const previous=lastWaveSummary;
+  lastWaveSummary=summary;
+  if(previous?.revealed!==summary.revealed)$('wave-count').textContent=`${summary.revealed} / ${summary.total}`;
+  if(previous?.phase!==summary.phase){
+    const labels={FORMING:t('Eine Form nach der anderen.','One form after another.'),LINKED:t('Alle verbunden. Ein gemeinsamer Impuls.','All connected. One shared impulse.'),COLLAPSING:t('Alle bewegen sich gleichzeitig zum Zentrum.','All moving toward the center together.'),PACKED:t('Alle im Zentrum. Die Formen bleiben erhalten.','All at the center. Every form is retained.'),UNFOLDING:t('Dieselben Formen entfalten sich wieder.','The same forms unfold again.')};
+    $('wave-state').textContent=labels[summary.phase];
+    if(waveSoundEnabled&&!paused&&summary.phase==='COLLAPSING'&&previous?.phase!==summary.phase)waveSound?.note(0);
+  }
+  if(waveSoundEnabled&&!paused&&summary.revealed>(previous?.revealed||0))waveSound?.note(summary.revealed-1);
+}
 
 function renderSelection() {
   const entity = entities.find(item => item.id === selected);
@@ -51,10 +64,19 @@ function select(id, announce = true) {
   if (announce) status(t('Im Fokus: ', 'In focus: ') + entities.find(e => e.id === id).label);
 }
 function setMode(next) {
+  if(next==='chain')scene?.waveSignatures(signatureUI.all());
   mode = next; scene?.setMode(next);
   renderMode();
+  syncModeUrl();
+}
+function syncModeUrl(){
+  const next=mode;
+  const url=new URL(location.href);if(next==='chain')url.searchParams.set('view','chain');else url.searchParams.delete('view');
+  history.replaceState(history.state,'',url);
+  for(const link of document.querySelectorAll('[data-hub-navigation] a[hreflang]')){const localized=new URL(url);localized.searchParams.set('lang',link.hreflang);link.href=localized.href;}
 }
 function renderMode() {
+  $('mode-chain').setAttribute('aria-pressed',String(mode==='chain'));
   $('mode-signature').setAttribute('aria-pressed',String(mode==='signature'));
   $('mode-focus').setAttribute('aria-pressed', String(mode === 'focus'));
   $('mode-all').setAttribute('aria-pressed', String(mode === 'all'));
@@ -75,15 +97,17 @@ function startScene() {
   try {
     scene = createCharacterWorld($('world-canvas'), entities, {
       paused,
+      reducedMotion:reduced.matches,
+      onWaveState:renderWave,
       onSelect(id) { select(id); setMode('focus'); },
-      onModeChange(next) { mode = next; renderMode(); },
+      onModeChange(next) { mode = next; renderMode();syncModeUrl(); },
       onClock(time) {
         const seconds = Math.floor(Math.abs(time));
         $('world-clock').textContent = `${time < 0 ? '-' : ''}${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
       },
       onError(reason) { $('world-error').hidden = reason === 'CONTEXT_RESTORED'; }
     });
-    scene.select(selected); scene.setMode(mode); signatureUI.refresh(); $('world-loading').hidden = true;
+    scene.select(selected);if(mode==='chain')scene.waveSignatures(signatureUI.all());scene.setMode(mode);signatureUI.refresh();$('world-loading').hidden = true;
   } catch (error) {
     console.warn('Character world renderer unavailable:', error.message);
     $('world-loading').hidden = true; $('world-error').hidden = false; $('world-canvas').dataset.state = 'UNAVAILABLE';
@@ -123,6 +147,14 @@ $('world-search-close').addEventListener('click', () => $('world-search').close(
 $('entity-search').addEventListener('input', renderSearch);
 $('mode-focus').addEventListener('click', () => setMode('focus'));
 $('mode-signature').addEventListener('click',()=>setMode('signature'));
+$('mode-chain').addEventListener('click',()=>setMode('chain'));
+for(const [id,action] of [['wave-replay','REPLAY'],['wave-collapse','COLLAPSE'],['wave-unfold','UNFOLD']])$(id).addEventListener('click',()=>{if(mode!=='chain')setMode('chain');scene?.waveAction(action);});
+$('wave-sound').addEventListener('click',async()=>{
+  if(waveSoundBusy)return;waveSoundBusy=true;
+  try{waveSound||=createWaveAudio();waveSoundEnabled=await waveSound.enable(!waveSoundEnabled);$('wave-sound').setAttribute('aria-pressed',String(waveSoundEnabled));$('wave-sound').textContent=waveSoundEnabled?t('Klang an','Sound on'):t('Klang aus','Sound off');if(waveSoundEnabled&&!paused)waveSound.note(lastWaveSummary?.revealed||0);}
+  catch{$('wave-sound').textContent=t('Klang nicht verfügbar','Sound unavailable');$('wave-sound').disabled=true;}
+  finally{waveSoundBusy=false;}
+});
 $('mode-all').addEventListener('click', () => setMode('all'));
 $('mode-overview').addEventListener('click', () => setMode('overview'));
 function showInspector(open) {
@@ -150,7 +182,7 @@ for (const [id, vector] of [['move-forward', [0,0,1]], ['move-back', [0,0,-1]], 
   button.addEventListener('click', event => { if (event.detail === 0) scene?.move(...vector); });
 }
 $('world-pause').addEventListener('click', () => { paused = !paused; updatePause(); });
-reduced.addEventListener('change', event => { paused = event.matches; updatePause(); });
+reduced.addEventListener('change', event => { paused = event.matches;scene?.reducedMotion(event.matches);updatePause(); });
 for (const [id, method, value] of [['camera-left','rotate',-1],['camera-right','rotate',1],['camera-in','zoom',1],['camera-out','zoom',-1],['camera-reset','reset',0]]) $(id).addEventListener('click', () => scene?.[method](value));
 for (const [id, delta] of [['entity-prev', -1], ['entity-next', 1]]) $(id).addEventListener('click', () => {
   const index = entities.findIndex(e => e.id === selected); select(entities[(index + delta + entities.length) % entities.length].id); setMode(mode==='signature'?'signature':'focus');
@@ -175,7 +207,7 @@ $('moment-export').addEventListener('click', () => {
   const url = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2) + '\n'], { type: 'application/json' }));
   const a = document.createElement('a'); a.href = url; a.download = 'halveth-character-moments.json'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
-window.addEventListener('halveth:language', () => { renderSelection(); renderTimeline(); renderSearch(); renderDestinations(); updatePause(); });
+window.addEventListener('halveth:language', () => { renderSelection(); renderTimeline(); renderSearch(); renderDestinations(); updatePause();const saved=lastWaveSummary;lastWaveSummary=undefined;if(saved)renderWave(saved);$('wave-sound').textContent=waveSoundEnabled?t('Klang an','Sound on'):t('Klang aus','Sound off'); });
 window.addEventListener('hashchange', () => { if (ids.has(location.hash.slice(1))) select(location.hash.slice(1)); });
 window.addEventListener('halveth:world-gift', event => scene?.materialize?.(event.detail.event, event.detail.focus, event.detail.appearanceId));
 window.addEventListener('halveth:world-stage', event => scene?.broadcast?.(event.detail === true));

@@ -30,6 +30,16 @@ Die Signaturen sind eigene Entwurfskoordinaten. Sie sind keine gemessenen
 Persönlichkeitswerte. Figurenquellen und bestehende Rechte bleiben in den
 jeweiligen Dossiers zugeordnet. [Deadpool als Continuity-Experiment](docs/entities/deadpool.md).
 
+### [Wellenkette · alle Formen gemeinsam](entities/?view=chain#scarlet)
+
+**Welle** öffnet alle 68 Signaturen als räumliche, verbundene Kette.
+**Nacheinander** lässt sie in Reihenfolge erscheinen. **Alle ins Zentrum**
+zieht die gesamte Kette gleichzeitig zusammen; **Wieder entfalten** öffnet
+dieselben Formen erneut. Kleine Spiegelflächen zeigen verzögerte
+Rotationsstände und die feinen Spuren gespeicherte Positionen dieser Animation.
+Der freiwillig aktivierte Klang wird lokal erzeugt. Die Einstellung für
+reduzierte Bewegung wird berücksichtigt. Bestehende Modellkoordinaten bleiben erhalten.
+
 ### [ASHBOUND · eigene Spielwelt](forschung/ashbound/)
 
 Browser-Spielprototyp und native Entwicklungsarbeit.
