@@ -1,6 +1,6 @@
 # HALVETH // Singularity Cannon
 
-**Projektleitung und benannte Entwicklung:** Juri Janovski (Juri Halveth), 2026.
+**Projektleitung und benannte Entwicklung:** Juri Janovski (Projekt HALVETH), 2026.
 [Demo öffnen](./) · [Aktuelles Offline-Paket](HALVETH_SINGULARITY_CANNON.zip) · [Lizenz](LICENSE-HALVETH-PIRL-2.0.md)
 
 Eine eigenständige WebGL-/Canvas-Spielsimulation, angeregt vom Singularity-Cannon-Motiv aus *Unreal II: The Awakening*. Sie enthält keine Originaldateien des Spiels. Der aktuelle Stand umfasst schwarze Kerne, unterschiedlich geneigte helle Scheiben, begrenzte Zeichenbudgets, Rücknahme und den örtlichen Strömungseinzug beim Selbsttreffer.

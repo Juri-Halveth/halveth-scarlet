@@ -2,6 +2,8 @@
 
 # SCARLET · Spiele, Grafik und technische Modelle
 
+**Person: Juri. Projekt: HALVETH.** [Namenszuordnung](IDENTITY.md).
+
 [Windows: alte glTF-Arbeitskopien prüfen und gezielt reparieren](docs/WINDOWS_GLTF_RECOVERY.md)
 
 **Erst ausprobieren. Dann den Code ansehen.** SCARLET verbindet eigene
@@ -110,7 +112,7 @@ Kontextseiten wurden privat gesichert. Die JURI-THESIS ist als gezielte
 öffentliche Ausnahme wieder erreichbar. Der Redaktionscommit schrieb keine
 Git-Historie um.
 
-Projektleitung: **Juri Halveth / HALVETH**. Entwicklung mit KI-Unterstützung.
+Projektleitung: **Juri / HALVETH**. Entwicklung mit KI-Unterstützung.
 [Lizenzen und Herkunft](LICENSES.md) · Kontakt: **security@halveth.de**.
 
 [Portal Chess direkt öffnen](https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/)

@@ -32,6 +32,6 @@ peer availability.
 Public portal and source:
 <https://github.com/Juri-Halveth/halveth-scarlet/tree/main/collage>
 
-Copyright (c) 2026 Juri Janovski, publishing as Juri Halveth. Permissions and
+Copyright (c) 2026 Juri Janovski, project HALVETH. Permissions and
 exclusions are stated in `LICENSES.md` and
 `LICENSE-HALVETH-PIRL-2.0.md`.

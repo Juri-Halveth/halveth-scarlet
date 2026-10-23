@@ -1,4 +1,4 @@
-/* © 2026 Juri Janovski (Juri Halveth). Original contributions under HALVETH PIRL 2.0; see ../../LICENSES.md. */
+/* © 2026 Juri Janovski (Projekt HALVETH). Original contributions under HALVETH PIRL 2.0; see ../../LICENSES.md. */
 (() => {
   'use strict';
   const input = document.getElementById('work-search');
