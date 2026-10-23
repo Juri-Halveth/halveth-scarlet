@@ -31,7 +31,7 @@
   "sceneTimings": [
     {
       "sceneId": "S00_HOOK",
-      "start": 0.0,
+      "start": 0,
       "duration": 14.755,
       "speechDuration": 13.505
     },
@@ -105,23 +105,23 @@
   "files": [
     {
       "name": "halveth-brightcast-001-starlight-de.srt",
-      "bytes": 3493,
-      "sha256": "491c44f55bfa55ca92870b2bf2c44ef455b8bb8902f8e6c5653f034c9e9b6c8a"
+      "bytes": 3485,
+      "sha256": "8e0c97b0a3d01d0a5ee9c9efe1fc79b3dde0bd1eb7eba4f4666813d5df49e54b"
     },
     {
       "name": "halveth-brightcast-001-starlight-de.vtt",
-      "bytes": 3464,
-      "sha256": "de7c615082d5355f311b4b2b84f89a6fcc4a619a94b664bdbca0943c8bcc6a81"
+      "bytes": 3456,
+      "sha256": "1e15c25e404ffd9116c3bced86cc2f2ecf346bed4f8af47780658b38bbc9a90c"
     },
     {
       "name": "halveth-brightcast-001-starlight-en.srt",
-      "bytes": 3076,
-      "sha256": "b2aaa2fece44272569f2432d059daccb19b41cda2942b1d31d826b2c4f41ae16"
+      "bytes": 3068,
+      "sha256": "c7d809d7285ec4f05b98f723a57a34c8c5cfb986177ccd696e8c222b90268caa"
     },
     {
       "name": "halveth-brightcast-001-starlight-en.vtt",
-      "bytes": 3047,
-      "sha256": "683c74d087d0bd443f0f60b9e80d7b91ff26251011f28b40cb609dbbc1509089"
+      "bytes": 3039,
+      "sha256": "abe95618496bfc7374682740a25c9ad8a29a4d69d4313b08b1a0d74a8e9ed27c"
     },
     {
       "name": "halveth-brightcast-001-starlight-third-route-de-1080p.mp4",
@@ -168,5 +168,14 @@
       "bytes": 1439,
       "sha256": "63fcca6176a891a5ad872c5d93f77c0313a1269f448742c8d223fb5d5b5006f8"
     }
-  ]
+  ],
+  "captionRevision": "1.0.1",
+  "attributionCorrection": {
+    "recordedAt": "2026-10-23T23:48:13.586Z",
+    "person": "Juri",
+    "projectName": "HALVETH",
+    "previousCommit": "541bfee0d5d2d279202f61ddf60269cc10eee83b",
+    "previousManifestSha256": "3978cf22fb6677d76067de34b7d3ed180186df171aace32a91ec7b00baddcfc2",
+    "scope": "Four external captions corrected; original audiovisual media and historical release retained"
+  }
 }

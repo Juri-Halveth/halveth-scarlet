@@ -12,7 +12,7 @@
 [Общественный проект JURI-THESIS](forschung/juri-thesis/) вновь открыт как
 отдельное исключение. Этот коммит не переписывает историю Git.
 
-Руководитель: Юри Хальвет / HALVETH. Разработка с помощью ИИ.
+Руководитель: Юри / HALVETH. Разработка с помощью ИИ.
 [Лицензии](LICENSES.md) · security@halveth.de
 
 [Portal Chess](https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/)

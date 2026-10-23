@@ -4,8 +4,9 @@
   "declaration": "HALVETH authorship, rights and participation claim",
   "rightsHolder": {
     "legalName": "Juri Janovski",
-    "publishingName": "Juri Halveth",
-    "github": "https://github.com/Juri-Halveth"
+    "publishingName": "Juri",
+    "github": "https://github.com/Juri-Halveth",
+    "projectName": "HALVETH"
   },
   "repository": "https://github.com/Juri-Halveth/halveth-scarlet",
   "historicalParentCommit": "1b87cfc8b6202bf5706e7f80a05ef487667cf1ba",
@@ -49,5 +50,12 @@
     "email": "security@halveth.de",
     "purpose": "Rights, attribution and written commercial permission requests"
   },
-  "clarifiedDate": "2026-09-16"
+  "clarifiedDate": "2026-09-16",
+  "attributionClarification": {
+    "person": "Juri",
+    "projectName": "HALVETH",
+    "githubHandle": "Juri-Halveth",
+    "recordedDate": "2026-10-24",
+    "scope": "Name correction only; existing rights and grants unchanged"
+  }
 }

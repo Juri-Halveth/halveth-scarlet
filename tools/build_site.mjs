@@ -42,7 +42,7 @@ execFileSync(process.execPath, [path.join(root, 'tools/build_guide.mjs'), '--che
 fs.rmSync(output, { recursive: true, force: true });
 fs.mkdirSync(output);
 const directories = ['languages', 'assets', 'entities', 'forschung', 'room', 'snapshot', 'collage', 'docs', 'releases'];
-const files = ['index.html', 'favicon.ico', '.nojekyll', 'robots.txt', 'README.md', 'CONTRIBUTIONS.md', 'LICENSES.md', 'LICENSE-HALVETH-PIRL-2.0.md', 'HALVETH-RIGHTS.md', 'HALVETH-RIGHTS.json', 'halveth-rights.schema.json'];
+const files = ['index.html', 'favicon.ico', '.nojekyll', 'robots.txt', 'README.md', 'IDENTITY.md', 'CONTRIBUTIONS.md', 'LICENSES.md', 'LICENSE-HALVETH-PIRL-2.0.md', 'HALVETH-RIGHTS.md', 'HALVETH-RIGHTS.json', 'halveth-rights.schema.json'];
 for (const name of [...directories, ...files]) {
   const source = path.join(root, name);
   if (!fs.existsSync(source)) throw new Error(`Required public input missing: ${name}`);

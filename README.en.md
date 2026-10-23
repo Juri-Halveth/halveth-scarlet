@@ -13,7 +13,7 @@ Earlier personal and political context pages were preserved privately. The
 [JURI-THESIS civic proposal](forschung/juri-thesis/) is a specific restored public
 exception. Editorial commits do not rewrite Git history.
 
-Project lead: Juri Halveth / HALVETH. AI-assisted development.
+Project lead: Juri / HALVETH. AI-assisted development.
 [Licences](LICENSES.md) · security@halveth.de
 
 [Portal Chess](https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/)
