@@ -7,7 +7,7 @@ export function bindSignatureUI({entities,getLanguage,onChange}) {
   const status=value=>{$('signature-status').textContent=value;};
   function act(operation,payload) {
     try {session=transition(session,operation,payload);sessions.set(entity.id,session);render();return true;}
-    catch(error){status(error.message);return false;}
+    catch(error){render();status(error.message);return false;}
   }
   function render(){
     const s=current(),family=FAMILIES[s.family],insights=signatureInsights(s);
