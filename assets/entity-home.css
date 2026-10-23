@@ -39,3 +39,5 @@ body[data-atlas-home] .home-observatory .newswire a{min-height:44px;font-size:16
  body[data-atlas-home].portal-route-home .heart-controls{position:relative;inset:auto;transform:none;width:100%;margin:0;order:2;padding:18px 0}
  body[data-atlas-home].portal-route-home .home-launchpad{position:relative;inset:auto;transform:none;width:100%;margin:0;order:3}
 }
+
+.home-earth-sources{display:flex;flex-wrap:wrap;gap:12px 24px;padding-bottom:24px;font:12px/1.6 "Segoe UI",sans-serif}.home-earth-sources a{color:#c4d5d5;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
