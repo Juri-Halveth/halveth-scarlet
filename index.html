@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'">
-<title>HALVETH · Autonomer Funktionsraum</title>
+<title>Zustände, Zeit und Möglichkeiten · Interaktiver Raum</title>
 <meta name="description" content="Ein bedienbarer Raum für Zustände, Varianten und Beobachtung. Lokalen Code ausführen, ein Regelmodell entfalten und den tatsächlichen Zustand als JSON mitnehmen.">
 <link rel="canonical" href="https://juri-halveth.github.io/halveth-scarlet/">
 <link rel="alternate" hreflang="de" href="https://juri-halveth.github.io/halveth-scarlet/?lang=de">
 <link rel="alternate" hreflang="en" href="https://juri-halveth.github.io/halveth-scarlet/?lang=en">
 <link rel="alternate" hreflang="ru" href="https://juri-halveth.github.io/halveth-scarlet/?lang=ru">
 <link rel="alternate" hreflang="x-default" href="https://juri-halveth.github.io/halveth-scarlet/">
-<meta property="og:title" content="HALVETH · Aus einem Keim wird ein System.">
+<meta property="og:title" content="Zustände. Zeit. Neue Möglichkeiten.">
 <meta property="og:description" content="Zustände erzeugen. Varianten erhalten. Veränderung beobachten. Ein real bedienbarer Funktionsraum im Browser.">
 <meta property="og:url" content="https://juri-halveth.github.io/halveth-scarlet/">
 <meta property="og:image" content="https://juri-halveth.github.io/halveth-scarlet/assets/capability-room-preview.svg">
-<meta property="og:image:alt" content="HALVETH Funktionsraum: eine räumliche Hülle entfaltet sich aus einem leuchtenden Keim.">
+<meta property="og:image:alt" content="Ein leuchtender Zustand mit feinen Lichtbahnen und verbundenen Varianten im dunklen Raum.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.ico">
 <link rel="stylesheet" href="assets/capability-room.css">
@@ -23,9 +23,9 @@
 <body>
 <a class="skip" href="#raum" data-i18n="skip">Zum Funktionsraum</a>
 <header class="topbar">
-<a class="brand" href="./" aria-label="HALVETH Scarlet">
+<a class="brand" href="./" aria-label="Zustandsraum – Start" data-i18n-aria="brandAria">
 <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M7 20c0-9 10-12 13 0S33 29 33 20 23 8 20 20 7 29 7 20Z" stroke="currentColor"/><circle cx="20" cy="20" r="18" stroke="currentColor" opacity=".25"/></svg>
-<span><strong>HALVETH</strong><small>SCARLET / LUCINET</small></span></a>
+<span><strong data-i18n="brandTitle">Zustandsraum</strong><small data-i18n="brandSubtitle">ZEIT · VARIANTEN · BEOBACHTUNG</small></span></a>
 <nav class="toplinks" aria-label="Hauptnavigation" data-i18n-aria="navAria">
 <a href="#werkzeuge" data-i18n="tools">Funktionen & Einsatz</a>
 <a href="https://github.com/Juri-Halveth/halveth-scarlet" data-i18n="source">Quellcode ↗</a>
@@ -34,12 +34,12 @@
 </header>
 <main>
 <section class="intro" aria-labelledby="room-title">
-<div><p class="eyebrow" data-i18n="eyebrow">AUTONOMER FUNKTIONSRAUM / LOKALER CODE</p><h1 id="room-title"><span data-i18n="title1">Aus einem Keim</span><br><em data-i18n="title2">wird ein System.</em></h1></div>
-<p data-i18n="intro">Gib etwas hinein. Lass Regeln wirken. Sieh, was daraus entsteht. Hier kannst du Zustände und Varianten erzeugen, Veränderungen beobachten und die entstandene Struktur mitnehmen.</p>
+<div><p class="eyebrow" data-i18n="eyebrow">INTERAKTIVER RAUM / LOKAL BERECHNET</p><h1 id="room-title"><span data-i18n="title1">Zustände. Zeit.</span><br><em data-i18n="title2">Neue Möglichkeiten.</em></h1></div>
+<p data-i18n="intro">Ein Gedanke wird zum Ausgangspunkt. Verändere die Zeit, entfalte Varianten und beobachte ihre Verbindungen. Der Ursprung bleibt erhalten.</p>
 </section>
 <section class="workspace" id="raum" aria-label="Interaktiver Funktionsraum" data-i18n-aria="roomAria">
 <aside class="controls" aria-label="Keim und Modellparameter" data-i18n-aria="seedAria">
-<div class="panel-title"><span data-i18n="inputTitle">01 / DEIN AUSGANGSPUNKT</span><b>G*</b></div>
+<div class="panel-title"><span data-i18n="inputTitle">01 / DEIN AUSGANGSPUNKT</span><b aria-hidden="true">✧</b></div>
 <div><label for="seed-text" data-i18n="inputLabel">Was soll in diesem Raum beginnen?</label><textarea id="seed-text" spellcheck="false">Eine Idee bleibt erhalten, auch wenn neue Varianten entstehen.</textarea></div>
 <div class="seed-fields"><div class="seed-row"><div><label for="seed-label" data-i18n="nameLabel">Name</label><input id="seed-label" value="Mein Keim"></div><div><label for="model-seed" data-i18n="seedLabel">Modell-Seed</label><input id="model-seed" type="number" min="1" max="4294967295" value="555" inputmode="numeric"></div></div></div>
 <button id="plant" class="primary" type="button" data-i18n="plant">Eigenen Keim setzen ↗</button>
@@ -48,9 +48,9 @@
 </aside>
 <div class="field" id="earth">
 <canvas id="room-canvas" role="img" aria-label="Regelbasierte Zellensimulation: Bewegung, Signale und begrenzte Entfaltung. Die aktuellen Zahlen stehen unter dem Bild." data-i18n-aria="canvasAria"></canvas>
-<div class="field-head"><p><strong data-i18n="fieldTitle">REGELN WERDEN SICHTBAR</strong><br><span data-i18n="fieldSubtitle">GSTAR LIVING / ENDLICHES ZELLENMODELL</span></p><p class="field-time">T + <span id="model-time">0.00</span> s<br><span id="motion-label" data-i18n="running">LÄUFT LOKAL</span></p></div>
+<div class="field-head"><p><strong data-i18n="fieldTitle">EIN IMPULS. ETWAS ENTSTEHT.</strong><br><span data-i18n="fieldSubtitle">ZUSTÄNDE · SIGNALE · VERBINDUNGEN</span></p><p class="field-time">T + <span id="model-time">0.00</span> s<br><span id="motion-label" data-i18n="running">LÄUFT LOKAL</span></p></div>
 <div class="field-empty" id="field-fallback" hidden data-i18n="canvasFallback">Die Grafik ist hier nicht verfügbar. Zustandsoperationen, Protokoll und Export bleiben bedienbar.</div>
-<div class="field-caption"><strong id="phase-caption">Ein Anfang. Viele mögliche Fortsetzungen.</strong><span data-i18n="fieldNote">Bewegung und Leuchten visualisieren einen berechneten Modellzustand.</span></div>
+<div class="field-caption"><strong id="phase-caption">Ein Anfang. Viele mögliche Fortsetzungen.</strong><span data-i18n="fieldNote">Lichtformen stellen lokale Zustände dar.</span></div>
 <div class="view-controls"><button id="pause" type="button" aria-pressed="false" data-i18n="pause">Ⅱ Pause</button><button id="step" type="button" data-i18n="step">+ 1 s</button><button id="reset" type="button" data-i18n="reset">↺ Zurücksetzen</button></div>
 </div>
 <nav class="lifecycle" aria-label="Entstehung und Operationen" data-i18n-aria="lifeAria">
@@ -72,7 +72,7 @@
 <div class="actions"><button type="button" id="branch" class="primary" data-i18n="branch">Variante erzeugen ↗</button><button type="button" id="observe" class="secondary" data-i18n="observe">Zustand beobachten</button></div>
 </div>
 <div class="proof">
-<div class="proof-top"><p class="section-label" data-i18n="proofTitle">TATSÄCHLICHE AUSFÜHRUNG</p><span id="runtime-version">GSTAR 1.0.0</span></div>
+<div class="proof-top"><p class="section-label" data-i18n="proofTitle">TATSÄCHLICHE AUSFÜHRUNG</p><span id="runtime-version">TEXT / v1.0.0</span></div>
 <ol class="trace" id="event-trace" aria-label="Letzte Ereignisse des Textzustandsmodells" data-i18n-aria="traceAria"></ol>
 <div class="digest" id="head-digest"></div>
 <details><summary data-i18n="inspect">Aktuellen Textzustand ansehen</summary><pre id="selected-state"></pre></details>
@@ -80,7 +80,7 @@
 </div>
 </section>
 <section class="capabilities" id="werkzeuge" aria-labelledby="capability-title">
-<div class="section-heading"><div><p class="section-label" data-i18n="capLabel">WAS SICH DAMIT VERBINDEN LÄSST</p><h2 id="capability-title" data-i18n="capTitle">Funktionen statt bloßer Namen.</h2></div><p data-i18n="capIntro">Jeder Einstieg führt zu vorhandenem Code. Du kannst die Anwendung bedienen und ihren eigenen Entwicklungsstand, ihre Eingaben und ihre Grenzen prüfen.</p></div>
+<div class="section-heading"><div><p class="section-label" data-i18n="capLabel">WAS SICH DAMIT VERBINDEN LÄSST</p><h2 id="capability-title" data-i18n="capTitle">Ausprobieren. Verstehen. Verbinden.</h2></div><p data-i18n="capIntro">Jeder Einstieg führt zu vorhandenem Code. Du kannst die Anwendung bedienen und ihren eigenen Entwicklungsstand, ihre Eingaben und ihre Grenzen prüfen.</p></div>
 <div class="capability-grid" id="team">
 <article class="capability"><div class="glyph" aria-hidden="true">⤴</div><h3 data-i18n="cap1Title">Zustände & Varianten</h3><p data-i18n="cap1Text">Ausgangszustände erhalten, neue Fassungen ableiten, Verwandtschaft sichtbar halten und strukturierte Ergebnisse exportieren.</p><p class="use" data-i18n="cap1Use">Einsatz: Prototypen, nachvollziehbare Workflows, Variantenvergleich.</p><a href="forschung/weltkeimwerk/werkstatt.html" data-room-link><span>↗</span><b data-i18n="cap1Link1">Textzustände bearbeiten</b></a><a href="entities/?view=chain#scarlet" data-room-link><span>↗</span><b data-i18n="cap1Link2">Signaturen & Verzweigungen</b></a><a href="https://github.com/Juri-Halveth/halveth-scarlet/blob/main/forschung/weltkeimwerk/core.js"><span>↗</span><b data-i18n="code">Code ansehen</b></a></article>
 <article class="capability"><div class="glyph" aria-hidden="true">◌</div><h3 data-i18n="cap2Title">Beobachten & Vergleichen</h3><p data-i18n="cap2Text">Beobachtungsfenster, diskrete Zeit und unveränderte Referenzen machen sichtbar, was eine Messung erfasst und was dazwischen offen bleibt.</p><p class="use" data-i18n="cap2Use">Einsatz: Testplanung, Debugging und verständliche Messmodelle.</p><a href="forschung/grenzbeobachter/" data-room-link><span>↗</span><b data-i18n="cap2Link1">Beobachtungsfenster vergleichen</b></a><a href="snapshot/" data-room-link><span>↗</span><b data-i18n="cap2Link2">Einen Record an einen Digest binden</b></a><a href="https://github.com/Juri-Halveth/halveth-scarlet/blob/main/forschung/grenzbeobachter/core.js"><span>↗</span><b data-i18n="code">Code ansehen</b></a></article>
@@ -88,10 +88,10 @@
 </div>
 </section>
 <section class="explanation" aria-label="Ausführung und Nutzen" data-i18n-aria="explainAria">
-<div><h3 data-i18n="realTitle">Was läuft hier wirklich?</h3><p data-i18n="realText">JavaScript führt die lokalen Textzustandsoperationen aus. GStar Living berechnet eine endliche Zellensimulation mit Signalen, Membranen und Formänderungen. Die leuchtende Hülle ist eine Darstellung. Der Export enthält beide getrennten Modelle; die Replay-Prüfung prüft das Textledger. Das ist der aktuelle Stand der hier gezeigten Autonomie.</p></div>
+<div><h3 data-i18n="realTitle">Was läuft hier wirklich?</h3><p data-i18n="realText">JavaScript führt die lokalen Textzustandsoperationen aus. Eine endliche Zellensimulation berechnet Signale, Membranen und Formänderungen. Lichtkörper und Lichtbahnen stellen die Daten räumlich dar. Der Export enthält beide getrennten Modelle; die Replay-Prüfung prüft das Textledger. Das ist der aktuelle Stand der hier gezeigten Autonomie.</p></div>
 <div><h3 data-i18n="valueTitle">Wo entsteht praktischer Wert?</h3><p data-i18n="valueText">Wenn Varianten, Übergänge und Beobachtungslücken nachvollziehbar bleiben, können Teams Abläufe erklären, Versuche vergleichen und Fehler eingrenzen. Wirtschaftlicher Wert entsteht durch einen konkreten Einsatz und dessen nachgewiesenen Nutzen. Weitere Programmausführung, externe Dienste und echte Fachmodelle benötigen ihre jeweilige Anbindung.</p></div>
 </section>
-<footer class="footer"><span>JURI JANOVSKI / HALVETH · 2026 <span data-i18n="made">· Entwicklung mit KI-Unterstützung</span></span><nav><a href="https://github.com/Juri-Halveth/halveth-scarlet" data-i18n="source">Quellcode ↗</a><a href="LICENSES.md" data-i18n="rights">Rechte & Herkunft</a><a href="https://juri-halveth.github.io/">Portfolio ↗</a></nav></footer>
+<footer class="footer"><span>JURI JANOVSKI · 2026 <span data-i18n="made">· Entwicklung mit KI-Unterstützung</span></span><nav><a href="https://github.com/Juri-Halveth/halveth-scarlet" data-i18n="source">Quellcode ↗</a><a href="LICENSES.md" data-i18n="rights">Rechte & Herkunft</a><a href="https://juri-halveth.github.io/">Portfolio ↗</a></nav></footer>
 </main>
 <noscript><p class="noscript">Die statische Erklärung und alle Werkzeuglinks funktionieren ohne JavaScript. Für die lokale Simulation und die Zustandsoperationen aktiviere JavaScript. / Enable JavaScript for local model execution.</p></noscript>
 <script src="forschung/weltkeimwerk/core.js"></script>

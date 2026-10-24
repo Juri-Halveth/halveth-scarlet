@@ -16,19 +16,19 @@
 
   const routes=[
     {id:'home',path:'./',index:'00',image:'gate',accent:'#ffc66e',de:'Funktionsraum',en:'Workspace',deNote:'Zustände, Varianten und Beobachtung',enNote:'States, variants and observation'},
-    {id:'portal-chess',path:'forschung/portal-chess/',index:'01',image:'gate',accent:'#ffd16f',de:'Portal Chess',en:'Portal Chess',deNote:'3/16 geprüft · 16/16 offen',enNote:'3/16 verified · 16/16 open'},
+    {id:'portal-chess',path:'forschung/portal-chess/',index:'01',image:'gate',accent:'#ffd16f',de:'Schach & Zugspuren',en:'Chess & move history',ru:'Шахматы и история ходов',deNote:'3/16 geprüft · 16/16 offen',enNote:'3/16 verified · 16/16 open'},
     {id:'room',path:'room/',index:'02',image:'scarlet',accent:'#ff345f',de:'Raum der Spuren',en:'Room of traces',deNote:'Freiwillige Gedanken und Quellen',enNote:'Voluntary thoughts and sources'},
     {id:'snapshot',path:'snapshot/',index:'03',image:'machine',accent:'#8deeff',de:'Snapshot-Studio',en:'Snapshot studio',deNote:'Lokale Belege zum Mitnehmen',enNote:'Local receipts to take with you'},
     {id:'figures',path:'forschung/figuren-und-perspektiven/',index:'04',image:'scarlet',accent:'#ff7899',de:'Figuren & Perspektiven',en:'Characters & perspectives',deNote:'Motive, Verantwortung, Alternativen',enNote:'Motives, responsibility, alternatives'},
     {id:'forms',path:'forschung/formen-und-verbindungen/',index:'05',image:'nexus',accent:'#79f5ce',de:'Formen & Verbindungen',en:'Forms & connections',deNote:'Ähnlichkeit prüfen, Ebenen trennen',enNote:'Test similarities, separate layers'},
     {id:'flow',path:'forschung/transaktionsfluss/',index:'06',image:'machine',accent:'#ffc66e',de:'Transaktionsfluss',en:'Transaction flow',deNote:'Werte, Struktur und Beleggrenzen',enNote:'Values, structure and evidence limits'},
     {id:'team',path:'./#team',index:'07',image:'nexus',accent:'#ff7ac8',de:'Die Konstellation',en:'The constellation',deNote:'Alle Profile: Perspektiven, Figuren, Projekte und Quellen',enNote:'All profiles: perspectives, characters, projects and sources'},
-    {id:'collage',path:'collage/',index:'08',image:'gate',accent:'#ff9a71',de:'Choice Atelier',en:'Choice Atelier',deNote:'Mode, Collage und eigene Wahl',enNote:'Fashion, collage and your own choice'},
+    {id:'collage',path:'collage/',index:'08',image:'gate',accent:'#ff9a71',de:'Collage & Komposition',en:'Collage & composition',ru:'Коллаж и композиция',deNote:'Mode, Collage und eigene Wahl',enNote:'Fashion, collage and your own choice'},
     {id:'pi',path:'forschung/pi-treffpunkte/',index:'09',image:'nexus',accent:'#b05cff',de:'π-Treffpunkte',en:'π meeting points',deNote:'Plus Codes, vier Symmetrien, klare Beleggrenzen',enNote:'Plus Codes, four symmetries, clear evidence limits'},
     {id:'entities',path:'entities/',index:'10',image:'nexus',accent:'#ff7ac8',de:'Signaturenraum',en:'Signature space',deNote:'Alle Figuren mit Geschichten, Thesen und Quellen',enNote:'All characters with stories, theses and sources'},
     {id:'boundary',path:'forschung/grenzbeobachter/',index:'11',image:'nexus',accent:'#62dfcf',de:'Grenzbeobachter',en:'Boundary observers',deNote:'Festes und adaptives Beobachten im Modell',enNote:'Fixed and adaptive observation in a model'},
-    {id:'gstar',path:'forschung/weltkeimwerk/',index:'12',image:'nexus',accent:'#ff443d',de:'G^* · Weltkeimwerk',en:'G^* · World seedwork',deNote:'Ein Zellraum entfaltet sich automatisch in der Zeit',enNote:'A cell space unfolds automatically in time'},
-    {id:'ashbound',path:'forschung/ashbound/',index:'13',image:'gate',accent:'#b5ecd9',de:'ASHBOUND · Spielwelt',en:'ASHBOUND · game world',deNote:'Sechs Orte, Figuren, Entscheidungen und eine wandelbare 3D-Insel',enNote:'Six places, characters, choices and a changing 3D island'},
+    {id:'gstar',path:'forschung/weltkeimwerk/',index:'12',image:'nexus',accent:'#ff443d',de:'Zellformen & Zustände',en:'Cell forms & states',ru:'Клеточные формы и состояния',deNote:'Ein Zellraum entfaltet sich automatisch in der Zeit',enNote:'A cell space unfolds automatically in time'},
+    {id:'ashbound',path:'forschung/ashbound/',index:'13',image:'gate',accent:'#b5ecd9',de:'3D-Insel & Entscheidungen',en:'3D island & decisions',ru:'3D-остров и решения',deNote:'Sechs Orte, Figuren, Entscheidungen und eine wandelbare 3D-Insel',enNote:'Six places, characters, choices and a changing 3D island'},
     {id:'wegweiser',path:'forschung/wegweiser/',index:'14',image:'nexus',accent:'#8cebd2',de:'Wegweiser',en:'Project guide',deNote:'Neun technische Demos mit eigenem Entwicklungsstand',enNote:'Nine technical demos with their own development states'},
   ];
 
@@ -42,7 +42,7 @@
     return ['de','en','ru'].includes(selected)?selected:'de';
   };
   const routeText=(route,suffix='')=>language()==='ru'
-    ? (window.HalvethHubLanguage?.t(route['de'+suffix])||route['de'+suffix])
+    ? (route['ru'+suffix]||window.HalvethHubLanguage?.t(route['de'+suffix])||route['de'+suffix])
     : route[language()+suffix];
   const routeURL=(route,lang)=>{
     const url=new URL(route.path,base);
@@ -68,11 +68,11 @@
 
   const shell=document.createElement('header');
   shell.className='portal-shell';
-  shell.innerHTML='<a class="portal-brand" data-portal-home><span class="portal-brand-mark" aria-hidden="true">∞</span><span class="portal-brand-copy"><strong>JURI / HALVETH</strong><small>SCARLET PORTAL</small></span></a><div class="portal-route-label" aria-live="polite"><span class="portal-route-index"></span><span class="portal-route-name"></span></div><div class="portal-actions"><a class="portal-quick-link" data-portal-quick="home">⌂</a><a class="portal-quick-link" data-portal-quick="gstar">◎</a><a class="portal-quick-link" data-portal-quick="entities">⌘</a><button class="portal-motion-button" type="button" aria-pressed="false">Ⅱ</button><button class="portal-map-button" type="button" aria-haspopup="dialog" aria-expanded="false"><i aria-hidden="true">✦</i><span></span></button></div>';
+  shell.innerHTML='<a class="portal-brand" data-portal-home><span class="portal-brand-mark" aria-hidden="true">∞</span><span class="portal-brand-copy"><strong>ZUSTÄNDE / ZEIT</strong><small>FUNKTIONEN & VERBINDUNGEN</small></span></a><div class="portal-route-label" aria-live="polite"><span class="portal-route-index"></span><span class="portal-route-name"></span></div><div class="portal-actions"><a class="portal-quick-link" data-portal-quick="home">⌂</a><a class="portal-quick-link" data-portal-quick="gstar">◎</a><a class="portal-quick-link" data-portal-quick="entities">⌘</a><button class="portal-motion-button" type="button" aria-pressed="false">Ⅱ</button><button class="portal-map-button" type="button" aria-haspopup="dialog" aria-expanded="false"><i aria-hidden="true">✦</i><span></span></button></div>';
 
   const map=document.createElement('dialog');
   map.className='portal-map';
-  map.innerHTML='<div class="portal-map-inner"><header class="portal-map-header"><div><p class="portal-map-kicker"></p><h2></h2><p class="portal-map-intro"></p></div><button class="portal-map-close" type="button" aria-label="Close">×</button></header><nav class="portal-grid"></nav><footer class="portal-map-foot"><span class="portal-map-foot-left"></span><span>HALVETH / SCARLET / 2026</span></footer></div>';
+  map.innerHTML='<div class="portal-map-inner"><header class="portal-map-header"><div><p class="portal-map-kicker"></p><h2></h2><p class="portal-map-intro"></p></div><button class="portal-map-close" type="button" aria-label="Close">×</button></header><nav class="portal-grid"></nav><footer class="portal-map-foot"><span class="portal-map-foot-left"></span><span>JURI JANOVSKI / 2026</span></footer></div>';
 
   const quickIds=['home','gstar','entities'];
   // Reuse the actual hub links and their handlers, never a duplicate switcher.
@@ -105,6 +105,8 @@
   const render=()=>{
     const lang=language();
     const english=lang==='en';
+    shell.querySelector('.portal-brand-copy strong').textContent=lang==='ru'?'СОСТОЯНИЯ / ВРЕМЯ':english?'STATES / TIME':'ZUSTÄNDE / ZEIT';
+    shell.querySelector('.portal-brand-copy small').textContent=lang==='ru'?'ФУНКЦИИ И СВЯЗИ':english?'FUNCTIONS & CONNECTIONS':'FUNKTIONEN & VERBINDUNGEN';
     skip.textContent=english?'Skip to content':'Zum Inhalt springen';
     shell.querySelector('[data-portal-home]').href=routeURL(routes[0],lang);
     shell.querySelector('.portal-route-index').textContent='PORTAL '+current.index;
@@ -118,7 +120,7 @@
       link.setAttribute('aria-label',routeText(route));
       if(route.id===current.id)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');
     }
-    map.setAttribute('aria-label',english?'Scarlet portal map':'Scarlet-Portalplan');
+    map.setAttribute('aria-label',lang==='ru'?'Карта функций':english?'Function map':'Funktionsübersicht');
     map.querySelector('.portal-map-close').setAttribute('aria-label',english?'Close portal map':'Portalplan schließen');
     map.querySelector('.portal-map-kicker').textContent=english?'THE CONNECTED UNIVERSE':'DAS VERBUNDENE UNIVERSUM';
     map.querySelector('h2').textContent=routes.length+(english?' portals. One constellation.':' Portale. Eine Konstellation.');
