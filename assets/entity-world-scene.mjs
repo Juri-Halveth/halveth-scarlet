@@ -118,7 +118,11 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
       const distance=Math.max(24,20/Math.max(.45,Math.min(1.4,camera.aspect)));
       camera.position.set(0,1.4+distance*.4,distance);
     } else if(mode==='signature') {
-      controls.target.set(0,1.4,0);camera.position.set(mobile?6.2:5.5,3.3,mobile?9.4:8.2);
+      controls.target.set(0,1.4,0);
+      const offset = new T.Vector3(5.5,1.9,8.2);
+      // Keep the same visible form width as the portrait stage opens or closes.
+      if (mobile) offset.setLength(Math.max(8.5, 6.8 / Math.max(.35, camera.aspect)));
+      camera.position.copy(controls.target).add(offset);
     } else if (mode === 'overview') {
       controls.target.set(0, 0, 0);
       camera.position.set(0, mobile ? 79 : 52, mobile ? 86 : 66);
@@ -136,7 +140,7 @@ export function createCharacterWorld(host, entities, { onSelect, onError, onMode
     const width = Math.max(1, host.clientWidth), height = Math.max(1, host.clientHeight);
     renderer.setSize(width, height, false); camera.aspect = width / height;
     camera.updateProjectionMatrix(); dirty = true;
-    if(mode==='chain')resetCamera();
+    if(mode==='chain'||mode==='signature')resetCamera();
   }
   function travel(x, y, z, seconds = 1, speed = 12) {
     if (!x && !y && !z) return;

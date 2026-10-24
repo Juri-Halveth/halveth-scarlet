@@ -44,6 +44,9 @@ export function entityWorldBody({ cards, languageButtons, count }) {
       <button class="icon-button" id="move-down" title="Absteigen (Q)" data-en-title="Descend (Q)" aria-label="Absteigen" data-en-aria-label="Descend">${icon('chevrons-down')}</button>
     </div>
     </div>
+    <div id="world-tools" class="world-tools" role="region" aria-label="Einstellungen" data-en-aria-label="Controls">
+    <div class="mobile-tools-heading"><strong>${bi('Dein Blick. Deine Form.','Your view. Your form.')}</strong><button id="mobile-tools-close" class="icon-button" type="button" aria-label="Einstellungen schließen" data-en-aria-label="Close controls">${icon('x')}</button></div>
+    <div id="world-tools-content" class="world-tools-content">
     <section class="wave-controls" aria-label="Wellenkette" data-en-aria-label="Wave chain">
       <p class="wave-kicker"><span id="wave-count">0 / ${count}</span> · ${bi('EIN GEMEINSAMER TAKT','ONE SHARED RHYTHM')}</p>
       <p id="wave-state" role="status" aria-live="polite">${bi('Eine Form nach der anderen.','One form after another.')}</p>
@@ -56,7 +59,7 @@ export function entityWorldBody({ cards, languageButtons, count }) {
       <p id="entity-role"></p>
       <p id="entity-kind" class="entity-kind"></p>
       <section class="signature-insights" aria-label="Modellsignatur" data-en-aria-label="Model signature"><p class="signature-kicker">${bi('STÄRKEN / OFFENE ANSCHLÜSSE','STRENGTHS / OPEN CONNECTIONS')}</p><div id="signature-insights"></div></section>
-      <details class="signature-parameters"><summary>${bi('Signatur verändern','Change signature')}</summary><p class="signature-note">${bi('Entwurfswerte von 0 bis 1. Du veränderst die Form in dieser Sitzung.','Design values from 0 to 1. Changes affect this session’s form.')}</p><label for="signature-family-choice">${bi('Gestalt','Form')}</label><select id="signature-family-choice"></select><div id="signature-parameters"></div><button type="button" id="signature-reset">${bi('Ursprungsform','Original form')}</button></details>
+      <details id="signature-parameters-panel" class="signature-parameters"><summary>${bi('Signatur verändern','Change signature')}</summary><p class="signature-note">${bi('Entwurfswerte von 0 bis 1. Du veränderst die Form in dieser Sitzung.','Design values from 0 to 1. Changes affect this session’s form.')}</p><label for="signature-family-choice">${bi('Gestalt','Form')}</label><select id="signature-family-choice"></select><div id="signature-parameters"></div><button type="button" id="signature-reset">${bi('Ursprungsform','Original form')}</button></details>
       <details class="signature-docking"><summary>${bi('Eine andere Form andocken','Dock another form')}</summary><label for="signature-partner">${bi('Gegenüber','Counterpart')}</label><select id="signature-partner"><option value="">${bi('Allein betrachten','View alone')}</option></select><p id="signature-docking-result"></p></details>
       <details class="signature-continuity"><summary>${bi('Identität / Zeit / Verzweigung','Identity / time / branching')}</summary><p class="signature-note">${bi('Ein Ursprung, getrennte Fortsetzungen. Wiederherstellen erhält die Ereignisspur.','One origin, separate continuations. Restoring preserves the event trail.')}</p><div class="continuity-actions"><button type="button" id="signature-fork">FORK +</button><button type="button" id="signature-checkpoint">${bi('Stand merken','Checkpoint')}</button><button type="button" id="signature-restore">RESTORE</button></div><label for="signature-branch">${bi('Aktiver Branch','Active branch')}</label><select id="signature-branch"></select><output id="signature-history" aria-live="polite"></output><button type="button" id="signature-export">${bi('Modell als JSON','Model as JSON')} ↓</button></details>
       <p id="signature-status" role="status" aria-live="polite"></p>
@@ -64,8 +67,16 @@ export function entityWorldBody({ cards, languageButtons, count }) {
       <details class="entity-details"><summary>${bi('Herkunft & Anbindung','Origin & connection')}</summary><p id="entity-source"></p><p id="entity-note"></p><dl><dt>${bi('Darstellung','Representation')}</dt><dd>${bi('Animierte 3D-Figur','Animated 3D character')}</dd><dt>API / ${bi('Aufträge','Jobs')}</dt><dd>${bi('Nicht verbunden','Not connected')}</dd></dl></details>
       <div class="entity-neighbors"><h3>${bi('Im selben Bereich','In the same area')}</h3><div id="entity-neighbors"></div></div>
     </aside>
+    </div>
+    </div>
+    <div class="mobile-stagebar" aria-label="Figur und Einstellungen" data-en-aria-label="Character and controls">
+      <button id="mobile-entity-prev" class="icon-button" type="button" aria-label="Vorige Figur" data-en-aria-label="Previous character">${icon('chevron-left')}</button>
+      <strong id="mobile-selection-name">SCARLET</strong>
+      <button id="mobile-entity-next" class="icon-button" type="button" aria-label="Nächste Figur" data-en-aria-label="Next character">${icon('chevron-right')}</button>
+      <button id="mobile-tools-toggle" type="button" aria-expanded="false" aria-controls="world-tools">${icon('orbit')}${bi('Anpassen','Adjust')}</button>
+    </div>
   </section>
-  <section class="world-bottom" aria-label="Navigation und Zeit" data-en-aria-label="Navigation and time">
+  <section id="world-bottom" class="world-bottom" aria-label="Navigation und Zeit" data-en-aria-label="Navigation and time">
     <div class="world-selection">
       <button class="icon-button" id="entity-prev" aria-label="Vorige Figur" data-en-aria-label="Previous character" title="Vorige Figur" data-en-title="Previous character">${icon('chevron-left')}</button>
       <div class="selection-copy"><small>${bi('IM FOKUS','IN FOCUS')}</small><strong id="selection-name">SCARLET</strong></div>
@@ -124,11 +135,11 @@ export function entityWorldBody({ cards, languageButtons, count }) {
   <label for="entity-search">${bi('Name oder Rolle','Name or role')}</label><input type="search" id="entity-search" autocomplete="off">
   <p id="entity-search-count" role="status" aria-live="polite"></p><div id="entity-search-results"></div>
 </dialog>
-<section id="profile-directory" class="profile-main world-directory"><h2>${bi('Alle Profile','All profiles')}</h2>
+<section id="profile-directory" class="profile-main world-directory"><button id="directory-close" class="icon-button mobile-directory-close" type="button" aria-label="Verzeichnis schließen" data-en-aria-label="Close directory">${icon('x')}</button><h2>${bi('Alle Profile','All profiles')}</h2>
   <label for="profile-search">${bi('Name, Rolle oder Thema','Name, role or subject')}</label><input id="profile-search" type="search" autocomplete="off"><p id="profile-results" role="status" aria-live="polite"></p><ul class="profile-grid">${cards}</ul>
 </section>
 <noscript><p class="world-noscript">${bi(`Die ${count} Profile stehen im Verzeichnis. Für den 3D-Raum wird JavaScript benötigt.`,`The ${count} profiles are available in the directory. The 3D world requires JavaScript.`)}</p></noscript>
-<footer class="atlas-footer"><a href="../">${bi('Erde & Herz','Earth & heart')}</a><a href="../LICENSES.md">${bi('Rechte & Quellen','Rights & sources')}</a><a href="https://github.com/Juri-Halveth/halveth-scarlet">${bi('Code & Entwicklung','Code & development')} ↗</a><span>JURI / HALVETH · SCARLET</span></footer>
+<footer id="world-footer" class="atlas-footer"><a href="../">${bi('Erde & Herz','Earth & heart')}</a><a href="../LICENSES.md">${bi('Rechte & Quellen','Rights & sources')}</a><a href="https://github.com/Juri-Halveth/halveth-scarlet">${bi('Code & Entwicklung','Code & development')} ↗</a><span>JURI / HALVETH · SCARLET</span></footer>
 <script src="../assets/universe-data.js"></script><script src="../assets/entity-profile.js" defer></script><script src="../assets/entity-world-loader.js" defer></script><script src="../assets/wallet-connection.js" defer></script><script type="module" src="../assets/entity-world-studio.mjs"></script>
 </body></html>\n`;
 }

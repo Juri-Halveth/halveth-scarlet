@@ -334,13 +334,14 @@ async function controllerRegression() {
     nodes.get('moment-slider').value = '0';
     const storage = new Map(raw === null ? [] : [[TIMELINE_KEY, raw]]);
     const writes = [], networkCalls = [], events = {};
+    const layout = { matches: true, addEventListener(type, fn) { this.onchange = fn; } };
     const blockedNetwork = (...args) => { networkCalls.push(args); throw new Error('Unexpected network request'); };
     const sandbox = vm.createContext({
       window: { HalvethUniverse: registry, HalvethLanguage: { get: () => 'en' }, addEventListener(type, fn) { events[type] = fn; } },
       document: { body: element(), getElementById: id => nodes.get(id), createElement: element, querySelectorAll:()=>[] },
       location: { href: 'http://localhost/entities/', hash: '' },
       history: { state: null, replaceState() {} },
-      matchMedia: () => ({ matches: true, addEventListener() {} }),
+      matchMedia: query => query.includes('max-width') ? layout : ({ matches: true, addEventListener() {} }),
       localStorage: {
         getItem(key) { if (storageUnavailable) throw new Error('Storage unavailable'); return storage.get(key) ?? null; },
         setItem(key, value) { writes.push([key, value]); if (storageUnavailable) throw new Error('Storage unavailable'); storage.set(key, value); },
@@ -361,7 +362,7 @@ async function controllerRegression() {
     const dependencies = { './entity-vendor/runtime.mjs': runtime, './entity-world-scene.mjs': scene, './entity-world-model.mjs': model, './entity-signature-ui.mjs':signatures, './entity-wave-audio.mjs':audio };
     await controller.link(specifier => { assert.ok(dependencies[specifier], specifier); return dependencies[specifier]; });
     await controller.evaluate();
-    return { nodes, storage, writes, networkCalls, events, sandbox };
+    return { nodes, storage, writes, networkCalls, events, sandbox, layout };
   }
 
   const valid = { entityId: 'mira', recordedAt: '2026-10-02T12:34:56.789Z' };
@@ -376,10 +377,29 @@ async function controllerRegression() {
   }
 
   const run = await load(null);
+  const tools = run.nodes.get('world-tools'), toggle = run.nodes.get('mobile-tools-toggle');
+  assert.equal(tools.hidden, true, 'phone starts with an unobstructed scene');
+  toggle.handlers.click();
+  assert.equal(tools.hidden, false);
+  assert.equal(toggle.attributes['aria-expanded'], 'true');
+  assert.equal(run.nodes.get('signature-parameters-panel').open, true, 'adjust opens the real form controls');
+  let escaped = false;
+  tools.handlers.keydown({ key: 'Escape', preventDefault() { escaped = true; } });
+  assert.equal(escaped, true);
+  assert.equal(tools.hidden, true);
+  run.layout.matches = false; run.layout.onchange();
+  assert.equal(tools.hidden, false, 'desktop inspector survives a responsive layout change');
+  run.layout.matches = true; run.layout.onchange();
+  assert.equal(tools.hidden, true, 'returning to phone restores the closed tools');
+  toggle.handlers.click();
+  run.nodes.get('mobile-tools-close').handlers.click();
+  assert.equal(toggle.attributes['aria-expanded'], 'false');
+  assert.equal(run.writes.length, 0, 'layout actions do not write into the saved timeline');
   for (const entity of registry.entities) {
     run.sandbox.location.hash = `#${entity.id}`;
     run.events.hashchange();
     assert.equal(run.nodes.get('entity-name').textContent, entity.label);
+    assert.equal(run.nodes.get('mobile-selection-name').textContent, entity.label);
     assert.equal(run.nodes.get('entity-role').textContent, entity.en.role);
     assert.equal(run.nodes.get('entity-source').textContent, entity.en.sourceLabel);
     assert.equal(run.nodes.get('entity-note').textContent, entity.en.note);

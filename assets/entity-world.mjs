@@ -15,6 +15,8 @@ runtime.createIcons({ icons, attrs: { width: 18, height: 18, 'stroke-width': 1.7
 let selected = ids.has(location.hash.slice(1)) ? location.hash.slice(1) : ids.has('scarlet') ? 'scarlet' : entities[0].id;
 let mode = new URL(location.href).searchParams.get('view')==='chain'?'chain':'signature', scene;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+const mobileLayout = matchMedia('(max-width: 760px), (max-width: 960px) and (max-height: 500px)');
+let mobileToolsOpen = false;
 let paused = reduced.matches;
 let timeline;
 try { timeline = readMoments(localStorage.getItem(TIMELINE_KEY), ids); }
@@ -41,6 +43,7 @@ function renderSelection() {
   const entity = entities.find(item => item.id === selected);
   $('entity-name').textContent = entity.label;
   $('selection-name').textContent = entity.label;
+  renderMobileLabel();
   $('entity-number').textContent = `${String(entities.indexOf(entity) + 1).padStart(2, '0')} / ${entities.length}`;
   for (const [id, key] of [['entity-role', 'role'], ['entity-kind', 'kind'], ['entity-source', 'sourceLabel'], ['entity-note', 'note']]) $(id).textContent = field(entity, key);
   $('entity-profile').href = `${entity.id}/?lang=${lang()}`;
@@ -82,6 +85,12 @@ function renderMode() {
   $('mode-all').setAttribute('aria-pressed', String(mode === 'all'));
   $('mode-overview').setAttribute('aria-pressed', String(mode === 'overview'));
   document.body.dataset.worldMode = mode;
+  renderMobileLabel();
+}
+function renderMobileLabel() {
+  $('mobile-selection-name').textContent = mode === 'chain'
+    ? t(`${entities.length} Formen`, `${entities.length} forms`)
+    : entities.find(entity => entity.id === selected).label;
 }
 function updatePause() {
   scene?.pause(paused);
@@ -141,6 +150,7 @@ function renderTimeline() {
 function openDirectory(event) {
   event?.preventDefault(); $('profile-directory').hidden = !$('profile-directory').hidden;
   if (!$('profile-directory').hidden) $('profile-directory').scrollIntoView({ behavior: 'instant' });
+  if (mobileLayout.matches && !$('profile-directory').hidden) $('directory-close').focus();
 }
 $('world-search-open').addEventListener('click', () => { renderSearch(); $('world-search').showModal(); $('entity-search').focus(); });
 $('world-search-close').addEventListener('click', () => $('world-search').close());
@@ -166,6 +176,29 @@ function showInspector(open) {
   $('entity-inspector').hidden = !open;
   $('entity-info-toggle').setAttribute('aria-expanded', String(open));
 }
+function showMobileTools(open, returnFocus = false) {
+  mobileToolsOpen = open;
+  document.body.dataset.mobileTools = open ? 'open' : 'closed';
+  $('world-tools').hidden = mobileLayout.matches && !open;
+  $('mobile-tools-toggle').setAttribute('aria-expanded', String(open));
+  if (mobileLayout.matches) {
+    $('world-tools-content').append($('world-bottom'), $('world-footer'));
+    showInspector(true);
+    if (open && mode === 'signature') $('signature-parameters-panel').open = true;
+  } else {
+    $('world-main').append($('world-bottom'));
+    document.body.append($('world-footer'));
+  }
+  if (returnFocus) $(open ? 'mobile-tools-close' : 'mobile-tools-toggle').focus();
+}
+$('mobile-tools-toggle').addEventListener('click', () => showMobileTools(!mobileToolsOpen, true));
+$('mobile-tools-close').addEventListener('click', () => showMobileTools(false, true));
+$('world-tools').addEventListener('keydown', event => {
+  if (event.key === 'Escape' && mobileLayout.matches) {
+    event.preventDefault(); showMobileTools(false, true);
+  }
+});
+mobileLayout.addEventListener('change', () => showMobileTools(mobileToolsOpen));
 $('entity-info-toggle').addEventListener('click', () => showInspector($('entity-inspector').hidden));
 $('entity-info-close').addEventListener('click', () => showInspector(false));
 function renderDestinations() {
@@ -189,10 +222,14 @@ for (const [id, vector] of [['move-forward', [0,0,1]], ['move-back', [0,0,-1]], 
 $('world-pause').addEventListener('click', () => { paused = !paused; updatePause(); });
 reduced.addEventListener('change', event => { paused = event.matches;scene?.reducedMotion(event.matches);updatePause(); });
 for (const [id, method, value] of [['camera-left','rotate',-1],['camera-right','rotate',1],['camera-in','zoom',1],['camera-out','zoom',-1],['camera-reset','reset',0]]) $(id).addEventListener('click', () => scene?.[method](value));
-for (const [id, delta] of [['entity-prev', -1], ['entity-next', 1]]) $(id).addEventListener('click', () => {
+for (const [id, delta] of [['entity-prev', -1], ['entity-next', 1], ['mobile-entity-prev', -1], ['mobile-entity-next', 1]]) $(id).addEventListener('click', () => {
   const index = entities.findIndex(e => e.id === selected); select(entities[(index + delta + entities.length) % entities.length].id); setMode(mode==='signature'?'signature':'focus');
 });
 $('directory-open').addEventListener('click', openDirectory);
+$('directory-close').addEventListener('click', () => {
+  $('profile-directory').hidden = true;
+  $(mobileLayout.matches ? 'mobile-tools-toggle' : 'directory-open').focus();
+});
 $('world-fallback').addEventListener('click', () => { $('profile-directory').hidden = false; $('profile-directory').scrollIntoView(); });
 $('world-retry').addEventListener('click', startScene);
 $('time-toggle').addEventListener('click', () => {
@@ -217,6 +254,6 @@ window.addEventListener('hashchange', () => { if (ids.has(location.hash.slice(1)
 window.addEventListener('halveth:world-gift', event => scene?.materialize?.(event.detail.event, event.detail.focus, event.detail.appearanceId));
 window.addEventListener('halveth:world-stage', event => scene?.broadcast?.(event.detail === true));
 for(const panel of document.querySelectorAll('.signature-parameters,.signature-docking,.signature-continuity')) panel.addEventListener('toggle',()=>{if(panel.open && mode!=='signature')setMode('signature');});
-showInspector(true);renderMode();renderSelection(); renderTimeline(); renderDestinations(); updatePause(); startScene();
+showInspector(true);showMobileTools(false);renderMode();renderSelection(); renderTimeline(); renderDestinations(); updatePause(); startScene();
 // Legacy entity fragments are also static directory anchors. Restore the scene's entry view.
 if(ids.has(location.hash.slice(1))) requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'instant'}));
