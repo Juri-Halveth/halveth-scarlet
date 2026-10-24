@@ -1,19 +1,49 @@
 [Deutsch](README.md) · [English](README.en.md) · [Русский](README.ru.md)
 
-# SCARLET · Spiele, Grafik und technische Modelle
+# SCARLET · Autonomer Funktionsraum
 
 **Person: Juri. Projekt: HALVETH.** [Namenszuordnung](IDENTITY.md).
 
 [Windows: alte glTF-Arbeitskopien prüfen und gezielt reparieren](docs/WINDOWS_GLTF_RECOVERY.md)
 
-**Erst ausprobieren. Dann den Code ansehen.** SCARLET verbindet eigene
-Browser-Spielprototypen, interaktive Grafik und synthetische Lehrmodelle.
+**Aus einem Keim wird ein System.** Der öffentliche Einstieg ist ein bedienbarer
+Raum für Textzustände, Varianten und Beobachtung. JavaScript führt die
+Zustandsoperationen tatsächlich lokal aus; das automatische Zellensystem ist
+eine endliche regelbasierte Simulation.
 
 [Technische Demos öffnen](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/)
-· [Erdszene](https://juri-halveth.github.io/halveth-scarlet/)
+· [Funktionsraum](https://juri-halveth.github.io/halveth-scarlet/)
 · [Portfolio](https://juri-halveth.github.io/)
 
-## Ausgewählte Einstiege
+## Direkt im Funktionsraum
+
+1. **Keim:** Eigenen Text, Namen und Modell-Seed eingeben. Die Rohtexteingabe
+   bleibt im bestehenden `GStar`-Ledger erhalten.
+2. **Hülle:** Der Text erhält einen lokalen Zustand mit ID und Digest.
+3. **Zeit:** `GStarLiving` berechnet Zellbewegung, Signale und Übergänge.
+   Pause, Einzelschritt und Zurücksetzen bleiben direkt bedienbar.
+4. **Entfaltung:** Einen bearbeiteten Text als neue Variante materialisieren.
+   Der Elternzustand und die gebundene Ableitung bleiben erhalten.
+5. **Beobachten / Snapshot / Replay:** Explizite Ledger-Operationen ausführen
+   und das Textledger aus seinen Befehlen exakt rekonstruieren.
+6. **JSON mitnehmen:** Das echte Textledger und der getrennte Zustand der
+   Zellensimulation werden als Daten exportiert.
+
+Die Einstiegsfläche lädt ausschließlich lokale Ressourcen und hat
+`connect-src 'none'`. Es gibt dort keine Konten, Wallet-Abfragen oder
+Ausführung eingegebener Programme. Die automatische Zellensimulation ist
+auf 180 Sekunden Modellzeit begrenzt; der Textkern auf 48 Zustände und
+128 Ereignisse. Ein neuer Keim startet einen neuen lokalen Lauf; exportierte
+Daten bleiben unabhängig davon erhalten. Die Replay-Prüfung gilt für das
+Textledger und dessen Selbstkonsistenz, nicht für äußere Wahrheit.
+
+**Praktischer Einsatz:** Variantenvergleich, nachvollziehbare Prototypen,
+Testplanung und interaktive Erklärungen. Wirtschaftlicher Nutzen braucht
+jeweils einen konkreten Einsatz und eine Messung.
+
+[Funktionsvertrag und Umstellung](docs/FUNCTION_ROOM.md)
+
+## Weitere vorhandene Anwendungen
 
 ### [1001 · Entitäten als veränderbare Signaturen](entities/)
 

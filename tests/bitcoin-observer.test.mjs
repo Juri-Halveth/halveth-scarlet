@@ -66,18 +66,18 @@ test('failed refresh clears old chain data and never leaves a stale block link',
   assert.match(nodes.get('btc-live-status').textContent,/nicht verfügbar/);
   assert.equal(nodes.get('btc-live-link').href,'https://mempool.space/');
 });
-test('active root shows only GTC and BTC references while the garden ASTER record stays separate',()=>{
+test('token profiles retain source separation while the new workspace performs no external chain requests',()=>{
   const context={window:{}};vm.runInNewContext(fs.readFileSync(new URL('../assets/universe-data.js',import.meta.url),'utf8'),context);
   const entities=context.window.HalvethUniverse.entities,html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
   const figures=fs.readFileSync(new URL('../assets/entity-figures.mjs',import.meta.url),'utf8');
   const sitemap=fs.readFileSync(new URL('../sitemap.xml',import.meta.url),'utf8');
   const rights=fs.readFileSync(new URL('../forschung/figuren-und-perspektiven/index.html',import.meta.url),'utf8');
-  assert.deepEqual([...html.matchAll(/data-chain="([^"]+)"/g)].map(match=>match[1]),['gitcoin']);
+  assert.deepEqual([...html.matchAll(/data-chain="([^"]+)"/g)].map(match=>match[1]),[]);
   assert.ok(entities.some(entity=>entity.id==='gitcoin'));assert.ok(entities.some(entity=>entity.id==='aster'));
   for(const id of ['manta','aster-chain','rtx'])assert.ok(!entities.some(entity=>entity.id===id),id);
   assert.doesNotMatch(figures,/manta|aster-chain|\brtx\b/i);
   assert.doesNotMatch(sitemap,/\/entities\/(?:manta|aster-chain|rtx)\//);
   assert.doesNotMatch(rights,/GTC, Manta|GTC, Aster|RTX/);
-  assert.match(html,/GTC ×3/);assert.match(html,/https:\/\/mempool\.space/);
-  assert.match(html,/connect-src 'self' https:\/\/mempool\.space/);
+  assert.match(html,/connect-src 'none'/);
+  assert.doesNotMatch(html,/assets\/bitcoin-observer\.mjs/);
 });

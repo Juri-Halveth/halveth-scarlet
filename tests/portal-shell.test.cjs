@@ -5,7 +5,6 @@ const path = require('node:path');
 
 const root = path.join(__dirname, '..');
 const pages = new Map([
-  ['index.html', 'assets/'],
   ['room/index.html', '../assets/'],
   ['snapshot/index.html', '../assets/'],
   ['collage/index.html', '../assets/'],
@@ -30,7 +29,7 @@ test('every published page loads one shared portal shell from the correct root',
 
 test('every published page declares canonical, bilingual and social-preview metadata', () => {
   const publicRoot = 'https://juri-halveth.github.io/halveth-scarlet/';
-  for (const [relative] of pages) {
+  for (const [relative] of [['index.html','assets/'], ...pages]) {
     const html = fs.readFileSync(path.join(root, relative), 'utf8');
     const route = relative === 'index.html' ? '' : relative.replace(/index\.html$/, '');
     const canonical = publicRoot + route;
@@ -62,19 +61,13 @@ test('portal artwork is optimized, local and complete', () => {
     assert(stat.size > 100_000, `${file} should contain the intended artwork`);
     assert(stat.size < 250_000, `${file} should remain web-sized`);
   }
-  const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  assert(homepage.includes('src="assets/scarlet-dual-state-v1.webp"'));
-  assert(!homepage.includes('src="assets/scarlet-dual-state-v1.png"'));
+
 });
 
-test('homepage layout styles retain their keys and the shell carries the veil fix', () => {
+test('the operational home owns one dedicated layout instead of layering old game styles', () => {
   const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  for (const file of ['events.css', 'universe.css', 'q-entry.css']) {
-    assert(homepage.includes(`assets/${file}?v=full-audit-20260914`), file);
-  }
-  assert(homepage.includes('assets/hash-bloom.css?v=membrane-20260914'), 'hash-bloom.css');
-  assert(homepage.includes('assets/portal-shell.css?v=choice-atelier-20260914'), 'portal-shell.css');
-  assert(homepage.includes('assets/portal-shell.js?v=choice-atelier-20260914'), 'portal-shell.js');
+  assert.match(homepage, /assets\/capability-room\.css/);
+  for (const name of ['events.css','universe.css','q-entry.css','hash-bloom.css','portal-shell.css']) assert(!homepage.includes('assets/'+name), name);
 });
 
 test('responsive layout has no fractional pixel gap below desktop', () => {

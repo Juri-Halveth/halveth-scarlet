@@ -75,6 +75,7 @@ test('every built HTML receives one local mobile stylesheet after its page style
     const links=[...head.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g)];
     const mobile=links.filter(m=>m[1].includes('assets/mobile.css?'));
     const standalonePage=[
+      'index.html',
       'forschung/ashbound/index.html',
       'forschung/ashbound/play/index.html',
       'forschung/juri-thesis/index.html',
@@ -115,14 +116,12 @@ test('every built HTML receives one local mobile stylesheet after its page style
   assert.ok(count>=86,'expected the whole current site');
 });
 
-test('mobile home keeps the full perspective directory behind one Garden control instead of permanent duplicate card rows', () => {
+test('the standalone mobile workspace keeps the field before controls without the old Garden layer', () => {
   const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  const behavior = fs.readFileSync(path.join(root, 'assets', 'universe.js'), 'utf8');
-  const mobile = fs.readFileSync(path.join(root, 'assets', 'mobile.css'), 'utf8');
-  assert.match(home, /id="garden-open"[^>]*aria-haspopup="dialog"/);
-  assert.match(home, /id="entity-dialog"/);
-  assert.match(home, /id="entity-list"/);
-  assert.match(behavior, /#garden-open'\)\.addEventListener\('click',\(\)=>openDirectory\(false\)\)/);
-  assert.match(behavior, /for\(const entity of entities\)/);
-  assert.match(mobile, /\.portal-route-home \.constellation\{display:none\}/);
+  const style = fs.readFileSync(path.join(root, 'assets/capability-room.css'), 'utf8');
+  assert.match(home, /id="room-canvas"/);
+  assert.match(home, /id="plant"/);
+  assert.doesNotMatch(home, /id="garden-open"|id="entity-dialog"/);
+  assert.match(style, /\.field\{height:54svh/);
+  assert.match(style, /\.controls\{order:2/);
 });

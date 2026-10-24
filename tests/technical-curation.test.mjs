@@ -7,7 +7,7 @@ const excluded=['ba-uebergangsraum','brightcast-starlight','de-anker-hela','halv
 test('retired context routes and automatic news publication remain outside the current tree',()=>{
  for(const x of excluded)assert.equal(fs.existsSync(path.join(root,'forschung',x)),false,x);
  assert.equal(fs.existsSync(path.join(root,'.github/workflows/news.yml')),false);
- const html=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.doesNotMatch(html,/assets\/home-news\.js/);assert.match(html,/data-news-source="technical"/);
+ const html=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.doesNotMatch(html,/assets\/home-news\.js/);assert.doesNotMatch(html,/assets\/events\.js/);
 });
 test('the separately restored civic pilot has a readable page and its original brief',()=>{
  assert.ok(fs.existsSync(path.join(root,'forschung/juri-thesis/konzept.html')));

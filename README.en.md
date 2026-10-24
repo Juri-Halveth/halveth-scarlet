@@ -1,11 +1,9 @@
-# SCARLET · Games, graphics and technical models
+# SCARLET · Autonomous workspace
 
 [Open the technical demos](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/en.html)
-· [Earth scene](https://juri-halveth.github.io/halveth-scarlet/)
+· [Workspace](https://juri-halveth.github.io/halveth-scarlet/)
 
-Browser game prototypes, interactive graphics and synthetic teaching models.
-ASHBOUND, Portal Chess, the attractor game, Earth image zoom and observer models
-have their own entry points and development states. Native code under `native/`
+A local operational space for text states, variants and observation. The entry executes the existing GStar text ledger and shows a separate finite GStar Living cell simulation. Preserve input, derive a variant, observe, snapshot, replay and export the actual records. Native code under `native/`
 has a separate build and measurement scope.
 
 Run `node tools/build_site.mjs` and `node --test tests/*.test.cjs tests/*.test.mjs`.
