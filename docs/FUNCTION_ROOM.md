@@ -1,4 +1,4 @@
-# Scarlet function room — 2026-10-24
+# States, time and variants — function room, 2026-10-24
 
 ## Product purpose
 
@@ -27,6 +27,25 @@ The central shell represents the selected text state. Small moving points and
 signals project the separate cell model. The two models share this interface;
 the ecology does not generate the visitor's text or authorize a text transition.
 Display geometry is neither physical geometry nor a physical mechanism claim.
+
+## Light and spatial presentation
+
+Public entry labels describe functions rather than project aliases. The root,
+shared navigation and technical guide use states, time, variants and observation;
+repository URLs and source identifiers retain their stable identities.
+
+`assets/capability-room-visual.mjs` renders perspective light ribbons, a central
+origin and one small light body per retained text state. Parent links use the
+ledger's actual parent IDs. The separate cell model supplies its node positions
+and current signal endpoints. Decorative light paths and depth are display
+geometry, not additional model records or physical simulation.
+
+Existing bodies keep their positions when a new one is appended. The renderer
+shows up to the kernel's 48-state limit rather than dropping later states from
+the view. The model clock drives movement, unfolding and birth animation. Pause
+freezes that clock and the image; reduced motion renders final static forms.
+The projection never dispatches a state command. Text replay and export keep
+their existing meaning and schema.
 
 ## Autonomy and bounds
 

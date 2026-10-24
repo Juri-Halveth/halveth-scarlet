@@ -1,6 +1,6 @@
 [Deutsch](README.md) · [English](README.en.md) · [Русский](README.ru.md)
 
-# SCARLET · Autonomer Funktionsraum
+# Zustände, Zeit und Varianten · Interaktiver Funktionsraum
 
 **Person: Juri. Projekt: HALVETH.** [Namenszuordnung](IDENTITY.md).
 

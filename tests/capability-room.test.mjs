@@ -104,4 +104,7 @@ test('the public entry replaces the game shell and confines execution to local c
   assert.doesNotMatch(html, /SPIELCOUNTDOWN|PORTAL CHESS|16\/16|data-figure=/);
   assert.match(html, /id="event-trace"/);
   assert.match(html, /id="export"/);
+  const visibleText = html.replace(/<[^>]*>/g, ' ');
+  assert.doesNotMatch(visibleText, /\b(?:SCARLET|LUCINET|GSTAR|HALVETH)\b/i);
+  assert.match(visibleText, /Zustände\. Zeit\./);
 });

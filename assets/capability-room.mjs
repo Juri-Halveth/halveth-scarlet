@@ -1,5 +1,6 @@
 /* HALVETH PIRL 2.0. A local operational surface; no external execution. */
 import { createRoom, MAX_MODEL_MS } from './capability-room-model.mjs';
+import { createLightRenderer } from './capability-room-visual.mjs';
 
 const $ = id => document.getElementById(id);
 const defaults = Object.fromEntries([
@@ -24,20 +25,21 @@ const copy = {
     names: { SEED: 'EINGABE ERHALTEN', MATERIALIZE: 'ZUSTAND AKTIV', PROPOSE: 'VARIANTE ABGELEITET', OBSERVE: 'ZUSTAND GELESEN', SNAPSHOT: 'PRÄFIX ERHALTEN' },
   },
   en: {
+    brandTitle: 'State space', brandSubtitle: 'TIME · VARIANTS · OBSERVATION', brandAria: 'State space – home',
     navAria: 'Main navigation', roomAria: 'Interactive workspace', seedAria: 'Seed and model parameters', canvasAria: 'Rule-based cell simulation: motion, signals and finite unfolding. Current counts appear below the image.', lifeAria: 'Lifecycle and operations', workAria: 'Variants and traceable execution', traceAria: 'Recent text-state model events', explainAria: 'Execution and practical uses',
-    skip: 'Go to the workspace', tools: 'Functions & uses', source: 'Source code ↗', eyebrow: 'AUTONOMOUS WORKSPACE / LOCAL CODE',
-    title1: 'From a single seed', title2: 'a system unfolds.',
-    intro: 'Put something in. Let rules act. See what emerges. Create states and variants, observe changes and take the resulting structure with you.',
+    skip: 'Go to the workspace', tools: 'Functions & uses', source: 'Source code ↗', eyebrow: 'INTERACTIVE SPACE / LOCAL COMPUTATION',
+    title1: 'States. Time.', title2: 'New possibilities.',
+    intro: 'A thought becomes a starting point. Advance time, unfold variants and observe their connections. The origin is preserved.',
     inputTitle: '01 / YOUR STARTING POINT', inputLabel: 'What should begin in this space?', nameLabel: 'Name', seedLabel: 'Model seed', plant: 'Plant your own seed ↗',
     inputNote: 'Your text is preserved as input. A new seed starts a new local run. Export the previous run if you want to keep it.', localNote: 'In your browser · no account',
-    fieldTitle: 'RULES BECOME VISIBLE', fieldSubtitle: 'GSTAR LIVING / FINITE CELL MODEL', fieldNote: 'Motion and light visualise a computed model state.',
+    fieldTitle: 'ONE IMPULSE. SOMETHING EMERGES.', fieldSubtitle: 'STATES · SIGNALS · CONNECTIONS', fieldNote: 'Luminous forms represent local states.',
     canvasFallback: 'Graphics are unavailable here. State operations, the log and export remain usable.',
     phaseSeed: 'Seed', phaseSeedNote: 'Preserve input', phaseShell: 'Shell', phaseShellNote: 'Inspect state', phaseTime: 'Time', phaseTimeNote: 'Advance rules', phaseUnfold: 'Unfold', phaseUnfoldNote: 'Create a variant',
     pause: 'Ⅱ Pause', resume: '▷ Resume', step: '+ 1 s', reset: '↺ Reset', running: 'RUNNING LOCALLY', paused: 'PAUSED', initializing: 'Preparing the local space …',
     cells: 'model cells', transitions: 'transitions', states: 'text states', workLabel: 'THE NEXT POSSIBLE STATE', workTitle: 'Change things. Keep the origin.',
     workIntro: 'Write a continuation and create a new variant. The existing text remains as its parent state; the derivation gets its own ID and a bound relation.',
     variantLabel: 'Content of your next variant', branch: 'Create a variant ↗', observe: 'Observe state', proofTitle: 'ACTUAL EXECUTION', inspect: 'Inspect the current text state',
-    snapshot: 'Snapshot', verify: 'Check replay', export: 'Take JSON with you ↓', capLabel: 'WHAT YOU CAN CONNECT', capTitle: 'Functions, beyond names.',
+    snapshot: 'Snapshot', verify: 'Check replay', export: 'Take JSON with you ↓', capLabel: 'WHAT YOU CAN CONNECT', capTitle: 'Explore. Understand. Connect.',
     capIntro: 'Every entry leads to existing code. Operate the application and inspect its development stage, inputs and limits.',
     cap1Title: 'States & variants', cap1Text: 'Preserve starting states, derive new versions, retain their relationships and export structured results.',
     cap1Use: 'Uses: prototypes, traceable workflows and variant comparison.', cap1Link1: 'Edit text states', cap1Link2: 'Signatures & branches',
@@ -45,7 +47,7 @@ const copy = {
     cap2Use: 'Uses: test planning, debugging and understandable measurement models.', cap2Link1: 'Compare observation windows', cap2Link2: 'Bind a record to a digest',
     cap3Title: 'Connect & visualise', cap3Text: 'Local rules generate motion, signals and new forms. The display shows computed states; sources and definitions remain accessible.',
     cap3Use: 'Uses: interactive explanations, simulations and spatial interfaces.', cap3Link1: 'The complete cell system', cap3Link2: 'Explore source-bound imagery', cap3Link3: 'More applications', code: 'Inspect code',
-    realTitle: 'What actually runs here?', realText: 'JavaScript performs the local text-state operations. GStar Living computes a finite cell simulation with signals, membranes and changing forms. The glowing shell is a visualisation. Export contains the two separate models; replay checks the text ledger. This is the current scope of the autonomy shown here.',
+    realTitle: 'What actually runs here?', realText: 'JavaScript performs local text-state operations. A finite cell simulation computes signals, membranes and changing forms. Luminous bodies and paths give the data a spatial representation. Export contains the two separate models; replay checks the text ledger. This is the current scope of the autonomy shown here.',
     valueTitle: 'Where does practical value come from?', valueText: 'Keeping variants, transitions and observation gaps traceable helps teams explain workflows, compare experiments and narrow down errors. Economic value comes from a concrete use and its demonstrated benefit. Further program execution, external services and domain models each require their own integration.',
     made: '· Developed with AI assistance', rights: 'Rights & provenance',
     ready: 'Seed preserved. Two local operations have executed.', planted: 'New run: input preserved and state materialised.', branched: 'New variant created. The parent state is preserved.',
@@ -58,18 +60,19 @@ const copy = {
     names: { SEED: 'INPUT PRESERVED', MATERIALIZE: 'STATE ACTIVE', PROPOSE: 'VARIANT DERIVED', OBSERVE: 'STATE READ', SNAPSHOT: 'PREFIX PRESERVED' },
   },
   ru: {
+    brandTitle: 'Состояния', brandSubtitle: 'ВРЕМЯ · ВАРИАНТЫ · НАБЛЮДЕНИЕ', brandAria: 'Пространство состояний – начало',
     navAria: 'Главная навигация', roomAria: 'Интерактивное пространство', seedAria: 'Зерно и параметры модели', canvasAria: 'Клеточная симуляция: движение, сигналы и конечное развитие по правилам. Текущие числа приведены под изображением.', lifeAria: 'Возникновение и операции', workAria: 'Варианты и отслеживаемое исполнение', traceAria: 'Последние события модели текстовых состояний', explainAria: 'Исполнение и применение',
-    skip: 'К рабочему пространству', tools: 'Функции и применение', source: 'Исходный код ↗', eyebrow: 'АВТОНОМНОЕ ПРОСТРАНСТВО / ЛОКАЛЬНЫЙ КОД',
-    title1: 'Из одного зерна', title2: 'возникает система.', intro: 'Добавьте содержание. Дайте правилам действовать. Наблюдайте результат. Создавайте состояния и варианты, отслеживайте изменения и сохраняйте полученную структуру.',
+    skip: 'К рабочему пространству', tools: 'Функции и применение', source: 'Исходный код ↗', eyebrow: 'ИНТЕРАКТИВНОЕ ПРОСТРАНСТВО / ЛОКАЛЬНЫЙ РАСЧЁТ',
+    title1: 'Состояния. Время.', title2: 'Новые возможности.', intro: 'Мысль становится начальной точкой. Продолжайте время, создавайте варианты и наблюдайте связи. Начало сохраняется.',
     inputTitle: '01 / НАЧАЛЬНАЯ ТОЧКА', inputLabel: 'Что должно начаться в этом пространстве?', nameLabel: 'Название', seedLabel: 'Сид модели', plant: 'Посадить своё зерно ↗',
     inputNote: 'Ваш текст сохраняется как вход. Новое зерно начинает новый локальный запуск. Экспортируйте предыдущий запуск, если хотите его сохранить.', localNote: 'В браузере · без аккаунта',
-    fieldTitle: 'ПРАВИЛА СТАНОВЯТСЯ ВИДИМЫМИ', fieldSubtitle: 'GSTAR LIVING / КОНЕЧНАЯ КЛЕТОЧНАЯ МОДЕЛЬ', fieldNote: 'Движение и свет отображают вычисленное состояние модели.', canvasFallback: 'Графика недоступна. Операции с состояниями, журнал и экспорт работают.',
+    fieldTitle: 'ИМПУЛЬС. ВОЗНИКАЕТ НОВАЯ ФОРМА.', fieldSubtitle: 'СОСТОЯНИЯ · СИГНАЛЫ · СВЯЗИ', fieldNote: 'Светящиеся формы отображают локальные состояния.', canvasFallback: 'Графика недоступна. Операции с состояниями, журнал и экспорт работают.',
     phaseSeed: 'Зерно', phaseSeedNote: 'Сохранить вход', phaseShell: 'Оболочка', phaseShellNote: 'Изучить состояние', phaseTime: 'Время', phaseTimeNote: 'Продолжить правила', phaseUnfold: 'Развитие', phaseUnfoldNote: 'Создать вариант',
     pause: 'Ⅱ Пауза', resume: '▷ Продолжить', step: '+ 1 с', reset: '↺ Сброс', running: 'ЛОКАЛЬНЫЙ ЗАПУСК', paused: 'ПАУЗА', initializing: 'Подготовка локального пространства …',
     cells: 'клеток модели', transitions: 'переходов', states: 'текстовых состояний', workLabel: 'СЛЕДУЮЩЕЕ ВОЗМОЖНОЕ СОСТОЯНИЕ', workTitle: 'Менять, сохраняя начало.',
     workIntro: 'Напишите продолжение и создайте новый вариант. Исходный текст сохраняется как родительское состояние; производная получает свой ID и связанную с ним запись отношения.',
     variantLabel: 'Содержание следующего варианта', branch: 'Создать вариант ↗', observe: 'Наблюдать состояние', proofTitle: 'РЕАЛЬНОЕ ИСПОЛНЕНИЕ', inspect: 'Посмотреть текущее текстовое состояние',
-    snapshot: 'Снимок', verify: 'Проверить повтор', export: 'Скачать JSON ↓', capLabel: 'ВОЗМОЖНЫЕ СОЕДИНЕНИЯ', capTitle: 'Функции вместо одних названий.',
+    snapshot: 'Снимок', verify: 'Проверить повтор', export: 'Скачать JSON ↓', capLabel: 'ВОЗМОЖНЫЕ СОЕДИНЕНИЯ', capTitle: 'Изучать. Понимать. Связывать.',
     capIntro: 'Каждая ссылка ведёт к существующему коду. Используйте приложение и проверьте его стадию разработки, входы и ограничения.',
     cap1Title: 'Состояния и варианты', cap1Text: 'Сохранять исходные состояния, выводить новые версии, видеть их родство и экспортировать структурированные результаты.',
     cap1Use: 'Применение: прототипы, отслеживаемые процессы, сравнение вариантов.', cap1Link1: 'Редактор текстовых состояний', cap1Link2: 'Сигнатуры и ветвления',
@@ -77,7 +80,7 @@ const copy = {
     cap2Use: 'Применение: планирование тестов, отладка и понятные модели измерений.', cap2Link1: 'Сравнить окна наблюдения', cap2Link2: 'Привязать запись к дайджесту',
     cap3Title: 'Связывать и отображать', cap3Text: 'Локальные правила порождают движение, сигналы и новые формы. Отображение показывает вычисленные состояния; источники и определения доступны.',
     cap3Use: 'Применение: интерактивные объяснения, симуляции и пространственные интерфейсы.', cap3Link1: 'Полная клеточная система', cap3Link2: 'Изучить изображения с источниками', cap3Link3: 'Другие приложения', code: 'Посмотреть код',
-    realTitle: 'Что здесь действительно работает?', realText: 'JavaScript исполняет локальные операции над текстовыми состояниями. GStar Living вычисляет конечную клеточную симуляцию с сигналами, мембранами и изменением форм. Светящаяся оболочка — визуализация. Экспорт содержит две отдельные модели; повторная проверка проверяет текстовый журнал. Это текущий объём показанной здесь автономии.',
+    realTitle: 'Что здесь действительно работает?', realText: 'JavaScript исполняет локальные операции над текстовыми состояниями. Конечная клеточная симуляция вычисляет с сигналами, мембранами и изменением форм. Светящаяся оболочка — визуализация. Экспорт содержит две отдельные модели; повторная проверка проверяет текстовый журнал. Это текущий объём показанной здесь автономии.',
     valueTitle: 'Откуда возникает практическая ценность?', valueText: 'Отслеживаемые варианты, переходы и пробелы наблюдений помогают объяснять процессы, сравнивать опыты и локализовать ошибки. Экономическая ценность возникает из конкретного применения и его доказанной пользы. Исполнение других программ, внешние службы и предметные модели требуют своих интеграций.',
     made: '· Разработано с помощью ИИ', rights: 'Права и происхождение',
     ready: 'Зерно сохранено. Исполнены две локальные операции.', planted: 'Новый запуск: вход сохранён, состояние материализовано.', branched: 'Создан новый вариант. Родительское состояние сохранено.',
@@ -96,9 +99,9 @@ let room = null, running = !matchMedia('(prefers-reduced-motion: reduce)').match
 let statusKey = 'initializing', statusError = false, phase = 'seed', dirty = true;
 let lastFrame = 0, lastPaint = 0, lastNumbers = 0, hiddenAt = null;
 const canvas = $('room-canvas');
-let ctx = null;
-try { ctx = canvas.getContext('2d', { alpha: false }); } catch { /* Text operations remain available. */ }
-if (!ctx) $('field-fallback').hidden = false;
+const renderer = createLightRenderer(canvas);
+if (!renderer) $('field-fallback').hidden = false;
+let renderContent = { states: [], selectedId: null };
 let width = 0, height = 0;
 
 function notice(key, error = false) {
@@ -122,7 +125,7 @@ function motion() {
 }
 function translate() {
   document.documentElement.lang = lang;
-  document.title = lang === 'en' ? 'HALVETH · Autonomous workspace' : lang === 'ru' ? 'HALVETH · Автономное пространство' : 'HALVETH · Autonomer Funktionsraum';
+  document.title = lang === 'en' ? 'States, time and possibilities · Interactive space' : lang === 'ru' ? 'Состояния, время и возможности · Интерактивное пространство' : 'Zustände, Zeit und Möglichkeiten · Interaktiver Raum';
   for (const el of document.querySelectorAll('[data-i18n]')) el.textContent = t(el.dataset.i18n);
   for (const el of document.querySelectorAll('[data-i18n-aria]')) el.setAttribute('aria-label', t(el.dataset.i18nAria));
   for (const el of document.querySelectorAll('[data-lang]')) el.setAttribute('aria-pressed', String(el.dataset.lang === lang));
@@ -138,6 +141,7 @@ for (const el of document.querySelectorAll('[data-lang]')) el.addEventListener('
 function report() {
   if (!room) return;
   const view = room.view(), selected = room.selected();
+  renderContent = { states: view.states, selectedId: selected.id };
   $('state-count').textContent = String(view.counts.states);
   $('selected-state').textContent = selected.text;
   $('head-digest').textContent = room.export().contentLedger.headDigest;
@@ -167,7 +171,7 @@ async function plant(initial = false) {
   const seedString = $('model-seed').value;
   if (!/^[1-9]\d{0,9}$/.test(seedString)) { notice('inputError', true); return; }
   const candidate = await createRoom({ core: globalThis.GStar, living: globalThis.GStarLiving,
-    text: $('seed-text').value, label: $('seed-label').value, seed: Number(seedString), runId: 'SCARLET_' + Date.now().toString(36) });
+    text: $('seed-text').value, label: $('seed-label').value, seed: Number(seedString), runId: 'STATE_SPACE_' + Date.now().toString(36) });
   room = candidate;
   lastFrame = 0; setPhase('seed'); report(); dirty = true;
   notice(initial ? 'ready' : 'planted');
@@ -189,94 +193,19 @@ $('export').addEventListener('click', () => action(async () => {
   await room.verify();
   const blob = new Blob([JSON.stringify(room.export(), null, 2) + '\n'], { type: 'application/json' });
   const url = URL.createObjectURL(blob), link = document.createElement('a');
-  link.href = url; link.download = 'halveth-funktionsraum.json'; document.body.append(link); link.click(); link.remove();
+  link.href = url; link.download = 'zustaende-zeit.json'; document.body.append(link); link.click(); link.remove();
   setTimeout(() => URL.revokeObjectURL(url), 10000); notice('exported');
 }));
 
-// The display is a projection of model state. It never changes a kernel record.
+// Display geometry is separate from both kernels. Pause freezes the light, too.
 function resize() {
   const box = canvas.getBoundingClientRect(); width = box.width; height = box.height;
-  const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
-  canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
-  ctx?.setTransform(dpr, 0, 0, dpr, 0, 0); dirty = true;
+  renderer?.resize(width, height, window.devicePixelRatio || 1); dirty = true;
 }
 new ResizeObserver(resize).observe(canvas);
-function capsule(cx, cy, radius, tilt, time, active = false) {
-  const yaw = .6 + time * .035;
-  const point = (latitude, longitude) => {
-    const y = Math.cos(latitude), taper = .84 - y * .14;
-    const x = Math.sin(latitude) * Math.cos(longitude) * taper, z = Math.sin(latitude) * Math.sin(longitude) * taper;
-    const rx = x * Math.cos(yaw) - z * Math.sin(yaw), rz = x * Math.sin(yaw) + z * Math.cos(yaw);
-    return [cx + radius * (rx * Math.cos(tilt) - y * .15), cy + radius * (-y * 1.27 + rz * .22), rz];
-  };
-  const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.8);
-  glow.addColorStop(0, active ? '#ff849b18' : '#b1ffdb12'); glow.addColorStop(1, '#00000000');
-  ctx.fillStyle = glow; ctx.fillRect(cx - radius * 2, cy - radius * 2, radius * 4, radius * 4);
-  ctx.lineWidth = .65;
-  for (let line = 0; line < 22; line++) {
-    ctx.beginPath();
-    for (let step = 0; step <= 70; step++) {
-      const lat = step / 70 * Math.PI, p = point(lat, line / 22 * Math.PI * 2);
-      if (!step) ctx.moveTo(p[0], p[1]); else ctx.lineTo(p[0], p[1]);
-    }
-    ctx.strokeStyle = line < 11 ? '#a9e8d044' : '#d2efe825'; ctx.stroke();
-  }
-  for (let ring = 1; ring < 17; ring++) {
-    ctx.beginPath();
-    for (let step = 0; step <= 80; step++) {
-      const p = point(ring / 17 * Math.PI, step / 80 * Math.PI * 2);
-      if (!step) ctx.moveTo(p[0], p[1]); else ctx.lineTo(p[0], p[1]);
-    }
-    ctx.strokeStyle = active && ring % 4 === 0 ? '#ff9b9f70' : '#b9ead43b'; ctx.stroke();
-  }
-  ctx.beginPath(); ctx.arc(cx, cy, 3.5, 0, Math.PI * 2); ctx.fillStyle = active ? '#ffc1c0' : '#ddfbe9'; ctx.fill();
-}
 function draw(snapshot) {
-  if (!ctx || !width || !height) return;
-  ctx.fillStyle = '#080f13'; ctx.fillRect(0, 0, width, height);
-  const cx = width * .52, cy = height * .48, radius = Math.min(width * .19, height * .25), time = snapshot.modelMs / 1000;
-  const bg = ctx.createRadialGradient(cx, cy, 10, cx, cy, Math.max(width, height) * .6);
-  bg.addColorStop(0, '#244c412d'); bg.addColorStop(1, '#080f13'); ctx.fillStyle = bg; ctx.fillRect(0, 0, width, height);
-  // Reference grid is display geometry, not a claimed physical coordinate system.
-  ctx.strokeStyle = '#8fccb20d'; ctx.lineWidth = 1;
-  for (let i = 0; i < 7; i++) { ctx.beginPath(); ctx.ellipse(cx, cy + radius * .9, radius * (1.2 + i * .34), radius * (.16 + i * .065), -.13, 0, Math.PI * 2); ctx.stroke(); }
-  ctx.setLineDash([2, 7]); ctx.strokeStyle = '#9ec5b622';
-  ctx.beginPath(); ctx.moveTo(cx, 70); ctx.lineTo(cx, height - 68); ctx.moveTo(30, cy); ctx.lineTo(width - 30, cy); ctx.stroke(); ctx.setLineDash([]);
-  capsule(cx, cy, radius, -.12, time, phase === 'unfold');
-  const scale = Math.min(width / (snapshot.world.width * 1.6), height / (snapshot.world.height * 1.6));
-  const positions = new Map(snapshot.nodes.map(node => [node.id, { x: cx + node.position.x * scale * 1.35, y: cy + node.position.y * scale, node }]));
-  ctx.lineWidth = .65;
-  for (const node of snapshot.nodes) {
-    if (!node.parentId) continue;
-    const from = positions.get(node.parentId), to = positions.get(node.id);
-    if (!from) continue;
-    ctx.strokeStyle = '#a7efd83c'; ctx.beginPath(); ctx.moveTo(from.x, from.y); ctx.lineTo(to.x, to.y); ctx.stroke();
-  }
-  for (const signal of snapshot.signals) {
-    const from = positions.get(signal.source), to = positions.get(signal.target); if (!from || !to) continue;
-    ctx.strokeStyle = '#b8f1d650'; ctx.beginPath(); ctx.moveTo(from.x, from.y); ctx.quadraticCurveTo(cx, cy - radius * .3, to.x, to.y); ctx.stroke();
-  }
-  for (const { x, y, node } of positions.values()) {
-    const active = node.phase !== 'REST', r = node.depth ? 2 : 3.5;
-    const light = ctx.createRadialGradient(x, y, 0, x, y, active ? 22 : 13);
-    light.addColorStop(0, active ? '#fa969c99' : '#b8f1d65a'); light.addColorStop(1, '#00000000');
-    ctx.fillStyle = light; ctx.fillRect(x - 22, y - 22, 44, 44);
-    ctx.fillStyle = active ? '#ffb8bb' : '#c0efd8'; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
-    if (!node.depth && width > 600 && node.order % 3 === 0) { ctx.fillStyle = '#8ba89c'; ctx.font = '9px ui-monospace,monospace'; ctx.fillText(node.id.toUpperCase(), x + 10, y + 3); }
-  }
-  const stateCount = room.view().counts.states;
-  if (stateCount > 1) {
-    const shown = Math.min(stateCount - 1, 6);
-    for (let i = 0; i < shown; i++) {
-      const angle = -.9 + i * 2.4, distance = radius * 1.6;
-      const bx = cx + Math.cos(angle) * distance, by = cy + Math.sin(angle) * distance * .6;
-      ctx.strokeStyle = '#fc9b9b55'; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(bx, by); ctx.stroke();
-      capsule(bx, by, radius * .22, .2, time, true);
-    }
-  }
-  ctx.textAlign = 'center'; ctx.font = '9px ui-monospace,monospace'; ctx.fillStyle = '#bad9ca';
-  ctx.fillText('S / ' + String(stateCount).padStart(3, '0') + '     ·     G* ' + snapshot.version, cx, cy + radius * 1.55);
-  ctx.textAlign = 'left';
+  renderer?.render(snapshot, renderContent, { phase,
+    instant: !running || matchMedia('(prefers-reduced-motion: reduce)').matches });
 }
 function frame(now) {
   if (room && !document.hidden) {

@@ -122,6 +122,6 @@ test('the standalone mobile workspace keeps the field before controls without th
   assert.match(home, /id="room-canvas"/);
   assert.match(home, /id="plant"/);
   assert.doesNotMatch(home, /id="garden-open"|id="entity-dialog"/);
-  assert.match(style, /\.field\{height:54svh/);
+  assert.match(style, /\.field\{height:60svh/);
   assert.match(style, /\.controls\{order:2/);
 });
