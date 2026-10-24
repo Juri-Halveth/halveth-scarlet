@@ -7,6 +7,7 @@ import { checkLinks, htmlFiles, siteURL } from './check_links.mjs';
 import { sourceTreeState } from './source_state.mjs';
 import { trackedSourceFiles, isTrackedPublicInput } from './public_inputs.mjs';
 import { siteTreeReceipt } from './artifact_tree.mjs';
+import { entryPolicy } from './entry_policy.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = path.join(root, '.site-build');
@@ -80,7 +81,7 @@ for (const name of thesisAssets.filter(name=>name.endsWith('.js'))) {
 }
 // Version shared presentation by the exact copied bytes, not a release label.
 const assetDigests=Object.fromEntries([
-  'assets/portal-shell.css','assets/portal-shell.js','languages/hub-language.css','assets/mobile.css',
+  'assets/entry-scroll.js','assets/portal-shell.css','assets/portal-shell.js','languages/hub-language.css','assets/mobile.css',
   ...entityAssets,'assets/universe-data.js',
   ...thesisAssets.filter(name=>/\.(css|js)$/.test(name)).map(name=>'forschung/juri-thesis/'+name)
 ].map(asset=>[asset,createHash('sha256').update(fs.readFileSync(path.join(output,asset))).digest('hex')]));
@@ -108,7 +109,7 @@ for (const file of pages) {
   const mobile=standalonePage?'':'<!-- MOBILE_LAYOUT_START --><link rel="stylesheet" href="'+relativeRoot+'assets/mobile.css"><!-- MOBILE_LAYOUT_END -->';
   const archived=/forschung\/(?:ba-uebergangsraum|brightcast-starlight|de-anker-hela|halveth-research|handschriftliche-konvergenzen|microvalue|q-notizen|red-room-dialog|tagesstand-2026-09-13|usdai-sabr-kontext)\//;
   const curated=html.replace(/<a\b[^>]*href=[\"']([^\"']+)[\"'][^>]*>.*?<\/a>/gis,(m,url)=>archived.test(url)?'<a href=\"/halveth-scarlet/forschung/wegweiser/\">Technische Demos / Technical demos</a>':m);
-  const built=curated.replace(/(<head[^>]*>)/,match=>match+tags).replace(/<\/head>/i,mobile+'</head>');
+  const built=entryPolicy(curated.replace(/(<head[^>]*>)/,match=>match+tags).replace(/<\/head>/i,mobile+'</head>'),relative);
   fs.writeFileSync(file,built.replace(/\b(src|href)=(["'])([^"']+)\2/g,(match,attribute,quote,url)=>{
     const pathname=url.split(/[?#]/)[0];
     if (/^(?:[a-z]+:|\/\/|#)/i.test(pathname)) return match;
