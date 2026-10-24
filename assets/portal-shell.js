@@ -168,12 +168,12 @@
     render();
     button.setAttribute('aria-expanded','true');
     if(typeof map.showModal==='function')map.showModal();else map.setAttribute('open','');
-    close.focus();
+    close.focus({ preventScroll: true });
   };
   const closeMap=()=>{
     button.setAttribute('aria-expanded','false');
     if(typeof map.close==='function'&&map.open)map.close();else map.removeAttribute('open');
-    button.focus();
+    button.focus({ preventScroll: true });
   };
   button.addEventListener('click',openMap);
   close.addEventListener('click',closeMap);

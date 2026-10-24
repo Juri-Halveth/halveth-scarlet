@@ -34,7 +34,7 @@
       draft=core.format(record,digest);$('stamp-preview').value=draft;
       $('preview-panel').hidden=false;$('stamp-preview').hidden=false;
       setStatus('form-status',()=>text('Dein Entwurf ist bereit. Prüfe ihn, kopiere ihn und veröffentliche ihn auf GitHub.','Your draft is ready. Review it, copy it and publish it on GitHub.'));
-      $('stamp-preview').focus();
+      $('stamp-preview').focus({ preventScroll: true });
     }catch(error){
       if(version!==draftVersion)return;
       draft='';$('preview-panel').hidden=true;
@@ -47,7 +47,7 @@
     if(!draft)return;
     const copied=draft,version=draftVersion;
     try{await navigator.clipboard.writeText(copied);if(version!==draftVersion||copied!==draft)return;setStatus('copy-status',()=>text('Kopiert. Auf GitHub kannst du den Text prüfen und als Kommentar senden.','Copied. Review and submit the text as a comment on GitHub.'));}
-    catch{if(version!==draftVersion||copied!==draft)return;$('stamp-preview').focus();$('stamp-preview').select();setStatus('copy-status',()=>text('Bitte den markierten Text mit Strg/Cmd+C kopieren.','Please copy the selected text with Ctrl/Cmd+C.'));}
+    catch{if(version!==draftVersion||copied!==draft)return;$('stamp-preview').focus({ preventScroll: true });$('stamp-preview').select();setStatus('copy-status',()=>text('Bitte den markierten Text mit Strg/Cmd+C kopieren.','Please copy the selected text with Ctrl/Cmd+C.'));}
   });
   function render(entries){
     const fragment=document.createDocumentFragment();

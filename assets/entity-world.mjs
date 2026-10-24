@@ -150,9 +150,9 @@ function renderTimeline() {
 function openDirectory(event) {
   event?.preventDefault(); $('profile-directory').hidden = !$('profile-directory').hidden;
   if (!$('profile-directory').hidden) $('profile-directory').scrollIntoView({ behavior: 'instant' });
-  if (mobileLayout.matches && !$('profile-directory').hidden) $('directory-close').focus();
+  if (mobileLayout.matches && !$('profile-directory').hidden) $('directory-close').focus({ preventScroll: true });
 }
-$('world-search-open').addEventListener('click', () => { renderSearch(); $('world-search').showModal(); $('entity-search').focus(); });
+$('world-search-open').addEventListener('click', () => { renderSearch(); $('world-search').showModal(); $('entity-search').focus({ preventScroll: true }); });
 $('world-search-close').addEventListener('click', () => $('world-search').close());
 $('entity-search').addEventListener('input', renderSearch);
 $('mode-focus').addEventListener('click', () => setMode('focus'));
@@ -189,7 +189,7 @@ function showMobileTools(open, returnFocus = false) {
     $('world-main').append($('world-bottom'));
     document.body.append($('world-footer'));
   }
-  if (returnFocus) $(open ? 'mobile-tools-close' : 'mobile-tools-toggle').focus();
+  if (returnFocus) $(open ? 'mobile-tools-close' : 'mobile-tools-toggle').focus({ preventScroll: true });
 }
 $('mobile-tools-toggle').addEventListener('click', () => showMobileTools(!mobileToolsOpen, true));
 $('mobile-tools-close').addEventListener('click', () => showMobileTools(false, true));
@@ -228,7 +228,7 @@ for (const [id, delta] of [['entity-prev', -1], ['entity-next', 1], ['mobile-ent
 $('directory-open').addEventListener('click', openDirectory);
 $('directory-close').addEventListener('click', () => {
   $('profile-directory').hidden = true;
-  $(mobileLayout.matches ? 'mobile-tools-toggle' : 'directory-open').focus();
+  $(mobileLayout.matches ? 'mobile-tools-toggle' : 'directory-open').focus({ preventScroll: true });
 });
 $('world-fallback').addEventListener('click', () => { $('profile-directory').hidden = false; $('profile-directory').scrollIntoView(); });
 $('world-retry').addEventListener('click', startScene);
@@ -255,5 +255,4 @@ window.addEventListener('halveth:world-gift', event => scene?.materialize?.(even
 window.addEventListener('halveth:world-stage', event => scene?.broadcast?.(event.detail === true));
 for(const panel of document.querySelectorAll('.signature-parameters,.signature-docking,.signature-continuity')) panel.addEventListener('toggle',()=>{if(panel.open && mode!=='signature')setMode('signature');});
 showInspector(true);showMobileTools(false);renderMode();renderSelection(); renderTimeline(); renderDestinations(); updatePause(); startScene();
-// Legacy entity fragments are also static directory anchors. Restore the scene's entry view.
-if(ids.has(location.hash.slice(1))) requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'instant'}));
+// Entity fragments select state; their static anchors are at the stage entrance.

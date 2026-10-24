@@ -50,7 +50,7 @@ function render(focus = false) {
   if (focus) {
     const heading = stage.querySelector('h3');
     heading.tabIndex = -1;
-    heading.focus();
+    heading.focus({ preventScroll: true });
   }
 }
 
@@ -59,9 +59,9 @@ stage.addEventListener('click', event => {
   const outcome = event.target.closest('[data-outcome]');
   const share = event.target.closest('[data-share]');
   const newRound = event.target.closest('[data-new-round]');
-  if (path) { if (state.path !== path.dataset.path) { state.outcome = null; state.publicExcerpt = false; } state.path = path.dataset.path; render(); stage.querySelector(`[data-path="${state.path}"]`).focus(); }
-  if (outcome) { state.outcome = outcome.dataset.outcome; render(); stage.querySelector(`[data-outcome="${state.outcome}"]`).focus(); }
-  if (share) { state.publicExcerpt = !state.publicExcerpt; render(); stage.querySelector('[data-share]').focus(); }
+  if (path) { if (state.path !== path.dataset.path) { state.outcome = null; state.publicExcerpt = false; } state.path = path.dataset.path; render(); stage.querySelector(`[data-path="${state.path}"]`).focus({ preventScroll: true }); }
+  if (outcome) { state.outcome = outcome.dataset.outcome; render(); stage.querySelector(`[data-outcome="${state.outcome}"]`).focus({ preventScroll: true }); }
+  if (share) { state.publicExcerpt = !state.publicExcerpt; render(); stage.querySelector('[data-share]').focus({ preventScroll: true }); }
   if (newRound) { state.round += 1; state.step = 1; state.path = null; state.outcome = null; state.publicExcerpt = false; render(true); }
 });
 back.addEventListener('click', () => { if (state.step > 0) { state.step -= 1; render(true); } });

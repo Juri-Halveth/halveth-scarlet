@@ -1,7 +1,8 @@
-export function entityWorldBody({ cards, languageButtons, count }) {
+export function entityWorldBody({ cards, languageButtons, count, entryAnchors = '' }) {
   const bi = (de, en) => `<span data-lang="de">${de}</span><span data-lang="en">${en}</span>`;
   const icon = name => `<i data-lucide="${name}" aria-hidden="true"></i>`;
   return `<body class="entity-world-page signature-atlas">
+<div class="world-entry-anchors" aria-hidden="true">${entryAnchors}</div>
 <a class="world-skip" href="#world-main">${bi('Zum Figurenraum','Skip to characters')}</a>
 <header class="world-header">
   <a class="world-brand" href="../">${icon('orbit')}<span>HALVETH<small>${bi('DIE KONSTELLATION','THE CONSTELLATION')}</small></span></a>

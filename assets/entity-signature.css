@@ -1,6 +1,8 @@
 /* The atlas shares one renderer and one entity registry with the walking world. */
 body.signature-atlas{margin:0;background:#080b16;color:#f4ede9;--accent:#ffd69e;--muted:#b8afbd;font-family:'Segoe UI',system-ui,sans-serif}
 body.signature-atlas *{box-sizing:border-box}
+.world-entry-anchors{position:absolute;top:0;left:0;height:0;overflow:hidden;pointer-events:none}
+.world-entry-anchors>span{display:block;width:0;height:0}
 body.signature-atlas button{background:#151521;border-color:#ffffff25;min-height:44px;border-radius:9px}
 body.signature-atlas button:hover{background:#322134;border-color:#f1accb80}
 body.signature-atlas .icon-button{height:44px;width:44px;min-width:44px}
