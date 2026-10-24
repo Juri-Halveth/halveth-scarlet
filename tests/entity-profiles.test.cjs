@@ -37,16 +37,12 @@ test('all entities have a distinct static bilingual profile, editable dossier an
   }
   assert.equal(destinations.size, registry.entities.length);
 });
-test('directory and static home orbiters reach their exact entity destinations without JavaScript', () => {
+test('the directory retains every exact static profile destination and the root links to the signatures', () => {
   const directory = read('entities/index.html');
   for (const entity of registry.entities) assert.ok(directory.includes(`href="${entity.id}/"`), entity.id);
-  const tags = [...read('index.html').matchAll(/<a class="figure"[^>]+>/g)];
-  assert.equal(tags.length, 12);
-  for (const [tag] of tags) {
-    const id = /data-figure="([^"]+)"/.exec(tag)[1];
-    assert.ok(tag.includes(`href="entities/${id}/"`));
-  }
+  assert.match(read('index.html'), /href="entities\/\?view=chain#scarlet"/);
 });
+
 test('every local profile asset, companion route and source fragment exists', () => {
   const files = ['entities/index.html', ...registry.entities.map(entity => entity.profilePath + 'index.html')];
   const base = new URL(registry.site);

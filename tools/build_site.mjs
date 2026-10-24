@@ -82,13 +82,19 @@ for (const name of thesisAssets.filter(name=>name.endsWith('.js'))) {
 // Version shared presentation by the exact copied bytes, not a release label.
 const assetDigests=Object.fromEntries([
   'assets/entry-scroll.js','assets/portal-shell.css','assets/portal-shell.js','languages/hub-language.css','assets/mobile.css',
+  'assets/capability-room.css','assets/capability-room.mjs','assets/capability-room-model.mjs',
+  'forschung/weltkeimwerk/core.js','forschung/weltkeimwerk/live-core.js',
   ...entityAssets,'assets/universe-data.js',
   ...thesisAssets.filter(name=>/\.(css|js)$/.test(name)).map(name=>'forschung/juri-thesis/'+name)
 ].map(asset=>[asset,createHash('sha256').update(fs.readFileSync(path.join(output,asset))).digest('hex')]));
+const roomController=path.join(output,'assets/capability-room.mjs');
+fs.writeFileSync(roomController,fs.readFileSync(roomController,'utf8').replace("'./capability-room-model.mjs'", "'./capability-room-model.mjs?v="+assetDigests['assets/capability-room-model.mjs']+"'"));
+assetDigests['assets/capability-room.mjs']=createHash('sha256').update(fs.readFileSync(roomController)).digest('hex');
 for (const file of pages) {
   const relative=path.relative(output,file).split(path.sep).join('/');
   const relativeRoot='../'.repeat(relative.split('/').length-1);
   const standalonePage=[
+    'index.html',
     'forschung/ashbound/index.html',
     'forschung/ashbound/play/index.html',
     'forschung/juri-thesis/index.html',

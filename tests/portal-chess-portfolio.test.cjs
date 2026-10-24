@@ -6,23 +6,11 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
 
-test('home leads to Portal Chess without placing the portfolio challenge over the Earth scene', () => {
+test('the new workspace removes the game challenge and keeps games in the application guide', () => {
   const home = read('index.html');
-  const css = read('assets/portal-chess-feature.css');
-  const sceneEnd = home.indexOf('</footer></div>');
-  const feature = home.indexOf('<section class="portal-chess-feature"');
-  assert(sceneEnd >= 0, 'home scene closing seam');
-  assert(feature > sceneEnd, 'challenge follows the scene in document flow');
-  assert.match(home, /assets\/portal-chess-feature\.css\?v=portfolio-challenge-20261012/);
-  assert.match(home, /class="home-chess-entry" href="forschung\/portal-chess\/"/);
-  assert.match(home, /16 BAUERN\. 16 DAMEN\?/);
-  assert.match(home, /3 \/ 16 verifiziert/);
-  assert.match(home, /DREI PFORTE SPIELEN/);
-  assert.match(home, /41 Halbzüge · lokaler Zugspur-Prüfer/);
-  assert.match(home, /16 \/ 16 Challenge/);
-  assert.match(css, /\.portal-chess-feature\{[\s\S]*?position:relative/);
-  assert.match(css, /@media\(max-width:700px\)/);
-  assert.doesNotMatch(css, /\.portal-chess-feature\{[\s\S]*?position:fixed/);
+  assert.doesNotMatch(home, /portal-chess-feature|home-chess-entry|SPIELCOUNTDOWN/);
+  assert.match(home, /href="forschung\/wegweiser\/"/);
+  assert.match(read('forschung/wegweiser/index.html'), /href="\.\.\/portal-chess\/"/);
 });
 
 test('Portal Chess exposes a replayable three-pawn milestone without presenting the open 16/16 challenge as solved', () => {
@@ -39,19 +27,14 @@ test('Portal Chess exposes a replayable three-pawn milestone without presenting 
   assert.doesNotMatch(route, /LÖSUNGSLINIE/);
 });
 
-test('Portal Chess is the first public destination after Nexus and gets a direct shortcut', () => {
+test('shared navigation exposes state and signature tools as direct shortcuts while retaining application routes', () => {
   const shell = read('assets/portal-shell.js');
-  const chess = shell.indexOf("id:'portal-chess'");
-  const room = shell.indexOf("id:'room'");
-  assert(chess > 0 && chess < room, 'Portal Chess follows Nexus before the prior room route');
   assert.match(shell, /path:'forschung\/portal-chess\/'/);
-  assert.match(shell, /index:'01'/);
-  assert.match(shell, /data-portal-quick="portal-chess">♟/);
-  assert.match(shell, /const quickIds=\['home','portal-chess','room'\]/);
+  assert.match(shell, /data-portal-quick="gstar">◎/);
+  assert.match(shell, /data-portal-quick="entities">⌘/);
+  assert.match(shell, /const quickIds=\['home','gstar','entities'\]/);
   const routeIndexes = [...shell.matchAll(/index:'(\d+)'/g)].map(match => match[1]);
   assert.deepEqual(routeIndexes, Array.from({length: 15}, (_, index) => String(index).padStart(2, '0')));
-  assert.match(shell, /id:'ashbound',path:'forschung\/ashbound\/',index:'13'/);
-  assert.match(shell, /id:'wegweiser',path:'forschung\/wegweiser\/',index:'14'/);
 });
 
 test('public portfolio and sitemap point to the actual Portal Chess route', () => {

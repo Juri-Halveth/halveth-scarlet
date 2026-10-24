@@ -15,7 +15,7 @@
   };
 
   const routes=[
-    {id:'home',path:'./',index:'00',image:'gate',accent:'#ffc66e',de:'Nexus',en:'Nexus',deNote:'Erde, Herz und alle Wege',enNote:'Earth, heart and every route'},
+    {id:'home',path:'./',index:'00',image:'gate',accent:'#ffc66e',de:'Funktionsraum',en:'Workspace',deNote:'Zustände, Varianten und Beobachtung',enNote:'States, variants and observation'},
     {id:'portal-chess',path:'forschung/portal-chess/',index:'01',image:'gate',accent:'#ffd16f',de:'Portal Chess',en:'Portal Chess',deNote:'3/16 geprüft · 16/16 offen',enNote:'3/16 verified · 16/16 open'},
     {id:'room',path:'room/',index:'02',image:'scarlet',accent:'#ff345f',de:'Raum der Spuren',en:'Room of traces',deNote:'Freiwillige Gedanken und Quellen',enNote:'Voluntary thoughts and sources'},
     {id:'snapshot',path:'snapshot/',index:'03',image:'machine',accent:'#8deeff',de:'Snapshot-Studio',en:'Snapshot studio',deNote:'Lokale Belege zum Mitnehmen',enNote:'Local receipts to take with you'},
@@ -25,7 +25,7 @@
     {id:'team',path:'./#team',index:'07',image:'nexus',accent:'#ff7ac8',de:'Die Konstellation',en:'The constellation',deNote:'Alle Profile: Perspektiven, Figuren, Projekte und Quellen',enNote:'All profiles: perspectives, characters, projects and sources'},
     {id:'collage',path:'collage/',index:'08',image:'gate',accent:'#ff9a71',de:'Choice Atelier',en:'Choice Atelier',deNote:'Mode, Collage und eigene Wahl',enNote:'Fashion, collage and your own choice'},
     {id:'pi',path:'forschung/pi-treffpunkte/',index:'09',image:'nexus',accent:'#b05cff',de:'π-Treffpunkte',en:'π meeting points',deNote:'Plus Codes, vier Symmetrien, klare Beleggrenzen',enNote:'Plus Codes, four symmetries, clear evidence limits'},
-    {id:'entities',path:'entities/',index:'10',image:'nexus',accent:'#ff7ac8',de:'Figurenraum',en:'Character world',deNote:'Alle Figuren mit Geschichten, Thesen und Quellen',enNote:'All characters with stories, theses and sources'},
+    {id:'entities',path:'entities/',index:'10',image:'nexus',accent:'#ff7ac8',de:'Signaturenraum',en:'Signature space',deNote:'Alle Figuren mit Geschichten, Thesen und Quellen',enNote:'All characters with stories, theses and sources'},
     {id:'boundary',path:'forschung/grenzbeobachter/',index:'11',image:'nexus',accent:'#62dfcf',de:'Grenzbeobachter',en:'Boundary observers',deNote:'Festes und adaptives Beobachten im Modell',enNote:'Fixed and adaptive observation in a model'},
     {id:'gstar',path:'forschung/weltkeimwerk/',index:'12',image:'nexus',accent:'#ff443d',de:'G^* · Weltkeimwerk',en:'G^* · World seedwork',deNote:'Ein Zellraum entfaltet sich automatisch in der Zeit',enNote:'A cell space unfolds automatically in time'},
     {id:'ashbound',path:'forschung/ashbound/',index:'13',image:'gate',accent:'#b5ecd9',de:'ASHBOUND · Spielwelt',en:'ASHBOUND · game world',deNote:'Sechs Orte, Figuren, Entscheidungen und eine wandelbare 3D-Insel',enNote:'Six places, characters, choices and a changing 3D island'},
@@ -68,13 +68,13 @@
 
   const shell=document.createElement('header');
   shell.className='portal-shell';
-  shell.innerHTML='<a class="portal-brand" data-portal-home><span class="portal-brand-mark" aria-hidden="true">∞</span><span class="portal-brand-copy"><strong>JURI / HALVETH</strong><small>SCARLET PORTAL</small></span></a><div class="portal-route-label" aria-live="polite"><span class="portal-route-index"></span><span class="portal-route-name"></span></div><div class="portal-actions"><a class="portal-quick-link" data-portal-quick="home">⌂</a><a class="portal-quick-link" data-portal-quick="portal-chess">♟</a><a class="portal-quick-link" data-portal-quick="room">♡</a><button class="portal-motion-button" type="button" aria-pressed="false">Ⅱ</button><button class="portal-map-button" type="button" aria-haspopup="dialog" aria-expanded="false"><i aria-hidden="true">✦</i><span></span></button></div>';
+  shell.innerHTML='<a class="portal-brand" data-portal-home><span class="portal-brand-mark" aria-hidden="true">∞</span><span class="portal-brand-copy"><strong>JURI / HALVETH</strong><small>SCARLET PORTAL</small></span></a><div class="portal-route-label" aria-live="polite"><span class="portal-route-index"></span><span class="portal-route-name"></span></div><div class="portal-actions"><a class="portal-quick-link" data-portal-quick="home">⌂</a><a class="portal-quick-link" data-portal-quick="gstar">◎</a><a class="portal-quick-link" data-portal-quick="entities">⌘</a><button class="portal-motion-button" type="button" aria-pressed="false">Ⅱ</button><button class="portal-map-button" type="button" aria-haspopup="dialog" aria-expanded="false"><i aria-hidden="true">✦</i><span></span></button></div>';
 
   const map=document.createElement('dialog');
   map.className='portal-map';
   map.innerHTML='<div class="portal-map-inner"><header class="portal-map-header"><div><p class="portal-map-kicker"></p><h2></h2><p class="portal-map-intro"></p></div><button class="portal-map-close" type="button" aria-label="Close">×</button></header><nav class="portal-grid"></nav><footer class="portal-map-foot"><span class="portal-map-foot-left"></span><span>HALVETH / SCARLET / 2026</span></footer></div>';
 
-  const quickIds=['home','portal-chess','room'];
+  const quickIds=['home','gstar','entities'];
   // Reuse the actual hub links and their handlers, never a duplicate switcher.
   const languageSlot=document.createElement('div');
   languageSlot.className='portal-language-slot';

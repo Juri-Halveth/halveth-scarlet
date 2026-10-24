@@ -90,7 +90,7 @@ export function entityWorldBody({ cards, languageButtons, count, entryAnchors = 
     </div>
     <a class="world-reading" href="#profile-directory" id="directory-open">${bi('Verzeichnis','Directory')}${icon('list')}</a>
     <a class="world-swarm-link" href="../forschung/red-room-swarm/"><span class="world-honeybees-flower" aria-hidden="true">✦</span>${bi('Schwarmkammer T±','Swarm chamber T±')}<span aria-hidden="true">↗</span></a>
-    <a class="atlas-chess-link" href="../forschung/portal-chess/">♟ Portal Chess <small>3/16 · ${bi('16/16 offen','16/16 open')}</small> ↗</a>
+    <a class="atlas-chess-link" href="../">◎ ${bi('Funktionsraum','Workspace')} <small>${bi('Zustände · Varianten · Code','States · variants · code')}</small> ↗</a>
     <div id="world-timeline" class="world-timeline" hidden>
       <div class="scene-time-controls"><button class="icon-button" id="scene-back" title="Szenenzeit 30 Sekunden zurück" data-en-title="Scene time back 30 seconds" aria-label="Szenenzeit zurück" data-en-aria-label="Rewind scene">${icon('rewind')}</button><label for="scene-speed">${bi('Weltlauf','World pace')}</label><select id="scene-speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select><button class="icon-button" id="scene-forward" title="Szenenzeit 30 Sekunden vor" data-en-title="Scene time forward 30 seconds" aria-label="Szenenzeit vor" data-en-aria-label="Advance scene">${icon('fast-forward')}</button></div>
       <label for="moment-slider">${bi('Gemerkte Momente auf diesem Gerät','Kept moments on this device')}</label>
