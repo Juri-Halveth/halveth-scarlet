@@ -65,6 +65,8 @@ Neue eigene Texte, Code, Auswahl und Anordnung: HALVETH PIRL 2.0 gemäß `../../
 
 Das Figurenatelier lädt zwei Quaternius-Varianten erst beim Öffnen: einen abgeleiteten Basiskopf mit vollständigem Waldläuferinnen- beziehungsweise Reisenden-Outfit. Die Bibliothek umfasst 43 Animationen. Jede der getrennt gehäuteten Figurenkomponenten erhält einen eigenen Mixer; der Adapter überträgt lokale Positions-, Quaternion- und Skalentracks relativ zur jeweiligen Bindepose. Gehen und Laufen verwenden die Variante ohne Root Motion. Die Anpassung ist ein gebundener Vorschauadapter und keine allgemeine Garantie für alle Rigs.
 
+Scheitert das erste Laden, erscheint „Figuren erneut laden“. Erneutes Öffnen startet ebenfalls einen neuen Versuch. Fehlgeschlagene Initialisierungen geben ihre Listener, Grafikressourcen und das Canvas frei. Bei einem späteren Variantenfehler bleibt die bisherige Figur bedienbar. Einmalige Manifest- und Teilefehler wurden auf getrennten Loopback-Vorschauen durchgespielt; eine zuvor gespeicherte Sitzungsnotiz blieb beim Retry erhalten.
+
 Die Quelldateien der drei gelieferten Standard-Pakete sind CC0-1.0. `characters/manifest.json` bindet Archivhashes, genaue Quelldateien, den Kopf-Dreiecksfilter und die ausgelassenen Normal-/ORM-Kanäle. Behaltene Farbtexturen werden unverändert eingebettet; die Originalpakete bleiben separat. Das öffentliche Pilotpaket umfasst rund 33 MB. Es enthält stilisierte Spielfiguren; Realismus oder anatomische beziehungsweise biomechanische Validität werden dadurch nicht gemessen.
 
 Die Ableitungen können aus den drei Original-ZIPs neu erzeugt werden:

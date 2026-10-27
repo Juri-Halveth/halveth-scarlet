@@ -88,19 +88,32 @@ function chooseView(view) {
   if (view === "map") renderMap();
   if (view === "notebook") renderNotebook();
   figureAtelier?.setActive(view === "figures" && !document.hidden);
-  if (view === "figures" && !figureLoading)
-    figureLoading = import("./figures.mjs")
-      .then((m) => m.createFigureAtelier())
-      .then((a) => {
-        figureAtelier = a;
-        a.setActive(state.view === "figures" && !document.hidden);
-        $("figure-variant").disabled = false;
-      })
-      .catch((e) => {
-        $("figure-status").textContent =
-          "Die Figurenansicht konnte nicht geöffnet werden: " + e.message;
-      });
+  if (view === "figures") loadFigures();
 }
+function loadFigures() {
+  if (figureAtelier || figureLoading) return figureLoading;
+  $("figure-retry").hidden = true;
+  $("figure-status").textContent = "Die Figurenansicht wird geladen …";
+  figureLoading = import("./figures.mjs")
+    .then((m) => m.createFigureAtelier())
+    .then((a) => {
+      figureAtelier = a;
+      a.setActive(state.view === "figures" && !document.hidden);
+      $("figure-variant").disabled = false;
+    })
+    .catch((e) => {
+      $("figure-status").textContent =
+        "Die Figurenansicht konnte nicht geöffnet werden: " + e.message;
+      $("figure-retry").hidden = false;
+      for (const id of ["figure-play", "figure-variant", "figure-motion"])
+        $(id).disabled = true;
+    })
+    .finally(() => {
+      figureLoading = null;
+    });
+  return figureLoading;
+}
+$("figure-retry").addEventListener("click", loadFigures);
 for (const b of document.querySelectorAll("[data-view]"))
   b.addEventListener("click", () => chooseView(b.dataset.view));
 function selectResearch(id) {

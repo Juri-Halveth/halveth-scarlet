@@ -60,6 +60,29 @@ const motionLabels = {
   Walk_Loop: "Gehen",
 };
 
+function disposeResources(root) {
+  const geometries = new Set(),
+    materials = new Set(),
+    textures = new Set(),
+    images = new Set();
+  root.traverse((n) => {
+    if (n.geometry) geometries.add(n.geometry);
+    if (n.material)
+      for (const m of Array.isArray(n.material) ? n.material : [n.material])
+        materials.add(m);
+  });
+  for (const m of materials)
+    for (const value of Object.values(m))
+      if (value?.isTexture) {
+        textures.add(value);
+        if (value.source?.data) images.add(value.source.data);
+      }
+  for (const geometry of geometries) geometry.dispose();
+  for (const texture of textures) texture.dispose();
+  for (const image of images) image.close?.();
+  for (const material of materials) material.dispose();
+}
+
 export async function createFigureAtelier() {
   const wrap = $("figure-stage"),
     status = $("figure-status");
@@ -100,246 +123,263 @@ export async function createFigureAtelier() {
   const grid = new THREE.GridHelper(5, 20, 0x48646b, 0x2b444d);
   grid.position.y = -0.008;
   scene.add(grid);
-  const loader = new GLTFLoader(),
-    manifest = await fetch(
-      new URL("./characters/manifest.json", import.meta.url),
-      { signal: AbortSignal.timeout(12000) },
-    ).then((r) => {
-      if (!r.ok) throw Error("Manifest fehlt");
-      return r.json();
-    });
-  if (
-    manifest.schema !== "halveth.character-pilot.v1" ||
-    manifest.variants.length !== 2
-  )
-    throw Error("Unbekannter Figurenvertrag");
-  const records = new Map(manifest.files.map((f) => [f.path, f]));
-  async function loadFile(name) {
-    if (!allowedFiles.has(name) || !records.has(name))
-      throw Error("Ungebundene Modelldatei");
-    const response = await fetch(
-      new URL("./characters/" + name, import.meta.url),
-      { signal: AbortSignal.timeout(60000) },
-    );
-    if (!response.ok) throw Error("Modelldatei fehlt");
-    const bytes = await response.arrayBuffer(),
-      record = records.get(name);
+  const lifetime = new AbortController(),
+    ownedScenes = new Set();
+  const on = (node, event, handler) =>
+    node.addEventListener(event, handler, { signal: lifetime.signal });
+  const cleanup = () => {
+    lifetime.abort();
+    controls.dispose();
+    for (const model of ownedScenes) {
+      model.removeFromParent();
+      disposeResources(model);
+    }
+    ownedScenes.clear();
+    disposeResources(scene);
+    renderer.dispose();
+    renderer.forceContextLoss();
+    renderer.domElement.remove();
+  };
+  try {
+    const loader = new GLTFLoader(),
+      manifest = await fetch(
+        new URL("./characters/manifest.json", import.meta.url),
+        { signal: AbortSignal.timeout(12000) },
+      ).then((r) => {
+        if (!r.ok) throw Error("Manifest fehlt");
+        return r.json();
+      });
     if (
-      bytes.byteLength !== record.bytes ||
-      (await digest(bytes)) !== record.sha256
+      manifest.schema !== "halveth.character-pilot.v1" ||
+      manifest.variants.length !== 2
     )
-      throw Error("Modellintegrität weicht ab");
-    return loader.parseAsync(
-      bytes,
-      new URL("./characters/", import.meta.url).href,
-    );
-  }
-  const library = await loadFile(manifest.animationSource),
-    sourceRest = restPose(library.scene);
-  let parts = [],
-    mixers = [],
-    actions = [],
-    playing = false,
-    active = true,
-    generation = 0,
-    visibleVariant = null,
-    clipName = "Idle_Loop",
-    last = null,
-    time = 0,
-    frame = null;
-  const clockLabel = () => {
-    renderer.domElement.dataset.animationTime = time.toFixed(4);
-    renderer.domElement.dataset.animation = clipName;
-    renderer.domElement.dataset.variant = visibleVariant ?? "LOADING";
-  };
-  function setPlaying(value) {
-    playing = value;
-    last = null;
-    $("figure-play").textContent = value ? "Anhalten" : "Bewegung zeigen";
-    $("figure-play").setAttribute("aria-pressed", String(value));
-  }
-  function dispose(partsToDispose) {
-    for (const p of partsToDispose) {
-      scene.remove(p);
-      p.traverse((n) => {
-        if (n.isMesh) {
-          n.geometry.dispose();
-          for (const m of Array.isArray(n.material)
-            ? n.material
-            : [n.material]) {
-            for (const v of Object.values(m))
-              if (v?.isTexture) {
-                v.source?.data?.close?.();
-                v.dispose();
-              }
-            m.dispose();
-          }
-        }
-      });
-    }
-  }
-  function setMotion() {
-    const original = library.animations.find(
-      (c) => c.name === $("figure-motion").value,
-    );
-    if (!original) throw Error("Unbekannte Bewegung");
-    clipName = original.name;
-    time = 0;
-    actions = [];
-    mixers = parts.map((p) => {
-      const mixer = new THREE.AnimationMixer(p),
-        adapted = retargetClip(original, sourceRest, p.userData.restPose),
-        action = mixer.clipAction(adapted);
-      action.play();
-      mixer.update(0);
-      actions.push(action);
-      return mixer;
-    });
-    clockLabel();
-    status.textContent =
-      (motionLabels[clipName] ?? clipName) +
-      " · " +
-      manifest.animationNames.length +
-      " Bewegungen im Paket. Gehen und Laufen bleiben in dieser Vorschau am Ort.";
-  }
-  async function setVariant() {
-    const mine = ++generation,
-      variant = manifest.variants.find(
-        (v) => v.id === $("figure-variant").value,
+      throw Error("Unbekannter Figurenvertrag");
+    const records = new Map(manifest.files.map((f) => [f.path, f]));
+    async function loadFile(name) {
+      if (!allowedFiles.has(name) || !records.has(name))
+        throw Error("Ungebundene Modelldatei");
+      const response = await fetch(
+        new URL("./characters/" + name, import.meta.url),
+        { signal: AbortSignal.timeout(60000) },
       );
-    if (!variant) throw Error("Unbekannte Figur");
-    setPlaying(false);
-    $("figure-play").disabled = true;
-    $("figure-motion").disabled = true;
-    $("figure-variant").disabled = true;
-    status.textContent =
-      variant.label + " wird geladen und per SHA-256 geprüft …";
-    const results = await Promise.allSettled(variant.parts.map(loadFile));
-    const loaded = results
-      .filter((r) => r.status === "fulfilled")
-      .map((r) => r.value);
-    const failure = results.find((r) => r.status === "rejected");
-    if (failure) {
-      dispose(loaded.map((g) => g.scene));
-      throw failure.reason;
+      if (!response.ok) throw Error("Modelldatei fehlt");
+      const bytes = await response.arrayBuffer(),
+        record = records.get(name);
+      if (
+        bytes.byteLength !== record.bytes ||
+        (await digest(bytes)) !== record.sha256
+      )
+        throw Error("Modellintegrität weicht ab");
+      const parsed = await loader.parseAsync(
+        bytes,
+        new URL("./characters/", import.meta.url).href,
+      );
+      ownedScenes.add(parsed.scene);
+      return parsed;
     }
-    if (mine !== generation) {
-      dispose(loaded.map((g) => g.scene));
-      return;
+    const library = await loadFile(manifest.animationSource),
+      sourceRest = restPose(library.scene);
+    let parts = [],
+      mixers = [],
+      actions = [],
+      playing = false,
+      active = true,
+      generation = 0,
+      visibleVariant = null,
+      clipName = "Idle_Loop",
+      last = null,
+      time = 0,
+      frame = null;
+    const clockLabel = () => {
+      renderer.domElement.dataset.animationTime = time.toFixed(4);
+      renderer.domElement.dataset.animation = clipName;
+      renderer.domElement.dataset.variant = visibleVariant ?? "LOADING";
+    };
+    function setPlaying(value) {
+      playing = value;
+      last = null;
+      $("figure-play").textContent = value ? "Anhalten" : "Bewegung zeigen";
+      $("figure-play").setAttribute("aria-pressed", String(value));
     }
-    const next = loaded.map((g) => {
-      const p = g.scene;
-      p.userData.restPose = restPose(p);
-      p.traverse((n) => {
-        if (n.isMesh) n.frustumCulled = false;
+    function dispose(partsToDispose) {
+      for (const p of partsToDispose) {
+        scene.remove(p);
+        disposeResources(p);
+        ownedScenes.delete(p);
+      }
+    }
+    function setMotion() {
+      const original = library.animations.find(
+        (c) => c.name === $("figure-motion").value,
+      );
+      if (!original) throw Error("Unbekannte Bewegung");
+      clipName = original.name;
+      time = 0;
+      actions = [];
+      mixers = parts.map((p) => {
+        const mixer = new THREE.AnimationMixer(p),
+          adapted = retargetClip(original, sourceRest, p.userData.restPose),
+          action = mixer.clipAction(adapted);
+        action.play();
+        mixer.update(0);
+        actions.push(action);
+        return mixer;
       });
-      return p;
-    });
-    // Retarget before replacing the previous visible variant.
-    const original = library.animations.find(
-      (c) => c.name === $("figure-motion").value,
-    );
-    try {
-      for (const p of next)
-        retargetClip(original, sourceRest, p.userData.restPose);
-    } catch (e) {
-      dispose(next);
-      throw e;
-    }
-    for (const m of mixers) m.stopAllAction();
-    dispose(parts);
-    parts = next;
-    visibleVariant = variant.id;
-    for (const p of parts) scene.add(p);
-    setMotion();
-    $("figure-play").disabled = false;
-    $("figure-motion").disabled = false;
-    $("figure-variant").disabled = false;
-  }
-  $("figure-speed").addEventListener("input", () => {
-    $("figure-speed-value").textContent =
-      Number($("figure-speed").value).toLocaleString("de") + "×";
-  });
-  const variantSelect = $("figure-variant");
-  variantSelect.replaceChildren(
-    ...manifest.variants.map((v) => new Option(v.label, v.id)),
-  );
-  const motion = $("figure-motion");
-  motion.replaceChildren(
-    ...manifest.animationNames.map(
-      (name) => new Option(motionLabels[name] ?? name, name),
-    ),
-  );
-  motion.value = clipName;
-  const fail = (e) => {
-    setPlaying(false);
-    if (visibleVariant) {
-      variantSelect.value = visibleVariant;
-      variantSelect.disabled = false;
-      $("figure-play").disabled = false;
-      motion.disabled = false;
-    }
-    status.textContent =
-      "Die Figur konnte nicht geladen werden: " +
-      e.message +
-      (visibleVariant ? ". Die bisherige Figur bleibt geladen." : "");
-  };
-  variantSelect.addEventListener("change", () => setVariant().catch(fail));
-  motion.addEventListener("change", () => {
-    try {
-      setMotion();
-    } catch (e) {
-      fail(e);
-    }
-  });
-  $("figure-play").addEventListener("click", () => setPlaying(!playing));
-  $("figure-reset").addEventListener("click", () => {
-    controls.reset();
-    controls.target.set(0, 0.92, 0);
-    camera.position.set(2.4, 1.6, 4.1);
-    controls.update();
-  });
-  function render(now) {
-    frame = null;
-    if (!active) return;
-    const dt = last === null ? 0 : Math.min((now - last) / 1000, 0.1);
-    last = now;
-    if (playing) {
-      const speed = Number($("figure-speed").value);
-      time += dt * speed;
-      for (const m of mixers) m.update(dt * speed);
       clockLabel();
+      status.textContent =
+        (motionLabels[clipName] ?? clipName) +
+        " · " +
+        manifest.animationNames.length +
+        " Bewegungen im Paket. Gehen und Laufen bleiben in dieser Vorschau am Ort.";
     }
-    const width = Math.max(1, wrap.clientWidth),
-      height = Math.max(1, wrap.clientHeight);
-    if (
-      renderer.domElement.width !==
-        Math.round(width * renderer.getPixelRatio()) ||
-      renderer.domElement.height !==
-        Math.round(height * renderer.getPixelRatio())
-    ) {
-      renderer.setSize(width, height, false);
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
+    async function setVariant() {
+      const mine = ++generation,
+        variant = manifest.variants.find(
+          (v) => v.id === $("figure-variant").value,
+        );
+      if (!variant) throw Error("Unbekannte Figur");
+      setPlaying(false);
+      $("figure-play").disabled = true;
+      $("figure-motion").disabled = true;
+      $("figure-variant").disabled = true;
+      status.textContent =
+        variant.label + " wird geladen und per SHA-256 geprüft …";
+      const results = await Promise.allSettled(variant.parts.map(loadFile));
+      const loaded = results
+        .filter((r) => r.status === "fulfilled")
+        .map((r) => r.value);
+      const failure = results.find((r) => r.status === "rejected");
+      if (failure) {
+        dispose(loaded.map((g) => g.scene));
+        throw failure.reason;
+      }
+      if (mine !== generation) {
+        dispose(loaded.map((g) => g.scene));
+        return;
+      }
+      const next = loaded.map((g) => {
+        const p = g.scene;
+        p.userData.restPose = restPose(p);
+        p.traverse((n) => {
+          if (n.isMesh) n.frustumCulled = false;
+        });
+        return p;
+      });
+      // Retarget before replacing the previous visible variant.
+      const original = library.animations.find(
+        (c) => c.name === $("figure-motion").value,
+      );
+      try {
+        for (const p of next)
+          retargetClip(original, sourceRest, p.userData.restPose);
+      } catch (e) {
+        dispose(next);
+        throw e;
+      }
+      for (const m of mixers) m.stopAllAction();
+      dispose(parts);
+      parts = next;
+      visibleVariant = variant.id;
+      for (const p of parts) scene.add(p);
+      setMotion();
+      $("figure-play").disabled = false;
+      $("figure-motion").disabled = false;
+      $("figure-variant").disabled = false;
     }
-    controls.update();
-    renderer.render(scene, camera);
+    on($("figure-speed"), "input", () => {
+      $("figure-speed-value").textContent =
+        Number($("figure-speed").value).toLocaleString("de") + "×";
+    });
+    const variantSelect = $("figure-variant");
+    variantSelect.replaceChildren(
+      ...manifest.variants.map((v) => new Option(v.label, v.id)),
+    );
+    const motion = $("figure-motion");
+    motion.replaceChildren(
+      ...manifest.animationNames.map(
+        (name) => new Option(motionLabels[name] ?? name, name),
+      ),
+    );
+    motion.value = clipName;
+    const fail = (e) => {
+      setPlaying(false);
+      if (visibleVariant) {
+        variantSelect.value = visibleVariant;
+        variantSelect.disabled = false;
+        $("figure-play").disabled = false;
+        motion.disabled = false;
+      }
+      status.textContent =
+        "Die Figur konnte nicht geladen werden: " +
+        e.message +
+        (visibleVariant ? ". Die bisherige Figur bleibt geladen." : "");
+    };
+    on(variantSelect, "change", () => setVariant().catch(fail));
+    on(motion, "change", () => {
+      try {
+        setMotion();
+      } catch (e) {
+        fail(e);
+      }
+    });
+    on($("figure-play"), "click", () => setPlaying(!playing));
+    on($("figure-reset"), "click", () => {
+      controls.reset();
+      controls.target.set(0, 0.92, 0);
+      camera.position.set(2.4, 1.6, 4.1);
+      controls.update();
+    });
+    function render(now) {
+      frame = null;
+      if (!active) return;
+      const dt = last === null ? 0 : Math.min((now - last) / 1000, 0.1);
+      last = now;
+      if (playing) {
+        const speed = Number($("figure-speed").value);
+        time += dt * speed;
+        for (const m of mixers) m.update(dt * speed);
+        clockLabel();
+      }
+      const width = Math.max(1, wrap.clientWidth),
+        height = Math.max(1, wrap.clientHeight);
+      if (
+        renderer.domElement.width !==
+          Math.round(width * renderer.getPixelRatio()) ||
+        renderer.domElement.height !==
+          Math.round(height * renderer.getPixelRatio())
+      ) {
+        renderer.setSize(width, height, false);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }
+      controls.update();
+      renderer.render(scene, camera);
+      frame = requestAnimationFrame(render);
+    }
+    controls.saveState();
+    await setVariant();
     frame = requestAnimationFrame(render);
-  }
-  controls.saveState();
-  await setVariant();
-  frame = requestAnimationFrame(render);
-  return {
-    setActive(value) {
-      active = value;
-      if (!active) {
-        setPlaying(false);
+    return {
+      dispose() {
+        active = false;
         if (frame !== null) cancelAnimationFrame(frame);
         frame = null;
-      } else {
-        last = null;
-        if (frame === null) frame = requestAnimationFrame(render);
-      }
-    },
-  };
+        cleanup();
+      },
+      setActive(value) {
+        active = value;
+        if (!active) {
+          setPlaying(false);
+          if (frame !== null) cancelAnimationFrame(frame);
+          frame = null;
+        } else {
+          last = null;
+          if (frame === null) frame = requestAnimationFrame(render);
+        }
+      },
+    };
+  } catch (error) {
+    cleanup();
+    throw error;
+  }
 }
