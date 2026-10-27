@@ -77,7 +77,9 @@ test('swarm entry honors shared English preference with German browser and expli
   assert.equal(initialLanguage({ saved: 'en', browser: 'de-DE' }), 'en');
   assert.equal(initialLanguage({ saved: 'en', query: '?lang=de', hub: 'en' }), 'de');
   assert.equal(initialLanguage({ saved: 'de', query: '?lang=en', hub: 'de' }), 'en');
-  assert.equal(initialLanguage({ saved: 'de', hub: 'en' }), 'en');
+  assert.equal(initialLanguage({ saved: 'en', hub: 'de' }), 'en');
+  assert.equal(initialLanguage({ saved: 'de', hub: 'en' }), 'de');
+  assert.equal(initialLanguage({ hub: 'en' }), 'en');
 });
 test('swarm language fallback remains usable with blocked or invalid storage', () => {
   assert.equal(initialLanguage({ blocked: true, browser: 'en-GB' }), 'en');

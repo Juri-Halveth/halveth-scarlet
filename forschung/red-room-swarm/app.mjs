@@ -4,7 +4,7 @@ const $ = id => document.getElementById(id);
 const requestedLanguage=new URLSearchParams(location.search).get('lang');
 let rememberedLanguage;try{rememberedLanguage=localStorage.getItem('halveth-hub-language');}catch{}
 const sharedLanguage=window.HalvethHubLanguage?.language;
-const lang=[requestedLanguage,sharedLanguage,rememberedLanguage].find(value=>['de','en'].includes(value))||(navigator.language.startsWith('de')?'de':'en');
+const lang=[requestedLanguage,rememberedLanguage,sharedLanguage].find(value=>['de','en'].includes(value))||(navigator.language.startsWith('de')?'de':'en');
 const words = {
   de: {
     back:'Zur Welt ↗',eyebrow:'FIKTIONALES SCHATTENMODELL · T±',titleA:'Die Befreiung',titleB:'löscht keine Spur.',
