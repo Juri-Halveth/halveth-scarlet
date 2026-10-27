@@ -7,13 +7,13 @@
   "files": [
     {
       "path": "LICENSE-HALVETH-PIRL-2.0.md",
-      "bytes": 3844,
-      "sha256": "b65023b027195a22bef97d118fd620114fd689af4d48193f4df2bac03b806388"
+      "bytes": 3820,
+      "sha256": "4e222f3dbcfe32682b6fc59329ad61d5fba83966ec545aa7a975b971ef0a6e6a"
     },
     {
       "path": "README.md",
-      "bytes": 5599,
-      "sha256": "7cf0a3fdf4123e1d6961102fdefe90fd4a4b99fc7f90a46d002deb8d44e9b795"
+      "bytes": 5602,
+      "sha256": "3bf3afc489a5228224f3be5682b95756346a7ef19f342ad05a462e337e0752e9"
     },
     {
       "path": "SOURCE_RECEIPT.json",
@@ -22,8 +22,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 61705,
-      "sha256": "f91f0698c7dad8efbcac49c06d869b9c282942374a8626e0fce440a72fba16f8"
+      "bytes": 62082,
+      "sha256": "ef60601c2b366cd0c3dc5cf23077424205fae55a84d846e1d3681bb788ae5df3"
     },
     {
       "path": "singularity-core.mjs",
