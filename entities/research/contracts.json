@@ -1,0 +1,452 @@
+{
+  "schema": "halveth.entity-research-contracts.v2",
+  "entities": [
+    {
+      "schema": "halveth.entity-research.v2",
+      "id": "research-pulsar",
+      "raw_seed": {
+        "state": "DERIVED_FROM_SUPPLIED_SUMMARY",
+        "sourceId": "source-master-summary",
+        "originalRetention": "LOCAL_ORIGINAL_ARCHIVE",
+        "originalUserWording": "NOT_ASSERTED"
+      },
+      "meaning": {
+        "text": "Ein Strahlungsmuster kann unsere Blickrichtung regelmäßig überstreichen. Die Blickrichtung entscheidet mit darüber, welches Signal wir empfangen.",
+        "state": "EDITORIAL_NOT_USER_CONFIRMED"
+      },
+      "status": "GEOMETRIC_MODEL",
+      "capabilities": [
+        {
+          "kind": "LOCAL_EXECUTABLE_MODEL",
+          "codePath": "entities/research/model.mjs",
+          "experiment": "pulsar",
+          "output": "Darstellung aus dem gebundenen Modellzustand."
+        }
+      ],
+      "state": {
+        "modelVersion": "halveth.research-model.v1",
+        "scope": "Das Modell bindet Richtung und Phase, ohne eine reale Lichtkurve zu kalibrieren."
+      },
+      "relations": [
+        "relation-045",
+        "relation-046"
+      ],
+      "sources": [
+        "source-pulsars"
+      ],
+      "artifacts": [
+        "entities/research/model.mjs"
+      ],
+      "tests": [
+        "tests/entity-research.test.mjs"
+      ],
+      "output": "Ein Strahlungsmuster kann unsere Blickrichtung regelmäßig überstreichen. Die Blickrichtung entscheidet mit darüber, welches Signal wir empfangen.",
+      "falsifier": "Bei gleicher Rotationsphase müssen geometrisch gleiche Sichtbedingungen dieselbe Sichtbarkeit liefern.",
+      "next_seed": "Wie verändert ein anderer Beobachtungswinkel den sichtbaren Takt?"
+    },
+    {
+      "schema": "halveth.entity-research.v2",
+      "id": "research-quasar",
+      "raw_seed": {
+        "state": "DERIVED_FROM_SUPPLIED_SUMMARY",
+        "sourceId": "source-master-summary",
+        "originalRetention": "LOCAL_ORIGINAL_ARCHIVE",
+        "originalUserWording": "NOT_ASSERTED"
+      },
+      "meaning": {
+        "text": "Ein aktiver Galaxienkern setzt bei der Akkretion enorme Energie frei. Scheibe, Jet und Beobachtungsrichtung tragen verschiedene Teile zum Erscheinungsbild bei.",
+        "state": "EDITORIAL_NOT_USER_CONFIRMED"
+      },
+      "status": "SOURCE_BOUND_EXPLANATION",
+      "capabilities": [
+        {
+          "kind": "SOURCE_NAVIGATION",
+          "codePath": null,
+          "experiment": null,
+          "output": "Quellen, Erklärung und unterscheidende Forschungsfrage."
+        }
+      ],
+      "state": {
+        "modelVersion": null,
+        "scope": "Ein Quasar ist eine Aktivitätsform eines Galaxienkerns."
+      },
+      "relations": [
+        "relation-047",
+        "relation-048"
+      ],
+      "sources": [
+        "source-agn"
+      ],
+      "artifacts": [],
+      "tests": [],
+      "output": "Ein aktiver Galaxienkern setzt bei der Akkretion enorme Energie frei. Scheibe, Jet und Beobachtungsrichtung tragen verschiedene Teile zum Erscheinungsbild bei.",
+      "falsifier": "Die Erklärung muss Helligkeit, Spektrum und Blickrichtung gemeinsam tragen.",
+      "next_seed": "Welche Struktur liefert die jeweils beobachtete Strahlung?"
+    },
+    {
+      "schema": "halveth.entity-research.v2",
+      "id": "research-uranus",
+      "raw_seed": {
+        "state": "DERIVED_FROM_SUPPLIED_SUMMARY",
+        "sourceId": "source-master-summary",
+        "originalRetention": "LOCAL_ORIGINAL_ARCHIVE",
+        "originalUserWording": "NOT_ASSERTED"
+      },
+      "meaning": {
+        "text": "Ein fluides Inneres, schmale Ringe, Monde und eine ungewöhnliche Magnetosphäre eröffnen unterschiedliche Beobachtungswege.",
+        "state": "EDITORIAL_NOT_USER_CONFIRMED"
+      },
+      "status": "MODEL_AND_OBSERVATION_SEPARATED",
+      "capabilities": [
+        {
+          "kind": "SOURCE_NAVIGATION",
+          "codePath": null,
+          "experiment": null,
+          "output": "Quellen, Erklärung und unterscheidende Forschungsfrage."
+        }
+      ],
+      "state": {
+        "modelVersion": null,
+        "scope": "Ringseismologie bei Uranus wird hier als vorgeschlagener Untersuchungsweg geführt."
+      },
+      "relations": [
+        "relation-049",
+        "relation-050"
+      ],
+      "sources": [
+        "source-uranus",
+        "source-ring-seismology"
+      ],
+      "artifacts": [],
+      "tests": [],
+      "output": "Ein fluides Inneres, schmale Ringe, Monde und eine ungewöhnliche Magnetosphäre eröffnen unterschiedliche Beobachtungswege.",
+      "falsifier": "Vorhergesagte Muster und Frequenzen müssen gegenüber konkurrierenden Anregungen unterscheidbar werden.",
+      "next_seed": "Welche Ringmuster würden sich durch Monde, welche durch innere Schwingungen erklären lassen?"
+    },
+    {
+      "schema": "halveth.entity-research.v2",
+      "id": "research-jupiter",
+      "raw_seed": {
+        "state": "DERIVED_FROM_SUPPLIED_SUMMARY",
+        "sourceId": "source-master-summary",
+        "originalRetention": "LOCAL_ORIGINAL_ARCHIVE",
+        "originalUserWording": "NOT_ASSERTED"
+      },
+      "meaning": {
+        "text": "Die Wasseraktivität einzelner Atmosphärenschichten ist eine messbare Umweltgröße. Sie lässt sich mit Grenzen bekannter Organismen vergleichen.",
+        "state": "EDITORIAL_NOT_USER_CONFIRMED"
+      },
+      "status": "SOURCE_BOUND_RESEARCH_QUESTION",
+      "capabilities": [
+        {
+          "kind": "SOURCE_NAVIGATION",
+          "codePath": null,
+          "experiment": null,
+          "output": "Quellen, Erklärung und unterscheidende Forschungsfrage."
+        }
+      ],
+      "state": {
+        "modelVersion": null,
+        "scope": "Passende Einzelbedingungen sind ein Teil der Habitabilitätsprüfung."
+      },
+      "relations": [
+        "relation-051",
+        "relation-052"
+      ],
+      "sources": [
+        "source-cloud-water"
+      ],
+      "artifacts": [],
+      "tests": [],
+      "output": "Die Wasseraktivität einzelner Atmosphärenschichten ist eine messbare Umweltgröße. Sie lässt sich mit Grenzen bekannter Organismen vergleichen.",
+      "falsifier": "Chemie, Temperatur und zeitliche Stabilität können eine zunächst passende Schicht als Lebensraum begrenzen.",
+      "next_seed": "Welche weiteren Bedingungen entscheiden neben verfügbarer Feuchtigkeit?"
+    },
+    {
+      "schema": "halveth.entity-research.v2",
+      "id": "research-stellar-hole",
+      "raw_seed": {
+        "state": "DERIVED_FROM_SUPPLIED_SUMMARY",
+        "sourceId": "source-master-summary",
+        "originalRetention": "LOCAL_ORIGINAL_ARCHIVE",
+        "originalUserWording": "NOT_ASSERTED"
+      },
+      "meaning": {
+        "text": "Veröffentlichte Sternmodelle untersuchen, wie ein kleines inneres Schwarzes Loch Entwicklung und Schwingungen verändern könnte.",
+        "state": "EDITORIAL_NOT_USER_CONFIRMED"
+      },
+      "status": "PUBLISHED_HYPOTHETICAL_MODEL",
+      "capabilities": [
+        {
+          "kind": "SOURCE_NAVIGATION",
+          "codePath": null,
+          "experiment": null,
+          "output": "Quellen, Erklärung und unterscheidende Forschungsfrage."
+        }
+      ],
+      "state": {
+        "modelVersion": null,
+        "scope": "Der Forschungsast bleibt offen; ein inneres Schwarzes Loch wird hier nicht als beobachtet geführt."
+      },
+      "relations": [
+        "relation-053",
+        "relation-054"
+      ],
+      "sources": [
+        "source-stellar-hole",
+        "source-stellar-code"
+      ],
+      "artifacts": [],
+      "tests": [],
+      "output": "Veröffentlichte Sternmodelle untersuchen, wie ein kleines inneres Schwarzes Loch Entwicklung und Schwingungen verändern könnte.",
+      "falsifier": "Eine passende Modellfamilie muss die gebundenen Sternbeobachtungen gemeinsam erfüllen.",
+      "next_seed": "Welche Messung würde einen solchen Modellfall von einem gewöhnlichen Stern unterscheiden?"
+    },
+    {
+      "schema": "halveth.entity-research.v2",
+      "id": "research-wood",
+      "raw_seed": {
+        "state": "DERIVED_FROM_SUPPLIED_SUMMARY",
+        "sourceId": "source-master-summary",
+        "originalRetention": "LOCAL_ORIGINAL_ARCHIVE",
+        "originalUserWording": "NOT_ASSERTED"
+      },
+      "meaning": {
+        "text": "Am Astansatz überlagern sich Zuwächse von Stamm und Zweig. Im Vergleichsmodell entsteht eine Form durch Hinzufügen neuer Konturen, während ein Wirbel vorhandene Marker bewegt.",
+        "state": "EDITORIAL_NOT_USER_CONFIRMED"
+      },
+      "status": "AUTHORED_COMPARISON_MODEL",
+      "capabilities": [
+        {
+          "kind": "LOCAL_EXECUTABLE_MODEL",
+          "codePath": "entities/research/model.mjs",
+          "experiment": "growth",
+          "output": "Darstellung aus dem gebundenen Modellzustand."
+        }
+      ],
+      "state": {
+        "modelVersion": "halveth.research-model.v1",
+        "scope": "Die gezeichneten Konturen sind Modellgeometrie; Holzfasern und Flüssigkeitsdynamik werden nicht numerisch rekonstruiert."
+      },
+      "relations": [
+        "relation-055",
+        "relation-056"
+      ],
+      "sources": [
+        "source-wood",
+        "source-analogy"
+      ],
+      "artifacts": [
+        "entities/research/model.mjs"
+      ],
+      "tests": [
+        "tests/entity-research.test.mjs"
+      ],
+      "output": "Am Astansatz überlagern sich Zuwächse von Stamm und Zweig. Im Vergleichsmodell entsteht eine Form durch Hinzufügen neuer Konturen, während ein Wirbel vorhandene Marker bewegt.",
+      "falsifier": "Verfolge dieselben Marker: Welche bleiben am Ort, welche bewegen sich weiter?",
+      "next_seed": "Was bleibt erhalten, wenn der jeweilige Vorgang angehalten wird?"
+    },
+    {
+      "schema": "halveth.entity-research.v2",
+      "id": "research-immune",
+      "raw_seed": {
+        "state": "DERIVED_FROM_SUPPLIED_SUMMARY",
+        "sourceId": "source-master-summary",
+        "originalRetention": "LOCAL_ORIGINAL_ARCHIVE",
+        "originalUserWording": "NOT_ASSERTED"
+      },
+      "meaning": {
+        "text": "Immunantworten umfassen Erkennung, Gedächtnis und Regulation. Toleranz beschreibt eine konkrete Funktion innerhalb dieses Systems.",
+        "state": "EDITORIAL_NOT_USER_CONFIRMED"
+      },
+      "status": "SOURCE_BOUND_EXPLANATION",
+      "capabilities": [
+        {
+          "kind": "SOURCE_NAVIGATION",
+          "codePath": null,
+          "experiment": null,
+          "output": "Quellen, Erklärung und unterscheidende Forschungsfrage."
+        }
+      ],
+      "state": {
+        "modelVersion": null,
+        "scope": "Die Karte erschließt Mechanismen und Forschungsfragen."
+      },
+      "relations": [
+        "relation-057",
+        "relation-058"
+      ],
+      "sources": [
+        "source-tolerance",
+        "source-immune-memory"
+      ],
+      "artifacts": [],
+      "tests": [],
+      "output": "Immunantworten umfassen Erkennung, Gedächtnis und Regulation. Toleranz beschreibt eine konkrete Funktion innerhalb dieses Systems.",
+      "falsifier": "Ein vorgeschlagener Mechanismus muss Zelltyp, Signal und beobachtbare Antwort binden.",
+      "next_seed": "Welche Signale unterscheiden passende Abwehr von einer Antwort auf eigenes Gewebe?"
+    },
+    {
+      "schema": "halveth.entity-research.v2",
+      "id": "research-molecule",
+      "raw_seed": {
+        "state": "DERIVED_FROM_SUPPLIED_SUMMARY",
+        "sourceId": "source-master-summary",
+        "originalRetention": "LOCAL_ORIGINAL_ARCHIVE",
+        "originalUserWording": "NOT_ASSERTED"
+      },
+      "meaning": {
+        "text": "Das Molekül-Labor trennt Stoffart, Molekülinstanz, Atome, Ereignisse und Aufzeichnungszeit.",
+        "state": "EDITORIAL_NOT_USER_CONFIRMED"
+      },
+      "status": "EXECUTABLE_EXTERNAL_PROJECT",
+      "capabilities": [
+        {
+          "kind": "SOURCE_NAVIGATION",
+          "codePath": null,
+          "experiment": null,
+          "output": "Quellen, Erklärung und unterscheidende Forschungsfrage."
+        }
+      ],
+      "state": {
+        "modelVersion": null,
+        "scope": "Der gebundene Quellstand enthält deklarierte Modellregeln und prüfbare Zuordnungen."
+      },
+      "relations": [
+        "relation-059",
+        "relation-060"
+      ],
+      "sources": [
+        "source-molecular-code"
+      ],
+      "artifacts": [],
+      "tests": [],
+      "output": "Das Molekül-Labor trennt Stoffart, Molekülinstanz, Atome, Ereignisse und Aufzeichnungszeit.",
+      "falsifier": "Die Atom-ID-Menge muss bei einer deklarierten atomkonservierenden Transformation erhalten bleiben.",
+      "next_seed": "Welche Atom-ID befindet sich nach einer Transformation in welcher Instanz?"
+    },
+    {
+      "schema": "halveth.entity-research.v2",
+      "id": "research-waves",
+      "raw_seed": {
+        "state": "DERIVED_FROM_SUPPLIED_SUMMARY",
+        "sourceId": "source-master-summary",
+        "originalRetention": "LOCAL_ORIGINAL_ARCHIVE",
+        "originalUserWording": "NOT_ASSERTED"
+      },
+      "meaning": {
+        "text": "Vier gleichfrequente skalare ebene Wellen werden im Modell addiert. Eine relative Phase verändert das räumliche Muster.",
+        "state": "EDITORIAL_NOT_USER_CONFIRMED"
+      },
+      "status": "DECLARED_LINEAR_WAVE_MODEL",
+      "capabilities": [
+        {
+          "kind": "LOCAL_EXECUTABLE_MODEL",
+          "codePath": "entities/research/model.mjs",
+          "experiment": "waves",
+          "output": "Darstellung aus dem gebundenen Modellzustand."
+        }
+      ],
+      "state": {
+        "modelVersion": "halveth.research-model.v1",
+        "scope": "Skalares lineares Modell mit normierten Größen; Plasma, Polarisation, Schocks und astrophysikalische Kohärenz sind zusätzliche Fragen."
+      },
+      "relations": [
+        "relation-061",
+        "relation-062"
+      ],
+      "sources": [
+        "source-wave-model"
+      ],
+      "artifacts": [
+        "entities/research/model.mjs"
+      ],
+      "tests": [
+        "tests/entity-research.test.mjs"
+      ],
+      "output": "Vier gleichfrequente skalare ebene Wellen werden im Modell addiert. Eine relative Phase verändert das räumliche Muster.",
+      "falsifier": "Vorher festgelegte Ort-, Zeit- und Phasenwerte müssen die analytisch berechnete Amplitude liefern.",
+      "next_seed": "Was ändert eine Phase bei gleichen Einzelsignalen?"
+    },
+    {
+      "schema": "halveth.entity-research.v2",
+      "id": "research-cygnus",
+      "raw_seed": {
+        "state": "DERIVED_FROM_SUPPLIED_SUMMARY",
+        "sourceId": "source-master-summary",
+        "originalRetention": "LOCAL_ORIGINAL_ARCHIVE",
+        "originalUserWording": "NOT_ASSERTED"
+      },
+      "meaning": {
+        "text": "Radio- und Röntgenbeobachtungen erschließen verschiedene Anteile von Jets und Lobes. Spektren begrenzen die zulässigen Erklärungen.",
+        "state": "EDITORIAL_NOT_USER_CONFIRMED"
+      },
+      "status": "OBSERVATION_WITH_MODEL_INTERPRETATION",
+      "capabilities": [
+        {
+          "kind": "SOURCE_NAVIGATION",
+          "codePath": null,
+          "experiment": null,
+          "output": "Quellen, Erklärung und unterscheidende Forschungsfrage."
+        }
+      ],
+      "state": {
+        "modelVersion": null,
+        "scope": "Die mitgelieferten Monitorfotos zeigen Illustrationen und dienen als Forschungsanstoß."
+      },
+      "relations": [
+        "relation-063",
+        "relation-064"
+      ],
+      "sources": [
+        "source-cygnus",
+        "source-agn"
+      ],
+      "artifacts": [],
+      "tests": [],
+      "output": "Radio- und Röntgenbeobachtungen erschließen verschiedene Anteile von Jets und Lobes. Spektren begrenzen die zulässigen Erklärungen.",
+      "falsifier": "Ein Modell muss die verwendeten Spektren und räumlichen Strukturen gemeinsam erklären.",
+      "next_seed": "Welche Teilchenpopulationen und Prozesse erklären dieselben Beobachtungen?"
+    },
+    {
+      "schema": "halveth.entity-research.v2",
+      "id": "research-oj287",
+      "raw_seed": {
+        "state": "DERIVED_FROM_SUPPLIED_SUMMARY",
+        "sourceId": "source-master-summary",
+        "originalRetention": "LOCAL_ORIGINAL_ARCHIVE",
+        "originalUserWording": "NOT_ASSERTED"
+      },
+      "meaning": {
+        "text": "Ausbruchszeiten können mit Vorhersagen eines Modells verglichen werden. Andere Arbeiten untersuchen Beiträge der Jetgeometrie.",
+        "state": "EDITORIAL_NOT_USER_CONFIRMED"
+      },
+      "status": "COMPETING_PUBLISHED_MODELS",
+      "capabilities": [
+        {
+          "kind": "SOURCE_NAVIGATION",
+          "codePath": null,
+          "experiment": null,
+          "output": "Quellen, Erklärung und unterscheidende Forschungsfrage."
+        }
+      ],
+      "state": {
+        "modelVersion": null,
+        "scope": "Die unterschiedlichen Quellen beschreiben verschiedene Modellbeiträge und Beobachtungen."
+      },
+      "relations": [
+        "relation-065",
+        "relation-066"
+      ],
+      "sources": [
+        "source-oj-spitzer",
+        "source-oj-countermodel"
+      ],
+      "artifacts": [],
+      "tests": [],
+      "output": "Ausbruchszeiten können mit Vorhersagen eines Modells verglichen werden. Andere Arbeiten untersuchen Beiträge der Jetgeometrie.",
+      "falsifier": "Wähle vor der nächsten Messung eine Vorhersage, die zwischen den Modellen unterscheidet.",
+      "next_seed": "Welche neue Beobachtung trennt die Vorhersagen der Modelle?"
+    }
+  ]
+}

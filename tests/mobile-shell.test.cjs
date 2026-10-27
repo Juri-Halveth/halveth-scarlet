@@ -76,6 +76,7 @@ test('every built HTML receives one local mobile stylesheet after its page style
     const mobile=links.filter(m=>m[1].includes('assets/mobile.css?'));
     const standalonePage=[
       'index.html',
+      'entities/research/index.html',
       'forschung/ashbound/index.html',
       'forschung/ashbound/play/index.html',
       'forschung/juri-thesis/index.html',
@@ -95,6 +96,14 @@ test('every built HTML receives one local mobile stylesheet after its page style
     ].includes(path.relative(build,file).split(path.sep).join('/'));
     if(standalonePage){
       assert.equal(mobile.length,0,file);
+      if(path.relative(build,file).split(path.sep).join('/')==='entities/research/index.html'){
+        const ownStyle=links.filter(m=>m[1].split('?')[0]==='atelier.css');
+        assert.equal(ownStyle.length,1,'research atelier keeps its own responsive stylesheet');
+        const expected=createHash('sha256').update(fs.readFileSync(path.join(build,'entities/research/atelier.css'))).digest('hex');
+        assert.equal(new URL(ownStyle[0][1],'https://local.test/').searchParams.get('v'),expected);
+        assert.doesNotMatch(head,/hub-language\.js|hub-language\.css/);
+        assert.match(head,/app\.mjs\?v=[a-f0-9]{64}/);
+      }
       continue;
     }
     assert.equal(mobile.length,1,file);assert.equal(links.at(-1)[1],mobile[0][1],file);

@@ -1,0 +1,28 @@
+{
+  "schema": "halveth.vendor-source.v1",
+  "version": "three-0.186.0",
+  "license": "MIT",
+  "files": [
+    {
+      "file": "GLTFLoader.js",
+      "upstream": "https://unpkg.com/three@0.186.0/examples/jsm/loaders/GLTFLoader.js",
+      "upstreamSha256": "131c0f78c01d19368ae495caa65b3adaa10487810a36a05bb5901b769a35ac16",
+      "derivedSha256": "8bb65876c1b70c1727fe8abe2b66825a404f3da2e2aee9209d4b257630abc022",
+      "transform": "Reuse the repository THREE namespace and colocate the two utility imports."
+    },
+    {
+      "file": "BufferGeometryUtils.js",
+      "upstream": "https://unpkg.com/three@0.186.0/examples/jsm/utils/BufferGeometryUtils.js",
+      "upstreamSha256": "9fb63427ce6641fa14fd0baff9cc4d1b5f9c3d85fd084bf2e90e803c44ec1797",
+      "derivedSha256": "0f17eef40789f79de416c39451baefd42e7028170b6e0466b3922e3513a469b3",
+      "transform": "Reuse the repository THREE namespace and colocate the two utility imports."
+    },
+    {
+      "file": "SkeletonUtils.js",
+      "upstream": "https://unpkg.com/three@0.186.0/examples/jsm/utils/SkeletonUtils.js",
+      "upstreamSha256": "b1632a703206c3d830de9fcbe515696770d04b71a15ee6b50afa6d2c3298c86f",
+      "derivedSha256": "23adb19f4e8c42e704748281ff67445f44e20c6da2ddb84be292c6062da46687",
+      "transform": "Reuse the repository THREE namespace and colocate the two utility imports."
+    }
+  ]
+}

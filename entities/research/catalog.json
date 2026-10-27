@@ -1,0 +1,940 @@
+{
+  "schema": "halveth.research-catalog.v1",
+  "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+  "recordedAt": "2026-10-27T13:55:55Z",
+  "classification": "PUBLIC_EDITORIAL_DERIVATION",
+  "coverage": {
+    "mainBranches": 26,
+    "satellites": 18,
+    "researchCards": 11,
+    "profiles": 68,
+    "chronology": "DOCUMENT_ASSERTED_ORDER_WITH_UNKNOWN_EVENT_TIMES"
+  },
+  "streams": [
+    {
+      "id": "software",
+      "title": "Software und Kontinuität"
+    },
+    {
+      "id": "cosmos",
+      "title": "Kosmos und Felder"
+    },
+    {
+      "id": "biology",
+      "title": "Lebendige Systeme"
+    },
+    {
+      "id": "culture",
+      "title": "Sprache und Erzählung"
+    },
+    {
+      "id": "creative",
+      "title": "Klang und Gestaltung"
+    },
+    {
+      "id": "value",
+      "title": "Nutzen und Zusammenarbeit"
+    },
+    {
+      "id": "method",
+      "title": "Beobachtung und Methode"
+    },
+    {
+      "id": "security",
+      "title": "Sicherheit und Grenzen"
+    }
+  ],
+  "branches": [
+    {
+      "id": "branch-a",
+      "letter": "A",
+      "title": "Namen als Wissensköder",
+      "stream": "culture",
+      "question": "Welche Lesarten öffnet ein Name?",
+      "next": "Person, Wortherkunft, Klang und Schreibweise getrennt untersuchen.",
+      "scope": "Namen liefern Suchansätze; die Herkunft jeder Lesart braucht ihre eigene Quelle.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-b",
+      "letter": "B",
+      "title": "Credits, Arbeit und Wert",
+      "stream": "value",
+      "question": "Was steckt hinter einem sichtbaren Filmcredit?",
+      "next": "Arbeit, Rechte, Kosten und Darstellung an einem Beispiel auseinanderhalten.",
+      "scope": "Eine Nennung beschreibt zunächst eine Rolle im Werk.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-c",
+      "letter": "C",
+      "title": "Gegenkräfte und Zustandsbedingungen",
+      "stream": "culture",
+      "question": "Welche Bedingung verändert eine scheinbar unbesiegbare Figur?",
+      "next": "Fähigkeit, Abhängigkeit und Gegenmechanismus in einer Erzählung vergleichen.",
+      "scope": "Fiktion ist hier ein Entwurfsraum für Regeln.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-d",
+      "letter": "D",
+      "title": "TVA und die nicht gezeigten Räume",
+      "stream": "culture",
+      "question": "Was bleibt außerhalb einer erzählten Institution unsichtbar?",
+      "next": "Gezeigte Räume, angenommene Alltagsräume und offene Zonen kartieren.",
+      "scope": "Eine Kulisse erschließt nur ihren gezeigten Ausschnitt.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-e",
+      "letter": "E",
+      "title": "Blick, Kopf und Körper",
+      "stream": "biology",
+      "question": "Wie verändert Bewegung das Beobachtungsfeld?",
+      "next": "Augenrichtung, Kopfbewegung und Körperhaltung als eigene Beiträge modellieren.",
+      "scope": "Ein Sichtmodell braucht Geometrie und einen benannten Beobachter.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-f",
+      "letter": "F",
+      "title": "Abwehr, Toleranz und Erinnerung",
+      "stream": "biology",
+      "question": "Wie koordiniert ein Immunsystem verschiedene Antworten?",
+      "next": "Erkennung, Toleranz, Gedächtnis und Regulation anhand von Quellen vergleichen.",
+      "scope": "Eine soziale Analogie eröffnet Fragen; die biologischen Mechanismen werden einzeln gebunden.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-g",
+      "letter": "G",
+      "title": "Eine Sprache für Fähigkeiten",
+      "stream": "method",
+      "question": "Wie wird aus einer Formel ein verständlicher Vorgang?",
+      "next": "Eingabe, Veränderung und sichtbare Folge an einem kleinen Beispiel zeigen.",
+      "scope": "Die Darstellung soll den gemeinten Zusammenhang lesbar machen.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-h",
+      "letter": "H",
+      "title": "Entsprechung und Abbildung",
+      "stream": "method",
+      "question": "Welche Beziehungen bleiben beim Wechsel des Modells erhalten?",
+      "next": "Eine Abbildung an einem passenden Fall und einem Gegenfall prüfen.",
+      "scope": "Formähnlichkeit, strukturelle Entsprechung und gemeinsamer Mechanismus sind verschiedene Untersuchungen.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-i",
+      "letter": "I",
+      "title": "Meldungen und ihre Ursprünge",
+      "stream": "software",
+      "question": "Wie viele unabhängige Beobachtungen stehen hinter mehreren Meldungen?",
+      "next": "Kopien, Katalogansichten, Zeiten und Widersprüche auseinanderhalten.",
+      "scope": "Deklarierte Herkunft wird als deklarierte Herkunft geführt.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-j",
+      "letter": "J",
+      "title": "Ein messbarer Nutzen",
+      "stream": "value",
+      "question": "Welcher Arbeitsablauf profitiert von einer zusätzlichen Ansicht?",
+      "next": "Dieselben Fälle mit und ohne die neue Ansicht vergleichen.",
+      "scope": "Eine Produktidee erhält ihren Nutzennachweis in einem passenden Vergleich.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-k",
+      "letter": "K",
+      "title": "NOVA und die Fortsetzung",
+      "stream": "software",
+      "question": "Was soll ein nächster Lauf wiederfinden und weiterprüfen?",
+      "next": "Quellen, Korrekturen und offene Fragen mit einem Fortsetzungsseed erhalten.",
+      "scope": "Eine Aufzeichnung bindet den Arbeitsstand und dessen Quellen.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-l",
+      "letter": "L",
+      "title": "GitHub als nachvollziehbare Geschichte",
+      "stream": "software",
+      "question": "Welcher Code wurde tatsächlich geprüft und übernommen?",
+      "next": "Commit, Tests, Review, Merge und sichtbare Veröffentlichung einzeln nachlesen.",
+      "scope": "Jeder Stand trägt seine eigene Zeit und seinen eigenen Prüfbereich.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-m",
+      "letter": "M",
+      "title": "Atome behalten ihre Geschichte",
+      "stream": "biology",
+      "question": "Wie bleiben Instanzen durch eine Transformation verfolgbar?",
+      "next": "Atom-IDs vor und nach einer deklarierten Reaktion zuordnen.",
+      "scope": "Die Molekülansicht zeigt eine Modellzuordnung; Messdaten brauchen eine zusätzliche Bindung.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-n",
+      "letter": "N",
+      "title": "Molekülwirkung über die Zeit",
+      "stream": "biology",
+      "question": "Welche Schritte bestimmen Verteilung und Wirkung eines Moleküls?",
+      "next": "Synthese, Transport, Bindung und Abbau als getrennte Forschungsfragen führen.",
+      "scope": "Literatur und deklarierte Modelle liefern hier die Ausgangspunkte.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-o",
+      "letter": "O",
+      "title": "Ein Labyrinth aus Kontakt lernen",
+      "stream": "software",
+      "question": "Wie entsteht eine Karte aus einzelnen Begegnungen?",
+      "next": "Einen eingefrorenen Controller an unbekannter Geometrie prüfen.",
+      "scope": "Die Prüfgeometrie und die Informationen des Controllers werden getrennt gehalten.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-p",
+      "letter": "P",
+      "title": "Klang als gestaltete Bewegung",
+      "stream": "creative",
+      "question": "Wie tragen Rhythmus, Stimme und Arrangement eine Idee?",
+      "next": "Ein eigenes kurzes Arrangement mit nachvollziehbaren Klangquellen bauen.",
+      "scope": "Referenz, eigene Gestaltung und Nutzungsrechte erhalten eigene Angaben.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-q",
+      "letter": "Q",
+      "title": "Vier Wellen und das Dazwischen",
+      "stream": "cosmos",
+      "question": "Welche Muster erzeugen überlagerte Wellen?",
+      "next": "Phase und Beobachtungsort in einem skalaren Wellenmodell verändern.",
+      "scope": "Das Experiment untersucht lineare Überlagerung; weitere Wechselwirkungen bleiben eigene Modelle.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-r",
+      "letter": "R",
+      "title": "Bahnen und ihre Projektion",
+      "stream": "cosmos",
+      "question": "Wie unterscheiden sich eine Bahn und ihr sichtbares Bild?",
+      "next": "Geometrie, Blickrichtung und Zeitparameter in einer gebundenen Rechnung vergleichen.",
+      "scope": "Eine Zeichnung benennt ihre Projektion und ihren Maßstab.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-s",
+      "letter": "S",
+      "title": "Die Sonne als dynamisches System",
+      "stream": "cosmos",
+      "question": "Welche inneren Vorgänge hinterlassen äußere Spuren?",
+      "next": "Licht, Schwingungen und Teilchensignale als verschiedene Beobachtungskanäle erfassen.",
+      "scope": "Die Computeranalogie bleibt eine zusätzliche funktionale Forschungsfrage.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-t",
+      "letter": "T",
+      "title": "Quasare, Jets und Radioblasen",
+      "stream": "cosmos",
+      "question": "Wie reicht die Wirkung eines kompakten Zentrums weit in seine Umgebung?",
+      "next": "Zentralobjekt, Akkretion, Jet und Umgebung quellengebunden unterscheiden.",
+      "scope": "Beobachtete Strukturen und ihre dynamischen Erklärungen werden gemeinsam lesbar.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-u",
+      "letter": "U",
+      "title": "Ein kleines Schwarzes Loch im Stern",
+      "stream": "cosmos",
+      "question": "Welche Sternmodelle wären mit einem inneren Schwarzen Loch vereinbar?",
+      "next": "Veröffentlichte Entwicklungsmodelle und unterscheidende Schwingungssignaturen prüfen.",
+      "scope": "Ein berechnetes Szenario und ein beobachteter Sternbefund tragen verschiedene Evidenzstände.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-v",
+      "letter": "V",
+      "title": "Planeten als vielfältige Lebensräume",
+      "stream": "cosmos",
+      "question": "Welche Schicht eines Planetensystems könnte passende Bedingungen bieten?",
+      "next": "Atmosphäre, Untergrund, Monde und Zeitfenster einzeln vergleichen.",
+      "scope": "Die Prüfung bindet Bedingungen und Lebensnachweis separat.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-w",
+      "letter": "W",
+      "title": "Ein Auge im Holz, ein Auge im Wirbel",
+      "stream": "biology",
+      "question": "Wie entstehen verwandte Formen durch unterschiedliche Vorgänge?",
+      "next": "Wachstumsspuren und bewegte Materialpunkte nebeneinander verfolgen.",
+      "scope": "Die geometrische Verwandtschaft eröffnet den Mechanismenvergleich.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-x",
+      "letter": "X",
+      "title": "Innen Geschichte, außen Geometrie",
+      "stream": "culture",
+      "question": "Wie lässt sich ein wechselnder Blick auf einen ganzen Verlauf modellieren?",
+      "next": "Innenzeit, äußerer Parameter und Projektion in einem Gedankenmodell benennen.",
+      "scope": "Die Deutung bleibt als philosophischer und gestalterischer Forschungsast offen.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-y",
+      "letter": "Y",
+      "title": "Andere Formen von Leben und Innenleben",
+      "stream": "culture",
+      "question": "Welche Kriterien könnten Organisation und Anpassung beschreiben?",
+      "next": "Gedächtnis, Rückkopplung, Reaktion und Gegenfakten definieren und vergleichen.",
+      "scope": "Eine funktionale Definition und eine Aussage über Erleben brauchen unterschiedliche Prüfwege.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    },
+    {
+      "id": "branch-z",
+      "letter": "Z",
+      "title": "Entitäten, die etwas beitragen",
+      "stream": "software",
+      "question": "Was kann eine Karte ausführen, zeigen und begründen?",
+      "next": "Profile mit Codepfaden, Quellen, Gegenproben und produktiven Anschlussfragen verbinden.",
+      "scope": "Die Inventur beschreibt den gebundenen Quellstand jedes Profils.",
+      "kind": "RESEARCH_LEAD",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "originalUserWording": "NOT_ASSERTED"
+    }
+  ],
+  "satellites": [
+    {
+      "id": "sat-control-room",
+      "title": "Kontrollraum und Verantwortung",
+      "stream": "method",
+      "question": "Wie wirken Konstruktion, Warnungen und Entscheidungen zusammen?",
+      "parent": "branch-c",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-historical-place",
+      "title": "Ort und geschichtliche Zuordnung",
+      "stream": "culture",
+      "question": "Welche Quelle bindet eine historische Zuschreibung?",
+      "parent": "branch-d",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-supernova-ai",
+      "title": "Ein drastischer Zustandswechsel",
+      "stream": "creative",
+      "question": "Was macht eine plötzliche Änderung sichtbar und verständlich?",
+      "parent": "branch-g",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-gpu-capability",
+      "title": "Hardwarefähigkeiten entdecken",
+      "stream": "software",
+      "question": "Welcher gemessene Rechenpfad passt zu einem Workload?",
+      "parent": "branch-z",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-orange",
+      "title": "Frucht, Farbe und Benennung",
+      "stream": "culture",
+      "question": "Wie verändert sich die Bedeutung eines Wortes?",
+      "parent": "branch-a",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-synonym",
+      "title": "Ähnlich, gleich oder entgegengesetzt?",
+      "stream": "culture",
+      "question": "Welche Relation ist im jeweiligen Satz gemeint?",
+      "parent": "branch-h",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-gaba-gabber",
+      "title": "GABA, Gabber und ähnliche Namen",
+      "stream": "culture",
+      "question": "Was verbindet die Schreibweise und was die Herkunft?",
+      "parent": "branch-a",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-phagosom-pharao",
+      "title": "Eine Klangspur als Suchanfang",
+      "stream": "culture",
+      "question": "Welche Verbindung ist lautlicher Art, welche historisch belegt?",
+      "parent": "branch-a",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-freely-emotion-energy",
+      "title": "Bewegung, Gefühl und Energie",
+      "stream": "creative",
+      "question": "Welche Lesarten trägt das offene Fragment?",
+      "parent": "branch-p",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-nova-name",
+      "title": "NOVA, Nova Terra und Supernova",
+      "stream": "culture",
+      "question": "Was leistet derselbe Name in verschiedenen Kontexten?",
+      "parent": "branch-k",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-loopback",
+      "title": "Der lokale Knoten",
+      "stream": "software",
+      "question": "Über welche gebundene Schnittstelle entsteht Reichweite?",
+      "parent": "branch-k",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-merger",
+      "title": "Zwei kompakte Objekte und ein neuer Verlauf",
+      "stream": "cosmos",
+      "question": "Welche Energie- und Beobachtungsgrößen beschreiben eine Verschmelzung?",
+      "parent": "branch-t",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-repo-scroll",
+      "title": "Von der Präsentation zum Quellbaum",
+      "stream": "software",
+      "question": "Wie wird die Verbindung zum ausführbaren Code auffindbar?",
+      "parent": "branch-l",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-terminology-drift",
+      "title": "Schreibweise, OCR und Terminologiewechsel",
+      "stream": "method",
+      "question": "Welche Variante verändert das Suchergebnis?",
+      "parent": "branch-a",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-observer-abc",
+      "title": "Drei Beobachter und ihre Ausschnitte",
+      "stream": "method",
+      "question": "Welche Angaben gehören wirklich zum selben Ereignis?",
+      "parent": "branch-i",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-fiction-interface",
+      "title": "Erzählungen als Forschungsinterface",
+      "stream": "culture",
+      "question": "Welche Regel wird in der Geschichte untersuchbar?",
+      "parent": "branch-c",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-security-track",
+      "title": "Eine getrennte Sicherheitsspur",
+      "stream": "security",
+      "question": "Welche Beobachtung und Handlung sind im konkreten Scope gebunden?",
+      "parent": "branch-l",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    },
+    {
+      "id": "sat-red-room",
+      "title": "Ein Bild in eine Frage übersetzen",
+      "stream": "creative",
+      "question": "Welche Variable macht die eindrückliche Vorstellung untersuchbar?",
+      "parent": "branch-g",
+      "kind": "SATELLITE",
+      "origin": "SUPPLIED_SUMMARY_EDITORIAL_DERIVATION",
+      "scope": "Offener Forschungsansatz aus der bereitgestellten Zusammenfassung."
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-00",
+      "title": "Semantische Köder",
+      "branchIds": [
+        "branch-a",
+        "branch-b"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    },
+    {
+      "id": "phase-01",
+      "title": "Fiktion als Systemlabor",
+      "branchIds": [
+        "branch-c",
+        "branch-d"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    },
+    {
+      "id": "phase-02",
+      "title": "Körper und Biologie",
+      "branchIds": [
+        "branch-e",
+        "branch-f"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    },
+    {
+      "id": "phase-03",
+      "title": "Formale Brücken",
+      "branchIds": [
+        "branch-g",
+        "branch-h"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    },
+    {
+      "id": "phase-04",
+      "title": "Daten und Produkt",
+      "branchIds": [
+        "branch-i",
+        "branch-j"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    },
+    {
+      "id": "phase-05",
+      "title": "Kontinuität",
+      "branchIds": [
+        "branch-k",
+        "branch-l"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    },
+    {
+      "id": "phase-06",
+      "title": "Kreativer Klang",
+      "branchIds": [
+        "branch-p"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    },
+    {
+      "id": "phase-07",
+      "title": "Mikroskala",
+      "branchIds": [
+        "branch-m",
+        "branch-n"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    },
+    {
+      "id": "phase-08",
+      "title": "Wissen durch Kontakt",
+      "branchIds": [
+        "branch-o"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    },
+    {
+      "id": "phase-09",
+      "title": "Kosmische Kopplung",
+      "branchIds": [
+        "branch-q"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    },
+    {
+      "id": "phase-10",
+      "title": "Kompakte Zentren",
+      "branchIds": [
+        "branch-r",
+        "branch-t"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    },
+    {
+      "id": "phase-11",
+      "title": "Sterne und offene Modelle",
+      "branchIds": [
+        "branch-s",
+        "branch-u",
+        "branch-x",
+        "branch-y"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    },
+    {
+      "id": "phase-12",
+      "title": "Planeten und Muster",
+      "branchIds": [
+        "branch-v",
+        "branch-w"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    },
+    {
+      "id": "phase-13",
+      "title": "Den Bestand weiterbauen",
+      "branchIds": [
+        "branch-z"
+      ],
+      "eventTime": "UNKNOWN",
+      "orderBasis": "ORDER_ASSERTED_BY_SUPPLIED_SUMMARY_NOT_CLOCK_OBSERVED"
+    }
+  ],
+  "research": [
+    {
+      "id": "research-pulsar",
+      "title": "Pulsar",
+      "subtitle": "Ein Leuchtturm aus Rotation",
+      "meaning": "Ein Strahlungsmuster kann unsere Blickrichtung regelmäßig überstreichen. Die Blickrichtung entscheidet mit darüber, welches Signal wir empfangen.",
+      "question": "Wie verändert ein anderer Beobachtungswinkel den sichtbaren Takt?",
+      "sourceIds": [
+        "source-pulsars"
+      ],
+      "experiment": "pulsar",
+      "state": "GEOMETRIC_MODEL",
+      "scope": "Das Modell bindet Richtung und Phase, ohne eine reale Lichtkurve zu kalibrieren.",
+      "falsifier": "Bei gleicher Rotationsphase müssen geometrisch gleiche Sichtbedingungen dieselbe Sichtbarkeit liefern.",
+      "nextSeed": "Wie verändert ein anderer Beobachtungswinkel den sichtbaren Takt?",
+      "branchIds": [
+        "branch-q",
+        "branch-e"
+      ],
+      "claimKind": "RESEARCH_EXPLANATION_OR_DECLARED_MODEL"
+    },
+    {
+      "id": "research-quasar",
+      "title": "Quasar",
+      "subtitle": "Ein helles Zentrum und seine Umgebung",
+      "meaning": "Ein aktiver Galaxienkern setzt bei der Akkretion enorme Energie frei. Scheibe, Jet und Beobachtungsrichtung tragen verschiedene Teile zum Erscheinungsbild bei.",
+      "question": "Welche Struktur liefert die jeweils beobachtete Strahlung?",
+      "sourceIds": [
+        "source-agn"
+      ],
+      "experiment": null,
+      "state": "SOURCE_BOUND_EXPLANATION",
+      "scope": "Ein Quasar ist eine Aktivitätsform eines Galaxienkerns.",
+      "falsifier": "Die Erklärung muss Helligkeit, Spektrum und Blickrichtung gemeinsam tragen.",
+      "nextSeed": "Welche Struktur liefert die jeweils beobachtete Strahlung?",
+      "branchIds": [
+        "branch-t",
+        "branch-r"
+      ],
+      "claimKind": "RESEARCH_EXPLANATION_OR_DECLARED_MODEL"
+    },
+    {
+      "id": "research-uranus",
+      "title": "Uranus",
+      "subtitle": "Das Innere hinterlässt äußere Spuren",
+      "meaning": "Ein fluides Inneres, schmale Ringe, Monde und eine ungewöhnliche Magnetosphäre eröffnen unterschiedliche Beobachtungswege.",
+      "question": "Welche Ringmuster würden sich durch Monde, welche durch innere Schwingungen erklären lassen?",
+      "sourceIds": [
+        "source-uranus",
+        "source-ring-seismology"
+      ],
+      "experiment": null,
+      "state": "MODEL_AND_OBSERVATION_SEPARATED",
+      "scope": "Ringseismologie bei Uranus wird hier als vorgeschlagener Untersuchungsweg geführt.",
+      "falsifier": "Vorhergesagte Muster und Frequenzen müssen gegenüber konkurrierenden Anregungen unterscheidbar werden.",
+      "nextSeed": "Welche Ringmuster würden sich durch Monde, welche durch innere Schwingungen erklären lassen?",
+      "branchIds": [
+        "branch-v",
+        "branch-s"
+      ],
+      "claimKind": "RESEARCH_EXPLANATION_OR_DECLARED_MODEL"
+    },
+    {
+      "id": "research-jupiter",
+      "title": "Jupiter",
+      "subtitle": "Eine Wolkenschicht als Forschungsraum",
+      "meaning": "Die Wasseraktivität einzelner Atmosphärenschichten ist eine messbare Umweltgröße. Sie lässt sich mit Grenzen bekannter Organismen vergleichen.",
+      "question": "Welche weiteren Bedingungen entscheiden neben verfügbarer Feuchtigkeit?",
+      "sourceIds": [
+        "source-cloud-water"
+      ],
+      "experiment": null,
+      "state": "SOURCE_BOUND_RESEARCH_QUESTION",
+      "scope": "Passende Einzelbedingungen sind ein Teil der Habitabilitätsprüfung.",
+      "falsifier": "Chemie, Temperatur und zeitliche Stabilität können eine zunächst passende Schicht als Lebensraum begrenzen.",
+      "nextSeed": "Welche weiteren Bedingungen entscheiden neben verfügbarer Feuchtigkeit?",
+      "branchIds": [
+        "branch-v",
+        "branch-f"
+      ],
+      "claimKind": "RESEARCH_EXPLANATION_OR_DECLARED_MODEL"
+    },
+    {
+      "id": "research-stellar-hole",
+      "title": "Ein Loch im Stern",
+      "subtitle": "Eine große Frage bekommt ein konkretes Modell",
+      "meaning": "Veröffentlichte Sternmodelle untersuchen, wie ein kleines inneres Schwarzes Loch Entwicklung und Schwingungen verändern könnte.",
+      "question": "Welche Messung würde einen solchen Modellfall von einem gewöhnlichen Stern unterscheiden?",
+      "sourceIds": [
+        "source-stellar-hole",
+        "source-stellar-code"
+      ],
+      "experiment": null,
+      "state": "PUBLISHED_HYPOTHETICAL_MODEL",
+      "scope": "Der Forschungsast bleibt offen; ein inneres Schwarzes Loch wird hier nicht als beobachtet geführt.",
+      "falsifier": "Eine passende Modellfamilie muss die gebundenen Sternbeobachtungen gemeinsam erfüllen.",
+      "nextSeed": "Welche Messung würde einen solchen Modellfall von einem gewöhnlichen Stern unterscheiden?",
+      "branchIds": [
+        "branch-u",
+        "branch-s"
+      ],
+      "claimKind": "RESEARCH_EXPLANATION_OR_DECLARED_MODEL"
+    },
+    {
+      "id": "research-wood",
+      "title": "Wachstum und Wirbel",
+      "subtitle": "Ähnliche Konturen, verschiedene Geschichten",
+      "meaning": "Am Astansatz überlagern sich Zuwächse von Stamm und Zweig. Im Vergleichsmodell entsteht eine Form durch Hinzufügen neuer Konturen, während ein Wirbel vorhandene Marker bewegt.",
+      "question": "Was bleibt erhalten, wenn der jeweilige Vorgang angehalten wird?",
+      "sourceIds": [
+        "source-wood",
+        "source-analogy"
+      ],
+      "experiment": "growth",
+      "state": "AUTHORED_COMPARISON_MODEL",
+      "scope": "Die gezeichneten Konturen sind Modellgeometrie; Holzfasern und Flüssigkeitsdynamik werden nicht numerisch rekonstruiert.",
+      "falsifier": "Verfolge dieselben Marker: Welche bleiben am Ort, welche bewegen sich weiter?",
+      "nextSeed": "Was bleibt erhalten, wenn der jeweilige Vorgang angehalten wird?",
+      "branchIds": [
+        "branch-w",
+        "branch-h"
+      ],
+      "claimKind": "RESEARCH_EXPLANATION_OR_DECLARED_MODEL"
+    },
+    {
+      "id": "research-immune",
+      "title": "Das Immunnetz",
+      "subtitle": "Erkennen, erinnern und regulieren",
+      "meaning": "Immunantworten umfassen Erkennung, Gedächtnis und Regulation. Toleranz beschreibt eine konkrete Funktion innerhalb dieses Systems.",
+      "question": "Welche Signale unterscheiden passende Abwehr von einer Antwort auf eigenes Gewebe?",
+      "sourceIds": [
+        "source-tolerance",
+        "source-immune-memory"
+      ],
+      "experiment": null,
+      "state": "SOURCE_BOUND_EXPLANATION",
+      "scope": "Die Karte erschließt Mechanismen und Forschungsfragen.",
+      "falsifier": "Ein vorgeschlagener Mechanismus muss Zelltyp, Signal und beobachtbare Antwort binden.",
+      "nextSeed": "Welche Signale unterscheiden passende Abwehr von einer Antwort auf eigenes Gewebe?",
+      "branchIds": [
+        "branch-f",
+        "branch-n"
+      ],
+      "claimKind": "RESEARCH_EXPLANATION_OR_DECLARED_MODEL"
+    },
+    {
+      "id": "research-molecule",
+      "title": "Molekülgeschichte",
+      "subtitle": "Dieselben Atome, neue Zuordnungen",
+      "meaning": "Das Molekül-Labor trennt Stoffart, Molekülinstanz, Atome, Ereignisse und Aufzeichnungszeit.",
+      "question": "Welche Atom-ID befindet sich nach einer Transformation in welcher Instanz?",
+      "sourceIds": [
+        "source-molecular-code"
+      ],
+      "experiment": null,
+      "state": "EXECUTABLE_EXTERNAL_PROJECT",
+      "scope": "Der gebundene Quellstand enthält deklarierte Modellregeln und prüfbare Zuordnungen.",
+      "falsifier": "Die Atom-ID-Menge muss bei einer deklarierten atomkonservierenden Transformation erhalten bleiben.",
+      "nextSeed": "Welche Atom-ID befindet sich nach einer Transformation in welcher Instanz?",
+      "branchIds": [
+        "branch-m",
+        "branch-k"
+      ],
+      "claimKind": "RESEARCH_EXPLANATION_OR_DECLARED_MODEL"
+    },
+    {
+      "id": "research-waves",
+      "title": "Vier Wellen",
+      "subtitle": "Das Muster entsteht in der Überlagerung",
+      "meaning": "Vier gleichfrequente skalare ebene Wellen werden im Modell addiert. Eine relative Phase verändert das räumliche Muster.",
+      "question": "Was ändert eine Phase bei gleichen Einzelsignalen?",
+      "sourceIds": [
+        "source-wave-model"
+      ],
+      "experiment": "waves",
+      "state": "DECLARED_LINEAR_WAVE_MODEL",
+      "scope": "Skalares lineares Modell mit normierten Größen; Plasma, Polarisation, Schocks und astrophysikalische Kohärenz sind zusätzliche Fragen.",
+      "falsifier": "Vorher festgelegte Ort-, Zeit- und Phasenwerte müssen die analytisch berechnete Amplitude liefern.",
+      "nextSeed": "Was ändert eine Phase bei gleichen Einzelsignalen?",
+      "branchIds": [
+        "branch-q",
+        "branch-h"
+      ],
+      "claimKind": "RESEARCH_EXPLANATION_OR_DECLARED_MODEL"
+    },
+    {
+      "id": "research-cygnus",
+      "title": "Cygnus A",
+      "subtitle": "Ein Zentrum mit ausgedehnter Umgebung",
+      "meaning": "Radio- und Röntgenbeobachtungen erschließen verschiedene Anteile von Jets und Lobes. Spektren begrenzen die zulässigen Erklärungen.",
+      "question": "Welche Teilchenpopulationen und Prozesse erklären dieselben Beobachtungen?",
+      "sourceIds": [
+        "source-cygnus",
+        "source-agn"
+      ],
+      "experiment": null,
+      "state": "OBSERVATION_WITH_MODEL_INTERPRETATION",
+      "scope": "Die mitgelieferten Monitorfotos zeigen Illustrationen und dienen als Forschungsanstoß.",
+      "falsifier": "Ein Modell muss die verwendeten Spektren und räumlichen Strukturen gemeinsam erklären.",
+      "nextSeed": "Welche Teilchenpopulationen und Prozesse erklären dieselben Beobachtungen?",
+      "branchIds": [
+        "branch-t",
+        "branch-q"
+      ],
+      "claimKind": "RESEARCH_EXPLANATION_OR_DECLARED_MODEL"
+    },
+    {
+      "id": "research-oj287",
+      "title": "OJ 287",
+      "subtitle": "Beobachtung und konkurrierende Erklärung",
+      "meaning": "Ausbruchszeiten können mit Vorhersagen eines Modells verglichen werden. Andere Arbeiten untersuchen Beiträge der Jetgeometrie.",
+      "question": "Welche neue Beobachtung trennt die Vorhersagen der Modelle?",
+      "sourceIds": [
+        "source-oj-spitzer",
+        "source-oj-countermodel"
+      ],
+      "experiment": null,
+      "state": "COMPETING_PUBLISHED_MODELS",
+      "scope": "Die unterschiedlichen Quellen beschreiben verschiedene Modellbeiträge und Beobachtungen.",
+      "falsifier": "Wähle vor der nächsten Messung eine Vorhersage, die zwischen den Modellen unterscheidet.",
+      "nextSeed": "Welche neue Beobachtung trennt die Vorhersagen der Modelle?",
+      "branchIds": [
+        "branch-t",
+        "branch-r"
+      ],
+      "claimKind": "RESEARCH_EXPLANATION_OR_DECLARED_MODEL"
+    }
+  ],
+  "sourceIds": [
+    "source-master-summary",
+    "source-pulsars",
+    "source-agn",
+    "source-uranus",
+    "source-ring-seismology",
+    "source-stellar-hole",
+    "source-stellar-code",
+    "source-wood",
+    "source-cloud-water",
+    "source-tolerance",
+    "source-immune-memory",
+    "source-cygnus",
+    "source-oj-spitzer",
+    "source-oj-countermodel",
+    "source-molecular-code",
+    "source-analogy",
+    "source-visual-reasoning",
+    "source-wave-model"
+  ],
+  "currentCorrections": [
+    {
+      "id": "molecular-pr11-merged",
+      "sourceId": "source-molecular-code",
+      "previous": "Die bereitgestellte Mindmap bezeichnet PR 11 als Draft.",
+      "current": "GitHub meldet PR 11 als am 27.10.2026 gemergt; Quellstand 0b90b5a967e2dde300345ac3485018053a35e0ee.",
+      "operation": "APPENDED_ACTIVE_CORRECTION_ORIGINAL_RETAINED"
+    }
+  ]
+}

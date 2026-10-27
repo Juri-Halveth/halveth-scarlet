@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="HALVETH Forschungsatelier: Gedanken verbinden, Quellen lesen und drei kleine Modelle selbst ausprobieren."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self' blob:; base-uri 'none'; form-action 'none'; object-src 'none'"
+    />
+    <meta
+      name="rights"
+      content="HALVETH PIRL 2.0 for original contributions. Linked sources retain their rights."
+    />
+    <title>Forschungsatelier · HALVETH / NOVA</title>
+    <link rel="stylesheet" href="atelier.css" />
+    <link rel="icon" href="../../assets/portal-mark.svg" type="image/svg+xml" />
+    <link rel="license" href="../../LICENSES.md" />
+    <script type="module" src="app.mjs"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Zum Inhalt</a>
+    <header class="top">
+      <a class="brand" href="../../">HALVETH <span>/ NOVA</span></a
+      ><a href="../">Zu den Entitäten ↗</a>
+    </header>
+    <main id="main">
+      <div class="opening">
+        <p class="eyebrow">Forschungsatelier · 27. Oktober 2026</p>
+        <h1>Die Form fällt auf.<br /><em>Die Frage führt weiter.</em></h1>
+        <p class="lede">
+          Ein Auge im Holz, ein Puls im All, eine Spur in einem Programm. Hier
+          können Gedanken einander begegnen — und an einer konkreten Frage
+          weiterwachsen.
+        </p>
+      </div>
+      <nav class="tabs" aria-label="Bereiche">
+        <button type="button" aria-current="page" data-view="discover">
+          Ausprobieren</button
+        ><button type="button" data-view="map">Die Verbindungen</button
+        ><button type="button" data-view="inventory">68 Perspektiven</button
+        ><button type="button" data-view="figures">Figurenatelier</button
+        ><button type="button" data-view="notebook">
+          Mein Faden <span id="note-count">0</span>
+        </button>
+      </nav>
+      <p id="load-status" role="status">Der Forschungsstand wird geladen …</p>
+      <section
+        id="view-discover"
+        class="view"
+        aria-label="Forschung erkunden"
+        hidden
+      >
+        <div
+          id="topic-list"
+          class="topic-list"
+          aria-label="Forschungsthema"
+        ></div>
+        <article class="research-layout">
+          <div class="reading">
+            <p id="research-kind" class="eyebrow"></p>
+            <h2 id="research-title"></h2>
+            <p id="research-meaning" class="meaning"></p>
+            <p id="research-question" class="question"></p>
+            <div id="research-branch-links" class="branch-links"></div>
+            <details open>
+              <summary>Quellen und Ausgangspunkt</summary>
+              <ul id="source-list" class="source-list"></ul>
+            </details>
+            <details>
+              <summary>Wie lässt sich das weiterprüfen?</summary>
+              <p id="research-falsifier"></p>
+              <p id="research-scope" class="muted"></p>
+            </details>
+            <button class="text-action" type="button" id="take-note">
+              Diesen Gedanken aufnehmen ↗
+            </button>
+          </div>
+          <div class="experiment" id="experiment">
+            <div class="experiment-heading">
+              <h3 id="experiment-title">Ein Blick auf das Modell</h3>
+              <span class="model-label">Erklärungsmodell</span>
+            </div>
+            <div class="canvas-wrap">
+              <canvas
+                id="lab-canvas"
+                width="960"
+                height="650"
+                aria-label="Interaktive Modellansicht"
+                role="img"
+              ></canvas>
+              <p id="canvas-alternative" class="sr-only"></p>
+            </div>
+            <div id="lab-controls">
+              <div class="play-row">
+                <button class="primary" type="button" id="play">
+                  Ablauf zeigen</button
+                ><label class="time-control" for="model-time"
+                  >Modellzeit <output id="model-time-value">0,00</output
+                  ><input
+                    id="model-time"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.001"
+                    value="0" /></label
+                ><button
+                  type="button"
+                  id="reset-time"
+                  aria-label="Modellzeit auf den Anfang setzen"
+                >
+                  ↺
+                </button>
+              </div>
+              <div id="pulsar-options" class="options">
+                <label for="observer-angle"
+                  >Blickwinkel <output id="observer-value">60°</output
+                  ><input
+                    id="observer-angle"
+                    type="range"
+                    min="0"
+                    max="180"
+                    step="1"
+                    value="60" /></label
+                ><label for="projection"
+                  >Ansicht<select id="projection">
+                    <option value="axonometric">Räumlicher Blick</option>
+                    <option value="front">Vorne</option>
+                    <option value="top">Oben</option>
+                    <option value="side">Seite</option>
+                  </select></label
+                >
+              </div>
+              <div id="waves-options" class="options" hidden>
+                <label for="wave-phase"
+                  >Phase der dritten Welle <output id="phase-value">0°</output
+                  ><input
+                    id="wave-phase"
+                    type="range"
+                    min="0"
+                    max="360"
+                    step="1"
+                    value="0"
+                /></label>
+                <p>
+                  Vier gleichfrequente skalare Wellen. Ort, Zeit und Amplitude
+                  sind normiert.
+                </p>
+              </div>
+            </div>
+            <p id="lab-observation" class="observation" aria-live="polite"></p>
+            <p id="model-description" class="model-description"></p>
+          </div>
+        </article>
+      </section>
+      <section
+        id="view-map"
+        class="view"
+        aria-label="Verbindungen der Forschungsfragen"
+        hidden
+      >
+        <div class="section-heading">
+          <div>
+            <h2>Ein Gedanke hat Nachbarn.</h2>
+            <p>
+              26 Hauptäste und 18 Nebenäste. Die Linien sind begründete
+              Suchverbindungen.
+            </p>
+          </div>
+          <span id="map-count" class="muted"></span>
+        </div>
+        <div class="filter-row">
+          <label for="map-search"
+            >In Fragen suchen<input
+              id="map-search"
+              type="search"
+              placeholder="Zum Beispiel: Erinnerung, Wirbel, Klang …" /></label
+          ><label for="map-stream"
+            >Arbeitsstrom<select id="map-stream">
+              <option value="all">Alle Arbeitsströme</option>
+            </select></label
+          >
+        </div>
+        <div class="map-layout">
+          <div>
+            <svg
+              id="relation-map"
+              viewBox="0 0 920 650"
+              role="img"
+              aria-labelledby="map-title map-desc"
+            >
+              <title id="map-title">Karte der Forschungsfragen</title>
+              <desc id="map-desc">
+                Auswählbare Haupt- und Nebenäste, gruppiert in acht
+                Arbeitsströme. Die vollständige beschriftete Liste folgt unter
+                der Karte.
+              </desc>
+            </svg>
+            <div id="node-list" class="node-list"></div>
+          </div>
+          <aside id="map-detail" class="map-detail" aria-live="polite"></aside>
+        </div>
+        <details class="chronology">
+          <summary>Wie die Zusammenfassung den Verlauf ordnet</summary>
+          <p class="muted">
+            Diese Reihenfolge stammt aus der bereitgestellten Zusammenfassung.
+            Die tatsächlichen Ereigniszeiten sind offen.
+          </p>
+          <ol id="phase-list"></ol>
+        </details>
+      </section>
+      <section
+        id="view-inventory"
+        class="view"
+        aria-label="Profilbestand"
+        hidden
+      >
+        <div class="section-heading">
+          <div>
+            <h2>Eine Perspektive bekommt einen Beitrag.</h2>
+            <p>
+              Der gebundene Bestand umfasst 68 Profile. Jede Zeile führt zu
+              Rolle, Originalprofil und passenden Anschlüssen.
+            </p>
+          </div>
+        </div>
+        <p class="inventory-note">
+          Die Formen besitzen einen gemeinsamen Darstellungs- und Verlaufskern.
+          Diese Inventur prüft Dateien und Verweise; fachliche Mechanismen und
+          ein eigenständiger Arbeitsprozess werden je Beitrag gesondert
+          erschlossen.
+        </p>
+        <div class="filter-row">
+          <label for="profile-search"
+            >Profil suchen<input
+              id="profile-search"
+              type="search"
+              placeholder="Name, Rolle oder Typ" /></label
+          ><label for="profile-filter"
+            >Anschluss<select id="profile-filter">
+              <option value="all">Alle Profile</option>
+              <option value="connected">Mit neuer Forschungsbrücke</option>
+              <option value="open">Anschluss noch offen</option>
+            </select></label
+          ><output id="profile-count"></output>
+        </div>
+        <div id="profile-list" class="profile-list"></div>
+        <details class="provenance">
+          <summary>Quellstand und prüfbare Dateien</summary>
+          <p id="inventory-basis"></p>
+          <p>
+            <a href="../INVENTORY_20261027.json">Gesamte Inventur</a> ·
+            <a href="contracts.json">Forschungsverträge</a> ·
+            <a href="../ENTITY_CONTRACT_V2.schema.json">Schema</a> ·
+            <a href="../relations.json">Relationen</a> ·
+            <a href="sources.json">Quellenregister</a>
+          </p>
+          <p id="active-correction"></p>
+        </details>
+      </section>
+      <section
+        id="view-figures"
+        class="view"
+        aria-label="Bewegte Spielfiguren"
+        hidden
+      >
+        <div class="section-heading">
+          <div>
+            <h2>Aus den Paketen tritt eine Figur.</h2>
+            <p>
+              Zwei stilisierte Spielfiguren, mit Kleidung und 43 Bewegungen aus
+              deinen Quaternius-Paketen. Drehe den Blick mit Maus oder Finger;
+              die Bewegung startet auf Knopfdruck.
+            </p>
+          </div>
+        </div>
+        <div class="figure-layout">
+          <div id="figure-stage" class="figure-stage"></div>
+          <div class="figure-options">
+            <label for="figure-variant"
+              >Figur<select id="figure-variant" disabled>
+                <option>Wird geladen …</option>
+              </select></label
+            ><label for="figure-motion"
+              >Bewegung<select id="figure-motion" disabled>
+                <option>Wird geladen …</option>
+              </select></label
+            ><label for="figure-speed"
+              >Geschwindigkeit <output id="figure-speed-value">1×</output
+              ><input
+                id="figure-speed"
+                type="range"
+                min="0.25"
+                max="2"
+                step="0.25"
+                value="1"
+            /></label>
+            <div class="note-actions">
+              <button class="primary" type="button" id="figure-play" disabled>
+                Bewegung zeigen</button
+              ><button type="button" id="figure-reset">
+                Blick zurücksetzen
+              </button>
+            </div>
+            <p id="figure-status" role="status">
+              Die Figuren werden beim ersten Öffnen geladen.
+            </p>
+            <p class="muted">
+              Die Vorschau verwendet originale Farbtexturen mit vereinfachten
+              Materialien. Bewegungen werden an die jeweilige Bindepose
+              angepasst. Es sind gestaltete Spielfiguren; ein Vergleich mit
+              realen menschlichen Bewegungsaufnahmen ist ein eigener nächster
+              Prüfweg.
+            </p>
+            <a href="characters/manifest.json"
+              >Dateien, Ableitungen und CC0-Lizenz</a
+            >
+          </div>
+        </div>
+      </section>
+      <section
+        id="view-notebook"
+        class="view"
+        aria-label="Eigener Forschungsfaden"
+        hidden
+      >
+        <div class="section-heading">
+          <div>
+            <h2>Was nimmst du mit?</h2>
+            <p>
+              Halte eine Beobachtung oder Anschlussfrage beim jeweiligen
+              Gedanken fest.
+            </p>
+          </div>
+        </div>
+        <div class="notebook-layout">
+          <div>
+            <label for="note-node">Bezug<select id="note-node"></select></label
+            ><label for="note-text"
+              >Deine Beobachtung oder Frage<textarea
+                id="note-text"
+                rows="6"
+                placeholder="Was hat sich gezeigt? Was möchtest du als Nächstes unterscheiden?"
+              ></textarea>
+            </label>
+            <div class="note-actions">
+              <button class="primary" type="button" id="save-note">
+                Zum Faden hinzufügen</button
+              ><button type="button" id="export-notebook">
+                Faden für NOVA herunterladen
+              </button>
+            </div>
+            <p id="note-status" role="status">
+              Deine Notizen bleiben in dieser Sitzung. Der Download erhält sie
+              als Datei.
+            </p>
+          </div>
+          <ol id="note-history" class="note-history"></ol>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <span
+        >HALVETH · Forschung darf Fragen öffnen und ihre Spuren behalten.</span
+      ><a href="README.md">Arbeitsstand und Quellen</a
+      ><a href="../../LICENSES.md">Rechte</a>
+    </footer>
+  </body>
+</html>

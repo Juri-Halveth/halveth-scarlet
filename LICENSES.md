@@ -14,6 +14,8 @@ assigned to a specific file, contribution and version.
 | Linked studies, quotations, Marvel characters and names, NASA materials and other third-party content | Their respective owners and terms; excluded from HALVETH licensing |
 | License texts | The copying permission stated in the license text |
 | Bundled Three.js and OrbitControls in `assets/entity-vendor/runtime.mjs` | MIT; see `assets/entity-vendor/three.LICENSE.txt` |
+| Adapted Three.js loaders/utilities in `entities/research/vendor/` | MIT; upstream and derived hashes in that folder's `NOTICE.json`, with license text included |
+| Quaternius character parts, colour textures and animation library in `entities/research/characters/` | CC0-1.0; source archives, derived head filters, omitted material channels and exact output hashes in `manifest.json`; excluded from HALVETH PIRL 2.0 |
 | Bundled Lucide icons in `assets/entity-vendor/runtime.mjs` | ISC and included MIT icon notices; see `assets/entity-vendor/lucide.LICENSE.txt` |
 | New original HTML, JavaScript, tests and documentation under `forschung/scarlet-wissenschaftszoom/` | HALVETH PIRL 2.0, only to the extent of rights controlled by Juri Janovski; excludes underlying facts, formulas as such and NASA material |
 | NASA-derived JPEGs under `forschung/scarlet-wissenschaftszoom/assets/` | NASA media usage guidelines and source attribution in that folder's `README.md`; excluded from HALVETH PIRL 2.0 |
