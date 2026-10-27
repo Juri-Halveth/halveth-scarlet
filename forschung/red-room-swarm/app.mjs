@@ -2,9 +2,9 @@ import { frameAt, SCENARIOS, compareScenarios } from '../../assets/red-room-swar
 
 const $ = id => document.getElementById(id);
 const requestedLanguage=new URLSearchParams(location.search).get('lang');
-let rememberedLanguage;try{rememberedLanguage=localStorage.getItem('halveth-language');}catch{}
-const selectedLanguage=['de','en'].includes(requestedLanguage)?requestedLanguage:window.HalvethLanguage?.get?.()||rememberedLanguage||(navigator.language.startsWith('de')?'de':'en');
-const lang=selectedLanguage==='de'?'de':'en';
+let rememberedLanguage;try{rememberedLanguage=localStorage.getItem('halveth-hub-language');}catch{}
+const sharedLanguage=window.HalvethHubLanguage?.language;
+const lang=[requestedLanguage,sharedLanguage,rememberedLanguage].find(value=>['de','en'].includes(value))||(navigator.language.startsWith('de')?'de':'en');
 const words = {
   de: {
     back:'Zur Welt ↗',eyebrow:'FIKTIONALES SCHATTENMODELL · T±',titleA:'Die Befreiung',titleB:'löscht keine Spur.',

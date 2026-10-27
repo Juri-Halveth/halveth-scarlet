@@ -17,7 +17,7 @@ export const cases = {
       {label:'Auto / Mobilität bei Brühler Anbieter', amount:100000, local:true},
       {label:'Bezahltes Team / Dienste in Brühl', amount:200000, local:true},
       {label:'Lernen und Alltag in Brühl', amount:100000, local:true},
-      {label:'Weitere Verwendung noch offen', amount:1000000, local:false}
+      {label:'Weitere Verwendung noch offen', amount:1000000, local:false, allocated:false}
     ],
     ledgerNote: 'Die ersten fünf Posten summieren sich auf 1 Mio. € Brühler Zahlungen. Wo zusätzliche lokale Wertschöpfung entsteht, muss separat ermittelt werden.'
   },
@@ -63,7 +63,8 @@ export const cases = {
 };
 
 export function summarizeBudget(entry) {
-  const allocated = entry.lines.reduce((sum, line) => sum + line.amount, 0);
-  const localPayments = entry.lines.reduce((sum, line) => sum + (line.local ? line.amount : 0), 0);
+  const allocatedLines = entry.lines.filter(line => line.allocated !== false);
+  const allocated = allocatedLines.reduce((sum, line) => sum + line.amount, 0);
+  const localPayments = allocatedLines.reduce((sum, line) => sum + (line.local ? line.amount : 0), 0);
   return {allocated, localPayments, unallocated: entry.budget - allocated};
 }
