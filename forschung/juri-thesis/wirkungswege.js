@@ -20,7 +20,7 @@ function render() {
   fields.human.textContent = entry.human;
   fields.measure.textContent = entry.measure;
   fields['ledger-note'].textContent = entry.ledgerNote;
-  fields['ledger-total'].textContent = `Im Modell zugeordnet: ${euro(budget.allocated)}${budget.localPayments ? ` · davon Brühler Zahlungen: ${euro(budget.localPayments)}` : ''}`;
+  fields['ledger-total'].textContent = `Im Modell zugeordnet: ${euro(budget.allocated)}${budget.localPayments ? ` · davon Brühler Zahlungen: ${euro(budget.localPayments)}` : ''}${budget.unallocated ? ` · offen: ${euro(budget.unallocated)}` : ''}`;
   outcomeLabel.textContent = currentOutcome === 'open' ? 'wenn Wege aufgehen' : 'wenn es hakt';
   fields.ledger.replaceChildren(...entry.lines.map(line => {
     const item = document.createElement('li');
