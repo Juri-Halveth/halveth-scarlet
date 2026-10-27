@@ -51,6 +51,7 @@ function render(focus = false) {
     const heading = stage.querySelector('h3');
     heading.tabIndex = -1;
     heading.focus({ preventScroll: true });
+    heading.scrollIntoView({ block: 'start', behavior: 'instant' });
   }
 }
 

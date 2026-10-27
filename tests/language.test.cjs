@@ -1,5 +1,19 @@
 const test=require('node:test'),assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs'),path=require('node:path');
 const script=fs.readFileSync(path.join(__dirname,'../assets/language.js'),'utf8');
+test('translated legal footer retains the canonical person and identifies HALVETH as the project',()=>{
+  const key='© 2026 Juri Janovski (Projekt HALVETH).';
+  const catalog=JSON.parse(fs.readFileSync(path.join(__dirname,'../languages/catalog.json'),'utf8'));
+  const context={window:{}};
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../languages/catalog.js'),'utf8'),context);
+  for(const language of ['en','ru']){
+    const translated=context.window.HalvethHubTranslations[key][language];
+    assert.equal(translated,catalog.strings[key][language]);
+    assert.match(translated,/Juri Janovski/);
+    assert.match(translated,language==='en'?/\(project HALVETH\)/:/\(проект HALVETH\)/);
+  }
+  const html=fs.readFileSync(path.join(__dirname,'../forschung/formen-und-verbindungen/index.html'),'utf8');
+  assert.ok(html.includes('<footer><strong>'+catalog.strings[key].en+'</strong>'),'the authored English section retains the same attribution');
+});
 function setup(query='',saved=null,browser='de-DE',blockedStorage=false){
   const assigned=[],writes=[],url='https://juri-halveth.github.io/halveth-scarlet/'+query;
   const document={documentElement:{lang:'de'},baseURI:url,readyState:'loading',addEventListener(){}};
