@@ -26,7 +26,7 @@ Diese Profilzusammenstellung wurde am 16.09.2026 redaktionell erstellt. Vorhande
 
 - [HALVETH · published entity registry](https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js)
 - [HALVETH · scarlet](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/#scarlet)
-- [HALVETH · Marvel perspectives (DE / EN)](https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md)
+- Historischer Volltext: `open-research-branches/reports/HALVETH_MARVEL_PERSPECTIVES.de.md` (am 28.10.2026 als privat festgestellt; öffentliche Kurzansicht oben).
 
 ## English
 
@@ -50,4 +50,4 @@ This editorial profile was assembled on 16 September 2026. Existing project text
 
 - [HALVETH · published entity registry](https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js)
 - [HALVETH · scarlet](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/#scarlet)
-- [HALVETH · Marvel perspectives (DE / EN)](https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md)
+- Historical full report: `open-research-branches/reports/HALVETH_MARVEL_PERSPECTIVES.de.md` (observed private on 28 October 2026; public summary above).
