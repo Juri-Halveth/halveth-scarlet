@@ -26,3 +26,13 @@ test('public profiles do not offer private archives as current source links', ()
     assert.match(html, /PRIVATE_AT_2026-10-28|als privat festgestellt/);
   }
 });
+
+test('research page points to the current public registry and labels the earlier archive', () => {
+  const html = fs.readFileSync(path.join(root, 'forschung/figuren-und-perspektiven/index.html'), 'utf8');
+  const entry = html.match(/<li id="source-garden">[\s\S]*?<\/li>/);
+  assert.ok(entry);
+  assert.match(entry[0], /href="\.\.\/\.\.\/assets\/universe-data\.js"/);
+  assert.doesNotMatch(entry[0], /github\.com\/Juri-Halveth\/open-research-branches\//);
+  assert.match(entry[0], /nicht zu einer Kopie des Archivs/);
+  assert.match(entry[0], /not a copy of that archive/);
+});
