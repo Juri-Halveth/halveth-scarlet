@@ -1,5 +1,7 @@
 # Zeit, in der ein neuer Weg möglich wird
 
+> **Archivstatus 29.10.2026:** Die Anfragerunde an Brühl und das NRW-Arbeitsministerium ist nach Absagen zur Unterstützung abgeschlossen. Der folgende Entwurf bleibt als historischer Text erhalten. [Aktueller Projektstand](versand.html) · [Ergebnis und Lernkern](ERGEBNIS-UND-LERNKERN.md).
+
 > **Versionshinweis vom 14.10.2026:** Der folgende Text bewahrt den früheren Entwurfsstand vor dem gemeldeten E-Mail-Versand. Sein damaliger Satz „Noch nicht eingereicht“ beschreibt diesen Stand. Der Initiator teilte anschließend mit, dass er die Vorlage am 14.10.2026 um 02:48 Uhr an die Stadt Brühl gesendet habe. Die aktuelle öffentliche Erzählung und der korrigierte Rechenweg stehen in der [Webausgabe](konzept.html); Quelle und Grenzen der Versandmeldung stehen im [Versandstand](versand.html). Der als Anlage vorbereitete PDF-Stand bleibt unverändert.
 
 Montagmorgen in Brühl. Dreißig Menschen planen einen neuen Abschnitt: Ausbildung, Gründung, Sorgearbeit oder einen anderen Lebensweg. Der Vorschlag gäbe ihnen je sechs Monate Entwicklungszeit und die Möglichkeit, die dafür nötigen Mittel zu beantragen. Ein Herd, ein Auto oder ein großer Projektantrag werden erst später als verschiedene konkrete Beispiele sichtbar.

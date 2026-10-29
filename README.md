@@ -119,8 +119,9 @@ Visuelle technische Erklärung, keine Renditezusage.
 
 ### [JURI-THESIS · Entwicklungszeit für Menschen](forschung/juri-thesis/)
 
-Öffentlicher Vorschlag für einen 30-Personen-Pilot in Brühl mit Konzept,
-Beispielen und dem aktuellen Projektstand.
+Archivierter Vorschlag für einen 30-Personen-Pilot in Brühl mit Konzept,
+Beispielen und dem [abgeschlossenen Projektstand](forschung/juri-thesis/versand.html).
+Stadt und NRW-Arbeitsministerium haben Unterstützung für diesen Anlauf abgelehnt.
 
 
 ## Prüfen und bauen

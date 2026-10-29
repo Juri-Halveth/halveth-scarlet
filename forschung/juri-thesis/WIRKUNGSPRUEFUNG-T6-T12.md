@@ -1,5 +1,7 @@
 # JURI-THESIS: Wirtschaftliche Wirkungsprüfung für 30 Plätze
 
+> **Archivstatus 29.10.2026:** Die Anfragerunde an Brühl und das NRW-Arbeitsministerium ist nach Absagen zur Unterstützung abgeschlossen. Die folgenden Rechnungen bleiben Modellrechnungen, kein laufender Pilot. [Ergebnis und Lernkern](ERGEBNIS-UND-LERNKERN.md).
+
 **Prüffassung vom 14.10.2026 · Brühl · erste sechsmonatige Kohorte, dieselben Personen nach zwölf Monaten.** Dieses Dokument ergänzt das ältere [Wirtschaftsmodell](WIRTSCHAFTSMODELL.md) und die vier [Lebenswege](wirkungswege.html). Die [öffentliche Darstellung](wirtschaftslabor.html) und der [ausführbare Rechenvertrag](wirtschaftslabor-model.mjs) verwenden dieselben Szenariowerte. Eine tatsächliche Bewilligung, Partnerschaft oder gemessene Programmauswirkung liegt diesem Modell nicht zugrunde.
 
 ## 1. Die wirtschaftliche Frage

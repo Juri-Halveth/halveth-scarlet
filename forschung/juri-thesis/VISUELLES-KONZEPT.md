@@ -1,5 +1,7 @@
 # Visuelles Konzept und Bildgrenzen
 
+> **Archivstatus 29.10.2026:** Die Anfragerunde an Brühl und das NRW-Arbeitsministerium ist abgeschlossen. Diese Gestaltungsnotizen bleiben als Teil des Konzeptarchivs erhalten. [Ergebnis und Lernkern](ERGEBNIS-UND-LERNKERN.md).
+
 Die drei vom Nutzer übergebenen PNGs liegen als **unveränderte Referenzkopien** in `assets/`; ihre Byte-Hashes stehen in [QUELLEN-UND-GRENZEN.md](QUELLEN-UND-GRENZEN.md). Sie illustrieren die gewünschte Mischung aus realistisch wirkenden Menschen, sanfter Cartoon-Ästhetik, goldenem Licht, regionaler Blume und wirtschaftlichen Zukunftsbildern. Die dritte Neon-Skizze liefert die Idee von Zielrichtung und Korrektur; ihre sichtbare Beschriftung enthält Fehler. Darum wird sie im Projekt nicht als fertig beschriftete Faktengrafik verwendet.
 
 Der [HTML-Auftritt](index.html) setzt die Kernbegriffe als echten, kopierbaren und zugänglichen Text neu. Die Bilder erscheinen als **Illustrationen**, nicht als Beweise. Bildkompositionen stellen keine tatsächlich teilnehmenden Menschen, Bauvorhaben, neuen Arbeitsplätze oder verbindlichen Partner dar. Stadt, Phantasialand und benachbarte Orte werden als geografische beziehungsweise bestehende Standortbezüge genannt; aus ihrer Darstellung folgt keine Projektzustimmung.
