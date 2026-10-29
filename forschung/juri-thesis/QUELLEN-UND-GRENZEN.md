@@ -1,5 +1,7 @@
 # Quellen, Bildprovenienz und Aussagegrenzen
 
+> **Archivstatus 29.10.2026:** Die Anfragerunde an Brühl und das NRW-Arbeitsministerium ist abgeschlossen. Diese Quellen- und Bildnotizen bleiben als Teil des Konzeptarchivs erhalten. [Ergebnis und Lernkern](ERGEBNIS-UND-LERNKERN.md).
+
 **Abruf und Einordnung: 13. Oktober 2026.** Diese Matrix bindet Tatsachen an ihre Quelle. Die eingefügte Gesprächsdatei und drei Bilder sind Ausgangsmaterial für das Konzept, aber keine unabhängigen Nachweise für Recht, Kausalität, Standortwirkung oder Partnerzustimmung.
 
 | Aussage | Stand | Grundlage / Grenze |
