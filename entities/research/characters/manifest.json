@@ -1,0 +1,253 @@
+{
+  "schema": "halveth.character-pilot.v1",
+  "author": "Quaternius",
+  "source": "https://quaternius.com",
+  "license": "CC0-1.0",
+  "variants": [
+    {
+      "id": "female",
+      "label": "Waldläuferin",
+      "parts": [
+        "female-head.glb",
+        "female-outfit.glb"
+      ],
+      "skeletonJointCount": 65
+    },
+    {
+      "id": "male",
+      "label": "Reisender",
+      "parts": [
+        "male-head.glb",
+        "male-outfit.glb"
+      ],
+      "skeletonJointCount": 65
+    }
+  ],
+  "animationNames": [
+    "A_TPose",
+    "Crouch_Fwd_Loop",
+    "Crouch_Idle_Loop",
+    "Dance_Loop",
+    "Death01",
+    "Driving_Loop",
+    "Fixing_Kneeling",
+    "Hit_Chest",
+    "Hit_Head",
+    "Idle_Loop",
+    "Idle_Talking_Loop",
+    "Idle_Torch_Loop",
+    "Interact",
+    "Jog_Fwd_Loop",
+    "Jump_Land",
+    "Jump_Loop",
+    "Jump_Start",
+    "PickUp_Table",
+    "Pistol_Aim_Down",
+    "Pistol_Aim_Neutral",
+    "Pistol_Aim_Up",
+    "Pistol_Idle_Loop",
+    "Pistol_Reload",
+    "Pistol_Shoot",
+    "Punch_Cross",
+    "Punch_Jab",
+    "Push_Loop",
+    "Roll",
+    "Sitting_Enter",
+    "Sitting_Exit",
+    "Sitting_Idle_Loop",
+    "Sitting_Talking_Loop",
+    "Spell_Simple_Enter",
+    "Spell_Simple_Exit",
+    "Spell_Simple_Idle_Loop",
+    "Spell_Simple_Shoot",
+    "Sprint_Loop",
+    "Swim_Fwd_Loop",
+    "Swim_Idle_Loop",
+    "Sword_Attack",
+    "Sword_Idle",
+    "Walk_Formal_Loop",
+    "Walk_Loop"
+  ],
+  "animationSource": "animations.glb",
+  "retargetContract": "Same joint-name and parent topology checked; target rest pose is preserved by the runtime adapter. Visual fit requires browser inspection.",
+  "archives": [
+    {
+      "file": "Universal Base Characters[Standard].zip",
+      "sha256": "fdbf1804c90dfc1ea03e992bff7da2dfd1a79318e13270a660180f9308455f40",
+      "licenseMember": "Universal Base Characters[Standard]/License_Standard.txt",
+      "licenseSha256": "0f4beaf0fe360a7732e58bbe3dbf60a2422367fbea60cb9ea4add968f383268e",
+      "license": "CC0-1.0"
+    },
+    {
+      "file": "Modular Character Outfits - Fantasy[Standard].zip",
+      "sha256": "c3468b18871cc8c8f05ab14df7712baf22cb9f389cbd870babf130e595187f70",
+      "licenseMember": "Modular Character Outfits - Fantasy[Standard]/License_Standard.txt",
+      "licenseSha256": "2202cc2f608c4210790b112e5f121bc2e7f8dced7b5b1c7f4be6203461bdebbb",
+      "license": "CC0-1.0"
+    },
+    {
+      "file": "Universal Animation Library[Standard].zip",
+      "sha256": "cc73fc4e495b82958207316596317a3f40b9fa38065bde1027937452da537724",
+      "licenseMember": "Universal Animation Library[Standard]/License.txt",
+      "licenseSha256": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061",
+      "license": "CC0-1.0"
+    }
+  ],
+  "files": [
+    {
+      "path": "female-head.glb",
+      "bytes": 4134476,
+      "sha256": "c36fd42f36b3d88ee7494de338012428e836e9e783880c7c673c0ab8b9952892",
+      "sourceArchive": "Universal Base Characters[Standard].zip",
+      "sourceMember": "Universal Base Characters[Standard]/Base Characters/Godot - UE/Superhero_Female_FullBody.gltf",
+      "transformation": {
+        "kind": "DERIVED_HEAD_BY_DECLARED_POSITION_FILTER",
+        "details": [
+          {
+            "mesh": "Superhero_Female",
+            "cutoffYMetres": 1.4966438817977905,
+            "originalTriangles": 12812,
+            "retainedTriangles": 3012
+          }
+        ],
+        "imageBytes": "UNCHANGED",
+        "originalArchive": "RETAINED_BY_USER",
+        "materialPreview": {
+          "kind": "BASE_COLOUR_WITHOUT_NORMAL_OR_ORM",
+          "omittedChannels": [
+            {
+              "material": "MI_Hair_2",
+              "field": "normalTexture"
+            },
+            {
+              "material": "MI_Eyes",
+              "field": "normalTexture"
+            },
+            {
+              "material": "MI_Superhero_Female",
+              "field": "normalTexture"
+            },
+            {
+              "material": "MI_Superhero_Female",
+              "field": "pbrMetallicRoughness.metallicRoughnessTexture"
+            }
+          ],
+          "retainedImageEncoding": "EXACT_SOURCE_BYTES"
+        },
+        "resourceRepairs": []
+      }
+    },
+    {
+      "path": "female-outfit.glb",
+      "bytes": 9971752,
+      "sha256": "e4804607d89cf0b949a69dee922d4936634a7fcc55d1feecfcff71dbc52afba6",
+      "sourceArchive": "Modular Character Outfits - Fantasy[Standard].zip",
+      "sourceMember": "Modular Character Outfits - Fantasy[Standard]/Exports/glTF (Godot-Unreal)/Outfits/Female_Ranger.gltf",
+      "transformation": {
+        "kind": "EMBED_RESOURCES_UNCHANGED",
+        "materialPreview": {
+          "kind": "BASE_COLOUR_WITHOUT_NORMAL_OR_ORM",
+          "omittedChannels": [
+            {
+              "material": "MI_Ranger",
+              "field": "normalTexture"
+            },
+            {
+              "material": "MI_Ranger",
+              "field": "pbrMetallicRoughness.metallicRoughnessTexture"
+            },
+            {
+              "material": "MI_Regular_Female",
+              "field": "normalTexture"
+            },
+            {
+              "material": "MI_Regular_Female",
+              "field": "pbrMetallicRoughness.metallicRoughnessTexture"
+            }
+          ],
+          "retainedImageEncoding": "EXACT_SOURCE_BYTES"
+        },
+        "resourceRepairs": []
+      }
+    },
+    {
+      "path": "male-head.glb",
+      "bytes": 3732804,
+      "sha256": "c77a05afaba5852600e51ece655f136f65b3e71dc10e3291b4133fd92dec6ac8",
+      "sourceArchive": "Universal Base Characters[Standard].zip",
+      "sourceMember": "Universal Base Characters[Standard]/Base Characters/Godot - UE/Superhero_Male_FullBody.gltf",
+      "transformation": {
+        "kind": "DERIVED_HEAD_BY_DECLARED_POSITION_FILTER",
+        "details": [],
+        "imageBytes": "UNCHANGED",
+        "originalArchive": "RETAINED_BY_USER",
+        "materialPreview": {
+          "kind": "BASE_COLOUR_WITHOUT_NORMAL_OR_ORM",
+          "omittedChannels": [
+            {
+              "material": "MI_Hair_1",
+              "field": "normalTexture"
+            },
+            {
+              "material": "MI_Eyes",
+              "field": "normalTexture"
+            },
+            {
+              "material": "MI_Superhero_Male",
+              "field": "normalTexture"
+            },
+            {
+              "material": "MI_Superhero_Male",
+              "field": "pbrMetallicRoughness.metallicRoughnessTexture"
+            }
+          ],
+          "retainedImageEncoding": "EXACT_SOURCE_BYTES"
+        },
+        "resourceRepairs": []
+      }
+    },
+    {
+      "path": "male-outfit.glb",
+      "bytes": 7069896,
+      "sha256": "d610f2f1cb06f0d4c2a5b42fe4381d324cca0d2b0427d63e489bf6e1214f5382",
+      "sourceArchive": "Modular Character Outfits - Fantasy[Standard].zip",
+      "sourceMember": "Modular Character Outfits - Fantasy[Standard]/Exports/glTF (Godot-Unreal)/Outfits/Male_Peasant.gltf",
+      "transformation": {
+        "kind": "EMBED_RESOURCES_UNCHANGED",
+        "materialPreview": {
+          "kind": "BASE_COLOUR_WITHOUT_NORMAL_OR_ORM",
+          "omittedChannels": [
+            {
+              "material": "MI_Peasant",
+              "field": "normalTexture"
+            },
+            {
+              "material": "MI_Peasant",
+              "field": "pbrMetallicRoughness.metallicRoughnessTexture"
+            },
+            {
+              "material": "MI_Regular_Male",
+              "field": "normalTexture"
+            },
+            {
+              "material": "MI_Regular_Male",
+              "field": "pbrMetallicRoughness.metallicRoughnessTexture"
+            }
+          ],
+          "retainedImageEncoding": "EXACT_SOURCE_BYTES"
+        },
+        "resourceRepairs": []
+      }
+    },
+    {
+      "path": "animations.glb",
+      "bytes": 7618436,
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "sourceArchive": "Universal Animation Library[Standard].zip",
+      "sourceMember": "Universal Animation Library[Standard]/Unreal-Godot/UAL1_Standard.glb",
+      "transformation": {
+        "kind": "EXACT_BYTES_NON_ROOT_MOTION_VARIANT"
+      }
+    }
+  ]
+}
