@@ -2,6 +2,11 @@
 
 # Zustände, Zeit und Varianten · Interaktiver Funktionsraum
 
+[![SCARLET im HALVETH NETZ: verzweigte Zustände und Zellräume](assets/netz-starship-hero.svg)](https://juri-halveth.github.io/universum/)
+
+**Im NETZ:** [Interaktives Starship Lab öffnen](https://juri-halveth.github.io/universum/) · Themen: Modelle & Visualisierung · Welten & Interaktion. Im Katalog dieses Projekt wählen; die eigene Anwendung und ihre Quellen bleiben hier dokumentiert.
+
+
 **Person: Juri. Projekt: HALVETH.** [Namenszuordnung](IDENTITY.md).
 
 [Windows: alte glTF-Arbeitskopien prüfen und gezielt reparieren](docs/WINDOWS_GLTF_RECOVERY.md)
