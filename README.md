@@ -2,23 +2,17 @@
 
 # Zustände, Zeit und Varianten · Interaktiver Funktionsraum
 
-[![SCARLET im HALVETH NETZ: verzweigte Zustände und Zellräume](assets/netz-starship-hero.svg)](https://juri-halveth.github.io/universum/)
+SCARLET ist ein browserlokaler Prototyp für Textzustände und Varianten. Der Funktionsraum führt die vorhandenen GStar-Operationen aus und zeigt daneben eine endliche regelbasierte Zellensimulation.
 
-**Im NETZ:** [Interaktives Starship Lab öffnen](https://juri-halveth.github.io/universum/) · Themen: Modelle & Visualisierung · Welten & Interaktion. Im Katalog dieses Projekt wählen; die eigene Anwendung und ihre Quellen bleiben hier dokumentiert.
+[**Funktionsraum direkt öffnen**](https://juri-halveth.github.io/halveth-scarlet/) · [Technische Demos](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/) · [Quellcode](https://github.com/Juri-Halveth/halveth-scarlet/tree/main)
 
+**Stand und Grenze:** Eingabe, Varianten, Snapshots, Replay und JSON-Export sind lokal bedienbar. Die Replay-Prüfung gilt für das Textledger und seine Selbstkonsistenz; Zellbewegung und Signale sind ein Modell, keine Außenmessung. Die Einstiegsfläche lädt lokale Ressourcen und hat `connect-src 'none'`; dort gibt es weder Konten noch Wallet-Abfragen.
 
-**Person: Juri. Projekt: HALVETH.** [Namenszuordnung](IDENTITY.md).
+**Person: Juri. Projekt: HALVETH.** [Namenszuordnung](IDENTITY.md). [Windows: alte glTF-Arbeitskopien prüfen und gezielt reparieren](docs/WINDOWS_GLTF_RECOVERY.md).
 
-[Windows: alte glTF-Arbeitskopien prüfen und gezielt reparieren](docs/WINDOWS_GLTF_RECOVERY.md)
+![SCARLET: verzweigte Zustände und Zellräume](assets/netz-starship-hero.svg)
 
-**Aus einem Keim wird ein System.** Der öffentliche Einstieg ist ein bedienbarer
-Raum für Textzustände, Varianten und Beobachtung. JavaScript führt die
-Zustandsoperationen tatsächlich lokal aus; das automatische Zellensystem ist
-eine endliche regelbasierte Simulation.
-
-[Technische Demos öffnen](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/)
-· [Funktionsraum](https://juri-halveth.github.io/halveth-scarlet/)
-· [Portfolio](https://juri-halveth.github.io/)
+[HALVETH-Projektübersicht](https://juri-halveth.github.io/arbeiten/) · [Starship Lab als optionales Experiment](https://juri-halveth.github.io/universum/)
 
 ## Direkt im Funktionsraum
 
