@@ -1,10 +1,8 @@
-# SCARLET · Autonomous workspace
+# SCARLET · Interactive workspace for states and variants
 
-[Open the technical demos](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/en.html)
-· [Workspace](https://juri-halveth.github.io/halveth-scarlet/)
+A browser-local prototype for text states, variants and observation. The entry runs the GStar text ledger and a separate finite GStar Living cell simulation. You can preserve input, derive a variant, take a snapshot, replay and export the records. Native code under `native/` has its own build and measurement scope.
 
-A local operational space for text states, variants and observation. The entry executes the existing GStar text ledger and shows a separate finite GStar Living cell simulation. Preserve input, derive a variant, observe, snapshot, replay and export the actual records. Native code under `native/`
-has a separate build and measurement scope.
+[**Open the workspace directly**](https://juri-halveth.github.io/halveth-scarlet/) · [Technical demos](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/en.html) · [Source code](https://github.com/Juri-Halveth/halveth-scarlet/tree/main)
 
 Run `node tools/build_site.mjs` and `node --test tests/*.test.cjs tests/*.test.mjs`.
 Earlier personal and political context pages were preserved privately. The
