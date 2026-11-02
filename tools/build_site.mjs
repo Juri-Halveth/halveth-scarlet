@@ -39,6 +39,7 @@ const includeSiteInput = file => {
   return true;
 };
 execFileSync(process.execPath, [path.join(root, 'tools/build_profiles.mjs')], { cwd: root, stdio: 'inherit' });
+execFileSync(process.execPath, [path.join(root, 'tools/build_entity_research.mjs'), '--check'], { cwd: root, stdio: 'inherit' });
 execFileSync(process.execPath, [path.join(root, 'tools/build_guide.mjs'), '--check'], { cwd: root, stdio: 'inherit' });
 fs.rmSync(output, { recursive: true, force: true });
 fs.mkdirSync(output);
@@ -51,6 +52,20 @@ for (const name of [...directories, ...files]) {
 }
 if (!fs.existsSync(path.join(output, 'forschung', 'ashbound', 'index.html'))) throw new Error('ASHBOUND public route missing');
 const pages = htmlFiles(output);
+// Keep the atelier's controller, mathematical model, lazy figure viewer and
+// loader on the same release, including their shared THREE namespace.
+const researchDirectory=path.join(output,'entities','research');
+const researchModules=fs.readdirSync(researchDirectory,{recursive:true}).filter(name=>/\.(?:mjs|js)$/.test(name)).map(name=>'entities/research/'+name.split(path.sep).join('/')).sort();
+const researchModuleSet=new Set([...researchModules,'assets/entity-vendor/runtime.mjs']);
+const researchVersion=createHash('sha256').update([...researchModuleSet].sort().map(name=>name+'\n'+fs.readFileSync(path.join(output,name))).join('\n')).digest('hex');
+for(const name of researchModules){
+  const file=path.join(output,name),source=fs.readFileSync(file,'utf8');
+  const versioned=source.replace(/((?:from\s*|import\s*\(\s*)['"])(\.\/?[^'"?]+)(['"])/g,(match,start,relative,end)=>{
+    const target=path.relative(output,path.resolve(path.dirname(file),relative)).split(path.sep).join('/');
+    return researchModuleSet.has(target)?start+relative+'?v='+researchVersion+end:match;
+  });
+  if(versioned!==source)fs.writeFileSync(file,versioned);
+}
 // Bind this module family to one release, including nested imports. A cached
 // controller must not be paired with an older renderer after a Pages update.
 const entityAssets=fs.readdirSync(path.join(output,'assets')).filter(name=>/^entity-.*\.(?:mjs|js|css)$/.test(name)).map(name=>'assets/'+name);
@@ -85,6 +100,7 @@ const assetDigests=Object.fromEntries([
   'assets/capability-room.css','assets/capability-room.mjs','assets/capability-room-model.mjs','assets/capability-room-visual.mjs',
   'forschung/weltkeimwerk/core.js','forschung/weltkeimwerk/live-core.js',
   ...entityAssets,'assets/universe-data.js',
+  'entities/research/app.mjs','entities/research/atelier.css',
   ...thesisAssets.filter(name=>/\.(css|js)$/.test(name)).map(name=>'forschung/juri-thesis/'+name)
 ].map(asset=>[asset,createHash('sha256').update(fs.readFileSync(path.join(output,asset))).digest('hex')]));
 const roomController=path.join(output,'assets/capability-room.mjs');
@@ -97,6 +113,7 @@ for (const file of pages) {
   const relativeRoot='../'.repeat(relative.split('/').length-1);
   const standalonePage=[
     'index.html',
+    'entities/research/index.html',
     'forschung/ashbound/index.html',
     'forschung/ashbound/play/index.html',
     'forschung/juri-thesis/index.html',

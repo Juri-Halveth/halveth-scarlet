@@ -1,0 +1,2941 @@
+{
+  "schema": "halveth.research-relations.v1",
+  "definitions": [
+    {
+      "id": "editorial-bridge-v1",
+      "version": "1.0.0",
+      "label": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "meaning": "Redaktionell begründeter Vergleich zwischen zwei Forschungsfragen.",
+      "causal": false,
+      "transitive": false,
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445"
+    },
+    {
+      "id": "satellite-context-v1",
+      "version": "1.0.0",
+      "label": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "meaning": "Ein Nebenast erschließt einen zusätzlichen Gesichtspunkt.",
+      "causal": false,
+      "transitive": false,
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d"
+    },
+    {
+      "id": "research-connection-v1",
+      "version": "1.0.0",
+      "label": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "meaning": "Eine Forschungskarte führt zu einer passenden offenen Frage.",
+      "causal": false,
+      "transitive": false,
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d"
+    }
+  ],
+  "relations": [
+    {
+      "id": "relation-001",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-a",
+        "digest": "ec024363a1dfbe7b3dcd6ea5f74e40bc4b5074091e116e3af6c54381281ee081",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-a",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-h",
+        "digest": "9df39d5aa86ca033dfe77253c59a1ac6838a723e07799ef3bd0b2572262b93d4",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-h",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Benennung und Relation benötigen eine explizite Lesart.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-001"
+    },
+    {
+      "id": "relation-002",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-a",
+        "digest": "ec024363a1dfbe7b3dcd6ea5f74e40bc4b5074091e116e3af6c54381281ee081",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-a",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-k",
+        "digest": "9eca69573b0b1d3a08260855f26754290b57270ac554c03969fe2c52ed2e9421",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-k",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Suchvarianten erschließen verlorene Fundstellen.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-002"
+    },
+    {
+      "id": "relation-003",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-b",
+        "digest": "310916a6e98db6474c69595d6b7b75256d953b691947ab5834a48637ebdeb4ca",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-b",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-j",
+        "digest": "9cbba3e95e60d9c92cb6df3ed91e26466a7cd5ae5f6d8ed613271ffecc1cc457",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-j",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Arbeit und beobachteter Nutzen gehören zu einer nachvollziehbaren Wertspur.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-003"
+    },
+    {
+      "id": "relation-004",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-c",
+        "digest": "a7484793c0a231a50ff80a972fd7122a1c8d9e474cd34c38fadb92c035b96228",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-c",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-f",
+        "digest": "bb0f7f3ea31e845fd5b357b7448ccf3016aeb57818b37599c9a986d9725bfc7e",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-f",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Eine Gegenkraft kann Bedingungen einer Antwort verändern; der Vergleich bleibt funktional.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-004"
+    },
+    {
+      "id": "relation-005",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-c",
+        "digest": "a7484793c0a231a50ff80a972fd7122a1c8d9e474cd34c38fadb92c035b96228",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-c",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-o",
+        "digest": "aad8b651d63abab65806271ae08df2e4f95b9021eacd0dc6015a2ea88d2e7e0b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-o",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Regeln und Abhängigkeiten bestimmen erreichbare Zustände.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-005"
+    },
+    {
+      "id": "relation-006",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-d",
+        "digest": "13c9f478e0ddd8b7345022a8c85d893f3b579e9f4eb90b4411187fb27eea361b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-d",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-k",
+        "digest": "9eca69573b0b1d3a08260855f26754290b57270ac554c03969fe2c52ed2e9421",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-k",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Archive benötigen auffindbare Adressen und sichtbare Lücken.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-006"
+    },
+    {
+      "id": "relation-007",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-e",
+        "digest": "c54e1251e539b386dcaccce9d0503c8f3ffd4013856c59eb4f0dcd9d3c4932cf",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-e",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-q",
+        "digest": "33992f034c2a98b2bf09db647d2abaa3d8883178b3d94a28da22bbd460b438ba",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-q",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Die Beobachtungsrichtung verändert das empfangene Signal.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-007"
+    },
+    {
+      "id": "relation-008",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-e",
+        "digest": "c54e1251e539b386dcaccce9d0503c8f3ffd4013856c59eb4f0dcd9d3c4932cf",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-e",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-o",
+        "digest": "aad8b651d63abab65806271ae08df2e4f95b9021eacd0dc6015a2ea88d2e7e0b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-o",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Bewegung verändert den verfügbaren Beobachtungsausschnitt.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-008"
+    },
+    {
+      "id": "relation-009",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-f",
+        "digest": "bb0f7f3ea31e845fd5b357b7448ccf3016aeb57818b37599c9a986d9725bfc7e",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-f",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-y",
+        "digest": "c18dd16ed8a8f01ca4522581d8af6ebb712e9b9154cc10acf28ef1aea1476942",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-y",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Regulation und Anpassung sind mögliche funktionale Vergleichsgrößen.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-009"
+    },
+    {
+      "id": "relation-010",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-g",
+        "digest": "276fb7dc5a8662e93830f46b340204ddaaad360c5ae10ce9de1e443b6c4b68d9",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-g",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-z",
+        "digest": "12c8b66bd9dea2a9b44f688765eaa65b33d74157e6e3692bd5106dfb712a7136",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-z",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Eine Fähigkeit wird durch Ein- und Ausgabe verständlich.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-010"
+    },
+    {
+      "id": "relation-011",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-h",
+        "digest": "9df39d5aa86ca033dfe77253c59a1ac6838a723e07799ef3bd0b2572262b93d4",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-h",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-w",
+        "digest": "2a8e00ac71bfa6264312253011907872a2d6254770a3852aa8f8346d21f4161a",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-w",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Ähnliche Formen öffnen einen Vergleich der Entstehung.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-011"
+    },
+    {
+      "id": "relation-012",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-i",
+        "digest": "dd020e4f5a63799caf935243f9a44f64df28928971610d8dd5cd379f51101f9d",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-i",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-k",
+        "digest": "9eca69573b0b1d3a08260855f26754290b57270ac554c03969fe2c52ed2e9421",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-k",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Die Herkunft einer Meldung bleibt Teil der Fortsetzung.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-012"
+    },
+    {
+      "id": "relation-013",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-i",
+        "digest": "dd020e4f5a63799caf935243f9a44f64df28928971610d8dd5cd379f51101f9d",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-i",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-t",
+        "digest": "ccb4865dcb5f9f61018da81268d09590889576832a7bea399f3d7e91bd84030b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-t",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Mehrere Darstellungen brauchen eine geprüfte Ereigniszuordnung.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-013"
+    },
+    {
+      "id": "relation-014",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-j",
+        "digest": "9cbba3e95e60d9c92cb6df3ed91e26466a7cd5ae5f6d8ed613271ffecc1cc457",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-j",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-z",
+        "digest": "12c8b66bd9dea2a9b44f688765eaa65b33d74157e6e3692bd5106dfb712a7136",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-z",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Ein nutzbarer Output braucht eine passende Prüfung.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-014"
+    },
+    {
+      "id": "relation-015",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-k",
+        "digest": "9eca69573b0b1d3a08260855f26754290b57270ac554c03969fe2c52ed2e9421",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-k",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-m",
+        "digest": "de26dc22ae3d836ee87f17a1df21b4e399c337d505993a36b35669a59ff533e4",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-m",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Instanzidentität bleibt durch Veränderungen auffindbar.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-015"
+    },
+    {
+      "id": "relation-016",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-k",
+        "digest": "9eca69573b0b1d3a08260855f26754290b57270ac554c03969fe2c52ed2e9421",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-k",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-o",
+        "digest": "aad8b651d63abab65806271ae08df2e4f95b9021eacd0dc6015a2ea88d2e7e0b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-o",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Erinnerung ermöglicht die Rückkehr zu einer Abzweigung.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-016"
+    },
+    {
+      "id": "relation-017",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-l",
+        "digest": "f01ab6bfda6daca5553447d2d13422ce30a865d6e26e90f35227d3978f17a46b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-l",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-z",
+        "digest": "12c8b66bd9dea2a9b44f688765eaa65b33d74157e6e3692bd5106dfb712a7136",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-z",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Eine Funktion braucht ihren gebundenen Code- und Prüfstand.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-017"
+    },
+    {
+      "id": "relation-018",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-m",
+        "digest": "de26dc22ae3d836ee87f17a1df21b4e399c337d505993a36b35669a59ff533e4",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-m",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-n",
+        "digest": "7957385f0c6a162dc9aeeee713bd2f62575b3140e35321e34f0075aa80341d72",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-n",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Instanzgeschichte und Wirkungsmechanismus sind getrennte Fragen.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-018"
+    },
+    {
+      "id": "relation-019",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-p",
+        "digest": "42baf4f3bf0559d6ee1a64d4b9ded54df9abcda28040ef4e94fdf851e18488f0",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-p",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-q",
+        "digest": "33992f034c2a98b2bf09db647d2abaa3d8883178b3d94a28da22bbd460b438ba",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-q",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Phase und Überlagerung eröffnen einen Vergleich von Signalen.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-019"
+    },
+    {
+      "id": "relation-020",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-q",
+        "digest": "33992f034c2a98b2bf09db647d2abaa3d8883178b3d94a28da22bbd460b438ba",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-q",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-t",
+        "digest": "ccb4865dcb5f9f61018da81268d09590889576832a7bea399f3d7e91bd84030b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-t",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Strahlung und Teilchenstrom benötigen verschiedene Modelle.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-020"
+    },
+    {
+      "id": "relation-021",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-r",
+        "digest": "167b24a862ed843e1cafee3c9990dfe8941900969adc24a725727f76d1b18f95",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-r",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-x",
+        "digest": "c302d60ce8f62c6740a0fdcf3ff9009574edcd363d73f11bf5212023cbc86169",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-x",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Bahn, Bild und Zeitparameter hängen von der Darstellung ab.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-021"
+    },
+    {
+      "id": "relation-022",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-s",
+        "digest": "f112c3855f1e75930cf18ec269a77a339edccd20f75ef69ed520a98b04f258ec",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-s",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-u",
+        "digest": "02fc7cc7de04583868c78bf932dd15ee9f4b31af790dd946153f49b90c90239e",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-u",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Sternschwingungen können innere Modelle unterscheidbar machen.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-022"
+    },
+    {
+      "id": "relation-023",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-s",
+        "digest": "f112c3855f1e75930cf18ec269a77a339edccd20f75ef69ed520a98b04f258ec",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-s",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-v",
+        "digest": "9bcfffb104ac26a5f8c8e7fc9085a2467d20df3d74b19cedb84ab13ba6ac06bd",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-v",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Innere Dynamik hinterlässt äußere Beobachtungsgrößen.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-023"
+    },
+    {
+      "id": "relation-024",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-t",
+        "digest": "ccb4865dcb5f9f61018da81268d09590889576832a7bea399f3d7e91bd84030b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-t",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-y",
+        "digest": "c18dd16ed8a8f01ca4522581d8af6ebb712e9b9154cc10acf28ef1aea1476942",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-y",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Organisation und Rückkopplung können als eigene Fragen formuliert werden.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-024"
+    },
+    {
+      "id": "relation-025",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-v",
+        "digest": "9bcfffb104ac26a5f8c8e7fc9085a2467d20df3d74b19cedb84ab13ba6ac06bd",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-v",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-w",
+        "digest": "2a8e00ac71bfa6264312253011907872a2d6254770a3852aa8f8346d21f4161a",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-w",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Musterbildung kann über verschiedene Materialien verglichen werden.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-025"
+    },
+    {
+      "id": "relation-026",
+      "relationDefinitionId": "editorial-bridge-v1",
+      "definitionDigest": "1ffd808b121a604a5fceae4ff416852f8e0ff2fcdf8e791685ec397a9e261445",
+      "relationType": "Gedankliche Brücke",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-x",
+        "digest": "c302d60ce8f62c6740a0fdcf3ff9009574edcd363d73f11bf5212023cbc86169",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-x",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-y",
+        "digest": "c18dd16ed8a8f01ca4522581d8af6ebb712e9b9154cc10acf28ef1aea1476942",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-y",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Die Definition einer Systemgrenze verändert die Fragestellung.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-026"
+    },
+    {
+      "id": "relation-027",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-control-room",
+        "digest": "fabc1f938323204e5f2b9d394fa62f31616b6abd52eb61af485ee93a4401de45",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-control-room",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-c",
+        "digest": "a7484793c0a231a50ff80a972fd7122a1c8d9e474cd34c38fadb92c035b96228",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-c",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-027"
+    },
+    {
+      "id": "relation-028",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-historical-place",
+        "digest": "0ccddf5f015c3877bf2c91c74026ed79f04a2ab83546ed8590cb38a565737db2",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-historical-place",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-d",
+        "digest": "13c9f478e0ddd8b7345022a8c85d893f3b579e9f4eb90b4411187fb27eea361b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-d",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-028"
+    },
+    {
+      "id": "relation-029",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-supernova-ai",
+        "digest": "9d9b45592fba39b2f60f656e20700e29f12ca3ac913623326bb425272a9cea8a",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-supernova-ai",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-g",
+        "digest": "276fb7dc5a8662e93830f46b340204ddaaad360c5ae10ce9de1e443b6c4b68d9",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-g",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-029"
+    },
+    {
+      "id": "relation-030",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-gpu-capability",
+        "digest": "3c6faa1de30f9e69ce8b4ac188935b4dacee52609d17e522204f42cf52aa5d46",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-gpu-capability",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-z",
+        "digest": "12c8b66bd9dea2a9b44f688765eaa65b33d74157e6e3692bd5106dfb712a7136",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-z",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-030"
+    },
+    {
+      "id": "relation-031",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-orange",
+        "digest": "7db05a0fd3dc6645871b22cb6e8264a1364cea3f36fcea61503dd4894242485b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-orange",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-a",
+        "digest": "ec024363a1dfbe7b3dcd6ea5f74e40bc4b5074091e116e3af6c54381281ee081",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-a",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-031"
+    },
+    {
+      "id": "relation-032",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-synonym",
+        "digest": "de3fb95b0dff66fdb9f8795b8cba578584311f557375a2dbbfaa608efc7d5e51",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-synonym",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-h",
+        "digest": "9df39d5aa86ca033dfe77253c59a1ac6838a723e07799ef3bd0b2572262b93d4",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-h",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-032"
+    },
+    {
+      "id": "relation-033",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-gaba-gabber",
+        "digest": "cd384932c06693fd72ecf147e09423ae1b383d4eb6a1912d94e4d4f336cc9147",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-gaba-gabber",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-a",
+        "digest": "ec024363a1dfbe7b3dcd6ea5f74e40bc4b5074091e116e3af6c54381281ee081",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-a",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-033"
+    },
+    {
+      "id": "relation-034",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-phagosom-pharao",
+        "digest": "1799708a4841f5c6c094978b83e5707a7850dd83650c1537685186e5866a3abe",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-phagosom-pharao",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-a",
+        "digest": "ec024363a1dfbe7b3dcd6ea5f74e40bc4b5074091e116e3af6c54381281ee081",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-a",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-034"
+    },
+    {
+      "id": "relation-035",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-freely-emotion-energy",
+        "digest": "e87779f85073751cd61d0391459c337da7b6449cde00272968fd69082a7e9745",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-freely-emotion-energy",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-p",
+        "digest": "42baf4f3bf0559d6ee1a64d4b9ded54df9abcda28040ef4e94fdf851e18488f0",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-p",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-035"
+    },
+    {
+      "id": "relation-036",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-nova-name",
+        "digest": "ad834b5bbb5fb7507d49efeed209922872d8fb074724a6ac767c8c85678f98a4",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-nova-name",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-k",
+        "digest": "9eca69573b0b1d3a08260855f26754290b57270ac554c03969fe2c52ed2e9421",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-k",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-036"
+    },
+    {
+      "id": "relation-037",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-loopback",
+        "digest": "beab01d39de5a72f4702f5aeab52c0b69e414eeb2794f1d30c2b0b53486eff51",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-loopback",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-k",
+        "digest": "9eca69573b0b1d3a08260855f26754290b57270ac554c03969fe2c52ed2e9421",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-k",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-037"
+    },
+    {
+      "id": "relation-038",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-merger",
+        "digest": "d984aad4ae3059f0ba0edffee74caccdd553da22ac51d92799ad0578a6e56444",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-merger",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-t",
+        "digest": "ccb4865dcb5f9f61018da81268d09590889576832a7bea399f3d7e91bd84030b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-t",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-038"
+    },
+    {
+      "id": "relation-039",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-repo-scroll",
+        "digest": "03b4437c64edaeb31e6c7a38b037b12653e56f35b7b7cc4b308a3ee70d83987a",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-repo-scroll",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-l",
+        "digest": "f01ab6bfda6daca5553447d2d13422ce30a865d6e26e90f35227d3978f17a46b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-l",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-039"
+    },
+    {
+      "id": "relation-040",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-terminology-drift",
+        "digest": "64de0f5c1d89b69e6ac10d14d31fbfc81d2a04c95490921039d20bb312a9a95f",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-terminology-drift",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-a",
+        "digest": "ec024363a1dfbe7b3dcd6ea5f74e40bc4b5074091e116e3af6c54381281ee081",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-a",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-040"
+    },
+    {
+      "id": "relation-041",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-observer-abc",
+        "digest": "21435dd6a4c3d3a3011df94f1230336656ac97b513e77dfd18ae89eef9af28eb",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-observer-abc",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-i",
+        "digest": "dd020e4f5a63799caf935243f9a44f64df28928971610d8dd5cd379f51101f9d",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-i",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-041"
+    },
+    {
+      "id": "relation-042",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-fiction-interface",
+        "digest": "a6eb75695402c0d017bacd6f07b2bbe72ef77ff694b2890d33df1efad33407ad",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-fiction-interface",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-c",
+        "digest": "a7484793c0a231a50ff80a972fd7122a1c8d9e474cd34c38fadb92c035b96228",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-c",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-042"
+    },
+    {
+      "id": "relation-043",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-security-track",
+        "digest": "e10f3123e935bf0e6962cc1d1376f5ea1f217e75c1b5e8b8c2fb08ed9fafbc7c",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-security-track",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-l",
+        "digest": "f01ab6bfda6daca5553447d2d13422ce30a865d6e26e90f35227d3978f17a46b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-l",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-043"
+    },
+    {
+      "id": "relation-044",
+      "relationDefinitionId": "satellite-context-v1",
+      "definitionDigest": "27f05cefdbc440c7fd4d77a370bdc1f1060a00c21fce7889e40d532294e2796d",
+      "relationType": "Ergänzt die Frage",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "sat-red-room",
+        "digest": "8f2418227f799e029300a96d66022cf8f6f35b29bb4dcced2621dc08cdf2d986",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "sat-red-room",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-g",
+        "digest": "276fb7dc5a8662e93830f46b340204ddaaad360c5ae10ce9de1e443b6c4b68d9",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-g",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Zusätzlicher Gesichtspunkt zur benannten Hauptfrage.",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-044"
+    },
+    {
+      "id": "relation-045",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-pulsar",
+        "digest": "d8f8f1a16ed482308af684c5d1e464e8f363b0d4b4309eb239687f738cc2e41a",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-pulsar",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-q",
+        "digest": "33992f034c2a98b2bf09db647d2abaa3d8883178b3d94a28da22bbd460b438ba",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-q",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Wie verändert ein anderer Beobachtungswinkel den sichtbaren Takt?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-045"
+    },
+    {
+      "id": "relation-046",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-pulsar",
+        "digest": "d8f8f1a16ed482308af684c5d1e464e8f363b0d4b4309eb239687f738cc2e41a",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-pulsar",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-e",
+        "digest": "c54e1251e539b386dcaccce9d0503c8f3ffd4013856c59eb4f0dcd9d3c4932cf",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-e",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Wie verändert ein anderer Beobachtungswinkel den sichtbaren Takt?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-046"
+    },
+    {
+      "id": "relation-047",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-quasar",
+        "digest": "5491ca48fe5ba8129377e7d124607e84c7bbf873e29df2232c0aa33b70e75205",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-quasar",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-t",
+        "digest": "ccb4865dcb5f9f61018da81268d09590889576832a7bea399f3d7e91bd84030b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-t",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche Struktur liefert die jeweils beobachtete Strahlung?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-047"
+    },
+    {
+      "id": "relation-048",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-quasar",
+        "digest": "5491ca48fe5ba8129377e7d124607e84c7bbf873e29df2232c0aa33b70e75205",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-quasar",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-r",
+        "digest": "167b24a862ed843e1cafee3c9990dfe8941900969adc24a725727f76d1b18f95",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-r",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche Struktur liefert die jeweils beobachtete Strahlung?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-048"
+    },
+    {
+      "id": "relation-049",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-uranus",
+        "digest": "540bdd4472187e376223223cdeeb2223b394c8efadb1cad1c01ed79a941b7eef",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-uranus",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-v",
+        "digest": "9bcfffb104ac26a5f8c8e7fc9085a2467d20df3d74b19cedb84ab13ba6ac06bd",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-v",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche Ringmuster würden sich durch Monde, welche durch innere Schwingungen erklären lassen?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-049"
+    },
+    {
+      "id": "relation-050",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-uranus",
+        "digest": "540bdd4472187e376223223cdeeb2223b394c8efadb1cad1c01ed79a941b7eef",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-uranus",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-s",
+        "digest": "f112c3855f1e75930cf18ec269a77a339edccd20f75ef69ed520a98b04f258ec",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-s",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche Ringmuster würden sich durch Monde, welche durch innere Schwingungen erklären lassen?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-050"
+    },
+    {
+      "id": "relation-051",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-jupiter",
+        "digest": "bd457f966991574c090661d4d9a8b01fa1c4c85de9d900e93dc952eb24a9b8de",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-jupiter",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-v",
+        "digest": "9bcfffb104ac26a5f8c8e7fc9085a2467d20df3d74b19cedb84ab13ba6ac06bd",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-v",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche weiteren Bedingungen entscheiden neben verfügbarer Feuchtigkeit?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-051"
+    },
+    {
+      "id": "relation-052",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-jupiter",
+        "digest": "bd457f966991574c090661d4d9a8b01fa1c4c85de9d900e93dc952eb24a9b8de",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-jupiter",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-f",
+        "digest": "bb0f7f3ea31e845fd5b357b7448ccf3016aeb57818b37599c9a986d9725bfc7e",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-f",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche weiteren Bedingungen entscheiden neben verfügbarer Feuchtigkeit?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-052"
+    },
+    {
+      "id": "relation-053",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-stellar-hole",
+        "digest": "076f911b9c89a5189ac53c830ebed161993c024c9101e5e31530f9ef1aac969d",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-stellar-hole",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-u",
+        "digest": "02fc7cc7de04583868c78bf932dd15ee9f4b31af790dd946153f49b90c90239e",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-u",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche Messung würde einen solchen Modellfall von einem gewöhnlichen Stern unterscheiden?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-053"
+    },
+    {
+      "id": "relation-054",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-stellar-hole",
+        "digest": "076f911b9c89a5189ac53c830ebed161993c024c9101e5e31530f9ef1aac969d",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-stellar-hole",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-s",
+        "digest": "f112c3855f1e75930cf18ec269a77a339edccd20f75ef69ed520a98b04f258ec",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-s",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche Messung würde einen solchen Modellfall von einem gewöhnlichen Stern unterscheiden?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-054"
+    },
+    {
+      "id": "relation-055",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-wood",
+        "digest": "0a4fe40fdb77575994d50e6f418a778224aea45fa51dfad9c08790051aa3d415",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-wood",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-w",
+        "digest": "2a8e00ac71bfa6264312253011907872a2d6254770a3852aa8f8346d21f4161a",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-w",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Was bleibt erhalten, wenn der jeweilige Vorgang angehalten wird?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-055"
+    },
+    {
+      "id": "relation-056",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-wood",
+        "digest": "0a4fe40fdb77575994d50e6f418a778224aea45fa51dfad9c08790051aa3d415",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-wood",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-h",
+        "digest": "9df39d5aa86ca033dfe77253c59a1ac6838a723e07799ef3bd0b2572262b93d4",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-h",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Was bleibt erhalten, wenn der jeweilige Vorgang angehalten wird?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-056"
+    },
+    {
+      "id": "relation-057",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-immune",
+        "digest": "adf0ec6f230f1d7e6884c6c34b336ef715c54403a6218f0e59796fb5f9557fdb",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-immune",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-f",
+        "digest": "bb0f7f3ea31e845fd5b357b7448ccf3016aeb57818b37599c9a986d9725bfc7e",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-f",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche Signale unterscheiden passende Abwehr von einer Antwort auf eigenes Gewebe?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-057"
+    },
+    {
+      "id": "relation-058",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-immune",
+        "digest": "adf0ec6f230f1d7e6884c6c34b336ef715c54403a6218f0e59796fb5f9557fdb",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-immune",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-n",
+        "digest": "7957385f0c6a162dc9aeeee713bd2f62575b3140e35321e34f0075aa80341d72",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-n",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche Signale unterscheiden passende Abwehr von einer Antwort auf eigenes Gewebe?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-058"
+    },
+    {
+      "id": "relation-059",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-molecule",
+        "digest": "eabee3fa9e4d67480232c78afae896ff4c8cabc9f557e527ebbf783e5b24df28",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-molecule",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-m",
+        "digest": "de26dc22ae3d836ee87f17a1df21b4e399c337d505993a36b35669a59ff533e4",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-m",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche Atom-ID befindet sich nach einer Transformation in welcher Instanz?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-059"
+    },
+    {
+      "id": "relation-060",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-molecule",
+        "digest": "eabee3fa9e4d67480232c78afae896ff4c8cabc9f557e527ebbf783e5b24df28",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-molecule",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-k",
+        "digest": "9eca69573b0b1d3a08260855f26754290b57270ac554c03969fe2c52ed2e9421",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-k",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche Atom-ID befindet sich nach einer Transformation in welcher Instanz?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-060"
+    },
+    {
+      "id": "relation-061",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-waves",
+        "digest": "de9aed90ebbfac1101e4d0472c44a1a0baad414ced0c79fea07ef97e2626f0c0",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-waves",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-q",
+        "digest": "33992f034c2a98b2bf09db647d2abaa3d8883178b3d94a28da22bbd460b438ba",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-q",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Was ändert eine Phase bei gleichen Einzelsignalen?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-061"
+    },
+    {
+      "id": "relation-062",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-waves",
+        "digest": "de9aed90ebbfac1101e4d0472c44a1a0baad414ced0c79fea07ef97e2626f0c0",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-waves",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-h",
+        "digest": "9df39d5aa86ca033dfe77253c59a1ac6838a723e07799ef3bd0b2572262b93d4",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-h",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Was ändert eine Phase bei gleichen Einzelsignalen?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-062"
+    },
+    {
+      "id": "relation-063",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-cygnus",
+        "digest": "effb811ab641b690bc83a50d3f68090d0bfd93d57a568ede962760762601f5e0",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-cygnus",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-t",
+        "digest": "ccb4865dcb5f9f61018da81268d09590889576832a7bea399f3d7e91bd84030b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-t",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche Teilchenpopulationen und Prozesse erklären dieselben Beobachtungen?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-063"
+    },
+    {
+      "id": "relation-064",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-cygnus",
+        "digest": "effb811ab641b690bc83a50d3f68090d0bfd93d57a568ede962760762601f5e0",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-cygnus",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-q",
+        "digest": "33992f034c2a98b2bf09db647d2abaa3d8883178b3d94a28da22bbd460b438ba",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-q",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche Teilchenpopulationen und Prozesse erklären dieselben Beobachtungen?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-064"
+    },
+    {
+      "id": "relation-065",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-oj287",
+        "digest": "c1ba4292e09b94447fb04eb7d9fa9e732f473bdb1eec3bd7093f83d0ac50dd8e",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-oj287",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-t",
+        "digest": "ccb4865dcb5f9f61018da81268d09590889576832a7bea399f3d7e91bd84030b",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-t",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche neue Beobachtung trennt die Vorhersagen der Modelle?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-065"
+    },
+    {
+      "id": "relation-066",
+      "relationDefinitionId": "research-connection-v1",
+      "definitionDigest": "102a578c0eb05a0660b12cb2bbb89d7c50951acac3743ff4dad15640bc06f02d",
+      "relationType": "Öffnet einen Prüfweg",
+      "direction": "UNDIRECTED",
+      "leftEndpoint": {
+        "kind": "CONTENT",
+        "id": "research-oj287",
+        "digest": "c1ba4292e09b94447fb04eb7d9fa9e732f473bdb1eec3bd7093f83d0ac50dd8e",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "research-oj287",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "rightEndpoint": {
+        "kind": "CONTENT",
+        "id": "branch-r",
+        "digest": "167b24a862ed843e1cafee3c9990dfe8941900969adc24a725727f76d1b18f95",
+        "semanticAddress": {
+          "field": "question",
+          "referent": "branch-r",
+          "dimension": "RESEARCH_QUESTION",
+          "scope": "MASTER_ATLAS_20261027"
+        }
+      },
+      "reason": "Welche neue Beobachtung trennt die Vorhersagen der Modelle?",
+      "scope": "MASTER_ATLAS_20261027",
+      "eventTime": "UNKNOWN",
+      "recordedAt": "2026-10-27T13:55:55Z",
+      "clock": {
+        "id": "authoring-utc",
+        "precision": "SECOND",
+        "basis": "COORDINATOR_CLOCK_TOOL_READING_NOT_INDEPENDENT_ATTESTATION"
+      },
+      "sourceRefs": [
+        "source-master-summary"
+      ],
+      "evidenceState": "EDITORIALLY_ASSERTED",
+      "authorityEffect": "NONE",
+      "writeDomainId": "write-relation-066"
+    }
+  ]
+}
