@@ -14,3 +14,10 @@ Project lead: Juri / HALVETH. AI-assisted development.
 [Licences](LICENSES.md) · security@halveth.de
 
 [Portal Chess](https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/)
+
+## ASHBOUND · original game world
+
+[Browser prototype](forschung/ashbound/) · [Download Windows preview v0.4.2](https://github.com/Juri-Halveth/halveth-scarlet/releases/tag/ashbound-native-v0.4.2-portal-preview)
+
+Prerelease Windows x64 ZIP; files and version notes are on the release page.
+The native game world is a separate application alongside the browser prototype.

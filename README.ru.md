@@ -14,3 +14,10 @@
 [Лицензии](LICENSES.md) · security@halveth.de
 
 [Portal Chess](https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/)
+
+## ASHBOUND · собственный игровой мир
+
+[Браузерный прототип](forschung/ashbound/) · [Скачать предварительную версию v0.4.2 для Windows](https://github.com/Juri-Halveth/halveth-scarlet/releases/tag/ashbound-native-v0.4.2-portal-preview)
+
+Предварительная версия в ZIP-архиве для Windows x64; файлы и примечания доступны на странице релиза.
+Нативный игровой мир — отдельное приложение наряду с браузерным прототипом.
