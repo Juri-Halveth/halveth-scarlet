@@ -84,6 +84,10 @@ und lokal erzeugt. Reduzierte Bewegung ersetzt den Impuls durch den festen Snaps
 
 Browser-Spielprototyp und native Entwicklungsarbeit.
 
+[Windows-Vorschau v0.4.2 herunterladen](https://github.com/Juri-Halveth/halveth-scarlet/releases/tag/ashbound-native-v0.4.2-portal-preview)
+— Vorabversion als Windows-x64-ZIP, mit Versionshinweisen und Dateien auf der
+Release-Seite. Die native Spielwelt ist eine separate Anwendung neben dem Browser-Prototyp.
+
 ### [Portal Chess · Schachvariation](forschung/portal-chess/)
 
 Ein regelgebundenes Spielmodell mit überprüfbarer Zugspur.
