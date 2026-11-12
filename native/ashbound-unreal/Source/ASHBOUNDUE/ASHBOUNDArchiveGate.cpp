@@ -24,7 +24,7 @@ void AASHBOUNDArchiveGate::OpenGate()
     ClosedLocation = GetActorLocation();
     bOpening = true;
     SetActorTickEnabled(true);
-    UE_LOG(LogTemp, Display, TEXT("ASHBOUND archive gate opening; three seals charged"));
+    UE_LOG(LogTemp, Display, TEXT("ASHBOUND archive gate opening; story condition met"));
 }
 
 void AASHBOUNDArchiveGate::Tick(float DeltaSeconds)

@@ -1,4 +1,5 @@
 #include "ASHBOUNDGameMode.h"
+#include "ASHBOUNDStoryHUD.h"
 
 #include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
@@ -7,6 +8,7 @@
 
 AASHBOUNDGameMode::AASHBOUNDGameMode()
 {
+    HUDClass = AASHBOUNDStoryHUD::StaticClass();
     static ConstructorHelpers::FClassFinder<APawn> Character(
         TEXT("/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter"));
     if (Character.Succeeded()) DefaultPawnClass = Character.Class;
