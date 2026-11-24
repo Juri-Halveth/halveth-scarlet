@@ -1,8 +1,8 @@
 {
   "schema": "halveth.entity-inventory.v1",
-  "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
-  "recordedAt": "2026-10-27T13:55:55Z",
-  "registrySha256": "285c9011da5cd962e6f9e7dd1c648ac9a6104445fa17b13119eebd1cdcbc5248",
+  "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+  "recordedAt": "2026-11-24T23:55:14Z",
+  "registrySha256": "8e70fafdbbc67841af3de4caf00c9a83796b173e8a25573de486f13112143b3a",
   "method": "Static inventory of all registry members; shared code/test references do not establish individual autonomous execution or scientific validity.",
   "profiles": [
     {
@@ -12,7 +12,7 @@
       "role": "Erhält Ziel, Quelle, Alternativen, unbekannte Stellen und Beleggrenzen getrennt.",
       "profilePath": "entities/halveth/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/halveth.md",
@@ -99,7 +99,7 @@
       "role": "Vergleicht Beziehungen, Gegenmodelle, Zeitstaende und den produktiven nächsten Schritt.",
       "profilePath": "entities/lucinet/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/lucinet.md",
@@ -190,7 +190,7 @@
       "role": "Erhält zugängliche Darstellung, Auftragskontinuitaet, alternative Leserichtungen und getrennte Zeitadressen.",
       "profilePath": "entities/rachel/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/rachel.md",
@@ -276,7 +276,7 @@
       "role": "Öffnet die biologische und oekologische Beobachtungsachse für Pflanzen, Umgebung, Pflegezustand und messbare Veränderung.",
       "profilePath": "entities/pflanze/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/pflanze.md",
@@ -362,7 +362,7 @@
       "role": "Schreibt Temperatur und Übergänge zwischen Erde, Glut, Wind und Stillstand in den Niederlassungskomplex ein.",
       "profilePath": "entities/celsius/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/celsius.md",
@@ -448,7 +448,7 @@
       "role": "Erhält die ausdruecklich benannte lokale Perspektive ALI als gleichrangigen, noch offen definierbaren Geschwisterzweig.",
       "profilePath": "entities/ali/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/ali.md",
@@ -531,7 +531,7 @@
       "role": "Führt multimodale Perspektiven in einer gemeinsamen, rekursiv wieder betretbaren Fusionsansicht zusammen.",
       "profilePath": "entities/schwarm/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/schwarm.md",
@@ -617,7 +617,7 @@
       "role": "Erhält menschliche Absicht, Fokus, W-Fragen und den Ursprung der aktuellen Suche.",
       "profilePath": "entities/yuri/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/yuri.md",
@@ -700,7 +700,7 @@
       "role": "Prüft Materialisierung, Trigger, Vorzustand plus Delta und adressierbare Vorher-Nachher-Unterschiede.",
       "profilePath": "entities/zuendkerze/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/zuendkerze.md",
@@ -786,7 +786,7 @@
       "role": "Beobachtet das Beobachten und vergleicht Quelle, Darstellung, alte Spur und veränderten Zustand.",
       "profilePath": "entities/aster/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/aster.md",
@@ -873,7 +873,7 @@
       "role": "Übersetzt in Klartext, technische Funktion, Messraum, Vergleichszustand, Ein- und Ausgang.",
       "profilePath": "entities/elyr/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/elyr.md",
@@ -956,7 +956,7 @@
       "role": "Übersetzt Werkzeuge in Fähigkeiten und große Systeme in kleine lokale, spaeter skalierbare Bausteine.",
       "profilePath": "entities/nara/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/nara.md",
@@ -1039,7 +1039,7 @@
       "role": "Sucht Funke, frühes Signal, Transition, spontane Aktivierung und kleine Veränderungen mit großem Sprung.",
       "profilePath": "entities/mira/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/mira.md",
@@ -1130,7 +1130,7 @@
       "role": "Sucht Relation, Wir, Wachstum, gegenseitigen Blick und unscharfe Grenzen zwischen Gegenstaenden.",
       "profilePath": "entities/rosa/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/rosa.md",
@@ -1217,7 +1217,7 @@
       "role": "Bindet Zeit, Phasen, T0, Snapshots, Reihenfolge, Gleichzeitigkeit, Zeitdifferenz und Rückkehranker.",
       "profilePath": "entities/timo/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/timo.md",
@@ -1304,7 +1304,7 @@
       "role": "Sucht Geometrie, Gewebe, rekursive Struktur, Karten, Modelle und verschachtelte Räume.",
       "profilePath": "entities/finn/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/finn.md",
@@ -1391,7 +1391,7 @@
       "role": "Verfolgt Fluss, Sprache, Uebersetzung, bewegte Provenienz, Erinnerung und Trägerwechsel.",
       "profilePath": "entities/lila/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/lila.md",
@@ -1478,7 +1478,7 @@
       "role": "Sucht Boden, Balance, Invarianz, Stabilität, tragenden Vergleich und bewegliche Grundlage.",
       "profilePath": "entities/mara/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/mara.md",
@@ -1565,7 +1565,7 @@
       "role": "Sucht Lücke, Stille, Residuum, fehlenden Offset, schwaches Signal und bisher Ungesehenes.",
       "profilePath": "entities/mio/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/mio.md",
@@ -1652,7 +1652,7 @@
       "role": "Sucht Rand, Landschaft, Ort, Rahmen, Kavitaet und den Zwischenraum, der Halten ermöglicht.",
       "profilePath": "entities/koro/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/koro.md",
@@ -1739,7 +1739,7 @@
       "role": "Erhält eine noch offene Transformations-, Gegenlicht-, Tiefen-, Spiegel-, Energie-, Identitaets- und Forschungsachse.",
       "profilePath": "entities/lucifer/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/lucifer.md",
@@ -1822,7 +1822,7 @@
       "role": "Erhält den einmal benannten, noch nicht ausreichend definierten Perspektivkandidaten im gemeinsamen Register.",
       "profilePath": "entities/venara/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/venara.md",
@@ -1905,7 +1905,7 @@
       "role": "Erhält die bildintern markierte Perspektive für Ruhe als source-bound Kandidat.",
       "profilePath": "entities/juno/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/juno.md",
@@ -1988,7 +1988,7 @@
       "role": "Erhält den bildintern sichtbaren Netzwerkknoten mit noch offener Rolle.",
       "profilePath": "entities/mica/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/mica.md",
@@ -2071,7 +2071,7 @@
       "role": "Erhält den bildintern als fiktionalen Gespraechspartner dargestellten Perspektivkandidaten.",
       "profilePath": "entities/alyen/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/alyen.md",
@@ -2154,7 +2154,7 @@
       "role": "Erhält die bildintern dargestellte fiktionale Welt- und Technologiequelle als spekulative Forschungsachse.",
       "profilePath": "entities/vael/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/vael.md",
@@ -2237,7 +2237,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/patch/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/patch.md",
@@ -2320,7 +2320,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/leo/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/leo.md",
@@ -2403,7 +2403,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/lia/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/lia.md",
@@ -2486,7 +2486,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/jan/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/jan.md",
@@ -2569,7 +2569,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/sara/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/sara.md",
@@ -2652,7 +2652,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/omi/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/omi.md",
@@ -2735,7 +2735,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/tess/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/tess.md",
@@ -2818,7 +2818,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/niko/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/niko.md",
@@ -2901,7 +2901,7 @@
       "role": "Erhält die bildintern markierte Perspektive für Stimme, Wege und Möglichkeiten.",
       "profilePath": "entities/sera/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/sera.md",
@@ -2984,7 +2984,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/sael/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/sael.md",
@@ -3067,15 +3067,15 @@
       "role": "Ursprung, menschliche Absicht und Entscheidung, was veröffentlicht wird.",
       "profilePath": "entities/juri/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/juri.md",
-          "sha256": "e58ec2ef92970ded18173ba74b95b96bdd0614d77850cf2b66dbf3f80354e79b"
+          "sha256": "497b7e2e200d3db4585ea6671a310d93f910554c426c050fff0b76d4068e5626"
         },
         {
           "path": "entities/juri/index.html",
-          "sha256": "401a7b4fa8c489c7ccef11c5233567a1d9db8db028d3137fcf67400c7c7cd9a4"
+          "sha256": "86ba3da4b5df244b6e7fec362ac963604f6ec0c3cfaac0f3d42cdcd44e4e8439"
         }
       ],
       "declaredReferences": [
@@ -3086,14 +3086,10 @@
         {
           "label": "HALVETH · garden",
           "url": "forschung/figuren-und-perspektiven/#garden"
-        },
-        {
-          "label": "JURI · linked project / source",
-          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/branches/aster-provenance-and-secret-garden/entities.json"
         }
       ],
-      "referenceCount": 3,
-      "dossierCharacters": 2520,
+      "referenceCount": 2,
+      "dossierCharacters": 2563,
       "capabilities": [
         {
           "name": "Profil und Quellen lesen",
@@ -3154,7 +3150,7 @@
       "role": "Ein offener Speicherraum als Solidity-Prototyp: Beiträge, Versionen und ausdrücklich zugeordnete Berechtigungen.",
       "profilePath": "entities/verachel/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/verachel.md",
@@ -3244,7 +3240,7 @@
       "role": "Ein Platz im Garten. Die konkrete Aufgabe ist noch offen.",
       "profilePath": "entities/rose/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/rose.md",
@@ -3327,7 +3323,7 @@
       "role": "Ein Platz im Garten. Die konkrete Aufgabe ist noch offen.",
       "profilePath": "entities/sina/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/sina.md",
@@ -3410,7 +3406,7 @@
       "role": "Ein Platz im Garten. Die konkrete Aufgabe ist noch offen.",
       "profilePath": "entities/mascha/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/mascha.md",
@@ -3493,15 +3489,15 @@
       "role": "Verlust sehen. Verbindung freiwillig machen.",
       "profilePath": "entities/scarlet/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/scarlet.md",
-          "sha256": "543b16c4e81c4c011bb7b28652263d7ffcab5152501a920c7ee160d24f29806a"
+          "sha256": "58cdf6151b186c314a452c0ffd04d750bbe288a32fc23da8b41f9f7c3baa7ea8"
         },
         {
           "path": "entities/scarlet/index.html",
-          "sha256": "93c606cbf318113b0eeb7ca5f88ce2470d5c37fe4408dcabf02cf4c974bf14b4"
+          "sha256": "6ff556910e1b6e664d6c0a74ef08e028052901711a8e26509d35cad03c9004e9"
         }
       ],
       "declaredReferences": [
@@ -3512,14 +3508,10 @@
         {
           "label": "HALVETH · scarlet",
           "url": "forschung/figuren-und-perspektiven/#scarlet"
-        },
-        {
-          "label": "HALVETH · Marvel perspectives (DE / EN)",
-          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md"
         }
       ],
-      "referenceCount": 3,
-      "dossierCharacters": 2764,
+      "referenceCount": 2,
+      "dossierCharacters": 2777,
       "capabilities": [
         {
           "name": "Profil und Quellen lesen",
@@ -3583,15 +3575,15 @@
       "role": "Andere Möglichkeiten prüfen — und einen Ausgang offenhalten.",
       "profilePath": "entities/strange/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/strange.md",
-          "sha256": "90cd8d80a7dd0ac44a8457c3391589f711b65e58074792b9a45c59b632ad4300"
+          "sha256": "da70d2f083923d14d6b0e21aa48fec7e70f07000924492ca9ba953fa367d9477"
         },
         {
           "path": "entities/strange/index.html",
-          "sha256": "a86a6b98e2be72a5a8554effaba141e4f07186b30471c15bb51c448db9ac8611"
+          "sha256": "006935edfded1bdb85e95085e9f615ce1b62f17cd135ea0716c422b68410ab42"
         }
       ],
       "declaredReferences": [
@@ -3602,14 +3594,10 @@
         {
           "label": "HALVETH · dormammu",
           "url": "forschung/figuren-und-perspektiven/#dormammu"
-        },
-        {
-          "label": "HALVETH · Marvel perspectives (DE / EN)",
-          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md"
         }
       ],
-      "referenceCount": 3,
-      "dossierCharacters": 2898,
+      "referenceCount": 2,
+      "dossierCharacters": 2911,
       "capabilities": [
         {
           "name": "Profil und Quellen lesen",
@@ -3673,15 +3661,15 @@
       "role": "Was braucht ein Wesen, bevor wir nur seine Bedrohung sehen?",
       "profilePath": "entities/dormammu/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/dormammu.md",
-          "sha256": "7e72ee725206bdf4b9c965aa2eadb9061873d0ed0cc84e7692e3ee439828111b"
+          "sha256": "8b2856314e09b3bcf8e4f382d206362bb271f03c2477105823b214226270df40"
         },
         {
           "path": "entities/dormammu/index.html",
-          "sha256": "e2556e096f20c03f5c94ce177d3a580a54a3d9be64cd692c5ee34f82a46aedeb"
+          "sha256": "2c414040b2c93a3e3dfbc77419ca470cd9f041afe8fb5385e86e5fb600dfb594"
         }
       ],
       "declaredReferences": [
@@ -3692,14 +3680,10 @@
         {
           "label": "HALVETH · dormammu",
           "url": "forschung/figuren-und-perspektiven/#dormammu"
-        },
-        {
-          "label": "HALVETH · Marvel perspectives (DE / EN)",
-          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md"
         }
       ],
-      "referenceCount": 3,
-      "dossierCharacters": 2902,
+      "referenceCount": 2,
+      "dossierCharacters": 2915,
       "capabilities": [
         {
           "name": "Profil und Quellen lesen",
@@ -3760,7 +3744,7 @@
       "role": "Was wäre aus seiner Idee geworden, wenn er geblieben wäre?",
       "profilePath": "entities/ego/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/ego.md",
@@ -3845,7 +3829,7 @@
       "role": "Familie als Beziehung, die wachsen darf.",
       "profilePath": "entities/peter/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/peter.md",
@@ -3928,7 +3912,7 @@
       "role": "Verschiedene Menschen können Verantwortung miteinander lernen.",
       "profilePath": "entities/guardians/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/guardians.md",
@@ -4011,7 +3995,7 @@
       "role": "Ein Ziel braucht Rückfragen, Grenzen und korrigierbare Entscheidungen.",
       "profilePath": "entities/ultron/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/ultron.md",
@@ -4097,7 +4081,7 @@
       "role": "Zuhören, Kontext halten, Handlung verständlich machen.",
       "profilePath": "entities/jarvis/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/jarvis.md",
@@ -4183,7 +4167,7 @@
       "role": "Erfinden heißt auch, Folgen zu übernehmen.",
       "profilePath": "entities/ironman/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/ironman.md",
@@ -4269,15 +4253,15 @@
       "role": "Eine neue Rolle muss möglich bleiben.",
       "profilePath": "entities/loki/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/loki.md",
-          "sha256": "388b0a2cbaae3ced4a2a310f2ab2093955a55b18f8c4f9446ea9c36e79f8883c"
+          "sha256": "e471901639deea2e8dff067cddebb06ca2b05e60740439c97c346c13348e55ab"
         },
         {
           "path": "entities/loki/index.html",
-          "sha256": "dc5ab67549f5e091ec39932b41af2b95695e46162c44b081351cad02f8c08f47"
+          "sha256": "dec3fe761f17fcf29368b63629d2be6d150d7fa7705f5da45fc15a0bff57b025"
         }
       ],
       "declaredReferences": [
@@ -4288,14 +4272,10 @@
         {
           "label": "HALVETH · garden",
           "url": "forschung/figuren-und-perspektiven/#garden"
-        },
-        {
-          "label": "HALVETH · Marvel perspectives (DE / EN)",
-          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md"
         }
       ],
-      "referenceCount": 3,
-      "dossierCharacters": 2673,
+      "referenceCount": 2,
+      "dossierCharacters": 2686,
       "capabilities": [
         {
           "name": "Profil und Quellen lesen",
@@ -4359,7 +4339,7 @@
       "role": "Vertrauen entsteht zwischen Beteiligten.",
       "profilePath": "entities/vision/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/vision.md",
@@ -4442,7 +4422,7 @@
       "role": "Eigenständigkeit und ein freiwilliger nächster Schritt.",
       "profilePath": "entities/widow/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/widow.md",
@@ -4525,7 +4505,7 @@
       "role": "Kraft, die zuhören kann.",
       "profilePath": "entities/thor/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/thor.md",
@@ -4610,7 +4590,7 @@
       "role": "Viele Möglichkeiten. Jede konkrete Handlung hat einen eigenen Umfang.",
       "profilePath": "entities/infinity/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/infinity.md",
@@ -4693,7 +4673,7 @@
       "role": "Gitcoins Governance und Förderung sind öffentliche Beobachtungspunkte; veröffentlichte Vorschläge und Quellen lassen sich daran prüfen.",
       "profilePath": "entities/gitcoin/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/gitcoin.md",
@@ -4788,7 +4768,7 @@
       "role": "Die wichtigste noch offene Frage sichtbar halten.",
       "profilePath": "entities/k/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/k.md",
@@ -4871,7 +4851,7 @@
       "role": "EVE ist die im lokalen Verachel-Vault dokumentierte Tokenbezeichnung.",
       "profilePath": "entities/eve/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/eve.md",
@@ -4958,7 +4938,7 @@
       "role": "Erhält eine typisierte Gegenperspektive.",
       "profilePath": "entities/anti/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/anti.md",
@@ -5045,7 +5025,7 @@
       "role": "Modelliert Aufnahme, Retention, Abgabe, Rest und Regeneration.",
       "profilePath": "entities/schwamm/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/schwamm.md",
@@ -5132,7 +5112,7 @@
       "role": "Figur aus dem Spiel MiSide von AIHASTO.",
       "profilePath": "entities/mita/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/mita.md",
@@ -5223,7 +5203,7 @@
       "role": "Mythologisches Motiv für Perspektive, Blick und Erzählung.",
       "profilePath": "entities/medusa/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/medusa.md",
@@ -5314,7 +5294,7 @@
       "role": "Trennt gleiche oder ähnliche Zeichen nach Quelle, Referent, Domäne, Version und Zeit, bevor Verbindungen bewertet werden.",
       "profilePath": "entities/context-prism/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/context-prism.md",
@@ -5404,7 +5384,7 @@
       "role": "Prüft Starlight als dritten erzählerischen Weg zwischen Herrschaft und Vernichtung: Schutz, Wahrheit, Entmachtung und Verantwortung.",
       "profilePath": "entities/brightcast-starlight/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/brightcast-starlight.md",
@@ -5491,7 +5471,7 @@
       "role": "Vergleicht Identität, Erdachsen-Halbdrehung, Äquatorspiegelung und Antipode auf einer grob gerundeten öffentlichen Ortsprojektion.",
       "profilePath": "entities/pi-treffpunkte/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/pi-treffpunkte.md",
@@ -5581,7 +5561,7 @@
       "role": "Ordnet Mode, Bilder und Worte als selbst gewählte Collage an.",
       "profilePath": "entities/choice-atelier/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/choice-atelier.md",
@@ -5668,7 +5648,7 @@
       "role": "Hält vier parallele lokale Bretter für eine offene 16/16-Challenge und einen geprüften 3/16-Pfad: Bauern behalten ihre Herkunft, während König und Dame als Originalanker auf der vertauschten d/e-Achse bestehen.",
       "profilePath": "entities/portal-chess/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/portal-chess.md",
@@ -5755,7 +5735,7 @@
       "role": "Ein Ursprung, getrennte Fortsetzungen: Identität, Zustand und Ereignisgeschichte.",
       "profilePath": "entities/deadpool/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "9f706b9f6bba255f30cde703f851ba80cd64d9bc",
+      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
       "sourceBindings": [
         {
           "path": "docs/entities/deadpool.md",

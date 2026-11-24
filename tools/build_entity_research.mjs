@@ -74,6 +74,8 @@ const sharedCode = [
   "assets/entity-signature-ui.mjs",
   "assets/entity-world-model.mjs",
 ];
+const inventorySourceCommit = "59f3d15245e81f39454a3fdaac02566550182c80";
+const inventoryRecordedAt = "2026-11-24T23:55:14Z";
 const boundFile = (p) => ({ path: p, sha256: hash(read(p)) });
 const inventory = registry.entities.map((e) => {
   if (ids.has(e.id)) throw Error("Duplicate profile ID");
@@ -88,7 +90,7 @@ const inventory = registry.entities.map((e) => {
     role: e.role,
     profilePath: e.profilePath,
     sourceState: "SOURCE_FILES_OBSERVED",
-    baseCommit: BASE,
+    baseCommit: inventorySourceCommit,
     sourceBindings: [boundFile(dossier), boundFile(profile)],
     declaredReferences: e.sourceRefs,
     referenceCount: e.sourceRefs.length,
@@ -275,8 +277,8 @@ const outputs = {
   },
   "entities/INVENTORY_20261027.json": {
     schema: "halveth.entity-inventory.v1",
-    baseCommit: BASE,
-    recordedAt: dataset.recordedAt,
+    baseCommit: inventorySourceCommit,
+    recordedAt: inventoryRecordedAt,
     registrySha256: hash(registryBytes),
     method:
       "Static inventory of all registry members; shared code/test references do not establish individual autonomous execution or scientific validity.",
