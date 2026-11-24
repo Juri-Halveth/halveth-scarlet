@@ -1,5 +1,7 @@
 # Chancenreise: Zugang, Auswahl und neue Bewerbungsrunden
 
+> **Archivstatus 29.10.2026:** Die Anfragerunde an Brühl und das NRW-Arbeitsministerium ist abgeschlossen. Die Chancenreise bleibt eine Simulation; ein reales Bewerbungsverfahren wurde nicht eröffnet. [Ergebnis und Lernkern](ERGEBNIS-UND-LERNKERN.md).
+
 **Öffentlicher Prototyp vom 14. Oktober 2026 · kein geöffnetes Bewerbungsverfahren**
 
 Die [klickbare Chancenreise](chancenreise.html) zeigt den Weg durch einen möglichen lokalen Pilot. Sie nimmt keine Bewerbungen an, speichert keine persönlichen Angaben und entscheidet über niemanden. Brühl ist ein vorgeschlagener Ort; eine Zusage der Stadt oder anderer Träger liegt nicht vor.

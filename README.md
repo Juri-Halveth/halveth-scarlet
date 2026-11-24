@@ -2,18 +2,17 @@
 
 # Zustände, Zeit und Varianten · Interaktiver Funktionsraum
 
-**Person: Juri. Projekt: HALVETH.** [Namenszuordnung](IDENTITY.md).
+SCARLET ist ein browserlokaler Prototyp für Textzustände und Varianten. Der Funktionsraum führt die vorhandenen GStar-Operationen aus und zeigt daneben eine endliche regelbasierte Zellensimulation.
 
-[Windows: alte glTF-Arbeitskopien prüfen und gezielt reparieren](docs/WINDOWS_GLTF_RECOVERY.md)
+[**Funktionsraum direkt öffnen**](https://juri-halveth.github.io/halveth-scarlet/) · [Technische Demos](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/) · [Quellcode](https://github.com/Juri-Halveth/halveth-scarlet/tree/main)
 
-**Aus einem Keim wird ein System.** Der öffentliche Einstieg ist ein bedienbarer
-Raum für Textzustände, Varianten und Beobachtung. JavaScript führt die
-Zustandsoperationen tatsächlich lokal aus; das automatische Zellensystem ist
-eine endliche regelbasierte Simulation.
+**Stand und Grenze:** Eingabe, Varianten, Snapshots, Replay und JSON-Export sind lokal bedienbar. Die Replay-Prüfung gilt für das Textledger und seine Selbstkonsistenz; Zellbewegung und Signale sind ein Modell, keine Außenmessung. Die Einstiegsfläche lädt lokale Ressourcen und hat `connect-src 'none'`; dort gibt es weder Konten noch Wallet-Abfragen.
 
-[Technische Demos öffnen](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/)
-· [Funktionsraum](https://juri-halveth.github.io/halveth-scarlet/)
-· [Portfolio](https://juri-halveth.github.io/)
+**Person: Juri. Projekt: HALVETH.** [Namenszuordnung](IDENTITY.md). [Windows: alte glTF-Arbeitskopien prüfen und gezielt reparieren](docs/WINDOWS_GLTF_RECOVERY.md).
+
+![SCARLET: verzweigte Zustände und Zellräume](assets/netz-starship-hero.svg)
+
+[HALVETH-Projektübersicht](https://juri-halveth.github.io/arbeiten/) · [Starship Lab als optionales Experiment](https://juri-halveth.github.io/universum/)
 
 ## Direkt im Funktionsraum
 
@@ -85,6 +84,10 @@ und lokal erzeugt. Reduzierte Bewegung ersetzt den Impuls durch den festen Snaps
 
 Browser-Spielprototyp und native Entwicklungsarbeit.
 
+[Windows-Vorschau v0.4.2 herunterladen](https://github.com/Juri-Halveth/halveth-scarlet/releases/tag/ashbound-native-v0.4.2-portal-preview)
+— Vorabversion als Windows-x64-ZIP, mit Versionshinweisen und Dateien auf der
+Release-Seite. Die native Spielwelt ist eine separate Anwendung neben dem Browser-Prototyp.
+
 ### [Portal Chess · Schachvariation](forschung/portal-chess/)
 
 Ein regelgebundenes Spielmodell mit überprüfbarer Zugspur.
@@ -119,8 +122,9 @@ Visuelle technische Erklärung, keine Renditezusage.
 
 ### [JURI-THESIS · Entwicklungszeit für Menschen](forschung/juri-thesis/)
 
-Öffentlicher Vorschlag für einen 30-Personen-Pilot in Brühl mit Konzept,
-Beispielen und dem aktuellen Projektstand.
+Archivierter Vorschlag für einen 30-Personen-Pilot in Brühl mit Konzept,
+Beispielen und dem [abgeschlossenen Projektstand](forschung/juri-thesis/versand.html).
+Stadt und NRW-Arbeitsministerium haben Unterstützung für diesen Anlauf abgelehnt.
 
 
 ## Prüfen und bauen

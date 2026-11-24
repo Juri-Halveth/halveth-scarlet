@@ -33,3 +33,19 @@ Der Initiator stellte im Projektchat eine Antwort der Stadt bereit. Darin bestä
 | Ergebnis | Für diese öffentliche Fassung liegt noch keine Antwort der Landesregierung vor. |
 
 Der [Projektstand](versand.html) fasst die weiteren Schritte lesbar zusammen.
+
+## Nachtrag vom 29. Oktober 2026 · Antwort des NRW-Arbeitsministeriums
+
+Dieser Nachtrag **ersetzt den früheren offenen Ergebnisstand** der Meldung vom 23. Oktober, ohne den damaligen Eintrag umzuschreiben.
+
+| Feld | Gebundener Stand |
+| --- | --- |
+| Quelle | Vom Absender im Projektchat bereitgestellter Text einer Antwort aus dem Büro des Ministers im Ministerium für Arbeit, Gesundheit und Soziales NRW (MAGS), mit zitierter Ausgangsnachricht. Das Original als `.msg` oder vollständiger technischer Mailheader liegt hier nicht vor. |
+| Ausgangsnachricht | Der zitierte Header nennt **Freitag, 23.10.2026, 17:06 Uhr**, an die Poststelle der Staatskanzlei NRW, mit Kopie an die Poststelle des MAGS. Dies ist eine in der Antwort enthaltene Kopie des Ausgangsheaders, kein eigenständig geprüfter Transportbeleg. |
+| Weiterleitung | Die Antwort teilt mit, dass das ServiceCenter der Staatskanzlei die Eingabe an das MAGS weitergeleitet hat. |
+| Inhalt der Antwort | Das Büro des Ministers sieht **derzeit keine Möglichkeit, das Vorhaben zu unterstützen**. |
+| Zeitpunkt der Antwort | Im bereitgestellten Text nicht angegeben. Der Text wurde dem Projekt am 29.10.2026 zur Verfügung gestellt; dieses Datum ist die Erfassung im Projekt, nicht das behauptete Sendedatum des Ministeriums. |
+| Ergebnis | `SUPPORT_DECLINED_FOR_THIS_REQUEST`. Die Anfragerunde an Brühl und das Land wird als `CLOSED_ARCHIVED` geführt. Eine inhaltliche Prüfung des Pilotmodells wird in der Antwort nicht berichtet. |
+| Nächste Handlung | Keine weitere Eingabe im Namen dieses Anlaufs. Das [Ergebnis und der Lernkern](ERGEBNIS-UND-LERNKERN.md) erhalten die wiederverwendbaren Modell- und Verfahrensfragen. |
+
+Die öffentliche Fassung enthält bewusst nur die für den Projektstand nötigen Angaben. Der vollständige persönliche Antworttext und die Mailadressen werden hier nicht dupliziert.

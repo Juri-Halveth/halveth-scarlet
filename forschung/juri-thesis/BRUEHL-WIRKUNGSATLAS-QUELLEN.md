@@ -1,5 +1,7 @@
 # Brühl konkret: Quellen, Wirkungswege und Prüffragen
 
+> **Archivstatus 29.10.2026:** Die Anfragerunde an Brühl und das NRW-Arbeitsministerium ist nach Absagen zur Unterstützung abgeschlossen. Dieses Quellenregister bleibt als historischer Modellstand erhalten. [Ergebnis und Lernkern](ERGEBNIS-UND-LERNKERN.md).
+
 **Arbeitsstand 14.10.2026.** Dieses Register gehört zum [öffentlichen Wirkungsatlas](bruehl-atlas.html) und zur [T+6/T+12-Rechnung](WIRKUNGSPRUEFUNG-T6-T12.md). Die sechzehn Hauptwege und fünfzehn Anschlussvarianten sind illustrative Falltypen, keine einunddreißig verschiedenen Personen. Die benannten Einrichtungen und Angebote existieren laut ihren eigenen Webseiten; ihre Beteiligung an JURI-THESIS, Aufnahme, Finanzierung und künftige Wirkung sind nicht belegt. Die Links wurden am 14.10.2026 als Recherchequellen geprüft. Dynamische Angebote sind beim tatsächlichen Pilotstart erneut zu prüfen.
 
 ## 1. Entscheidungsfrage
