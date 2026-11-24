@@ -42,7 +42,6 @@
           Ausprobieren</button
         ><button type="button" data-view="map">Die Verbindungen</button
         ><button type="button" data-view="inventory">68 Perspektiven</button
-        ><button type="button" data-view="figures">Figurenatelier</button
         ><button type="button" data-view="notebook">
           Mein Faden <span id="note-count">0</span>
         </button>
@@ -260,69 +259,6 @@
           </p>
           <p id="active-correction"></p>
         </details>
-      </section>
-      <section
-        id="view-figures"
-        class="view"
-        aria-label="Bewegte Spielfiguren"
-        hidden
-      >
-        <div class="section-heading">
-          <div>
-            <h2>Aus den Paketen tritt eine Figur.</h2>
-            <p>
-              Zwei stilisierte Spielfiguren, mit Kleidung und 43 Bewegungen aus
-              deinen Quaternius-Paketen. Drehe den Blick mit Maus oder Finger;
-              die Bewegung startet auf Knopfdruck.
-            </p>
-          </div>
-        </div>
-        <div class="figure-layout">
-          <div id="figure-stage" class="figure-stage"></div>
-          <div class="figure-options">
-            <label for="figure-variant"
-              >Figur<select id="figure-variant" disabled>
-                <option>Wird geladen …</option>
-              </select></label
-            ><label for="figure-motion"
-              >Bewegung<select id="figure-motion" disabled>
-                <option>Wird geladen …</option>
-              </select></label
-            ><label for="figure-speed"
-              >Geschwindigkeit <output id="figure-speed-value">1×</output
-              ><input
-                id="figure-speed"
-                type="range"
-                min="0.25"
-                max="2"
-                step="0.25"
-                value="1"
-            /></label>
-            <div class="note-actions">
-              <button class="primary" type="button" id="figure-play" disabled>
-                Bewegung zeigen</button
-              ><button type="button" id="figure-reset">
-                Blick zurücksetzen
-              </button>
-            </div>
-            <p id="figure-status" role="status">
-              Die Figuren werden beim ersten Öffnen geladen.
-            </p>
-            <button type="button" id="figure-retry" hidden>
-              Figuren erneut laden
-            </button>
-            <p class="muted">
-              Die Vorschau verwendet originale Farbtexturen mit vereinfachten
-              Materialien. Bewegungen werden an die jeweilige Bindepose
-              angepasst. Es sind gestaltete Spielfiguren; ein Vergleich mit
-              realen menschlichen Bewegungsaufnahmen ist ein eigener nächster
-              Prüfweg.
-            </p>
-            <a href="characters/manifest.json"
-              >Dateien, Ableitungen und CC0-Lizenz</a
-            >
-          </div>
-        </div>
       </section>
       <section
         id="view-notebook"

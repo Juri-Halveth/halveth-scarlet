@@ -52,11 +52,10 @@ for (const name of [...directories, ...files]) {
 }
 if (!fs.existsSync(path.join(output, 'forschung', 'ashbound', 'index.html'))) throw new Error('ASHBOUND public route missing');
 const pages = htmlFiles(output);
-// Keep the atelier's controller, mathematical model, lazy figure viewer and
-// loader on the same release, including their shared THREE namespace.
+// Keep the atelier controller and mathematical model on the same release.
 const researchDirectory=path.join(output,'entities','research');
 const researchModules=fs.readdirSync(researchDirectory,{recursive:true}).filter(name=>/\.(?:mjs|js)$/.test(name)).map(name=>'entities/research/'+name.split(path.sep).join('/')).sort();
-const researchModuleSet=new Set([...researchModules,'assets/entity-vendor/runtime.mjs']);
+const researchModuleSet=new Set(researchModules);
 const researchVersion=createHash('sha256').update([...researchModuleSet].sort().map(name=>name+'\n'+fs.readFileSync(path.join(output,name))).join('\n')).digest('hex');
 for(const name of researchModules){
   const file=path.join(output,name),source=fs.readFileSync(file,'utf8');

@@ -32,9 +32,7 @@ let data,
   allNodes,
   lastFrame = null,
   frameId = null,
-  exporting = false,
-  figureAtelier,
-  figureLoading;
+  exporting = false;
 const labelStates = {
   GEOMETRIC_MODEL: "Ein geometrischer Prüfweg",
   SOURCE_BOUND_EXPLANATION: "Ein Blick in die Quellen",
@@ -73,7 +71,7 @@ function safeLink(url, label) {
 }
 function chooseView(view) {
   if (
-    !["discover", "map", "inventory", "notebook", "figures"].includes(view) ||
+    !["discover", "map", "inventory", "notebook"].includes(view) ||
     !$("view-" + view)
   )
     throw Error("Unbekannter Bereich");
@@ -87,33 +85,7 @@ function chooseView(view) {
   }
   if (view === "map") renderMap();
   if (view === "notebook") renderNotebook();
-  figureAtelier?.setActive(view === "figures" && !document.hidden);
-  if (view === "figures") loadFigures();
 }
-function loadFigures() {
-  if (figureAtelier || figureLoading) return figureLoading;
-  $("figure-retry").hidden = true;
-  $("figure-status").textContent = "Die Figurenansicht wird geladen …";
-  figureLoading = import("./figures.mjs")
-    .then((m) => m.createFigureAtelier())
-    .then((a) => {
-      figureAtelier = a;
-      a.setActive(state.view === "figures" && !document.hidden);
-      $("figure-variant").disabled = false;
-    })
-    .catch((e) => {
-      $("figure-status").textContent =
-        "Die Figurenansicht konnte nicht geöffnet werden: " + e.message;
-      $("figure-retry").hidden = false;
-      for (const id of ["figure-play", "figure-variant", "figure-motion"])
-        $(id).disabled = true;
-    })
-    .finally(() => {
-      figureLoading = null;
-    });
-  return figureLoading;
-}
-$("figure-retry").addEventListener("click", loadFigures);
 for (const b of document.querySelectorAll("[data-view]"))
   b.addEventListener("click", () => chooseView(b.dataset.view));
 function selectResearch(id) {
@@ -231,7 +203,6 @@ $("wave-phase").addEventListener("input", (e) => {
 });
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) pause();
-  figureAtelier?.setActive(!document.hidden && state.view === "figures");
 });
 const canvas = $("lab-canvas"),
   ctx = canvas.getContext("2d");

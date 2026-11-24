@@ -732,48 +732,6 @@ footer {
     font-size: 10px;
   }
 }
-.figure-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(250px, 1fr);
-  gap: 35px;
-}
-.figure-stage {
-  height: 580px;
-  min-width: 0;
-  background: #14232d;
-  border-radius: 14px;
-  overflow: hidden;
-  position: relative;
-}
-.figure-stage canvas {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: auto;
-  touch-action: none;
-}
-.figure-options label {
-  margin-bottom: 20px;
-}
-.figure-options input {
-  width: 100%;
-  display: block;
-}
-.figure-options p {
-  font-size: 14px;
-  margin-top: 20px;
-}
-.figure-options a {
-  font-size: 13px;
-}
-@media (max-width: 650px) {
-  .figure-layout {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .figure-stage {
-    height: 420px;
-  }
-}
 canvas.stacked {
   aspect-ratio: 960/1340;
 }
