@@ -663,10 +663,11 @@ function renderInventory() {
       h.append(safeLink("../../" + p.profilePath, p.label));
       name.append(h, make("small", p.kind));
       description.append(
+        make("small", "Rolle laut Profil"),
         make("p", p.role),
         make(
           "small",
-          `${p.referenceCount} deklarierte Quellenverweise · gemeinsamer Darstellungs- und Verlaufskern`,
+          `${p.referenceCount} Quellenverweise im Dossier · Profil und gemeinsamer Darstellungscode geprüft`,
         ),
       );
       for (const id of p.researchBranchIds) {

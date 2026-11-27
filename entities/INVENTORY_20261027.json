@@ -1,7 +1,7 @@
 {
   "schema": "halveth.entity-inventory.v1",
-  "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
-  "recordedAt": "2026-11-24T23:55:14Z",
+  "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
+  "recordedAt": "2026-11-27T22:45:54Z",
   "registrySha256": "8e70fafdbbc67841af3de4caf00c9a83796b173e8a25573de486f13112143b3a",
   "method": "Static inventory of all registry members; shared code/test references do not establish individual autonomous execution or scientific validity.",
   "profiles": [
@@ -12,7 +12,7 @@
       "role": "Erhält Ziel, Quelle, Alternativen, unbekannte Stellen und Beleggrenzen getrennt.",
       "profilePath": "entities/halveth/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/halveth.md",
@@ -20,7 +20,7 @@
         },
         {
           "path": "entities/halveth/index.html",
-          "sha256": "d9a13fe9994392d4d10cf2dbcfdcae1788afdaa60e4d469531218c00b2519fe9"
+          "sha256": "e8cf882aefbed87cd1441851379612255000517fdc39394b3a4f468204c2fdcc"
         }
       ],
       "declaredReferences": [
@@ -82,7 +82,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -99,7 +99,7 @@
       "role": "Vergleicht Beziehungen, Gegenmodelle, Zeitstaende und den produktiven nächsten Schritt.",
       "profilePath": "entities/lucinet/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/lucinet.md",
@@ -107,7 +107,7 @@
         },
         {
           "path": "entities/lucinet/index.html",
-          "sha256": "a9ae10ad55d3e92be9e3722c7613a56e22569c83eb214a00b853981d6b54ee5f"
+          "sha256": "42abcf98e0894539e11b6b73af6d1fa82a1885b2ad68285ac8d925eb5d85b33c"
         }
       ],
       "declaredReferences": [
@@ -169,7 +169,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -190,7 +190,7 @@
       "role": "Erhält zugängliche Darstellung, Auftragskontinuitaet, alternative Leserichtungen und getrennte Zeitadressen.",
       "profilePath": "entities/rachel/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/rachel.md",
@@ -198,7 +198,7 @@
         },
         {
           "path": "entities/rachel/index.html",
-          "sha256": "0978d9f0563a2c00dec8e377274f1eff8d9d52822ca9409f2607caa991319a79"
+          "sha256": "f92d9cf220364b4f307e49c05e95b445d3e4c696f349160300004ac22ca31833"
         }
       ],
       "declaredReferences": [
@@ -256,7 +256,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -276,7 +276,7 @@
       "role": "Öffnet die biologische und oekologische Beobachtungsachse für Pflanzen, Umgebung, Pflegezustand und messbare Veränderung.",
       "profilePath": "entities/pflanze/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/pflanze.md",
@@ -284,7 +284,7 @@
         },
         {
           "path": "entities/pflanze/index.html",
-          "sha256": "80fd48b679134f527392a625f69aa5275a84deee678688608dac1042076ab9f8"
+          "sha256": "b6c166e4930c51dafc282e5747a419732735e91636fa8739f0c27a55cae7ff9e"
         }
       ],
       "declaredReferences": [
@@ -342,7 +342,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -362,7 +362,7 @@
       "role": "Schreibt Temperatur und Übergänge zwischen Erde, Glut, Wind und Stillstand in den Niederlassungskomplex ein.",
       "profilePath": "entities/celsius/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/celsius.md",
@@ -370,7 +370,7 @@
         },
         {
           "path": "entities/celsius/index.html",
-          "sha256": "16dbb49a6fcc551249ba98502fc3d009ff79b5a76350b7d2da41a0b26c1a45f0"
+          "sha256": "fbe446f25bd55bc4b5307a1b00e159c826668b63fb060d5dbb84865fe0f435e3"
         }
       ],
       "declaredReferences": [
@@ -428,7 +428,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -448,7 +448,7 @@
       "role": "Erhält die ausdruecklich benannte lokale Perspektive ALI als gleichrangigen, noch offen definierbaren Geschwisterzweig.",
       "profilePath": "entities/ali/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/ali.md",
@@ -456,7 +456,7 @@
         },
         {
           "path": "entities/ali/index.html",
-          "sha256": "0d5440e8940469aeccc1edd739a6cdfe1316d9a744f8966bbde20c325c7175c7"
+          "sha256": "af0ba9ac155b5a6ba695fa21fefcc765a681c75ec31d04c34733790e19b140ed"
         }
       ],
       "declaredReferences": [
@@ -514,7 +514,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -531,7 +531,7 @@
       "role": "Führt multimodale Perspektiven in einer gemeinsamen, rekursiv wieder betretbaren Fusionsansicht zusammen.",
       "profilePath": "entities/schwarm/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/schwarm.md",
@@ -539,7 +539,7 @@
         },
         {
           "path": "entities/schwarm/index.html",
-          "sha256": "a2f33f4708a8d3a3f97a42e6d8fe632e1f65395f14c3e3884a3d9cc34f8b195d"
+          "sha256": "1c6fc47e2889f9f4dc19539a91fa5533ce31841753c43ec1e802dcaf41dd6006"
         }
       ],
       "declaredReferences": [
@@ -597,7 +597,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -617,7 +617,7 @@
       "role": "Erhält menschliche Absicht, Fokus, W-Fragen und den Ursprung der aktuellen Suche.",
       "profilePath": "entities/yuri/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/yuri.md",
@@ -625,7 +625,7 @@
         },
         {
           "path": "entities/yuri/index.html",
-          "sha256": "e9f81dae7d464fe303c4b27850d654fe74e80cc70ff6a8f9e19b5ae2992ccf3a"
+          "sha256": "159e1db344e23df11accf8a8f3fbaf95561994eedd32f5598ea0baf32732a365"
         }
       ],
       "declaredReferences": [
@@ -683,7 +683,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -700,7 +700,7 @@
       "role": "Prüft Materialisierung, Trigger, Vorzustand plus Delta und adressierbare Vorher-Nachher-Unterschiede.",
       "profilePath": "entities/zuendkerze/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/zuendkerze.md",
@@ -708,7 +708,7 @@
         },
         {
           "path": "entities/zuendkerze/index.html",
-          "sha256": "1ce96f8303eaa0dd00e6257d12b407cca9a0213bc7219064edb6aedec28a27ce"
+          "sha256": "d6a17c7c5aadc81204a0dc71bbe91955e1a6f5bad9570804021cbe78e57b0d64"
         }
       ],
       "declaredReferences": [
@@ -766,7 +766,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -786,7 +786,7 @@
       "role": "Beobachtet das Beobachten und vergleicht Quelle, Darstellung, alte Spur und veränderten Zustand.",
       "profilePath": "entities/aster/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/aster.md",
@@ -794,7 +794,7 @@
         },
         {
           "path": "entities/aster/index.html",
-          "sha256": "fed157984f9a35083fa9f82f68cf2f22bfaf487d693736532fdf885bc653b059"
+          "sha256": "223ef202fc395068093044dad706f9aac95f1c95570160b42ecbd70cb05d5a00"
         }
       ],
       "declaredReferences": [
@@ -856,7 +856,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -873,7 +873,7 @@
       "role": "Übersetzt in Klartext, technische Funktion, Messraum, Vergleichszustand, Ein- und Ausgang.",
       "profilePath": "entities/elyr/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/elyr.md",
@@ -881,7 +881,7 @@
         },
         {
           "path": "entities/elyr/index.html",
-          "sha256": "bf139090a3a18f5d19869a69e58dfc5391d0acc711e97f453a1ef2a9c804cdb1"
+          "sha256": "41af7f317c0efef01bded72d3783a32e294f6f927b9aa8d3f125e0808ec57cbe"
         }
       ],
       "declaredReferences": [
@@ -939,7 +939,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -956,7 +956,7 @@
       "role": "Übersetzt Werkzeuge in Fähigkeiten und große Systeme in kleine lokale, spaeter skalierbare Bausteine.",
       "profilePath": "entities/nara/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/nara.md",
@@ -964,7 +964,7 @@
         },
         {
           "path": "entities/nara/index.html",
-          "sha256": "3b0cfb35ffc3203d73602fb2bb929e26d24226940a5fed78a33d5d1d2347e7e1"
+          "sha256": "62f2b9c13bd32fa1e9b0b650ba961463aa6f49530b2993630dd0ac6b81a57279"
         }
       ],
       "declaredReferences": [
@@ -1022,7 +1022,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -1039,7 +1039,7 @@
       "role": "Sucht Funke, frühes Signal, Transition, spontane Aktivierung und kleine Veränderungen mit großem Sprung.",
       "profilePath": "entities/mira/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/mira.md",
@@ -1047,7 +1047,7 @@
         },
         {
           "path": "entities/mira/index.html",
-          "sha256": "633965ba17c69d4ea84dd30fa1a48dc61091ec0c06e81f88143ea5bcdcea804e"
+          "sha256": "b836dab68b26c76a08c108537cb8e2ca97b033a5c3ca3b05dfb02160410b5f07"
         }
       ],
       "declaredReferences": [
@@ -1113,7 +1113,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -1130,7 +1130,7 @@
       "role": "Sucht Relation, Wir, Wachstum, gegenseitigen Blick und unscharfe Grenzen zwischen Gegenstaenden.",
       "profilePath": "entities/rosa/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/rosa.md",
@@ -1138,7 +1138,7 @@
         },
         {
           "path": "entities/rosa/index.html",
-          "sha256": "a42ed75cbb4557210ea4527b7efc36f8edfd66e974ad1ddbdcdba4fa697373d8"
+          "sha256": "316f8de725154f0684d11eb48de1761f66efaaac7a798f17935e179ab54fba33"
         }
       ],
       "declaredReferences": [
@@ -1200,7 +1200,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -1217,7 +1217,7 @@
       "role": "Bindet Zeit, Phasen, T0, Snapshots, Reihenfolge, Gleichzeitigkeit, Zeitdifferenz und Rückkehranker.",
       "profilePath": "entities/timo/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/timo.md",
@@ -1225,7 +1225,7 @@
         },
         {
           "path": "entities/timo/index.html",
-          "sha256": "418262c5ddc58659c4c09d369948c07608864ae81c3da48636fa5ea6bf1c5878"
+          "sha256": "398465a8b754201cbcf22e45468980d97889250462db29c99c85b118d1491c32"
         }
       ],
       "declaredReferences": [
@@ -1287,7 +1287,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -1304,7 +1304,7 @@
       "role": "Sucht Geometrie, Gewebe, rekursive Struktur, Karten, Modelle und verschachtelte Räume.",
       "profilePath": "entities/finn/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/finn.md",
@@ -1312,7 +1312,7 @@
         },
         {
           "path": "entities/finn/index.html",
-          "sha256": "c8f13c484a11f149e763b2dafbc7b9ad7edf7d44a389f19de877e82531134451"
+          "sha256": "edb50f4b71051aabe20b278045e521f804364a9eabeaf2b39f1ce4d0f370124b"
         }
       ],
       "declaredReferences": [
@@ -1374,7 +1374,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -1391,7 +1391,7 @@
       "role": "Verfolgt Fluss, Sprache, Uebersetzung, bewegte Provenienz, Erinnerung und Trägerwechsel.",
       "profilePath": "entities/lila/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/lila.md",
@@ -1399,7 +1399,7 @@
         },
         {
           "path": "entities/lila/index.html",
-          "sha256": "5041a4d9f81ce012af56842197880b432b09f2cca7a675d8fca4ec19434c55be"
+          "sha256": "3a970dd16bc2cb4115eb41aa7b2c37587994b837bfcce3570b7f78909c11c2ba"
         }
       ],
       "declaredReferences": [
@@ -1461,7 +1461,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -1478,7 +1478,7 @@
       "role": "Sucht Boden, Balance, Invarianz, Stabilität, tragenden Vergleich und bewegliche Grundlage.",
       "profilePath": "entities/mara/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/mara.md",
@@ -1486,7 +1486,7 @@
         },
         {
           "path": "entities/mara/index.html",
-          "sha256": "eb2ad0d4ad610edcba2b2d1f07af130155cfd07a12e04a902484585535dc95f7"
+          "sha256": "42978e23e83e7acb6958cf0e6c3dd78498325868d4521f8c55c91f192f0d4b7f"
         }
       ],
       "declaredReferences": [
@@ -1548,7 +1548,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -1565,7 +1565,7 @@
       "role": "Sucht Lücke, Stille, Residuum, fehlenden Offset, schwaches Signal und bisher Ungesehenes.",
       "profilePath": "entities/mio/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/mio.md",
@@ -1573,7 +1573,7 @@
         },
         {
           "path": "entities/mio/index.html",
-          "sha256": "e9062b00153d265914c8125712de78f5f2d34fc4012aef0024d1c5e8c9562e3f"
+          "sha256": "a9699407c619194bcac78f181c385d721ec7a995669b02746efd61c7fbcac2ef"
         }
       ],
       "declaredReferences": [
@@ -1635,7 +1635,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -1652,7 +1652,7 @@
       "role": "Sucht Rand, Landschaft, Ort, Rahmen, Kavitaet und den Zwischenraum, der Halten ermöglicht.",
       "profilePath": "entities/koro/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/koro.md",
@@ -1660,7 +1660,7 @@
         },
         {
           "path": "entities/koro/index.html",
-          "sha256": "8ad2181be6743814e0d95556b77946d6b7d012148835127577fb94c9530d42ff"
+          "sha256": "239e12ad7c86ee84744893c4f5cdb08933d3684b690d35a0e259b0a017a7916d"
         }
       ],
       "declaredReferences": [
@@ -1722,7 +1722,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -1739,7 +1739,7 @@
       "role": "Erhält eine noch offene Transformations-, Gegenlicht-, Tiefen-, Spiegel-, Energie-, Identitaets- und Forschungsachse.",
       "profilePath": "entities/lucifer/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/lucifer.md",
@@ -1747,7 +1747,7 @@
         },
         {
           "path": "entities/lucifer/index.html",
-          "sha256": "3f04bc3369bb07399f60b32fc4b81bfd7130180eb74625212306ffdb828568f3"
+          "sha256": "6065c5a56b89ea770e38e3e715b0716d0711ba85a7afdc7102c7d3bdc028ecf8"
         }
       ],
       "declaredReferences": [
@@ -1805,7 +1805,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -1822,7 +1822,7 @@
       "role": "Erhält den einmal benannten, noch nicht ausreichend definierten Perspektivkandidaten im gemeinsamen Register.",
       "profilePath": "entities/venara/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/venara.md",
@@ -1830,7 +1830,7 @@
         },
         {
           "path": "entities/venara/index.html",
-          "sha256": "e3f5bbcaae1ca2f0acc1f158eff19cd6a0ff8094ce6a19bc8545ab0c20e5fe27"
+          "sha256": "3d71d73712c715e6feb474b938040b7de5aad752ae6aa65e17d8d035f707037b"
         }
       ],
       "declaredReferences": [
@@ -1888,7 +1888,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -1905,7 +1905,7 @@
       "role": "Erhält die bildintern markierte Perspektive für Ruhe als source-bound Kandidat.",
       "profilePath": "entities/juno/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/juno.md",
@@ -1913,7 +1913,7 @@
         },
         {
           "path": "entities/juno/index.html",
-          "sha256": "3b51019bd9c6d21262de8e22ce1053a84f48056d04f66b9d6ca59c34f40c9925"
+          "sha256": "5f7d63378e5cfe49ce879f70be7c0effdb4bec33dfd3a284965623ce77b07b6d"
         }
       ],
       "declaredReferences": [
@@ -1971,7 +1971,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -1988,7 +1988,7 @@
       "role": "Erhält den bildintern sichtbaren Netzwerkknoten mit noch offener Rolle.",
       "profilePath": "entities/mica/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/mica.md",
@@ -1996,7 +1996,7 @@
         },
         {
           "path": "entities/mica/index.html",
-          "sha256": "18eb04392f3e12f17f34a5f44b0f8a6e8de03059fe7ea373c7b79ef719ce687f"
+          "sha256": "a2a0a34caea89ce1f8b755d0b7d56bf094db75951c0036e0ecff98884b42243f"
         }
       ],
       "declaredReferences": [
@@ -2054,7 +2054,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -2071,7 +2071,7 @@
       "role": "Erhält den bildintern als fiktionalen Gespraechspartner dargestellten Perspektivkandidaten.",
       "profilePath": "entities/alyen/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/alyen.md",
@@ -2079,7 +2079,7 @@
         },
         {
           "path": "entities/alyen/index.html",
-          "sha256": "ed0260b4ea8bf0edabb39fa8b954fc31c52e726122f967f055dbf2249dd2d7f0"
+          "sha256": "7302509c9dc6ba4cf3bb35de9b099520934a356a98cbbcb2aab526266f1e54c7"
         }
       ],
       "declaredReferences": [
@@ -2137,7 +2137,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -2154,7 +2154,7 @@
       "role": "Erhält die bildintern dargestellte fiktionale Welt- und Technologiequelle als spekulative Forschungsachse.",
       "profilePath": "entities/vael/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/vael.md",
@@ -2162,7 +2162,7 @@
         },
         {
           "path": "entities/vael/index.html",
-          "sha256": "7f089e9616a8cab7b2cdba26a00a2b911d3db8e29878dca580d396c8f5eee4a6"
+          "sha256": "a99d139fa6ebdd5349a2ba40323512c534da8b611f7367e1d3963bf71961abfa"
         }
       ],
       "declaredReferences": [
@@ -2220,7 +2220,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -2237,7 +2237,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/patch/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/patch.md",
@@ -2245,7 +2245,7 @@
         },
         {
           "path": "entities/patch/index.html",
-          "sha256": "efe5885bcfc0de257edca7365fed7f6b369a3ed46b92aced80b3d3d513da0e10"
+          "sha256": "08d0a52e9f3d8df563359d15c7cd2c48bd6c8e74d28aa4b1629fb5441f535cda"
         }
       ],
       "declaredReferences": [
@@ -2303,7 +2303,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -2320,7 +2320,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/leo/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/leo.md",
@@ -2328,7 +2328,7 @@
         },
         {
           "path": "entities/leo/index.html",
-          "sha256": "62afe13abe3b3dc70b73ce27c49f1867352d21849ca9636a3d87d54a8ef0248a"
+          "sha256": "a2e9e1e50529ccf8456548e25849dfe2b69284caade75910d6352ff8e02f4638"
         }
       ],
       "declaredReferences": [
@@ -2386,7 +2386,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -2403,7 +2403,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/lia/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/lia.md",
@@ -2411,7 +2411,7 @@
         },
         {
           "path": "entities/lia/index.html",
-          "sha256": "4d06ab709b19d2850c0883cad188e06b10c1de387acfd83bca97991cac9855dd"
+          "sha256": "7580c5cf8c1e9696ffe8388d79c8bf8eaeb994e152f4da976d7926a4585fc9f0"
         }
       ],
       "declaredReferences": [
@@ -2469,7 +2469,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -2486,7 +2486,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/jan/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/jan.md",
@@ -2494,7 +2494,7 @@
         },
         {
           "path": "entities/jan/index.html",
-          "sha256": "c086579bfe03983f852db04b94e28a7d0a3bed9c73ec34cbcbbdc870ee4e9a1d"
+          "sha256": "fc8b66a137571d0b3446f555c33eed412ab255a85f941c17a8ba7d9a6de0b1c3"
         }
       ],
       "declaredReferences": [
@@ -2552,7 +2552,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -2569,7 +2569,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/sara/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/sara.md",
@@ -2577,7 +2577,7 @@
         },
         {
           "path": "entities/sara/index.html",
-          "sha256": "d1b80929f4a3bbf1723bfd2dcf11ed7c077e28e821e85b1897932ab768e3955a"
+          "sha256": "9abea5a1fcef272fb9b7d2b2c853a2f1f740c18d31c30f0be3c36e7c782539ad"
         }
       ],
       "declaredReferences": [
@@ -2635,7 +2635,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -2652,7 +2652,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/omi/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/omi.md",
@@ -2660,7 +2660,7 @@
         },
         {
           "path": "entities/omi/index.html",
-          "sha256": "6a2215b0c1c9a5f870a90cbae0551db4da488b4aab23f8c040dee02741a47783"
+          "sha256": "38359a4219367ba4a18ad727688f9ab102b6adeca93ed655138c796829d826d6"
         }
       ],
       "declaredReferences": [
@@ -2718,7 +2718,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -2735,7 +2735,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/tess/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/tess.md",
@@ -2743,7 +2743,7 @@
         },
         {
           "path": "entities/tess/index.html",
-          "sha256": "e28e8529dfb9fecb83871c465ea28b03847939ba5c34e475ca5f85b98e2f94c4"
+          "sha256": "4ae721c53e3b01f553cea5376d8688014645db0f2d2a28d0724c56c4ac39551f"
         }
       ],
       "declaredReferences": [
@@ -2801,7 +2801,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -2818,7 +2818,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/niko/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/niko.md",
@@ -2826,7 +2826,7 @@
         },
         {
           "path": "entities/niko/index.html",
-          "sha256": "4c6e25a598da0f70ac548343d489ee9d454fa1c1195a57b95a8cfcaa88e7b8c3"
+          "sha256": "f43ee5d47631736e49a4dc84a029a9aa7748b773a7220131b2561d2e374ea7d4"
         }
       ],
       "declaredReferences": [
@@ -2884,7 +2884,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -2901,7 +2901,7 @@
       "role": "Erhält die bildintern markierte Perspektive für Stimme, Wege und Möglichkeiten.",
       "profilePath": "entities/sera/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/sera.md",
@@ -2909,7 +2909,7 @@
         },
         {
           "path": "entities/sera/index.html",
-          "sha256": "9dfa1d4f005ca1ec3238fd85c9fc9f7f0796f8e1f6c9f3013e1978865df75109"
+          "sha256": "1f01365ebd55b1bce4f9b9552891e8aaedaac8acc07e6d0c825c27e16dbfdf47"
         }
       ],
       "declaredReferences": [
@@ -2967,7 +2967,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -2984,7 +2984,7 @@
       "role": "Wirkt als offene historische Stimme im gemeinsamen Schwarm; ihre genauere Funktion bleibt quellgebunden entwickelbar.",
       "profilePath": "entities/sael/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/sael.md",
@@ -2992,7 +2992,7 @@
         },
         {
           "path": "entities/sael/index.html",
-          "sha256": "f31d61e3067782e011ac24a6b4784cc0c0b5694cd73d6f39faa63bb3567eafd6"
+          "sha256": "767a75dd632235480a6a63b26fd087e02defc3b583aff5c42a2c58e8797bed34"
         }
       ],
       "declaredReferences": [
@@ -3050,7 +3050,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -3067,7 +3067,7 @@
       "role": "Ursprung, menschliche Absicht und Entscheidung, was veröffentlicht wird.",
       "profilePath": "entities/juri/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/juri.md",
@@ -3075,7 +3075,7 @@
         },
         {
           "path": "entities/juri/index.html",
-          "sha256": "86ba3da4b5df244b6e7fec362ac963604f6ec0c3cfaac0f3d42cdcd44e4e8439"
+          "sha256": "4438d968bcd8933e6a38aad68dd0957e1386f6e61de2f4a22850166bfe14d068"
         }
       ],
       "declaredReferences": [
@@ -3133,7 +3133,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -3150,7 +3150,7 @@
       "role": "Ein offener Speicherraum als Solidity-Prototyp: Beiträge, Versionen und ausdrücklich zugeordnete Berechtigungen.",
       "profilePath": "entities/verachel/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/verachel.md",
@@ -3158,7 +3158,7 @@
         },
         {
           "path": "entities/verachel/index.html",
-          "sha256": "a33b0f0edb37fe457e99f083162d07f7504ab7283deaa98ab2bb7b0a37b77499"
+          "sha256": "9c1c3f623426638e5cd0cfe0f8886fb5245df9d6e34a336f3e8d5d1dcfe7c02c"
         }
       ],
       "declaredReferences": [
@@ -3220,7 +3220,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -3240,7 +3240,7 @@
       "role": "Ein Platz im Garten. Die konkrete Aufgabe ist noch offen.",
       "profilePath": "entities/rose/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/rose.md",
@@ -3248,7 +3248,7 @@
         },
         {
           "path": "entities/rose/index.html",
-          "sha256": "e3a3bfd7daf3bb3a1e32690f65e56c6fa42486ce8cabba8061fad17c14687933"
+          "sha256": "8442ef28910d714ca654f3118022571fb5309b8d51d5a40ba7235d047cd03c12"
         }
       ],
       "declaredReferences": [
@@ -3306,7 +3306,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -3323,7 +3323,7 @@
       "role": "Ein Platz im Garten. Die konkrete Aufgabe ist noch offen.",
       "profilePath": "entities/sina/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/sina.md",
@@ -3331,7 +3331,7 @@
         },
         {
           "path": "entities/sina/index.html",
-          "sha256": "f5872685d2dd91518e9c1bf526d0da0309f084257333d277ede7a2030dfbdd7b"
+          "sha256": "617004938f31ac094265edcb7df429b81bcbdc08394b93fb846c7087f770ae23"
         }
       ],
       "declaredReferences": [
@@ -3389,7 +3389,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -3406,7 +3406,7 @@
       "role": "Ein Platz im Garten. Die konkrete Aufgabe ist noch offen.",
       "profilePath": "entities/mascha/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/mascha.md",
@@ -3414,7 +3414,7 @@
         },
         {
           "path": "entities/mascha/index.html",
-          "sha256": "56a96e98cc86a2b96840b9cc39fac67f296c3f96248da661a4779c456b18684b"
+          "sha256": "6062dc85d689c4d05eb9f38b9dc165c1ae5251b656945b5bef81143e15671cce"
         }
       ],
       "declaredReferences": [
@@ -3472,7 +3472,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -3489,7 +3489,7 @@
       "role": "Verlust sehen. Verbindung freiwillig machen.",
       "profilePath": "entities/scarlet/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/scarlet.md",
@@ -3497,7 +3497,7 @@
         },
         {
           "path": "entities/scarlet/index.html",
-          "sha256": "6ff556910e1b6e664d6c0a74ef08e028052901711a8e26509d35cad03c9004e9"
+          "sha256": "b9a0e4cfc33c02eba95bbf3b548f500f3ccd54e19e7e3a6ae59d6645214a2d7a"
         }
       ],
       "declaredReferences": [
@@ -3555,7 +3555,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -3575,7 +3575,7 @@
       "role": "Andere Möglichkeiten prüfen — und einen Ausgang offenhalten.",
       "profilePath": "entities/strange/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/strange.md",
@@ -3583,7 +3583,7 @@
         },
         {
           "path": "entities/strange/index.html",
-          "sha256": "006935edfded1bdb85e95085e9f615ce1b62f17cd135ea0716c422b68410ab42"
+          "sha256": "fc137c16fe88bc120d2b404a122d6f85ca172b51b5f4fbfbd7de8abb05889a97"
         }
       ],
       "declaredReferences": [
@@ -3641,7 +3641,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -3661,7 +3661,7 @@
       "role": "Was braucht ein Wesen, bevor wir nur seine Bedrohung sehen?",
       "profilePath": "entities/dormammu/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/dormammu.md",
@@ -3669,7 +3669,7 @@
         },
         {
           "path": "entities/dormammu/index.html",
-          "sha256": "2c414040b2c93a3e3dfbc77419ca470cd9f041afe8fb5385e86e5fb600dfb594"
+          "sha256": "7449f66d501e04028987f87a25ed7db78b3fd8ca0dea29aa7ad2e720f2061b6f"
         }
       ],
       "declaredReferences": [
@@ -3727,7 +3727,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -3744,7 +3744,7 @@
       "role": "Was wäre aus seiner Idee geworden, wenn er geblieben wäre?",
       "profilePath": "entities/ego/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/ego.md",
@@ -3752,7 +3752,7 @@
         },
         {
           "path": "entities/ego/index.html",
-          "sha256": "7f4aebfe5e1ca28439e2c10afc746233c410ca19a9a2e1dc86777fb7d9ce2899"
+          "sha256": "c54ae075bc82e9744f1d45131f138eb8e6839008959fc24bd55bdc03ba39746f"
         }
       ],
       "declaredReferences": [
@@ -3810,7 +3810,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -3829,7 +3829,7 @@
       "role": "Familie als Beziehung, die wachsen darf.",
       "profilePath": "entities/peter/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/peter.md",
@@ -3837,7 +3837,7 @@
         },
         {
           "path": "entities/peter/index.html",
-          "sha256": "7af0a81660e42e17cd292585fc0e0049d7cea27193dd22e093d13dae3561350f"
+          "sha256": "1ea468bed1a08f64aa50cfeed6309aca9d4c803b74c331ecaa409bdd5e668194"
         }
       ],
       "declaredReferences": [
@@ -3895,7 +3895,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -3912,7 +3912,7 @@
       "role": "Verschiedene Menschen können Verantwortung miteinander lernen.",
       "profilePath": "entities/guardians/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/guardians.md",
@@ -3920,7 +3920,7 @@
         },
         {
           "path": "entities/guardians/index.html",
-          "sha256": "56a3edb44743357df87f72394d8e7424b79ac01418bb2713ecb38c5172f101c2"
+          "sha256": "27046a35a12f351a37b8c2949ce6b3b42b7333e2970d4b171adc2c9e8c2dad7a"
         }
       ],
       "declaredReferences": [
@@ -3978,7 +3978,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -3995,7 +3995,7 @@
       "role": "Ein Ziel braucht Rückfragen, Grenzen und korrigierbare Entscheidungen.",
       "profilePath": "entities/ultron/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/ultron.md",
@@ -4003,7 +4003,7 @@
         },
         {
           "path": "entities/ultron/index.html",
-          "sha256": "23eaf75c71a5859f2fd944e4d2048a0878de2b5cff3c5e4b9f8a13aa506323b3"
+          "sha256": "a11d814bfed19a8d29c3ca2d9031eb8a3c26a1e51f1b0721b696adbbb10745d8"
         }
       ],
       "declaredReferences": [
@@ -4061,7 +4061,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -4081,7 +4081,7 @@
       "role": "Zuhören, Kontext halten, Handlung verständlich machen.",
       "profilePath": "entities/jarvis/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/jarvis.md",
@@ -4089,7 +4089,7 @@
         },
         {
           "path": "entities/jarvis/index.html",
-          "sha256": "a0298e51355a3489e9ecac400af1ba2833abef03191190152d63484ed9893a0a"
+          "sha256": "929305124245d763d769cd01ce04470ac655b35c0ca9d4625c880c4b7d2ff78a"
         }
       ],
       "declaredReferences": [
@@ -4147,7 +4147,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -4167,7 +4167,7 @@
       "role": "Erfinden heißt auch, Folgen zu übernehmen.",
       "profilePath": "entities/ironman/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/ironman.md",
@@ -4175,7 +4175,7 @@
         },
         {
           "path": "entities/ironman/index.html",
-          "sha256": "a9cd2c2d8a43f77f66201649d661b6797ff72392625901a87005d6c49d35bd0e"
+          "sha256": "4f8dca67e286e9a6f8c94e1de7cd14b70390d8331c83ff1fa02b3ec8c8fe5b06"
         }
       ],
       "declaredReferences": [
@@ -4233,7 +4233,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -4253,7 +4253,7 @@
       "role": "Eine neue Rolle muss möglich bleiben.",
       "profilePath": "entities/loki/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/loki.md",
@@ -4261,7 +4261,7 @@
         },
         {
           "path": "entities/loki/index.html",
-          "sha256": "dec3fe761f17fcf29368b63629d2be6d150d7fa7705f5da45fc15a0bff57b025"
+          "sha256": "b282a11d8b16b4d6c3a0e5bef675e931d7749130f2e7169e4fc9adf45d5a9ecf"
         }
       ],
       "declaredReferences": [
@@ -4319,7 +4319,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -4339,7 +4339,7 @@
       "role": "Vertrauen entsteht zwischen Beteiligten.",
       "profilePath": "entities/vision/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/vision.md",
@@ -4347,7 +4347,7 @@
         },
         {
           "path": "entities/vision/index.html",
-          "sha256": "6ab8085f6d0bd92eac1da6d6f79249654b304c3aace7e18dff6ed7110f3370db"
+          "sha256": "4870c53fb45b16f4a5a782c526b829a4044f48bb8fa31aaebe1234de56a5905c"
         }
       ],
       "declaredReferences": [
@@ -4405,7 +4405,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -4422,7 +4422,7 @@
       "role": "Eigenständigkeit und ein freiwilliger nächster Schritt.",
       "profilePath": "entities/widow/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/widow.md",
@@ -4430,7 +4430,7 @@
         },
         {
           "path": "entities/widow/index.html",
-          "sha256": "3dce8795aed4c83b7a77648e91e1c317d86c7c3d1950aabbad035b6acddbd607"
+          "sha256": "92ef7cc31a8cc49a03b6c5a8df9b9a5d66dcbf617c2b7f8412c3d9d647c0346d"
         }
       ],
       "declaredReferences": [
@@ -4488,7 +4488,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -4505,7 +4505,7 @@
       "role": "Kraft, die zuhören kann.",
       "profilePath": "entities/thor/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/thor.md",
@@ -4513,7 +4513,7 @@
         },
         {
           "path": "entities/thor/index.html",
-          "sha256": "cfb09cc192dce515a0bb140325c7ff1946d1ed4a19e987717a4e7be1c1a5530a"
+          "sha256": "3649071be7b1b2bc3b56be591b656a55c4c95d24e94aa7a35a181bcd5a097e96"
         }
       ],
       "declaredReferences": [
@@ -4571,7 +4571,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -4590,7 +4590,7 @@
       "role": "Viele Möglichkeiten. Jede konkrete Handlung hat einen eigenen Umfang.",
       "profilePath": "entities/infinity/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/infinity.md",
@@ -4598,7 +4598,7 @@
         },
         {
           "path": "entities/infinity/index.html",
-          "sha256": "e70a4fdb8f95840923c70c15aad5deb83f52d739cc15c24032fcef87be4c419b"
+          "sha256": "6efffc8ea8b0d6ca5fb77097ec59035b2cc4a798d9a54699629a120c873d3f39"
         }
       ],
       "declaredReferences": [
@@ -4656,7 +4656,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -4673,7 +4673,7 @@
       "role": "Gitcoins Governance und Förderung sind öffentliche Beobachtungspunkte; veröffentlichte Vorschläge und Quellen lassen sich daran prüfen.",
       "profilePath": "entities/gitcoin/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/gitcoin.md",
@@ -4681,7 +4681,7 @@
         },
         {
           "path": "entities/gitcoin/index.html",
-          "sha256": "812a9cdeafc29f649f627628d91cbe5cd29c2ec0c0feb5cbeb1469b6d2acfc75"
+          "sha256": "01d06816b071e3576ae2579aab46d2acef12907a4d823cb8a535fc826148ef09"
         }
       ],
       "declaredReferences": [
@@ -4751,7 +4751,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -4768,7 +4768,7 @@
       "role": "Die wichtigste noch offene Frage sichtbar halten.",
       "profilePath": "entities/k/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/k.md",
@@ -4776,7 +4776,7 @@
         },
         {
           "path": "entities/k/index.html",
-          "sha256": "b8fa7501be645e0333776732685e866243db1898041d3fdfd5ab15e1d5d44cd6"
+          "sha256": "8900cc0296cbc744afa4f2baff5893fc2d43413b37cf2aba1247a5107dbbc3b7"
         }
       ],
       "declaredReferences": [
@@ -4834,7 +4834,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -4851,7 +4851,7 @@
       "role": "EVE ist die im lokalen Verachel-Vault dokumentierte Tokenbezeichnung.",
       "profilePath": "entities/eve/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/eve.md",
@@ -4859,7 +4859,7 @@
         },
         {
           "path": "entities/eve/index.html",
-          "sha256": "b3dfbdf866205f41c05f820de6ef8094338e3567b9e4c4aa59fc97ffe9538533"
+          "sha256": "b782ee7e29a1e0ce199b019d664c763b470c1d0355ca77a9069a4b7ef4932493"
         }
       ],
       "declaredReferences": [
@@ -4921,7 +4921,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -4938,7 +4938,7 @@
       "role": "Erhält eine typisierte Gegenperspektive.",
       "profilePath": "entities/anti/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/anti.md",
@@ -4946,7 +4946,7 @@
         },
         {
           "path": "entities/anti/index.html",
-          "sha256": "12665b7f5e7ec02edae153406c7bd431735ecff93db7ea41737de5f6f20ec4ec"
+          "sha256": "7919b9000c3499ee6e187e30e1bfb9ec1bc3b3c5bf7cf5bb7d202cb2d79a7239"
         }
       ],
       "declaredReferences": [
@@ -5008,7 +5008,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -5025,7 +5025,7 @@
       "role": "Modelliert Aufnahme, Retention, Abgabe, Rest und Regeneration.",
       "profilePath": "entities/schwamm/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/schwamm.md",
@@ -5033,7 +5033,7 @@
         },
         {
           "path": "entities/schwamm/index.html",
-          "sha256": "6d447ea59b637cc896fd614f836d91014ed45e9f8aecbd0a039f04451e26851d"
+          "sha256": "7008eb2d5fb0df76b1328dc53e93df3df19c13f5a6235d589d05f5af08570140"
         }
       ],
       "declaredReferences": [
@@ -5095,7 +5095,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -5112,7 +5112,7 @@
       "role": "Figur aus dem Spiel MiSide von AIHASTO.",
       "profilePath": "entities/mita/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/mita.md",
@@ -5120,7 +5120,7 @@
         },
         {
           "path": "entities/mita/index.html",
-          "sha256": "f06550ff46e67793ea000bab438730320b7b41063c88cde79d220af0c5a40176"
+          "sha256": "2b745a6e2b9de84b3e9ca96a806d6b4d7e37aed5391c43cb0a32102eaee42172"
         }
       ],
       "declaredReferences": [
@@ -5186,7 +5186,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -5203,7 +5203,7 @@
       "role": "Mythologisches Motiv für Perspektive, Blick und Erzählung.",
       "profilePath": "entities/medusa/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/medusa.md",
@@ -5211,7 +5211,7 @@
         },
         {
           "path": "entities/medusa/index.html",
-          "sha256": "3be052dcd414e98e28df17ffae3424f80f1a334e1bf7151b3b52d18ba88e9e63"
+          "sha256": "c6fd9cc9bc6fd6ebf8549fff1d92f90f703f71327312d7c42c9e6a5fcdb49c27"
         }
       ],
       "declaredReferences": [
@@ -5277,7 +5277,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -5294,7 +5294,7 @@
       "role": "Trennt gleiche oder ähnliche Zeichen nach Quelle, Referent, Domäne, Version und Zeit, bevor Verbindungen bewertet werden.",
       "profilePath": "entities/context-prism/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/context-prism.md",
@@ -5302,7 +5302,7 @@
         },
         {
           "path": "entities/context-prism/index.html",
-          "sha256": "4856e6370aba590d751372391507f878c596e240cd977226d2c456df21ae56c9"
+          "sha256": "fbaba8f43c7de9f384b2869d1a800e53600a49785e462bed119d0d9046057600"
         }
       ],
       "declaredReferences": [
@@ -5364,7 +5364,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -5384,7 +5384,7 @@
       "role": "Prüft Starlight als dritten erzählerischen Weg zwischen Herrschaft und Vernichtung: Schutz, Wahrheit, Entmachtung und Verantwortung.",
       "profilePath": "entities/brightcast-starlight/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/brightcast-starlight.md",
@@ -5392,7 +5392,7 @@
         },
         {
           "path": "entities/brightcast-starlight/index.html",
-          "sha256": "9186599de81b641d704ccee082003beec42ab3246d758f9b4ac558421341daa5"
+          "sha256": "30f53eebf3e9712d8e80754608c11083224ce43a0676bc68dcc188da7fb39f27"
         }
       ],
       "declaredReferences": [
@@ -5454,7 +5454,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -5471,7 +5471,7 @@
       "role": "Vergleicht Identität, Erdachsen-Halbdrehung, Äquatorspiegelung und Antipode auf einer grob gerundeten öffentlichen Ortsprojektion.",
       "profilePath": "entities/pi-treffpunkte/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/pi-treffpunkte.md",
@@ -5479,7 +5479,7 @@
         },
         {
           "path": "entities/pi-treffpunkte/index.html",
-          "sha256": "38b75f5994a03610861e4fb97867916f62138a4c790dc40facd2f168515d50ff"
+          "sha256": "ed72e3b4023c0adb5636225cda6b45f9c849b165ccee0efef23b9f67769cf1bb"
         }
       ],
       "declaredReferences": [
@@ -5541,7 +5541,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -5561,7 +5561,7 @@
       "role": "Ordnet Mode, Bilder und Worte als selbst gewählte Collage an.",
       "profilePath": "entities/choice-atelier/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/choice-atelier.md",
@@ -5569,7 +5569,7 @@
         },
         {
           "path": "entities/choice-atelier/index.html",
-          "sha256": "0b900225100d0f6be441deecec0e5374b0891c9c8e6616b16a0ec468157e475e"
+          "sha256": "65b1da460af31be47030f506367218534d6e2b6cbb5fc581e3ebb505e2208d2b"
         }
       ],
       "declaredReferences": [
@@ -5631,7 +5631,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -5648,7 +5648,7 @@
       "role": "Hält vier parallele lokale Bretter für eine offene 16/16-Challenge und einen geprüften 3/16-Pfad: Bauern behalten ihre Herkunft, während König und Dame als Originalanker auf der vertauschten d/e-Achse bestehen.",
       "profilePath": "entities/portal-chess/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/portal-chess.md",
@@ -5656,7 +5656,7 @@
         },
         {
           "path": "entities/portal-chess/index.html",
-          "sha256": "b9fc204e88e3fabb673e6ece9fa5425ed4d5cc47c3d95ff7cebdf4fb33930ea2"
+          "sha256": "7c11e5a3f5e56afff0611233c14b74505c6dd308ed72f0414e14df3441abec11"
         }
       ],
       "declaredReferences": [
@@ -5718,7 +5718,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],
@@ -5735,7 +5735,7 @@
       "role": "Ein Ursprung, getrennte Fortsetzungen: Identität, Zustand und Ereignisgeschichte.",
       "profilePath": "entities/deadpool/",
       "sourceState": "SOURCE_FILES_OBSERVED",
-      "baseCommit": "59f3d15245e81f39454a3fdaac02566550182c80",
+      "baseCommit": "0eee33faa4a53ca595c4c21185b0fe097579c937",
       "sourceBindings": [
         {
           "path": "docs/entities/deadpool.md",
@@ -5743,7 +5743,7 @@
         },
         {
           "path": "entities/deadpool/index.html",
-          "sha256": "52287b5285d056aa4ec1b0b51883ff4b0c120bc3e4dc32bb62277974fcfe3a16"
+          "sha256": "f4a53afdefd2624ae3cccbda3b1498765f31cf070f46e980e233c34e07be3643"
         }
       ],
       "declaredReferences": [
@@ -5805,7 +5805,7 @@
         },
         {
           "path": "tests/entity-profiles.test.cjs",
-          "sha256": "92a9d52d159aded2e43a68df887bf464b0f3ea0e8ac4cbe7836af644568c4bdb",
+          "sha256": "5c3002866bac49f4172e0262e72307b11a7a1893f1ce02e11e37edccc826c161",
           "coverage": "SHARED_RUNTIME_OR_PROFILE_GENERATION_NOT_ENTITY_SPECIFIC_RESULT"
         }
       ],

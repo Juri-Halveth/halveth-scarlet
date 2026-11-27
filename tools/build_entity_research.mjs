@@ -74,8 +74,8 @@ const sharedCode = [
   "assets/entity-signature-ui.mjs",
   "assets/entity-world-model.mjs",
 ];
-const inventorySourceCommit = "59f3d15245e81f39454a3fdaac02566550182c80";
-const inventoryRecordedAt = "2026-11-24T23:55:14Z";
+const inventorySourceCommit = "0eee33faa4a53ca595c4c21185b0fe097579c937";
+const inventoryRecordedAt = "2026-11-27T22:45:54Z";
 const boundFile = (p) => ({ path: p, sha256: hash(read(p)) });
 const inventory = registry.entities.map((e) => {
   if (ids.has(e.id)) throw Error("Duplicate profile ID");
