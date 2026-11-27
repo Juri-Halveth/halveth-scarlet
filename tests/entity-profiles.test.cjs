@@ -21,6 +21,7 @@ test('all entities have a distinct static bilingual profile, editable dossier an
     assert.equal(entity.profilePath, `entities/${entity.id}/`);
     destinations.add(entity.profilePath);
     const html = read(`${entity.profilePath}index.html`);
+    assert.ok(html.includes(`<nav class="profile-bottom"><a href="../#${entity.id}">`), entity.id);
     const dossier = read(`docs/entities/${entity.id}.md`);
     assert.ok(html.includes(`data-entity-id="${entity.id}"`));
     assert.ok(decode(html).includes(`<h1>${entity.label}</h1>`));
@@ -54,7 +55,7 @@ test('every local profile asset, companion route and source fragment exists', ()
       let relative = decodeURIComponent(url.pathname.slice(base.pathname.length));
       if (!relative || relative.endsWith('/')) relative += 'index.html';
       assert.ok(fs.existsSync(path.join(root, relative)), `${file}: ${relative}`);
-      if (url.hash && url.hash !== '#team' && relative.endsWith('.html')) {
+      if (url.hash && relative.endsWith('.html')) {
         assert.ok(read(relative).includes(`id="${decodeURIComponent(url.hash.slice(1))}"`), `${file}: ${relative}${url.hash}`);
       }
     }
