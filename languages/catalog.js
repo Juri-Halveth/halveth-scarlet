@@ -9148,6 +9148,14 @@ window.HalvethHubTranslations = Object.freeze({
     "en": "4 parallel boards · P/F/H/R",
     "ru": "4 параллельные доски · P/F/H/R"
   },
+  "In der Konstellation zeigen": {
+    "en": "Show in the constellation",
+    "ru": "Показать в созвездии"
+  },
+  "Show in the constellation": {
+    "en": "Show in the constellation",
+    "ru": "Показать в созвездии"
+  },
   "Portal Chess Challenge öffnen": {
     "en": "Open the Portal Chess challenge",
     "ru": "Открыть задачу «Портальные шахматы»"
