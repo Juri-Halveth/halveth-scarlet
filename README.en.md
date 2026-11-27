@@ -21,3 +21,5 @@ Project lead: Juri / HALVETH. AI-assisted development.
 
 Prerelease Windows x64 ZIP; files and version notes are on the release page.
 The native game world is a separate application alongside the browser prototype.
+
+The Windows ZIP contains the October portal preview. The [world foundation](https://github.com/Juri-Halveth/halveth-scarlet/pull/67), [soil and meadow](https://github.com/Juri-Halveth/halveth-scarlet/pull/68) and [mirror encounter](https://github.com/Juri-Halveth/halveth-scarlet/pull/73) are separate development branches.

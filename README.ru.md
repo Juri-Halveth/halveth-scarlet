@@ -21,3 +21,5 @@
 
 Предварительная версия в ZIP-архиве для Windows x64; файлы и примечания доступны на странице релиза.
 Нативный игровой мир — отдельное приложение наряду с браузерным прототипом.
+
+ZIP-архив для Windows содержит октябрьскую предварительную версию с порталом. [Основа мира](https://github.com/Juri-Halveth/halveth-scarlet/pull/67), [почва и луг](https://github.com/Juri-Halveth/halveth-scarlet/pull/68) и [зеркальная встреча](https://github.com/Juri-Halveth/halveth-scarlet/pull/73) представлены в отдельных ветках разработки.

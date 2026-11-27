@@ -88,6 +88,8 @@ Browser-Spielprototyp und native Entwicklungsarbeit.
 — Vorabversion als Windows-x64-ZIP, mit Versionshinweisen und Dateien auf der
 Release-Seite. Die native Spielwelt ist eine separate Anwendung neben dem Browser-Prototyp.
 
+Die Windows-ZIP enthält die Portal-Vorschau vom Oktober. [Weltfundament](https://github.com/Juri-Halveth/halveth-scarlet/pull/67), [Boden und Wiese](https://github.com/Juri-Halveth/halveth-scarlet/pull/68) und [Spiegelbegegnung](https://github.com/Juri-Halveth/halveth-scarlet/pull/73) sind gesonderte Entwicklungsstände.
+
 ### [Portal Chess · Schachvariation](forschung/portal-chess/)
 
 Ein regelgebundenes Spielmodell mit überprüfbarer Zugspur.
