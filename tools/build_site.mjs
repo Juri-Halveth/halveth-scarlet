@@ -7,6 +7,7 @@ import { checkLinks, htmlFiles, siteURL } from './check_links.mjs';
 import { sourceTreeState } from './source_state.mjs';
 import { trackedSourceFiles, isTrackedPublicInput } from './public_inputs.mjs';
 import { siteTreeReceipt } from './artifact_tree.mjs';
+import { entryPolicy } from './entry_policy.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = path.join(root, '.site-build');
@@ -38,10 +39,12 @@ const includeSiteInput = file => {
   return true;
 };
 execFileSync(process.execPath, [path.join(root, 'tools/build_profiles.mjs')], { cwd: root, stdio: 'inherit' });
+execFileSync(process.execPath, [path.join(root, 'tools/build_entity_research.mjs'), '--check'], { cwd: root, stdio: 'inherit' });
+execFileSync(process.execPath, [path.join(root, 'tools/build_guide.mjs'), '--check'], { cwd: root, stdio: 'inherit' });
 fs.rmSync(output, { recursive: true, force: true });
 fs.mkdirSync(output);
-const directories = ['languages', 'assets', 'entities', 'news', 'forschung', 'room', 'snapshot', 'collage', 'docs', 'releases'];
-const files = ['index.html', 'favicon.ico', '.nojekyll', 'robots.txt', 'README.md', 'CONTRIBUTIONS.md', 'LICENSES.md', 'LICENSE-HALVETH-PIRL-2.0.md', 'HALVETH-RIGHTS.md', 'HALVETH-RIGHTS.json', 'halveth-rights.schema.json'];
+const directories = ['languages', 'assets', 'entities', 'forschung', 'room', 'snapshot', 'collage', 'docs', 'releases'];
+const files = ['index.html', 'favicon.ico', '.nojekyll', 'robots.txt', 'README.md', 'IDENTITY.md', 'CONTRIBUTIONS.md', 'LICENSES.md', 'LICENSE-HALVETH-PIRL-2.0.md', 'HALVETH-RIGHTS.md', 'HALVETH-RIGHTS.json', 'halveth-rights.schema.json'];
 for (const name of [...directories, ...files]) {
   const source = path.join(root, name);
   if (!fs.existsSync(source)) throw new Error(`Required public input missing: ${name}`);
@@ -49,10 +52,36 @@ for (const name of [...directories, ...files]) {
 }
 if (!fs.existsSync(path.join(output, 'forschung', 'ashbound', 'index.html'))) throw new Error('ASHBOUND public route missing');
 const pages = htmlFiles(output);
+// Keep the atelier controller and mathematical model on the same release.
+const researchDirectory=path.join(output,'entities','research');
+const researchModules=fs.readdirSync(researchDirectory,{recursive:true}).filter(name=>/\.(?:mjs|js)$/.test(name)).map(name=>'entities/research/'+name.split(path.sep).join('/')).sort();
+const researchModuleSet=new Set(researchModules);
+const researchVersion=createHash('sha256').update([...researchModuleSet].sort().map(name=>name+'\n'+fs.readFileSync(path.join(output,name))).join('\n')).digest('hex');
+for(const name of researchModules){
+  const file=path.join(output,name),source=fs.readFileSync(file,'utf8');
+  const versioned=source.replace(/((?:from\s*|import\s*\(\s*)['"])(\.\/?[^'"?]+)(['"])/g,(match,start,relative,end)=>{
+    const target=path.relative(output,path.resolve(path.dirname(file),relative)).split(path.sep).join('/');
+    return researchModuleSet.has(target)?start+relative+'?v='+researchVersion+end:match;
+  });
+  if(versioned!==source)fs.writeFileSync(file,versioned);
+}
+// Bind this module family to one release, including nested imports. A cached
+// controller must not be paired with an older renderer after a Pages update.
+const entityAssets=fs.readdirSync(path.join(output,'assets')).filter(name=>/^entity-.*\.(?:mjs|js|css)$/.test(name)).map(name=>'assets/'+name);
+const entityModules=entityAssets.filter(name=>/\.(?:mjs|js)$/.test(name));
+const entityVersion=createHash('sha256').update(entityModules.map(name=>name+'\n'+fs.readFileSync(path.join(output,name),'utf8')).join('\n')).digest('hex');
+const entityModuleSet=new Set(entityModules);
+for(const name of entityModules){
+  const file=path.join(output,name),source=fs.readFileSync(file,'utf8');
+  const versioned=source.replace(/((?:from\s*|import\s*\(\s*)['"])(\.\/?[^'"?]+)(['"])/g,(match,start,relative,end)=>{
+    const target=path.relative(output,path.resolve(path.dirname(file),relative)).split(path.sep).join('/');
+    return entityModuleSet.has(target)?start+relative+'?v='+entityVersion+end:match;
+  });
+  if(versioned!==source)fs.writeFileSync(file,versioned);
+}
 const thesisDir=path.join(output,'forschung','juri-thesis');
 const thesisAssets=fs.readdirSync(thesisDir);
-// A versioned module entry still imports an unversioned dependency unless its
-// import URL is changed as well. Keep the source readable and version the copy.
+// Bind the browser-visible entry and its imported model to the same copied bytes.
 for (const name of thesisAssets.filter(name=>name.endsWith('.js'))) {
   const file=path.join(thesisDir,name);
   const source=fs.readFileSync(file,'utf8');
@@ -66,15 +95,24 @@ for (const name of thesisAssets.filter(name=>name.endsWith('.js'))) {
 }
 // Version shared presentation by the exact copied bytes, not a release label.
 const assetDigests=Object.fromEntries([
-  'assets/portal-shell.css','assets/portal-shell.js','languages/hub-language.css','assets/mobile.css',
-  ...thesisAssets
-    .filter(name=>/\.(css|js)$/.test(name))
-    .map(name=>'forschung/juri-thesis/'+name)
+  'assets/entry-scroll.js','assets/portal-shell.css','assets/portal-shell.js','languages/hub-language.css','assets/mobile.css',
+  'assets/capability-room.css','assets/capability-room.mjs','assets/capability-room-model.mjs','assets/capability-room-visual.mjs',
+  'forschung/weltkeimwerk/core.js','forschung/weltkeimwerk/live-core.js',
+  ...entityAssets,'assets/universe-data.js',
+  'entities/research/app.mjs','entities/research/atelier.css',
+  ...thesisAssets.filter(name=>/\.(css|js)$/.test(name)).map(name=>'forschung/juri-thesis/'+name)
 ].map(asset=>[asset,createHash('sha256').update(fs.readFileSync(path.join(output,asset))).digest('hex')]));
+const roomController=path.join(output,'assets/capability-room.mjs');
+let roomSource=fs.readFileSync(roomController,'utf8');
+for(const name of ['capability-room-model.mjs','capability-room-visual.mjs']) roomSource=roomSource.replace("'./"+name+"'", "'./"+name+"?v="+assetDigests['assets/'+name]+"'");
+fs.writeFileSync(roomController,roomSource);
+assetDigests['assets/capability-room.mjs']=createHash('sha256').update(fs.readFileSync(roomController)).digest('hex');
 for (const file of pages) {
   const relative=path.relative(output,file).split(path.sep).join('/');
   const relativeRoot='../'.repeat(relative.split('/').length-1);
   const standalonePage=[
+    'index.html',
+    'entities/research/index.html',
     'forschung/ashbound/index.html',
     'forschung/ashbound/play/index.html',
     'forschung/juri-thesis/index.html',
@@ -85,16 +123,17 @@ for (const file of pages) {
     'forschung/juri-thesis/konzept.html',
     'forschung/juri-thesis/rechtslabor.html',
     'forschung/juri-thesis/versand.html',
-    'forschung/ba-uebergangsraum/index.html',
-    'forschung/ba-uebergangsraum/ez-nullmonat.html',
-    'forschung/ba-uebergangsraum/quellen.html',
     'forschung/wegweiser/index.html',
+    'forschung/wegweiser/en.html',
+    'forschung/wegweiser/ru.html',
   ].includes(relative);
   const prefix=relativeRoot+'languages/';
   const html=fs.readFileSync(file,'utf8').replace(/<!-- HUB_LANGUAGES_START -->[\s\S]*?<!-- HUB_LANGUAGES_END -->/g,'').replace(/<!-- MOBILE_LAYOUT_START -->[\s\S]*?<!-- MOBILE_LAYOUT_END -->/g,'');
   const tags=standalonePage?'':'<!-- HUB_LANGUAGES_START --><link rel="stylesheet" href="'+prefix+'hub-language.css"><script src="'+prefix+'catalog.js" defer></script><script src="'+prefix+'hub-language.js" defer></script><!-- HUB_LANGUAGES_END -->';
   const mobile=standalonePage?'':'<!-- MOBILE_LAYOUT_START --><link rel="stylesheet" href="'+relativeRoot+'assets/mobile.css"><!-- MOBILE_LAYOUT_END -->';
-  const built=html.replace(/(<head[^>]*>)/,match=>match+tags).replace(/<\/head>/i,mobile+'</head>');
+  const archived=/forschung\/(?:ba-uebergangsraum|brightcast-starlight|de-anker-hela|halveth-research|handschriftliche-konvergenzen|microvalue|q-notizen|red-room-dialog|tagesstand-2026-09-13|usdai-sabr-kontext)\//;
+  const curated=html.replace(/<a\b[^>]*href=[\"']([^\"']+)[\"'][^>]*>.*?<\/a>/gis,(m,url)=>archived.test(url)?'<a href=\"/halveth-scarlet/forschung/wegweiser/\">Technische Demos / Technical demos</a>':m);
+  const built=entryPolicy(curated.replace(/(<head[^>]*>)/,match=>match+tags).replace(/<\/head>/i,mobile+'</head>'),relative);
   fs.writeFileSync(file,built.replace(/\b(src|href)=(["'])([^"']+)\2/g,(match,attribute,quote,url)=>{
     const pathname=url.split(/[?#]/)[0];
     if (/^(?:[a-z]+:|\/\/|#)/i.test(pathname)) return match;

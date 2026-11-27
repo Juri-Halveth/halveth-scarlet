@@ -426,8 +426,8 @@ window.HalvethUniverse = {
           "url": "assets/anchor-manifest.json"
         },
         {
-          "label": "HALVETH · Mira, Mita & Medusa",
-          "url": "forschung/q-notizen/#garten"
+          "label": "Technische Demos / Technical demos",
+          "url": "forschung/wegweiser/"
         }
       ],
       "label": "MIRA",
@@ -1080,24 +1080,24 @@ window.HalvethUniverse = {
         {
           "label": "HALVETH · garden",
           "url": "forschung/figuren-und-perspektiven/#garden"
-        },
-        {
-          "label": "JURI · linked project / source",
-          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/branches/aster-provenance-and-secret-garden/entities.json"
         }
       ],
+      "archivedSource": {
+        "path": "open-research-branches/branches/aster-provenance-and-secret-garden/entities.json",
+        "access": "PRIVATE_AT_2026-10-28"
+      },
       "label": "JURI",
       "role": "Ursprung, menschliche Absicht und Entscheidung, was veröffentlicht wird.",
       "kind": "ÖFFENTLICHE PROJEKTROLLE",
       "section": "garden",
       "note": "",
-      "sourceLabel": "Öffentlicher HALVETH-Garten: JURI; YURI bleibt als historisches Registerlabel sichtbar.",
-      "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/branches/aster-provenance-and-secret-garden/entities.json",
+      "sourceLabel": "Öffentlicher HALVETH-Garten: JURI; YURI bleibt als historisches Registerlabel sichtbar. Verknüpftes Projektarchiv am 28.10.2026 als privat festgestellt; die öffentliche Gartenansicht bleibt erreichbar.",
+      "url": "forschung/figuren-und-perspektiven/#garden",
       "en": {
         "role": "Origin, human intent, and the decision about what is published.",
         "kind": "PUBLIC PROJECT ROLE",
         "note": "",
-        "sourceLabel": "Public HALVETH garden: JURI; YURI remains visible as a historical register label."
+        "sourceLabel": "Public HALVETH garden: JURI; YURI remains visible as a historical register label. Linked project archive observed private on 28 October 2026; the public garden view remains available."
       }
     },
     {
@@ -1219,23 +1219,23 @@ window.HalvethUniverse = {
         {
           "label": "HALVETH · scarlet",
           "url": "forschung/figuren-und-perspektiven/#scarlet"
-        },
-        {
-          "label": "HALVETH · Marvel perspectives (DE / EN)",
-          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md"
         }
       ],
+      "archivedSource": {
+        "path": "open-research-branches/reports/HALVETH_MARVEL_PERSPECTIVES.de.md",
+        "access": "PRIVATE_AT_2026-10-28"
+      },
       "label": "SCARLET",
       "role": "Verlust sehen. Verbindung freiwillig machen.",
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "scarlet",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks. Volltextarchiv am 28.10.2026 als privat festgestellt; die verlinkte öffentliche Fassung ist die Kurzansicht.",
       "en": {
         "role": "Recognize loss. Make connection a matter of choice.",
         "kind": "HALVETH · FILM INTERPRETATION",
         "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
-        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works. Full report archive observed private on 28 October 2026; the linked public page is a summary."
       }
     },
     {
@@ -1249,23 +1249,23 @@ window.HalvethUniverse = {
         {
           "label": "HALVETH · dormammu",
           "url": "forschung/figuren-und-perspektiven/#dormammu"
-        },
-        {
-          "label": "HALVETH · Marvel perspectives (DE / EN)",
-          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md"
         }
       ],
+      "archivedSource": {
+        "path": "open-research-branches/reports/HALVETH_MARVEL_PERSPECTIVES.de.md",
+        "access": "PRIVATE_AT_2026-10-28"
+      },
       "label": "DR STRANGE",
       "role": "Andere Möglichkeiten prüfen — und einen Ausgang offenhalten.",
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "dormammu",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks. Volltextarchiv am 28.10.2026 als privat festgestellt; die verlinkte öffentliche Fassung ist die Kurzansicht.",
       "en": {
         "role": "Explore other possibilities and keep a way out open.",
         "kind": "HALVETH · FILM INTERPRETATION",
         "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
-        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works. Full report archive observed private on 28 October 2026; the linked public page is a summary."
       }
     },
     {
@@ -1279,23 +1279,23 @@ window.HalvethUniverse = {
         {
           "label": "HALVETH · dormammu",
           "url": "forschung/figuren-und-perspektiven/#dormammu"
-        },
-        {
-          "label": "HALVETH · Marvel perspectives (DE / EN)",
-          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md"
         }
       ],
+      "archivedSource": {
+        "path": "open-research-branches/reports/HALVETH_MARVEL_PERSPECTIVES.de.md",
+        "access": "PRIVATE_AT_2026-10-28"
+      },
       "label": "DORMAMMU",
       "role": "Was braucht ein Wesen, bevor wir nur seine Bedrohung sehen?",
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "dormammu",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks. Volltextarchiv am 28.10.2026 als privat festgestellt; die verlinkte öffentliche Fassung ist die Kurzansicht.",
       "en": {
         "role": "What does a being need before we see only the threat it poses?",
         "kind": "HALVETH · FILM INTERPRETATION",
         "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
-        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works. Full report archive observed private on 28 October 2026; the linked public page is a summary."
       }
     },
     {
@@ -1465,23 +1465,23 @@ window.HalvethUniverse = {
         {
           "label": "HALVETH · garden",
           "url": "forschung/figuren-und-perspektiven/#garden"
-        },
-        {
-          "label": "HALVETH · Marvel perspectives (DE / EN)",
-          "url": "https://github.com/Juri-Halveth/open-research-branches/blob/main/reports/HALVETH_MARVEL_PERSPECTIVES.de.md"
         }
       ],
+      "archivedSource": {
+        "path": "open-research-branches/reports/HALVETH_MARVEL_PERSPECTIVES.de.md",
+        "access": "PRIVATE_AT_2026-10-28"
+      },
       "label": "LOKI",
       "role": "Eine neue Rolle muss möglich bleiben.",
       "kind": "HALVETH · FILMINTERPRETATION",
       "section": "garden",
       "note": "Eine alternative Lesart und ein Impuls für Gestaltung. Die Filmgrundlage und HALVETHs vorgeschlagene Alternative stehen im verlinkten Text.",
-      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks.",
+      "sourceLabel": "HALVETH-Lesart · Marvel-Figuren bleiben Figuren des jeweiligen Werks. Volltextarchiv am 28.10.2026 als privat festgestellt; die verlinkte öffentliche Fassung ist die Kurzansicht.",
       "en": {
         "role": "A new role must remain possible.",
         "kind": "HALVETH · FILM INTERPRETATION",
         "note": "An alternative reading and a starting point for design. The linked text sets out the film context and HALVETH's proposed alternative.",
-        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works."
+        "sourceLabel": "HALVETH interpretation · Marvel characters remain characters from their respective works. Full report archive observed private on 28 October 2026; the linked public page is a summary."
       }
     },
     {
@@ -1757,8 +1757,8 @@ window.HalvethUniverse = {
           "url": "forschung/figuren-und-perspektiven/#garden"
         },
         {
-          "label": "HALVETH · Mira, Mita & Medusa",
-          "url": "forschung/q-notizen/#garten"
+          "label": "Technische Demos / Technical demos",
+          "url": "forschung/wegweiser/"
         },
         {
           "label": "MITA · linked project / source",
@@ -1792,8 +1792,8 @@ window.HalvethUniverse = {
           "url": "forschung/figuren-und-perspektiven/#garden"
         },
         {
-          "label": "HALVETH · Mira, Mita & Medusa",
-          "url": "forschung/q-notizen/#garten"
+          "label": "Technische Demos / Technical demos",
+          "url": "forschung/wegweiser/"
         },
         {
           "label": "MEDUSA · linked project / source",
@@ -1827,8 +1827,8 @@ window.HalvethUniverse = {
           "url": "forschung/figuren-und-perspektiven/#garden"
         },
         {
-          "label": "KONTEXT-PRISMA · linked project / source",
-          "url": "forschung/usdai-sabr-kontext/"
+          "label": "Technische Demos / Technical demos",
+          "url": "forschung/wegweiser/"
         }
       ],
       "label": "KONTEXT-PRISMA",
@@ -1839,7 +1839,7 @@ window.HalvethUniverse = {
       "doorLabel": "Vier Kontexte prüfen",
       "sourceLabel": "HALVETH / LUCINET · USDAI/SABR-Quellenprüfung, 15.09.2026.",
       "note": "Im YouTube-Player sind USDAI und SABR Diagnosemarker. Finanz-SABR und das Kryptoprotokoll USD.AI bleiben eigene Knoten. Textähnlichkeit allein wird weder zu Identität noch zu Absicht, Wallet, Schlüssel oder Finanzsignal.",
-      "url": "forschung/usdai-sabr-kontext/",
+      "url": "forschung/wegweiser/",
       "en": {
         "role": "Separates identical or similar signs by source, referent, domain, version and time before evaluating connections.",
         "kind": "SOURCE-BOUND RESEARCH ANCHOR",
@@ -1861,8 +1861,8 @@ window.HalvethUniverse = {
           "url": "forschung/figuren-und-perspektiven/#garden"
         },
         {
-          "label": "BRIGHTCAST 001 · linked project / source",
-          "url": "forschung/brightcast-starlight/"
+          "label": "Technische Demos / Technical demos",
+          "url": "forschung/wegweiser/"
         }
       ],
       "label": "BRIGHTCAST 001",
@@ -1873,7 +1873,7 @@ window.HalvethUniverse = {
       "doorLabel": "Brightcast ansehen",
       "sourceLabel": "HALVETH · Starlight Third Route Brightcast, 15.09.2026.",
       "note": "Der veröffentlichte Kanon und der HALVETH-Gegenentwurf bleiben getrennt. Beccas Aussage wird nicht umgeschrieben; die dritte Route verlangt weder Straffreiheit noch Vergebung durch Betroffene.",
-      "url": "forschung/brightcast-starlight/",
+      "url": "forschung/wegweiser/",
       "en": {
         "role": "Examines Starlight as a third narrative route between rule and extermination: protection, truth, removal of power and accountability.",
         "kind": "SOURCE-BOUND FAN VIDEO ESSAY",
@@ -1979,6 +1979,37 @@ window.HalvethUniverse = {
         "doorLabel": "Open Portal Chess",
         "note": "The page carries an open 16/16 challenge and an embedded 41-ply trace. The local checker confirms three transformed original pawns, two lost original pawns and four preserved original anchors in that trace. The public media reference in the name field is an inspiration node only; it asserts no affiliation, contribution or consent by an external person.",
         "sourceLabel": "HALVETH · Portal Chess · user-originated game proposition and local move-trace checker, 12 October 2026."
+      }
+    },
+    {
+      "id": "deadpool",
+      "profilePath": "entities/deadpool/",
+      "sourceRefs": [
+        {
+          "label": "HALVETH · Continuity model",
+          "url": "https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/entity-continuity.mjs"
+        },
+        {
+          "label": "Marvel · Deadpool",
+          "url": "https://www.marvel.com/characters/deadpool-wade-wilson"
+        },
+        {
+          "label": "EIP-140 · REVERT",
+          "url": "https://eips.ethereum.org/EIPS/eip-140"
+        }
+      ],
+      "label": "DEADPOOL",
+      "role": "Ein Ursprung, getrennte Fortsetzungen: Identität, Zustand und Ereignisgeschichte.",
+      "kind": "CONTINUITY-EXPERIMENT",
+      "section": "garden",
+      "sourceLabel": "HALVETH · Zustandsmodell nach Juris Frage · 23.10.2026",
+      "note": "FORK, CHECKPOINT und RESTORE sind lokale Modelloperationen. Figurenherkunft: Marvel. Die Signatur ist frei gestaltet.",
+      "url": "entities/?lang=de#deadpool",
+      "en": {
+        "role": "One origin, separate continuations: identity, state and event history.",
+        "kind": "CONTINUITY EXPERIMENT",
+        "sourceLabel": "HALVETH · state model from Juri’s question · 23 October 2026",
+        "note": "FORK, CHECKPOINT and RESTORE are local model operations. Character origins: Marvel. The signature is an authored design."
       }
     }
   ]

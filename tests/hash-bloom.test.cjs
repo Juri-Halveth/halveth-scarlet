@@ -32,12 +32,3 @@ test('the membrane has no single hub: every node has exactly four neighbours', (
   }
   assert(neighbours.every(set => set.size === 4));
 });
-
-test('the homepage describes the membrane as presentation, not biometric capture', () => {
-  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  assert(html.includes('id="hash-bloom"'));
-  assert(html.includes('liest keine Fingerabdrücke, Wallets oder Gerätedaten'));
-  assert(html.includes('NIEMAND STEHT ALLEIN. ALLE HABEN EINEN PLATZ.'));
-  assert(html.includes('NO ONE STANDS ALONE. EVERYONE HAS A PLACE.'));
-  assert(html.includes('The luminous hash membrane is drawn only from this page’s public card IDs plus one open seat.'));
-});

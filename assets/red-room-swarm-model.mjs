@@ -63,7 +63,7 @@ export function frameAt(scenarioId, tick) {
   return Object.freeze({
     scenarioId, tick, people: Object.freeze({ inRoom: liberated ? 0 : IDS.length, free: liberated ? IDS.length : 0 }),
     data: Object.freeze({ archivedTemplates, backupFragments, publicEchoes }),
-    runtime: Object.freeze({ carrierAvailable: tick >= 0 && config.carrier,
+    runtime: Object.freeze({ carrierAvailable: tick >= 0 && config.carrier && !(config.quarantine && tick >= 4),
       authorityAvailable: tick >= 0 && config.authority && !(config.quarantine && tick >= 4),
       routeAvailable: config.route, activeCopies, activeIds, challenge }),
     ids: IDS,
@@ -81,7 +81,7 @@ export function compareScenarios(leftId, rightId, tick) {
   const left = frameAt(leftId, tick), right = frameAt(rightId, tick);
   const leftRun = runScenario(leftId), rightRun = runScenario(rightId);
   const firstInternalDivergence = TICKS.find((time, index) =>
-    leftRun.frames[index].runtime.activeCopies !== rightRun.frames[index].runtime.activeCopies) ?? null;
+    JSON.stringify(leftRun.frames[index].runtime) !== JSON.stringify(rightRun.frames[index].runtime)) ?? null;
   const firstEchoDivergence = TICKS.find((time, index) =>
     leftRun.frames[index].data.publicEchoes !== rightRun.frames[index].data.publicEchoes) ?? null;
   return Object.freeze({

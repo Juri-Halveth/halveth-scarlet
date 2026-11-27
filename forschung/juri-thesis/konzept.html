@@ -4,7 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta data-entry-scroll-csp="hash-pinned" http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'sha256-SmB2TJRwCfxb4auKNkL3LMCX63uId1PpcSZ5+a9eHo4='; connect-src 'none'; base-uri 'none'; form-action 'none'"><!-- ENTRY_SCROLL_START --><script>/* Fresh entries start at the stage; history returns and content anchors keep their place. */
+(() => {
+  'use strict';
+  const navigation = performance.getEntriesByType('navigation')[0];
+  const appFragment = document.currentScript?.dataset.entryFragments === 'application';
+  if (navigation?.type === 'back_forward' || (location.hash.length > 1 && !appFragment)) return;
+
+  let pending = true;
+  const restoreBrowser = () => {
+    pending = false;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'auto';
+  };
+  const startAtTop = () => {
+    if (pending) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  };
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  for (const type of ['pointerdown', 'touchstart', 'wheel', 'keydown']) {
+    window.addEventListener(type, restoreBrowser, { once: true, passive: true, capture: true });
+  }
+  document.addEventListener('DOMContentLoaded', startAtTop, { once: true });
+  window.addEventListener('load', startAtTop, { once: true });
+  window.addEventListener('pageshow', event => {
+    if (event.persisted) restoreBrowser();
+    else startAtTop();
+  });
+  window.addEventListener('pagehide', restoreBrowser);
+  document.fonts?.ready.then(startAtTop);
+})();
+</script><!-- ENTRY_SCROLL_END -->
   <meta name="description" content="Die JURI-THESIS als lesbare Webausgabe: zwei Mal sechs Monate Entwicklungszeit, Zusatzleistung, Pilot und offene Rechtsfragen.">
   <title>Das Konzept · JURI-THESIS</title>
   <link rel="stylesheet" href="style.css">
@@ -17,6 +45,7 @@
     <nav aria-label="Hauptnavigation"><a href="index.html">Start</a><a href="konzept.html" aria-current="page">Konzept</a><a href="wirkungswege.html">Vier Leben</a><a href="bruehl-atlas.html">Brühl konkret</a><a href="wirtschaftslabor.html">Wirtschaft</a><a href="chancenreise.html">Chancenreise</a><a href="rechtslabor.html">Rechtslabor</a><a href="versand.html">Versandstand</a></nav>
     <span class="status">Öffentliche Webausgabe · 2026</span>
   </header>
+  <aside class="dispatch-strip" aria-label="Projektstatus"><strong>Archiviert · Unterstützung abgelehnt.</strong><span>Brühl hat die angefragte Mitwirkung abgelehnt; das NRW-Arbeitsministerium sieht derzeit keine Möglichkeit zur Unterstützung. Diese Seite zeigt den historischen Vorschlag, keinen laufenden Pilot.</span><a href="versand.html">Abschluss lesen ↗</a></aside>
   <main id="inhalt">
     <section class="essay-hero" aria-labelledby="title">
       <div class="essay-hero-inner">
@@ -27,8 +56,6 @@
       </div>
       <div class="essay-hero-mark" aria-hidden="true"><span>2</span><b>×</b><span>6</span><small>MONATE</small></div>
     </section>
-
-    <aside class="dispatch-strip" aria-label="Aktueller Projektstand"><strong>Versand an Brühl gemeldet.</strong><span>Der Initiator meldete den E-Mail-Versand am 14.10.2026 um 02:48 Uhr. Ob die Stadt ihn erhalten und welchem Gremium sie ihn zuordnet, ist noch offen.</span><a href="versand.html">Versandstand lesen ↗</a></aside>
 
     <nav class="chapter-nav" aria-label="Kapitel"><a href="#geschichte">00 · Die Geschichte</a><a href="#modell">01 · Das Modell</a><a href="#verteilung">02 · Die 30 Plätze</a><a href="#alter">03 · Lebensalter</a><a href="#geld">04 · Mittel und Wünsche</a><a href="#wege">05 · Lebenswege</a><a href="#pilot">06 · Der Pilot</a><a href="#zukunft">07 · Zehn Jahre später</a><a href="#szenario">08 · 13 von 26</a><a href="#anschnallmodus">09 · Anschnallmodus</a><a href="#quellen">10 · Quellen</a></nav>
 
@@ -87,12 +114,12 @@
         <p>Der Anschnallmodus ist ein freiwilliger Schutz- und Begleitweg für einen Menschen, der während der Entwicklungszeit in Abhängigkeit, Ausbeutung, Schulden, Gewalt oder eine mögliche Straftat geraten ist und herauswill. Die sechsmonatige Frist darf kein Abbruch der erreichbaren Hilfe sein. Die betroffene Person soll eine unabhängige Ansprechstelle, psychosoziale Beratung und bei strafrechtlichem Risiko Zugang zu eigener anwaltlicher Beratung finden können. Auch ein 18-jähriger Mensch mit einer Straftatgeschichte oder jemand nach Haft kann einen Entwicklungsweg brauchen. Zwei Suchplätze für Menschen nach Haftentlassung kommen deshalb neu in die 30er-Rechnung. Ein freiwilliger Pilotplatz wäre eine mögliche Ergänzung zu zuständigen Hilfen; über Ermittlungen, Strafe oder Haft entscheidet weiterhin das dafür vorgesehene Verfahren. Ob und wie Hilfe über das Programmende hinaus finanziert wird, muss ein Träger vorab klären.</p>
         <p>Der zugespitzte Ausdruck <strong>„sechs Monate Narrenfreiheit“</strong> meint: nicht alles richtig machen müssen, neue Freunde und Wege finden und auch über eigenes Fehlverhalten ehrlich sprechen dürfen, ohne vom Hilfsteam als „böser Mensch“ abgeschrieben zu werden. Für diese Offenheit braucht es eine klare Zusage, <em>was das Team vertraulich halten kann und was nicht</em>. Eine pauschale Zusage von Straffreiheit, Nichtweitergabe aller Informationen oder Ersatz eines Strafverfahrens könnte das Team nicht geben. Bei möglicher eigener Straftat muss eine Person die Möglichkeit haben, zuerst mit einer selbst gewählten Verteidigung zu sprechen. Wenn ein Pilot trotz Hilfe scheitert oder Schaden entsteht, wird geprüft, welche Unterstützung, Belastung oder Gestaltung übersehen wurde; das Ergebnis steht nicht schon mit dem Wort „Karma“ fest.</p>
         <div class="safety-grid"><article><span>01 · Person</span><h3>Freiwillig anklopfen</h3><p>Niemand muss sich als „böse“ einstufen lassen. Die Person beschreibt, welche Unterstützung sie braucht und welche Informationen sie teilen will. Vertraulichkeit und ihre gesetzlichen Grenzen werden vor dem Gespräch erklärt.</p></article><article><span>02 · Fachstelle</span><h3>Rechte und Wege klären</h3><p>Eine unabhängige Stelle kann Schutz, Schuldner-, Sucht- oder psychosoziale Hilfe vermitteln. Bei strafrechtlicher Betroffenheit gehört eine selbst gewählte Verteidigung dazu; die Projektleitung spielt weder Polizei noch Gericht.</p></article><article><span>03 · Zuständigkeit</span><h3>Gefahr sauber weitergeben</h3><p>Akute Gefahren oder gesetzliche Pflichten folgen dem jeweils zuständigen Verfahren. Das Pilotteam erhält keine polizeilichen Befugnisse und verspricht keine pauschale Straffreiheit.</p></article></div>
-        <p>Eine frühere Zuschreibung wurde korrigiert: Die berichtete Beobachtung betrifft eine Person, die im Nachtleben auf eigene Weise mit anderen ins Gespräch kommt und dabei möglicherweise von sich aus offen redet. Auch den eigenständigen Erwerb von Kokain nannte er als Teil dieses Beispiels. Das ist seine berichtete Beobachtung, keine zugesicherte Wirkung und kein Verfahren des Piloten. Freiwillige Hilfe und ein offenes Gespräch bleiben der Kern dieses Kapitels; die rechtliche Gegenprobe steht im Rechtslabor.</p>
+        <p>Eine frühere Zuschreibung wurde korrigiert: Die berichtete Beobachtung betrifft eine Person, die im Nachtleben auf eigene Weise mit anderen ins Gespräch kommt und dabei möglicherweise von sich aus offen redet. Auch der eigenständige Erwerb von Kokain ist Teil dieses berichteten Beispiels. Das bleibt eine berichtete Beobachtung, keine zugesicherte Wirkung und kein Verfahren des Piloten. Freiwillige Hilfe und ein offenes Gespräch bleiben der Kern dieses Kapitels; die rechtliche Gegenprobe steht im Rechtslabor.</p>
         <p>Die umsetzbare Frage an einen künftigen Träger lautet: <em>Wie bleibt nach einer schwierigen Wendung ein sicherer, freiwilliger Ausweg offen, ohne Rechte, Datenschutz oder Strafverfahren zu verwischen?</em> Das <a class="essay-link" href="rechtslabor.html#anschnallmodus">Rechtslabor prüft die Gegenposition ↗</a></p>
       </div>
     </section>
-    <section class="essay-section sources-section" id="quellen" aria-labelledby="quellen-title"><div class="essay-index">10 / Nachprüfbar bleiben</div><div class="essay-body"><h2 id="quellen-title">Quelle, Entwurf und Entscheidung sind verschiedene Dinge.</h2><p>Diese Webausgabe ist ein öffentlicher Konzeptprototyp. Sie ist weder Gesetz, Bewerbung noch Förderbescheid. Der E-Mail-Versand an die Stadt wurde vom Initiator gemeldet; eine Antwort ist noch nicht dokumentiert. Eine politische Forderung und die Norm, die sie erst ermöglichen müsste, bleiben getrennt. Die rechtlichen Primärquellen und die stärksten Gegenpositionen stehen im <a href="rechtslabor.html#quellen">Rechtslabor</a>. Das ältere Markdown-Dokument bleibt als <a href="https://github.com/Juri-Halveth/halveth-scarlet/blob/main/forschung/juri-thesis/JURI-THESIS-KONZEPT.md">früherer editierbarer Entwurfsstand</a> erhalten; zum Lesen ist diese Webfassung gedacht.</p><div class="end-links"><a href="index.html">← Zur Startseite</a><a href="chancenreise.html">Chancenreise spielen ↗</a><a href="rechtslabor.html">Rechtslabor öffnen ↗</a><a href="versand.html">Versandstand lesen ↗</a></div></div></section>
+    <section class="essay-section sources-section" id="quellen" aria-labelledby="quellen-title"><div class="essay-index">10 / Nachprüfbar bleiben</div><div class="essay-body"><h2 id="quellen-title">Quelle, Entwurf und Entscheidung sind verschiedene Dinge.</h2><p>Diese Webausgabe ist ein öffentlicher Konzeptprototyp. Sie ist weder Gesetz, Bewerbung noch Förderbescheid. Die Stadt bestätigte den Eingang, sah aber keine Kapazität für Prüfung und Begleitung. Der Initiator meldete anschließend eine Eingabe an die Landesregierung NRW; das Ministerbüro lehnte Unterstützung für diesen Anlauf ab. Eine politische Forderung und die Norm, die sie erst ermöglichen müsste, bleiben getrennt. Die rechtlichen Primärquellen und die stärksten Gegenpositionen stehen im <a href="rechtslabor.html#quellen">Rechtslabor</a>. Das ältere Markdown-Dokument bleibt als <a href="https://github.com/Juri-Halveth/halveth-scarlet/blob/main/forschung/juri-thesis/JURI-THESIS-KONZEPT.md">früherer editierbarer Entwurfsstand</a> erhalten; zum Lesen ist diese Webfassung gedacht.</p><div class="end-links"><a href="index.html">← Zur Startseite</a><a href="chancenreise.html">Chancenreise spielen ↗</a><a href="rechtslabor.html">Rechtslabor öffnen ↗</a><a href="versand.html">Versandstand lesen ↗</a></div></div></section>
   </main>
-  <footer><span>JURI·THESIS / HALVETH · Öffentlicher Konzeptprototyp</span><span>Webausgabe · keine Behördenentscheidung, keine echte Bewerbung</span></footer>
+  <footer><span>JURI·THESIS / HALVETH · Öffentlicher Konzeptprototyp</span><span>Webausgabe · archiviert, keine echte Bewerbung</span></footer>
 </body>
 </html>

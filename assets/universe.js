@@ -28,7 +28,7 @@ document.querySelector('#directory-count').textContent=entities.length+(L.get()=
 let openedFromHash=false;
 const hashId=()=>{try{return decodeURIComponent(location.hash.slice(1));}catch{return '';}};
 function openDirectory(fromHash=false){
-  openedFromHash=fromHash;if(!dialog.open)dialog.showModal();document.querySelector('#entity-filter').focus();
+  openedFromHash=fromHash;if(!dialog.open)dialog.showModal();document.querySelector('#entity-filter').focus({ preventScroll: true });
 }
 function syncHash(){
   const id=hashId();if(id==='team'){openDirectory(true);return;}

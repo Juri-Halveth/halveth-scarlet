@@ -77,7 +77,7 @@ try {
   overlay.hidden = true;
   for (const element of hud) element.inert = true;
   $('fatal').hidden = false;
-  $('fatal').querySelector('a')?.focus();
+  $('fatal').querySelector('a')?.focus({ preventScroll: true });
   throw new Error('ASHBOUND needs WebGL');
 }
 function visibleModal() { return modals.find(modal => !modal.hidden); }
@@ -87,7 +87,7 @@ function modalFocusables(modal) {
 function syncModalFocus() {
   const modal = visibleModal();
   for (const element of hud) element.inert = Boolean(modal);
-  (modal ? modalFocusables(modal)[0] : renderer.domElement)?.focus();
+  (modal ? modalFocusables(modal)[0] : renderer.domElement)?.focus({ preventScroll: true });
 }
 syncModalFocus();
 
@@ -390,7 +390,7 @@ document.addEventListener('keydown', event => {
       const first = focusable[0], last = focusable.at(-1);
       if (first && ((event.shiftKey && (document.activeElement === first || !modal.contains(document.activeElement))) ||
           (!event.shiftKey && (document.activeElement === last || !modal.contains(document.activeElement))))) {
-        event.preventDefault(); (event.shiftKey ? last : first).focus();
+        event.preventDefault(); (event.shiftKey ? last : first).focus({ preventScroll: true });
       }
     }
     return;

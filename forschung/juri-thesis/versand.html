@@ -4,9 +4,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'">
-  <meta name="description" content="Öffentlicher Versandstand der JURI-THESIS an die Stadt Brühl vom 14. Oktober 2026, mit vorbereitetem Anschreiben und offenen nächsten Schritten.">
-  <title>Versandstand · JURI-THESIS</title>
+  <meta data-entry-scroll-csp="hash-pinned" http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'sha256-SmB2TJRwCfxb4auKNkL3LMCX63uId1PpcSZ5+a9eHo4='; connect-src 'none'; base-uri 'none'; form-action 'none'"><!-- ENTRY_SCROLL_START --><script>/* Fresh entries start at the stage; history returns and content anchors keep their place. */
+(() => {
+  'use strict';
+  const navigation = performance.getEntriesByType('navigation')[0];
+  const appFragment = document.currentScript?.dataset.entryFragments === 'application';
+  if (navigation?.type === 'back_forward' || (location.hash.length > 1 && !appFragment)) return;
+
+  let pending = true;
+  const restoreBrowser = () => {
+    pending = false;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'auto';
+  };
+  const startAtTop = () => {
+    if (pending) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  };
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  for (const type of ['pointerdown', 'touchstart', 'wheel', 'keydown']) {
+    window.addEventListener(type, restoreBrowser, { once: true, passive: true, capture: true });
+  }
+  document.addEventListener('DOMContentLoaded', startAtTop, { once: true });
+  window.addEventListener('load', startAtTop, { once: true });
+  window.addEventListener('pageshow', event => {
+    if (event.persisted) restoreBrowser();
+    else startAtTop();
+  });
+  window.addEventListener('pagehide', restoreBrowser);
+  document.fonts?.ready.then(startAtTop);
+})();
+</script><!-- ENTRY_SCROLL_END -->
+  <meta name="description" content="Abgeschlossener Projektstand der JURI-THESIS: Stadt Brühl und NRW-Arbeitsministerium haben Unterstützung für den vorgeschlagenen Pilotversuch abgelehnt.">
+  <title>Abgeschlossener Projektstand · JURI-THESIS</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="essay.css">
 </head>
@@ -14,55 +42,63 @@
   <a class="skip" href="#inhalt">Zum Inhalt springen</a>
   <header class="topbar essay-topbar">
     <a class="wordmark" href="index.html" aria-label="JURI-THESIS, zur Startseite">JURI<span>·</span>THESIS</a>
-    <nav aria-label="Hauptnavigation"><a href="index.html">Start</a><a href="konzept.html">Konzept</a><a href="wirkungswege.html">Vier Leben</a><a href="bruehl-atlas.html">Brühl konkret</a><a href="wirtschaftslabor.html">Wirtschaft</a><a href="chancenreise.html">Chancenreise</a><a href="rechtslabor.html">Rechtslabor</a><a href="versand.html" aria-current="page">Versandstand</a></nav>
-    <span class="status">Brühl · 14.10.2026</span>
+    <nav aria-label="Hauptnavigation"><a href="index.html">Start</a><a href="konzept.html">Konzept</a><a href="wirkungswege.html">Vier Leben</a><a href="bruehl-atlas.html">Brühl konkret</a><a href="wirtschaftslabor.html">Wirtschaft</a><a href="chancenreise.html">Chancenreise</a><a href="rechtslabor.html">Rechtslabor</a><a href="versand.html" aria-current="page">Projektstand</a></nav>
+    <span class="status">Archiv · 29.10.2026</span>
   </header>
   <main id="inhalt">
     <section class="essay-hero" aria-labelledby="title">
       <div class="essay-hero-inner">
-        <p class="eyebrow">JURI-THESIS / Öffentlicher Stand</p>
-        <h1 id="title">Die Bitte ist <em>unterwegs.</em></h1>
-        <p class="essay-lede">Am 14. Oktober 2026 habe ich mitgeteilt, dass ich die Vorlage an die Stadt Brühl versandt habe. Die Bitte richtet sich an die politische Leitung: Ein Pilot mit 30 sechsmonatigen Entwicklungsplätzen soll auf Leitungsebene geprüft und dem zuständigen Gremium zur Befassung zugeordnet werden.</p>
-        <div class="hero-actions"><a class="button primary" href="#bitte">Die konkrete Bitte lesen ↓</a><a class="button secondary" href="assets/JURI-THESIS-Pilotbrief.pdf">Den 30-seitigen Pilotbrief öffnen ↗</a></div>
+        <p class="eyebrow">JURI-THESIS / Anfragerunde abgeschlossen</p>
+        <h1 id="title">Dieser Anlauf ist <em>beendet.</em></h1>
+        <p class="essay-lede">30 Menschen, je sechs Monate Entwicklungszeit: Mit diesem Vorschlag habe ich erst Brühl und dann das Land NRW angesprochen. Die Stadt übernimmt Prüfung und Begleitung nicht. Das NRW-Arbeitsministerium sieht derzeit keine Möglichkeit zur Unterstützung. Ich archiviere diesen Anlauf und halte fest, was die Arbeit daran gezeigt hat.</p>
+        <div class="hero-actions"><a class="button primary" href="#lernkern">Was aus dem Versuch bleibt ↓</a><a class="button secondary" href="konzept.html">Das Konzeptarchiv öffnen ↗</a></div>
       </div>
       <div class="essay-hero-mark" aria-hidden="true"><span>2</span><b>×</b><span>6</span><small>MONATE</small></div>
     </section>
 
     <section class="essay-section" id="stand" aria-labelledby="stand-title">
-      <div class="essay-index">01 / Zeit und Zustand</div>
+      <div class="essay-index">01 / Der Weg und die Antworten</div>
       <div class="essay-body">
-        <h2 id="stand-title">14. Oktober 2026 · 02:48 Uhr in Brühl</h2>
-        <p>Die Anzeige der gesendeten E-Mail nennt nach Mitteilung des Absenders <strong>Mittwoch, 14.10.2026, 02:48 Uhr</strong> (CEST). Eine technisch bestätigte Versandkopie ist hier noch nicht gebunden. Der Git-Commit vom selben Tag um 02:53:14 Uhr dokumentiert die Veröffentlichung dieses Status, nicht den Zeitpunkt der Zustellung bei der Stadt.</p>
-        <div class="principle-three"><article><span>01</span><h3>Versand gemeldet</h3><p>Ich habe den Versand im Projektchat mitgeteilt.</p></article><article><span>02</span><h3>Antwort offen</h3><p>Eine Eingangsbestätigung oder Stellungnahme der Stadt ist hier noch nicht dokumentiert.</p></article><article><span>03</span><h3>Befassung offen</h3><p>Welcher Ausschuss oder welches Gremium die Vorlage behandelt, entscheidet die Stadt nach ihrem Verfahren.</p></article></div>
+        <h2 id="stand-title">Zwei Stellen, zwei Absagen zur Mitwirkung.</h2>
+        <div class="principle-three">
+          <article><span>14.10.</span><h3>Brühl</h3><p>Der Pilotbrief ging nach Angabe des Absenders um 02:48 Uhr an die Stadt. Brühl bestätigte den Eingang, sah aber weder Kapazitäten noch finanzielle Spielräume für Prüfung, Koordination und Unterstützung.</p></article>
+          <article><span>23.10.</span><h3>Staatskanzlei NRW</h3><p>Der Vorschlag wurde um 17:06 Uhr an die Staatskanzlei mit Kopie an das NRW-Arbeitsministerium gesendet, wie aus der vom Absender bereitgestellten Antwort mit zitierter Ausgangsnachricht hervorgeht. Das ServiceCenter leitete ihn an das Ministerium weiter.</p></article>
+          <article><span>Antwort</span><h3>NRW-Arbeitsministerium</h3><p>Das Büro des Ministers teilte mit, dass es derzeit keine Möglichkeit sieht, das Vorhaben zu unterstützen. Das Datum dieser Antwort ist aus dem hier vorliegenden Text nicht ersichtlich.</p></article>
+        </div>
       </div>
     </section>
 
     <section class="essay-section color-section" id="bitte" aria-labelledby="bitte-title">
-      <div class="essay-index">02 / Vorbereiteter Wortlaut</div>
+      <div class="essay-index">02 / Entscheidung über diesen Weg</div>
       <div class="essay-body">
-        <h2 id="bitte-title">Die Bitte an Bürgermeister und Rat.</h2>
-        <p>Die folgende Fassung wurde vor dem Versand vorbereitet. Der tatsächlich versandte Wortlaut ist damit noch nicht unabhängig abgeglichen.</p>
-        <p><strong>Betreff:</strong> Bitte um Befassung durch Bürgermeister und Rat: Pilotvorschlag „30 Menschen × 6 Monate Entwicklungszeit“</p>
-        <p>Sehr geehrter Herr Bürgermeister Dr. Prokop,</p>
-        <p>ich bitte Sie, einen Pilotvorschlag für Brühl auf Leitungsebene prüfen und dem zuständigen politischen Gremium zur Befassung vorlegen zu lassen. Es geht um eine konkrete Entwicklungszeit für Menschen aus Brühl und der Region – mit einer ersten, prüfbaren Runde von 30 Personen für jeweils sechs Monate.</p>
-        <p>Die Teilnehmenden würden eigene Wege in Bildung, Sorgearbeit, Gründung oder Neuorientierung verfolgen und die dafür benötigten Mittel individuell beantragen. Die längerfristige These sieht zweimal sechs Monate im Lebenslauf vor. Der beigefügte 30-seitige Pilotbrief macht das Modell, Beispiele, die vorgeschlagene Platzverteilung und die offenen Fragen zu Finanzierung, Auswahl und Zuständigkeit sichtbar. Mein gesonderter 1+3-Vorschlag innerhalb der 30 Plätze ist darin ebenfalls ausdrücklich offengelegt.</p>
-        <p>Ich bitte um drei konkrete Schritte:</p>
-        <ol><li>Eine Einordnung durch die Stadtspitze, welche kommunalen Stellen und möglichen Partner eine Vorprüfung übernehmen könnten.</li><li>Die Zuordnung an den Rat oder den zuständigen Ausschuss mit Mitteilung des dafür vorgesehenen Verfahrens.</li><li>Einen Gesprächstermin mit der politischen Leitung und den zuständigen Fachstellen, um Umfang, Finanzierung und nächste Entscheidungsschritte zu klären.</li></ol>
-        <p>Bitte bestätigen Sie den Eingang und teilen Sie mir mit, wer die weitere Bearbeitung koordiniert. Ich bin bereit, den Vorschlag persönlich vorzustellen und die offenen Punkte gemeinsam durchzugehen.</p>
-        <p>Mit freundlichen Grüßen<br>Juri</p>
+        <h2 id="bitte-title">Die Anfragerunde wird geschlossen.</h2>
+        <p>Brühl bleibt der historische Startort des Vorschlags. Die Stadt und das NRW-Arbeitsministerium haben für diesen Anlauf keine Unterstützung übernommen. Ein Träger, eine Finanzierung und eine reale Ausschreibung sind daraus nicht entstanden. Weitere Eingaben an diese Stellen sind hier nicht geplant.</p>
+        <p>Die Antwort des Ministeriums nennt keine fachliche Prüfung der Modellannahmen. Sie entscheidet über die angefragte Unterstützung. Der ausgearbeitete Entwurf und die Simulationen bleiben als Archiv lesbar.</p>
+        <div class="end-links"><a href="#lernkern">Was aus dem Versuch bleibt ↓</a><a href="konzept.html">Konzeptarchiv öffnen ↗</a><a href="wirtschaftslabor.html">Rechenmodell ansehen ↗</a></div>
       </div>
     </section>
 
-    <section class="essay-section" id="weiter" aria-labelledby="weiter-title">
-      <div class="essay-index">03 / Offene nächste Schritte</div>
+    <section class="essay-section" id="lernkern" aria-labelledby="lernkern-title">
+      <div class="essay-index">03 / Was wir mitnehmen</div>
       <div class="essay-body">
-        <h2 id="weiter-title">Jetzt wartet die Idee auf eine Antwort.</h2>
-        <p>Der <a href="assets/JURI-THESIS-Pilotbrief.pdf">Pilotbrief</a> und das <a href="konzept.html">Konzept</a> sind öffentlich lesbar. Das <a href="https://github.com/Juri-Halveth/halveth-scarlet/blob/main/forschung/juri-thesis/VERSAND-LEDGER.md">öffentliche Versandledger</a> bindet Quelle, Zeitgrenze und offene Punkte. Sobald eine Antwort eintrifft und für die Veröffentlichung freigegeben ist, kann dieser Stand mit Quelle, Zeitpunkt und nächstem Schritt ergänzt werden. Eine Befassung, Finanzierung oder Teilnahme wird durch den Versand allein nicht zugesagt.</p>
-        <p><strong>Nachtrag zum vorbereiteten PDF:</strong> Dessen 13-von-26-Rechnung nennt die vier 1+3-Plätze „Gründerplätze“ und <code>C</code> Kosten je Platz. Die <a href="konzept.html#szenario">korrigierte Webrechnung</a> behandelt die vier Plätze ohne festgelegten Lebensweg und definiert <code>C</code> als Durchschnitt der tatsächlichen individuellen Kosten aller 30 Plätze. Das PDF bleibt als vorbereiteter Versandstand unverändert. Welche Datei der tatsächlichen E-Mail beigefügt war, ist hier weiterhin offen.</p>
-        <div class="end-links"><a href="konzept.html">← Konzept lesen</a><a href="assets/JURI-THESIS-Pilotbrief.pdf">Pilotbrief öffnen ↗</a><a href="index.html">Zur Startseite ↗</a></div>
+        <h2 id="lernkern-title">Die stärkste Frage ist jetzt: Wer trägt es?</h2>
+        <p>Eine höfliche Absage kann trotzdem enttäuschen. Die sechs Monate Entwicklungszeit, um die es ging, sind dadurch für niemanden entstanden. Aus dem Versuch bleiben drei konkrete Bausteine:</p>
+        <div class="principle-three">
+          <article><span>01 / Mensch</span><h3>Jeder Weg braucht etwas anderes.</h3><p>Die vier Lebensgeschichten zeigen, warum ein fixer Betrag die Frage nach Zeit, Sorgearbeit, Lernen und Vorhaben allein nicht beantwortet.</p></article>
+          <article><span>02 / Geld</span><h3>Geldfluss ist noch keine Wirkung.</h3><p>Das Wirtschaftslabor trennt Zahlung, örtliche Rechnung, zusätzliche Wertschöpfung und Beiträge. So bleibt eine große Zahl nachrechenbar.</p></article>
+          <article><span>03 / Verantwortung</span><h3>Ein Modell braucht einen Träger.</h3><p>Jemand müsste Finanzierung, Auswahl, Auszahlung, Datenschutz und Auswertung verantworten. Diese Rolle hat in dieser Anfragerunde niemand übernommen.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="essay-section" id="quelle" aria-labelledby="quelle-title">
+      <div class="essay-index">04 / Das Archiv</div>
+      <div class="essay-body">
+        <h2 id="quelle-title">Die Idee geht ins Archiv, das Gelernte bleibt.</h2>
+        <p>Der <a href="assets/JURI-THESIS-Pilotbrief.pdf">Pilotbrief</a> bleibt die ursprünglich versandte Konzeptfassung. Das <a href="VERSAND-LEDGER.md">Versandledger</a> dokumentiert die Stationen und die Quelle der neuen Antwort. Im <a href="ERGEBNIS-UND-LERNKERN.md">Lernkern</a> stehen die wiederverwendbaren Fragen zu Trägerschaft, Geld, Auswahl und Wirkung. Die persönliche Antwortmail wird hier nicht veröffentlicht.</p>
       </div>
     </section>
   </main>
-  <footer><span>JURI·THESIS / HALVETH · Öffentlicher Projektstand</span><span>Versand laut Absender · Antwort offen</span></footer>
+  <footer><span>JURI·THESIS / HALVETH · Abgeschlossener Projektstand</span><span>Unterstützung abgelehnt · Konzeptarchiv erhalten</span></footer>
 </body>
 </html>

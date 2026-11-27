@@ -20,7 +20,7 @@ class Element{
 function harness(hash='',language='en'){
  const selectors=['#entity-dialog','#entity-list','#directory-count','#entity-filter','#garden-open','#entity-close','#empty-directory','.constellation-left','.constellation-right'];
  const elements=Object.fromEntries(selectors.map(selector=>[selector,new Element()]));
- const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+ const html=registry.entities.slice(0,12).map(e=>'<a data-figure="'+e.id+'"></a>').join('');
  const figures=[...html.matchAll(/data-figure="([^"]+)"/g)].map(([,id])=>{const e=new Element('a');e.dataset.figure=id;return e;});
  const chain=new Element('button');chain.dataset.chain='gitcoin';const microtasks=[],hashListeners=[],replacements=[],assignments=[];
  const location={hash,href:`https://example.test/halveth-scarlet/?lang=${language}${hash}`,replace:url=>replacements.push(url),assign:url=>assignments.push(url)};
@@ -31,7 +31,7 @@ function harness(hash='',language='en'){
  vm.runInNewContext(source,{window,document,location,history,URL,queueMicrotask:fn=>microtasks.push(fn)});
  return{elements,figures,chain,location,replacements,assignments,link,flush(){while(microtasks.length)microtasks.shift()();},hashchange(value){location.hash=value;for(const fn of hashListeners)fn();}};
 }
-test('all real featured cards and orbiters use native profile links without tunnel listeners',()=>{
+test('legacy navigation module maps supplied profile nodes to native destinations without tunnel listeners',()=>{
  const h=harness();const bubbles=[...h.elements['.constellation-left'].children,...h.elements['.constellation-right'].children];
  assert.equal(bubbles.length,registry.featured.length);assert.equal(h.figures.length,12);
  for(const link of [...bubbles,...h.figures]){const id=link.dataset.entity||link.dataset.figure;assert.equal(link.tagName,'A');assert.equal(link.href,h.link(`entities/${id}/`));assert.equal(link.listeners.click,undefined);assert.doesNotMatch(link.href,/reddit/i);}

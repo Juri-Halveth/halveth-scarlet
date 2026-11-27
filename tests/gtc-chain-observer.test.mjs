@@ -39,16 +39,15 @@ test('failed GTC refresh clears the prior transfer and block link',async()=>{
   await new Promise(resolve=>setTimeout(resolve,0));assert.match(nodes.get('gtc-live-status').textContent,/currently unavailable/);
 });
 
-test('published GTC observer is read-only and connected to GTC and BTC sources',()=>{
+test('GTC profile retains primary references while workspace has no external observer request',()=>{
   const html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8'),context={window:{}};
   vm.runInNewContext(fs.readFileSync(new URL('../assets/universe-data.js',import.meta.url),'utf8'),context);
   const gitcoin=context.window.HalvethUniverse.entities.find(entity=>entity.id==='gitcoin');
-  assert.match(html,/connect-src 'self' https:\/\/mempool\.space https:\/\/eth\.blockscout\.com/);
-  assert.match(html,/assets\/gtc-chain-observer\.mjs/);
-  assert.match(html,/id="gtc-observer"/);
+  assert.match(html,/connect-src 'none'/);
+  assert.doesNotMatch(html,/assets\/gtc-chain-observer\.mjs/);
+  assert.doesNotMatch(html,/id="gtc-observer"/);
   assert.ok(gitcoin.sourceRefs.some(ref=>ref.url==='https://gov.gitcoin.co/'));
   assert.ok(gitcoin.sourceRefs.some(ref=>ref.url==='https://gtc.gitcoin.co/'));
   assert.ok(gitcoin.sourceRefs.some(ref=>ref.url==='https://github.com/gitcoinco/governance-docs'));
-  assert.match(html,/Blockscout/);
-  assert.match(html,/No wallet, signature, transaction, price feed or background polling/);
+  assert.doesNotMatch(html,/eth_sendTransaction|eth_requestAccounts/);
 });

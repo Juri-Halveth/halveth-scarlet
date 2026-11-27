@@ -1,34 +1,25 @@
-[Original / Deutsch](README.md) · [English](README.en.md) · [Русский](README.ru.md)
+# SCARLET · Interactive workspace for states and variants
 
-# HALVETH Scarlet
+A browser-local prototype for text states, variants and observation. The entry runs the GStar text ledger and a separate finite GStar Living cell simulation. You can preserve input, derive a variant, take a snapshot, replay and export the records. Native code under `native/` has its own build and measurement scope.
 
-**Concise project guide · EN / RU**
+[**Open the workspace directly**](https://juri-halveth.github.io/halveth-scarlet/) · [Technical demos](https://juri-halveth.github.io/halveth-scarlet/forschung/wegweiser/en.html) · [Source code](https://github.com/Juri-Halveth/halveth-scarlet/tree/main)
 
-A visual Earth portal connecting research pages, figure profiles and source references. The website combines an animated scene, time-based events, optional synthesized sound and a published news snapshot with visible source dates.
+Run `node tools/build_site.mjs` and `node --test tests/*.test.cjs tests/*.test.mjs`.
+Earlier personal and political context pages were preserved privately. The
+[JURI-THESIS civic proposal](forschung/juri-thesis/) remains available as an archive.
+The City of Brühl and the NRW Ministry of Labour declined support for this request.
+Editorial commits do not rewrite Git history.
 
-The figures and their roles are authored project perspectives and fan interpretations. They do not establish independently running agents or control over external organizations. This web project has its own result and deployment history, separate from native Morrowind.
+Project lead: Juri / HALVETH. AI-assisted development.
+[Licences](LICENSES.md) · security@halveth.de
 
-This manually edited guide summarizes the audited source. The original technical documentation remains the reference for commands, build requirements, exact versions and detailed evidence.
+[Portal Chess](https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/)
 
-## ASHBOUND · native game world
+## ASHBOUND · original game world
 
-[Explore the ASHBOUND project](forschung/ashbound/) or download the published [Windows x64 preview 0.4.2](https://github.com/Juri-Halveth/halveth-scarlet/releases/tag/ashbound-native-v0.4.2-portal-preview). The newer [world foundation](https://github.com/Juri-Halveth/halveth-scarlet/pull/67), [meadow and soil](https://github.com/Juri-Halveth/halveth-scarlet/pull/68), and [mirror encounter](https://github.com/Juri-Halveth/halveth-scarlet/pull/73) are stacked draft changes; they are not included in that download. The separate [Lernstudio](https://github.com/Juri-Halveth/lernstudio) is the learning project.
+[Browser prototype](forschung/ashbound/) · [Download Windows preview v0.4.2](https://github.com/Juri-Halveth/halveth-scarlet/releases/tag/ashbound-native-v0.4.2-portal-preview)
 
+Prerelease Windows x64 ZIP; files and version notes are on the release page.
+The native game world is a separate application alongside the browser prototype.
 
-## Portfolio highlight · HALVETH Portal Chess
-
-**3 / 16 verified · 16 / 16 open.** [Open the Portal Chess challenge](https://juri-halveth.github.io/halveth-scarlet/forschung/portal-chess/). Four parallel boards expose the same swapped king–queen chess variation through position, function, history and relation. The built-in 41-ply trace promotes the original pawns from `a2`, `h7` and `c2`, loses two original pawns and keeps all four original anchors. The 16/16 objective remains an open, locally checkable play challenge.
-
-
-## Start with the sources
-
-- [Original technical documentation](README.md)
-- [README at the audited commit](https://github.com/Juri-Halveth/halveth-scarlet/blob/5944f307413f023d6d0e166c491919123e28e317/README.md)
-- [Open Scarlet](https://juri-halveth.github.io/halveth-scarlet/)
-- [Licences and sources](LICENSES.md)
-
-## Rights and scope
-
-HALVETH work certificates mentioned in the original are private project documentation, not institutional personal qualifications or an ISTQB certification.
-
-Use the original rights and licence notices for the relevant files and versions. This guide grants no additional licence.
+The Windows ZIP contains the October portal preview. The [world foundation](https://github.com/Juri-Halveth/halveth-scarlet/pull/67), [soil and meadow](https://github.com/Juri-Halveth/halveth-scarlet/pull/68) and [mirror encounter](https://github.com/Juri-Halveth/halveth-scarlet/pull/73) are separate development branches.

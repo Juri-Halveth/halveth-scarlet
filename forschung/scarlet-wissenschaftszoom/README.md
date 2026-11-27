@@ -1,6 +1,6 @@
 # Scarlet · wissenschaftlicher Erdzoom
 
-**Projektleitung und benannte Entwicklung:** Juri Janovski (Juri Halveth), 2026. Diese Scarlet-Fassung adaptiert den lokalen HALVETH-V2.5-Forschungskandidaten. Der Git-Commit und die SHA-256-Werte dokumentieren die veröffentlichten Bytes und den Versionsstand; sie sind kein amtlicher Urheber- oder Patentnachweis.
+**Projektleitung und benannte Entwicklung:** Juri Janovski (Projekt HALVETH), 2026. Diese Scarlet-Fassung adaptiert den lokalen HALVETH-V2.5-Forschungskandidaten. Der Git-Commit und die SHA-256-Werte dokumentieren die veröffentlichten Bytes und den Versionsstand; sie sind kein amtlicher Urheber- oder Patentnachweis.
 
 ## Was die Seite zeigt
 

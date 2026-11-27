@@ -75,6 +75,8 @@ test('every built HTML receives one local mobile stylesheet after its page style
     const links=[...head.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g)];
     const mobile=links.filter(m=>m[1].includes('assets/mobile.css?'));
     const standalonePage=[
+      'index.html',
+      'entities/research/index.html',
       'forschung/ashbound/index.html',
       'forschung/ashbound/play/index.html',
       'forschung/juri-thesis/index.html',
@@ -89,9 +91,19 @@ test('every built HTML receives one local mobile stylesheet after its page style
       'forschung/ba-uebergangsraum/ez-nullmonat.html',
       'forschung/ba-uebergangsraum/quellen.html',
       'forschung/wegweiser/index.html',
+      'forschung/wegweiser/en.html',
+      'forschung/wegweiser/ru.html',
     ].includes(path.relative(build,file).split(path.sep).join('/'));
     if(standalonePage){
       assert.equal(mobile.length,0,file);
+      if(path.relative(build,file).split(path.sep).join('/')==='entities/research/index.html'){
+        const ownStyle=links.filter(m=>m[1].split('?')[0]==='atelier.css');
+        assert.equal(ownStyle.length,1,'research atelier keeps its own responsive stylesheet');
+        const expected=createHash('sha256').update(fs.readFileSync(path.join(build,'entities/research/atelier.css'))).digest('hex');
+        assert.equal(new URL(ownStyle[0][1],'https://local.test/').searchParams.get('v'),expected);
+        assert.doesNotMatch(head,/hub-language\.js|hub-language\.css/);
+        assert.match(head,/app\.mjs\?v=[a-f0-9]{64}/);
+      }
       continue;
     }
     assert.equal(mobile.length,1,file);assert.equal(links.at(-1)[1],mobile[0][1],file);
@@ -113,14 +125,12 @@ test('every built HTML receives one local mobile stylesheet after its page style
   assert.ok(count>=86,'expected the whole current site');
 });
 
-test('mobile home keeps the full perspective directory behind one Garden control instead of permanent duplicate card rows', () => {
+test('the standalone mobile workspace keeps the field before controls without the old Garden layer', () => {
   const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  const behavior = fs.readFileSync(path.join(root, 'assets', 'universe.js'), 'utf8');
-  const mobile = fs.readFileSync(path.join(root, 'assets', 'mobile.css'), 'utf8');
-  assert.match(home, /id="garden-open"[^>]*aria-haspopup="dialog"/);
-  assert.match(home, /id="entity-dialog"/);
-  assert.match(home, /id="entity-list"/);
-  assert.match(behavior, /#garden-open'\)\.addEventListener\('click',\(\)=>openDirectory\(false\)\)/);
-  assert.match(behavior, /for\(const entity of entities\)/);
-  assert.match(mobile, /\.portal-route-home \.constellation\{display:none\}/);
+  const style = fs.readFileSync(path.join(root, 'assets/capability-room.css'), 'utf8');
+  assert.match(home, /id="room-canvas"/);
+  assert.match(home, /id="plant"/);
+  assert.doesNotMatch(home, /id="garden-open"|id="entity-dialog"/);
+  assert.match(style, /\.field\{height:60svh/);
+  assert.match(style, /\.controls\{order:2/);
 });

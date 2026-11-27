@@ -21,6 +21,7 @@ test('all entities have a distinct static bilingual profile, editable dossier an
     assert.equal(entity.profilePath, `entities/${entity.id}/`);
     destinations.add(entity.profilePath);
     const html = read(`${entity.profilePath}index.html`);
+    assert.ok(html.includes(`<nav class="profile-bottom"><a href="../#${entity.id}">`), entity.id);
     const dossier = read(`docs/entities/${entity.id}.md`);
     assert.ok(html.includes(`data-entity-id="${entity.id}"`));
     assert.ok(decode(html).includes(`<h1>${entity.label}</h1>`));
@@ -37,16 +38,12 @@ test('all entities have a distinct static bilingual profile, editable dossier an
   }
   assert.equal(destinations.size, registry.entities.length);
 });
-test('directory and static home orbiters reach their exact entity destinations without JavaScript', () => {
+test('the directory retains every exact static profile destination and the root links to the signatures', () => {
   const directory = read('entities/index.html');
   for (const entity of registry.entities) assert.ok(directory.includes(`href="${entity.id}/"`), entity.id);
-  const tags = [...read('index.html').matchAll(/<a class="figure"[^>]+>/g)];
-  assert.equal(tags.length, 12);
-  for (const [tag] of tags) {
-    const id = /data-figure="([^"]+)"/.exec(tag)[1];
-    assert.ok(tag.includes(`href="entities/${id}/"`));
-  }
+  assert.match(read('index.html'), /href="entities\/\?view=chain#scarlet"/);
 });
+
 test('every local profile asset, companion route and source fragment exists', () => {
   const files = ['entities/index.html', ...registry.entities.map(entity => entity.profilePath + 'index.html')];
   const base = new URL(registry.site);
@@ -58,7 +55,7 @@ test('every local profile asset, companion route and source fragment exists', ()
       let relative = decodeURIComponent(url.pathname.slice(base.pathname.length));
       if (!relative || relative.endsWith('/')) relative += 'index.html';
       assert.ok(fs.existsSync(path.join(root, relative)), `${file}: ${relative}`);
-      if (url.hash && url.hash !== '#team' && relative.endsWith('.html')) {
+      if (url.hash && relative.endsWith('.html')) {
         assert.ok(read(relative).includes(`id="${decodeURIComponent(url.hash.slice(1))}"`), `${file}: ${relative}${url.hash}`);
       }
     }

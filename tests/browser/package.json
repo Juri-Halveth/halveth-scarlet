@@ -1,0 +1,15 @@
+{
+  "name": "scarlet-browser-regression",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Browser checks against the generated SCARLET site, with an explicit hidden-scene counterexample.",
+  "scripts": {
+    "test": "node --test singularity.browser.cjs"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

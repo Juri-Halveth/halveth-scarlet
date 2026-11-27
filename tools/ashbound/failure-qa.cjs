@@ -2,19 +2,16 @@ const http=require('node:http');
 const fs=require('node:fs');
 const path=require('node:path');
 const assert=require('node:assert/strict');
-const {chromium}=require(path.join(process.env.CODEX_NODE_PACKAGES,'playwright'));
 const root=path.resolve(__dirname,'../..'),output=path.join(root,'.local-qa/ashbound-failure');
-const mime={'.html':'text/html','.css':'text/css','.mjs':'text/javascript','.js':'text/javascript','.json':'application/json'};
-const server=http.createServer((req,res)=>{
-  try{
-    let file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));
-    if(!file.startsWith(root+path.sep)){res.writeHead(403).end();return;}
-    if(fs.statSync(file).isDirectory())file=path.join(file,'index.html');
-    res.setHeader('Content-Type',mime[path.extname(file)]||'application/octet-stream');fs.createReadStream(file).pipe(res);
-  }catch{res.writeHead(404).end();}
-});
+let server;
+async function createFailureQaServer(siteRoot=root){
+  const {servePublicFile}=await import('../public-site-handler.mjs');
+  return http.createServer((req,res)=>servePublicFile(path.resolve(siteRoot),req,res));
+}
 const results=[];
 async function main(){
+  const {chromium}=require(path.join(process.env.CODEX_NODE_PACKAGES,'playwright'));
+  server=await createFailureQaServer();
   fs.mkdirSync(output,{recursive:true});
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   const base=process.env.ASHBOUND_LIVE_BASE ? new URL('forschung/ashbound/',process.env.ASHBOUND_LIVE_BASE).href : `http://127.0.0.1:${server.address().port}/forschung/ashbound/`;
@@ -127,4 +124,5 @@ async function main(){
   }
   console.log(JSON.stringify({status:'PASS',cases:results.length,base,output}));
 }
-main().catch(error=>{server.close();console.error(error);process.exitCode=1;});
+module.exports={createFailureQaServer};
+if(require.main===module)main().catch(error=>{server?.close();console.error(error);process.exitCode=1;});

@@ -26,7 +26,7 @@ Diese Profilzusammenstellung wurde am 16.09.2026 redaktionell erstellt. Vorhande
 
 - [HALVETH · published entity registry](https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js)
 - [HALVETH · garden](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/#garden)
-- [JURI · linked project / source](https://github.com/Juri-Halveth/open-research-branches/blob/main/branches/aster-provenance-and-secret-garden/entities.json)
+- Historisches Projektregister: `open-research-branches/branches/aster-provenance-and-secret-garden/entities.json` (am 28.10.2026 als privat festgestellt; öffentliche Kurzansicht oben).
 
 ## English
 
@@ -50,4 +50,4 @@ This editorial profile was assembled on 16 September 2026. Existing project text
 
 - [HALVETH · published entity registry](https://github.com/Juri-Halveth/halveth-scarlet/blob/main/assets/universe-data.js)
 - [HALVETH · garden](https://juri-halveth.github.io/halveth-scarlet/forschung/figuren-und-perspektiven/#garden)
-- [JURI · linked project / source](https://github.com/Juri-Halveth/open-research-branches/blob/main/branches/aster-provenance-and-secret-garden/entities.json)
+- Historical project register: `open-research-branches/branches/aster-provenance-and-secret-garden/entities.json` (observed private on 28 October 2026; public summary above).

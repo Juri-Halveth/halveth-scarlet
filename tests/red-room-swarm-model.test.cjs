@@ -32,7 +32,8 @@ test('same surface traces can hide a different synthetic runtime state', async (
   const comparison = compareScenarios('active', 'blocked', 2);
   assert.equal(comparison.samePublicEchoes, true);
   assert.equal(comparison.sameActiveCopies, false);
-  assert.equal(comparison.firstInternalDivergence, 1);
+  assert.equal(comparison.firstInternalDivergence, 0);
+  assert.notEqual(frameAt('active',0).runtime.authorityAvailable,frameAt('blocked',0).runtime.authorityAvailable);
   assert.equal(comparison.firstEchoDivergence, null);
 });
 
@@ -43,6 +44,8 @@ test('local quarantine stops modeled copies without erasing historical echoes', 
   assert.deepEqual(frameAt('active', 3).runtime.activeIds, ['A', 'B', 'C', 'D', 'E', 'F']);
   assert.equal(frameAt('active', 3).runtime.activeCopies, 6);
   assert.equal(frameAt('active', 4).runtime.activeCopies, 0);
+  assert.equal(frameAt('active', 4).runtime.carrierAvailable, false);
+  assert.equal(frameAt('active', 4).runtime.authorityAvailable, false);
   assert.deepEqual(frameAt('active', 4).runtime.activeIds, []);
   assert.equal(frameAt('active', 4).data.publicEchoes, 3);
   assert.equal(frameAt('active', 4).people.free, 3);

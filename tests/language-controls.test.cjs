@@ -19,10 +19,16 @@ test('Russian portal routes stay labelled and keep their exact route IDs, links 
  vm.runInNewContext(read('assets/portal-shell.js'),{window,document,location:new URL('https://juri-halveth.github.io/halveth-scarlet/room/?lang=ru'),URL,URLSearchParams,localStorage:{getItem:()=>null,setItem(){}},matchMedia:()=>({matches:false}),MutationObserver:class{constructor(callback){observerCallbacks.push(callback);}observe(){}},setTimeout,Event:class{}});
  const shell=body.children.find(n=>n.className==='portal-shell'),map=body.children.find(n=>n.className==='portal-map');
  assert.equal(shell.querySelector('.portal-route-name').textContent,'RU: Raum der Spuren');
- const grid=map.querySelector('.portal-grid');assert.equal(grid.children.length,22);
+ const grid=map.querySelector('.portal-grid');assert.equal(grid.children.length,15);
  assert.ok(grid.children.some(n=>n.dataset.portalRoute==='wegweiser'));
  const ids=grid.children.map(n=>n.dataset.portalRoute);
- for(const node of grid.children){assert.match(node.children[1].textContent,/^RU: .+/);assert.match(node.children[2].textContent,/^RU: .+/);assert.equal(new URL(node.href).searchParams.get('lang'),'ru');}
+ const functionalRu={'portal-chess':'Шахматы и история ходов',collage:'Коллаж и композиция',gstar:'Клеточные формы и состояния',ashbound:'3D-остров и решения'};
+ for(const node of grid.children){
+   if(functionalRu[node.dataset.portalRoute])assert.equal(node.children[1].textContent,functionalRu[node.dataset.portalRoute]);
+   else assert.match(node.children[1].textContent,/^RU: .+/);
+   assert.match(node.children[2].textContent,/^RU: .+/);assert.equal(new URL(node.href).searchParams.get('lang'),'ru');
+ }
+ assert.equal(shell.querySelector('.portal-brand-copy strong').textContent,'СОСТОЯНИЯ / ВРЕМЯ');
  assert.equal(new URL(grid.children.find(n=>n.dataset.portalRoute==='team').href).hash,'#team');
  language='en';documentElement.lang='en';observerCallbacks[0]();
  assert.equal(shell.querySelector('.portal-route-name').textContent,'Room of traces');assert.deepEqual(grid.children.map(n=>n.dataset.portalRoute),ids);

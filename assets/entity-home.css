@@ -1,0 +1,43 @@
+/* Home keeps the Earth interaction; the atlas and game get their own hit areas. */
+body[data-atlas-home] .constellation{display:none!important}
+.home-atlas-gateway,.home-launchpad{position:absolute;z-index:6;top:29%;width:260px;font-family:'Segoe UI',system-ui,sans-serif;text-align:left}
+.home-atlas-gateway{left:36px}.home-launchpad{right:36px;display:grid;gap:20px;top:32%;width:245px}
+.home-atlas-kicker{display:block;color:#e9b3c8;font:9px/1.5 'Segoe UI',sans-serif;letter-spacing:.17em;margin:0 0 22px}
+.home-atlas-gateway h2{font:400 35px/1.1 Georgia,serif;letter-spacing:-.03em;color:#fff0e5;margin:0 0 22px;text-wrap:balance}
+.home-atlas-gateway>p:not(.home-atlas-kicker){font-size:12px;line-height:1.85;color:#cbbfcd;max-width:245px;margin-bottom:25px}
+.home-atlas-primary{display:flex;justify-content:space-between;align-items:center;min-height:54px;padding:14px 16px;border:1px solid #f6accc70;border-radius:9px;background:linear-gradient(110deg,#58253e,#282039);box-shadow:0 8px 40px #f06e9b14;color:#ffe6ec!important;font-size:10px;letter-spacing:.06em;text-decoration:none!important}
+.home-atlas-secondary{display:block;color:#d9b6ce!important;font:11px/1.7 'Segoe UI',sans-serif;margin-top:17px;text-decoration:none!important;min-height:44px;padding-block:5px}
+.home-launchpad>a:not(.home-chess-entry){color:#d2c8cf;font-size:12px;text-underline-offset:6px;min-height:44px;display:flex;align-items:center}
+.home-chess-entry{display:flex;align-items:center;gap:13px;background:#13131ce6;border:1px solid #efb86960;border-radius:12px;padding:19px 14px;color:#f7d1a0!important;text-decoration:none!important;min-height:110px}
+.home-chess-entry>span{font:36px Georgia,serif}.home-chess-entry>div{flex:1}.home-chess-entry strong{display:block;font:600 12px/1.4 'Segoe UI',sans-serif;letter-spacing:.08em}.home-chess-entry small{display:block;font-size:8px;letter-spacing:.04em;margin-top:7px;color:#d7c6b3}.home-chess-entry em{display:block;font:9px/1.7 'Segoe UI',sans-serif;color:#aaa5aa;margin-top:8px}
+.home-atlas-primary:hover,.home-chess-entry:hover{border-color:#ffe0ac;box-shadow:0 0 25px #eb97c020}
+body[data-atlas-home] :is(.home-atlas-gateway,.home-launchpad) a:focus-visible{outline:3px solid #aeffe3;outline-offset:5px}
+body[data-atlas-home] .heart-controls{bottom:25px}
+body[data-atlas-home] .earth-navigation{bottom:auto}
+.home-observatory{position:relative;padding:30px max(24px,calc((100vw - 1160px)/2));background:#0d111d;border-block:1px solid #ffffff16}
+body[data-atlas-home] .home-observatory .chain-dock{position:relative;inset:auto;display:flex;gap:14px;flex-wrap:wrap;align-items:start;width:100%;max-width:none;padding:0;margin:0;background:none;border:0}
+.home-observatory .chain-dock-title{width:100%;font-size:9px}.home-observatory .chain-dock>details{width:min(440px,100%);flex:1 1 280px}.home-observatory .chain-dock-note{width:100%;text-align:left}
+@media(max-width:1250px) and (min-width:761px){.home-atlas-gateway{left:22px;width:210px}.home-atlas-gateway h2{font-size:29px}.home-launchpad{right:22px;width:210px}.home-atlas-gateway>p:not(.home-atlas-kicker){font-size:11px}.home-atlas-primary{font-size:9px;padding:12px}.home-chess-entry{padding:16px 10px;gap:7px}.home-chess-entry>span{font-size:27px}}
+@media(max-width:1000px) and (min-width:761px){.home-atlas-gateway{top:auto;bottom:26px;width:220px}.home-atlas-gateway h2,.home-atlas-gateway>p{display:none}.home-atlas-secondary{font-size:10px}.home-launchpad{top:auto;bottom:55px;width:220px}.home-launchpad>a:not(.home-chess-entry),.home-launchpad>.home-atlas-kicker{display:none}}
+@media(max-width:760px){
+ .home-atlas-gateway{top:140px;left:20px;right:20px;width:auto}.home-atlas-gateway h2,.home-atlas-gateway>p,.home-atlas-secondary{display:none}.home-atlas-primary{min-height:48px;padding:12px 17px;background:linear-gradient(110deg,#52253fe8,#222137e8)}
+ .home-launchpad{top:auto;bottom:20px;left:20px;right:20px;width:auto;display:block}.home-launchpad>.home-atlas-kicker,.home-launchpad>a:not(.home-chess-entry){display:none}.home-chess-entry{min-height:80px;padding:14px 20px}.home-chess-entry em{margin-top:3px}.home-chess-entry>span{font-size:31px}.home-chess-entry strong{font-size:13px}.home-chess-entry small{margin-top:3px}
+ body[data-atlas-home] .heart-button{width:76px;height:76px}
+ .home-observatory{padding:25px 20px}
+}
+
+body[data-atlas-home] .home-observatory .newswire{position:relative;inset:auto;transform:none;width:100%;max-width:none;margin:0 0 26px;padding:0 0 18px;border:0;border-bottom:1px solid #ffffff20}
+body[data-atlas-home] .home-observatory .newswire a{min-height:44px;font-size:16px}
+@media(max-width:760px){
+ body[data-atlas-home].portal-route-home .scene{--earth-y:360px;height:auto;min-height:0;padding-bottom:14px}
+ body[data-atlas-home].portal-route-home .scene>main{display:flex;flex-direction:column;gap:18px;padding:calc(var(--earth-y) + var(--orbit)*.5 - 40px) 18px 0}
+ body[data-atlas-home].portal-route-home .orbit-system{top:var(--earth-y)}
+ body[data-atlas-home].portal-route-home .earth-caption{top:calc(var(--earth-y) - var(--orbit)*.14)}
+ body[data-atlas-home].portal-route-home .event-clock{top:calc(var(--earth-y) + var(--orbit)*.06)}
+ body[data-atlas-home].portal-route-home .moment{top:var(--earth-y)}
+ body[data-atlas-home].portal-route-home .earth-navigation{position:relative;inset:auto;transform:none;width:100%;margin:0;order:1}
+ body[data-atlas-home].portal-route-home .heart-controls{position:relative;inset:auto;transform:none;width:100%;margin:0;order:2;padding:18px 0}
+ body[data-atlas-home].portal-route-home .home-launchpad{position:relative;inset:auto;transform:none;width:100%;margin:0;order:3}
+}
+
+.home-earth-sources{display:flex;flex-wrap:wrap;gap:12px 24px;padding-bottom:24px;font:12px/1.6 "Segoe UI",sans-serif}.home-earth-sources a{color:#c4d5d5;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}

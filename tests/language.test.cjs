@@ -1,5 +1,19 @@
 const test=require('node:test'),assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs'),path=require('node:path');
 const script=fs.readFileSync(path.join(__dirname,'../assets/language.js'),'utf8');
+test('translated legal footer retains the canonical person and identifies HALVETH as the project',()=>{
+  const key='© 2026 Juri Janovski (Projekt HALVETH).';
+  const catalog=JSON.parse(fs.readFileSync(path.join(__dirname,'../languages/catalog.json'),'utf8'));
+  const context={window:{}};
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../languages/catalog.js'),'utf8'),context);
+  for(const language of ['en','ru']){
+    const translated=context.window.HalvethHubTranslations[key][language];
+    assert.equal(translated,catalog.strings[key][language]);
+    assert.match(translated,/Juri Janovski/);
+    assert.match(translated,language==='en'?/\(project HALVETH\)/:/\(проект HALVETH\)/);
+  }
+  const html=fs.readFileSync(path.join(__dirname,'../forschung/formen-und-verbindungen/index.html'),'utf8');
+  assert.ok(html.includes('<footer><strong>'+catalog.strings[key].en+'</strong>'),'the authored English section retains the same attribution');
+});
 function setup(query='',saved=null,browser='de-DE',blockedStorage=false){
   const assigned=[],writes=[],url='https://juri-halveth.github.io/halveth-scarlet/'+query;
   const document={documentElement:{lang:'de'},baseURI:url,readyState:'loading',addEventListener(){}};
@@ -25,11 +39,11 @@ test('Language switching preserves other URL parameters and the article anchor',
 });
 test('Every garden entity retains a complete English counterpart and stable identity',()=>{
   const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../assets/universe-data.js'),'utf8'),context);
-  const entities=context.window.HalvethUniverse.entities;assert.equal(entities.length,67);assert.equal(new Set(entities.map(e=>e.id)).size,67);
+  const entities=context.window.HalvethUniverse.entities;assert.equal(entities.length,68);assert.equal(new Set(entities.map(e=>e.id)).size,entities.length);
   for(const e of entities)for(const key of ['role','kind','note','sourceLabel']){assert.equal(typeof e.en[key],'string',e.id+'.'+key);if(e[key])assert(e.en[key].length,e.id+'.'+key);}
   const celsius=entities.find(e=>e.id==='celsius');assert.equal(celsius.localDialog,true);assert.equal(celsius.en.doorLabel,'Let Celsius speak');assert(context.window.HalvethUniverse.featured.includes('celsius'));
   const atelier=entities.find(e=>e.id==='choice-atelier');assert.equal(atelier.url,'collage/');assert.match(atelier.note,/lokalen Browser/);
-  const brightcast=entities.find(e=>e.id==='brightcast-starlight');assert.equal(brightcast.url,'forschung/brightcast-starlight/');assert(context.window.HalvethUniverse.featured.includes('brightcast-starlight'));
+  const brightcast=entities.find(e=>e.id==='brightcast-starlight');assert.equal(brightcast.url,'forschung/wegweiser/');assert(context.window.HalvethUniverse.featured.includes('brightcast-starlight'));
   const pi=entities.find(e=>e.id==='pi-treffpunkte');assert.equal(pi.url,'forschung/pi-treffpunkte/');assert.equal(pi.localDialog,true);assert(context.window.HalvethUniverse.featured.includes('pi-treffpunkte'));
   const chess=entities.find(e=>e.id==='portal-chess');assert.equal(chess.url,'forschung/portal-chess/');assert.match(chess.note,/16\/16/);assert.match(chess.en.note,/16\/16/);
 });

@@ -17,6 +17,7 @@ function render() {
   document.querySelector('#work').textContent = `${number(r.workDuring)} bis T+6 und ${number(r.workAfter)} weitere bis T+12 = ${number(r.workDuring + r.workAfter)} Arbeitsmonate`;
   document.querySelector('#pension').textContent = euro(r.pensionT12);
   document.querySelector('#pilots').textContent = number(r.billionPilotCount);
+  document.querySelector('#scale-scenario-label').textContent = `Im Annahmensatz „${s.title}“${exception.checked ? ' mit großem Einzelfall' : ''}`;
   document.querySelector('#assumptions').textContent = `Annahmen „${s.title}“: ${s.localShare * 100} % der gewöhnlichen Direktmittel werden vor Ort ausgegeben; davon ${s.additionalDemand * 100} % zusätzliche Nachfrage. Der Wertschöpfungsanteil beträgt ${s.valueAddedShare * 100} %, die Verdrängung ${s.displacement * 100} %. Nach T+6 kommen ${s.workAfter} neue Arbeitsmonate hinzu. Auch für sie zählen nur örtliche und nicht verdrängte Anteile.`;
   document.querySelector('#special').textContent = exception.checked
     ? `Großer Einzelfall: ${euro(2000000)} ersetzen einen Referenzplatz. Von der ersten Million Brühler Rechnungen sind ${euro(450000)} Kaufpreis einer bestehenden Wohnung; dieser Vermögensübergang geht nicht in die Wertschöpfungsrechnung ein. Eine weitere Million ist im Beispiel noch unverplant. Das Modell unterstellt keine Auszahlung vor Bewilligung.`

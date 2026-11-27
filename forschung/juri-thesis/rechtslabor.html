@@ -4,7 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta data-entry-scroll-csp="hash-pinned" http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'sha256-SmB2TJRwCfxb4auKNkL3LMCX63uId1PpcSZ5+a9eHo4='; connect-src 'none'; base-uri 'none'; form-action 'none'"><!-- ENTRY_SCROLL_START --><script>/* Fresh entries start at the stage; history returns and content anchors keep their place. */
+(() => {
+  'use strict';
+  const navigation = performance.getEntriesByType('navigation')[0];
+  const appFragment = document.currentScript?.dataset.entryFragments === 'application';
+  if (navigation?.type === 'back_forward' || (location.hash.length > 1 && !appFragment)) return;
+
+  let pending = true;
+  const restoreBrowser = () => {
+    pending = false;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'auto';
+  };
+  const startAtTop = () => {
+    if (pending) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  };
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  for (const type of ['pointerdown', 'touchstart', 'wheel', 'keydown']) {
+    window.addEventListener(type, restoreBrowser, { once: true, passive: true, capture: true });
+  }
+  document.addEventListener('DOMContentLoaded', startAtTop, { once: true });
+  window.addEventListener('load', startAtTop, { once: true });
+  window.addEventListener('pageshow', event => {
+    if (event.persisted) restoreBrowser();
+    else startAtTop();
+  });
+  window.addEventListener('pagehide', restoreBrowser);
+  document.fonts?.ready.then(startAtTop);
+})();
+</script><!-- ENTRY_SCROLL_END -->
   <meta name="description" content="Rechtslabor zur JURI-THESIS: zwölf kurze Gegenfragen zu Anspruch, Geld, Alter, Nominierungen und Datenschutz mit konstruktiven Antworten und Primärquellen.">
   <title>Rechtslabor · JURI-THESIS</title>
   <link rel="stylesheet" href="style.css">
@@ -17,10 +45,10 @@
     <nav aria-label="Hauptnavigation"><a href="index.html">Start</a><a href="konzept.html">Konzept</a><a href="wirkungswege.html">Vier Leben</a><a href="bruehl-atlas.html">Brühl konkret</a><a href="wirtschaftslabor.html">Wirtschaft</a><a href="chancenreise.html">Chancenreise</a><a href="rechtslabor.html" aria-current="page">Rechtslabor</a><a href="versand.html">Versandstand</a></nav>
     <span class="status">Rechtsfragen · Fassung 14.10.2026</span>
   </header>
+  <aside class="dispatch-strip" aria-label="Projektstatus"><strong>Archiviert · Unterstützung abgelehnt.</strong><span>Brühl hat die angefragte Mitwirkung abgelehnt; das NRW-Arbeitsministerium sieht derzeit keine Möglichkeit zur Unterstützung. Diese Seite zeigt den historischen Vorschlag, keinen laufenden Pilot.</span><a href="versand.html">Abschluss lesen ↗</a></aside>
   <main id="inhalt">
     <section class="law-hero" aria-labelledby="title"><div class="law-hero-inner"><p class="eyebrow">Menschen zuerst · Regeln danach</p><h1 id="title">Wer bekommt <em>eine echte Chance?</em></h1><p>Vier Lebenswege zeigen, was auf dem Spiel steht: Wohnen, Lernen, Familie, Arbeit und ein neuer Anfang. Danach prüft dieses Labor die zwölf Entscheidungen, die eine verantwortliche Umsetzung tragen müssen.</p><div class="hero-actions"><a class="button primary" href="wirkungswege.html">Vier Leben ansehen ↗</a><a class="button secondary" href="#zug-1">Die Fragen prüfen ↓</a></div></div><div class="chess-symbol" aria-hidden="true">♜<span>↔</span>♞</div></section>
 
-    <aside class="dispatch-strip" aria-label="Aktueller Projektstand"><strong>Versand an Brühl gemeldet.</strong><span>Der Initiator meldete den E-Mail-Versand an die Stadt Brühl am 14.10.2026 um 02:48 Uhr. Eingang, Gremium und fachliche Antwort sind noch offen.</span><a href="versand.html">Versandstand lesen ↗</a></aside>
     <section class="law-intro" aria-labelledby="logic-title"><p class="eyebrow">Drei Ebenen weiterdenken</p><h2 id="logic-title">Ein Grundrecht ist der Anfang einer Frage.</h2><div class="law-chain"><div><b>1 · Verfassung</b><p>Menschenwürde, Entfaltung, Gleichheit und Sozialstaat geben Maßstäbe für die Idee.</p></div><div><b>2 · Gesetzgebung</b><p>Ein Programm braucht zuständigen Normgeber, Finanzierung und ausdrücklich bestimmte Wechselwirkungen mit bestehenden Leistungssystemen.</p></div><div><b>3 · Einzelfall</b><p>Erst ein geltendes Verfahren kann Anspruch, Bescheid, Begründung und überprüfbare Entscheidung für eine Person erzeugen.</p></div></div></section>
 
     <section class="law-anchors" aria-labelledby="anchors-title"><p class="eyebrow">Reale Bausteine statt bloßer Behauptung</p><h2 id="anchors-title">Zeit, Förderung und Zugang lassen sich gestalten.</h2><div class="anchor-grid"><article><b>Weiterbildung</b><p><a href="https://www.gesetze-im-internet.de/sgb_3/__81.html">§ 81 SGB III</a> erlaubt unter Voraussetzungen die Übernahme von Weiterbildungskosten.</p></article><article><b>Sechs Monate Gründung</b><p><a href="https://www.gesetze-im-internet.de/sgb_3/__93.html">§ 93</a> und <a href="https://www.gesetze-im-internet.de/sgb_3/__94.html">§ 94 SGB III</a> regeln einen Gründungszuschuss mit einer ersten Phase von sechs Monaten.</p></article><article><b>Einfacher Zugang</b><p>Für Sozialleistungen verlangt <a href="https://www.gesetze-im-internet.de/sgb_1/__17.html">§ 17 SGB I</a> möglichst einfache Anträge und zugängliche Dienste.</p></article></div><p>Diese bestehenden Wege zeigen konkrete Bauformen. Die JURI-THESIS fragt, wie ein breiterer, persönlich gestalteter Entwicklungsweg geregelt und finanziert werden könnte.</p></section>
@@ -44,9 +72,9 @@
           <p class="open-edge"><b>Vor einer Entscheidung:</b> Welche Aufgabe und welches Budget trägt den örtlichen Teil?</p>
         </div>
       </details>
-      <details class="move" id="anrechnung">
+      <details class="move">
         <summary><span class="move-count">03</span><span><small>Geld und bestehende Leistungen</small><strong>„Bleibt mir am Ende wirklich mehr?“</strong></span><span class="toggle" aria-hidden="true">+</span></summary>
-        <div class="move-body">
+        <div class="move-body" id="anrechnung">
           <p class="human-stake"><b>Was daran weh tut</b> Eine zusätzliche Zahlung hilft wenig, wenn eine andere Leistung im gleichen Maß sinkt.</p>
           <div class="side no"><span>Der Sachkern</span><p>Im Bürgergeld ist Geld grundsätzlich Einkommen nach <a href="https://www.gesetze-im-internet.de/sgb_2/__11.html">§ 11 SGB II</a>; <a href="https://www.gesetze-im-internet.de/sgb_2/__11a.html">§ 11a</a> enthält begrenzte Ausnahmen.</p></div>
           <div class="side yes"><span>Ein gangbarer Entwurf</span><p>Für die allgemeine Vision braucht es ausdrückliche Regeln je betroffenem Leistungssystem. Im Pilot werden Zweck, Zahlungsform und Folgen vor einer Zusage individuell geklärt.</p></div>

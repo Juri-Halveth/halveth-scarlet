@@ -29,3 +29,18 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_*.py'
       - name: Require a commit-bound public build
         run: node tools/verify_build_info.mjs
+      - name: Install pinned browser-test dependencies
+        run: npm ci --prefix tests/browser --ignore-scripts --no-audit --no-fund
+      - name: Install Chromium for the browser regression
+        working-directory: tests/browser
+        run: npx --no-install playwright install --with-deps chromium
+      - name: Test rendered scene and hidden-scene counterexample
+        run: npm test --prefix tests/browser
+      - name: Retain browser observations
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: singularity-browser-observations
+          path: tests/browser/artifacts/
+          if-no-files-found: ignore
+          retention-days: 3

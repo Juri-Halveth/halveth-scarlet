@@ -145,12 +145,13 @@ export function createWorld(host, { onSelect, onError, onRestore, reducedMotion 
   const pilgrimRing=make(new T.TorusGeometry(1.15,.07,4,24),glow,pilgrim,0,.05,0);pilgrimRing.rotation.x=Math.PI/2;pilgrimRing.castShadow=false;
   const pilgrimPosition=id=>{const p=sites.get(id).position;return new T.Vector3(p.x+3.7,p.y,p.z+3.2);};
   pilgrim.position.copy(pilgrimPosition('haven'));
-  let currentRegion='haven',travelNodes=[],travelFrom=null,travelTo=null,travelT=0;
+  let currentRegion='haven',targetRegion='haven',travelNodes=[],travelFrom=null,travelTo=null,travelT=0;
   const travel=id=>{
-    if(id===currentRegion)return;
-    travelNodes=routeBetween(currentRegion,id).slice(1).map(pilgrimPosition);
-    currentRegion=id;
-    if(!motion){pilgrim.position.copy(pilgrimPosition(id));travelNodes=[];travelFrom=travelTo=null;invalid=true;return;}
+    if(id===targetRegion)return;
+    const route=routeBetween(currentRegion,id);
+    travelNodes=(travelTo?route:route.slice(1)).map(node=>({id:node,position:pilgrimPosition(node)}));
+    targetRegion=id;
+    if(!motion){currentRegion=id;pilgrim.position.copy(pilgrimPosition(id));travelNodes=[];travelFrom=travelTo=null;invalid=true;return;}
     travelFrom=pilgrim.position.clone();travelTo=travelNodes.shift()??null;travelT=0;invalid=true;
   };
   const selector=make(new T.TorusGeometry(5.9,.09,6,64),glow,island,0,0,0);selector.rotation.x=Math.PI/2;
@@ -186,10 +187,10 @@ export function createWorld(host, { onSelect, onError, onRestore, reducedMotion 
     if(travelTo){
       travelT=Math.min(1,travelT+dt/.68);
       const eased=travelT*travelT*(3-2*travelT);
-      pilgrim.position.lerpVectors(travelFrom,travelTo,eased);
+      pilgrim.position.lerpVectors(travelFrom,travelTo.position,eased);
       pilgrim.position.y+=Math.sin(Math.PI*travelT)*2;
       pilgrim.rotation.y+=dt*1.2;invalid=true;
-      if(travelT===1){pilgrim.position.copy(travelTo);travelFrom=pilgrim.position.clone();travelTo=travelNodes.shift()??null;travelT=0;}
+      if(travelT===1){currentRegion=travelTo.id;pilgrim.position.copy(travelTo.position);travelFrom=pilgrim.position.clone();travelTo=travelNodes.shift()??null;travelT=0;}
     }
     if(motion){elapsed+=dt;for(const {o,y}of floats){o.position.y=y+Math.sin(elapsed*.7)*.22;o.rotation.y+=dt*.08;}invalid=true;}
     if(invalid){renderer.render(scene,camera);frames++;fpsFrames++;invalid=false;
@@ -224,7 +225,7 @@ export function createWorld(host, { onSelect, onError, onRestore, reducedMotion 
       gateSurfaceMaterial.emissiveIntensity=gateReady?1.8:.6;invalid=true;
     },
     reset,focus,zoom,label(value){canvas.setAttribute('aria-label',value);},visible(value){visible=value;enabled=value&&!lost;invalid=true;syncLoop();},
-    motion(value){motion=value;if(!motion&&travelTo){pilgrim.position.copy(pilgrimPosition(currentRegion));travelNodes=[];travelFrom=travelTo=null;}invalid=true;},
+    motion(value){motion=value;if(!motion&&travelTo){currentRegion=targetRegion;pilgrim.position.copy(pilgrimPosition(currentRegion));travelNodes=[];travelFrom=travelTo=null;}invalid=true;},
     quality(value){frameBudgetMs=value==='high'?1000/60:1000/30;renderer.setPixelRatio(Math.min(devicePixelRatio,value==='high'?(innerWidth<700?1.5:2):(innerWidth<700?1:1.5)));resize();},
     get stats(){return {frames,measuredFps,frameCap:Math.round(1000/frameBudgetMs),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,width:canvas.width,height:canvas.height,motion,loopActive,travelling:!!travelTo,beacons:[...beacons.values()].filter(item=>item.sign.visible).length};},
     dispose(){renderer.setAnimationLoop(null);loopActive=false;document.removeEventListener('visibilitychange',visibilityChange);observer.disconnect();controls.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();renderer.dispose();}

@@ -4,7 +4,7 @@ export const cases = {
     number: '01', title: 'Ein großer Plan',
     hook: 'Man nehme an: Für einen Initiator werden einmalig zwei Millionen Euro bewilligt. Er will in Brühl bleiben, lernen, Software entwickeln und mit anderen Arbeit schaffen.',
     before: 'Die Idee ist da. Wohnung, Mobilität, Lernzeit und Menschen für die Umsetzung fehlen. Jeder nächste Schritt kostet Kraft, bevor überhaupt etwas gebaut ist.',
-    action: 'Ein bewilligter großer Rahmen schafft Planbarkeit. Der Initiator kann eine Wohnung suchen, Aufträge vergeben, ein Team bezahlen und Zeit zum Studieren und Entwickeln freimachen. Im Rechenbeispiel gehen genau eine Million Euro an Brühler Zahlungsempfänger.',
+    action: 'Ein bewilligter großer Rahmen schafft Planbarkeit. Der Initiator kann eine Wohnung suchen, Aufträge vergeben, ein Team bezahlen und Zeit zum Studieren und Entwickeln freimachen. Im Rechenbeispiel gehen unter der ausdrücklichen Annahme eines Verkäufers mit Standort in Brühl genau eine Million Euro an Brühler Zahlungsempfänger. Die 450.000 € Kaufpreis zählen nur unter dieser Modellannahme dazu; der Standort der Wohnung allein belegt den des Verkäufers nicht.',
     open: 'Ein Arbeitsraum entsteht. Zwei Menschen arbeiten bezahlt an einem Prototyp, eine Renovierung beschäftigt Betriebe vor Ort. Der Initiator lebt weiter in Brühl und kann sein Vorhaben nach sechs Monaten vorführen. Das wäre ein möglicher Verlauf, kein bereits erzieltes Ergebnis.',
     friction: 'Eine Wohnung wird teuer oder nicht verfügbar, ein Prototyp scheitert, Aufträge verzögern sich. Die Person behält eine echte Lernchance; die nicht eingesetzten Mittel bleiben sichtbar. Ausgaben allein wären noch kein Projekterfolg.',
     human: 'Sicherheit beim Wohnen, freie Lernzeit und verlässliche Zusammenarbeit können den Alltag verändern. Für Familie und Team zählt auch, ob Verpflichtungen tragbar bleiben und Menschen fair bezahlt werden.',
@@ -12,14 +12,14 @@ export const cases = {
     budget: 2000000,
     budgetNote: 'Vom Initiator vorgeschlagene Größenordnung; keine bewilligte Leistung.',
     lines: [
-      {label:'Bestehende Wohnung / Kaufpreis in Brühl', amount:450000, local:true},
+      {label:'Wohnung in Brühl / Kaufpreis – Annahme: Verkäufer in Brühl', amount:450000, local:true},
       {label:'Renovierung durch Brühler Betriebe', amount:150000, local:true},
       {label:'Auto / Mobilität bei Brühler Anbieter', amount:100000, local:true},
       {label:'Bezahltes Team / Dienste in Brühl', amount:200000, local:true},
       {label:'Lernen und Alltag in Brühl', amount:100000, local:true},
-      {label:'Weitere Verwendung noch offen', amount:1000000, local:false}
+      {label:'Weitere Verwendung noch offen', amount:1000000, local:false, allocated:false}
     ],
-    ledgerNote: 'Die ersten fünf Posten summieren sich auf 1 Mio. € Brühler Zahlungen. Wo zusätzliche lokale Wertschöpfung entsteht, muss separat ermittelt werden.'
+    ledgerNote: 'Die 1 Mio. € Brühler Zahlungen setzen beim Kaufpreis von 450.000 € einen Verkäufer mit Standort in Brühl voraus. Dies ist eine Modellannahme; aus der Lage der Wohnung folgt der Verkäuferstandort nicht. Zusätzliche lokale Wertschöpfung muss separat ermittelt werden.'
   },
   mother: {
     number:'02', title:'Eine Mutter',
@@ -63,7 +63,8 @@ export const cases = {
 };
 
 export function summarizeBudget(entry) {
-  const allocated = entry.lines.reduce((sum, line) => sum + line.amount, 0);
-  const localPayments = entry.lines.reduce((sum, line) => sum + (line.local ? line.amount : 0), 0);
+  const allocatedLines = entry.lines.filter(line => line.allocated !== false);
+  const allocated = allocatedLines.reduce((sum, line) => sum + line.amount, 0);
+  const localPayments = allocatedLines.reduce((sum, line) => sum + (line.local ? line.amount : 0), 0);
   return {allocated, localPayments, unallocated: entry.budget - allocated};
 }

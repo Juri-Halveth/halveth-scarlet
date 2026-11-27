@@ -18,3 +18,25 @@ forschung/de-anker-hela/public-monologue.md -text
 # Keep the public JURI-THESIS brief byte-identical and review it as an artifact.
 forschung/juri-thesis/assets/*.pdf binary
 forschung/microvalue/*.pdf binary
+
+# The Singularity manifest and ZIP bind the exact published LF source bytes.
+forschung/singularity-cannon/*.md text eol=lf
+forschung/singularity-cannon/*.json text eol=lf
+forschung/singularity-cannon/*.html text eol=lf
+forschung/singularity-cannon/*.mjs text eol=lf
+forschung/singularity-cannon/*.zip binary
+# The research inventory verifies the checked-out bytes on Windows and POSIX.
+assets/universe-data.js text eol=lf
+docs/entities/*.md text eol=lf
+entities/*/index.html text eol=lf
+assets/entity-signatures.mjs text eol=lf
+assets/entity-signature-ui.mjs text eol=lf
+assets/entity-world-model.mjs text eol=lf
+tests/entity-signatures.test.mjs text eol=lf
+tests/entity-signature-ui.test.mjs text eol=lf
+tests/entity-profiles.test.cjs text eol=lf
+entities/INVENTORY_20261027.json text eol=lf
+entities/relations.json text eol=lf
+entities/research/catalog.json text eol=lf
+entities/research/sources.json text eol=lf
+entities/research/contracts.json text eol=lf

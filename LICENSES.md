@@ -1,6 +1,6 @@
 # HALVETH path and version license map
 
-Copyright (c) 2026 Juri Janovski, publishing as Juri Halveth.
+Copyright (c) 2026 Juri Janovski, project HALVETH.
 
 **Classification:** source-available with a conditional non-commercial
 public-interest permission. HALVETH PIRL 2.0 is not an OSI-approved open-source

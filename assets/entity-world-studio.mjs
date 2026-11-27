@@ -165,7 +165,7 @@ for (const [index, name] of tabNames.entries()) {
   $('studio-tab-' + name).addEventListener('click', () => changeTab(name));
   $('studio-tab-' + name).addEventListener('keydown', event => {
     if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
-    event.preventDefault(); const next = tabNames[(index + (event.key === 'ArrowRight' ? 1 : 2)) % 3]; changeTab(next); $('studio-tab-' + next).focus();
+    event.preventDefault(); const next = tabNames[(index + (event.key === 'ArrowRight' ? 1 : 2)) % 3]; changeTab(next); $('studio-tab-' + next).focus({ preventScroll: true });
   });
 }
 $('studio-copy').addEventListener('click', async () => {

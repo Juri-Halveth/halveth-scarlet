@@ -5,20 +5,13 @@ const path = require('node:path');
 
 const root = path.join(__dirname, '..');
 const pages = new Map([
-  ['index.html', 'assets/'],
   ['room/index.html', '../assets/'],
   ['snapshot/index.html', '../assets/'],
   ['collage/index.html', '../assets/'],
   ['forschung/figuren-und-perspektiven/index.html', '../../assets/'],
   ['forschung/formen-und-verbindungen/index.html', '../../assets/'],
-  ['forschung/transaktionsfluss/index.html', '../../assets/'],
-  ['forschung/q-notizen/index.html', '../../assets/'],
-  ['forschung/tagesstand-2026-09-13/index.html', '../../assets/'],
-  ['forschung/usdai-sabr-kontext/index.html', '../../assets/'],
-  ['forschung/brightcast-starlight/index.html', '../../assets/']
+  ['forschung/transaktionsfluss/index.html', '../../assets/']
   ,['forschung/pi-treffpunkte/index.html', '../../assets/']
-  ,['forschung/de-anker-hela/index.html', '../../assets/']
-  ,['forschung/halveth-research/index.html', '../../assets/']
   ,['forschung/grenzbeobachter/index.html', '../../assets/']
   ,['forschung/weltkeimwerk/index.html', '../../assets/']
 ]);
@@ -36,7 +29,7 @@ test('every published page loads one shared portal shell from the correct root',
 
 test('every published page declares canonical, bilingual and social-preview metadata', () => {
   const publicRoot = 'https://juri-halveth.github.io/halveth-scarlet/';
-  for (const [relative] of pages) {
+  for (const [relative] of [['index.html','assets/'], ...pages]) {
     const html = fs.readFileSync(path.join(root, relative), 'utf8');
     const route = relative === 'index.html' ? '' : relative.replace(/index\.html$/, '');
     const canonical = publicRoot + route;
@@ -68,19 +61,13 @@ test('portal artwork is optimized, local and complete', () => {
     assert(stat.size > 100_000, `${file} should contain the intended artwork`);
     assert(stat.size < 250_000, `${file} should remain web-sized`);
   }
-  const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  assert(homepage.includes('src="assets/scarlet-dual-state-v1.webp"'));
-  assert(!homepage.includes('src="assets/scarlet-dual-state-v1.png"'));
+
 });
 
-test('homepage layout styles retain their keys and the shell carries the veil fix', () => {
+test('the operational home owns one dedicated layout instead of layering old game styles', () => {
   const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  for (const file of ['events.css', 'universe.css', 'q-entry.css']) {
-    assert(homepage.includes(`assets/${file}?v=full-audit-20260914`), file);
-  }
-  assert(homepage.includes('assets/hash-bloom.css?v=membrane-20260914'), 'hash-bloom.css');
-  assert(homepage.includes('assets/portal-shell.css?v=choice-atelier-20260914'), 'portal-shell.css');
-  assert(homepage.includes('assets/portal-shell.js?v=choice-atelier-20260914'), 'portal-shell.js');
+  assert.match(homepage, /assets\/capability-room\.css/);
+  for (const name of ['events.css','universe.css','q-entry.css','hash-bloom.css','portal-shell.css']) assert(!homepage.includes('assets/'+name), name);
 });
 
 test('responsive layout has no fractional pixel gap below desktop', () => {
@@ -94,11 +81,11 @@ test('responsive layout has no fractional pixel gap below desktop', () => {
 test('portal shell exposes all routes and motion-safe controls', () => {
   const script = fs.readFileSync(path.join(root, 'assets/portal-shell.js'), 'utf8');
   const style = fs.readFileSync(path.join(root, 'assets/portal-shell.css'), 'utf8');
-  for (const route of ['./', 'room/', 'snapshot/', 'collage/', 'entities/', 'news/', 'forschung/portal-chess/', 'forschung/usdai-sabr-kontext/', 'forschung/figuren-und-perspektiven/', 'forschung/formen-und-verbindungen/', 'forschung/transaktionsfluss/', 'forschung/q-notizen/', 'forschung/tagesstand-2026-09-13/', 'forschung/brightcast-starlight/', 'forschung/pi-treffpunkte/', 'forschung/de-anker-hela/', 'forschung/halveth-research/', 'forschung/grenzbeobachter/', 'forschung/weltkeimwerk/', 'forschung/ashbound/', './#team']) {
+  for (const route of ['./','forschung/portal-chess/','room/','snapshot/','forschung/figuren-und-perspektiven/','forschung/formen-und-verbindungen/','forschung/transaktionsfluss/','./#team','collage/','forschung/pi-treffpunkte/','entities/','forschung/grenzbeobachter/','forschung/weltkeimwerk/','forschung/ashbound/','forschung/wegweiser/']) {
     assert(script.includes(`path:'${route}'`), route);
   }
   assert(script.includes("routes.length+(english?"), 'portal count follows the actual route registry');
-  assert(script.includes("67 public cards: perspectives, characters, projects and sources"));
+  assert(script.includes("All profiles: perspectives, characters, projects and sources"));
   assert(script.includes("route.id!=='team'"), 'team hash must retain the home route styling');
   assert(script.includes("class=\"portal-motion-button\""));
   assert(script.includes("prefers-reduced-motion: reduce"));
@@ -114,13 +101,7 @@ test('research CSP permits only the local portal presentation assets', () => {
     'forschung/figuren-und-perspektiven/index.html',
     'forschung/formen-und-verbindungen/index.html',
     'forschung/transaktionsfluss/index.html',
-    'forschung/q-notizen/index.html',
-    'forschung/tagesstand-2026-09-13/index.html',
-    'forschung/usdai-sabr-kontext/index.html',
-    'forschung/brightcast-starlight/index.html',
     'forschung/pi-treffpunkte/index.html',
-    'forschung/de-anker-hela/index.html',
-    'forschung/halveth-research/index.html',
     'forschung/grenzbeobachter/index.html',
     'forschung/weltkeimwerk/index.html',
     'collage/index.html'
@@ -130,9 +111,6 @@ test('research CSP permits only the local portal presentation assets', () => {
     assert(html.includes("style-src 'self'"), relative);
     assert(html.includes("img-src 'self'"), relative);
   }
-  const brightcast = fs.readFileSync(path.join(root, 'forschung/brightcast-starlight/index.html'), 'utf8');
-  assert(brightcast.includes("media-src 'self'"));
-  assert(brightcast.includes('<track kind="captions"'));
 });
 
 for (const route of ['grenzbeobachter', 'weltkeimwerk']) test(`${route} keeps model execution inside local page resources`, () => {

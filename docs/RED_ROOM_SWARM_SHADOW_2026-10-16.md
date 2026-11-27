@@ -55,3 +55,9 @@ Diese Äste bleiben Hypothesen; aus einer Wortähnlichkeit, einem Namen, einer z
 `node --test tests/red-room-swarm-model.test.cjs` prüft die Personen-/Daten-Trennung, Archiv ohne Laufzeit, die Gegenmodelldifferenz, den lokalen Widerruf und deterministische Eingaben. `node tools/build_site.mjs` baut die statische Seite und prüft lokale Verweise. Browserprüfung bleibt eine eigene Ebene für Layout, Sprache, Bedienbarkeit und Bewegung.
 
 Code, SVG-Geometrie und CSS sind eigene Gestaltung. Die Seite enthält keine Marvel-Bilder, keine Personendaten der erwähnten Drittperson und keine Anbindung an echte Backups oder Netzwerke.
+
+## Korrektur des Laufzeitvergleichs · 21.10.2026
+
+Die ursprüngliche Formulierung oben zählt aktive Kopien. Der vollständige Laufzeitvektor unterscheidet sich bereits bei T0 durch die Autorität; aktive Kopien unterscheiden sich erstmals bei T+1. Die aktuelle Gegenprobe vergleicht alle deklarierten Laufzeitfelder. Bei T+4 werden sowohl Träger als auch Autorität widerrufen. Der historische Wortlaut bleibt als früherer Modellstand erhalten.
+
+Öffentlich gebundener Reproduktionsstand: `b768ca093d9bd68b1453a8ccc5b6d02ecaa1eb07`, Datei `assets/red-room-swarm-model.mjs` im SCARLET-Repository. Die oben genannten früheren lokalen Arbeitscommits sind damit keine Voraussetzung für das Nachlesen des veröffentlichten Ausgangsmodells. Ihre öffentliche Erreichbarkeit ist nicht durch dieses Dokument belegt.
