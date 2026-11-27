@@ -1,0 +1,27 @@
+{
+  "extentMetres": [
+    5000,
+    5000
+  ],
+  "areaKm2": 25,
+  "chunkMetres": 64,
+  "sampledChunk": [
+    39,
+    39,
+    3
+  ],
+  "sampleSpacingMetres": 2,
+  "changedChunkCount": 1,
+  "localVegetationCount": 61,
+  "mesh": {
+    "vertices": 5231,
+    "triangles": 10200,
+    "materials": {
+      "turf": 7850,
+      "rock": 1082,
+      "subsoil": 921,
+      "topsoil": 347
+    }
+  },
+  "engineIntegrated": false
+}

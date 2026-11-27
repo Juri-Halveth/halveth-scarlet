@@ -2,6 +2,7 @@
 #include "ASHBOUNDGrove.h"
 #include "ASHBOUNDGrimoire.h"
 #include "ASHBOUNDSeal.h"
+#include "ASHBOUNDFungalHome.h"
 
 #include "Components/PointLightComponent.h"
 #include "Components/SceneComponent.h"
@@ -42,7 +43,7 @@ AASHBOUNDSpell::AASHBOUNDSpell()
     // missing-asset error in that first commandlet; later loads still bind the
     // material as a hard UPROPERTY reference for cooking.
     static ConstructorHelpers::FObjectFinderOptional<UMaterialInterface> Material(
-        TEXT("/Game/ASHBOUND/Materials/M_LivingSpell.M_LivingSpell"), LOAD_NoWarn);
+        TEXT("/Game/ASHBOUND/Materials/M_LivingSpellSoft.M_LivingSpellSoft"), LOAD_NoWarn);
     SpellMaterial = Material.Get();
 
     CoreMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CoreMesh"));
@@ -109,7 +110,7 @@ void AASHBOUNDSpell::UpdateAppearance()
     if (DynamicMaterial)
     {
         DynamicMaterial->SetVectorParameterValue(TEXT("SpellColor"), Color);
-        DynamicMaterial->SetScalarParameterValue(TEXT("Radiance"), 6.0f);
+        DynamicMaterial->SetScalarParameterValue(TEXT("Radiance"), 1.5f);
     }
 }
 
@@ -147,10 +148,16 @@ void AASHBOUNDSpell::ApplyWorldEffect(const FHitResult* FlightImpact)
             }
         }
     }
-    bool bBookStudied = false;
+    bool bSchoolBookStudied = false;
+    // Ilyra -> Ember, Neral -> Resonance, Kael -> Reweave.
+    const int32 RequiredVolume = School == 0 ? 1 : (School == 1 ? 0 : 2);
     for (TActorIterator<AASHBOUNDGrimoire> It(World); It; ++It)
     {
-        if (It->IsStudied()) { bBookStudied = true; break; }
+        if (It->VolumeIndex == RequiredVolume && It->IsStudied())
+        {
+            bSchoolBookStudied = true;
+            break;
+        }
     }
 
     if (School == 0)
@@ -160,7 +167,9 @@ void AASHBOUNDSpell::ApplyWorldEffect(const FHitResult* FlightImpact)
         if (Echo)
         {
             Echo->Initialize(0, Target, true);
-            Echo->SetLifeSpan(bBookStudied ? 45.0f : 18.0f);
+            const float Duration = bSchoolBookStudied ? 45.0f : 18.0f;
+            Echo->SetLifeSpan(Duration);
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_BOOK_POWER school=0 volume=1 duration=%.0f"), Duration);
             UE_LOG(LogTemp, Display, TEXT("ASHBOUND world effect: Resonance echo at %s"), *Target.ToString());
         }
         return;
@@ -178,12 +187,23 @@ void AASHBOUNDSpell::ApplyWorldEffect(const FHitResult* FlightImpact)
                 Light->SetIntensity(8000.0f);
                 Light->SetAttenuationRadius(1200.0f);
             }
-            Ember->SetLifeSpan(24.0f);
+            const float Duration = bSchoolBookStudied ? 60.0f : 24.0f;
+            Ember->SetLifeSpan(Duration);
+            UE_LOG(LogTemp, Display, TEXT("ASHBOUND_BOOK_POWER school=1 volume=0 duration=%.0f"), Duration);
             UE_LOG(LogTemp, Display, TEXT("ASHBOUND world effect: Ember light at %s"), *Target.ToString());
         }
         return;
     }
 
+    // Reweave can tend a living home as well as grow a separate grove.
+    for (TActorIterator<AASHBOUNDFungalHome> It(World); It; ++It)
+    {
+        if (FVector::DistSquared2D(It->GetActorLocation(), Target) < FMath::Square(480.0f) &&
+            FMath::Abs(It->GetActorLocation().Z - Target.Z) < 450.0f)
+        {
+            It->Nurture();
+        }
+    }
     UStaticMesh* Fern = LoadObject<UStaticMesh>(nullptr,
         TEXT("/Game/ASHBOUND/Models/fern_02/fern_02_1k/StaticMeshes/fern_02_b.fern_02_b"));
     if (!Fern)
@@ -206,7 +226,7 @@ void AASHBOUNDSpell::ApplyWorldEffect(const FHitResult* FlightImpact)
     {
         Landing = Hit.ImpactPoint + FVector(0, 0, 3);
     }
-    // Studied books keep growth for the session. Recycle the oldest grove so
+    // Kael's studied volume keeps growth for the session. Recycle the oldest grove so
     // unlimited casting cannot accumulate unlimited draw calls or memory.
     AASHBOUNDGrove* Oldest = nullptr;
     int32 GroveCount = 0;
@@ -223,7 +243,9 @@ void AASHBOUNDSpell::ApplyWorldEffect(const FHitResult* FlightImpact)
     if (Growth)
     {
         Growth->Initialize(Fern);
-        if (!bBookStudied) Growth->SetLifeSpan(120.0f);
+        if (!bSchoolBookStudied) Growth->SetLifeSpan(120.0f);
+        UE_LOG(LogTemp, Display, TEXT("ASHBOUND_BOOK_POWER school=2 volume=2 persistent=%d"),
+            bSchoolBookStudied ? 1 : 0);
         UE_LOG(LogTemp, Display, TEXT("ASHBOUND world effect: Reweave growth at %s"), *Landing.ToString());
     }
 }
@@ -238,9 +260,7 @@ void AASHBOUNDSpell::Tick(float DeltaSeconds)
     bool bBlockingImpact = false;
     if (bAmbient)
     {
-        Center = Target + FVector(30.0f * FMath::Sin(Phase * 0.7f),
-                                  30.0f * FMath::Cos(Phase * 0.7f),
-                                  35.0f * FMath::Sin(Phase));
+        Center = Target + FVector(0.0f, 0.0f, 5.0f * FMath::Sin(Phase));
     }
     else if (!bApplied)
     {
@@ -284,14 +304,14 @@ void AASHBOUNDSpell::Tick(float DeltaSeconds)
     }
 
     const float Breath = 1.0f + 0.15f * FMath::Sin(Phase * 2.0f);
-    CoreMesh->SetRelativeScale3D(FVector(0.40f * Breath));
-    const float Orbit = bAmbient ? 73.0f : 100.0f * (1.0f - FMath::Min(Age / 3.7f, 0.7f));
+    CoreMesh->SetRelativeScale3D(FVector((bAmbient ? 0.13f : 0.40f) * Breath));
+    const float Orbit = bAmbient ? 26.0f : 100.0f * (1.0f - FMath::Min(Age / 3.7f, 0.7f));
     for (int32 Index = 0; Index < Satellites.Num(); ++Index)
     {
         const float Angle = Phase * (School == 2 ? -2.0f : 2.0f) + Index * 2.0f * PI / Satellites.Num();
         Satellites[Index]->SetRelativeLocation(FVector(Orbit * FMath::Cos(Angle),
                                                        Orbit * FMath::Sin(Angle),
-                                                       22.0f * FMath::Sin(Angle * 2.0f)));
+                                                       bAmbient ? -7.0f : 22.0f * FMath::Sin(Angle * 2.0f)));
     }
-    Glow->SetIntensity((bAmbient ? 1600.0f : 3000.0f) * (0.85f + 0.15f * FMath::Sin(Phase * 2.0f)));
+    Glow->SetIntensity((bAmbient ? 550.0f : 3000.0f) * (0.85f + 0.15f * FMath::Sin(Phase * 2.0f)));
 }

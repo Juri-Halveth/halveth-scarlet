@@ -1,0 +1,4 @@
+__pycache__/
+preview/*.obj
+preview/*.mtl
+preview/world-edits.json

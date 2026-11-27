@@ -30,7 +30,7 @@ void AASHBOUNDGrove::Initialize(UStaticMesh* FernMesh)
     {
         VerdantMaterial = UMaterialInstanceDynamic::Create(SourceMaterial, this);
         VerdantMaterial->SetVectorParameterValue(
-            TEXT("LeafTint"), FLinearColor(0.10f, 1.80f, 0.16f, 1.0f));
+            TEXT("LeafTint"), FLinearColor(0.38f, 0.78f, 0.33f, 1.0f));
         Fronds->SetMaterial(0, VerdantMaterial);
         UE_LOG(LogTemp, Display, TEXT("ASHBOUND_GROVE_MATERIAL bound=/Game/ASHBOUND/Materials/M_GroveFern"));
     }
